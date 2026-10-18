@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Study Note: Ch 8 - Unity in Diversity, or ‘Many in the One’ (Class 6 Social Science)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-body); color: var(--text-main);
+      line-height: 1.65; font-size: 15.5px; padding-bottom: 60px;
+    }
+    .top-bar {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 10px 24px;
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 6px; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-muted); font-weight: 600;
+      font-size: 0.82rem; padding: 6px 12px; border-radius: 8px; transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--primary-light); color: var(--primary-dark); }
+    .toolbar-actions { display: flex; gap: 8px; align-items: center; }
+    .btn {
+      border: 1px solid var(--border); background: var(--bg-card); color: var(--text-main);
+      font-family: inherit; font-weight: 600; font-size: 0.82rem;
+      padding: 7px 14px; border-radius: 8px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s;
+    }
+    .btn:hover { background: #f1f5f9; border-color: #cbd5e1; }
+    .btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .container { max-width: 1080px; margin: 28px auto; padding: 0 20px; }
+    .hero {
+      background: linear-gradient(135deg, #065f46 0%, #0d9488 45%, #0284c7 100%);
+      color: #ffffff; border-radius: 20px; padding: 36px 32px; margin-bottom: 32px;
+      box-shadow: 0 12px 30px -8px rgba(13, 148, 136, 0.35);
+      position: relative; overflow: hidden;
+    }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+    .badge {
+      background: rgba(255,255,255,0.18); backdrop-filter: blur(4px);
+      padding: 4px 12px; border-radius: 999px; font-size: 0.78rem;
+      font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
+    }
+    .hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 10px; }
+    .hero p { font-size: 1rem; opacity: 0.92; max-width: 780px; }
+    .section-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 30px; margin-bottom: 28px;
+      box-shadow: var(--shadow);
+    }
+    .section-header {
+      display: flex; align-items: center; gap: 12px;
+      border-bottom: 2px solid #f1f5f9; padding-bottom: 14px; margin-bottom: 22px;
+    }
+    .section-num {
+      background: var(--primary); color: white; font-weight: 800; font-size: 0.85rem;
+      padding: 5px 11px; border-radius: 8px; letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .section-header h2 { font-size: 1.45rem; font-weight: 800; color: var(--text-main); }
+    .topic-block { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px dashed var(--border); }
+    .topic-block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .topic-title {
+      font-size: 1.22rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px; background: #f0f9ff;
+      padding: 10px 16px; border-radius: 10px; border-left: 5px solid var(--primary);
+    }
+    h4 {
+      font-size: 1rem; font-weight: 700; color: #1e293b; margin: 18px 0 10px 0;
+      display: flex; align-items: center; gap: 6px;
+    }
+    ul, ol { padding-left: 22px; margin-bottom: 14px; }
+    li { margin-bottom: 7px; }
+    li strong { color: #0f172a; }
+    .callout { border-radius: 12px; padding: 16px 20px; margin: 16px 0; border-left: 5px solid; }
+    .callout-title { font-weight: 800; font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .callout-def { background-color: #f0f9ff; border-left-color: #0284c7; color: #0c4a6e; }
+    .callout-act { background-color: #f0fdfa; border-left-color: #0d9488; color: #115e59; }
+    .callout-pyq { background-color: #fffbeb; border-left-color: #f59e0b; color: #78350f; }
+    .callout-hack { background-color: #f5f3ff; border-left-color: #7c3aed; color: #4c1d95; }
+    .callout-warn { background-color: #fff1f2; border-left-color: #e11d48; color: #881337; }
+    .quote-box {
+      background: linear-gradient(to right, #f8fafc, #f0fdfa); border-left: 4px solid var(--secondary);
+      padding: 16px 20px; border-radius: 10px; font-style: italic; color: #334155; margin: 14px 0;
+    }
+    .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left; }
+    th { background: #f1f5f9; color: #0f172a; font-weight: 700; padding: 12px 14px; border-bottom: 2px solid var(--border); }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    .mindmap-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+    .mm-root {
+      background: #065f46; color: #fff; font-weight: 800; text-align: center;
+      padding: 12px 20px; border-radius: 10px; max-width: 560px; margin: 0 auto 20px auto;
+      box-shadow: 0 4px 12px rgba(6, 95, 70, 0.25);
+    }
+    .mm-branches { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .mm-col { background: #fff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 16px; }
+    .mm-col-lifestyle { border-top: 5px solid #0d9488; }
+    .mm-col-festivals { border-top: 5px solid #f59e0b; }
+    .mm-col-epics { border-top: 5px solid #7c3aed; }
+    .mm-branch-title { font-weight: 800; font-size: 1rem; margin-bottom: 12px; text-align: center; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .mm-node { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 12px; margin-bottom: 8px; font-size: 0.88rem; }
+    .diagram-card { background: #ffffff; border: 2px solid #e0f2fe; border-radius: 12px; padding: 20px; margin: 18px 0; text-align: center; }
+    .diagram-caption { font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; font-weight: 600; }
+    .q-card { background: #ffffff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; }
+    .q-title { font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+    .pyq-tag { background: #fef3c7; color: #b45309; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 6px; margin-right: 6px; display: inline-block; }
+    details.ans-box { margin-top: 10px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; padding: 10px 14px; }
+    details.ans-box summary { cursor: pointer; font-weight: 700; font-size: 0.88rem; color: var(--primary-dark); user-select: none; }
+    .ans-content { margin-top: 10px; padding-top: 10px; border-top: 1px solid #e2e8f0; font-size: 0.93rem; }
+    @media print {
+      body { background: #fff; font-size: 11pt; color: #000; padding: 0; }
+      .top-bar { display: none !important; }
+      .container { max-width: 100%; margin: 0; padding: 0; }
+      .hero { background: #ccfbf1 !important; color: #0f172a !important; border: 2px solid #0d9488; box-shadow: none; padding: 20px; }
+      .badge { background: #99f6e4 !important; color: #115e59 !important; border: 1px solid #0d9488; }
+      .section-card { box-shadow: none; border: 1px solid #cbd5e1; page-break-inside: auto; margin-bottom: 18px; padding: 18px; }
+      .callout, .q-card, .diagram-card, tr { page-break-inside: avoid; }
+      details.ans-box > summary { display: none; }
+      details.ans-box > .ans-content { display: block !important; border-top: none; margin-top: 0; padding-top: 0; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+    @media (max-width: 768px) {
+      .mm-branches { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.65rem; }
+      .section-card { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAVIGATION & INTERACTIVE TOOLBAR -->
+  <nav class="top-bar">
+    <div class="nav-links">
+      <a href="#sec1">1. Blueprint</a>
+      <a href="#sec2">2. Master Notes</a>
+      <a href="#sec3">3. Fact Bank</a>
+      <a href="#sec4">4. NCERT Solutions</a>
+      <a href="#sec5">5. PYQ &amp; CBE Bank</a>
+      <a href="#sec6">6. Revision &amp; Mistakes</a>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn" onclick="toggleAllAnswers(true)">👁️ Expand All Answers</button>
+      <button class="btn" onclick="toggleAllAnswers(false)">🙈 Collapse Answers</button>
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO HEADER -->
+    <header class="hero">
+      <div class="hero-badges">
+        <span class="badge">Class 06 Social Science</span>
+        <span class="badge">NCERT: Exploring Society: India and Beyond</span>
+        <span class="badge">Theme C: Our Cultural Heritage and Knowledge Traditions</span>
+        <span class="badge">100% Zero-Omission Master Note</span>
+      </div>
+      <h1>🌈 Chapter 8: Unity in Diversity, or ‘Many in the One’</h1>
+      <p>Complete Line-by-Line NCERT Coverage, The Philosophy of 'Many in the One', Culinary &amp; Textile Unity, Harvest Festivals Across India, The Panchatantra &amp; Epics in Tribal Folklore, and Solved NCERT Questions.</p>
+    </header>
+
+    <!-- ==========================================
+         SECTION 1: CHAPTER BLUEPRINT & TRENDS
+         ========================================== -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1</span>
+        <h2>🗺️ Chapter Blueprint &amp; CBSE Exam Trend Analysis</h2>
+      </div>
+
+      <h4>1. Chapter At A Glance (Interactive Visual Mind Map)</h4>
+      <div class="mindmap-box">
+        <div class="mm-root">🇮🇳 UNITY IN DIVERSITY: THE 'MANY IN THE ONE'</div>
+        <div class="mm-branches">
+          <!-- Food & Textiles Branch -->
+          <div class="mm-col mm-col-lifestyle">
+            <div class="mm-branch-title" style="color: #0d9488;">🍚 FOOD &amp; TEXTILES</div>
+            <div class="mm-node"><strong>Demographics:</strong> 1.4 billion people, 4,635 communities, 325 languages in 25 scripts</div>
+            <div class="mm-node"><strong>Food Unity:</strong> Common staple grains (rice, wheat, barley), millets (bajra, jowar, ragi), pulses (dals), and spices (turmeric, cumin, ginger) prepared in thousands of regional styles</div>
+            <div class="mm-node"><strong>The Sari:</strong> Unstitched continuous cloth from antiquity (Vaishali stone relief); Banarasi, Kanjivaram, Paithani, Patola, Muga, Mysore; endless drapes &amp; creative uses</div>
+            <div class="mm-node"><strong>The Dhoti:</strong> Traditional unstitched men's wear (Veshti, Mundu, Panche) uniting north and south</div>
+            <div class="mm-node"><strong>Indian Cotton &amp; Chintz:</strong> 17th-century European bans on Indian chintz to protect domestic markets</div>
+          </div>
+          <!-- Festivals Branch -->
+          <div class="mm-col mm-col-festivals">
+            <div class="mm-branch-title" style="color: #f59e0b;">🪁 HARVEST FESTIVALS</div>
+            <div class="mm-node"><strong>Mid-January Harvest:</strong> Single astronomical event (solar transition into Capricorn) celebrated simultaneously across India</div>
+            <div class="mm-node"><strong>Regional Names:</strong> Makara Sankranti (West/Central), Pongal (Tamil Nadu), Maghi/Lohri (Punjab/Haryana), Magh Bihu (Assam), Uttarayan (Gujarat), Khichdi Parv (UP/Bihar), Saenkraat (Kashmir), Poush Songkranti (Bengal)</div>
+            <div class="mm-node"><strong>Autumn Unity:</strong> Dussehra, Durga Puja, Navratri, Kali Puja, Diwali celebrated nationwide</div>
+          </div>
+          <!-- Literature & Epics Branch -->
+          <div class="mm-col mm-col-epics">
+            <div class="mm-branch-title" style="color: #7c3aed;">📚 PAÑCHATANTRA &amp; EPICS</div>
+            <div class="mm-node"><strong>Pañchatantra:</strong> 2,200-year-old animal fables teaching life skills; >200 adaptations in >50 world languages ('One become Many')</div>
+            <div class="mm-node"><strong>Ramayana &amp; Mahabharata:</strong> Sanskrit epics re-establishing Dharma; >100 folk versions in Tamil Nadu alone</div>
+            <div class="mm-node"><strong>Tribal Epics:</strong> Bhils, Gonds, Mundas, Santhals, and Irulas (Nilgiri Pancha Pandavar shrine) weave epic heroes into their local geography</div>
+            <div class="mm-node"><strong>Jawaharlal Nehru's Observation:</strong> Epics engraved on the popular mind of illiterate villagers who knew hundreds of verses by heart</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title">🔥 CBSE Weightage &amp; Top 5 High-Yield Exam Topics</div>
+        <ol>
+          <li><strong>The Philosophical Essence of 'Many in the One':</strong> Analytical questions based on Rabindranath Tagore, Sri Aurobindo, and Vincent Smith explaining why diversity in India enriches rather than divides.</li>
+          <li><strong>Staple Ingredients vs. Infinite Regional Preparations:</strong> Explaining how common cereals, millets, pulses, and spices demonstrate underlying culinary unity.</li>
+          <li><strong>The Sari and Dhoti as Symbols of Unity in Diversity:</strong> Historical antiquity (Vaishali relief), regional weaves, draping varieties, and the European ban on Indian chintz.</li>
+          <li><strong>Pan-Indian Harvest Festival (January 14):</strong> Mapping regional names of Makara Sankranti (Pongal, Lohri/Maghi, Magh Bihu, Uttarayan, Khichdi, etc.).</li>
+          <li><strong>The Epic Web (Ramayana, Mahabharata &amp; Pañchatantra):</strong> How classic texts spread into regional folklores, tribal shrines (Irula Pandava stones), and shaped the collective moral conscience of India (Jawaharlal Nehru's observation).</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: EXHAUSTIVE TOPIC-BY-TOPIC NOTES
+         ========================================== -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2</span>
+        <h2>📚 Exhaustive Topic-by-Topic Notes (Zero-Omission Policy)</h2>
+      </div>
+
+      <!-- TOPIC 1 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 1: A Rich Diversity – The Vision of 'Many in the One'</div>
+        
+        <div class="quote-box">
+          "Oh, grant me my prayer, that I may never lose the bliss of the touch of the one in the play of the many."<br>
+          <strong>— Rabindranath Tagore (Nobel Laureate)</strong>
+        </div>
+
+        <div class="quote-box">
+          "… The principle of unity in diversity which has always been normal to [India] and its fulfilment the fundamental course of her being and its very nature, the Many in the One, would place her on the sure foundation of her Swabhava and Swadharma."<br>
+          <strong>— Sri Aurobindo</strong>
+        </div>
+
+        <ul>
+          <li><strong>The Experience of Diversity:</strong> Travelling across India by train reveals rapidly shifting landscapes, languages, scripts, architectural styles, food preparations, and dresses. Even within a single neighborhood or classroom, one encounters families from different cultural regions of the country.</li>
+          <li><strong>Scientific Survey of Diversity ('People of India' Project):</strong>
+            <ul>
+              <li>India is home to over <strong>1.4 billion people</strong> (~18% of the world's population).</li>
+              <li>The <strong>Anthropological Survey of India</strong> conducted a nationwide study documenting <strong>4,635 distinct communities</strong> spread across all States and Union Territories.</li>
+              <li>The survey identified <strong>325 spoken languages written in 25 different scripts</strong>.</li>
+              <li>It observed that millions of Indians are <em>internal migrants</em> who have settled outside their ancestral state or community, weaving a dense national fabric.</li>
+            </ul>
+          </li>
+          <li><strong>Vincent Smith's Famous Historical Insight:</strong>
+            <p>Over a century ago, British historian Vincent Smith observed:</p>
+            <div class="quote-box">
+              "How, in the face of such bewildering diversity, can a history of India be written? … The answer to the query is found in the fact that India offers unity in diversity."
+            </div>
+          </li>
+          <li><strong>The Core Philosophy:</strong> In the Indian worldview, diversity is not a handicap, flaw, or source of division &mdash; it is an organic enrichment. The underlying unity (*The One*) manifests freely in countless beautiful expressions (*The Many*).</li>
+        </ul>
+      </div>
+
+      <!-- TOPIC 2 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 2: Food for All – The Common Culinary Canvas</div>
+        
+        <ul>
+          <li><strong>Endless Variety of Dishes:</strong> Regional Indian cuisines feature thousands of unique curries, breads, sweets, snacks, and festive preparations.</li>
+          <li><strong>The Underlying Unity of Staple Grains:</strong> Across all culinary regions, the foundational ingredients belong to a common set of <strong>staple grains</strong> (Fig. 8.1):
+            <ul>
+              <li><strong>Cereals:</strong> Rice (Basmati, Ponni, Sona Masuri, Gobindobhog, Kollam), Wheat, Barley, and Maize.</li>
+              <li><strong>Millets:</strong> Pearl millet (<em>Bajra</em>), Sorghum (<em>Jowar</em>), Finger millet (<em>Ragi</em>), and Foxtail millet.</li>
+              <li><strong>Pulses (Dals &amp; Legumes):</strong> Pigeon pea (<em>Arhar / Toor dal</em>), Moong dal, Chana dal, Chickpeas (<em>Kabuli chana / Bengal gram</em>), Masoor dal, Urad dal, Rajma (kidney beans), and White Lobia (black-eyed peas).</li>
+            </ul>
+          </li>
+          <li><strong>Common Spices &amp; Seasonings:</strong> Turmeric (*haldi*), cumin (*jeera*), cardamom (*elaichi*), ginger (*adrak*), coriander (*dhaniya*), and mustard seeds (*rai*) are used across North, South, East, and West India for flavor, digestion, and traditional Ayurvedic health.</li>
+          <li><strong>Culinary Formula of 'Unity in Diversity':</strong> The <strong>ingredients represent Unity</strong>, while their <strong>combinations and culinary styles represent Diversity</strong>!</li>
+        </ul>
+      </div>
+
+      <!-- TOPIC 3 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 3: Textiles and Clothing – The Timeless Sari &amp; Dhoti</div>
+        
+        <h4>1. The Sari: Ancient, Unstitched, and Infinitely Diverse</h4>
+        <ul>
+          <li><strong>Historical Antiquity:</strong> The sari is one of the world's oldest surviving garments. Stone relief carvings from <strong>Vaishali (Bihar)</strong> dating back to a few centuries BCE depict ancient Indian women draped in saris (Fig. 8.2).</li>
+          <li><strong>Fabric &amp; Regional Weaving Masterpieces:</strong> Produced in cotton, silk, and modern fabrics. World-famous handloom varieties include:
+            <ul>
+              <li><em>Banarasi Silk:</em> Varanasi (Uttar Pradesh) &mdash; gold/silver brocade (*zari*).</li>
+              <li><em>Kanjivaram Silk:</em> Kanchipuram (Tamil Nadu) &mdash; rich temple borders and heavy silk.</li>
+              <li><em>Paithani Silk:</em> Maharashtra &mdash; peacock motifs and golden borders.</li>
+              <li><em>Patan Patola:</em> Gujarat &mdash; complex double-ikat geometric weaving.</li>
+              <li><em>Muga Silk:</em> Assam &mdash; golden, naturally lustrous wild silk.</li>
+              <li><em>Mysore Silk:</em> Karnataka &mdash; soft silk with minimalist zari.</li>
+            </ul>
+          </li>
+          <li><strong>Endless Draping Traditions:</strong> From the Nivi drape of Andhra Pradesh to the Nauvari (nine-yard) drape of Maharashtra, the Madisaru of Tamil Nadu, and the Mekhela Chador of Assam, a single unstitched piece of cloth transforms into diverse styles.</li>
+          <li><strong>Creative Everyday Uses of the Sari:</strong> Women in rural and urban India utilize the sari as a multi-purpose cloth (Fig. 8.4): a cradle/hammock to soothe infants, a head-covering to block scorching sunlight, a pot-holder in the kitchen, a shoulder-cloth for bundling harvested vegetables, and an apron during household chores.</li>
+        </ul>
+
+        <h4>2. The Dhoti: Traditional Attire for Men</h4>
+        <ul>
+          <li>An unstitched rectangular cotton/silk fabric worn around the waist and legs.</li>
+          <li>Known regionally as <em>Dhoti</em> (North/East India), <em>Veshti</em> (Tamil Nadu), <em>Mundu</em> (Kerala), <em>Panche</em> (Karnataka), and <em>Dhotar</em> (Maharashtra), demonstrating cultural unity in men's clothing across the subcontinent.</li>
+        </ul>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 DON'T MISS OUT: Indian Chintz Shakes European Markets</div>
+          <p>For centuries, India produced the finest cotton textiles in the world. In the 17th century, bright, colorfast floral-printed Indian cotton known as <strong>'Chintz'</strong> became such an immense fashion craze in England and France that sales of local European woolen and silk garments collapsed! To protect their struggling domestic manufacturers, the governments of <strong>England and France passed laws banning the import of Indian chintz</strong>!</p>
+        </div>
+
+        <div class="callout callout-def">
+          <div class="callout-title">📘 Key Definition: Relief</div>
+          <p><strong>Relief:</strong> A sculptural technique where the sculpted elements remain attached to a solid background of stone, wood, metal, or ceramic, standing out raised from the surface (e.g. the Vaishali stone relief of a woman in a sari).</p>
+        </div>
+      </div>
+
+      <!-- TOPIC 4 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 4: Festivals Galore – The Pan-Indian Harvest Symphony</div>
+        
+        <p>Across the length and breadth of India, agrarian cycles and celestial movements unite communities in joyful festivals. A prime example is the <strong>annual mid-January harvest festival (celebrated on or around January 14)</strong>, marking the sun's transition (*Makara Sankranti* / Uttarayan) and the joyous reaping of winter crops:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Regional Name of Festival</th>
+                <th>State / Region</th>
+                <th>Unique Regional Traditions &amp; Food</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Makara Sankranti</strong></td>
+                <td>Maharashtra, Karnataka, Madhya Pradesh, Telangana, Andhra Pradesh, Odisha, Bihar</td>
+                <td>Exchanging sesame and jaggery (*tilgul*), flying colorful kites, family reunions.</td>
+              </tr>
+              <tr>
+                <td><strong>Pongal</strong></td>
+                <td>Tamil Nadu</td>
+                <td>4-day festival; boiling fresh harvest rice and milk in clay pots until it overflows (*Pongalo Pongal*); honoring cattle on Mattu Pongal.</td>
+              </tr>
+              <tr>
+                <td><strong>Lohri &amp; Maghi</strong></td>
+                <td>Punjab and Haryana</td>
+                <td>Lighting holy community bonfires, dancing Bhangra and Giddha, eating popcorn, rewri, and sesame sweets.</td>
+              </tr>
+              <tr>
+                <td><strong>Magh Bihu (Bhogali Bihu)</strong></td>
+                <td>Assam &amp; Northeast India</td>
+                <td>Building thatch-and-bamboo huts (*Meji*), community feasting, rice cakes (*pitha*), and setting fires to pray to Agni.</td>
+              </tr>
+              <tr>
+                <td><strong>Uttarayan</strong></td>
+                <td>Gujarat</td>
+                <td>Spectacular international kite-flying festival, savoring *Undhiyu* and *Jalebi*.</td>
+              </tr>
+              <tr>
+                <td><strong>Khichdi Parv / Makar Sankraat</strong></td>
+                <td>Uttar Pradesh &amp; Bihar</td>
+                <td>Holy dips at the Triveni Sangam in Prayagraj, eating seasoned *khichdi* with curd and sesame chikki.</td>
+              </tr>
+              <tr>
+                <td><strong>Shishur Saenkraat</strong></td>
+                <td>Jammu &amp; Kashmir</td>
+                <td>Winter prayers, preparing warm saffron-and-walnut dishes, offering sesame seeds.</td>
+              </tr>
+              <tr>
+                <td><strong>Poush Songkranti</strong></td>
+                <td>West Bengal</td>
+                <td>Poush Mela, preparing delicate sweet coconut dumplings (*pithe-puli*) using fresh date-palm jaggery (*nolen gur*).</td>
+              </tr>
+              <tr>
+                <td><strong>Makara Vilakku</strong></td>
+                <td>Kerala</td>
+                <td>Sacred pilgrimage to Sabarimala temple to witness the evening celestial light at Ponnambalamedu.</td>
+              </tr>
+              <tr>
+                <td><strong>Pedda Panduga</strong></td>
+                <td>Andhra Pradesh &amp; Telangana</td>
+                <td>'The Big Festival', decorating courtyards with colorful rangoli (*muggu*), cooking sweet pongal.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-pyq">
+          <div class="callout-title">🔥 Autumn Festivals: Another National Tapestry</div>
+          <p>During October–November, a single sacred victory of light and righteousness over darkness is celebrated simultaneously as <strong>Navratri</strong> (Gujarat/West), <strong>Durga Puja</strong> (Bengal/East), <strong>Kullu Dussehra</strong> (Himachal Pradesh), <strong>Mysuru Dasara</strong> (Karnataka), and <strong>Diwali / Deepawali</strong> across the entire nation.</p>
+        </div>
+      </div>
+
+      <!-- TOPIC 5 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 5: An Epic Spread – Pañchatantra &amp; The Two National Epics</div>
+        
+        <h4>1. The Pañchatantra: One Book Becomes Hundreds</h4>
+        <ul>
+          <li><strong>Antiquity &amp; Purpose:</strong> The original Sanskrit collection was composed at least <strong>2,200 years ago</strong> by Pandit Vishnu Sharma to teach statecraft, practical wisdom, and life skills (*niti*) to royal princes using witty animal fables.</li>
+          <li><strong>Global Diaspora:</strong> The stories migrated into Persian, Arabic (<em>Kalila wa Dimna</em>), Greek, Latin, Hebrew, German, and English. Over <strong>200 distinct adaptations exist in more than 50 languages</strong>, illustrating how a single Indian storybook multiplied into a global treasure.</li>
+        </ul>
+
+        <div class="callout callout-def">
+          <div class="callout-title">📘 Key Definition: Epic</div>
+          <p><strong>Epic:</strong> A monumental long narrative poem recounting the heroic deeds, moral dilemmas, grand struggles, and adventures of historical or legendary figures striving to uphold truth and righteousness.</p>
+        </div>
+
+        <h4>2. The Ramayana &amp; The Mahabharata: The Moral Spine of India</h4>
+        <ul>
+          <li>Spanning roughly 7,000 pages in their original Sanskrit texts, the <strong>Ramayana</strong> (composed by Sage Valmiki) and the <strong>Mahabharata</strong> (composed by Sage Vyasa) recount epic battles to protect and re-establish <strong>Dharma</strong> (righteous cosmic order).</li>
+          <li><strong>Living Regional Adaptations:</strong> Translated into every major Indian language &mdash; Kamban's <em>Ramavataram</em> (Tamil), Krittibas's <em>Ramayana</em> (Bengali), Madhava Kandali's <em>Katha Ramayana</em> (Assamese), Tulsidas's <em>Ramcharitmanas</em> (Awadhi), Sarala Dasa's <em>Mahabharata</em> (Odia), and Pampa's <em>Vikramarjuna Vijaya</em> (Kannada).</li>
+          <li><strong>Over 100 Folk Versions in Tamil Nadu Alone:</strong> Surveys have revealed that over a hundred distinct folk and theatrical versions of the Mahabharata flourish in Tamil Nadu's rural oral heritage.</li>
+        </ul>
+
+        <h4>3. Tribal Adaptations of the Epics</h4>
+        <ul>
+          <li>Tribal communities (Bhil, Gond, Munda, Santhal, Irula) have deeply woven Rama, Sita, Lakshmana, Hanuman, and the five Pandavas into their ancestral landscapes.</li>
+          <li><strong>The 'Pancha Pandavar' Shrine of the Irula Tribe (Fig. 8.7):</strong> Located in the deep forests of the Nilgiri Hills (Tamil Nadu), the <strong>Irula tribals</strong> lovingly maintain an ancient carved stone shrine depicting the five Pandava brothers, commemorating local legends that the Pandavas lived in their forest during their exile.</li>
+          <li>Anthropologist Dr. K.S. Singh observed: <em>"There is hardly a place in the country which the epic heroes such as the Pandavas did not visit according to folklores."</em></li>
+        </ul>
+
+        <h4>4. Jawaharlal Nehru's Famous Observation in 'The Discovery of India'</h4>
+        <div class="quote-box">
+          "Everywhere I found a cultural background which had exerted a powerful influence on their lives. … The old epics of India, the Ramayana and the Mahabharata and other books, in popular translations and paraphrases, were widely known among the masses, and every incident and story and moral in them was engraved on the popular mind and gave a richness and content to it. Illiterate villagers would know hundreds of verses by heart and their conversation would be full of references to them or to some story with a moral, enshrined in some old classic."<br>
+          <strong>— Jawaharlal Nehru (The Discovery of India, 1946)</strong>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: FACT BANK & QUICK-REFERENCE TABLES
+         ========================================== -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3</span>
+        <h2>📊 Fact Bank &amp; Quick-Reference Comparison Tables</h2>
+      </div>
+
+      <h4>Table 8.1: The Four Pillars of Indian 'Unity in Diversity' Explored in NCERT</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Cultural Realm</th>
+              <th>The Underlying 'Unity' (The One)</th>
+              <th>The Vibrant 'Diversity' (The Many)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Food &amp; Cuisine</strong></td>
+              <td>Common staple grains (rice, wheat, bajra, jowar, ragi), pulses (arhar, moong, chana), and Ayurvedic spices (turmeric, cumin, ginger).</td>
+              <td>Thousands of regional curries, dosas, rotis, khichdis, biryanis, and sweets cooked with local techniques and oils (mustard, coconut, sesame, groundnut).</td>
+            </tr>
+            <tr>
+              <td><strong>Textiles &amp; Clothing</strong></td>
+              <td>Single unstitched lengths of woven fabric &mdash; the <strong>Sari</strong> for women and the <strong>Dhoti</strong> for men.</td>
+              <td>Countless weaving methods (Banarasi, Kanjivaram, Patola, Paithani, Muga), varied draping styles (Nivi, Nauvari, Mekhela), and versatile multi-purpose uses.</td>
+            </tr>
+            <tr>
+              <td><strong>Harvest Festivals</strong></td>
+              <td>Single solar transition (Capricorn / Makara) celebrated nationwide on/around January 14.</td>
+              <td>Celebrated under localized names: <em>Makara Sankranti, Pongal, Lohri/Maghi, Magh Bihu, Uttarayan, Khichdi, Poush Songkranti</em>.</td>
+            </tr>
+            <tr>
+              <td><strong>Epic Literature</strong></td>
+              <td>Core narrative of righteousness overcoming injustice (<em>Dharma</em>) in the <em>Ramayana</em>, <em>Mahabharata</em>, and <em>Pañchatantra</em>.</td>
+              <td>Over 200 world translations of Pañchatantra; hundreds of regional, folk, and tribal adaptations (e.g. Irula Pandava shrines).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Table 8.2: Master Index of Renowned Regional Saree Weaves of India</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Saree Variety</th>
+              <th>Primary State / City</th>
+              <th>Fabric &amp; Unique Craft Characteristic</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Banarasi</strong></td>
+              <td>Varanasi, Uttar Pradesh</td>
+              <td>Lustrous silk woven with gold and silver brocade (*zari*), floral jal, and Mughal motifs.</td>
+            </tr>
+            <tr>
+              <td><strong>Kanjivaram</strong></td>
+              <td>Kanchipuram, Tamil Nadu</td>
+              <td>Heavy mulberry silk with contrasting borders woven using the interlocking *Korvai* technique.</td>
+            </tr>
+            <tr>
+              <td><strong>Paithani</strong></td>
+              <td>Paithan, Maharashtra</td>
+              <td>Fine silk with characteristic oblique square borders and colorful peacock (*mor*) pallus.</td>
+            </tr>
+            <tr>
+              <td><strong>Patan Patola</strong></td>
+              <td>Patan, Gujarat</td>
+              <td>Exquisite double-ikat silk where warp and weft are both tie-dyed before weaving.</td>
+            </tr>
+            <tr>
+              <td><strong>Muga Silk Saree</strong></td>
+              <td>Assam</td>
+              <td>Crafted from the golden, durable wild Muga silkworm native exclusively to Assam.</td>
+            </tr>
+            <tr>
+              <td><strong>Mysore Silk</strong></td>
+              <td>Mysuru, Karnataka</td>
+              <td>Pure crepe silk known for exceptional smoothness, rich single-tone dyes, and delicate gold borders.</td>
+            </tr>
+            <tr>
+              <td><strong>Chanderi &amp; Maheshwari</strong></td>
+              <td>Madhya Pradesh</td>
+              <td>Lightweight, sheer blend of fine cotton and silk with reversible zari borders.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: NCERT TEXTBOOK SOLUTIONS
+         ========================================== -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4</span>
+        <h2>✍️ NCERT Textbook Solutions (Complete Line-by-Line)</h2>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q1. Conduct a class discussion on the two quotations at the start of the chapter: Rabindranath Tagore and Sri Aurobindo.</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p>The two quotes by Rabindranath Tagore and Sri Aurobindo articulate the spiritual philosophy that sustains Indian nationhood:</p>
+            <ul>
+              <li><strong>Rabindranath Tagore’s Prayer:</strong> <em>"Oh, grant me my prayer, that I may never lose the bliss of the touch of the one in the play of the many."</em><br>
+              Tagore uses a poetic metaphor: life is a joyful "play" (*leela*) of countless diverse forms (*the many* &mdash; different languages, foods, customs, faces). However, we must never get so lost in superficial differences that we forget the single, unifying divine presence (*the one*) that breathes within every human heart. True wisdom lies in experiencing unity amidst diversity.</li>
+              <li><strong>Sri Aurobindo’s Insight:</strong> <em>"...The principle of unity in diversity which has always been normal to [India] and its fulfilment the fundamental course of her being and its very nature, the Many in the One, would place her on the sure foundation of her Swabhava and Swadharma."</em><br>
+              Sri Aurobindo explains that "Unity in Diversity" is not an artificial political slogan invented in modern times; it is India's innate nature (*Swabhava*) and true duty (*Swadharma*). Unlike empires that forced everyone to adopt one uniform language, religion, or dress, India has always celebrated multiplicity ("the Many") nested peacefully inside a single civilisational matrix ("the One").</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q2. Select a few stories from the Pañchatantra and discuss how their message is still valid today. Do you know of any similar stories from your region?</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p>The 2,200-year-old <em>Pañchatantra</em> contains timeless wisdom that remains intensely relevant in our 21st-century lives:</p>
+            <ol>
+              <li><strong>The Story of the Lion and the Clever Hare (Buddhiryasya Balam Tasya):</strong>
+                <ul>
+                  <li><em>Synopsis:</em> A cruel lion Bhasuraka demands an animal daily. A tiny rabbit arrives late, claims a rival lion trapped him, and leads the arrogant beast to a deep well. Seeing his own reflection and hearing his own roar echo back, the lion leaps in and drowns.</li>
+                  <li><em>Modern Relevance:</em> Teaches that intellect, calm presence of mind, and strategy overcome brute physical strength and arrogance.</li>
+                </ul>
+              </li>
+              <li><strong>The Story of the Four Friends (Mitra Labha):</strong>
+                <ul>
+                  <li><em>Synopsis:</em> A deer, a crow, a mouse, and a turtle cooperate selflessly. When the deer is trapped in a hunter's net, the mouse gnaws the ropes while the crow acts as lookout, rescuing each other through team solidarity.</li>
+                  <li><em>Modern Relevance:</em> Demonstrates that true friendship, loyalty, and team collaboration overcome the greatest crises in life.</li>
+                </ul>
+              </li>
+              <li><strong>The Tale of the Blue Jackal:</strong>
+                <ul>
+                  <li><em>Synopsis:</em> A jackal falls into a dyer’s indigo vat and pretends to be a divine king over the forest animals, until he hears other jackals howling and instinctively howls back, revealing his false identity.</li>
+                  <li><em>Modern Relevance:</em> Warns that artificial pretension, fraud, and falsehood cannot remain hidden for long; authenticity is paramount.</li>
+                </ul>
+              </li>
+            </ol>
+            <p><em>Regional Counterpart:</em> In Odisha, the folk tales of <em>Upakatha</em> and stories of <em>Chatura Gopa</em> teach identical lessons of intelligence overcoming brute power; in Bengal, the stories of <em>Gopal Bhar</em> emphasize wit over pomposity.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q3. Collect a few folk tales from your region and discuss their message.</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p><em>(Representative model collection from Indian regional folklore):</em></p>
+            <ul>
+              <li><strong>1. The Legend of Dharmapada (Odisha):</strong>
+                <ul>
+                  <li><em>Narrative:</em> Twelve hundred master stone-masons building the Konark Sun Temple could not fix the crowning stone (*dadhinauti*). The king threatened execution. Twelve-year-old Dharmapada, son of the chief architect Bisu Maharana, climbed the spire, engineered the placement, and then jumped into the sea to save the lives and honor of the 1,200 craftsmen.</li>
+                  <li><em>Message:</em> Selfless courage, technical ingenuity, and supreme sacrifice for the welfare of the collective community.</li>
+                </ul>
+              </li>
+              <li><strong>2. The Folk Tale of the Farmer and his Four Quarrelling Sons:</strong>
+                <ul>
+                  <li><em>Narrative:</em> A dying father gives each son a single stick, which they break effortlessly. He then hands them a bundled sheaf of sticks tied together, which none can snap.</li>
+                  <li><em>Message:</em> Direct illustration of "United we stand, divided we fall" &mdash; unity is unbeatable strength.</li>
+                </ul>
+              </li>
+              <li><strong>3. The Tribal Tale of the Seven Star Sisters (Northeast India):</strong>
+                <ul>
+                  <li><em>Narrative:</em> Seven sisters descended from the heavens to dance by forest streams and weave colorful shawls with patterns borrowed from butterflies and clouds.</li>
+                  <li><em>Message:</em> Harmony between human artistry and Mother Nature; treating forests and rivers with sacred respect.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q4. Is there any ancient story that you have seen being depicted through a form of art? It could be a sculpture, a painting, a dance performance, a movie … Discuss with your classmates.</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p>Ancient epics and legends are vibrantly alive across Indian visual and performing arts:</p>
+            <ul>
+              <li><strong>Classical Dance (Kathakali &amp; Odissi):</strong> In a Kathakali performance from Kerala, the grand episode of <em>Dussasana Vadham</em> or <em>Kalyanasougandhikam</em> from the Mahabharata is performed. The dancers wear towering headgear, vibrant green and red facial makeup, and express complex moral conflicts purely through rhythmic footwork, hand gestures (*mudras*), and eye movements.</li>
+              <li><strong>Monumental Stone Sculptures (Mahabalipuram, Tamil Nadu):</strong> The gigantic 7th-century rock-relief called <em>"Arjuna's Penance" / "Descent of the Ganga"</em> carved on two cliff boulders depicts Lord Shiva, Arjuna performing tapas, celestial gods, lions, and a family of life-size elephants admiring the sacred descent of the Ganga.</li>
+              <li><strong>Pattachitra Scroll Paintings (Raghurajpur, Odisha):</strong> Traditional artists paint intricate narrative scenes of the <em>Kaliya Daman</em> (Krishna subduing the serpent Kaliya) or Ramayana episodes on treated cloth scrolls using natural stone colors.</li>
+              <li><strong>Puppetry Traditions (Kathputli of Rajasthan / Tholu Bommalata of Andhra):</strong> Leather shadow puppets and wooden marionettes enact stories of Rama defeating Ravana to the beat of dholaks in village gatherings.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q5. Discuss in class the following quotation by India’s first prime minister, Jawaharlal Nehru, when he travelled to many parts of India before Independence: <em>"Everywhere I found a cultural background which had exerted a powerful influence on their lives. … The old epics of India, the Ramayana and the Mahabharata and other books, in popular translations and paraphrases, were widely known among the masses, and every incident and story and moral in them was engraved on the popular mind and gave a richness and content to it. Illiterate villagers would know hundreds of verses by heart and their conversation would be full of references to them or to some story with a moral, enshrined in some old classic."</em></div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p>In his monumental book <em>The Discovery of India</em> (1946), Jawaharlal Nehru captured the true essence of Indian culture:</p>
+            <ul>
+              <li><strong>1. Illiteracy Does Not Mean Lack of Culture:</strong> While millions of rural Indians in pre-Independence times lacked formal school literacy, they were extraordinarily cultured, educated in philosophy, and morally sensitive. Through oral storytelling, folk theater, and musical recitations, they had internalized profound classical ethics.</li>
+              <li><strong>2. The Epics as a Living Moral Compendium:</strong> Characters like Rama (duty), Sita (integrity and strength), Lakshmana (loyalty), Yudhishthira (truth), Arjuna (focus), and Karna (generosity) served as everyday moral guides. Villagers naturally quoted epic dilemmas during community panchayats, resolving disputes using time-tested philosophical standards.</li>
+              <li><strong>3. The Unbroken Thread of National Unity:</strong> From remote mountain villages in Kashmir to coastal settlements in Kerala, illiterate villagers spoke different languages but shared the exact same epic metaphors and values, proving that India possessed a powerful, organic cultural unity long before modern mass media or unified political structures existed.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: PYQ & COMPETENCY-BASED QUESTION BANK
+         ========================================== -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5</span>
+        <h2>🎯 CBSE PYQs &amp; Competency-Based Exam Bank</h2>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 1-Mark MCQ</span> What was the primary finding of the Anthropological Survey of India’s ‘People of India’ project regarding languages and scripts?</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (c) 325 languages and 25 scripts across 4,635 communities.</strong></p>
+            <p><em>Explanation:</em> The comprehensive national survey documented 4,635 distinct communities, identifying 325 living languages written using 25 scripts across India.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 2-Mark Short Answer</span> Why did England and France ban the import of Indian 'chintz' cloth in the 17th century?</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p>Indian <strong>chintz</strong> (brightly printed, colorfast cotton textile) became an overwhelming fashion sensation in 17th-century Europe. Because of its superior softness, beauty, and durability, sales of local European woolen and silk fabrics crashed. To shield and protect their domestic textile industries from collapse, the governments of England and France passed laws banning Indian chintz imports.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 3-Mark Analytical</span> How does the mid-January harvest festival demonstrate both 'Unity' and 'Diversity' in India?</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>The Aspect of Unity:</strong> On or around January 14, farmers across the entire country celebrate the exact same astronomical and agricultural milestone &mdash; the northward transition of the sun (*Uttarayan*) and the reaping of the winter food harvest. All regions express gratitude to the Sun, fire, water, and cattle.</li>
+              <li><strong>The Aspect of Diversity:</strong> This single festival is celebrated with distinct regional names, customs, and cuisines: <em>Pongal</em> in Tamil Nadu (boiling sweet rice in pots), <em>Lohri/Maghi</em> in Punjab (bonfires and bhangra), <em>Magh Bihu</em> in Assam (bamboo Meji bonfires), <em>Uttarayan</em> in Gujarat (kite flying), and <em>Khichdi / Makara Sankranti</em> in UP, Bihar, and Maharashtra (sesame sweets and holy river dips).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 5-Mark Case Study</span> "The Sari is not merely a garment, but a living canvas of Indian civilisational unity in diversity." Analyze this statement citing historical antiquity, regional varieties, and utilitarian creativity.</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p>The Sari exemplifies the profound principle of 'Many in the One' across three key dimensions:</p>
+            <ol>
+              <li><strong>Unbroken Historical Antiquity:</strong> Sculptures and stone reliefs from <strong>Vaishali (Bihar)</strong> dating to several centuries BCE show ancient Indian women wearing draped saris, proving that this unstitched garment has clothed Indian women continuously for over 2,500 years.</li>
+              <li><strong>Regional Handloom Masterpieces (The Many):</strong> While remaining an unstitched piece of cloth (*The One*), every region created a distinct textile masterpiece: rich golden <em>Banarasi</em> brocades in UP, vibrant temple-bordered <em>Kanjivaram</em> in Tamil Nadu, peacock-motif <em>Paithani</em> in Maharashtra, geometric double-ikat <em>Patan Patola</em> in Gujarat, and naturally golden <em>Muga silk</em> in Assam.</li>
+              <li><strong>Plurality of Draping Styles:</strong> From the Nivi drape to Maharashtra’s Nauvari and Assam’s Mekhela Chador, it adapts to every cultural aesthetic and physical work environment.</li>
+              <li><strong>Creative Everyday Utility:</strong> Beyond festive beauty, Indian women creatively utilize the sari as an impromptu infant cradle, a protective sun-hood, a kitchen pot-holder, and an apron, showcasing unmatched simplicity, economy, and versatility.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: REVISION & COMMON MISTAKES
+         ========================================== -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6</span>
+        <h2>⚡ 5-Minute Rapid Revision &amp; Exam Hall Traps</h2>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">⚠️ 5 Common "Exam Hall Mistakes" &amp; How to Avoid Them</div>
+        <ol>
+          <li><strong>Mistake 1: Confusing Makara Sankranti with a purely local festival.</strong><br>
+          <em>Fix:</em> It is a <strong>Pan-Indian harvest festival</strong> celebrated nationwide under diverse names (Pongal, Lohri, Bihu, Uttarayan, Khichdi) on or around January 14.</li>
+          <li><strong>Mistake 2: Thinking the Sari is a stitched dress introduced recently.</strong><br>
+          <em>Fix:</em> The sari is an <strong>unstitched garment with over 2,500 years of documented history</strong>, visible on stone reliefs from ancient Vaishali (BCE).</li>
+          <li><strong>Mistake 3: Stating that Indian epics were known only to literate upper classes.</strong><br>
+          <em>Fix:</em> As Jawaharlal Nehru highlighted, the <strong>Ramayana and Mahabharata were deeply engraved on the popular mind of illiterate villagers</strong> who knew hundreds of verses by heart.</li>
+          <li><strong>Mistake 4: Claiming that tribal communities were isolated from the Indian epics.</strong><br>
+          <em>Fix:</em> Tribes like the <strong>Bhils, Gonds, Mundas, and Irulas (Nilgiri Pandavar shrine)</strong> have their own oral versions and weave epic heroes into their local hills and forests.</li>
+          <li><strong>Mistake 5: Assuming the Pañchatantra was read only in India.</strong><br>
+          <em>Fix:</em> The <strong>Pañchatantra has over 200 adaptations in more than 50 languages</strong> across Asia, Europe, and the Arab world.</li>
+        </ol>
+      </div>
+
+      <h4>⚡ 15 Ultra-Crisp Rapid Revision One-Liners</h4>
+      <ol>
+        <li>⚡ India’s population exceeds <strong>1.4 billion</strong>, comprising about 18 percent of humanity.</li>
+        <li>⚡ The Anthropological Survey of India documented <strong>4,635 communities, 325 languages, and 25 scripts</strong>.</li>
+        <li>⚡ British historian <strong>Vincent Smith</strong> stated that India's bewildering diversity is answered by its underlying <strong>unity in diversity</strong>.</li>
+        <li>⚡ The fundamental culinary unity of India rests on common <strong>staple grains</strong> (rice, wheat, barley, millets, dals) and Ayurvedic spices.</li>
+        <li>⚡ The <strong>Sari</strong> is an unstitched garment depicted on ancient stone reliefs from <strong>Vaishali (Bihar)</strong> dating to BCE.</li>
+        <li>⚡ Famous Indian silk sari traditions include <strong>Banarasi, Kanjivaram, Paithani, Patan Patola, Muga, and Mysore</strong>.</li>
+        <li>⚡ In the 17th century, England and France <strong>banned the import of Indian chintz</strong> to protect their domestic textile industries.</li>
+        <li>⚡ The <strong>mid-January harvest festival</strong> is celebrated as <strong>Makara Sankranti, Pongal, Lohri/Maghi, Magh Bihu, Uttarayan, and Khichdi Parv</strong>.</li>
+        <li>⚡ Autumn festivals celebrate light over darkness as <strong>Navratri, Durga Puja, Dussehra, and Diwali</strong>.</li>
+        <li>⚡ The <strong>Pañchatantra</strong> was composed over 2,200 years ago and exists in <strong>>200 adaptations in >50 world languages</strong>.</li>
+        <li>⚡ The <strong>Ramayana and Mahabharata</strong> total about 7,000 pages in original Sanskrit and fight to uphold <strong>Dharma</strong>.</li>
+        <li>⚡ A survey in Tamil Nadu documented <strong>about a hundred folk versions of the Mahabharata</strong>.</li>
+        <li>⚡ The <strong>Irula tribe of Nilgiris</strong> maintains an ancient carved stone shrine celebrating the <strong>Pancha Pandavas</strong>.</li>
+        <li>⚡ Anthropologist <strong>K.S. Singh</strong> noted that epic heroes like the Pandavas visited almost every corner of India according to local folklores.</li>
+        <li>⚡ <strong>Jawaharlal Nehru</strong> observed that the morals and verses of the epics were deeply etched on the minds of rural illiterate villagers.</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <script>
+    function toggleAllAnswers(openState) {
+      const detailsList = document.querySelectorAll('details.ans-box');
+      detailsList.forEach(item => {
+        item.open = openState;
+      });
+    }
+
+    // Automatic safeguard to strip any accidental cite tags from text nodes
+    document.addEventListener("DOMContentLoaded", function () {
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+      let node;
+      const citeRegex = /\[\s*cite:\s*[\d,\s]+\]/gi;
+      while ((node = walker.nextNode())) {
+        if (citeRegex.test(node.nodeValue)) {
+          node.nodeValue = node.nodeValue.replace(citeRegex, '');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
