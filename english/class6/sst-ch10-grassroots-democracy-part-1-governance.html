@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Study Note: Ch 10 - Grassroots Democracy – Part 1: Governance (Class 6 Social Science)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-body); color: var(--text-main);
+      line-height: 1.65; font-size: 15.5px; padding-bottom: 60px;
+    }
+    .top-bar {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 10px 24px;
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 6px; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-muted); font-weight: 600;
+      font-size: 0.82rem; padding: 6px 12px; border-radius: 8px; transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--primary-light); color: var(--primary-dark); }
+    .toolbar-actions { display: flex; gap: 8px; align-items: center; }
+    .btn {
+      border: 1px solid var(--border); background: var(--bg-card); color: var(--text-main);
+      font-family: inherit; font-weight: 600; font-size: 0.82rem;
+      padding: 7px 14px; border-radius: 8px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s;
+    }
+    .btn:hover { background: #f1f5f9; border-color: #cbd5e1; }
+    .btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .container { max-width: 1080px; margin: 28px auto; padding: 0 20px; }
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #0369a1 50%, #0d9488 100%);
+      color: #ffffff; border-radius: 20px; padding: 36px 32px; margin-bottom: 32px;
+      box-shadow: 0 12px 30px -8px rgba(3, 105, 161, 0.35);
+      position: relative; overflow: hidden;
+    }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+    .badge {
+      background: rgba(255,255,255,0.18); backdrop-filter: blur(4px);
+      padding: 4px 12px; border-radius: 999px; font-size: 0.78rem;
+      font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
+    }
+    .hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 10px; }
+    .hero p { font-size: 1rem; opacity: 0.92; max-width: 820px; }
+    .section-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 30px; margin-bottom: 28px;
+      box-shadow: var(--shadow);
+    }
+    .section-header {
+      display: flex; align-items: center; gap: 12px;
+      border-bottom: 2px solid #f1f5f9; padding-bottom: 14px; margin-bottom: 22px;
+    }
+    .section-num {
+      background: var(--primary); color: white; font-weight: 800; font-size: 0.85rem;
+      padding: 5px 11px; border-radius: 8px; letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .section-header h2 { font-size: 1.45rem; font-weight: 800; color: var(--text-main); }
+    .topic-block { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px dashed var(--border); }
+    .topic-block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .topic-title {
+      font-size: 1.22rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px; background: #f0f9ff;
+      padding: 10px 16px; border-radius: 10px; border-left: 5px solid var(--primary);
+    }
+    h4 {
+      font-size: 1rem; font-weight: 700; color: #1e293b; margin: 18px 0 10px 0;
+      display: flex; align-items: center; gap: 6px;
+    }
+    ul, ol { padding-left: 22px; margin-bottom: 14px; }
+    li { margin-bottom: 7px; }
+    li strong { color: #0f172a; }
+    .callout { border-radius: 12px; padding: 16px 20px; margin: 16px 0; border-left: 5px solid; }
+    .callout-title { font-weight: 800; font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .callout-def { background-color: #f0f9ff; border-left-color: #0284c7; color: #0c4a6e; }
+    .callout-act { background-color: #f0fdfa; border-left-color: #0d9488; color: #115e59; }
+    .callout-pyq { background-color: #fffbeb; border-left-color: #f59e0b; color: #78350f; }
+    .callout-hack { background-color: #f5f3ff; border-left-color: #7c3aed; color: #4c1d95; }
+    .callout-warn { background-color: #fff1f2; border-left-color: #e11d48; color: #881337; }
+    .quote-box {
+      background: linear-gradient(to right, #f8fafc, #f0fdfa); border-left: 4px solid var(--secondary);
+      padding: 16px 20px; border-radius: 10px; font-style: italic; color: #334155; margin: 14px 0;
+    }
+    .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left; }
+    th { background: #f1f5f9; color: #0f172a; font-weight: 700; padding: 12px 14px; border-bottom: 2px solid var(--border); }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    .mindmap-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+    .mm-root {
+      background: #0f172a; color: #fff; font-weight: 800; text-align: center;
+      padding: 12px 20px; border-radius: 10px; max-width: 620px; margin: 0 auto 20px auto;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.25);
+    }
+    .mm-branches { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .mm-col { background: #fff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 16px; }
+    .mm-col-organs { border-top: 5px solid #0284c7; }
+    .mm-col-tiers { border-top: 5px solid #0d9488; }
+    .mm-col-demo { border-top: 5px solid #7c3aed; }
+    .mm-branch-title { font-weight: 800; font-size: 1rem; margin-bottom: 12px; text-align: center; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .mm-node { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 12px; margin-bottom: 8px; font-size: 0.88rem; }
+    .diagram-card { background: #ffffff; border: 2px solid #e0f2fe; border-radius: 12px; padding: 20px; margin: 18px 0; text-align: center; }
+    .diagram-caption { font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; font-weight: 600; }
+    .q-card { background: #ffffff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; }
+    .q-title { font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+    .pyq-tag { background: #fef3c7; color: #b45309; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 6px; margin-right: 6px; display: inline-block; }
+    details.ans-box { margin-top: 10px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; padding: 10px 14px; }
+    details.ans-box summary { cursor: pointer; font-weight: 700; font-size: 0.88rem; color: var(--primary-dark); user-select: none; }
+    .ans-content { margin-top: 10px; padding-top: 10px; border-top: 1px solid #e2e8f0; font-size: 0.93rem; }
+    @media print {
+      body { background: #fff; font-size: 11pt; color: #000; padding: 0; }
+      .top-bar { display: none !important; }
+      .container { max-width: 100%; margin: 0; padding: 0; }
+      .hero { background: #e0f2fe !important; color: #0f172a !important; border: 2px solid #0284c7; box-shadow: none; padding: 20px; }
+      .badge { background: #bae6fd !important; color: #0369a1 !important; border: 1px solid #0284c7; }
+      .section-card { box-shadow: none; border: 1px solid #cbd5e1; page-break-inside: auto; margin-bottom: 18px; padding: 18px; }
+      .callout, .q-card, .diagram-card, tr { page-break-inside: avoid; }
+      details.ans-box > summary { display: none; }
+      details.ans-box > .ans-content { display: block !important; border-top: none; margin-top: 0; padding-top: 0; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+    @media (max-width: 768px) {
+      .mm-branches { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.65rem; }
+      .section-card { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAVIGATION & INTERACTIVE TOOLBAR -->
+  <nav class="top-bar">
+    <div class="nav-links">
+      <a href="#sec1">1. Blueprint</a>
+      <a href="#sec2">2. Master Notes</a>
+      <a href="#sec3">3. Fact Bank</a>
+      <a href="#sec4">4. NCERT Solutions</a>
+      <a href="#sec5">5. PYQ &amp; CBE Bank</a>
+      <a href="#sec6">6. Revision &amp; Mistakes</a>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn" onclick="toggleAllAnswers(true)">👁️ Expand All Answers</button>
+      <button class="btn" onclick="toggleAllAnswers(false)">🙈 Collapse Answers</button>
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO HEADER -->
+    <header class="hero">
+      <div class="hero-badges">
+        <span class="badge">Class 06 Social Science</span>
+        <span class="badge">NCERT: Exploring Society: India and Beyond</span>
+        <span class="badge">Theme D: Governance and Democracy</span>
+        <span class="badge">100% Zero-Omission Master Note</span>
+      </div>
+      <h1>🏛️ Chapter 10: Grassroots Democracy &ndash; Part 1: Governance</h1>
+      <p>Comprehensive Line-by-Line NCERT Coverage, Separation of Powers, 3 Organs &amp; 3 Tiers of Government, Checks and Balances, Dr. A.P.J. Abdul Kalam's Inspiring Leadership, Direct vs Representative Democracy, and Solved NCERT Exercises.</p>
+    </header>
+
+    <!-- ==========================================
+         SECTION 1: CHAPTER BLUEPRINT & TRENDS
+         ========================================== -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1</span>
+        <h2>🗺️ Chapter Blueprint &amp; CBSE Exam Trend Analysis</h2>
+      </div>
+
+      <h4>1. Chapter At A Glance (Interactive Visual Mind Map)</h4>
+      <div class="mindmap-box">
+        <div class="mm-root">⚖️ GRASSROOTS DEMOCRACY &ndash; GOVERNANCE &amp; DEMOCRACY</div>
+        <div class="mm-branches">
+          <!-- 3 Organs Branch -->
+          <div class="mm-col mm-col-organs">
+            <div class="mm-branch-title" style="color: #0284c7;">🏛️ THREE ORGANS OF GOVERNMENT</div>
+            <div class="mm-node"><strong>Legislature:</strong> Makes, updates, or repeals laws; Parliament (Lok Sabha &amp; Rajya Sabha) and State Vidhan Sabhas</div>
+            <div class="mm-node"><strong>Executive:</strong> Enforces laws; President / Governor (nominal) + Prime Minister / Chief Minister (actual head) + Civil Service &amp; Police</div>
+            <div class="mm-node"><strong>Judiciary:</strong> Interprets laws, punishes violations, safeguards constitutionality; Supreme Court, High Courts, District Courts</div>
+            <div class="mm-node"><strong>Separation of Powers:</strong> Checks and balances preventing tyranny or concentration of absolute power</div>
+          </div>
+          <!-- 3 Tiers Branch -->
+          <div class="mm-col mm-col-tiers">
+            <div class="mm-branch-title" style="color: #0d9488;">🪜 THREE TIERS (LEVELS)</div>
+            <div class="mm-node"><strong>Central (Union) Level:</strong> Defence, Foreign Affairs, Atomic Energy, Currency, Communications; led by PM &amp; President</div>
+            <div class="mm-node"><strong>State Level:</strong> Police, Law &amp; Order, Public Health, Agriculture, Irrigation; led by CM &amp; Governor</div>
+            <div class="mm-node"><strong>Local Level:</strong> Panchayati Raj (villages) &amp; Municipalities (cities); grassroots civic governance</div>
+            <div class="mm-node"><strong>Functional Analogies:</strong> Light bulb fixing (household to electricity board) &amp; Flood management (local rescue to Army/NDRF deployment)</div>
+          </div>
+          <!-- Democracy Branch -->
+          <div class="mm-col mm-col-demo">
+            <div class="mm-branch-title" style="color: #7c3aed;">🗳️ DEMOCRACY &amp; LEADERSHIP</div>
+            <div class="mm-node"><strong>Etymology:</strong> Greek <em>dēmos</em> (people) + <em>kratos</em> (rule) = "Rule of the People"</div>
+            <div class="mm-node"><strong>Representative Democracy:</strong> Voters elect MLAs (State) &amp; MPs (National); 970 million voters in India (2024)</div>
+            <div class="mm-node"><strong>Direct Democracy:</strong> Citizens vote directly on decisions (e.g., class voting by show of hands, Gram Sabha)</div>
+            <div class="mm-node"><strong>Dr. A.P.J. Abdul Kalam:</strong> 11th President (2002&ndash;2007), 'Missile Man', nominal head with immense transformative moral impact</div>
+          </div>
+        </div>
+      </div>
+
+      <h4>2. CBSE Examination Weightage &amp; High-Yield Topic Trends</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Topic Domain</th>
+              <th>NCERT Page Coverage</th>
+              <th>CBSE Question Frequency</th>
+              <th>Key Competencies Tested</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Definitions: Governance, Government, Laws &amp; Need for Rules</strong></td>
+              <td>Pages 149 &ndash; 153</td>
+              <td>⭐⭐⭐⭐ (High)</td>
+              <td>Core definitions, conceptual clarity on why society collapses without rules, public services classification.</td>
+            </tr>
+            <tr>
+              <td><strong>The Three Organs &amp; Separation of Powers</strong></td>
+              <td>Pages 153 &ndash; 155</td>
+              <td>⭐⭐⭐⭐⭐ (Very High)</td>
+              <td>Legislature vs Executive vs Judiciary, cybercrime case study, checks and balances system.</td>
+            </tr>
+            <tr>
+              <td><strong>The Three Tiers (Central, State, Local) &amp; Responsibilities</strong></td>
+              <td>Pages 155 &ndash; 157</td>
+              <td>⭐⭐⭐⭐⭐ (Very High)</td>
+              <td>Division of subjects (Defence/Currency vs Police/Health), flood disaster and electric bulb analogies.</td>
+            </tr>
+            <tr>
+              <td><strong>Nominal vs Actual Executive &amp; Dr. A.P.J. Abdul Kalam</strong></td>
+              <td>Pages 157 &ndash; 158</td>
+              <td>⭐⭐⭐⭐ (High)</td>
+              <td>Role of President/Governor as nominal heads vs PM/CM as actual heads; Dr. Kalam's life, quotes, and youth leadership.</td>
+            </tr>
+            <tr>
+              <td><strong>Democracy: Direct vs Representative &amp; Grassroots Base</strong></td>
+              <td>Pages 159 &ndash; 161</td>
+              <td>⭐⭐⭐⭐⭐ (Very High)</td>
+              <td>Greek roots, Universal Adult Franchise (18+), class monitor/picnic analogies, MPs and MLAs, COVID-19 pandemic governance matrix.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: EXHAUSTIVE MASTER NOTES
+         ========================================== -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2</span>
+        <h2>📖 Exhaustive Topic-by-Topic Master Notes (Zero-Omission)</h2>
+      </div>
+
+      <!-- TOPIC 1 -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>1. The Foundations of Governance: Why Do We Need Rules and Government?</span>
+        </div>
+        <p>Human beings are social creatures who have lived together in communities since prehistoric times. However, whenever a large group of people live, travel, or work together, differences of opinion, clashes of interest, and disorder inevitably arise. To prevent chaos and ensure peace, safety, and mutual flourishing, <strong>rules are essential</strong>.</p>
+
+        <div class="quote-box">
+          &ldquo;rājānam dharmagoptāram dharmo rakṣhati rakṣhitah&rdquo;<br>
+          <em>&ldquo;The ruler protects dharma and dharma protects those who protect it.&rdquo;</em><br>
+          <span style="font-size: 0.88rem; font-weight: 700; color: #0d9488;">&mdash; The Mahābhārata</span>
+        </div>
+
+        <div class="quote-box">
+          &ldquo;There is no peace without justice; no justice without equality; no equality without development; no democracy without respect to the identity and dignity of cultures and peoples.&rdquo;<br>
+          <span style="font-size: 0.88rem; font-weight: 700; color: #0284c7;">&mdash; Rigoberta Menchú Tum (Nobel Peace Laureate, Guatemala)</span>
+        </div>
+
+        <h4>A. Rules in Daily Life</h4>
+        <ul>
+          <li><strong>At Home:</strong> Waking up on time, sharing chores, respecting family elders, sleeping at a reasonable hour.</li>
+          <li><strong>In School:</strong> Wearing uniforms, punctuality, attentive classroom decorum, following exam conduct guidelines.</li>
+          <li><strong>On the Road:</strong> Obeying red traffic lights, driving on the left side in India, pedestrian zebra crossings, speed limits.</li>
+          <li><strong>In the Workplace:</strong> Adhering to contracts, working hours, safety protocols, prompt wage payments by employers.</li>
+        </ul>
+        <p><em>What would happen if nobody followed rules?</em> Traffic would descend into massive gridlocks and fatal collisions; markets would shutter due to rampant theft; schools could not teach; and society would break down entirely.</p>
+
+        <h4>B. Essential Terminology</h4>
+        <div class="callout callout-def">
+          <div class="callout-title">💡 Core Definitions</div>
+          <ul>
+            <li><strong>Governance:</strong> The overarching process of taking collective decisions, organizing society&rsquo;s affairs through institutional rules, and ensuring they are consistently obeyed.</li>
+            <li><strong>Government:</strong> The organized group of individuals or the institutional system that formulates rules and ensures they are implemented and obeyed across the territory.</li>
+            <li><strong>Laws:</strong> The most important, formal, and legally enforceable rules enacted by the government, backed by judicial penalties for disobedience.</li>
+          </ul>
+        </div>
+        <p>Laws and rules are <strong>not permanent or unchangeable</strong>. Just as students can discuss a school rule with their principal, citizens in a democracy have the sovereign right to debate, amend, update, or repeal outdated laws through their elected representatives.</p>
+
+        <h4>C. Public Services Provided by the Government</h4>
+        <p>A government does not merely make rules; it manages critical public infrastructure and services that private individuals cannot provide alone:</p>
+        <ol>
+          <li><strong>Healthcare:</strong> Operating public hospitals, primary health centers (PHCs), national vaccination drives.</li>
+          <li><strong>Transportation:</strong> Constructing national highways, managing the Indian Railways, city buses, and metro networks.</li>
+          <li><strong>Education:</strong> Establishing government schools, colleges, universities, and midday meal schemes.</li>
+          <li><strong>Public Safety &amp; Disaster Relief:</strong> Maintaining the police force, fire brigades, coast guard, and disaster management teams (NDRF/SDRF).</li>
+          <li><strong>Communication &amp; Utilities:</strong> Postal services, telecommunication satellites (ISRO), water supply networks, and electricity grids.</li>
+        </ol>
+      </div>
+
+      <!-- TOPIC 2 -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>2. The Three Organs of Government &amp; Separation of Powers</span>
+        </div>
+        <p>To examine how a government operates, consider the modern reality of <strong>digital transactions</strong>. Decades ago, sending money required waiting in long queues at post offices for a <em>money order</em> or at banks for a <em>demand draft</em>. Today, Unified Payments Interface (UPI) and internet banking transfer funds in seconds. However, this has enabled <strong>cybercriminals</strong> to steal money digitally.</p>
+        <p>To combat this, the government responds using its <strong>three distinct organs</strong> working in synergy:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Organ of Government</th>
+                <th>Core Function</th>
+                <th>Key Institutions</th>
+                <th>Role in Cybercrime Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. The Legislature</strong></td>
+                <td>Makes new laws (&lsquo;legislates&rsquo;), updates existing ones, or repeals obsolete laws.</td>
+                <td>Parliament of India (Lok Sabha &amp; Rajya Sabha); State Legislative Assemblies (Vidhan Sabhas).</td>
+                <td>Enacts tough cyber laws (e.g., Information Technology Act) specifying digital offences, hacking penalties, and data protection rules.</td>
+              </tr>
+              <tr>
+                <td><strong>2. The Executive</strong></td>
+                <td>Implements (&lsquo;executes&rsquo;) and enforces laws passed by the legislature; maintains public order.</td>
+                <td>President / Governor (nominal heads); Prime Minister / Chief Minister (actual executive); Council of Ministers, Civil Services, Police.</td>
+                <td>Specialized cyber police track digital footprints, freeze fraudulent bank accounts, raid hacker hideouts, and arrest suspects.</td>
+              </tr>
+              <tr>
+                <td><strong>3. The Judiciary</strong></td>
+                <td>Interprets laws, settles legal disputes, determines guilt, and sentences lawbreakers.</td>
+                <td>Supreme Court of India (apex), High Courts (states), District &amp; Sessions Courts.</td>
+                <td>Judges evaluate electronic evidence in court, deliver fair trials, jail cybercriminals, and order financial compensation for victims.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>A. Separation of Powers and the System of Checks and Balances</h4>
+        <p>Why must the three organs remain separate? If all three powers were concentrated in a single monarch, dictator, or political group:</p>
+        <ul>
+          <li>The same ruler would write arbitrary laws favoring themselves.</li>
+          <li>The same ruler would ruthlessly enforce those laws using police power.</li>
+          <li>The same ruler would act as judge, eliminating all dissent and individual freedom.</li>
+        </ul>
+        <div class="callout callout-hack">
+          <div class="callout-title">⭐ System of Checks and Balances</div>
+          <p>The <strong>Separation of Powers</strong> ensures that each organ operates independently while simultaneously having constitutional authority to <strong>check the actions of the other two</strong>:</p>
+          <ul>
+            <li>The <strong>Judiciary can strike down</strong> an unconstitutional law passed by the Legislature or an arbitrary order issued by the Executive (Judicial Review).</li>
+            <li>The <strong>Legislature questions ministers</strong>, approves executive budgets, and can impeach judges for proven misconduct.</li>
+            <li>The <strong>Executive appoints judges</strong> based on constitutional procedures and enforces court judgments.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TOPIC 3 -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>3. The Three Tiers (Levels) of Government in India</span>
+        </div>
+        <p>India is a subcontinental nation with over 1.4 billion people, 28 States, 8 Union Territories, and hundreds of thousands of villages and towns. A single centralized government sitting in New Delhi could never effectively address a broken handpump in a remote village or a localized drainage issue in a coastal town.</p>
+        <p>Therefore, India adopted a <strong>three-tier federal governance structure</strong>:</p>
+
+        <h4>A. Two Real-Life Analogies from the Textbook</h4>
+        <ul>
+          <li><strong>The Electric Bulb Analogy:</strong>
+            <ol>
+              <li><em>Tier 1 (Personal/Local):</em> If a bulb doesn&rsquo;t work, you check the switch, bulb filament, or home fuse box.</li>
+              <li><em>Tier 2 (Intermediate):</em> If that fails, you call a local licensed electrician to check the internal building wiring.</li>
+              <li><em>Tier 3 (Systemic/Regional):</em> If the power line to the entire street is dead, you lodge a formal complaint with the State Electricity Board.</li>
+            </ol>
+          </li>
+          <li><strong>The Flood Management Analogy:</strong>
+            <ol>
+              <li><em>Local Level:</em> A localized puddle or small village nullah overflow is handled by the Gram Panchayat or local municipal ward office.</li>
+              <li><em>State Level:</em> If heavy monsoon rains flood multiple districts and towns, the State Government deploys the State Disaster Response Force (SDRF) and opens relief camps.</li>
+              <li><em>Central Level:</em> If a catastrophic super-cyclone or massive flood inundates vast interstate river basins, the Central Government intervenes with the Army, Air Force helicopters, National Disaster Response Force (NDRF), and national treasury relief grants.</li>
+            </ol>
+          </li>
+        </ul>
+
+        <h4>B. Institutional Framework: National vs. State Level</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Governance Tier</th>
+                <th>Legislative Body</th>
+                <th>Executive Leadership</th>
+                <th>Judicial Apex</th>
+                <th>Core Responsibilities (Subjects)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Central / National Government</strong></td>
+                <td><strong>Parliament of India (Sansad):</strong><br>&bull; Lok Sabha (House of the People)<br>&bull; Rajya Sabha (Council of States)</td>
+                <td>&bull; <strong>Nominal:</strong> President of India (Supreme Commander of Armed Forces)<br>&bull; <strong>Actual:</strong> Prime Minister &amp; Union Cabinet</td>
+                <td><strong>Supreme Court of India</strong><br>(Motto: <em>Yato Dharmastato Jayah</em> &mdash; Where there is dharma, there is victory)</td>
+                <td>National Defence, External Affairs, Atomic Energy, Currency &amp; Coinage, Telecommunications, Railways, Inter-state Commerce, National Policies.</td>
+              </tr>
+              <tr>
+                <td><strong>State Government</strong></td>
+                <td><strong>State Legislature:</strong><br>&bull; Vidhan Sabha (Legislative Assembly)<br>&bull; Vidhan Parishad (Legislative Council &mdash; in select states)</td>
+                <td>&bull; <strong>Nominal:</strong> Governor of the State<br>&bull; <strong>Actual:</strong> Chief Minister &amp; State Cabinet</td>
+                <td><strong>High Court of the State</strong> (followed by District &amp; Sessions Courts)</td>
+                <td>Police, Law and Order, Public Health &amp; Sanitation, Agriculture, Irrigation, State Highways, Local Government administration, adapting Central schemes.</td>
+              </tr>
+              <tr>
+                <td><strong>Local Government</strong> (Grassroots Tier)</td>
+                <td>&bull; Rural: Gram Sabha &amp; Gram Panchayat<br>&bull; Urban: Municipal Corporation / Municipality</td>
+                <td>&bull; Rural: Sarpanch &amp; Panchayat Secretary<br>&bull; Urban: Mayor / Municipal Commissioner</td>
+                <td>Nyaya Panchayats (rural mediation) / Subordinate Judicial Magistrates</td>
+                <td>Village sanitation, street lights, local drinking water, village roads, birth &amp; death records, primary healthcare sub-centers.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🇮🇳 Sacred Institutional Mottos</div>
+          <ul>
+            <li><strong>Government of India:</strong> <em>Satyameva Jayate</em> (&ldquo;Truth alone triumphs&rdquo; &mdash; from the ancient <em>Muṇḍaka Upaniṣhad</em>).</li>
+            <li><strong>Supreme Court of India:</strong> <em>Yato Dharmastato Jayah</em> (&ldquo;Where there is dharma, there is victory&rdquo; &mdash; from the <em>Mahābhārata</em>).</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TOPIC 4 -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>4. Dr. A.P.J. Abdul Kalam: Transforming a Nominal Office into Moral Leadership</span>
+        </div>
+        <p>The Constitution of India designates the President of India as the <strong>nominal head of state</strong>. The term <em>nominal</em> means &lsquo;in name only&rsquo; &mdash; executive decisions are taken in the President&rsquo;s name, but the actual policy decisions and governance rest with the Prime Minister and the Council of Ministers.</p>
+        <p>However, <strong>Dr. A.P.J. Abdul Kalam</strong> (1931&ndash;2015), the <strong>11th President of India (2002&ndash;2007)</strong>, demonstrated that even a nominal office can be transformed into a powerhouse of national inspiration and youth transformation.</p>
+
+        <h4>A. Life Journey of the &lsquo;Missile Man of India&rsquo;</h4>
+        <ul>
+          <li><strong>Humble Beginnings:</strong> Born into a modest Tamil Muslim family in the island town of Rameswaram, Tamil Nadu, young Kalam sold newspapers to support his family&rsquo;s modest income.</li>
+          <li><strong>Scientific Achievements:</strong> Graduated in aerospace engineering from Madras Institute of Technology (MIT). At DRDO and ISRO, he directed the development of India&rsquo;s first Satellite Launch Vehicle (SLV-3) and pioneering indigenous missile systems (Agni, Prithvi, Akash), earning him the title <strong>&lsquo;Missile Man of India&rsquo;</strong>. He also played a key role in the 1998 Pokhran-II nuclear tests.</li>
+          <li><strong>The People&rsquo;s President:</strong> As President from 2002 to 2007, he opened Rashtrapati Bhavan to ordinary citizens, personally interacting with over half a million schoolchildren and youth across India.</li>
+        </ul>
+
+        <h4>B. Timeless Words of Wisdom from Dr. Kalam</h4>
+        <div class="callout callout-pyq">
+          <div class="callout-title">🌟 Dr. Kalam's Inspiring Thoughts (NCERT Page 158)</div>
+          <ol>
+            <li><strong>The Friendly Universe:</strong> &ldquo;Look at the sky. We are not alone. The whole universe is friendly to us and conspires only to give the best to those who dream and work.&rdquo;</li>
+            <li><strong>Single-Minded Devotion:</strong> &ldquo;To succeed in your mission, you must have single-minded devotion to your goal.&rdquo;</li>
+            <li><strong>Positive Acronyms for Resilience:</strong>
+              <ul>
+                <li><strong>F.A.I.L.:</strong> <em>First Attempt In Learning</em></li>
+                <li><strong>E.N.D.:</strong> <em>Effort Never Dies</em></li>
+                <li><strong>N.O.:</strong> <em>Next Opportunity</em></li>
+              </ul>
+            </li>
+            <li><strong>The Nature of Real Dreams:</strong> &ldquo;Dream is not that which you see while sleeping; it is something that does not let you sleep.&rdquo;</li>
+            <li><strong>The Four Pillars of Achievement:</strong> &ldquo;If four things are followed &mdash; having a great aim, acquiring knowledge, hard work, and perseverance &mdash; then anything can be achieved.&rdquo;</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- TOPIC 5 -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>5. Democracy: The Rule of the People</span>
+        </div>
+        <p>The term <strong>Democracy</strong> is derived from two ancient Greek words:</p>
+        <ul>
+          <li><strong>Dēmos:</strong> meaning <em>&lsquo;the people&rsquo;</em></li>
+          <li><strong>Kratos:</strong> meaning <em>&lsquo;rule&rsquo;</em> or <em>&lsquo;power&rsquo;</em></li>
+          <li><em>Literal Definition:</em> <strong>&ldquo;Rule of the People&rdquo;</strong></li>
+        </ul>
+
+        <h4>A. Direct Democracy vs. Representative Democracy</h4>
+        <p>Can all 1.4 billion people gather in one stadium to debate and pass national laws every morning? Clearly not. This is why democracies adopt representative models:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Direct Democracy</th>
+                <th>Representative Democracy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>How Decisions are Made</strong></td>
+                <td>Every citizen participates and votes directly on every policy, law, or public decision without intermediaries.</td>
+                <td>Citizens elect representatives through periodic elections; these elected representatives debate and pass laws.</td>
+              </tr>
+              <tr>
+                <td><strong>Real-Life Classroom Analogy</strong></td>
+                <td>The entire class raises hands to choose between Picnic Spot A and Picnic Spot B.</td>
+                <td>The class elects a <strong>Class Monitor / Representative</strong> who attends student council meetings and represents their grievances to the Principal.</td>
+              </tr>
+              <tr>
+                <td><strong>Indian Governance Example</strong></td>
+                <td>The <strong>Gram Sabha</strong>: All registered adult voters of a village assemble directly to review panchayat plans and budgets.</td>
+                <td>General &amp; State Elections: Citizens elect <strong>Members of Parliament (MPs)</strong> for Lok Sabha and <strong>Members of Legislative Assembly (MLAs)</strong> for State Assemblies.</td>
+              </tr>
+              <tr>
+                <td><strong>Suitability</strong></td>
+                <td>Feasible only for small, compact populations (villages, town halls, school classes).</td>
+                <td>Indispensable for large, diverse, modern nation-states like India.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>B. India: The World&rsquo;s Largest Democracy</h4>
+        <ul>
+          <li>In the <strong>2024 General Elections</strong>, India had approximately <strong>970 million registered voters</strong>, larger than the combined populations of North America and the European Union!</li>
+          <li><strong>Universal Adult Franchise:</strong> Every Indian citizen aged <strong>18 years and above</strong> possesses an equal right to vote, regardless of religion, caste, gender, economic status, or literacy level (<em>One Person, One Vote, One Value</em>).</li>
+          <li><strong>Grassroots Democracy:</strong> A system that actively empowers ordinary citizens at the base of the societal pyramid to have a direct voice in decisions directly affecting their daily lives.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: FACT BANK & COMPARISON TABLES
+         ========================================== -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3</span>
+        <h2>📊 Fact Bank &amp; High-Yield Reference Tables</h2>
+      </div>
+
+      <h4>1. The Governance Matrix: Organs vs. Tiers of Government</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Tier of Government</th>
+              <th>Legislature (Law-Making)</th>
+              <th>Executive (Law-Enforcing)</th>
+              <th>Judiciary (Law-Interpreting)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>National / Central</strong></td>
+              <td>Parliament of India:<br>&bull; Lok Sabha (House of the People)<br>&bull; Rajya Sabha (Council of States)</td>
+              <td>&bull; President of India (Nominal Head)<br>&bull; Prime Minister &amp; Union Council of Ministers (Actual Head)<br>&bull; Central Ministries, IAS/IPS, Central Police</td>
+              <td><strong>Supreme Court of India</strong><br>(Headed by Chief Justice of India)</td>
+            </tr>
+            <tr>
+              <td><strong>State Level</strong></td>
+              <td>State Legislative Assembly (Vidhan Sabha)<br>&bull; Vidhan Parishad (in 6 states)</td>
+              <td>&bull; Governor of the State (Nominal Head)<br>&bull; Chief Minister &amp; State Cabinet (Actual Head)<br>&bull; State Civil Services, State Police</td>
+              <td><strong>High Court of the State</strong><br>(One for each state or shared across small states)</td>
+            </tr>
+            <tr>
+              <td><strong>Local Level (Grassroots)</strong></td>
+              <td>&bull; Rural: Gram Sabha &amp; Ward Sabhas<br>&bull; Urban: Municipal Ward Committees</td>
+              <td>&bull; Rural: Sarpanch &amp; Panchayat Secretary<br>&bull; Urban: Mayor / Municipal Commissioner</td>
+              <td>District Courts, Subordinate Courts &amp; Nyaya Panchayats</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>2. Distribution of Responsibilities: Central vs. State Subjects</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Central / Union Responsibilities</th>
+              <th>State Responsibilities</th>
+              <th>Local Civic Responsibilities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>National Defence &amp; Armed Forces</td>
+              <td>Police, Law and Order</td>
+              <td>Village and neighborhood sanitation</td>
+            </tr>
+            <tr>
+              <td>Foreign Affairs &amp; Treaties</td>
+              <td>Public Health and State Hospitals</td>
+              <td>Maintenance of street lighting</td>
+            </tr>
+            <tr>
+              <td>Atomic Energy &amp; Space Research</td>
+              <td>Agriculture &amp; Veterinary Care</td>
+              <td>Safe drinking water taps/handpumps</td>
+            </tr>
+            <tr>
+              <td>Currency, Coinage &amp; Reserve Bank</td>
+              <td>Irrigation canals &amp; Rural Tanks</td>
+              <td>Construction of village link roads</td>
+            </tr>
+            <tr>
+              <td>Railways &amp; National Highways</td>
+              <td>State Highways &amp; District Roads</td>
+              <td>Birth, marriage &amp; death registrations</td>
+            </tr>
+            <tr>
+              <td>Telecommunications &amp; Postal Network</td>
+              <td>Local Government administration</td>
+              <td>Primary school building maintenance</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: NCERT TEXTBOOK SOLUTIONS
+         ========================================== -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4</span>
+        <h2>📝 Fully Solved NCERT Textbook Questions &amp; In-Text Activities</h2>
+      </div>
+
+      <h4>A. End-of-Chapter Exercises (Questions, Activities and Projects &mdash; Page 161)</h4>
+
+      <!-- Q1 -->
+      <div class="q-card">
+        <div class="q-title">Q1. Test yourself &mdash; What is the meaning of democracy? What is the difference between direct democracy and representative democracy?</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Solution</summary>
+          <div class="ans-content">
+            <p><strong>1. Meaning of Democracy:</strong></p>
+            <ul>
+              <li>The word <em>democracy</em> originates from two Greek words &mdash; <strong>dēmos</strong> (meaning &lsquo;people&rsquo;) and <strong>kratos</strong> (meaning &lsquo;rule&rsquo; or &lsquo;power&rsquo;).</li>
+              <li>Literally, democracy means the <strong>&lsquo;rule of the people&rsquo;</strong>. It is a system of government where ultimate sovereign power rests with ordinary citizens who choose their leaders and hold them accountable.</li>
+            </ul>
+            <p><strong>2. Difference between Direct Democracy and Representative Democracy:</strong></p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Dimension</th>
+                    <th>Direct Democracy</th>
+                    <th>Representative Democracy</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Decision-Making</strong></td>
+                    <td>Every citizen directly debates, votes on, and passes laws and policies without intermediaries.</td>
+                    <td>Citizens elect representatives (MLAs, MPs) through voting, who then assemble to formulate laws.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Classroom Analogy</strong></td>
+                    <td>All students in a class raising their hands to vote on which picnic location to visit.</td>
+                    <td>The class electing a &lsquo;Class Representative&rsquo; or monitor to discuss issues with the school Principal.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Scale &amp; Applicability</strong></td>
+                    <td>Practicable only in small communities, such as a village <strong>Gram Sabha</strong>.</td>
+                    <td>Essential for large, populous nations like India with nearly one billion voters.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div class="q-card">
+        <div class="q-title">Q2. Recall the three organs of government. What are their different roles?</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Solution</summary>
+          <div class="ans-content">
+            <p>The three organs of government and their specific roles are:</p>
+            <ol>
+              <li><strong>The Legislature (Law-Making Organ):</strong>
+                <ul>
+                  <li>Composed of elected representatives of the people (such as Members of Parliament in the Lok Sabha and Rajya Sabha, and MLAs in State Vidhan Sabhas).</li>
+                  <li><strong>Role:</strong> Formulates, updates, amends, or repeals laws; debates national policies; and approves government budgets.</li>
+                </ul>
+              </li>
+              <li><strong>The Executive (Law-Enforcing Organ):</strong>
+                <ul>
+                  <li>Led by the President/Governor (nominal heads), the Prime Minister/Chief Minister (actual executive heads), the Council of Ministers, and permanent civil services and police forces.</li>
+                  <li><strong>Role:</strong> Implements, administers, and enforces the laws enacted by the legislature, and ensures public peace and defense.</li>
+                </ul>
+              </li>
+              <li><strong>The Judiciary (Law-Interpreting Organ):</strong>
+                <ul>
+                  <li>Consists of an independent hierarchy of courts: the Supreme Court of India at the apex, High Courts at state levels, and District Courts.</li>
+                  <li><strong>Role:</strong> Interprets the Constitution and statutes, settles legal disputes, sentences lawbreakers, and ensures laws passed by the legislature are fair and constitutional (Judicial Review).</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div class="q-card">
+        <div class="q-title">Q3. Why do we need three tiers of government?</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Solution</summary>
+          <div class="ans-content">
+            <p>India requires a <strong>three-tier government (Central, State, and Local)</strong> for several critical reasons:</p>
+            <ol>
+              <li><strong>Vast Geographical Scale and Population Diversity:</strong>
+                <ul>
+                  <li>India spans over 3.28 million square kilometers with over 1.4 billion people speaking diverse languages and facing unique regional geographical challenges. A single centralized government in New Delhi cannot effectively manage local problems across thousands of villages.</li>
+                </ul>
+              </li>
+              <li><strong>Division of Labor and Efficiency:</strong>
+                <ul>
+                  <li>Different problems require different levels of attention. National defense, atomic energy, and foreign affairs need uniform national leadership (Central Government), while agriculture, public health, and law-and-order need regional customization (State Government).</li>
+                </ul>
+              </li>
+              <li><strong>Grassroots Citizen Participation:</strong>
+                <ul>
+                  <li>Local government (Panchayati Raj in villages and Municipalities in towns) enables ordinary citizens to directly participate in solving immediate community needs like safe drinking water, local drainage, street lighting, and primary health clinics.</li>
+                </ul>
+              </li>
+              <li><strong>Speedy Problem Resolution (The Electric Bulb &amp; Flood Analogies):</strong>
+                <ul>
+                  <li>Just as a faulty light bulb inside a house is fixed locally before calling the electricity board, localized village issues are resolved quickly by the Panchayat without having to wait months for state or national intervention.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 Project -->
+      <div class="q-card">
+        <div class="q-title">Q4. Project: COVID-19 Pandemic Lockdown Analysis &mdash; Actions Taken, Tiers Involved, and Roles of the Three Organs</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Solution</summary>
+          <div class="ans-content">
+            <p><strong>1. Actions Taken During the COVID-19 Pandemic:</strong></p>
+            <ul>
+              <li>Imposition of nationwide and regional lockdowns, closing schools, offices, and international air travel.</li>
+              <li>Establishment of specialized COVID-19 quarantine centers and dedicated hospital wards.</li>
+              <li>Procurement, manufacturing, and nationwide rollout of free COVID-19 vaccines (over 2 billion doses).</li>
+              <li>Free food grain distribution to over 800 million citizens under the Pradhan Mantri Garib Kalyan Anna Yojana.</li>
+              <li>Contact tracing, sanitization of containment zones, and enforcement of masks and social distancing.</li>
+            </ul>
+
+            <p><strong>2. Roles of the Three Tiers of Government:</strong></p>
+            <ul>
+              <li><strong>Central (Union) Government:</strong> Invoked the National Disaster Management Act (DMA 2005); coordinated national vaccine production; managed international borders; operated the digital CoWIN vaccination platform; and allocated relief funds.</li>
+              <li><strong>State Governments:</strong> Managed public hospitals; mobilized state police to enforce curfew guidelines; organized inter-state transport for migrant workers; and declared localized containment zones.</li>
+              <li><strong>Local Governments (Panchayats &amp; Municipalities):</strong> Disinfected streets and public areas; provided doorstep delivery of groceries to quarantined families; conducted thermal screenings; and set up village isolation huts.</li>
+            </ul>
+
+            <p><strong>3. Roles of the Three Organs of Government:</strong></p>
+            <ul>
+              <li><strong>The Legislature:</strong> Parliament and State Assemblies debated pandemic relief packages, allocated emergency financial budgets, and amended epidemic laws (e.g., Epidemic Diseases Amendment Act).</li>
+              <li><strong>The Executive:</strong> Handled round-the-clock administration &mdash; doctors, police personnel, district magistrates, and railway officials implementing quarantine and relief operations.</li>
+              <li><strong>The Judiciary:</strong> Kept courts running via online hearings; intervened through PILs (Public Interest Litigations) to ensure equitable distribution of medical oxygen, fair pricing of hospital beds, and protection of migrant workers&rsquo; rights.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <h4>B. Key In-Text &lsquo;Let&rsquo;s Explore&rsquo; Activity Solutions</h4>
+
+      <!-- In-Text 1 -->
+      <div class="q-card">
+        <div class="q-title">In-Text Exploration: Traffic Comparison and Need for Rules (Fig. 10.1 &mdash; Page 150)</div>
+        <details class="ans-box">
+          <summary>View Complete Solution</summary>
+          <div class="ans-content">
+            <p><strong>1. Differences between the two pictures:</strong></p>
+            <ul>
+              <li><em>Image 1 (Orderly Traffic):</em> Vehicles follow lane discipline, halt behind the white zebra line at the red signal, allowing pedestrians to cross safely. Movement is smooth and calm.</li>
+              <li><em>Image 2 (Traffic Gridlock / Chaos):</em> Vehicles are tangled across lanes, honking aggressively, violating signals, and blocking intersections. No vehicle can advance.</li>
+            </ul>
+            <p><strong>2. Connection with Rules:</strong><br>
+            Rules act as the invisible social fabric enabling collective coexistence. When drivers obey traffic signals, everyone reaches their destination safely. Without rules, individual impatience turns public roads into unnavigable deadlocks.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- In-Text 2 -->
+      <div class="q-card">
+        <div class="q-title">In-Text Exploration: Cybercrime Case Study and Three Organs (Page 154)</div>
+        <details class="ans-box">
+          <summary>View Complete Solution</summary>
+          <div class="ans-content">
+            <p><strong>How the three organs intervene:</strong></p>
+            <ol>
+              <li><strong>Legislature:</strong> Anticipates the loophole created by digital banking and passes the Information Technology (IT) Act, defining identity theft and digital fraud as criminal offences.</li>
+              <li><strong>Executive (Cyber Police):</strong> Detects suspicious financial transactions, traces IP addresses, arrests hackers, freezes fraudulent bank accounts, and files chargesheets.</li>
+              <li><strong>Judiciary (Court of Law):</strong> Conducts a fair and impartial trial, weighs forensic evidence, convicts the guilty, imposes fines, and orders imprisonment.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <!-- In-Text 3 -->
+      <div class="q-card">
+        <div class="q-title">In-Text Exploration: Dangers of Concentrated Power (Page 155)</div>
+        <details class="ans-box">
+          <summary>View Complete Solution</summary>
+          <div class="ans-content">
+            <p><strong>What happens if all three organs are controlled by the same group?</strong></p>
+            <ul>
+              <li><strong>Collapse of Democracy into Dictatorship:</strong> If the law-maker, law-enforcer, and judge are the same entity, there is no system of checks and balances. Citizens who express dissent are branded traitors and jailed without fair trial.</li>
+              <li><strong>Historical Example:</strong> In authoritarian regimes and absolute monarchies, rulers passed self-serving decrees, silenced free media, and eliminated independent judges, resulting in severe human rights abuses and economic ruin.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: PYQ & COMPETENCY EXAM BANK
+         ========================================== -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5</span>
+        <h2>🎯 Competency-Based Exam Bank &amp; Topper Answers</h2>
+      </div>
+
+      <!-- 1 MARK -->
+      <h4>A. Very Short Answer / 1-Mark Competency Questions</h4>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">1 Mark</span> Q1. What is the literal meaning and Greek root of the word &lsquo;Democracy&rsquo;?</div>
+        <details class="ans-box">
+          <summary>View Answer</summary>
+          <div class="ans-content">
+            <p>The word comes from Greek <strong>dēmos</strong> (meaning &lsquo;people&rsquo;) and <strong>kratos</strong> (meaning &lsquo;rule/power&rsquo;), literally signifying <strong>&lsquo;Rule of the People&rsquo;</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">1 Mark</span> Q2. State the official national motto of India and name the ancient text it is derived from.</div>
+        <details class="ans-box">
+          <summary>View Answer</summary>
+          <div class="ans-content">
+            <p>The national motto is <strong>&lsquo;Satyameva Jayate&rsquo;</strong> (&ldquo;Truth alone triumphs&rdquo;), derived from the ancient <strong>Muṇḍaka Upaniṣhad</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">1 Mark</span> Q3. What is the motto of the Supreme Court of India and what does it mean?</div>
+        <details class="ans-box">
+          <summary>View Answer</summary>
+          <div class="ans-content">
+            <p>The motto is <strong>&lsquo;Yato Dharmastato Jayah&rsquo;</strong>, which translates to <strong>&ldquo;Where there is dharma, there is victory.&rdquo;</strong></p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">1 Mark</span> Q4. Why is Dr. A.P.J. Abdul Kalam nicknamed the &lsquo;Missile Man of India&rsquo;?</div>
+        <details class="ans-box">
+          <summary>View Answer</summary>
+          <div class="ans-content">
+            <p>Because of his pivotal leadership in developing India&rsquo;s satellite launch vehicle (SLV-3) and indigenous missile systems (Agni, Prithvi).</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">1 Mark</span> Q5. What does the term &lsquo;nominal head&rsquo; mean with reference to the President of India?</div>
+        <details class="ans-box">
+          <summary>View Answer</summary>
+          <div class="ans-content">
+            <p>It means the President is the ceremonial head &lsquo;in name only&rsquo;, while actual executive decisions are taken by the Prime Minister and the Cabinet.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 2 MARKS -->
+      <h4>B. Short Answer / 2-Mark Questions</h4>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">2 Marks</span> Q6. Differentiate between an MLA and an MP in the Indian parliamentary framework.</div>
+        <details class="ans-box">
+          <summary>View Answer</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Member of Legislative Assembly (MLA):</strong> Elected by voters of an assembly constituency to represent them in the <strong>State Legislative Assembly (Vidhan Sabha)</strong>.</li>
+              <li><strong>Member of Parliament (MP):</strong> Elected by voters of a parliamentary constituency to represent them in the <strong>National Parliament (Lok Sabha)</strong> or chosen for Rajya Sabha.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">2 Marks</span> Q7. Explain Dr. Kalam&rsquo;s positive acronyms for overcoming failure: F.A.I.L., E.N.D., and N.O.</div>
+        <details class="ans-box">
+          <summary>View Answer</summary>
+          <div class="ans-content">
+            <ul>
+              <li><strong>F.A.I.L.:</strong> <em>First Attempt In Learning</em> &mdash; mistakes are natural stepping stones to mastery.</li>
+              <li><strong>E.N.D.:</strong> <em>Effort Never Dies</em> &mdash; an apparent conclusion is never final if persistent effort continues.</li>
+              <li><strong>N.O.:</strong> <em>Next Opportunity</em> &mdash; rejection should be viewed as a doorway to a new and better attempt.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- 3 MARKS -->
+      <h4>C. Medium Answer / 3-Mark Questions</h4>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">3 Marks</span> Q8. What is the &lsquo;Separation of Powers&rsquo; and why is it essential for good governance?</div>
+        <details class="ans-box">
+          <summary>View Answer</summary>
+          <div class="ans-content">
+            <p>The <strong>Separation of Powers</strong> is a constitutional principle dividing governmental authority into three distinct organs &mdash; Legislature, Executive, and Judiciary.</p>
+            <p><strong>Why it is essential:</strong></p>
+            <ol>
+              <li><strong>Prevents Dictatorship:</strong> It ensures that no single individual or governing committee can concentrate absolute law-making, enforcement, and judicial powers.</li>
+              <li><strong>Checks and Balances:</strong> Each organ acts as a constitutional check on the other two, holding power accountable.</li>
+              <li><strong>Protects Citizen Rights:</strong> An independent judiciary guarantees that citizens&rsquo; fundamental liberties cannot be arbitrarily suppressed by legislative or executive actions.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">3 Marks</span> Q9. Using the flood scenario described in the textbook, explain how the three levels of government respond during a natural disaster.</div>
+        <details class="ans-box">
+          <summary>View Answer</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Local Level:</strong> During minor localized flooding, the Gram Panchayat or Municipal ward staff clear blocked drains, arrange temporary sandbags, and provide local relief.</li>
+              <li><strong>State Level:</strong> When floodwaters inundate multiple taluks and towns, the State Government sends the State Disaster Response Force (SDRF), deploys rescue motorboats, and establishes mass relief camps.</li>
+              <li><strong>Central Level:</strong> When widespread interstate floods occur, the Central Government deploys the National Disaster Response Force (NDRF), mobilizes Army and Air Force helicopters for food drops, and releases special national disaster funds.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <!-- 5 MARKS -->
+      <h4>D. Long Answer &amp; Competency Questions</h4>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">5 Marks</span> Q10. &ldquo;India is a representative democracy and the largest democracy in the world.&rdquo; Discuss this statement detailing the electoral mechanism, the scale of participation, and how it differs from direct democracy.</div>
+        <details class="ans-box">
+          <summary>View Answer</summary>
+          <div class="ans-content">
+            <p><strong>1. The Concept of Representative Democracy in India:</strong></p>
+            <ul>
+              <li>Due to India&rsquo;s immense population of 1.4 billion, direct democracy (where every citizen votes on every law) is logistically impossible.</li>
+              <li>Instead, India functions as an indirect or <strong>representative democracy</strong> where citizens cast ballots to elect representatives to legislative bodies &mdash; MLAs at the state level and MPs at the national level.</li>
+              <li>These elected representatives assemble, engage in debates, and enact legislation on behalf of the populace.</li>
+            </ul>
+            <p><strong>2. Unprecedented Scale of Indian Democracy:</strong></p>
+            <ul>
+              <li>In the <strong>2024 General Elections</strong>, India registered approximately <strong>970 million voters</strong>, establishing it indisputably as the world&rsquo;s largest democratic exercise.</li>
+              <li>Under <strong>Universal Adult Franchise</strong>, every citizen aged 18 and older has an equal vote, upholding political equality.</li>
+            </ul>
+            <p><strong>3. Contrast with Direct Democracy:</strong></p>
+            <ul>
+              <li>Direct democracy is seen at the micro level (e.g., classroom voting by show of hands, or the rural <strong>Gram Sabha</strong> where all adult villagers directly review village plans).</li>
+              <li>Representative democracy operates at macro state and national levels to manage complex modern governance.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">5 Marks</span> Q11. Analyze the institutional role of Dr. A.P.J. Abdul Kalam as President of India. How did he prove that a &lsquo;nominal&rsquo; constitutional office can exercise profound leadership?</div>
+        <details class="ans-box">
+          <summary>View Answer</summary>
+          <div class="ans-content">
+            <p><strong>1. Understanding the Constitutional Status:</strong></p>
+            <ul>
+              <li>Under the Indian Constitution, the President is the <strong>nominal head of state</strong> and Supreme Commander of the Armed Forces. Executive power is formally exercised in the President&rsquo;s name, but the real governing authority is wielded by the Prime Minister and the Council of Ministers.</li>
+            </ul>
+            <p><strong>2. Transformation into the &lsquo;People&rsquo;s President&rsquo;:</strong></p>
+            <ul>
+              <li>Dr. A.P.J. Abdul Kalam, serving as the 11th President from 2002 to 2007, redefined the office through moral authority, scientific vision, and deep humility.</li>
+              <li>He transformed Rashtrapati Bhavan from an aloof ceremonial palace into an open center of inspiration, meeting thousands of students, teachers, farmers, and innovators.</li>
+            </ul>
+            <p><strong>3. Pillars of His Enduring Impact:</strong></p>
+            <ol>
+              <li><em>Youth Inspiration:</em> He traveled to every corner of India, encouraging youth to cultivate big dreams, scientific temper, and hard work.</li>
+              <li><em>Moral Conscience:</em> He demonstrated that integrity, simplicity, and dedication to national development transcend constitutional technicalities.</li>
+              <li><em>Vision for Developed India:</em> He championed &lsquo;India Vision 2020&rsquo;, advocating for grassroots technological self-reliance, rural education, and societal harmony.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: REVISION & COMMON MISTAKES
+         ========================================== -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6</span>
+        <h2>⚡ 5-Minute Rapid Revision &amp; Exam Hall Traps</h2>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">⚠️ 5 Common "Exam Hall Mistakes" &amp; How to Avoid Them</div>
+        <ol>
+          <li><strong>Mistake 1: Confusing the Organs of Government with the Levels (Tiers) of Government.</strong><br>
+          <em>Fix:</em> <strong>Organs</strong> are functional branches (<em>Legislature, Executive, Judiciary</em>). <strong>Levels/Tiers</strong> are spatial administrative layers (<em>Central, State, Local</em>).</li>
+          <li><strong>Mistake 2: Thinking the President of India has more executive governing power than the Prime Minister.</strong><br>
+          <em>Fix:</em> The President is the <strong>nominal head of state</strong>; the Prime Minister is the <strong>actual head of government</strong> who leads policymaking.</li>
+          <li><strong>Mistake 3: Believing that India is a direct democracy because everyone votes.</strong><br>
+          <em>Fix:</em> India is a <strong>representative democracy</strong>. Citizens vote to elect representatives (MLAs and MPs), who in turn vote on and formulate laws.</li>
+          <li><strong>Mistake 4: Claiming that rules and laws in a democracy can never be altered.</strong><br>
+          <em>Fix:</em> Laws are <strong>dynamic and responsive</strong>. As societal needs evolve, the legislature can amend or repeal existing laws through constitutional procedures.</li>
+          <li><strong>Mistake 5: Confusing an MLA with an MP.</strong><br>
+          <em>Fix:</em> An <strong>MLA</strong> serves in the <em>State Legislative Assembly (Vidhan Sabha)</em>; an <strong>MP</strong> serves in the <em>National Parliament (Lok Sabha or Rajya Sabha)</em>.</li>
+        </ol>
+      </div>
+
+      <h4>⚡ 15 Ultra-Crisp Rapid Revision One-Liners</h4>
+      <ol>
+        <li>⚡ <strong>Governance</strong> is the process of decision-making, organizing society with rules, and ensuring compliance.</li>
+        <li>⚡ The <strong>Government</strong> is the institutional body that formulates and enforces rules across a nation or state.</li>
+        <li>⚡ The <strong>Mahābhārata</strong> verse states: <em>&ldquo;The ruler protects dharma and dharma protects those who protect it.&rdquo;</em></li>
+        <li>⚡ The <strong>Legislature</strong> creates, amends, or repeals laws through assemblies of elected representatives.</li>
+        <li>⚡ The <strong>Executive</strong> implements and enforces laws through ministers, civil servants, and police.</li>
+        <li>⚡ The <strong>Judiciary</strong> interprets laws, resolves legal disputes, and penalizes lawbreakers.</li>
+        <li>⚡ The <strong>Separation of Powers</strong> prevents dictatorship through a system of mutual <em>checks and balances</em>.</li>
+        <li>⚡ India functions through <strong>three tiers of government</strong>: Central (Union), State, and Local.</li>
+        <li>⚡ <strong>Satyameva Jayate</strong> (&ldquo;Truth alone triumphs&rdquo; &mdash; <em>Muṇḍaka Upaniṣhad</em>) is the official motto of the Government of India.</li>
+        <li>⚡ <strong>Yato Dharmastato Jayah</strong> (&ldquo;Where there is dharma, there is victory&rdquo;) is the Supreme Court&rsquo;s motto.</li>
+        <li>⚡ Dr. A.P.J. Abdul Kalam, the <strong>&lsquo;Missile Man of India&rsquo;</strong>, served as the 11th President of India (2002&ndash;2007).</li>
+        <li>⚡ <strong>Democracy</strong> originates from Greek roots <em>dēmos</em> (people) and <em>kratos</em> (rule/power).</li>
+        <li>⚡ In a <strong>representative democracy</strong>, citizens elect representatives (MPs and MLAs) to govern on their behalf.</li>
+        <li>⚡ In the 2024 elections, India had about <strong>970 million voters</strong>, making it the world&rsquo;s largest democracy.</li>
+        <li>⚡ <strong>Grassroots democracy</strong> empowers ordinary citizens at the base of the governance pyramid to decide local matters.</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <script>
+    function toggleAllAnswers(openState) {
+      const detailsList = document.querySelectorAll('details.ans-box');
+      detailsList.forEach(item => {
+        item.open = openState;
+      });
+    }
+
+    // Automatic safeguard to strip any accidental cite tags from text nodes
+    document.addEventListener("DOMContentLoaded", function () {
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+      let node;
+      const citeRegex = /\[\s*cite:\s*[\d,\s]+\]/gi;
+      while ((node = walker.nextNode())) {
+        if (citeRegex.test(node.nodeValue)) {
+          node.nodeValue = node.nodeValue.replace(citeRegex, '');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
