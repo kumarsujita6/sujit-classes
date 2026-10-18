@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Study Note: Ch 4 - Timeline and Sources of History (Class 6 Social Science)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-body); color: var(--text-main);
+      line-height: 1.65; font-size: 15.5px; padding-bottom: 60px;
+    }
+    .top-bar {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 10px 24px;
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 6px; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-muted); font-weight: 600;
+      font-size: 0.82rem; padding: 6px 12px; border-radius: 8px; transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--primary-light); color: var(--primary-dark); }
+    .toolbar-actions { display: flex; gap: 8px; align-items: center; }
+    .btn {
+      border: 1px solid var(--border); background: var(--bg-card); color: var(--text-main);
+      font-family: inherit; font-weight: 600; font-size: 0.82rem;
+      padding: 7px 14px; border-radius: 8px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s;
+    }
+    .btn:hover { background: #f1f5f9; border-color: #cbd5e1; }
+    .btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .container { max-width: 1080px; margin: 28px auto; padding: 0 20px; }
+    .hero {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #0369a1 100%);
+      color: #ffffff; border-radius: 20px; padding: 36px 32px; margin-bottom: 32px;
+      box-shadow: 0 12px 30px -8px rgba(30, 27, 75, 0.4);
+      position: relative; overflow: hidden;
+    }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+    .badge {
+      background: rgba(255,255,255,0.18); backdrop-filter: blur(4px);
+      padding: 4px 12px; border-radius: 999px; font-size: 0.78rem;
+      font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
+    }
+    .hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 10px; }
+    .hero p { font-size: 1rem; opacity: 0.92; max-width: 780px; }
+    .section-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 30px; margin-bottom: 28px;
+      box-shadow: var(--shadow);
+    }
+    .section-header {
+      display: flex; align-items: center; gap: 12px;
+      border-bottom: 2px solid #f1f5f9; padding-bottom: 14px; margin-bottom: 22px;
+    }
+    .section-num {
+      background: var(--primary); color: white; font-weight: 800; font-size: 0.85rem;
+      padding: 5px 11px; border-radius: 8px; letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .section-header h2 { font-size: 1.45rem; font-weight: 800; color: var(--text-main); }
+    .topic-block { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px dashed var(--border); }
+    .topic-block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .topic-title {
+      font-size: 1.22rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px; background: #f0f9ff;
+      padding: 10px 16px; border-radius: 10px; border-left: 5px solid var(--primary);
+    }
+    h4 {
+      font-size: 1rem; font-weight: 700; color: #1e293b; margin: 18px 0 10px 0;
+      display: flex; align-items: center; gap: 6px;
+    }
+    ul, ol { padding-left: 22px; margin-bottom: 14px; }
+    li { margin-bottom: 7px; }
+    li strong { color: #0f172a; }
+    .callout { border-radius: 12px; padding: 16px 20px; margin: 16px 0; border-left: 5px solid; }
+    .callout-title { font-weight: 800; font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .callout-def { background-color: #f0f9ff; border-left-color: #0284c7; color: #0c4a6e; }
+    .callout-act { background-color: #f0fdfa; border-left-color: #0d9488; color: #115e59; }
+    .callout-pyq { background-color: #fffbeb; border-left-color: #f59e0b; color: #78350f; }
+    .callout-hack { background-color: #f5f3ff; border-left-color: #7c3aed; color: #4c1d95; }
+    .callout-warn { background-color: #fff1f2; border-left-color: #e11d48; color: #881337; }
+    .quote-box {
+      background: linear-gradient(to right, #f8fafc, #f0f9ff); border-left: 4px solid var(--primary);
+      padding: 16px 20px; border-radius: 10px; font-style: italic; color: #334155; margin: 14px 0;
+    }
+    .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left; }
+    th { background: #f1f5f9; color: #0f172a; font-weight: 700; padding: 12px 14px; border-bottom: 2px solid var(--border); }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    .mindmap-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+    .mm-root {
+      background: #1e1b4b; color: #fff; font-weight: 800; text-align: center;
+      padding: 12px 20px; border-radius: 10px; max-width: 520px; margin: 0 auto 20px auto;
+      box-shadow: 0 4px 12px rgba(30, 27, 75, 0.25);
+    }
+    .mm-branches { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .mm-col { background: #fff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 16px; }
+    .mm-col-time { border-top: 5px solid #7c3aed; }
+    .mm-col-sources { border-top: 5px solid #0284c7; }
+    .mm-col-early { border-top: 5px solid #0d9488; }
+    .mm-branch-title { font-weight: 800; font-size: 1rem; margin-bottom: 12px; text-align: center; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .mm-node { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 12px; margin-bottom: 8px; font-size: 0.88rem; }
+    .diagram-card { background: #ffffff; border: 2px solid #e0f2fe; border-radius: 12px; padding: 20px; margin: 18px 0; text-align: center; }
+    .diagram-caption { font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; font-weight: 600; }
+    .q-card { background: #ffffff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; }
+    .q-title { font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+    .pyq-tag { background: #fef3c7; color: #b45309; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 6px; margin-right: 6px; display: inline-block; }
+    details.ans-box { margin-top: 10px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; padding: 10px 14px; }
+    details.ans-box summary { cursor: pointer; font-weight: 700; font-size: 0.88rem; color: var(--primary-dark); user-select: none; }
+    .ans-content { margin-top: 10px; padding-top: 10px; border-top: 1px solid #e2e8f0; font-size: 0.93rem; }
+    @media print {
+      body { background: #fff; font-size: 11pt; color: #000; padding: 0; }
+      .top-bar { display: none !important; }
+      .container { max-width: 100%; margin: 0; padding: 0; }
+      .hero { background: #f0f9ff !important; color: #0f172a !important; border: 2px solid #0284c7; box-shadow: none; padding: 20px; }
+      .badge { background: #e0f2fe !important; color: #0369a1 !important; border: 1px solid #0284c7; }
+      .section-card { box-shadow: none; border: 1px solid #cbd5e1; page-break-inside: auto; margin-bottom: 18px; padding: 18px; }
+      .callout, .q-card, .diagram-card, tr { page-break-inside: avoid; }
+      details.ans-box > summary { display: none; }
+      details.ans-box > .ans-content { display: block !important; border-top: none; margin-top: 0; padding-top: 0; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+    @media (max-width: 768px) {
+      .mm-branches { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.65rem; }
+      .section-card { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAVIGATION & INTERACTIVE TOOLBAR -->
+  <nav class="top-bar">
+    <div class="nav-links">
+      <a href="#sec1">1. Blueprint</a>
+      <a href="#sec2">2. Master Notes</a>
+      <a href="#sec3">3. Fact Bank</a>
+      <a href="#sec4">4. NCERT Solutions</a>
+      <a href="#sec5">5. PYQ &amp; CBE Bank</a>
+      <a href="#sec6">6. Revision &amp; Mistakes</a>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn" onclick="toggleAllAnswers(true)">👁️ Expand All Answers</button>
+      <button class="btn" onclick="toggleAllAnswers(false)">🙈 Collapse Answers</button>
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO HEADER -->
+    <header class="hero">
+      <div class="hero-badges">
+        <span class="badge">Class 06 Social Science</span>
+        <span class="badge">NCERT: Exploring Society: India and Beyond</span>
+        <span class="badge">Theme B: Tapestry of the Past</span>
+        <span class="badge">100% Zero-Omission Master Note</span>
+      </div>
+      <h1>📜 Chapter 4: Timeline and Sources of History</h1>
+      <p>Complete Line-by-Line NCERT Coverage, Decoded Historical Sources, Date Calculations Without Year Zero, Solved NCERT Questions &amp; Competency-Based Exam Bank.</p>
+    </header>
+
+    <!-- ==========================================
+         SECTION 1: CHAPTER BLUEPRINT & TRENDS
+         ========================================== -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1</span>
+        <h2>🗺️ Chapter Blueprint &amp; CBSE Exam Trend Analysis</h2>
+      </div>
+
+      <h4>1. Chapter At A Glance (Interactive Visual Mind Map)</h4>
+      <div class="mindmap-box">
+        <div class="mm-root">⏳ TIMELINE &amp; SOURCES OF HISTORY</div>
+        <div class="mm-branches">
+          <!-- Measuring Time Branch -->
+          <div class="mm-col mm-col-time">
+            <div class="mm-branch-title" style="color: #7c3aed;">⏰ MEASURING TIME</div>
+            <div class="mm-node"><strong>Gregorian Calendar:</strong> CE (Common Era) &amp; BCE (Before Common Era)</div>
+            <div class="mm-node"><strong>No Year Zero Rule:</strong> 1 BCE is directly followed by 1 CE (Time difference = BCE + CE - 1)</div>
+            <div class="mm-node"><strong>Units of Duration:</strong> Decade (10 yrs), Century (100 yrs), Millennium (1,000 yrs)</div>
+            <div class="mm-node"><strong>Traditional Calendars:</strong> Solar &amp; lunar pañchāngas in India</div>
+          </div>
+          <!-- Sources of History Branch -->
+          <div class="mm-col mm-col-sources">
+            <div class="mm-branch-title" style="color: #0284c7;">🔍 SOURCES OF HISTORY</div>
+            <div class="mm-node"><strong>Archaeological:</strong> Pottery, tools, coins, monuments, burials, fossils</div>
+            <div class="mm-node"><strong>Epigraphical:</strong> Inscriptions on stone, pillars, rock walls, copper plates</div>
+            <div class="mm-node"><strong>Literary &amp; Oral:</strong> Vedas, epics, plays, travelogues, chronicles, folklore</div>
+            <div class="mm-node"><strong>Modern Science:</strong> Genetics, palaeoclimatology, chemical dating</div>
+            <div class="mm-node"><strong>Historians as Detectives:</strong> Piecing together puzzle fragments &amp; cross-checking</div>
+          </div>
+          <!-- Early Humans Branch -->
+          <div class="mm-col mm-col-early">
+            <div class="mm-branch-title" style="color: #0d9488;">🐾 EARLY HUMANITY</div>
+            <div class="mm-node"><strong>Homo sapiens:</strong> Walked Earth for ~300,000 years (tiny fraction of Earth history)</div>
+            <div class="mm-node"><strong>Hunter-Gatherers:</strong> Rock shelters, fire, stone tools, cave art, beads</div>
+            <div class="mm-node"><strong>Last Ice Age:</strong> Ended ~12,000 years ago &rarr; climate warmed up</div>
+            <div class="mm-node"><strong>First Crops:</strong> Agriculture, animal domestication, river settlements</div>
+            <div class="mm-node"><strong>Social Complexity:</strong> Hamlets to villages, chieftains, collective welfare, pottery, metallurgy (copper, iron)</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title">🔥 CBSE Weightage &amp; Top 5 High-Yield Exam Topics</div>
+        <ol>
+          <li><strong>BCE and CE Calculation with No Year Zero:</strong> High probability numerical questions (e.g. how many years ago was the Buddha born in 560 BCE, or years elapsed between 2 BCE and 2 CE).</li>
+          <li><strong>Classification of Historical Sources:</strong> Differentiating Archaeological, Epigraphical, Literary, Artistic, and Oral sources.</li>
+          <li><strong>Historians as Detectives:</strong> Explaining why reconstructing the past from incomplete or conflicting sources is like solving a mystery.</li>
+          <li><strong>Transition from Hunting-Gathering to Farming:</strong> How the end of the last Ice Age (~12,000 years ago) led to crop cultivation, animal domestication, and river settlements.</li>
+          <li><strong>Specialists of the Earth:</strong> Matching roles of Geologists, Palaeontologists, Anthropologists, Archaeologists, and Epigraphists.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: EXHAUSTIVE TOPIC-BY-TOPIC NOTES
+         ========================================== -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2</span>
+        <h2>📚 Exhaustive Topic-by-Topic Notes (Zero-Omission Policy)</h2>
+      </div>
+
+      <!-- TOPIC 1 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 1: What is History &amp; How Do We Learn About the Past?</div>
+        
+        <div class="quote-box">
+          "History is an unending dialogue between the present and the past ... between the society of today and the society of yesterday. ... We can fully understand the present only in the light of the past."<br>
+          <strong>— E.H. Carr</strong>
+        </div>
+
+        <ul>
+          <li><strong>Definition of History:</strong> History is the study of the human past. It helps us understand where we come from, how our ancestors lived, and why human societies, technologies, and ideas exist in their current forms today.</li>
+          <li><strong>Personal Memory vs. Human History:</strong> A child's earliest memories might extend back five or six years. Our families have memories spanning several generations. But human history stretches across hundreds of thousands of years, while Earth's geological history spans billions of years!</li>
+          <li><strong>Human History on Earth's Scale (Fig. 4.1):</strong>
+            <ul>
+              <li>Earth formed: ~<strong>4.54 billion years ago</strong>.</li>
+              <li>Atmospheric oxygen appeared: ~<strong>2.33 billion years ago</strong>.</li>
+              <li>First vertebrates and fish: ~<strong>500 million years ago</strong>.</li>
+              <li>Dinosaurs: ~<strong>300–100 million years ago</strong>.</li>
+              <li>First primates: ~<strong>10 million years ago</strong>.</li>
+              <li>Control of fire: ~<strong>1,000,000 years ago</strong>.</li>
+              <li>Appearance of modern humans (<em>Homo sapiens</em>): ~<strong>300,000 years ago</strong>.</li>
+              <li>Invention of writing: only ~<strong>6,500 years ago</strong>!</li>
+              <li><em>Insight:</em> We humans occupy only a tiny, most recent sliver of the planet's vast timeline.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h4>The Four Specialists of the Earth &amp; Past</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Specialist</th>
+                <th>Subject of Study</th>
+                <th>Key Evidence Consulted</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Geologists</strong></td>
+                <td>Physical features of the Earth</td>
+                <td>Rocks, soils, stones, hills, mountains, rivers, ocean beds</td>
+              </tr>
+              <tr>
+                <td><strong>Palaeontologists</strong></td>
+                <td>Ancient plant, animal, and human life from millions of years ago</td>
+                <td><strong>Fossils</strong> (preserved impressions or remains in rock layers)</td>
+              </tr>
+              <tr>
+                <td><strong>Anthropologists</strong></td>
+                <td>Human societies, customs, and cultures from ancient times to present</td>
+                <td>Social practices, languages, physical traits, cultural adaptations</td>
+              </tr>
+              <tr>
+                <td><strong>Archaeologists</strong></td>
+                <td>The human past uncovered by excavation</td>
+                <td>Dug-up material remains: pots, tools, beads, bricks, bones, charred grains</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-def">
+          <div class="callout-title">📘 Key Definitions</div>
+          <ul>
+            <li><strong>Fossils:</strong> Impressions of footprints, or parts of plants or animals preserved within layers of soil or rocks over millions of years.</li>
+            <li><strong>Era:</strong> A distinct and defined period of historical time marked by a notable event or ruler.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TOPIC 2 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 2: Measuring Time in History – BCE, CE &amp; The "No Year Zero" Catch</div>
+        
+        <ul>
+          <li><strong>The Global System – Gregorian Calendar:</strong>
+            <ul>
+              <li>Widely used across the modern world with 12 months adding to 365 days (and 366 days in leap years every 4 years).</li>
+              <li><strong>Leap Year Century Rule:</strong> Century years (1800, 1900, 2000) are leap years <em>only if divisible by 400</em>. Therefore, 2000 was a leap year, while 1800 and 1900 were not!</li>
+            </ul>
+          </li>
+          <li><strong>BCE and CE Terminology:</strong>
+            <ul>
+              <li><strong>CE (Common Era):</strong> Formerly written as <strong>AD</strong> (<em>Anno Domini</em>, Latin for 'in the year of the Lord'). Counts years forward starting from the conventional birth of Jesus Christ (e.g. 1947 CE).</li>
+              <li><strong>BCE (Before Common Era):</strong> Formerly written as <strong>BC</strong> (<em>Before Christ</em>). Counts years backward from 1 CE (e.g. 560 BCE).</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="callout callout-warn">
+          <div class="callout-title">⚠️ The Critical Rule: There is NO Year Zero!</div>
+          <p>In the Gregorian calendar, <strong>the year 1 CE directly follows 1 BCE</strong>. There is no year 0. Because of this:</p>
+          <ul>
+            <li>From 2 BCE to 2 CE, only <strong>3 years</strong> have passed (not 4): 2 BCE &rarr; 1 BCE &rarr; 1 CE &rarr; 2 CE (total 3 year intervals).</li>
+            <li><strong>Formula to find years between a BCE date and a CE date:</strong><br>
+            <strong>Total Elapsed Years = BCE Year + CE Year - 1</strong></li>
+            <li><em>Example:</em> If Gautama Buddha was born in 560 BCE and current year is 2024 CE: 560 + 2024 - 1 = <strong>2,583 years ago</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="callout callout-hack">
+          <div class="callout-title">💡 Units of Duration: Decade, Century, Millennium</div>
+          <ul>
+            <li><strong>Decade:</strong> A period of 10 years.</li>
+            <li><strong>Century:</strong> A period of 100 years.
+              <ul>
+                <li>1st Century CE: 1 CE to 100 CE</li>
+                <li>21st Century CE: 2001 CE to 2100 CE (our current century)</li>
+                <li>1st Century BCE: 100 BCE to 1 BCE</li>
+                <li>3rd Century BCE: 300 BCE to 201 BCE (counted backwards)</li>
+              </ul>
+            </li>
+            <li><strong>Millennium (plural: millennia or millenniums):</strong> A period of 1,000 years.
+              <ul>
+                <li>1st Millennium CE: 1 CE to 1000 CE</li>
+                <li>3rd Millennium CE: 2001 CE to 3000 CE (our current millennium)</li>
+                <li>1st Millennium BCE: 1000 BCE to 1 BCE</li>
+                <li>8th Millennium BCE: 8000 BCE to 7001 BCE</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 In-Box Decoded: Traditional Indian Calendars &amp; The Pañchānga</div>
+          <p>Traditional Indian calendars track the cycles of both the <strong>Sun</strong> and the <strong>Moon</strong> (lunisolar). A <strong>pañchānga</strong> is an almanac of tables listing days and astronomical data, accurately predicting solar and lunar eclipses, sunrise, sunset, festivals, and auspicious timings.</p>
+        </div>
+      </div>
+
+      <!-- TOPIC 3 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 3: What Are the Sources of History?</div>
+        
+        <div class="callout-def callout">
+          <div class="callout-title">📘 Definition: Source of History</div>
+          <p><strong>Source of History:</strong> A place, person, text, or object from which we gather authentic information about past events, societies, or eras.</p>
+        </div>
+
+        <h4>Classification of Historical Sources</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Sub-types &amp; Descriptions</th>
+                <th>Specific Examples</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Archaeological Sources</strong></td>
+                <td>Physical remains dug up from excavations, ancient mounds, habitations, and burials.</td>
+                <td>Pottery, beads, terracotta toys, figurines, stone tools, weapons, parts of brick houses, charred food grains, animal bones.</td>
+              </tr>
+              <tr>
+                <td><strong>Epigraphical Sources (Inscriptions)</strong></td>
+                <td>Writings engraved on hard surfaces like rocks, pillars, temple walls, and metal plates.</td>
+                <td>Pillar edicts of Ashoka, Allahabad Prashasti, royal copper plate charters recording land grants.</td>
+              </tr>
+              <tr>
+                <td><strong>Numismatic Sources (Coins)</strong></td>
+                <td>Metallic pieces minted by rulers giving dates, titles, and trade information.</td>
+                <td>Gold coins of Guptas, punch-marked silver coins, Roman coins found in South India.</td>
+              </tr>
+              <tr>
+                <td><strong>Literary Sources</strong></td>
+                <td>Manuscripts, religious texts, secular treatises, historical chronicles, foreign travelogues.</td>
+                <td>Vedas, Mahabharata, Ramayana, Arthashastra, plays of Kalidasa, accounts of Megasthenes, Xuanzang, and Al-Biruni.</td>
+              </tr>
+              <tr>
+                <td><strong>Artistic Sources</strong></td>
+                <td>Visual creative expressions preserved on monuments, rock walls, and ceilings.</td>
+                <td>Bhimbetka rock paintings, Ajanta cave murals, bronze statues of Nataraja, temple stone carvings.</td>
+              </tr>
+              <tr>
+                <td><strong>Oral Sources</strong></td>
+                <td>Spoken traditions passed down verbally across generations before being written down.</td>
+                <td>Folklore, legends, folk ballads, community songs, oral genealogy recitations.</td>
+              </tr>
+              <tr>
+                <td><strong>Modern Scientific Studies</strong></td>
+                <td>Cutting-edge scientific techniques supplementing traditional sources.</td>
+                <td>Ancient DNA and <strong>genetics</strong> (tracking migration), chemical analysis of pottery residue, tree rings and ice cores (palaeoclimatology).</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Historians as Detectives: The Jigsaw Puzzle Metaphor</h4>
+        <ul>
+          <li>Every surviving object, inscription, or manuscript is like a <strong>single piece in a giant jigsaw puzzle</strong>.</li>
+          <li>Unlike a boxed puzzle, many pieces of history are permanently lost, broken, or decayed over time.</li>
+          <li>Historians act like <strong>detectives</strong>: they search for clues, examine evidence critically, and test whether different sources corroborate each other.</li>
+          <li>When sources contradict each other, historians evaluate which source is more unbiased and reliable before reconstructing the historical truth.</li>
+        </ul>
+      </div>
+
+      <!-- TOPIC 4 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 4: The Beginnings of Human History &amp; The First Crops</div>
+        
+        <ul>
+          <li><strong>The Hunter-Gatherer Stage:</strong>
+            <ul>
+              <li>For roughly <strong>300,000 years</strong>, early humans (<em>Homo sapiens</em>) lived in nomadic bands.</li>
+              <li>They survived by <strong>hunting animals</strong> and <strong>gathering wild plants, roots, berries, and nuts</strong>.</li>
+              <li>They sheltered in caves, rock overhangs, and temporary leaf camps to protect against weather and predators.</li>
+              <li>They mastered the use of <strong>fire</strong> for warmth, light, cooking, and scaring away beasts.</li>
+              <li>They manufactured specialized stone tools: hand axes, scrapers, sharp blades, and arrowheads.</li>
+              <li>They expressed their experiences and beliefs through <strong>rock art</strong> in caves, adorned themselves with shell beads and animal-tooth pendants, and held beliefs regarding an <strong>afterlife</strong>.</li>
+            </ul>
+          </li>
+          <li><strong>The Ice Age &amp; Climate Transition:</strong>
+            <ul>
+              <li>The Earth experienced prolonged glacial periods called <strong>Ice Ages</strong>.</li>
+              <li>The last Ice Age lasted from roughly 100,000 years ago until it ended around <strong>12,000 years ago (~10,000 BCE)</strong>.</li>
+              <li>As the climate warmed, glaciers melted, rivers swelled, and lush grasslands and forests expanded across river basins.</li>
+            </ul>
+          </li>
+          <li><strong>The Dawn of Agriculture &amp; Animal Domestication:</strong>
+            <ul>
+              <li>With a warmer and wetter climate, humans noticed how dropped seeds sprouted into edible plants.</li>
+              <li>They began purposefully planting seeds, leading to the <strong>cultivation of cereals and grains</strong>.</li>
+              <li>They domesticated docile animals like <strong>cattle, sheep, and goats</strong> for milk, meat, and labour.</li>
+              <li>Agriculture required communities to stay in one place to sow, weed, and harvest crops, leading to permanent <strong>hamlets and villages</strong> near rivers where water was abundant and soil was fertile.</li>
+            </ul>
+          </li>
+          <li><strong>Growing Social Complexity &amp; New Technologies:</strong>
+            <ul>
+              <li>Early farming communities cultivated land collectively for the welfare of the entire group.</li>
+              <li>Elected leaders or <strong>chieftains</strong> guided community welfare, security, and resolution of disputes.</li>
+              <li>Surplus food created trade between neighboring hamlets, giving rise to communication networks and market towns.</li>
+              <li>Two revolutionary technologies emerged:
+                <ol>
+                  <li><strong>Pottery:</strong> Baking clay vessels to store surplus food grains, milk, and water, and to cook food.</li>
+                  <li><strong>Metallurgy:</strong> Smelting metals &mdash; starting with <strong>copper</strong> first, followed much later by <strong>iron</strong> &mdash; producing strong, durable axes, ploughshares, knives, and ornaments.</li>
+                </ol>
+              </li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="callout callout-def">
+          <div class="callout-title">📘 Key Definitions</div>
+          <ul>
+            <li><strong>Afterlife:</strong> The belief that human consciousness or life continues in another realm after physical death.</li>
+            <li><strong>Hamlet:</strong> A very small human settlement or cluster of houses, smaller than a village.</li>
+            <li><strong>Welfare:</strong> The general health, happiness, prosperity, and security of a community.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: FACT BANK & QUICK-REFERENCE TABLES
+         ========================================== -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3</span>
+        <h2>📊 Fact Bank &amp; Quick-Reference Chronology Tables</h2>
+      </div>
+
+      <h4>Table 4.1: Master Chronology of Key Historical Landmarks (Fig. 4.1 &amp; 4.3)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Approximate Date</th>
+              <th>Milestone in Life &amp; Human History</th>
+              <th>Historical Significance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>4.54 Billion Years Ago</strong></td>
+              <td>Formation of planet Earth</td>
+              <td>Beginning of Earth's geological timescale</td>
+            </tr>
+            <tr>
+              <td><strong>~300,000 BCE</strong></td>
+              <td>Emergence of <em>Homo sapiens</em></td>
+              <td>Anatomically modern humans begin walking the Earth</td>
+            </tr>
+            <tr>
+              <td><strong>~40,000 BCE</strong></td>
+              <td>First recognized rock art</td>
+              <td>Earliest evidence of human symbolic thought and artistic expression</td>
+            </tr>
+            <tr>
+              <td><strong>~10,000 BCE (12,000 yrs ago)</strong></td>
+              <td>End of the last Ice Age</td>
+              <td>Global warming triggers the birth of agriculture and permanent settlements</td>
+            </tr>
+            <tr>
+              <td><strong>~8000–6000 BCE</strong></td>
+              <td>First farming settlements &amp; pottery in India</td>
+              <td>Domestication of wheat, barley, cattle; emergence of villages (e.g. Mehrgarh)</td>
+            </tr>
+            <tr>
+              <td><strong>~4000 BCE</strong></td>
+              <td>Beginning of copper metallurgy</td>
+              <td>First use of metal tools (Chalcolithic phase)</td>
+            </tr>
+            <tr>
+              <td><strong>~2600–1900 BCE</strong></td>
+              <td>Indus-Sarasvati Civilisation</td>
+              <td>South Asia's first urban revolution with grid-planned brick cities</td>
+            </tr>
+            <tr>
+              <td><strong>~560 BCE</strong></td>
+              <td>Birth of Gautama Buddha</td>
+              <td>Spiritual turning point, rise of Mahajanapadas and Buddhism</td>
+            </tr>
+            <tr>
+              <td><strong>~268–232 BCE</strong></td>
+              <td>Reign of Emperor Ashoka</td>
+              <td>Mauryan Empire, famous rock and pillar edicts inscribed across India</td>
+            </tr>
+            <tr>
+              <td><strong>1 CE</strong></td>
+              <td>Conventional start of Common Era</td>
+              <td>Designated starting point of Gregorian calendar (no year zero)</td>
+            </tr>
+            <tr>
+              <td><strong>1947 CE</strong></td>
+              <td>Independence of India</td>
+              <td>Birth of the modern democratic Republic of India</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Table 4.2: Classification of Specialists Who Reconstruct the Past</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Profession</th>
+              <th>Field of Study</th>
+              <th>Key Tools / Evidence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Historian</strong></td>
+              <td>Written and unwritten records of human past</td>
+              <td>Manuscripts, records, travelogues, archives, critical cross-verification</td>
+            </tr>
+            <tr>
+              <td><strong>Archaeologist</strong></td>
+              <td>Material culture left behind by past people</td>
+              <td>Excavation tools, stratigraphy, pottery typology, radio-carbon dating</td>
+            </tr>
+            <tr>
+              <td><strong>Epigraphist</strong></td>
+              <td>Ancient inscriptions carved on hard surfaces</td>
+              <td>Inscribed rock faces, stone pillars, iron pillars, copper plates</td>
+            </tr>
+            <tr>
+              <td><strong>Numismatist</strong></td>
+              <td>Ancient coins, tokens, and currency</td>
+              <td>Cast and struck coins, metal purity, symbols, legends, mint marks</td>
+            </tr>
+            <tr>
+              <td><strong>Palaeontologist</strong></td>
+              <td>Prehistoric plant and animal life</td>
+              <td>Fossilized bones, teeth, leaf impressions in sedimentary rock</td>
+            </tr>
+            <tr>
+              <td><strong>Anthropologist</strong></td>
+              <td>Human origins, biological evolution, and cultural societies</td>
+              <td>Skeletal remains, tribal customs, linguistic patterns, genetics</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: NCERT TEXTBOOK SOLUTIONS
+         ========================================== -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4</span>
+        <h2>✍️ NCERT Textbook Solutions (Complete Line-by-Line)</h2>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q1. As a project, write the history of your family (or village if you live in one), using sources of history at your disposal. Ask your teacher to guide you.</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p><em>(Project Guide &amp; Model Framework):</em> To write a family history, we gather evidence just as historians gather sources of history:</p>
+            <ol>
+              <li><strong>Oral Sources (Interviews &amp; Recollections):</strong> Interview grandparents and parents about their childhood, ancestral hometown, occupations, traditions, and family stories.</li>
+              <li><strong>Documentary &amp; Written Sources:</strong> Family diaries, letters, birth certificates, old school mark sheets, property deeds, and family records.</li>
+              <li><strong>Material &amp; Visual Objects:</strong> Old photographs, ancestral jewelry, antique brass utensils, hand-woven heirlooms, medals, and old identity cards.</li>
+            </ol>
+            <p><strong>Synthesis:</strong> Arrange the collected data chronologically on a family tree spanning three generations (great-grandparents &rarr; grandparents &rarr; parents &rarr; yourself) to demonstrate how family lifestyle, residence, and technology evolved over time.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q2. Can we compare historians to detectives? Give reasons for your answers.</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p><strong>Yes, historians can be very accurately compared to detectives.</strong> Here are the clear reasons:</p>
+            <ul>
+              <li><strong>Searching for Clues:</strong> Just as a detective investigates a crime scene for fingerprints and discarded clues, a historian investigates archaeological sites and archives for remnants left behind (broken pottery, coins, seals, burnt seeds, ruined walls, old writings).</li>
+              <li><strong>Solving an Incomplete Puzzle:</strong> In both fields, crucial evidence is often missing or damaged. Historians piece together the surviving fragments like a jigsaw puzzle to understand what happened.</li>
+              <li><strong>Cross-Checking Witnesses:</strong> Detectives question multiple witnesses to see if their accounts agree. Similarly, historians compare different historical sources (e.g. comparing a royal inscription with foreign travelogues) to identify biases, resolve contradictions, and find the truth.</li>
+              <li><strong>Drawing Inferences:</strong> Neither a detective nor a historian was present when the past event occurred. Both must use critical reasoning, scientific tests (like carbon dating or DNA analysis), and logical deduction to reconstruct the sequence of events.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q3. A few exercises with dates:</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>(a) Place these dates chronologically on the timeline: 323 CE, 323 BCE, 100 CE, 100 BCE, 1900 BCE, 1090 CE, 2024 CE.</strong></p>
+            <p><em>Step-by-step arrangement (from earliest past to most recent):</em></p>
+            <ul>
+              <li>1. <strong>1900 BCE</strong> (Earliest &mdash; during late Indus-Sarasvati era)</li>
+              <li>2. <strong>323 BCE</strong> (Death of Alexander the Great)</li>
+              <li>3. <strong>100 BCE</strong></li>
+              <li><em>[Transition from 1 BCE to 1 CE &mdash; No Year Zero]</em></li>
+              <li>4. <strong>100 CE</strong></li>
+              <li>5. <strong>323 CE</strong> (Early Gupta period)</li>
+              <li>6. <strong>1090 CE</strong> (Medieval era)</li>
+              <li>7. <strong>2024 CE</strong> (Most recent / present era)</li>
+            </ul>
+            <p><strong>(b) If King Chandragupta was born in 320 CE, which century did he belong to? And how many years was that after the Buddha’s birth?</strong></p>
+            <ul>
+              <li><em>Century:</em> The year 320 CE falls between 301 CE and 400 CE, so King Chandragupta belonged to the <strong>4th century CE</strong>.</li>
+              <li><em>Years after Buddha's birth:</em> The Buddha was born around 560 BCE. To calculate elapsed years between a BCE date and a CE date, we add both dates and subtract 1 (since there is no year zero):<br>
+              <strong>560 + 320 - 1 = 879 years</strong>.<br>
+              Therefore, Chandragupta was born <strong>879 years</strong> after the birth of the Buddha.</li>
+            </ul>
+            <p><strong>(c) Rani of Jhansi was born in 1828. Which century did she belong to? How many years was that before India’s Independence?</strong></p>
+            <ul>
+              <li><em>Century:</em> The year 1828 falls between 1801 and 1900, so she belonged to the <strong>19th century CE</strong>.</li>
+              <li><em>Years before India's Independence (1947):</em> Since both are CE dates, we simply subtract:<br>
+              <strong>1947 - 1828 = 119 years</strong>.<br>
+              She was born <strong>119 years</strong> before India gained independence in 1947.</li>
+            </ul>
+            <p><strong>(d) Turn ‘12,000 years ago’ into a date.</strong></p>
+            <ul>
+              <li>Suppose the present year is <strong>2024 CE</strong> (or ~2000 CE):<br>
+              12,000 - 2,024 = 9,976 BCE &approx; <strong>10,000 BCE</strong>.<br>
+              Therefore, 12,000 years ago corresponds to approximately <strong>10,000 BCE</strong> (marking the end of the last Ice Age).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q4. Plan a visit to a nearby museum: prepare research, take notes, and write a report highlighting unexpected/interesting exhibits.</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Model Museum Visit Report (National Museum / State Museum):</strong></p>
+            <ul>
+              <li><strong>Prior Preparation:</strong> Researched the museum's galleries beforehand, specifically looking for Harappan artefacts, Mauryan sculptures, and ancient coin collections.</li>
+              <li><strong>Key Observations:</strong>
+                <ul>
+                  <li><em>Terracotta Toys &amp; Pottery:</em> Small wheel-carts and animal figurines sculpted over 4,000 years ago demonstrated that children in ancient times played with toys similar to our model cars.</li>
+                  <li><em>Inscribed Copper Plates:</em> Saw real copper plates engraved with ancient Brahmi script recording royal land grants to scholars and temples.</li>
+                  <li><em>Punch-Marked Silver Coins:</em> Irregular shaped pieces of silver stamped with sun, tree, and hill symbols, showing early currency systems before machine-minted round coins.</li>
+                </ul>
+              </li>
+              <li><strong>Most Unexpected / Interesting Insight:</strong> How well polished the ancient stone sculptures were (e.g. the Mauryan stone polish), looking as smooth and shiny as modern polished glass despite being over 2,200 years old!</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q5. Invite to your school an archaeologist or a historian and ask them to speak on the history of your region and why it’s important to know it.</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Model Outline of School Interactive Session:</strong></p>
+            <ul>
+              <li><strong>Guest:</strong> Visiting District Archaeological Officer / University Historian.</li>
+              <li><strong>Key Topics Covered:</strong>
+                <ul>
+                  <li>How excavations in our home district revealed ancient riverbank settlements and megalithic burial urns.</li>
+                  <li>How studying local inscriptions helps decipher ancient trade routes connecting our region with maritime ports.</li>
+                  <li>Why local heritage (stepwells, temples, village mounds) must be preserved from destruction during modern road expansions.</li>
+                </ul>
+              </li>
+              <li><strong>Why Knowing Regional History Matters:</strong> It instills pride in local heritage, connects textbook lessons with our immediate physical surroundings, and teaches us to preserve cultural monuments as responsible citizens.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: PYQ & COMPETENCY-BASED QUESTION BANK
+         ========================================== -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5</span>
+        <h2>🎯 CBSE PYQs &amp; Competency-Based Exam Bank</h2>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 1-Mark MCQ</span> Why is there no 'year zero' in the Gregorian calendar?</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> When the calendar system was devised in medieval Europe, the mathematical concept of 'zero' was not in use in Roman numerals. The sequence went straight from 1 BC to 1 AD (now 1 BCE to 1 CE).</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 1-Mark MCQ</span> In which millennium CE are we currently living?</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: The 3rd Millennium CE.</strong></p>
+            <p><em>Explanation:</em> The 1st millennium was 1–1000 CE, the 2nd millennium was 1001–2000 CE, and the 3rd millennium spans 2001 to 3000 CE.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 2-Mark Short Answer</span> What are inscriptions and why are they considered more durable than manuscripts?</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p><strong>Inscriptions</strong> are writings engraved on hard, permanent surfaces such as stone pillars, rock walls, temple slabs, and copper plates.</p>
+            <ul>
+              <li><strong>Why more durable:</strong> Manuscripts written on palm leaves or birch bark are fragile and easily eaten by insects, burnt, or decayed by humidity. In contrast, inscriptions carved into hard stone or metal survive intact for thousands of years.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 3-Mark Analytical</span> How has modern science assisted historians in reconstructing the ancient past over the last 50 years?</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <ol>
+              <li><strong>Genetics and Ancient DNA:</strong> Extracts genetic material from ancient human teeth and bones, mapping migration patterns and ancestral origins across continents.</li>
+              <li><strong>Chemical Residue Analysis:</strong> Analyzes organic lipid and chemical residues on ancient pottery shards, revealing what food crops, milk, or meats were cooked thousands of years ago.</li>
+              <li><strong>Palaeoclimatology:</strong> Studies tree rings, deep ice cores, and pollen grains to reconstruct past climate shifts, rainfall patterns, droughts, and Ice Ages.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 5-Mark Case Study</span> "The transition from hunting-gathering to farming was one of the greatest turning points in human history." Explain how human life transformed after the end of the last Ice Age.</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p>Around 12,000 years ago (~10,000 BCE), the end of the last Ice Age brought warmer temperatures, melting ice, and expanding river valleys. This led to fundamental transformations:</p>
+            <ul>
+              <li><strong>From Nomadic to Settled Life:</strong> Hunter-gatherers moved constantly in search of animals and seasonal plants. Farming required them to settle in permanent hamlets to care for crops from sowing to harvesting.</li>
+              <li><strong>Surplus Food &amp; Population Growth:</strong> Agriculture yielded far more food than wild foraging. Food security allowed populations to multiply and hamlets to grow into villages.</li>
+              <li><strong>Domestication of Animals:</strong> Cattle, sheep, and goats were tamed for milk, meat, wool, and agricultural draught work.</li>
+              <li><strong>Invention of New Technologies:</strong>
+                <ul>
+                  <li><em>Pottery:</em> Clay pots were crafted and baked to boil food and store surplus grain.</li>
+                  <li><em>Metallurgy:</em> Discovery of copper (and later iron) led to sturdy axes, sickles, and weapons.</li>
+                </ul>
+              </li>
+              <li><strong>Social Organization:</strong> Communities developed collective harvesting, chieftains for governance, and trade networks between villages that eventually paved the way for early civilisations.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: REVISION & COMMON MISTAKES
+         ========================================== -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6</span>
+        <h2>⚡ 5-Minute Rapid Revision &amp; Exam Hall Traps</h2>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">⚠️ 5 Common "Exam Hall Mistakes" &amp; How to Avoid Them</div>
+        <ol>
+          <li><strong>Mistake 1: Forgetting to subtract 1 when calculating years between BCE and CE dates.</strong><br>
+          <em>Fix:</em> Because there is no Year Zero, always use: <strong>Elapsed Years = BCE Date + CE Date - 1</strong>.</li>
+          <li><strong>Mistake 2: Counting BCE centuries forward instead of backward.</strong><br>
+          <em>Fix:</em> BCE counts backward! The <strong>3rd century BCE</strong> spans <strong>300 BCE to 201 BCE</strong> (not 201 to 300 CE).</li>
+          <li><strong>Mistake 3: Confusing an Archaeologist with a Palaeontologist.</strong><br>
+          <em>Fix:</em> <strong>Archaeologists</strong> study <em>human material remains</em> (pots, tools, brick structures); <strong>Palaeontologists</strong> study <em>fossilized plants and animals</em> from millions of years ago.</li>
+          <li><strong>Mistake 4: Assuming all century years are leap years.</strong><br>
+          <em>Fix:</em> In the Gregorian calendar, a century year is a leap year <strong>only if divisible by 400</strong> (2000 was a leap year; 1800 and 1900 were regular years).</li>
+          <li><strong>Mistake 5: Assuming early farming land belonged to individual owners.</strong><br>
+          <em>Fix:</em> In the earliest agricultural communities, land was held <strong>collectively</strong> for the common welfare of the entire group.</li>
+        </ol>
+      </div>
+
+      <h4>⚡ 15 Ultra-Crisp Rapid Revision One-Liners</h4>
+      <ol>
+        <li>⚡ <strong>History</strong> is the study of the human past; E.H. Carr defined it as an unending dialogue between the present and the past.</li>
+        <li>⚡ Modern humans (<em>Homo sapiens</em>) have walked the planet for roughly <strong>300,000 years</strong>.</li>
+        <li>⚡ <strong>Geologists</strong> study Earth's physical features; <strong>Palaeontologists</strong> study fossils; <strong>Anthropologists</strong> study cultures; <strong>Archaeologists</strong> excavate material remains.</li>
+        <li>⚡ <strong>CE</strong> stands for Common Era (formerly AD); <strong>BCE</strong> stands for Before Common Era (formerly BC).</li>
+        <li>⚡ There is <strong>no year zero</strong> in the Gregorian calendar; 1 CE follows immediately after 1 BCE.</li>
+        <li>⚡ To calculate elapsed time between a BCE and a CE date: <strong>BCE + CE - 1</strong>.</li>
+        <li>⚡ A <strong>decade</strong> is 10 years, a <strong>century</strong> is 100 years, and a <strong>millennium</strong> is 1,000 years.</li>
+        <li>⚡ Century years are leap years in the Gregorian calendar <strong>only if divisible by 400</strong> (e.g. 2000).</li>
+        <li>⚡ An Indian <strong>pañchānga</strong> is a lunisolar astronomical almanac recording lunar days, eclipses, and seasonal timings.</li>
+        <li>⚡ <strong>Historical sources</strong> are classified into Archaeological, Epigraphical, Numismatic, Literary, Artistic, and Oral categories.</li>
+        <li>⚡ <strong>Historians work like detectives</strong>, searching for surviving evidence and cross-checking conflicting accounts.</li>
+        <li>⚡ Modern <strong>genetics</strong>, residue chemistry, and palaeoclimatology provide scientific breakthroughs in reconstructing ancient migrations and diets.</li>
+        <li>⚡ The <strong>last Ice Age ended ~12,000 years ago (~10,000 BCE)</strong>, triggering warmer climates and the rise of agriculture.</li>
+        <li>⚡ Farming led to settled <strong>hamlets</strong> near riverbanks, collective land use, chieftains, and animal domestication (cattle, sheep, goats).</li>
+        <li>⚡ Two major prehistoric technologies that laid the groundwork for civilisations were <strong>pottery</strong> and <strong>metallurgy</strong> (copper first, iron later).</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <script>
+    function toggleAllAnswers(openState) {
+      const detailsList = document.querySelectorAll('details.ans-box');
+      detailsList.forEach(item => {
+        item.open = openState;
+      });
+    }
+
+    // Automatic safeguard to strip any accidental cite tags from text nodes
+    document.addEventListener("DOMContentLoaded", function () {
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+      let node;
+      const citeRegex = /\[\s*cite:\s*[\d,\s]+\]/gi;
+      while ((node = walker.nextNode())) {
+        if (citeRegex.test(node.nodeValue)) {
+          node.nodeValue = node.nodeValue.replace(citeRegex, '');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
