@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Study Note: Ch 3 - Landforms and Life (Class 6 Social Science)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-body); color: var(--text-main);
+      line-height: 1.65; font-size: 15.5px; padding-bottom: 60px;
+    }
+    .top-bar {
+      position: sticky; top: 0; z-index: 1000;
+      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border); padding: 10px 24px;
+      display: flex; flex-wrap: wrap; align-items: center;
+      justify-content: space-between; gap: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+    .nav-links { display: flex; flex-wrap: wrap; gap: 6px; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-muted); font-weight: 600;
+      font-size: 0.82rem; padding: 6px 12px; border-radius: 8px; transition: all 0.2s;
+    }
+    .nav-links a:hover { background: var(--primary-light); color: var(--primary-dark); }
+    .toolbar-actions { display: flex; gap: 8px; align-items: center; }
+    .btn {
+      border: 1px solid var(--border); background: var(--bg-card); color: var(--text-main);
+      font-family: inherit; font-weight: 600; font-size: 0.82rem;
+      padding: 7px 14px; border-radius: 8px; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px; transition: all 0.2s;
+    }
+    .btn:hover { background: #f1f5f9; border-color: #cbd5e1; }
+    .btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .btn-primary:hover { background: var(--primary-dark); }
+    .container { max-width: 1080px; margin: 28px auto; padding: 0 20px; }
+    .hero {
+      background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 55%, #0d9488 100%);
+      color: #ffffff; border-radius: 20px; padding: 36px 32px; margin-bottom: 32px;
+      box-shadow: 0 12px 30px -8px rgba(2, 132, 199, 0.35);
+      position: relative; overflow: hidden;
+    }
+    .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
+    .badge {
+      background: rgba(255,255,255,0.18); backdrop-filter: blur(4px);
+      padding: 4px 12px; border-radius: 999px; font-size: 0.78rem;
+      font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
+    }
+    .hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 10px; }
+    .hero p { font-size: 1rem; opacity: 0.92; max-width: 780px; }
+    .section-card {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 30px; margin-bottom: 28px;
+      box-shadow: var(--shadow);
+    }
+    .section-header {
+      display: flex; align-items: center; gap: 12px;
+      border-bottom: 2px solid #f1f5f9; padding-bottom: 14px; margin-bottom: 22px;
+    }
+    .section-num {
+      background: var(--primary); color: white; font-weight: 800; font-size: 0.85rem;
+      padding: 5px 11px; border-radius: 8px; letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .section-header h2 { font-size: 1.45rem; font-weight: 800; color: var(--text-main); }
+    .topic-block { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px dashed var(--border); }
+    .topic-block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .topic-title {
+      font-size: 1.22rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px; background: #f0f9ff;
+      padding: 10px 16px; border-radius: 10px; border-left: 5px solid var(--primary);
+    }
+    h4 {
+      font-size: 1rem; font-weight: 700; color: #1e293b; margin: 18px 0 10px 0;
+      display: flex; align-items: center; gap: 6px;
+    }
+    ul, ol { padding-left: 22px; margin-bottom: 14px; }
+    li { margin-bottom: 7px; }
+    li strong { color: #0f172a; }
+    .callout { border-radius: 12px; padding: 16px 20px; margin: 16px 0; border-left: 5px solid; }
+    .callout-title { font-weight: 800; font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+    .callout-def { background-color: #f0f9ff; border-left-color: #0284c7; color: #0c4a6e; }
+    .callout-act { background-color: #f0fdfa; border-left-color: #0d9488; color: #115e59; }
+    .callout-pyq { background-color: #fffbeb; border-left-color: #f59e0b; color: #78350f; }
+    .callout-hack { background-color: #f5f3ff; border-left-color: #7c3aed; color: #4c1d95; }
+    .callout-warn { background-color: #fff1f2; border-left-color: #e11d48; color: #881337; }
+    .quote-box {
+      background: linear-gradient(to right, #f8fafc, #f0f9ff); border-left: 4px solid var(--primary);
+      padding: 16px 20px; border-radius: 10px; font-style: italic; color: #334155; margin: 14px 0;
+    }
+    .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; border: 1px solid var(--border); }
+    table { width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left; }
+    th { background: #f1f5f9; color: #0f172a; font-weight: 700; padding: 12px 14px; border-bottom: 2px solid var(--border); }
+    td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) { background-color: #f8fafc; }
+    .mindmap-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+    .mm-root {
+      background: var(--primary-dark); color: #fff; font-weight: 800; text-align: center;
+      padding: 12px 20px; border-radius: 10px; max-width: 480px; margin: 0 auto 20px auto;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    }
+    .mm-branches { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .mm-col { background: #fff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 16px; }
+    .mm-col-mountain { border-top: 5px solid #0284c7; }
+    .mm-col-plateau { border-top: 5px solid #d97706; }
+    .mm-col-plain { border-top: 5px solid #16a34a; }
+    .mm-branch-title { font-weight: 800; font-size: 1rem; margin-bottom: 12px; text-align: center; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .mm-node { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 12px; margin-bottom: 8px; font-size: 0.88rem; }
+    .diagram-card { background: #ffffff; border: 2px solid #e0f2fe; border-radius: 12px; padding: 20px; margin: 18px 0; text-align: center; }
+    .diagram-caption { font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; font-weight: 600; }
+    .q-card { background: #ffffff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; }
+    .q-title { font-weight: 700; color: #0f172a; margin-bottom: 8px; }
+    .pyq-tag { background: #fef3c7; color: #b45309; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 6px; margin-right: 6px; display: inline-block; }
+    details.ans-box { margin-top: 10px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; padding: 10px 14px; }
+    details.ans-box summary { cursor: pointer; font-weight: 700; font-size: 0.88rem; color: var(--primary-dark); user-select: none; }
+    .ans-content { margin-top: 10px; padding-top: 10px; border-top: 1px solid #e2e8f0; font-size: 0.93rem; }
+    @media print {
+      body { background: #fff; font-size: 11pt; color: #000; padding: 0; }
+      .top-bar { display: none !important; }
+      .container { max-width: 100%; margin: 0; padding: 0; }
+      .hero { background: #f0f9ff !important; color: #0f172a !important; border: 2px solid #0284c7; box-shadow: none; padding: 20px; }
+      .badge { background: #e0f2fe !important; color: #0369a1 !important; border: 1px solid #0284c7; }
+      .section-card { box-shadow: none; border: 1px solid #cbd5e1; page-break-inside: auto; margin-bottom: 18px; padding: 18px; }
+      .callout, .q-card, .diagram-card, tr { page-break-inside: avoid; }
+      details.ans-box > summary { display: none; }
+      details.ans-box > .ans-content { display: block !important; border-top: none; margin-top: 0; padding-top: 0; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    }
+    @media (max-width: 768px) {
+      .mm-branches { grid-template-columns: 1fr; }
+      .hero h1 { font-size: 1.65rem; }
+      .section-card { padding: 18px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- STICKY NAVIGATION & INTERACTIVE TOOLBAR -->
+  <nav class="top-bar">
+    <div class="nav-links">
+      <a href="#sec1">1. Blueprint</a>
+      <a href="#sec2">2. Master Notes</a>
+      <a href="#sec3">3. Fact Bank</a>
+      <a href="#sec4">4. NCERT Solutions</a>
+      <a href="#sec5">5. PYQ &amp; CBE Bank</a>
+      <a href="#sec6">6. Revision &amp; Mistakes</a>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn" onclick="toggleAllAnswers(true)">👁️ Expand All Answers</button>
+      <button class="btn" onclick="toggleAllAnswers(false)">🙈 Collapse Answers</button>
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- HERO HEADER -->
+    <header class="hero">
+      <div class="hero-badges">
+        <span class="badge">Class 06 Social Science</span>
+        <span class="badge">NCERT: Exploring Society: India and Beyond</span>
+        <span class="badge">Theme A: India and the World: Land and the People</span>
+        <span class="badge">100% Zero-Omission Master Note</span>
+      </div>
+      <h1>🏔️ Chapter 3: Landforms and Life</h1>
+      <p>Complete Line-by-Line NCERT Coverage, Decoded Activities, Interactive Visual Diagrams, Topper-Style NCERT Solutions &amp; Competency Question Bank.</p>
+    </header>
+
+    <!-- ==========================================
+         SECTION 1: CHAPTER BLUEPRINT & TRENDS
+         ========================================== -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1</span>
+        <h2>🗺️ Chapter Blueprint &amp; CBSE Exam Trend Analysis</h2>
+      </div>
+
+      <h4>1. Chapter At A Glance (Interactive Visual Mind Map)</h4>
+      <div class="mindmap-box">
+        <div class="mm-root">🌍 LANDFORMS OF THE EARTH</div>
+        <div class="mm-branches">
+          <!-- Mountains Branch -->
+          <div class="mm-col mm-col-mountain">
+            <div class="mm-branch-title" style="color: #0284c7;">🏔️ MOUNTAINS</div>
+            <div class="mm-node"><strong>Features:</strong> Broad base, steep slopes, narrow summit; some snow-capped</div>
+            <div class="mm-node"><strong>Types:</strong> Young (sharp peaks, e.g. Himalayas) &amp; Old (rounded, e.g. Aravalli)</div>
+            <div class="mm-node"><strong>Ranges:</strong> Himalayas (Asia), Alps (Europe), Andes (S. America)</div>
+            <div class="mm-node"><strong>Environment:</strong> Montane forests, conifers (pine, fir, deodar), mosses, lichen</div>
+            <div class="mm-node"><strong>Life:</strong> Terrace farming, herding, tourism, pilgrimages</div>
+            <div class="mm-node"><strong>Challenges:</strong> Avalanche, landslide, flash flood, cloudburst, heavy snowfall</div>
+            <div class="mm-node"><strong>Sacred:</strong> Everest (Chomolungma), Kailash &mdash; revered across cultures</div>
+          </div>
+          <!-- Plateaus Branch -->
+          <div class="mm-col mm-col-plateau">
+            <div class="mm-branch-title" style="color: #d97706;">🏜️ PLATEAUS</div>
+            <div class="mm-node"><strong>Features:</strong> Rises from surrounding land, flat surface, steep sides</div>
+            <div class="mm-node"><strong>Examples:</strong> Tibetan Plateau (largest, highest, 'Roof of the World') &amp; Deccan Plateau (oldest)</div>
+            <div class="mm-node"><strong>Minerals:</strong> 'Storehouses of minerals' &mdash; gold, diamond, iron, coal, manganese</div>
+            <div class="mm-node"><strong>Mining:</strong> East African Plateau (gold, diamonds), Chhota Nagpur (iron, coal, manganese)</div>
+            <div class="mm-node"><strong>Soil:</strong> Rocky &amp; less fertile &mdash; except lava plateaus (rich black soil)</div>
+            <div class="mm-node"><strong>Waterfalls:</strong> Victoria Falls, Hundru Falls, Jog Falls, Nohkalikai Falls (340 m)</div>
+          </div>
+          <!-- Plains Branch -->
+          <div class="mm-col mm-col-plain">
+            <div class="mm-branch-title" style="color: #16a34a;">🌾 PLAINS</div>
+            <div class="mm-node"><strong>Features:</strong> Flat / gently undulating, no large hills, generally &lt; 300 m above sea level</div>
+            <div class="mm-node"><strong>Floodplains:</strong> Formed by river sediments (rock, sand, silt) &rarr; very fertile soil</div>
+            <div class="mm-node"><strong>Ganga Plain:</strong> ~40 crore people (&gt; 1/4 of India's population)</div>
+            <div class="mm-node"><strong>Crops:</strong> Rice, wheat, maize, barley, millets, cotton, jute, hemp</div>
+            <div class="mm-node"><strong>Occupations:</strong> Agriculture, river fishing, river navigation &amp; trade</div>
+            <div class="mm-node"><strong>Culture:</strong> First civilisations; sacred confluences; festivals &amp; rituals at river sites</div>
+            <div class="mm-node"><strong>Challenges:</strong> Groundwater depletion, high population, pollution</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title">🔥 CBSE Weightage &amp; Top 5 High-Yield Exam Topics</div>
+        <ol>
+          <li><strong>Three Main Landforms &amp; Their Features:</strong> Distinguishing features of mountains, plateaus, and plains (broad base vs. elevated tableland vs. low flat plains).</li>
+          <li><strong>Young vs. Old Mountains:</strong> Key contrasts &mdash; Himalayas (young, sharp peaks, active upliftment) vs. Aravalli Range (old, rounded by erosion over millions of years).</li>
+          <li><strong>Plateaus as 'Storehouses of Minerals':</strong> Mining hubs such as Chhota Nagpur Plateau (iron, coal, manganese) and East African Plateau (gold, diamonds).</li>
+          <li><strong>Life in the Plains &amp; River Confluences:</strong> Fertile river sediments, agricultural bounty of the Ganga Plain, and cultural value of sacred river sources and confluences.</li>
+          <li><strong>Mountain Challenges &amp; Human Adaptation:</strong> Terrace farming, herding, extreme weather risks (avalanche, landslide, cloudburst, flash flood), and achievements of mountaineers like Bachendri Pal and Arunima Sinha.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: EXHAUSTIVE TOPIC-BY-TOPIC NOTES
+         ========================================== -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2</span>
+        <h2>📚 Exhaustive Topic-by-Topic Notes (Zero-Omission Policy)</h2>
+      </div>
+
+      <!-- TOPIC 1 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 1: Introduction – What is a Landform?</div>
+        
+        <div class="quote-box">
+          "Free from the burden of human beings, may the Earth with many heights, slopes and great plains, bearing plants endowed with varied powers, spread out for us and show us her riches! … The Earth is my mother and I am her child."<br>
+          <strong>— Atharva Veda, Bhūmi Sūkta (‘Hymn to the Earth’)</strong>
+        </div>
+
+        <ul>
+          <li><strong>Humans and the Land:</strong> Humans, like most mammals, live on land. The surface of land is not uniform; its appearance changes remarkably from region to region.</li>
+          <li><strong>The Representative Indian Journey:</strong>
+            <ul>
+              <li>Suppose you travel by road from <strong>Chhota Nagpur</strong> in Jharkhand, pass through <strong>Prayagraj</strong> in Uttar Pradesh, and proceed upward to <strong>Almora</strong> in Uttarakhand.</li>
+              <li>On this journey, you encounter three completely different physical landscapes: the rugged mineral-rich tableland of Chhota Nagpur (<strong>plateau</strong>), the flat fertile river basin of Prayagraj (<strong>plain</strong>), and the steep towering peaks of Almora (<strong>mountain</strong>).</li>
+            </ul>
+          </li>
+          <li><strong>Definition of a Landform:</strong> A physical feature on the surface of our planet Earth. Landforms take shape over millions of years through geological processes and have a profound connection with climate, environment, and all forms of life.</li>
+          <li><strong>Three Broad Categories:</strong> <strong>Mountains</strong>, <strong>Plateaus</strong>, and <strong>Plains</strong> (Fig. 3.1). In addition, extreme dry expanses form <strong>Deserts</strong>.</li>
+        </ul>
+
+        <div class="callout callout-def">
+          <div class="callout-title">📘 Key Definition: Altitude</div>
+          <p><strong>Altitude:</strong> The height of an object or point above sea level. Examples include the altitude of a mountain peak, the altitude of an aircraft in flight, or the altitude of an orbiting satellite.</p>
+        </div>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 Activity 1 Decoded ("LET’S EXPLORE" - Page 42): School Surroundings &amp; Travel Observations</div>
+          <ul>
+            <li><strong>🧪 Setup:</strong> Form groups of 4–5 students and observe the local landscape around your school. Determine whether the terrain changes within a few kilometres or within 50 km.</li>
+            <li><strong>👀 Observation:</strong> In coastal or deltaic regions, the landscape remains flat plain for miles; near hilly tracts (such as the Western or Eastern Ghats), rolling hills and valleys appear rapidly within 20–30 km.</li>
+            <li><strong>💡 Conclusion:</strong> Landscape features govern local climate, transport, occupations, and human settlements.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TOPIC 2 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 2: Mountains – Features, Ranges, Environment &amp; Life</div>
+        
+        <ul>
+          <li><strong>Key Physical Characteristics:</strong> Mountains are landforms that rise much higher than the surrounding landscape. They are distinguished by a <strong>broad base</strong>, <strong>steep slopes</strong>, and a <strong>narrow summit (peak)</strong>.</li>
+          <li><strong>Snow and Rivers:</strong>
+            <ul>
+              <li>At lower altitudes, winter snow melts during summer, turning into water that feeds perennial rivers.</li>
+              <li>At very high altitudes, temperatures remain below freezing point year-round, keeping summits permanently snow-capped.</li>
+            </ul>
+          </li>
+          <li><strong>Hills vs. Mountains:</strong> Highlands with lower elevations, gentler slopes, and rounded tops are classified as <strong>hills</strong>.</li>
+        </ul>
+
+        <div class="callout callout-def">
+          <div class="callout-title">📘 Key Definition: Precipitation</div>
+          <p><strong>Precipitation:</strong> Water from the atmosphere reaching the ground in any form. Rain, snow, and hail are the most common forms of precipitation. Snow and hailstones are precipitation of water in a solid state.</p>
+        </div>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 Activity 2 Decoded ("THINK ABOUT IT" - Page 43): What is Snow?</div>
+          <ul>
+            <li><strong>🧪 Context:</strong> Unless living in high Himalayan regions (such as Kashmir, Ladakh, Himachal Pradesh, Uttarakhand, Sikkim, or Arunachal Pradesh), most students in peninsular India only experience rain or occasional hail.</li>
+            <li><strong>💡 Scientific Reason:</strong> When atmospheric temperature in clouds drops below 0°C (freezing point of water), water vapor condenses directly into delicate ice crystals that flutter down as soft white flakes of snow.</li>
+          </ul>
+        </div>
+
+        <h4>Young vs. Old Mountains</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Young Fold Mountains (e.g. Himalayas)</th>
+                <th>Old Mountains / Hills (e.g. Aravalli Range)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Peak Appearance</strong></td>
+                <td>Tall, rugged, sharp, and conical peaks</td>
+                <td>Low, gentle, and rounded tops</td>
+              </tr>
+              <tr>
+                <td><strong>Geological Age</strong></td>
+                <td>Formed relatively recently in Earth's geological history (millions of years ago)</td>
+                <td>Formed hundreds of millions of years ago</td>
+              </tr>
+              <tr>
+                <td><strong>Erosion Level</strong></td>
+                <td>Minimal erosion; active upliftment continues today</td>
+                <td>Deeply weathered and rounded by continuous erosion</td>
+              </tr>
+              <tr>
+                <td><strong>Current Activity</strong></td>
+                <td>Still growing in height due to tectonic plate movements</td>
+                <td>Stable, gradually lowering due to weathering</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>Mountain Ranges of the World</h4>
+        <p>Most mountains occur in long chains called <strong>mountain ranges</strong> stretching for thousands of kilometres:</p>
+        <ul>
+          <li><strong>Himalayas:</strong> Located in Asia; home to the world's highest peaks including <strong>Mount Everest</strong> (8,848 m, on the border between Nepal and Tibet/China) and <strong>Kanchenjunga</strong> (between Nepal and Sikkim, India).</li>
+          <li><strong>Andes:</strong> Located in South America; the longest continental mountain range on Earth, with <strong>Mount Aconcagua</strong> as its highest peak.</li>
+          <li><strong>Alps:</strong> Located in Europe; its highest peak is <strong>Mont Blanc</strong>.</li>
+          <li><strong>Mount Kilimanjaro:</strong> Located in eastern Africa; a famous example of an <strong>isolated mountain</strong> that is not part of any mountain chain.</li>
+          <li><strong>Anamudi (Anai Peak):</strong> Located in Kerala (Western Ghats); the highest mountain peak in South India.</li>
+        </ul>
+
+        <div class="callout callout-hack">
+          <div class="callout-title">💡 Memory Hack: 6 Iconic Mountains &amp; Locations</div>
+          <p><strong>E-K-A-K-M-A:</strong> <strong>E</strong>verest (Nepal/Tibet) &bull; <strong>K</strong>anchenjunga (India/Nepal) &bull; <strong>A</strong>concagua (Andes, S. America) &bull; <strong>K</strong>ilimanjaro (Africa - Isolated) &bull; <strong>M</strong>ont Blanc (Alps, Europe) &bull; <strong>A</strong>namudi (South India, Kerala).</p>
+        </div>
+
+        <h4>Mountain Environment: Montane Flora &amp; Fauna</h4>
+        <ul>
+          <li><strong>Montane Forest:</strong> Mountain slopes are blanketed with montane forests dominated by <strong>conifer trees</strong> such as <strong>pines, firs, spruce, and deodar</strong>. These trees feature cone-shaped canopies and needle-like pointed leaves that prevent snow accumulation.</li>
+          <li><strong>High-Altitude Vegetation:</strong> Above the tree line, cold winds restrict tree growth, giving way to hardy alpine grasses, <strong>mosses</strong> (flowerless cushion-like green plants), and <strong>lichens</strong> (crusty organisms clinging to rocks).</li>
+          <li><strong>Diverse Mountain Fauna:</strong> Animals with thick coats or specialized agility thrive here: <strong>snow leopard, black bear, Canadian lynx, peregrine falcon, golden eagle, Himalayan tahr, ibex, mountain hare, grey fox, and yak</strong>.</li>
+        </ul>
+
+        <div class="quote-box">
+          "In the north rises Himālaya, the Lord of mountains, like a living god, who measures the Earth and stretches from the western to the eastern oceans. … From it the wind comes down, carrying spray from descending Gangā, shaking the deodar trees, opening the peacocks’ tail feathers and cooling the mountain people after they hunt deer."<br>
+          <strong>— Kālidāsa, Kumārasambhava (composed ~1,500 years ago)</strong>
+        </div>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 In-Box Decoded: The Ganga River System</div>
+          <ul>
+            <li><strong>Length &amp; Origin:</strong> Nearly 2,500 km long, originating from Himalayan glaciers.</li>
+            <li><strong>Tributaries:</strong> Major Himalayan tributaries include the <strong>Yamuna</strong> and the <strong>Ghagara</strong>. Southern tributaries originating from the Vindhya Range include the <strong>Son (Sone)</strong>.</li>
+          </ul>
+        </div>
+
+        <h4>Human Life in the Mountains</h4>
+        <ul>
+          <li><strong>Rugged Terrain:</strong> Steep slopes and rocky ground make conventional flat-land farming impossible.</li>
+          <li><strong>Terrace Farming:</strong> To cultivate crops on mountain slopes, farmers cut broad, flat steps into the hillside (Fig. 3.5). These terraces reduce water runoff and prevent soil erosion.</li>
+          <li><strong>Herding &amp; Pastoralism:</strong> In high mountain tracts, herding animals like sheep, goats, and yaks is preferred over farming.</li>
+          <li><strong>Tourism &amp; Adventure Sports:</strong> Clean mountain air, breathtaking scenery, and snow attract tourists for skiing, hiking, mountaineering, and paragliding.</li>
+          <li><strong>Pilgrimages:</strong> For centuries, sacred shrines located in the mountains (such as Badrinath, Kedarnath, and Amarnath) have drawn pilgrims.</li>
+        </ul>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 Inspiring Achievers in Mountaineering</div>
+          <ul>
+            <li><strong>Bachendri Pal:</strong> Became the first Indian woman to conquer Mount Everest in 1984. She received the Padma Shri in 1984 and the Padma Bhushan in 2019 for promoting mountaineering among women.</li>
+            <li><strong>Arunima Sinha:</strong> After losing a leg in a train accident at age 22, trained under Bachendri Pal and became the world's first female amputee to summit Mount Everest in 2013. She conquered the highest peaks of all seven continents, including Mount Vinson in Antarctica. Awarded Padma Shri in 2015.</li>
+          </ul>
+        </div>
+
+        <h4>Natural and Human-Made Challenges in Mountains</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Hazard</th>
+                <th>Scientific Nature &amp; Cause</th>
+                <th>Impact on Life</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Avalanche</strong></td>
+                <td>Sudden rush of snow, ice, and rocks tumbling down a mountainside, triggered when snow melts or shakes.</td>
+                <td>Buries roads, villages, and climbers instantly.</td>
+              </tr>
+              <tr>
+                <td><strong>Landslide</strong></td>
+                <td>Rapid collapse of rock, mud, and debris down steep slopes caused by heavy rainfall or seismic tremors.</td>
+                <td>Blocks highways, severs communication, and damages mountain settlements.</td>
+              </tr>
+              <tr>
+                <td><strong>Cloudburst</strong></td>
+                <td>Sudden, intensely violent rainstorm dumping immense volumes of water over a localized mountain area.</td>
+                <td>Triggers catastrophic flash floods and debris flows.</td>
+              </tr>
+              <tr>
+                <td><strong>Flash Flood</strong></td>
+                <td>Sudden, high-velocity surge of water rushing through mountain valleys following a cloudburst or dam breach.</td>
+                <td>Washes away bridges, riverbank houses, and infrastructure with zero warning.</td>
+              </tr>
+              <tr>
+                <td><strong>Uncontrolled Tourism</strong></td>
+                <td>Overcrowding, vehicular exhaust, deforestation, and plastic pollution in fragile alpine ecosystems.</td>
+                <td>Accelerates slope instability, water contamination, and ecological disruption.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-pyq">
+          <div class="callout-title">🔥 Sacred Mountains of the World</div>
+          <p>Mount Everest (8,848 m) is called <strong>Chomolungma</strong> ('Mother Goddess of the World') by Tibetans and <strong>Sagarmatha</strong> ('Goddess of the Sky') by Nepalis. <strong>Mount Kailash</strong> in Tibet is held sacred by four major traditions: Hinduism, Buddhism, Jainism, and Bon.</p>
+        </div>
+      </div>
+
+      <!-- TOPIC 3 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 3: Plateaus – Elevated Tablelands &amp; Mineral Storehouses</div>
+        
+        <ul>
+          <li><strong>Definition:</strong> A plateau is an elevated landform that rises abruptly above the surrounding terrain and features a relatively flat top (tableland), bordered by steep slopes.</li>
+          <li><strong>Elevation Range:</strong> Plateaus vary widely in elevation, from a few hundred metres to several thousand metres above sea level.</li>
+          <li><strong>Young vs. Old Plateaus:</strong> Like mountains, plateaus can be ancient or geologically young. The <strong>Deccan Plateau</strong> of India is one of the oldest in the world, formed by volcanic lava flows millions of years ago.</li>
+        </ul>
+
+        <div class="callout callout-def">
+          <div class="callout-title">📘 The Tibetan Plateau: 'Roof of the World'</div>
+          <p>The <strong>Tibetan Plateau</strong> is the largest and highest plateau on Earth, with an astonishing average elevation of <strong>4,500 metres</strong>. Stretching nearly 2,500 km from east to west (equivalent to the distance between Chandigarh and Kanyakumari), it is globally celebrated as the <strong>'Roof of the World'</strong>.</p>
+        </div>
+
+        <h4>Plateaus as 'Storehouses of Minerals'</h4>
+        <ul>
+          <li>Because plateaus are ancient crustal formations rich in deep-seated ores, they are universally termed <strong>storehouses of minerals</strong>.</li>
+          <li><strong>East African Plateau:</strong> Internationally renowned for world-class <strong>gold and diamond</strong> mining.</li>
+          <li><strong>Chhota Nagpur Plateau (India):</strong> A prime industrial mineral belt endowed with massive reserves of <strong>iron ore, coal, and manganese</strong>.</li>
+        </ul>
+
+        <h4>Soil &amp; Agriculture on Plateaus</h4>
+        <ul>
+          <li>Many plateaus feature thin, rocky, or lateritic soils, making them less fertile and less suitable for intensive farming than river plains.</li>
+          <li><strong>Exception (Lava Plateaus):</strong> Plateaus formed by basaltic volcanic lava flows (such as the Deccan Traps) break down into <strong>rich black soil (regur)</strong>, which retains moisture exceptionally well and is ideal for cultivating cotton and sugarcane.</li>
+        </ul>
+
+        <h4>Spectacular Plateau Waterfalls</h4>
+        <p>Because plateaus drop sharply at their edges, rivers cascading over their borders form spectacular waterfalls:</p>
+        <ul>
+          <li><strong>Victoria Falls:</strong> On the Zambezi River in southern Africa, one of the world's most magnificent waterfalls.</li>
+          <li><strong>Hundru Falls:</strong> On the Subarnarekha River in the Chhota Nagpur Plateau (Jharkhand).</li>
+          <li><strong>Jog Falls:</strong> On the Sharavati River in the Western Ghats (Karnataka).</li>
+          <li><strong>Nohkalikai Falls:</strong> Plunging <strong>340 metres</strong> straight down from the edge of the Cherrapunji Plateau in Meghalaya (Fig. 3.7).</li>
+        </ul>
+      </div>
+
+      <!-- TOPIC 4 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 4: Plains – Fertile Floodplains &amp; The Cradle of Civilisations</div>
+        
+        <ul>
+          <li><strong>Definition:</strong> Plains are extensive expanses of flat or gently undulating lowlands. They lack large hills or deep gorges and rarely exceed <strong>300 metres above sea level</strong>.</li>
+          <li><strong>How Floodplains Form:</strong>
+            <ul>
+              <li>Rivers originating in high snow-clad mountain ranges carry immense kinetic energy, eroding rocks, gravel, sand, and fine silt.</li>
+              <li>These transported rock fragments and fine particles are collectively called <strong>sediments</strong>.</li>
+              <li>As rivers enter flat terrain, their speed decreases, causing them to deposit rich alluvial sediments across broad river valleys. Over thousands of years, these periodic flood deposits build up deep, nutrient-rich soils.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="callout callout-def">
+          <div class="callout-title">📘 Key Definition: Sea Level &amp; Confluence</div>
+          <ul>
+            <li><strong>Sea Level:</strong> The average level of the surface of the oceans, universally designated as 'mean sea level' (0 metres elevation reference).</li>
+            <li><strong>Confluence:</strong> The meeting point of two or more rivers (e.g. Prayagraj, where the Ganga meets the Yamuna).</li>
+          </ul>
+        </div>
+
+        <h4>Human Life in the Ganga Plain</h4>
+        <ul>
+          <li><strong>Densely Populated Cradle:</strong> Around <strong>40 crore people</strong> &mdash; more than one-fourth of India's total population &mdash; inhabit the fertile Ganga Plain (Gangetic Plain).</li>
+          <li><strong>Major Occupations:</strong> Intensive crop farming, freshwater river fishing, animal husbandry, cottage crafts, and agro-industries.</li>
+          <li><strong>Bountiful Crops Grown:</strong>
+            <ul>
+              <li><em>Food Crops:</em> Rice (staple), wheat, maize, barley, and nutritious millets.</li>
+              <li><em>Fibre Crops:</em> Cotton, jute (the golden fibre), and hemp.</li>
+            </ul>
+          </li>
+          <li><strong>Irrigation vs. Groundwater Crisis:</strong> Traditional farming was rainfed, reliant on the monsoon. Modern canal networks and mechanized tubewells boosted crop productivity but caused dangerous depletion of groundwater reserves.</li>
+          <li><strong>River Navigation &amp; Trade:</strong> Gentle gradients allow boats and barges to navigate waterways smoothly, sustaining commerce since ancient times (Fig. 3.10).</li>
+          <li><strong>Cultural Reverence:</strong> In Indian culture, rivers are revered as mother deities. The point of origin (source) and confluences (<em>sangam</em>) are celebrated with sacred pilgrimages, bathing rituals, and religious festivals.</li>
+        </ul>
+      </div>
+
+      <!-- TOPIC 5 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 5: Deserts – Arid Landscapes of Extreme Resilience</div>
+        
+        <ul>
+          <li><strong>Definition:</strong> Deserts are expansive dry regions characterized by extremely scarce precipitation, sparse vegetation, and wide temperature swings.</li>
+          <li><strong>Hot Deserts:</strong> Feature blistering daytime heat and rolling sand dunes. Examples include the <strong>Sahara Desert</strong> in Africa (world's largest hot desert) and the <strong>Thar Desert</strong> in northwestern India.</li>
+          <li><strong>Cold Deserts:</strong> Feature freezing temperatures and sparse snow/ice. Examples include the <strong>Gobi Desert</strong> in Asia. Many geographers also classify the frozen continent of <strong>Antarctica</strong> as a cold polar desert.</li>
+          <li><strong>Human Adaptation &amp; Cultural Richness:</strong> Despite hostile climates, communities have adapted through water-conservation techniques, pastoral nomadism, and trade caravans. The desert communities of Rajasthan (Thar) have created celebrated traditions of vibrant music, colorful attire, folklore, and desert resilience.</li>
+        </ul>
+
+        <div class="callout callout-def">
+          <div class="callout-title">📘 Key Definition: Resilience</div>
+          <p><strong>Resilience:</strong> The human capacity to face severe hardships and environmental challenges, adapt creatively, and survive and thrive in challenging habitats.</p>
+        </div>
+      </div>
+
+      <!-- TOPIC 6 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 6: The Five Tiṇais of Ancient Tamil Sangam Literature</div>
+        
+        <p>Over 2,000 years ago, ancient Tamil Sangam poetry classified the inhabited world into five distinct eco-zones or landscapes called <strong>tiṇais</strong>. Each landscape was intimately matched with a specific lifestyle, presiding deity, human emotion, and economic occupation:</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tiṇai</th>
+                <th>Physical Landscape</th>
+                <th>Primary Human Occupation</th>
+                <th>Key Characteristic</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Kuriñji</strong></td>
+                <td>Mountainous &amp; hilly regions</td>
+                <td>Hunting and gathering forest produce</td>
+                <td>Steep, forested hills; gathering honey and roots</td>
+              </tr>
+              <tr>
+                <td><strong>Mullai</strong></td>
+                <td>Grasslands and pastoral forests</td>
+                <td>Cattle rearing &amp; pastoralism</td>
+                <td>Grazing cows and sheep in gentle open woodlands</td>
+              </tr>
+              <tr>
+                <td><strong>Marudam</strong></td>
+                <td>Fertile agricultural river plains</td>
+                <td>Farming and paddy cultivation</td>
+                <td>Paddy fields watered by perennial rivers</td>
+              </tr>
+              <tr>
+                <td><strong>Neydal</strong></td>
+                <td>Coastal lands and seashore</td>
+                <td>Fishing, salt-making &amp; seafaring</td>
+                <td>Seas, lagoons, maritime boats and trade</td>
+              </tr>
+              <tr>
+                <td><strong>Pālai</strong></td>
+                <td>Arid, dry, desert-like scrublands</td>
+                <td>Journeying, defending &amp; fighting</td>
+                <td>Severe drought-stricken terrain testing human endurance</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 Cultural Significance of Tiṇai Classification</div>
+          <p>The Five Tiṇais reveal an acute ecological understanding in ancient India. Long before modern geography, Indian thinkers recognized how landforms directly shape culture, livelihood, and emotional character.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: FACT BANK & QUICK-REFERENCE TABLES
+         ========================================== -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3</span>
+        <h2>📊 Fact Bank &amp; Quick-Reference Comparison Tables</h2>
+      </div>
+
+      <h4>Table 3.1: Master Comparison of the Three Primary Landforms</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Mountains</th>
+              <th>Plateaus</th>
+              <th>Plains</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>General Elevation</strong></td>
+              <td>Significantly elevated (&gt; 600–1000 m), towering high</td>
+              <td>Moderate to high (300 m to 4,500 m above sea level)</td>
+              <td>Low elevation (rarely exceeding 300 m above sea level)</td>
+            </tr>
+            <tr>
+              <td><strong>Top Surface Shape</strong></td>
+              <td>Narrow, sharp, or conical summit / peak</td>
+              <td>Broad, flat, table-like elevated surface</td>
+              <td>Extensive flat or gently undulating land</td>
+            </tr>
+            <tr>
+              <td><strong>Slope Profile</strong></td>
+              <td>Very steep slopes with rugged terrain</td>
+              <td>Often bounded by one or more steep scarps</td>
+              <td>Gentle, gradual slope towards the sea</td>
+            </tr>
+            <tr>
+              <td><strong>Key Economic Activity</strong></td>
+              <td>Terrace farming, pastoral herding, tourism</td>
+              <td>Mineral mining, quarrying, specialized farming</td>
+              <td>Intensive agriculture, agro-industry, transport</td>
+            </tr>
+            <tr>
+              <td><strong>Population Density</strong></td>
+              <td>Low to sparse due to harsh climate and terrain</td>
+              <td>Moderate, clustered around mining and industrial hubs</td>
+              <td>Very high to dense due to fertile soil and water access</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Table 3.2: Six Iconic Mountains Profiled in NCERT (Figs. 3.2 &amp; 3.3)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Mountain Peak</th>
+              <th>Continent / Region</th>
+              <th>Associated Range / Status</th>
+              <th>Key Distinction</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mount Everest</strong></td>
+              <td>Asia (Nepal–Tibet border)</td>
+              <td>Himalayan Range</td>
+              <td>Highest peak on Earth (8,848 m)</td>
+            </tr>
+            <tr>
+              <td><strong>Mount Kanchenjunga</strong></td>
+              <td>Asia (Sikkim, India–Nepal border)</td>
+              <td>Himalayan Range</td>
+              <td>Third highest peak in the world; sacred peak</td>
+            </tr>
+            <tr>
+              <td><strong>Mount Aconcagua</strong></td>
+              <td>South America</td>
+              <td>Andes Mountain Range</td>
+              <td>Highest peak in both South America and Western Hemisphere</td>
+            </tr>
+            <tr>
+              <td><strong>Mount Kilimanjaro</strong></td>
+              <td>Eastern Africa (Tanzania)</td>
+              <td>Isolated Volcanic Mountain</td>
+              <td>Highest free-standing mountain peak in Africa</td>
+            </tr>
+            <tr>
+              <td><strong>Mont Blanc</strong></td>
+              <td>Western Europe (France–Italy)</td>
+              <td>The Alps</td>
+              <td>Highest peak in the European Alps</td>
+            </tr>
+            <tr>
+              <td><strong>Mount Anamudi</strong></td>
+              <td>South India (Kerala)</td>
+              <td>Western Ghats (Anamalai Hills)</td>
+              <td>Highest peak in peninsular India (2,695 m)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Table 3.3: Master Catalog of Famous Waterfalls on Plateaus</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Waterfall</th>
+              <th>River</th>
+              <th>Geographical Location / Plateau</th>
+              <th>Key Significance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Nohkalikai Falls</strong></td>
+              <td>Rainfed stream</td>
+              <td>Cherrapunji Plateau (Meghalaya, India)</td>
+              <td>Plunges 340 metres straight down; one of India's tallest</td>
+            </tr>
+            <tr>
+              <td><strong>Hundru Falls</strong></td>
+              <td>Subarnarekha River</td>
+              <td>Chhota Nagpur Plateau (Jharkhand, India)</td>
+              <td>Scenic drop over rocky plateau edge; mineral hub</td>
+            </tr>
+            <tr>
+              <td><strong>Jog Falls</strong></td>
+              <td>Sharavati River</td>
+              <td>Western Ghats / Karnataka, India</td>
+              <td>Dramatic segmented plunge waterfall; hydroelectric source</td>
+            </tr>
+            <tr>
+              <td><strong>Victoria Falls</strong></td>
+              <td>Zambezi River</td>
+              <td>Southern Africa (Zambia–Zimbabwe border)</td>
+              <td>One of the largest and most famous waterfalls in the world</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: NCERT TEXTBOOK SOLUTIONS
+         ========================================== -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4</span>
+        <h2>✍️ NCERT Textbook Solutions (Fully Solved Line-by-Line)</h2>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q1. In what type of landform is your town / village / city located? Which features mentioned in this chapter do you see around you?</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p><em>(Students can customize this answer based on their hometown. Here is a model answer for a city situated in the plains):</em></p>
+            <p>My town is located in a <strong>plain landform</strong> (the Northern River Plains of India). The key features observed around our locality include:</p>
+            <ul>
+              <li><strong>Flat, Low-Lying Terrain:</strong> The land is mostly level without steep hills, high peaks, or deep gorges, lying well below 300 metres above sea level.</li>
+              <li><strong>Fertile Alluvial Soil:</strong> The soil is composed of fine silt and clay deposited by nearby rivers, supporting widespread farming of wheat, rice, and vegetables.</li>
+              <li><strong>River &amp; Water Channels:</strong> A perennial river flows near the outskirts, where boats navigate smoothly and local communities gather for daily and festive rituals.</li>
+              <li><strong>Dense Settlement &amp; Roads:</strong> Because of the flat surface, roads, railways, and houses are easily constructed, leading to high population density.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q2. Let us go back to our initial trip from Chhota Nagpur to Prayagraj and Almora. Describe the three landforms you came across on the way.</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p>On the journey from Chhota Nagpur through Prayagraj to Almora, we encounter all three major landforms of Earth:</p>
+            <ol>
+              <li><strong>Chhota Nagpur (Plateau):</strong> An elevated tableland featuring rugged, rocky ground with steep edges. It is an ancient geological formation rich in valuable mineral deposits like iron ore, coal, and manganese, with scenic waterfalls such as Hundru Falls.</li>
+              <li><strong>Prayagraj (Plain):</strong> A low-lying, flat river plain formed by the deposition of sediments by the Ganga and Yamuna rivers. It has deep, fertile soil, high population density, intensive agriculture, and cultural significance at the sacred river confluence (<em>Triveni Sangam</em>).</li>
+              <li><strong>Almora (Mountain):</strong> A Himalayan mountain landscape characterized by high altitude, cold weather, steep rocky slopes, narrow summits, and coniferous montane forests (pines and deodars). Farming is limited to carved hillside steps (terrace farming).</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q3. List a few famous pilgrimage spots in India along with the landforms in which they are found.</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Pilgrimage Spot</th>
+                    <th>State</th>
+                    <th>Type of Landform</th>
+                    <th>Geographical Feature</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Badrinath &amp; Kedarnath</strong></td>
+                    <td>Uttarakhand</td>
+                    <td><strong>Mountain</strong></td>
+                    <td>High Himalayan peaks and narrow river valleys</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Vaishno Devi &amp; Amarnath</strong></td>
+                    <td>Jammu &amp; Kashmir</td>
+                    <td><strong>Mountain</strong></td>
+                    <td>Steep mountain slopes and high-altitude caves</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tirupati (Tirumala)</strong></td>
+                    <td>Andhra Pradesh</td>
+                    <td><strong>Hills / Plateau</strong></td>
+                    <td>Seshachalam Hills of the Eastern Ghats tableland</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Prayagraj &amp; Varanasi</strong></td>
+                    <td>Uttar Pradesh</td>
+                    <td><strong>Plain</strong></td>
+                    <td>Fertile alluvial riverbanks of the sacred Ganga</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Haridwar</strong></td>
+                    <td>Uttarakhand</td>
+                    <td><strong>Plain / Foothills</strong></td>
+                    <td>Point where the Ganga emerges from mountains onto the plains</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Puri (Jagannath Temple)</strong></td>
+                    <td>Odisha</td>
+                    <td><strong>Coastal Plain</strong></td>
+                    <td>Flat low-lying sandy coast along the Bay of Bengal</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q4. State whether true or false (with precise explanations):</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <ol type="a">
+              <li><strong>The Himalayas are young mountains with rounded tops.</strong><br>
+              <strong style="color: #e11d48;">FALSE.</strong> <em>Explanation:</em> The Himalayas are young fold mountains, but they have <strong>tall, sharp, pointed peaks</strong>. Old mountains (like the Aravallis) have rounded tops due to millions of years of erosion.</li>
+              <li style="margin-top: 8px;"><strong>Plateaus usually rise sharply at least on one side.</strong><br>
+              <strong style="color: #16a34a;">TRUE.</strong> <em>Explanation:</em> A plateau is an elevated tableland whose flat top rises abruptly above the surrounding terrain, usually with steep slopes or scarps on one or more sides.</li>
+              <li style="margin-top: 8px;"><strong>Mountains and hills belong to the same type of landform.</strong><br>
+              <strong style="color: #16a34a;">TRUE.</strong> <em>Explanation:</em> Both are elevated highland landforms; hills are simply lower elevations with gentler slopes and rounded tops compared to towering, steep mountains.</li>
+              <li style="margin-top: 8px;"><strong>Mountains, plateaus and rivers in India have the same types of flora and fauna.</strong><br>
+              <strong style="color: #e11d48;">FALSE.</strong> <em>Explanation:</em> Each landform has distinct climatic conditions, soil, and altitude, creating unique flora and fauna (e.g. yaks and conifers in cold mountains vs. aquatic life in river plains).</li>
+              <li style="margin-top: 8px;"><strong>Ganga is a tributary to the Yamuna.</strong><br>
+              <strong style="color: #e11d48;">FALSE.</strong> <em>Explanation:</em> The <strong>Yamuna is a tributary to the Ganga</strong>; it flows into and joins the larger Ganga at Prayagraj.</li>
+              <li style="margin-top: 8px;"><strong>Deserts have unique flora and fauna.</strong><br>
+              <strong style="color: #16a34a;">TRUE.</strong> <em>Explanation:</em> Due to extreme aridity, deserts host specialized flora (cacti, thorny bushes) and fauna (camels, burrowing reptiles) adapted to water scarcity.</li>
+              <li style="margin-top: 8px;"><strong>Melting snow feeds rivers.</strong><br>
+              <strong style="color: #16a34a;">TRUE.</strong> <em>Explanation:</em> High-altitude snow and glaciers melt in the summer months, providing a continuous supply of fresh water to perennial rivers like the Ganga and Yamuna.</li>
+              <li style="margin-top: 8px;"><strong>Sediments from rivers deposited in the plains makes the land fertile.</strong><br>
+              <strong style="color: #16a34a;">TRUE.</strong> <em>Explanation:</em> Rivers carry eroded minerals, fine silt, and organic matter from the mountains and spread them over the floodplains, forming fertile alluvial soils.</li>
+              <li style="margin-top: 8px;"><strong>All deserts are hot.</strong><br>
+              <strong style="color: #e11d48;">FALSE.</strong> <em>Explanation:</em> There are also cold deserts, such as the Gobi Desert in Asia and the polar desert of Antarctica, characterized by freezing temperatures.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title">Q5. Match words in pairs:</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Correctly Matched Pairs:</strong></p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Given Item</th>
+                    <th>Matched Pair</th>
+                    <th>Context / Explanation from Textbook</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Mount Everest</strong></td>
+                    <td><strong>climbing</strong></td>
+                    <td>World's highest peak (8,848 m), famous for mountaineering expeditions.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Mount Kilimanjaro</strong></td>
+                    <td><strong>Africa</strong></td>
+                    <td>Highest free-standing mountain in eastern Africa.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>plateau</strong></td>
+                    <td><strong>roof of the world</strong></td>
+                    <td>The Tibetan Plateau is nicknamed the 'Roof of the World' (avg. altitude 4,500 m).</td>
+                  </tr>
+                  <tr>
+                    <td><strong>camels</strong></td>
+                    <td><strong>desert</strong></td>
+                    <td>Camels are uniquely adapted to desert survival.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Ganga plains</strong></td>
+                    <td><strong>rice fields</strong></td>
+                    <td>Fertile alluvial soils of the Ganga plain support extensive paddy (rice) farming.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>rafting</strong></td>
+                    <td><strong>river</strong></td>
+                    <td>White-water rafting is a popular adventure sport on rushing mountain rivers.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Ganga</strong></td>
+                    <td><strong>waterway</strong></td>
+                    <td>The Ganga serves as a major inland transport and navigation waterway.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Yamuna</strong></td>
+                    <td><strong>tributary</strong></td>
+                    <td>Yamuna is the largest tributary joining the Ganga on its right bank.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: PYQ & COMPETENCY-BASED QUESTION BANK
+         ========================================== -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5</span>
+        <h2>🎯 CBSE PYQs &amp; Competency-Based Exam Bank</h2>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 1-Mark MCQ</span> Which of the following mountain ranges is an example of an ancient, rounded mountain system?</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Correct Option: (c) Aravalli Range</strong></p>
+            <p><em>Explanation:</em> The Aravalli Range in India is one of the oldest fold mountain systems in the world. Over hundreds of millions of years, weathering and erosion have lowered its height and rounded its peaks.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 2-Mark Short Answer</span> What is terrace farming and why is it practiced on mountain slopes?</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p><strong>Terrace farming</strong> is the agricultural practice of carving broad, flat step-like terraces into the steep sides of hills or mountains (Fig. 3.5).</p>
+            <ul>
+              <li><strong>Why it is practiced:</strong> Steep mountain slopes cause rainwater to rush down rapidly, washing away topsoil. Level terraces slow down water runoff and prevent soil erosion, creating flat plots where crops can grow.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 3-Mark Analytical</span> Why are plateaus referred to as 'storehouses of minerals'? Give two global examples mentioned in the NCERT textbook.</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p>Plateaus are called <strong>'storehouses of minerals'</strong> because their ancient geological rock formations host concentrated reserves of metallic and non-metallic mineral ores. Mining is one of the primary industries located on plateau landforms.</p>
+            <p><strong>Two key examples:</strong></p>
+            <ol>
+              <li><strong>East African Plateau:</strong> Famous worldwide for rich deposits of <strong>gold and diamonds</strong>.</li>
+              <li><strong>Chhota Nagpur Plateau (India):</strong> A primary industrial mineral belt containing massive reserves of <strong>iron ore, coal, and manganese</strong>.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 3-Mark Comparison</span> Differentiate between young fold mountains and old mountains on three parameters.</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Parameter</th>
+                    <th>Young Mountains (e.g. Himalayas, Alps)</th>
+                    <th>Old Mountains (e.g. Aravalli Range)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Peak Shape</strong></td>
+                    <td>Sharp, high, pointed, and conical peaks</td>
+                    <td>Low, smooth, and rounded tops</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Geological Age</strong></td>
+                    <td>Formed relatively recently in Earth history</td>
+                    <td>Formed hundreds of millions of years ago</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tectonic Activity</strong></td>
+                    <td>Active upliftment still continues today</td>
+                    <td>Erosion has reduced heights over geological time</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 5-Mark Case Study</span> "The Ganga plain is home to over 40 crore people, but modern agricultural practices pose serious environmental challenges." Discuss the advantages and modern concerns of life in the Ganga plain.</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p><strong>Advantages of the Ganga Plain:</strong></p>
+            <ul>
+              <li><strong>Agricultural Fertility:</strong> Perennial Himalayan rivers deposit rich alluvial silt across the plain, making the soil ideal for growing food crops (rice, wheat, maize, millets) and fibre crops (jute, cotton).</li>
+              <li><strong>Water Availability:</strong> The Ganga and its tributaries provide fresh water for drinking, irrigation, fishing, and navigation.</li>
+              <li><strong>Ease of Transport &amp; Settlement:</strong> The flat terrain allows for easy construction of railway networks, expressways, industrial hubs, and towns.</li>
+            </ul>
+            <p><strong>Modern Environmental Challenges:</strong></p>
+            <ul>
+              <li><strong>Groundwater Depletion:</strong> Transitioning from rainfed farming to tube-well irrigation has drawn excessive underground water, lowering water tables across north India.</li>
+              <li><strong>Pollution:</strong> Industrial runoff, agricultural fertilizers, and untreated municipal sewage threaten river ecosystems.</li>
+              <li><strong>High Population Pressure:</strong> Housing over one-fourth of India's population strains natural resources and civic infrastructure.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">CBSE 3-Mark Concept Question</span> Explain the difference between an avalanche and a landslide.</div>
+        <details class="ans-box">
+          <summary>View Answer &amp; Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Avalanche:</strong> The rapid fall of a mass of <strong>snow, ice, and rocks</strong> down a mountainside. It typically happens in high-altitude snowfields when melting snow loosens or vibrations trigger a collapse.</li>
+              <li><strong>Landslide:</strong> The sudden collapse and downward slide of a mass of <strong>earth, soil, mud, and bedrock</strong> down a slope. It is usually triggered by intense monsoon rainfall, cloudbursts, or earthquakes.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: REVISION & COMMON MISTAKES
+         ========================================== -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6</span>
+        <h2>⚡ 5-Minute Rapid Revision &amp; Exam Hall Traps</h2>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">⚠️ 5 Common "Exam Hall Mistakes" &amp; How to Avoid Them</div>
+        <ol>
+          <li><strong>Mistake 1: Confusing Young vs. Old Mountain features.</strong><br>
+          <em>Fix:</em> <strong>Himalayas = Young</strong> (sharp pointed peaks, still rising). <strong>Aravalli = Old</strong> (rounded tops, worn down by erosion).</li>
+          <li><strong>Mistake 2: Thinking the Ganga flows into the Yamuna.</strong><br>
+          <em>Fix:</em> The <strong>Yamuna is a tributary</strong> that flows into and joins the <strong>Ganga</strong> at Prayagraj.</li>
+          <li><strong>Mistake 3: Believing all deserts are hot.</strong><br>
+          <em>Fix:</em> Deserts are defined by <strong>low precipitation</strong>, not heat. The <strong>Gobi Desert</strong> and <strong>Antarctica</strong> are examples of <strong>cold deserts</strong>.</li>
+          <li><strong>Mistake 4: Calling volcanic plateaus infertile.</strong><br>
+          <em>Fix:</em> While many rocky plateaus have poor soil, <strong>volcanic lava plateaus</strong> (like parts of the Deccan Plateau) feature deep, moisture-retentive <strong>black soil</strong> that is highly fertile.</li>
+          <li><strong>Mistake 5: Stating that mountains have flat tops like plateaus.</strong><br>
+          <em>Fix:</em> <strong>Mountains</strong> have narrow, conical summits; <strong>plateaus</strong> are elevated tablelands with broad, flat surfaces.</li>
+        </ol>
+      </div>
+
+      <h4>⚡ 15 Ultra-Crisp Rapid Revision One-Liners</h4>
+      <ol>
+        <li>⚡ The three primary landforms on Earth's surface are <strong>mountains</strong>, <strong>plateaus</strong>, and <strong>plains</strong>.</li>
+        <li>⚡ <strong>Altitude</strong> is the height of an object or landform above mean sea level.</li>
+        <li>⚡ <strong>Mountains</strong> have a broad base, steep slopes, and a narrow summit; lower highlands with rounded tops are called <strong>hills</strong>.</li>
+        <li>⚡ <strong>Precipitation</strong> includes rain, snow, and hail; snow is precipitation of water in a solid state.</li>
+        <li>⚡ <strong>Young fold mountains</strong> (like the Himalayas) have sharp peaks and continue to rise; <strong>old mountains</strong> (like the Aravallis) have been rounded by millions of years of erosion.</li>
+        <li>⚡ <strong>Mount Everest</strong> (8,848 m) on the Nepal–Tibet border is the highest peak on Earth; Tibetans call it <strong>Chomolungma</strong> and Nepalis call it <strong>Sagarmatha</strong>.</li>
+        <li>⚡ <strong>Mount Aconcagua</strong> is the highest peak in the Andes, <strong>Mont Blanc</strong> in the Alps, <strong>Kilimanjaro</strong> in Africa, and <strong>Anamudi</strong> in South India.</li>
+        <li>⚡ Montane forests feature conifers with cone shapes and needle leaves (<strong>pines, firs, spruce, deodar</strong>); higher altitudes feature mosses and lichens.</li>
+        <li>⚡ <strong>Terrace farming</strong> prevents soil erosion on steep hillsides by cutting flat step-like terraces into slopes.</li>
+        <li>⚡ Mountain hazards include <strong>avalanches</strong> (snow collapse), <strong>landslides</strong> (rock/mud collapse), <strong>cloudbursts</strong> (intense rainstorms), and <strong>flash floods</strong>.</li>
+        <li>⚡ The <strong>Tibetan Plateau</strong> is the highest and largest plateau on Earth (average altitude 4,500 m), nicknamed the <strong>'Roof of the World'</strong>.</li>
+        <li>⚡ Plateaus are called <strong>'storehouses of minerals'</strong> &mdash; the Chhota Nagpur Plateau is rich in iron, coal, and manganese, while the East African Plateau is rich in gold and diamonds.</li>
+        <li>⚡ Famous plateau waterfalls include <strong>Nohkalikai Falls</strong> (340 m in Cherrapunji), <strong>Hundru Falls</strong> (Subarnarekha River), <strong>Jog Falls</strong> (Sharavati River), and <strong>Victoria Falls</strong> (Zambezi River).</li>
+        <li>⚡ <strong>Plains</strong> are flat lowlands generally below 300 m elevation; floodplains are built by river sediments and support over 40 crore people in the Ganga Plain.</li>
+        <li>⚡ Ancient Tamil Sangam literature classified five landscapes called <strong>tiṇais</strong>: <strong>Kuriñji</strong> (mountain), <strong>Mullai</strong> (forest), <strong>Marudam</strong> (plain), <strong>Neydal</strong> (coast), and <strong>Pālai</strong> (arid).</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <script>
+    function toggleAllAnswers(openState) {
+      const detailsList = document.querySelectorAll('details.ans-box');
+      detailsList.forEach(item => {
+        item.open = openState;
+      });
+    }
+
+    // Automatic safeguard to strip any accidental cite tags from text nodes
+    document.addEventListener("DOMContentLoaded", function () {
+      const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+      let node;
+      const citeRegex = /\[\s*cite:\s*[\d,\s]+\]/gi;
+      while ((node = walker.nextNode())) {
+        if (citeRegex.test(node.nodeValue)) {
+          node.nodeValue = node.nodeValue.replace(citeRegex, '');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
