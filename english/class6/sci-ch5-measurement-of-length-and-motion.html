@@ -1,0 +1,1850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 6 Science Chapter 5: Measurement of Length and Motion - Complete Master Study Note (Curiosity NEP)</title>
+  <meta name="description" content="Interactive, student-friendly master study note for Class 6 Science Chapter 5: Measurement of Length and Motion. Covers SI units, parallax error, measuring curved lines, types of motion, solved NCERT questions, interactive quiz and audio reader.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --error: #dc2626;
+      --error-light: #fee2e2;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius: 16px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 1. Top Reading Progress Bar */
+    #progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 9999;
+    }
+
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #f59e0b);
+      transition: width 0.1s ease-out;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding-bottom: 80px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #0d9488 100%);
+      color: white;
+      padding: 60px 20px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      max-width: 760px;
+      margin: 0 auto 24px;
+      opacity: 0.95;
+      font-weight: 400;
+    }
+
+    /* Audio Reader Button */
+    .audio-btn-container {
+      margin: 18px 0;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .audio-btn {
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--primary-dark);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .audio-btn.playing {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .nav-breadcrumb {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      flex-wrap: wrap;
+    }
+
+    .nav-breadcrumb a {
+      color: white;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: -25px auto 0;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .quick-stats {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+    }
+
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .content-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 36px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .content-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--text);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--primary-light);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .content-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin: 24px 0 12px;
+    }
+
+    .content-card h4 {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin: 18px 0 8px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 1.02rem;
+      color: #334155;
+    }
+
+    ul, ol {
+      margin: 12px 0 20px 24px;
+      color: #334155;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.02rem;
+    }
+
+    strong {
+      color: #0f172a;
+    }
+
+    .callout {
+      border-left: 5px solid;
+      padding: 18px 22px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 24px 0;
+    }
+
+    .callout-def {
+      background-color: var(--primary-light);
+      border-left-color: var(--primary);
+      color: #034977;
+    }
+
+    .callout-act {
+      background-color: var(--secondary-light);
+      border-left-color: var(--secondary);
+      color: #065f46;
+    }
+
+    .callout-pyq {
+      background-color: var(--accent-light);
+      border-left-color: var(--accent);
+      color: #92400e;
+    }
+
+    .callout-warn {
+      background-color: #fee2e2;
+      border-left-color: #ef4444;
+      color: #991b1b;
+    }
+
+    .callout-hack {
+      background-color: #f3e8ff;
+      border-left-color: #a855f7;
+      color: #6b21a8;
+    }
+
+    .callout h4 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      background: white;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.98rem;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    .diagram-container {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 28px 0;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Interactive SVG Animations */
+    .svg-node {
+      transition: transform 0.25s ease, filter 0.25s ease;
+      cursor: pointer;
+    }
+
+    .svg-node:hover {
+      transform: translateY(-3px);
+      filter: drop-shadow(0 6px 12px rgba(2, 132, 199, 0.25));
+    }
+
+    @keyframes pulseGlow {
+      0% { opacity: 0.7; }
+      50% { opacity: 1; filter: drop-shadow(0 0 6px rgba(2, 132, 199, 0.6)); }
+      100% { opacity: 0.7; }
+    }
+
+    .pulsing-line {
+      animation: pulseGlow 2.5s infinite ease-in-out;
+    }
+
+    /* Interactive Quiz Engine */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-question {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quiz-btn {
+      background: #f8fafc;
+      border: 2px solid var(--border);
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      text-align: left;
+      font-size: 0.98rem;
+      font-family: inherit;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-btn:hover:not(:disabled) {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .quiz-btn.correct {
+      background: var(--success-light) !important;
+      border-color: var(--success) !important;
+      color: #14532d !important;
+      font-weight: 700;
+    }
+
+    .quiz-btn.incorrect {
+      background: var(--error-light) !important;
+      border-color: var(--error) !important;
+      color: #991b1b !important;
+      font-weight: 600;
+    }
+
+    .quiz-feedback {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    .quiz-feedback.show {
+      display: block;
+    }
+
+    .quiz-feedback.success-fb {
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
+      color: #14532d;
+    }
+
+    .quiz-feedback.error-fb {
+      background: var(--error-light);
+      border-left: 4px solid var(--error);
+      color: #991b1b;
+    }
+
+    .quiz-score-board {
+      background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+      color: white;
+      padding: 16px 24px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    /* Solved Questions Accordion */
+    details.ans-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      transition: all 0.2s ease;
+      overflow: hidden;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      background: white;
+    }
+
+    summary {
+      padding: 16px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      color: #1e293b;
+    }
+
+    summary:hover {
+      background-color: #f1f5f9;
+    }
+
+    summary::after {
+      content: '+';
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      transition: transform 0.2s ease;
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    .ans-content {
+      padding: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.98rem;
+      background: white;
+    }
+
+    .ans-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-right: 6px;
+    }
+
+    .tag-ncert { background: #dbeafe; color: #1e40af; }
+    .tag-exam { background: #fef3c7; color: #92400e; }
+    .tag-think { background: #dcfce7; color: #166534; }
+
+    @media (max-width: 768px) {
+      header { padding: 40px 16px 30px; }
+      header h1 { font-size: 1.85rem; }
+      .content-card { padding: 22px 16px; }
+      th, td { padding: 10px 12px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Fixed Reading Progress Bar -->
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <header>
+    <div class="badge">NCERT Science (Curiosity) &bull; Class 6</div>
+    <h1>Measurement of Length and Motion</h1>
+    <p id="chapter-summary-text">Complete Class 6 Master Note: From ancient handspans to the SI system, zero-error handling, parallax correction, curved line measurement, and linear, circular &amp; oscillatory motions.</p>
+    
+    <!-- Audio Reader (Text-to-Speech) -->
+    <div class="audio-btn-container">
+      <button class="audio-btn" id="audioToggleBtn" onclick="toggleAudioReader()">
+        <span id="audioIcon">&#128266;</span> <span id="audioText">Listen to Summary</span>
+      </button>
+    </div>
+
+    <div class="nav-breadcrumb">
+      <a href="../../index.html">Home</a> &rsaquo; 
+      <a href="../../index.html#class6">Class 6</a> &rsaquo; 
+      <a href="#">Science</a> &rsaquo; 
+      <span>Chapter 5: Measurement of Length and Motion</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Quick Stats -->
+    <div class="quick-stats">
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">NEP Curiosity Aligned</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">7</div>
+        <div class="stat-label">Experiments Decoded</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">13 + 4</div>
+        <div class="stat-label">Solved NCERT Exercises</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">19</div>
+        <div class="stat-label">Competency Qs &amp; Traps</div>
+      </div>
+    </div>
+
+    <!-- SECTION 1: Blueprint & Mind Map -->
+    <section class="content-card">
+      <h2>&#128506;&#65039; Section 1: Visual Blueprint &amp; Mind Map</h2>
+      <p>Measurement is comparing an unknown quantity with a known fixed quantity called a <strong>unit</strong>. Motion is a change in position of an object over time with respect to a stationary reference point. Here is how this entire chapter connects together:</p>
+
+      <div class="diagram-container">
+        <!-- SVG 1: Mind Map Flowchart with Micro-Animations -->
+        <svg viewBox="0 0 850 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <!-- Background -->
+          <rect width="850" height="480" fill="#f8fafc" rx="16"/>
+
+          <!-- Central Node -->
+          <g class="svg-node">
+            <rect x="290" y="25" width="270" height="60" rx="12" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+            <text x="425" y="52" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">MEASUREMENT &amp; MOTION</text>
+            <text x="425" y="70" fill="#e0f2fe" font-size="12" text-anchor="middle">Chapter 5 Core Architecture</text>
+          </g>
+
+          <!-- Branch 1: Measurement of Length (Left) -->
+          <line x1="360" y1="85" x2="200" y2="150" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="4,4" class="pulsing-line"/>
+          <g class="svg-node">
+            <rect x="70" y="150" width="260" height="50" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+            <text x="200" y="175" fill="#0369a1" font-size="15" font-weight="700" text-anchor="middle">1. Measurement of Length</text>
+            <text x="200" y="191" fill="#0c4a6e" font-size="11" text-anchor="middle">Standardizing Length &amp; Precision</text>
+          </g>
+
+          <!-- Branch 2: Motion & Reference Point (Right) -->
+          <line x1="490" y1="85" x2="650" y2="150" stroke="#0d9488" stroke-width="2.5" stroke-dasharray="4,4" class="pulsing-line"/>
+          <g class="svg-node">
+            <rect x="520" y="150" width="260" height="50" rx="10" fill="#ccfbf1" stroke="#0d9488" stroke-width="2"/>
+            <text x="650" y="175" fill="#0f766e" font-size="15" font-weight="700" text-anchor="middle">2. Motion &amp; Types of Motion</text>
+            <text x="650" y="191" fill="#134e4a" font-size="11" text-anchor="middle">Position Change over Time</text>
+          </g>
+
+          <!-- Left Sub-branches -->
+          <!-- Non-standard vs Standard -->
+          <line x1="140" y1="200" x2="100" y2="260" stroke="#0284c7" stroke-width="1.5"/>
+          <g class="svg-node">
+            <rect x="20" y="260" width="160" height="75" rx="8" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5"/>
+            <text x="100" y="280" fill="#0369a1" font-size="12" font-weight="700" text-anchor="middle">Ancient / Body Units</text>
+            <text x="100" y="298" fill="#64748b" font-size="10" text-anchor="middle">&bull; Handspan, Pace, Cubit</text>
+            <text x="100" y="313" fill="#64748b" font-size="10" text-anchor="middle">&bull; Angula, Dhanusa, Yojana</text>
+            <text x="100" y="328" fill="#ef4444" font-size="10" font-weight="600" text-anchor="middle">Problem: Person variance</text>
+          </g>
+
+          <!-- SI Units & Precautions -->
+          <line x1="260" y1="200" x2="300" y2="260" stroke="#0284c7" stroke-width="1.5"/>
+          <g class="svg-node">
+            <rect x="200" y="260" width="180" height="85" rx="8" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5"/>
+            <text x="290" y="280" fill="#0369a1" font-size="12" font-weight="700" text-anchor="middle">SI Units &amp; Accuracy</text>
+            <text x="290" y="298" fill="#64748b" font-size="10" text-anchor="middle">&bull; Base Unit: Metre (m)</text>
+            <text x="290" y="313" fill="#64748b" font-size="10" text-anchor="middle">&bull; 1 km = 1000 m; 1 m = 100 cm</text>
+            <text x="290" y="328" fill="#64748b" font-size="10" text-anchor="middle">&bull; Avoid Parallax &amp; Broken Ends</text>
+            <text x="290" y="342" fill="#0284c7" font-size="10" font-weight="600" text-anchor="middle">&bull; Curved Lines: Thread / String</text>
+          </g>
+
+          <!-- Right Sub-branches -->
+          <!-- Reference Point & State -->
+          <line x1="580" y1="200" x2="520" y2="260" stroke="#0d9488" stroke-width="1.5"/>
+          <g class="svg-node">
+            <rect x="430" y="260" width="170" height="75" rx="8" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+            <text x="515" y="280" fill="#0f766e" font-size="12" font-weight="700" text-anchor="middle">State of Rest &amp; Motion</text>
+            <text x="515" y="298" fill="#64748b" font-size="10" text-anchor="middle">&bull; Reference Point (Origin)</text>
+            <text x="515" y="313" fill="#64748b" font-size="10" text-anchor="middle">&bull; Rest: Fixed wrt Origin</text>
+            <text x="515" y="328" fill="#64748b" font-size="10" text-anchor="middle">&bull; Motion: Shifts over time</text>
+          </g>
+
+          <!-- 3 Types of Motion -->
+          <line x1="720" y1="200" x2="730" y2="260" stroke="#0d9488" stroke-width="1.5"/>
+          <g class="svg-node">
+            <rect x="620" y="260" width="210" height="110" rx="8" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+            <text x="725" y="280" fill="#0f766e" font-size="12" font-weight="700" text-anchor="middle">3 Types of Motion</text>
+            <text x="725" y="298" fill="#0369a1" font-size="11" font-weight="600" text-anchor="middle">1. Linear: Straight path</text>
+            <text x="725" y="313" fill="#64748b" font-size="10" text-anchor="middle">(Sprinter, falling apple, parade)</text>
+            <text x="725" y="328" fill="#0d9488" font-size="11" font-weight="600" text-anchor="middle">2. Circular: Circular path</text>
+            <text x="725" y="343" fill="#64748b" font-size="10" text-anchor="middle">(Whirled stone, clock hands, fan)</text>
+            <text x="725" y="358" fill="#d97706" font-size="11" font-weight="600" text-anchor="middle">3. Oscillatory: To &amp; fro</text>
+            <text x="725" y="372" fill="#64748b" font-size="10" text-anchor="middle">(Park swing, pendulum, guitar)</text>
+          </g>
+
+          <!-- Integration bottom bar -->
+          <g class="svg-node">
+            <rect x="180" y="415" width="490" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+            <text x="425" y="441" fill="#92400e" font-size="12" font-weight="700" text-anchor="middle">&#128161; Golden Rule: Reliable science requires universal standard units &amp; precise relative reference frames!</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">Figure 5.1: Conceptual Architecture of Measurement, Units, Reference Frames, and Classifications of Motion. (Hover over boxes to highlight!)</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Topic-by-Topic Notes -->
+    <section class="content-card">
+      <h2>&#128214; Section 2: Exhaustive Topic-by-Topic Concept Notes</h2>
+
+      <h3>5.1 How Do We Measure?</h3>
+      <p>When Deepa, an eleven-year-old girl in Haryana, grew taller before the new school academic session, her mother took her to a cloth shop. Deepa noticed something very interesting:</p>
+      <ul>
+        <li>The shopkeeper measured the cloth using a straight <strong>metal measuring rod</strong>.</li>
+        <li>The tailor measured her chest, waist, and sleeve length using a flexible <strong>measuring tape</strong>.</li>
+        <li>Deepa’s classmates shared different experiences: Hardeep saw his grandmother measure cloth by the <strong>length of her forearm (cubit)</strong>, while Padma saw a village farmer measure plots by counting his <strong>strides (walking steps)</strong> or <strong>foot lengths</strong>.</li>
+      </ul>
+
+      <div class="callout callout-act">
+        <h4>&#129514; Activity 5.1 &amp; Table 5.1: The Handspan Experiment</h4>
+        <p><strong>Setup:</strong> Five students (Deepa, Hardeep, Padma, Tasneem, Anish) measure the exact same teacher’s study table using their handspans (the distance from the tip of the thumb to the tip of the little finger when the hand is stretched wide open).</p>
+        <p><strong>Observation:</strong> Each student recorded a different count! Deepa counted 8.5 handspans, Hardeep counted 7 handspans, while Padma counted 9 handspans.</p>
+        <p><strong>Scientific Conclusion:</strong> The length of the table remained completely fixed. However, human body parts (handspan, cubit, stride) vary significantly from person to person. Therefore, body parts <em>cannot</em> serve as reliable or standard units of measurement.</p>
+      </div>
+
+      <div class="callout callout-def">
+        <h4>&#128218; Historical Measurement in Ancient India</h4>
+        <p>Ancient India possessed highly sophisticated measurement systems used in architecture, urban planning, and temple construction:</p>
+        <ul>
+          <li><strong>Angula:</strong> The width of a middle finger. Traditional carpenters and sculptors still use angula today.</li>
+          <li><strong>Dhanusa:</strong> The length of an archer’s bow (roughly 4 cubits or ~6 feet).</li>
+          <li><strong>Yojana:</strong> A long-distance unit used for distances between ancient cities and astronomical calculations (roughly 8 to 12 km).</li>
+          <li><strong>Indus Valley Excavations:</strong> Archaeologists excavated ivory and shell scales at <em>Lothal</em> (Gujarat) and <em>Mohenjo-daro</em>, revealing precise, finely calibrated decimal divisions—proving that standardized measurement existed in India over 4,500 years ago!</li>
+        </ul>
+      </div>
+
+      <h3>5.2 Standard Units of Measurement (The SI System)</h3>
+      <p>To eliminate confusion arising from varying personal measurements and to facilitate international trade and scientific communication, scientists around the globe adopted a uniform system called the <strong>International System of Units (Syst&egrave;me International d'Unit&eacute;s &ndash; SI)</strong> in 1960.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Physical Quantity</th>
+            <th>SI Base Unit</th>
+            <th>Symbol</th>
+            <th>Common Practical Sub-units &amp; Multiples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Length / Distance</strong></td>
+            <td><strong>Metre</strong></td>
+            <td>m</td>
+            <td>Millimetre (mm), Centimetre (cm), Kilometre (km)</td>
+          </tr>
+          <tr>
+            <td><strong>Mass / Weight</strong></td>
+            <td>Kilogram</td>
+            <td>kg</td>
+            <td>Gram (g), Milligram (mg), Quintal (100 kg), Tonne (1000 kg)</td>
+          </tr>
+          <tr>
+            <td><strong>Time</strong></td>
+            <td>Second</td>
+            <td>s</td>
+            <td>Minute (min), Hour (h), Day, Year</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-hack">
+        <h4>&#129504; The Metric Length Ladder: Conversions Made Simple</h4>
+        <p>Memorize these universal relationships:</p>
+        <ul>
+          <li><strong>1 kilometre (km) = 1,000 metres (m)</strong> &rarr; Used for distances between cities, highways, marathon routes.</li>
+          <li><strong>1 metre (m) = 100 centimetres (cm)</strong> &rarr; Used for room dimensions, cloth length, human height.</li>
+          <li><strong>1 centimetre (cm) = 10 millimetres (mm)</strong> &rarr; Used for pencils, erasers, notebooks.</li>
+          <li><strong>1 metre (m) = 1,000 millimetres (mm)</strong> &rarr; 1 mm is 0.001 m (the smallest division on your standard 15-cm school ruler).</li>
+        </ul>
+      </div>
+
+      <h3>5.3 The Correct Technique of Measuring Length</h3>
+      <p>Having a standard ruler is not enough; one must use it with scientific accuracy. The NCERT Curiosity textbook highlights three crucial rules:</p>
+
+      <ol>
+        <li><strong>Rule 1: Placement of the Scale:</strong> Always place the scale directly along the edge of the object to be measured, in close contact with it. If the ruler is placed tilted or diagonal, the measured length will be falsely larger than the true value.</li>
+        <li><strong>Rule 2: Dealing with Broken or Damaged Zero Marks:</strong> In many school rulers, the zero ('0') mark at the end is chipped, worn out, or broken.
+          <ul>
+            <li><em>Do not</em> try to guess where the zero mark was.</li>
+            <li>Instead, place the object at any clear, fully visible integer mark, such as the <strong>1.0 cm</strong> or <strong>2.0 cm</strong> mark.</li>
+            <li>Take the reading at the other end, and then <strong>subtract</strong> the starting mark from the final reading:
+              <br><strong>True Length = Final Reading &minus; Initial Reading</strong>
+              <br><em>Example:</em> If starting mark = 1.0 cm and ending mark = 14.3 cm, then True Length = 14.3 &minus; 1.0 = <strong>13.3 cm</strong>.
+            </li>
+          </ul>
+        </li>
+        <li><strong>Rule 3: Avoiding Parallax Error (Correct Eye Position):</strong> Your eye must be placed <strong>vertically directly above</strong> the calibration mark being read.
+          <ul>
+            <li>If you view the scale from an angled position (left or right), the reading appears shifted due to the thickness of the ruler. This error caused by looking from an angle is called <strong>parallax error</strong>.</li>
+          </ul>
+        </li>
+      </ol>
+
+      <div class="diagram-container">
+        <!-- SVG 2: Correct Measurement, Parallax and Broken Zero Mark -->
+        <svg viewBox="0 0 850 420" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <rect width="850" height="420" fill="#f8fafc" rx="16"/>
+
+          <!-- Header Banner -->
+          <rect x="25" y="15" width="800" height="45" rx="8" fill="#0284c7"/>
+          <text x="425" y="43" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">CORRECT MEASUREMENT TECHNIQUE &amp; COMMON ERRORS</text>
+
+          <!-- Left Panel: Parallax Error -->
+          <g transform="translate(40, 80)">
+            <rect width="360" height="300" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+            <text x="180" y="30" fill="#0369a1" font-size="14" font-weight="700" text-anchor="middle">A. EYE POSITION &amp; PARALLAX ERROR</text>
+
+            <!-- Ruler Base -->
+            <rect x="40" y="210" width="280" height="30" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+            <!-- Tick marks -->
+            <line x1="70" y1="210" x2="70" y2="225" stroke="#78350f" stroke-width="2"/>
+            <text x="70" y="235" font-size="10" fill="#78350f" text-anchor="middle">4</text>
+            <line x1="120" y1="210" x2="120" y2="225" stroke="#78350f" stroke-width="2"/>
+            <text x="120" y="235" font-size="10" fill="#78350f" text-anchor="middle">5</text>
+            <line x1="170" y1="210" x2="170" y2="230" stroke="#b91c1c" stroke-width="2.5"/>
+            <text x="170" y="235" font-size="10" fill="#b91c1c" font-weight="700" text-anchor="middle">6</text>
+            <line x1="220" y1="210" x2="220" y2="225" stroke="#78350f" stroke-width="2"/>
+            <text x="220" y="235" font-size="10" fill="#78350f" text-anchor="middle">7</text>
+            <line x1="270" y1="210" x2="270" y2="225" stroke="#78350f" stroke-width="2"/>
+            <text x="270" y="235" font-size="10" fill="#78350f" text-anchor="middle">8</text>
+
+            <!-- Eye 1: Left Angle (Incorrect) -->
+            <g class="svg-node">
+              <circle cx="100" cy="90" r="14" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+              <circle cx="103" cy="90" r="6" fill="#991b1b"/>
+              <text x="100" y="70" font-size="11" font-weight="700" fill="#ef4444" text-anchor="middle">Angle A &#10006;</text>
+              <line x1="105" y1="105" x2="160" y2="210" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <text x="75" y="140" font-size="10" fill="#dc2626">Reads ~5.8 cm (Low)</text>
+            </g>
+
+            <!-- Eye 2: Vertical Center (Correct) -->
+            <g class="svg-node">
+              <circle cx="170" cy="70" r="14" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+              <circle cx="170" cy="72" r="6" fill="#14532d"/>
+              <text x="170" y="50" font-size="11" font-weight="700" fill="#16a34a" text-anchor="middle">Correct Eye Pos &#10004;</text>
+              <line x1="170" y1="85" x2="170" y2="210" stroke="#16a34a" stroke-width="2"/>
+              <text x="170" y="165" font-size="10" font-weight="700" fill="#15803d" text-anchor="middle">True Mark = 6.0 cm</text>
+            </g>
+
+            <!-- Eye 3: Right Angle (Incorrect) -->
+            <g class="svg-node">
+              <circle cx="240" cy="90" r="14" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5"/>
+              <circle cx="237" cy="90" r="6" fill="#991b1b"/>
+              <text x="240" y="70" font-size="11" font-weight="700" fill="#ef4444" text-anchor="middle">Angle B &#10006;</text>
+              <line x1="235" y1="105" x2="180" y2="210" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="3,3"/>
+              <text x="275" y="140" font-size="10" fill="#dc2626">Reads ~6.2 cm (High)</text>
+            </g>
+
+            <rect x="20" y="255" width="320" height="35" rx="6" fill="#f1f5f9"/>
+            <text x="180" y="275" font-size="11" fill="#334155" text-anchor="middle">Rule: Eye must be strictly perpendicular to mark!</text>
+          </g>
+
+          <!-- Right Panel: Zero Mark Correction & Curved Lines -->
+          <g transform="translate(440, 80)">
+            <rect width="370" height="300" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+            <text x="185" y="30" fill="#0369a1" font-size="14" font-weight="700" text-anchor="middle">B. BROKEN ZERO &amp; CURVED LINE MEASUREMENT</text>
+
+            <!-- Broken Ruler Graphic -->
+            <g class="svg-node">
+              <rect x="30" y="60" width="310" height="95" rx="8" fill="#f0fdf4" stroke="#86efac" stroke-width="1"/>
+              <text x="45" y="82" font-size="12" font-weight="700" fill="#166534">&#128295; Broken Zero Mark Solution:</text>
+              <text x="45" y="102" font-size="11" fill="#15803d">&bull; Start measurement from fully visible mark (e.g. 1.0 cm).</text>
+              <text x="45" y="120" font-size="11" fill="#15803d">&bull; Ending mark on object = 7.8 cm.</text>
+              <rect x="45" y="128" width="280" height="20" rx="4" fill="#dcfce7"/>
+              <text x="185" y="142" font-size="11" font-weight="700" fill="#14532d" text-anchor="middle">Actual Length = 7.8 cm &minus; 1.0 cm = 6.8 cm</text>
+            </g>
+
+            <!-- Curved Line Graphic -->
+            <g class="svg-node">
+              <rect x="30" y="170" width="310" height="110" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+              <text x="45" y="192" font-size="12" font-weight="700" fill="#1e40af">&#129525; Measuring Curved Lines (Thread Method):</text>
+              <!-- Wavy line -->
+              <path d="M 45 225 Q 90 205 130 225 T 210 225 T 280 225" fill="none" stroke="#2563eb" stroke-width="3"/>
+              <circle cx="45" cy="225" r="4" fill="#dc2626"/>
+              <text x="45" y="245" font-size="10" font-weight="700" fill="#dc2626">Point A</text>
+              <circle cx="280" cy="225" r="4" fill="#dc2626"/>
+              <text x="280" y="245" font-size="10" font-weight="700" fill="#dc2626">Point B</text>
+              <text x="45" y="265" font-size="10" fill="#1e3a8a">1. Trace curve with thread &bull; 2. Mark with ink &bull; 3. Measure thread on ruler!</text>
+            </g>
+          </g>
+        </svg>
+        <div class="diagram-caption">Figure 5.2: Precision Measurement Guide &mdash; Parallax viewing angle, broken zero correction, and the thread technique for curved boundaries.</div>
+      </div>
+
+      <h3>5.4 How to Measure the Length of a Curved Line</h3>
+      <p>A straight rigid ruler cannot bend around the rim of a round tumbler, the trunk of a tree, or an irregular river curve on a map. To measure a curved line:</p>
+      <ol>
+        <li>Take a piece of non-stretchable cotton thread or string.</li>
+        <li>Tie a small knot at one end to serve as your starting point (Point A).</li>
+        <li>Place the knot at one end of the curved line. Using your thumb and forefinger, carefully run small segments of the thread along the curvature of the line without stretching it.</li>
+        <li>Make an ink mark on the thread where it touches the final endpoint (Point B) of the curved line.</li>
+        <li>Now, stretch the thread straight along a standard metre scale, placing the knot at 0 cm and noting the reading at the ink mark. This reading gives the exact length of the curved line!</li>
+      </ol>
+
+      <h3>5.5 Describing Position: The Reference Point</h3>
+      <p>Suppose you tell a guest, <em>"Our school is located 2 kilometres away."</em> The guest still cannot find the school because you haven't mentioned <em>from where</em> and <em>in which direction</em>!</p>
+      <div class="callout callout-def">
+        <h4>&#128205; Reference Point (Origin)</h4>
+        <p>A <strong>reference point</strong> is a fixed point or stationary object with respect to which the position or motion of another object is described. To state an object’s position completely, we need:</p>
+        <ul>
+          <li>The reference point (e.g., the railway station or bus stop).</li>
+          <li>The distance from the reference point (e.g., 2 km).</li>
+          <li>The direction relative to the reference point (e.g., due North).</li>
+        </ul>
+      </div>
+
+      <h3>5.6 Rest and Motion</h3>
+      <p>Look around your room right now: the walls, your study desk, and the blackboard are not changing their positions with respect to the floor as time passes. They are at <strong>rest</strong>.</p>
+      <p>On the other hand, a flying butterfly, a car driving down the street, or the moving hands of a clock continuously change their positions over time with respect to their surroundings. They are in <strong>motion</strong>.</p>
+      <div class="callout callout-def">
+        <h4>&#128640; Scientific Definition of Motion</h4>
+        <p>An object is said to be in <strong>motion</strong> if its position continuously changes with respect to a chosen stationary reference point with the passage of time.</p>
+      </div>
+
+      <h3>5.7 Types of Motion</h3>
+      <p>Do all moving things move in the exact same manner? No! A train on a straight railway track moves differently from the blades of a ceiling fan or the swing in a children's playground. In Grade 6 Science, motion is classified into three fundamental types:</p>
+
+      <h4>1. Linear Motion (Rectilinear Motion)</h4>
+      <ul>
+        <li><strong>Definition:</strong> When an object moves along a <strong>straight line path</strong>, its motion is called linear or rectilinear motion.</li>
+        <li><strong>NCERT Examples:</strong>
+          <ul>
+            <li>A car or bus travelling along a straight highway.</li>
+            <li>Soldiers marching in a straight row during a Republic Day parade.</li>
+            <li>A stone dropped from the roof of a building falling vertically downwards under gravity.</li>
+            <li>A sprinter running along a straight 100-metre racing track.</li>
+            <li>The striker sliding in a straight line on a carrom board after being flicked.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>2. Circular Motion</h4>
+      <ul>
+        <li><strong>Definition:</strong> When an object moves along a <strong>circular path</strong> such that its distance from a fixed central point remains constant, its motion is called circular motion.</li>
+        <li><strong>NCERT Examples:</strong>
+          <ul>
+            <li>A stone tied to the end of a string whirled around in a horizontal circle by a student.</li>
+            <li>The tip of the minute or hour hand of a wall clock moving around the circular dial.</li>
+            <li>The blades of an electric ceiling fan rotating around its central motor axle.</li>
+            <li>The Earth revolving around the Sun in its orbit (approximately circular).</li>
+            <li>A bull moving in a circle around an ancient oil press (kolhu) or Persian water wheel.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>3. Oscillatory Motion (Periodic / Vibratory Motion)</h4>
+      <ul>
+        <li><strong>Definition:</strong> When an object moves <strong>to and fro</strong> (back and forth) about a fixed central position (called the mean position), its motion is called oscillatory motion.</li>
+        <li><strong>NCERT Examples:</strong>
+          <ul>
+            <li>A child sitting on a swing in a park moving forwards and backwards.</li>
+            <li>The pendulum of an antique grandfather wall clock swinging left and right.</li>
+            <li>The stretched metallic string of a guitar or sitar vibrating when plucked.</li>
+            <li>The stretched membrane of a tabla or dholak vibrating when struck.</li>
+            <li>The branch of a tree swaying back and forth in a gust of wind.</li>
+            <li>The needle of a sewing machine moving up and down rapidly while stitching.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="callout callout-pyq">
+        <h4>&#9889; Combinations of Different Types of Motion (Exam Special!)</h4>
+        <p>Many real-world objects exhibit <strong>more than one type of motion simultaneously</strong>:</p>
+        <ul>
+          <li><strong>Moving Bicycle:</strong> The wheels rotate on their axles (circular / rotational motion) while the whole bicycle travels forward along the road (linear motion).</li>
+          <li><strong>Rolling Cricket Ball:</strong> The ball spins around its axis (rotational) and simultaneously rolls forward along the pitch (linear).</li>
+          <li><strong>Sewing Machine:</strong> The wheel turns with circular motion, while its needle moves rapidly up and down with periodic oscillatory motion.</li>
+          <li><strong>Earth:</strong> Rotates on its axis every 24 hours (rotational) while revolving around the Sun in its orbit (circular).</li>
+        </ul>
+      </div>
+
+      <div class="diagram-container">
+        <!-- SVG 3: Three Types of Motion -->
+        <svg viewBox="0 0 850 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <rect width="850" height="360" fill="#f8fafc" rx="16"/>
+
+          <!-- Title -->
+          <text x="425" y="32" fill="#0f172a" font-size="16" font-weight="700" text-anchor="middle">THE THREE FUNDAMENTAL TYPES OF MOTION</text>
+
+          <!-- Type 1: Linear Motion -->
+          <g transform="translate(30, 55)" class="svg-node">
+            <rect width="240" height="280" rx="12" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
+            <rect width="240" height="42" rx="12" fill="#e0f2fe"/>
+            <text x="120" y="27" fill="#0369a1" font-size="14" font-weight="700" text-anchor="middle">1. Linear Motion</text>
+
+            <!-- Graphic: Straight car / arrow -->
+            <line x1="30" y1="110" x2="210" y2="110" stroke="#0284c7" stroke-width="4" stroke-linecap="round"/>
+            <polygon points="210,104 225,110 210,116" fill="#0284c7"/>
+            <rect x="70" y="80" width="60" height="24" rx="4" fill="#0369a1"/>
+            <circle cx="85" cy="104" r="6" fill="#1e293b"/>
+            <circle cx="115" cy="104" r="6" fill="#1e293b"/>
+            <text x="120" y="145" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">Moves along a straight line</text>
+            <text x="120" y="170" font-size="10" fill="#475569" text-anchor="middle">&bull; Sprinter on 100 m track</text>
+            <text x="120" y="188" font-size="10" fill="#475569" text-anchor="middle">&bull; Apple falling from tree</text>
+            <text x="120" y="206" font-size="10" fill="#475569" text-anchor="middle">&bull; Soldiers on parade</text>
+            <rect x="20" y="235" width="200" height="30" rx="6" fill="#f0f9ff"/>
+            <text x="120" y="254" font-size="10" font-weight="600" fill="#0284c7" text-anchor="middle">Direction does not turn</text>
+          </g>
+
+          <!-- Type 2: Circular Motion -->
+          <g transform="translate(305, 55)" class="svg-node">
+            <rect width="240" height="280" rx="12" fill="#ffffff" stroke="#99f6e4" stroke-width="2"/>
+            <rect width="240" height="42" rx="12" fill="#ccfbf1"/>
+            <text x="120" y="27" fill="#0f766e" font-size="14" font-weight="700" text-anchor="middle">2. Circular Motion</text>
+
+            <!-- Graphic: Circular Orbit -->
+            <circle cx="120" cy="115" r="45" fill="none" stroke="#0d9488" stroke-width="2.5" stroke-dasharray="4,4"/>
+            <circle cx="120" cy="115" r="7" fill="#0f766e"/>
+            <circle cx="165" cy="115" r="9" fill="#f59e0b"/>
+            <polygon points="165,100 160,112 170,112" fill="#0d9488"/>
+            <line x1="120" y1="115" x2="165" y2="115" stroke="#64748b" stroke-width="1.5"/>
+            <text x="142" y="110" font-size="9" fill="#64748b" text-anchor="middle">r (fixed)</text>
+
+            <text x="120" y="180" font-size="11" font-weight="700" fill="#0f766e" text-anchor="middle">Distance from center is fixed</text>
+            <text x="120" y="200" font-size="10" fill="#475569" text-anchor="middle">&bull; Stone tied to a string</text>
+            <text x="120" y="218" font-size="10" fill="#475569" text-anchor="middle">&bull; Blades of a ceiling fan</text>
+            <rect x="20" y="235" width="200" height="30" rx="6" fill="#f0fdf4"/>
+            <text x="120" y="254" font-size="10" font-weight="600" fill="#0f766e" text-anchor="middle">Rotates along a circumference</text>
+          </g>
+
+          <!-- Type 3: Oscillatory Motion -->
+          <g transform="translate(580, 55)" class="svg-node">
+            <rect width="240" height="280" rx="12" fill="#ffffff" stroke="#fed7aa" stroke-width="2"/>
+            <rect width="240" height="42" rx="12" fill="#ffedd5"/>
+            <text x="120" y="27" fill="#c2410c" font-size="14" font-weight="700" text-anchor="middle">3. Oscillatory Motion</text>
+
+            <!-- Graphic: Pendulum / Swing -->
+            <circle cx="120" cy="75" r="4" fill="#78350f"/>
+            <line x1="120" y1="75" x2="120" y2="135" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2,2"/>
+            <line x1="120" y1="75" x2="90" y2="130" stroke="#ea580c" stroke-width="2"/>
+            <circle cx="90" cy="130" r="10" fill="#ea580c"/>
+            <!-- Swing path curve -->
+            <path d="M 80 145 Q 120 155 160 145" fill="none" stroke="#ea580c" stroke-width="2"/>
+            <polygon points="76,143 85,140 83,148" fill="#ea580c"/>
+            <polygon points="164,143 155,140 157,148" fill="#ea580c"/>
+
+            <text x="120" y="180" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">To &amp; fro about mean position</text>
+            <text x="120" y="200" font-size="10" fill="#475569" text-anchor="middle">&bull; Playground swing</text>
+            <text x="120" y="218" font-size="10" fill="#475569" text-anchor="middle">&bull; Clock pendulum &bull; Guitar string</text>
+            <rect x="20" y="235" width="200" height="30" rx="6" fill="#fff7ed"/>
+            <text x="120" y="254" font-size="10" font-weight="600" fill="#c2410c" text-anchor="middle">Repeats path periodically</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">Figure 5.3: Visual Comparison of Linear (straight), Circular (orbital), and Oscillatory (to-and-fro) motions.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Rapid Revision Bank -->
+    <section class="content-card">
+      <h2>&#9889; Section 3: Rapid Revision Formula, Law &amp; Definition Bank</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Term / Concept</th>
+            <th>Scientific Definition / Mathematical Rule</th>
+            <th>Crucial Application / Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Measurement</strong></td>
+            <td>The comparison of an unknown physical quantity with a known, fixed quantity of the same kind.</td>
+            <td>Consists of two parts: a <strong>number</strong> and a <strong>unit</strong> (e.g., 5 metres).</td>
+          </tr>
+          <tr>
+            <td><strong>Unit</strong></td>
+            <td>A fixed, standardized quantity adopted by convention or law with which other quantities are compared.</td>
+            <td>Metre (m), Kilogram (kg), Second (s).</td>
+          </tr>
+          <tr>
+            <td><strong>SI System</strong></td>
+            <td>International System of Units (Syst&egrave;me International d'Unit&eacute;s), universally accepted worldwide in 1960.</td>
+            <td>Standard unit of length is the <strong>metre (m)</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Parallax Error</strong></td>
+            <td>An apparent shift in the position of an object or scale reading caused by viewing it from an oblique angle rather than perpendicularly.</td>
+            <td>Avoided by positioning the eye directly vertically above the mark.</td>
+          </tr>
+          <tr>
+            <td><strong>Zero-Mark Error</strong></td>
+            <td>Error occurring when the initial zero mark of a ruler is damaged or missing.</td>
+            <td>Corrected using: True Length = Final Mark &minus; Initial Mark.</td>
+          </tr>
+          <tr>
+            <td><strong>Least Count</strong></td>
+            <td>The smallest value of a physical quantity that can be measured accurately using a given measuring instrument.</td>
+            <td>On a standard 15-cm school ruler, least count = <strong>1 mm (0.1 cm)</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Reference Point</strong></td>
+            <td>A stationary point or origin with respect to which the position, distance, and direction of an object are specified.</td>
+            <td>"School is 1.5 km North from the railway station."</td>
+          </tr>
+          <tr>
+            <td><strong>Linear Motion</strong></td>
+            <td>Motion of a body along a straight line path without changing direction.</td>
+            <td>Sprinter on a 100 m track, falling raindrop, march-past.</td>
+          </tr>
+          <tr>
+            <td><strong>Circular Motion</strong></td>
+            <td>Motion of a body along the circumference of a circle such that its distance from a fixed central axis remains constant.</td>
+            <td>Tip of second hand on a clock, stone whirled on a string.</td>
+          </tr>
+          <tr>
+            <td><strong>Oscillatory Motion</strong></td>
+            <td>A repetitive back-and-forth (to-and-fro) motion of an object about its central mean/rest position.</td>
+            <td>Pendulum bob, playground swing, plucked sitar wire.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4: 100% Complete NCERT Solutions -->
+    <section class="content-card">
+      <h2>&#128221; Section 4: 100% Solved NCERT Exercises &amp; In-Text Activities</h2>
+      <p>All 13 exercises from textbook pages 97&ndash;99 plus extended learning activities solved with top-scoring, point-wise model answers:</p>
+
+      <!-- Q1 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 1</span> Match the lengths in Column I with suitable units in Column II (Table 5.5)</summary>
+        <div class="ans-content">
+          <p><strong>Given Pairs in Textbook:</strong></p>
+          <ul>
+            <li>Distance between Delhi and Lucknow &rarr; <strong>Kilometre (km)</strong> (Large inter-city geographical distance).</li>
+            <li>Thickness of a coin &rarr; <strong>Millimetre (mm)</strong> (Extremely thin object, less than 1 cm).</li>
+            <li>Length of an eraser &rarr; <strong>Centimetre (cm)</strong> (Small handheld stationery item, ~3 to 5 cm).</li>
+            <li>Length of school ground &rarr; <strong>Metre (m)</strong> (Moderate outdoor architectural distance, ~50 to 100 m).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 2</span> State whether True (T) or False (F) with justification</summary>
+        <div class="ans-content">
+          <p><strong>(i) The motion of a car moving on a straight road is an example of linear motion.</strong><br>
+          <strong>Answer: TRUE [T]</strong><br>
+          <em>Justification:</em> Because the car travels along a straight line path without turning, its motion satisfies the definition of linear (rectilinear) motion.</p>
+
+          <p><strong>(ii) Any object which is changing its position with respect to a reference point with time is said to be in motion.</strong><br>
+          <strong>Answer: TRUE [T]</strong><br>
+          <em>Justification:</em> This is the exact scientific definition of motion.</p>
+
+          <p><strong>(iii) 1 km = 100 cm</strong><br>
+          <strong>Answer: FALSE [F]</strong><br>
+          <em>Correction:</em> 1 km = 1,000 m. Since 1 m = 100 cm, 1 km = 1,000 &times; 100 = <strong>100,000 cm</strong> (not 100 cm!).</p>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 3</span> Which of the following is NOT a standard unit of measuring length?</summary>
+        <div class="ans-content">
+          <p><strong>Options:</strong> (i) millimetre &nbsp; (ii) centimetre &nbsp; (iii) kilometre &nbsp; (iv) handspan</p>
+          <p><strong>Correct Answer: (iv) Handspan</strong></p>
+          <p><strong>Explanation:</strong> Millimetre, centimetre, and kilometre are all standardized metric sub-units derived from the SI unit (metre) and have universally identical values worldwide. A handspan varies from person to person depending on age and hand size, so it is a non-standard body unit.</p>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 4</span> Smallest measurable value (least count) of different scales and measuring tapes</summary>
+        <div class="ans-content">
+          <p><strong>Tabular Record:</strong></p>
+          <table>
+            <thead>
+              <tr>
+                <th>Measuring Tool</th>
+                <th>Smallest Division (Least Count)</th>
+                <th>Typical Range / Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Standard School Plastic Scale (15 cm)</td>
+                <td><strong>1 mm (or 0.1 cm)</strong></td>
+                <td>0 to 15 cm; drawing line segments in notebooks.</td>
+              </tr>
+              <tr>
+                <td>Tailor's Flexible Measuring Tape</td>
+                <td><strong>1 mm (or 0.1 cm)</strong></td>
+                <td>0 to 150 cm; measuring human body curves and clothing.</td>
+              </tr>
+              <tr>
+                <td>Carpenter's Steel Tape Measure</td>
+                <td><strong>1 mm (or 0.1 cm)</strong></td>
+                <td>0 to 5 m; measuring furniture, doors, room walls.</td>
+              </tr>
+              <tr>
+                <td>Cloth Merchant's Metre Rod</td>
+                <td><strong>1 mm (or 0.1 cm)</strong></td>
+                <td>0 to 1 m (100 cm); measuring fabric bolts.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 5</span> Express the distance between school and home (1.5 km) in metres</summary>
+        <div class="ans-content">
+          <p><strong>Given:</strong> Distance = 1.5 km</p>
+          <p><strong>Standard Conversion Formula:</strong> 1 km = 1,000 m</p>
+          <p><strong>Calculation:</strong><br>
+          Distance in metres = 1.5 &times; 1,000 m = <strong>1,500 m</strong>.</p>
+          <p><em>Conclusion:</em> The distance between the school and home is exactly 1,500 metres.</p>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 6</span> Measure the length of the curved base of a glass tumbler or bottle</summary>
+        <div class="ans-content">
+          <p><strong>Method &amp; Procedure:</strong></p>
+          <ol>
+            <li>Take a non-stretchable piece of white cotton thread and a marker pen.</li>
+            <li>Wrap the thread snugly around the curved circular rim of the base of the tumbler, ensuring it overlaps without sagging.</li>
+            <li>Mark the overlapping meeting point of the thread with the ink pen.</li>
+            <li>Unwind the thread, lay it straight along a 15-cm or 30-cm ruler with the starting point at the 0 cm mark.</li>
+            <li>Note the scale reading at the ink mark.</li>
+          </ol>
+          <p><strong>Sample Observation:</strong> For a typical water tumbler, the circumference of the base measures approximately <strong>22.0 cm</strong>.</p>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 7</span> Express friend's height in (i) metres, (ii) centimetres, and (iii) millimetres</summary>
+        <div class="ans-content">
+          <p><strong>Sample Measurement:</strong> Let a friend's measured height be <strong>145 cm</strong>.</p>
+          <ul>
+            <li><strong>(i) In Metres:</strong><br>
+              Since 100 cm = 1 m &rarr; 1 cm = 0.01 m<br>
+              Height = 145 &divide; 100 = <strong>1.45 m</strong>.
+            </li>
+            <li><strong>(ii) In Centimetres:</strong><br>
+              Height = <strong>145 cm</strong>.
+            </li>
+            <li><strong>(iii) In Millimetres:</strong><br>
+              Since 1 cm = 10 mm<br>
+              Height = 145 &times; 10 = <strong>1,450 mm</strong>.
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 8</span> Coin estimation on notebook edge &amp; verification with 15-cm scale</summary>
+        <div class="ans-content">
+          <p><strong>Step 1: Estimation:</strong></p>
+          <ul>
+            <li>Estimated notebook side length &asymp; 20 cm.</li>
+            <li>Estimated diameter of a &#8377;5 coin &asymp; 2.5 cm.</li>
+            <li>Estimated number of coins = 20 &divide; 2.5 &asymp; <strong>8 coins</strong>.</li>
+          </ul>
+          <p><strong>Step 2: Experimental Verification:</strong></p>
+          <ul>
+            <li>Actual length of notebook measured with 15-cm ruler = 21.0 cm.</li>
+            <li>Actual diameter of &#8377;5 coin measured with ruler = 2.5 cm.</li>
+            <li>Coins placed side-by-side in a tight row: Exactly 8 full coins fit, with a tiny 1.0 cm gap remaining at the end (8 &times; 2.5 = 20.0 cm).</li>
+          </ul>
+          <p><strong>Conclusion:</strong> The estimation was highly accurate and matched within 1 coin of the physical verification.</p>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 9</span> Give two real-life examples each for linear, circular, and oscillatory motion</summary>
+        <div class="ans-content">
+          <p><strong>1. Linear Motion:</strong></p>
+          <ul>
+            <li>A mango falling vertically downwards from a tree branch.</li>
+            <li>March-past of soldiers on a straight parade ground.</li>
+          </ul>
+          <p><strong>2. Circular Motion:</strong></p>
+          <ul>
+            <li>The tip of the second hand of a wristwatch tracing the circular dial.</li>
+            <li>A stone tied to a thread whirled around in a horizontal circle.</li>
+          </ul>
+          <p><strong>3. Oscillatory Motion:</strong></p>
+          <ul>
+            <li>A child swinging back and forth on a playground swing.</li>
+            <li>The pendulum of an old grandfather clock moving to and fro.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 10</span> Table 5.6: List three objects whose lengths are best expressed in mm, cm, and m</summary>
+        <div class="ans-content">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Object 1</th>
+                <th>Object 2</th>
+                <th>Object 3</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Millimetres (mm)</strong></td>
+                <td>Thickness of a 10-rupee coin (~1.8 mm)</td>
+                <td>Diameter of pencil lead refill (~0.7 mm)</td>
+                <td>Length of a mustard seed / ant (~2 mm)</td>
+              </tr>
+              <tr>
+                <td><strong>Centimetres (cm)</strong></td>
+                <td>Length of a wooden pencil (~18 cm)</td>
+                <td>Length of a smartphone screen (~15 cm)</td>
+                <td>Breadth of a school textbook (~21 cm)</td>
+              </tr>
+              <tr>
+                <td><strong>Metres (m)</strong></td>
+                <td>Height of the classroom door (~2.1 m)</td>
+                <td>Length of the school corridor (~30 m)</td>
+                <td>Width of a badminton court (~6.1 m)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Q11 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 11</span> Rollercoaster Track (Fig 5.19): Identify types of motion of the ball from Point A to F</summary>
+        <div class="ans-content">
+          <p><strong>Track Breakdown:</strong></p>
+          <ul>
+            <li><strong>Portion A to B (Straight downhill slope):</strong> <strong>Linear Motion</strong> &mdash; The ball accelerates along a straight inclined rail.</li>
+            <li><strong>Portion B &rarr; C &rarr; D (Circular Loop):</strong> <strong>Circular Motion</strong> &mdash; The ball travels around the circular loop at a fixed distance from the loop center.</li>
+            <li><strong>Portion D to E (Straight uphill/horizontal track):</strong> <strong>Linear Motion</strong> &mdash; The ball moves along a straight rail section.</li>
+            <li><strong>Portion E to F (Curved dip or escape):</strong> <strong>Curvilinear Motion</strong> (Curved track transition).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q12 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 12</span> Making a metre scale: Which material should Tasneem NOT use and why?</summary>
+        <div class="ans-content">
+          <p><strong>Candidate Materials:</strong> Plywood, paper, cloth, stretchable rubber, steel.</p>
+          <p><strong>Materials She Must NOT Use:</strong></p>
+          <ol>
+            <li><strong>Stretchable Rubber:</strong> When pulled during measurement, rubber stretches easily. This changes the physical distance between markings, producing inaccurate, variable, and completely unreliable measurements.</li>
+            <li><strong>Cloth &amp; Paper:</strong> Cloth stretches when pulled and wrinkles easily. Paper tears, absorbs moisture from the air, and crumples.</li>
+          </ol>
+          <p><strong>Best Material:</strong> <strong>Steel</strong> or rigid, seasoned <strong>plywood</strong>, because they maintain a rigid, permanent length regardless of pull or normal weather changes.</p>
+        </div>
+      </details>
+
+      <!-- Q13 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 13</span> Card Game on Unit Conversion of Length</summary>
+        <div class="ans-content">
+          <p><strong>Game Name:</strong> "Metric Match Masters"</p>
+          <p><strong>Rules &amp; Design:</strong></p>
+          <ul>
+            <li>Create 20 blue "Question Cards" with lengths (e.g., 2.5 km, 450 cm, 80 mm, 0.75 m, 3000 m).</li>
+            <li>Create 20 corresponding yellow "Equivalent Cards" (e.g., 2,500 m, 4.5 m, 8 cm, 75 cm, 3 km).</li>
+            <li>Shuffle both decks and deal 5 cards to each player.</li>
+            <li>Players take turns drawing a card and pairing a Question card with its mathematically identical Equivalent card.</li>
+            <li>The player who creates the maximum valid conversion pairs wins the round!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Extended Learning Activities -->
+      <details class="ans-box">
+        <summary><span class="tag tag-think">Learning Further 1</span> How to find the thickness of a single page of your textbook using a standard scale?</summary>
+        <div class="ans-content">
+          <p><strong>Scientific Method:</strong></p>
+          <ol>
+            <li>A single page of paper is thinner than 0.1 mm, which is below the 1 mm least count of a school ruler. Thus, you cannot measure one page directly.</li>
+            <li>Instead, take 100 pages of the textbook (excluding the thick cardboard covers).</li>
+            <li>Press the pages firmly together so there is no trapped air between them.</li>
+            <li>Measure the total thickness of the 100 pages using your 15-cm ruler (say it measures <strong>10 mm</strong> or 1.0 cm).</li>
+            <li>Calculate the thickness of a single page using the formula:
+              <br><strong>Thickness of 1 page = Total measured thickness &divide; Number of pages</strong>
+              <br>Thickness = 10 mm &divide; 100 = <strong>0.1 mm</strong> (or 0.01 cm).
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-think">Learning Further 2</span> Why do leaves collected from the same tree vary in length and breadth? (Table 5.7)</summary>
+        <div class="ans-content">
+          <p>Leaves on the exact same tree exhibit natural variations in dimensions due to several biological and environmental factors:</p>
+          <ul>
+            <li><strong>Age &amp; Maturity:</strong> Newly sprouted young leaves at branch tips are much smaller than fully mature leaves lower down.</li>
+            <li><strong>Sunlight Exposure (Sun vs Shade Leaves):</strong> Leaves on the outer, sunlit canopy receive abundant light and develop thicker, different proportions compared to shaded inner leaves.</li>
+            <li><strong>Water and Mineral Supply:</strong> Leaves closer to primary veins or lower branches receive water earlier during growth spurts.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-think">Learning Further 3</span> Bicycle distance measurement using a spoke clicker and Jones Counter (Fig 5.23)</summary>
+        <div class="ans-content">
+          <p><strong>Principle:</strong> In one complete rotation of a bicycle wheel, the bicycle travels forward by a distance equal to the <strong>circumference of the wheel</strong>.</p>
+          <ul>
+            <li><strong>Step 1:</strong> Measure the circumference of the front wheel boundary using string (say C = 1.8 metres).</li>
+            <li><strong>Step 2:</strong> Attach a flexible strip hitting the frame to count rotations (N clicks = N full turns).</li>
+            <li><strong>Step 3: Total Distance = Circumference (C) &times; Number of turns (N)</strong>.
+              <br><em>Example:</em> If the wheel makes 200 turns, Distance = 1.8 m &times; 200 = <strong>360 metres</strong>.
+            </li>
+            <li><strong>Jones Counter:</strong> A geared mechanical counting device mounted on a bicycle front hub used internationally by marathon and Olympic organizers to officially calibrate and certify road race courses with millimeter precision!</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: Competency Question Bank & Interactive Quiz Engine -->
+    <section class="content-card">
+      <h2>&#128175; Section 5: Interactive Quiz &amp; CBSE Competency Bank</h2>
+      <p>Test your conceptual understanding in real time with our instant-feedback interactive quiz engine, followed by CBSE Assertion-Reasoning, Short &amp; Long Answer questions, and Case Studies:</p>
+
+      <!-- Quiz Scoreboard -->
+      <div class="quiz-score-board">
+        <div>&#129504; Live Competency Quiz (5 MCQs)</div>
+        <div>Score: <span id="quizScore">0</span> / 5</div>
+      </div>
+
+      <!-- Interactive MCQ 1 -->
+      <div class="quiz-card" id="q1-container">
+        <div class="quiz-question">Q1. A student measures the length of a wooden block using a ruler with a broken end. The reading at one end is 2.5 cm and at the other end is 11.2 cm. What is the actual length of the block?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(1, 'A', false, '11.2 cm is only the final scale reading. You must subtract the starting mark (2.5 cm).')">A) 11.2 cm</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(1, 'B', false, 'Adding 11.2 cm + 2.5 cm gives 13.7 cm, which is incorrect.')">B) 13.7 cm</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(1, 'C', true, 'Correct! Actual Length = Final Reading &minus; Initial Reading = 11.2 cm &minus; 2.5 cm = 8.7 cm.')">C) 8.7 cm</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(1, 'D', false, '9.7 cm is a calculation error.')">D) 9.7 cm</button>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <!-- Interactive MCQ 2 -->
+      <div class="quiz-card" id="q2-container">
+        <div class="quiz-question">Q2. Which of the following motions is both circular and periodic?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(2, 'A', false, 'A rolling stone moves with rectilinear/rotational motion, not strictly periodic.')">A) A stone rolling down a slope</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(2, 'B', true, 'Correct! The tip follows a circular path and repeats every 60 seconds.')">B) The tip of the second hand of a wristwatch</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(2, 'C', false, 'A swimming fish exhibits irregular, non-periodic motion.')">C) A fish swimming erratically in an aquarium</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(2, 'D', false, 'A tree branch swaying irregularly in a storm is non-periodic oscillatory motion.')">D) A tree branch swaying in an irregular storm</button>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <!-- Interactive MCQ 3 -->
+      <div class="quiz-card" id="q3-container">
+        <div class="quiz-question">Q3. How many millimetres are there in 2.5 metres?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(3, 'A', false, '25 mm is only 2.5 cm.')">A) 25 mm</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(3, 'B', false, '250 mm is 0.25 m.')">B) 250 mm</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(3, 'C', true, 'Correct! Since 1 m = 1,000 mm, 2.5 m = 2.5 &times; 1,000 = 2,500 mm.')">C) 2,500 mm</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(3, 'D', false, '25,000 mm would equal 25 metres.')">D) 25,000 mm</button>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <!-- Interactive MCQ 4 -->
+      <div class="quiz-card" id="q4-container">
+        <div class="quiz-question">Q4. While measuring with a ruler, looking at the scale from an angled position instead of vertically directly above results in:</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(4, 'A', false, 'Zero error is caused by a damaged or broken scale end, not viewing angle.')">A) Zero error</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(4, 'B', true, 'Correct! An oblique viewing angle causes an apparent shift known as parallax error.')">B) Parallax error</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(4, 'C', false, 'Periodic error refers to repetitive cyclic flaws.')">C) Periodic error</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(4, 'D', false, 'Elastic error occurs when the measuring tape stretches.')">D) Elastic error</button>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <!-- Interactive MCQ 5 -->
+      <div class="quiz-card" id="q5-container">
+        <div class="quiz-question">Q5. A passenger sitting inside a moving train is:</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(5, 'A', false, 'With respect to a co-passenger on an opposite seat, the passenger is at rest.')">A) In motion with respect to a co-passenger sitting opposite to him</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(5, 'B', false, 'The distance to outside trees changes rapidly, so the passenger is in motion relative to them.')">B) At rest with respect to the trees and telegraph poles outside</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(5, 'C', true, 'Correct! Motion is relative and depends completely on the chosen reference frame.')">C) At rest with respect to a co-passenger, but in motion with respect to trees outside</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(5, 'D', false, 'There is no absolute motion without a defined reference frame.')">D) In absolute motion regardless of any reference point</button>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <h3>Assertion and Reasoning Questions</h3>
+      <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 16px;">
+        <strong>Direction:</strong> (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is NOT the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.
+      </p>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">A&amp;R 1</span> Handspan as a standard unit of measurement</summary>
+        <div class="ans-content">
+          <p><strong>Assertion (A):</strong> Handspan cannot be used as a standard unit of length across the country.<br>
+          <strong>Reason (R):</strong> The physical size of handspans varies from person to person depending on age and physical growth.</p>
+          <p><strong>Answer: A (Both A and R are true and R is the correct explanation of A).</strong></p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">A&amp;R 2</span> Measuring tape material</summary>
+        <div class="ans-content">
+          <p><strong>Assertion (A):</strong> Measuring tapes used by tailors and surveyors are made of stretchable elastic rubber bands.<br>
+          <strong>Reason (R):</strong> Rubber bands can stretch to measure longer distances easily.</p>
+          <p><strong>Answer: D (A is false but R is true in statement, though stretchability is disastrous for measurement).</strong><br>
+          <em>Correction:</em> Measuring tapes are made of flexible steel or non-stretchable fiberglass/cloth tape with woven metal threads, never elastic rubber, because rubber changes its length when stretched!</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">A&amp;R 3</span> Relative nature of rest and motion</summary>
+        <div class="ans-content">
+          <p><strong>Assertion (A):</strong> An object can be at rest and in motion at the exact same moment.<br>
+          <strong>Reason (R):</strong> The state of rest or motion depends entirely upon the chosen reference point.</p>
+          <p><strong>Answer: A (Both A and R are true and R is the correct explanation of A).</strong></p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">A&amp;R 4</span> Motion of a ceiling fan vs its blades</summary>
+        <div class="ans-content">
+          <p><strong>Assertion (A):</strong> The ceiling fan as a whole does not travel across the room, yet its blades exhibit circular motion.<br>
+          <strong>Reason (R):</strong> Any marked point on the blade moves in a circular path around the central fixed motor axle.</p>
+          <p><strong>Answer: A (Both A and R are true and R is the correct explanation of A).</strong></p>
+        </div>
+      </details>
+
+      <h3>Short Answer Questions (2 &amp; 3 Marks)</h3>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 1</span> Why is it necessary to have standard units of measurement? (3 Marks)</summary>
+        <div class="ans-content">
+          <p>Standard units are essential because:</p>
+          <ol>
+            <li><strong>Eliminates Personal Variation:</strong> Body units like cubits and strides differ between individuals, causing disputes and confusion.</li>
+            <li><strong>Facilitates Global Trade &amp; Commerce:</strong> A merchant buying 1,000 metres of fabric in India and selling it in Europe receives the exact same length.</li>
+            <li><strong>Ensures Scientific Uniformity:</strong> Scientists worldwide can reproduce experiments and verify each other's data accurately using uniform SI units.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 2</span> Explain what parallax error is and how to avoid it. (2 Marks)</summary>
+        <div class="ans-content">
+          <p><strong>Definition:</strong> Parallax error is an error in scale reading that occurs when the observer's eye is positioned at an oblique angle to the scale mark rather than looking straight down.</p>
+          <p><strong>Precaution:</strong> Always keep the eye positioned vertically directly above the point where the measurement is being taken.</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 3</span> Differentiate between circular motion and oscillatory motion with 2 examples each. (3 Marks)</summary>
+        <div class="ans-content">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Circular Motion</th>
+                <th>Oscillatory Motion</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Path of Motion</strong></td>
+                <td>Moves continuously along the circumference of a circle.</td>
+                <td>Moves to and fro (back and forth) about a central fixed mean position.</td>
+              </tr>
+              <tr>
+                <td><strong>Distance from Center</strong></td>
+                <td>Remains at a constant fixed radius from the central point.</td>
+                <td>Distance from mean position continuously changes from 0 to maximum.</td>
+              </tr>
+              <tr>
+                <td><strong>Examples</strong></td>
+                <td>1. Blades of a ceiling fan.<br>2. Tip of clock hands.</td>
+                <td>1. Playground swing.<br>2. Pendulum of a clock.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 4</span> A tailor measures the chest of a person using a steel metre scale instead of a measuring tape. What difficulty will he face? (2 Marks)</summary>
+        <div class="ans-content">
+          <p>A steel metre scale is straight and rigid; it cannot bend or conform around the curved three-dimensional shape of a human torso. If forced, it will give an incorrect reading or injure the person. A flexible measuring tape is required to wrap around curves smoothly.</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 5</span> Convert 4.2 km into (i) metres and (ii) centimetres. (2 Marks)</summary>
+        <div class="ans-content">
+          <ul>
+            <li><strong>(i) In Metres:</strong> 4.2 &times; 1,000 = <strong>4,200 m</strong>.</li>
+            <li><strong>(ii) In Centimetres:</strong> 4,200 &times; 100 = <strong>420,000 cm</strong>.</li>
+          </ul>
+        </div>
+      </details>
+
+      <h3>Long Answer Questions (5 Marks)</h3>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">LA 1</span> Explain the complete step-by-step procedure to measure the length of an irregular curved line using a thread. (5 Marks)</summary>
+        <div class="ans-content">
+          <p><strong>Aim:</strong> To accurately measure the length of an irregular curved line AB drawn on a sheet of paper.</p>
+          <p><strong>Apparatus:</strong> A sheet of paper with curved line AB, a non-stretchable cotton thread, an ink marker pen, and a standard 30-cm ruler.</p>
+          <p><strong>Step-by-step Procedure:</strong></p>
+          <ol>
+            <li><strong>Tie a knot:</strong> Tie a tiny knot at one extreme end of the thread to act as the reference zero mark (Mark A).</li>
+            <li><strong>Placement:</strong> Place the knot exactly over Point A of the curved line on paper.</li>
+            <li><strong>Segment tracing:</strong> Hold the knot firmly with your left thumb. With your right hand, lay a small 1 to 2 cm segment of the thread along the curvature of the line.</li>
+            <li><strong>Progressive pressing:</strong> Move your left finger to hold the new contact point, and gently lay down the next small segment along the curve. Repeat this carefully along the entire curved boundary until you reach Point B.</li>
+            <li><strong>Marking endpoint:</strong> With the marker pen, put a clear ink dot on the thread exactly at Point B.</li>
+            <li><strong>Measurement on ruler:</strong> Remove the thread and straighten it out along the standard 30-cm ruler, placing the knot at the 0 cm mark. Note the reading corresponding to the ink dot.</li>
+          </ol>
+          <p><strong>Precaution:</strong> The thread must never be stretched during tracing or measuring, as elastic stretching would give an artificially short reading.</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">LA 2</span> "Motion in real life is often complex and combines multiple types of motion." Justify this statement with three detailed real-life examples. (5 Marks)</summary>
+        <div class="ans-content">
+          <p>In nature and everyday technology, bodies rarely move in a single isolated motion mode. Often, two or more types occur simultaneously:</p>
+          <ol>
+            <li><strong>A Moving Bicycle on a Straight Road:</strong>
+              <ul>
+                <li>The wheels rotate around their central axles &rarr; <strong>Circular (Rotational) Motion</strong>.</li>
+                <li>The pedals move in circles around the chain wheel &rarr; <strong>Circular Motion</strong>.</li>
+                <li>The rider and the entire bicycle frame move forward along the road &rarr; <strong>Linear (Rectilinear) Motion</strong>.</li>
+              </ul>
+            </li>
+            <li><strong>A Rolling Football / Cricket Ball:</strong>
+              <ul>
+                <li>The ball continuously spins about its central diameter axis &rarr; <strong>Rotational Motion</strong>.</li>
+                <li>Simultaneously, the center of mass of the ball travels across the ground &rarr; <strong>Linear Motion</strong>.</li>
+              </ul>
+            </li>
+            <li><strong>The Earth in Space:</strong>
+              <ul>
+                <li>Earth rotates once every 24 hours around its own geographic axis &rarr; <strong>Rotational Motion</strong> (causing day and night).</li>
+                <li>Earth travels in a large elliptical orbit around the Sun once every 365.25 days &rarr; <strong>Circular / Orbital Periodic Motion</strong> (causing seasons).</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">LA 3</span> Describe the three major rules and precautions to follow while taking length measurements with a standard ruler. (5 Marks)</summary>
+        <div class="ans-content">
+          <p>To avoid errors and obtain scientifically exact measurements, follow these three fundamental rules:</p>
+          <ol>
+            <li><strong>Ruler Placement along the Object:</strong>
+              <ul>
+                <li>The ruler must be laid directly touching and strictly parallel to the edge being measured.</li>
+                <li>If the ruler is placed diagonally or slanted, the measured distance will be longer than the true edge length.</li>
+              </ul>
+            </li>
+            <li><strong>Handling Broken Ends and Damaged Zero Marks:</strong>
+              <ul>
+                <li>Never guess the position of a chipped zero mark.</li>
+                <li>Start measurement from another prominent integer mark (such as 1.0 cm or 2.0 cm).</li>
+                <li>Calculate true length by subtracting the starting mark: <em>True Length = Final Reading &minus; Initial Mark</em>.</li>
+              </ul>
+            </li>
+            <li><strong>Correct Perpendicular Eye Placement (Avoiding Parallax):</strong>
+              <ul>
+                <li>The observer's eye must be positioned vertically right above the point where the measurement is being taken.</li>
+                <li>Viewing from the left causes an apparent shift towards a lower value; viewing from the right shifts it to a higher value.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <h3>Competency Case Study Questions</h3>
+
+      <div class="callout callout-act">
+        <h4>&#128220; Case Study 1: The Tailor and the Carpenter</h4>
+        <p><strong>Context:</strong> Master Ramesh is a traditional carpenter who builds custom wooden dining tables, while Master Salman is a tailor who stitches school uniforms. During a community project, Ramesh used a 3-metre folding steel rule to measure plywood sheets. Meanwhile, Salman used a 1.5-metre flexible vinyl measuring tape to measure Deepa’s shoulder width and waist circumference. A young apprentice suggested replacing both tools with a single stretchy 2-metre elastic rubber strip to make the kit lighter and more versatile.</p>
+        
+        <p><strong>Questions:</strong></p>
+        <ol>
+          <li>Why did Ramesh choose a rigid steel ruler rather than a flexible cloth tape for cutting plywood?</li>
+          <li>Why did Salman prefer a flexible vinyl tape instead of a rigid steel metre rod for measuring waist circumference?</li>
+          <li>Critically evaluate the apprentice's idea of replacing both tools with a stretchable rubber strip.</li>
+        </ol>
+
+        <details class="ans-box" style="margin-top: 12px;">
+          <summary>View Model Answers</summary>
+          <div class="ans-content">
+            <ol>
+              <li>Plywood has straight, rigid edges. A rigid steel rule ensures perfectly straight lines and exact millimeter precision without bending or sagging.</li>
+              <li>A human waist is curved and irregular. A rigid steel rod cannot bend around curves, whereas a flexible tape hugs the contour of the body smoothly without deformation.</li>
+              <li>The apprentice's idea is scientifically flawed. A stretchable rubber strip will stretch under varying tension. Pulling it tightly will space the marks farther apart, giving false and wildly inconsistent readings. Measuring instruments must always be made of dimensionally stable materials!</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-act">
+        <h4>&#128220; Case Study 2: The Journey of an Express Train</h4>
+        <p><strong>Context:</strong> Aryan is travelling on the Vande Bharat Express from New Delhi to Kanpur. He is sitting on seat 42 in coach C-5. Outside the window, electric poles, cows grazing in pastures, and roadside trees appear to be whizzing past at high speed. Aryan looks at his friend seated directly across from him at seat 41, who is reading a book quietly. Aryan remarks, <em>"You are not moving at all, but the telegraph poles outside are running backwards!"</em></p>
+
+        <p><strong>Questions:</strong></p>
+        <ol>
+          <li>With respect to which reference point is Aryan's friend at rest?</li>
+          <li>With respect to which reference point is Aryan's friend in motion?</li>
+          <li>What type of motion does the train exhibit when it moves on a straight section of track between two stations?</li>
+          <li>What type of motion do the wheels of the train perform?</li>
+        </ol>
+
+        <details class="ans-box" style="margin-top: 12px;">
+          <summary>View Model Answers</summary>
+          <div class="ans-content">
+            <ol>
+              <li>Aryan's friend is at rest with respect to Aryan, seat 41, coach C-5, or any object fixed inside the train compartment.</li>
+              <li>Aryan's friend is in motion with respect to the ground, railway tracks, station platforms, and stationary trees outside.</li>
+              <li>The train performs <strong>linear (rectilinear) motion</strong> along the straight track section.</li>
+              <li>The wheels perform a combination of <strong>rotational / circular motion</strong> (spinning around their axles) and <strong>linear motion</strong> (moving along the straight tracks).</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Exam Hall Mistakes & Revision Points -->
+    <section class="content-card">
+      <h2>&#128680; Section 6: Exam Hall Mistakes &amp; 15 Rapid Revision Points</h2>
+
+      <div class="callout callout-warn">
+        <h4>&#10060; 5 Common Exam Hall Mistakes to Avoid</h4>
+        <ul>
+          <li><strong>Mistake 1: Forgetting to subtract the broken zero mark:</strong> When starting from 1.0 cm, students frequently write down the final mark (e.g. 9.4 cm) as the answer instead of calculating 9.4 &minus; 1.0 = 8.4 cm!</li>
+          <li><strong>Mistake 2: Confusing 1 km with 100 m or 100 cm:</strong> Remember that 1 km = 1,000 m. Always double check powers of 10 during conversions!</li>
+          <li><strong>Mistake 3: Stating motion without specifying the reference point:</strong> Saying an object is simply "at rest" or "in motion" without stating the reference frame loses marks in CBSE exams.</li>
+          <li><strong>Mistake 4: Confusing Circular Motion with Rotational Motion:</strong> A point on the blade moves in a circle around the center (circular motion), while the fan as a whole spins about its central axis (rotational motion).</li>
+          <li><strong>Mistake 5: Using stretchable string to measure curves:</strong> If the string stretches while tracing a curve, the resulting measurement on the ruler will be incorrect.</li>
+        </ul>
+      </div>
+
+      <h3>&#128640; 15 Ultra-Crisp Rapid Revision One-Liners</h3>
+      <ol>
+        <li><strong>Measurement</strong> is comparing an unknown quantity with a known standard quantity called a unit.</li>
+        <li>Ancient units like <strong>handspan, cubit, foot, and stride</strong> vary from person to person and are non-standard.</li>
+        <li><strong>Angula</strong>, <strong>dhanusa</strong>, and <strong>yojana</strong> were ancient Indian units of measurement.</li>
+        <li>The <strong>SI unit of length</strong> is the <strong>metre</strong>, designated by the lowercase symbol <strong>m</strong>.</li>
+        <li>Standard conversions: <strong>1 km = 1,000 m</strong>, <strong>1 m = 100 cm</strong>, and <strong>1 cm = 10 mm</strong>.</li>
+        <li>On a standard 15-cm school ruler, the smallest measurable value (least count) is <strong>1 mm (0.1 cm)</strong>.</li>
+        <li>To measure correctly, the scale must be kept strictly <strong>in contact along the edge</strong> of the object.</li>
+        <li>If the zero mark is broken, start from an integer like <strong>1.0 cm</strong> and subtract it from the final reading.</li>
+        <li><strong>Parallax error</strong> is avoided by keeping the eye vertically directly above the scale reading.</li>
+        <li>The length of a curved line is measured using a <strong>non-stretchable thread</strong> and a straight ruler.</li>
+        <li>A <strong>reference point</strong> is a stationary point chosen to describe the position or motion of an object.</li>
+        <li>An object is in <strong>motion</strong> if its position changes relative to a reference point over time.</li>
+        <li>Motion along a straight line path is called <strong>linear (rectilinear) motion</strong>.</li>
+        <li>Motion along a circular circumference at a fixed distance from the center is called <strong>circular motion</strong>.</li>
+        <li>Back-and-forth movement about a fixed rest position is called <strong>oscillatory motion</strong>.</li>
+      </ol>
+    </section>
+  </main>
+
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // 2. Interactive Quiz Engine
+    let userScore = 0;
+    const answeredQuestions = new Set();
+
+    function checkQuizAnswer(questionNum, selectedOption, isCorrect, explanation) {
+      if (answeredQuestions.has(questionNum)) return;
+      answeredQuestions.add(questionNum);
+
+      const qContainer = document.getElementById('q' + questionNum + '-container');
+      const buttons = qContainer.querySelectorAll('.quiz-btn');
+      const feedback = document.getElementById('q' + questionNum + '-feedback');
+
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.textContent.trim().startsWith(selectedOption)) {
+          btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+        } else if (!isCorrect && isCorrectOption(questionNum, btn.textContent.trim())) {
+          btn.classList.add('correct');
+        }
+      });
+
+      if (isCorrect) {
+        userScore++;
+        document.getElementById('quizScore').textContent = userScore;
+        feedback.className = 'quiz-feedback show success-fb';
+        feedback.innerHTML = '<strong>&#10004; Excellent!</strong> ' + explanation;
+      } else {
+        feedback.className = 'quiz-feedback show error-fb';
+        feedback.innerHTML = '<strong>&#10006; Not quite!</strong> ' + explanation;
+      }
+    }
+
+    function isCorrectOption(qNum, text) {
+      const correctKeys = { 1: 'C', 2: 'B', 3: 'C', 4: 'B', 5: 'C' };
+      return text.startsWith(correctKeys[qNum]);
+    }
+
+    // 3. Audio Reader (Text-to-Speech)
+    let isSpeaking = false;
+    let speechUtterance = null;
+
+    function toggleAudioReader() {
+      const btn = document.getElementById('audioToggleBtn');
+      const textSpan = document.getElementById('audioText');
+      const iconSpan = document.getElementById('audioIcon');
+
+      if (!('speechSynthesis' in window)) {
+        alert('Sorry! Your browser does not support audio speech synthesis.');
+        return;
+      }
+
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.classList.remove('playing');
+        iconSpan.innerHTML = '&#128266;';
+        textSpan.textContent = 'Listen to Summary';
+      } else {
+        const textToRead = "Class 6 Science Chapter 5: Measurement of Length and Motion. " +
+          "Measurement is the comparison of an unknown quantity with a known fixed quantity called a unit. " +
+          "The standard SI unit of length is the metre. One kilometre equals 1,000 metres. One metre equals 100 centimetres. " +
+          "To avoid parallax error, keep your eye vertically directly above the scale mark. " +
+          "Motion is classified into linear motion along a straight line, circular motion along a circumference, and oscillatory motion moving to and fro about a mean position.";
+        
+        speechUtterance = new SpeechSynthesisUtterance(textToRead);
+        speechUtterance.rate = 0.95;
+        speechUtterance.pitch = 1.0;
+
+        speechUtterance.onend = () => {
+          isSpeaking = false;
+          btn.classList.remove('playing');
+          iconSpan.innerHTML = '&#128266;';
+          textSpan.textContent = 'Listen to Summary';
+        };
+
+        window.speechSynthesis.speak(speechUtterance);
+        isSpeaking = true;
+        btn.classList.add('playing');
+        iconSpan.innerHTML = '&#9209;';
+        textSpan.textContent = 'Stop Audio';
+      }
+    }
+  </script>
+</body>
+</html>
