@@ -1,0 +1,1534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 6 Science Chapter 8: A Journey through States of Water - Complete Master Study Note (Curiosity NEP)</title>
+  <meta name="description" content="Interactive master study note for Class 6 Science Chapter 8: A Journey through States of Water. Covers evaporation, condensation, three states of water, evaporative cooling, water cycle, solved NCERT exercises, and interactive quiz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --accent: #0d9488;
+      --accent-light: #ccfbf1;
+      --secondary: #6366f1;
+      --secondary-light: #e0e7ff;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --error: #dc2626;
+      --error-light: #fee2e2;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius: 16px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 1. Top Reading Progress Bar */
+    #progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 9999;
+    }
+
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #6366f1);
+      transition: width 0.1s ease-out;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding-bottom: 80px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #0d9488 100%);
+      color: white;
+      padding: 60px 20px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      max-width: 760px;
+      margin: 0 auto 24px;
+      opacity: 0.95;
+      font-weight: 400;
+    }
+
+    /* Audio Reader Button */
+    .audio-btn-container {
+      margin: 18px 0;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .audio-btn {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--primary-dark);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .audio-btn.playing {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+
+    .nav-breadcrumb {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      flex-wrap: wrap;
+    }
+
+    .nav-breadcrumb a {
+      color: white;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: -25px auto 0;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .quick-stats {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+    }
+
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .content-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 36px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .content-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--text);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--primary-light);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .content-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin: 24px 0 12px;
+    }
+
+    .content-card h4 {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin: 18px 0 8px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 1.02rem;
+      color: #334155;
+    }
+
+    ul, ol {
+      margin: 12px 0 20px 24px;
+      color: #334155;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.02rem;
+    }
+
+    strong {
+      color: #0f172a;
+    }
+
+    .callout {
+      border-left: 5px solid;
+      padding: 18px 22px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 24px 0;
+    }
+
+    .callout-def {
+      background-color: var(--primary-light);
+      border-left-color: var(--primary);
+      color: #0369a1;
+    }
+
+    .callout-act {
+      background-color: var(--accent-light);
+      border-left-color: var(--accent);
+      color: #0f766e;
+    }
+
+    .callout-pyq {
+      background-color: #fef3c7;
+      border-left-color: #f59e0b;
+      color: #92400e;
+    }
+
+    .callout-warn {
+      background-color: #fee2e2;
+      border-left-color: #ef4444;
+      color: #991b1b;
+    }
+
+    .callout-hack {
+      background-color: #f3e8ff;
+      border-left-color: #a855f7;
+      color: #6b21a8;
+    }
+
+    .callout h4 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      background: white;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.98rem;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    .diagram-container {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 28px 0;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Interactive SVG Animations */
+    .svg-node {
+      transition: transform 0.25s ease, filter 0.25s ease;
+      cursor: pointer;
+    }
+
+    .svg-node:hover {
+      transform: translateY(-3px);
+      filter: drop-shadow(0 6px 12px rgba(2, 132, 199, 0.25));
+    }
+
+    @keyframes pulseGlow {
+      0% { opacity: 0.7; }
+      50% { opacity: 1; filter: drop-shadow(0 0 6px rgba(2, 132, 199, 0.6)); }
+      100% { opacity: 0.7; }
+    }
+
+    .pulsing-line {
+      animation: pulseGlow 2.5s infinite ease-in-out;
+    }
+
+    /* Interactive Quiz Engine */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-question {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quiz-btn {
+      background: #f8fafc;
+      border: 2px solid var(--border);
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      text-align: left;
+      font-size: 0.98rem;
+      font-family: inherit;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-btn:hover:not(:disabled) {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .quiz-btn.correct {
+      background: var(--success-light) !important;
+      border-color: var(--success) !important;
+      color: #14532d !important;
+      font-weight: 700;
+    }
+
+    .quiz-btn.incorrect {
+      background: var(--error-light) !important;
+      border-color: var(--error) !important;
+      color: #991b1b !important;
+      font-weight: 600;
+    }
+
+    .quiz-feedback {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    .quiz-feedback.show {
+      display: block;
+    }
+
+    .quiz-feedback.success-fb {
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
+      color: #14532d;
+    }
+
+    .quiz-feedback.error-fb {
+      background: var(--error-light);
+      border-left: 4px solid var(--error);
+      color: #991b1b;
+    }
+
+    .quiz-score-board {
+      background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
+      color: white;
+      padding: 16px 24px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    /* Solved Questions Accordion */
+    details.ans-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      transition: all 0.2s ease;
+      overflow: hidden;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      background: white;
+    }
+
+    summary {
+      padding: 16px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      color: #1e293b;
+    }
+
+    summary:hover {
+      background-color: #f1f5f9;
+    }
+
+    summary::after {
+      content: '+';
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      transition: transform 0.2s ease;
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    .ans-content {
+      padding: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.98rem;
+      background: white;
+    }
+
+    .ans-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-right: 6px;
+    }
+
+    .tag-ncert { background: #e0f2fe; color: #0369a1; }
+    .tag-exam { background: #fef3c7; color: #92400e; }
+    .tag-think { background: #ccfbf1; color: #0f766e; }
+
+    @media (max-width: 768px) {
+      header { padding: 40px 16px 30px; }
+      header h1 { font-size: 1.85rem; }
+      .content-card { padding: 22px 16px; }
+      th, td { padding: 10px 12px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Fixed Reading Progress Bar -->
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <header>
+    <div class="badge">NCERT Science (Curiosity) &bull; Class 6</div>
+    <h1>A Journey through States of Water</h1>
+    <p id="chapter-summary-text">Complete Class 6 Master Note: The three physical states of water, the mysteries of evaporation and condensation, factors controlling vaporization speed, evaporative cooling mechanics, and the endless global water cycle.</p>
+    
+    <!-- Audio Reader (Text-to-Speech) -->
+    <div class="audio-btn-container">
+      <button class="audio-btn" id="audioToggleBtn" onclick="toggleAudioReader()">
+        <span id="audioIcon">&#128266;</span> <span id="audioText">Listen to Summary</span>
+      </button>
+    </div>
+
+    <div class="nav-breadcrumb">
+      <a href="../../index.html">Home</a> &rsaquo; 
+      <a href="../../index.html#class6">Class 6</a> &rsaquo; 
+      <a href="#">Science</a> &rsaquo; 
+      <span>Chapter 8: A Journey through States of Water</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Quick Stats -->
+    <div class="quick-stats">
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">NEP Curiosity Aligned</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">11</div>
+        <div class="stat-label">Experiments Decoded</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10 + 3</div>
+        <div class="stat-label">NCERT Exercises Solved</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">19</div>
+        <div class="stat-label">Competency Qs &amp; Traps</div>
+      </div>
+    </div>
+
+    <!-- SECTION 1: Blueprint & Mind Map -->
+    <section class="content-card">
+      <h2>&#128506;&#65039; Section 1: Visual Blueprint &amp; Mind Map</h2>
+      <p>Water is unique on our planet because it exists naturally in all three states of matter &mdash; solid ice, liquid water, and gaseous water vapour. The interconversions between these states drive our weather, cloud formation, and the life-sustaining global water cycle. Here is the master architecture of Chapter 8:</p>
+
+      <div class="diagram-container">
+        <!-- SVG 1: States of Water Phase Transitions Wheel -->
+        <svg viewBox="0 0 850 460" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <rect width="850" height="460" fill="#f8fafc" rx="16"/>
+
+          <text x="425" y="32" fill="#0f172a" font-size="16" font-weight="700" text-anchor="middle">STATES OF WATER: THE PHASE CONVERSION TRIANGLE</text>
+
+          <!-- 3 Main State Nodes: Ice (Top-Left), Water (Top-Right), Water Vapour (Bottom) -->
+          
+          <!-- State 1: ICE (Solid) -->
+          <g transform="translate(100, 70)" class="svg-node">
+            <rect width="200" height="90" rx="12" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
+            <rect width="200" height="30" rx="12" fill="#e0f2fe"/>
+            <text x="100" y="20" fill="#0369a1" font-size="14" font-weight="700" text-anchor="middle">&#10052;&#65039; SOLID (Ice / Snow)</text>
+            <text x="100" y="52" fill="#475569" font-size="11" text-anchor="middle">Fixed shape &amp; fixed volume</text>
+            <text x="100" y="72" fill="#0284c7" font-size="10.5" font-weight="600" text-anchor="middle">Formed at &le; 0 &deg;C</text>
+          </g>
+
+          <!-- State 2: WATER (Liquid) -->
+          <g transform="translate(550, 70)" class="svg-node">
+            <rect width="200" height="90" rx="12" fill="#ffffff" stroke="#99f6e4" stroke-width="2"/>
+            <rect width="200" height="30" rx="12" fill="#ccfbf1"/>
+            <text x="100" y="20" fill="#0f766e" font-size="14" font-weight="700" text-anchor="middle">&#128167; LIQUID (Water)</text>
+            <text x="100" y="52" fill="#475569" font-size="11" text-anchor="middle">Takes container shape &bull; Flows</text>
+            <text x="100" y="72" fill="#0d9488" font-size="10.5" font-weight="600" text-anchor="middle">Exists between 0 &deg;C &ndash; 100 &deg;C</text>
+          </g>
+
+          <!-- State 3: VAPOUR (Gas) -->
+          <g transform="translate(325, 310)" class="svg-node">
+            <rect width="200" height="90" rx="12" fill="#ffffff" stroke="#fed7aa" stroke-width="2"/>
+            <rect width="200" height="30" rx="12" fill="#ffedd5"/>
+            <text x="100" y="20" fill="#c2410c" font-size="14" font-weight="700" text-anchor="middle">&#9729;&#65039; GAS (Water Vapour)</text>
+            <text x="100" y="52" fill="#475569" font-size="11" text-anchor="middle">Invisible &bull; Fills entire space</text>
+            <text x="100" y="72" fill="#ea580c" font-size="10.5" font-weight="600" text-anchor="middle">Boils at 100 &deg;C &bull; Evaporates at all T</text>
+          </g>
+
+          <!-- Arrow 1: Melting (Ice -> Water) [Top forward] -->
+          <line x1="310" y1="95" x2="530" y2="95" stroke="#e11d48" stroke-width="3"/>
+          <polygon points="530,90 545,95 530,100" fill="#e11d48"/>
+          <text x="425" y="88" fill="#be123c" font-size="12" font-weight="700" text-anchor="middle">MELTING (+ Heat)</text>
+
+          <!-- Arrow 2: Freezing (Water -> Ice) [Top backward] -->
+          <line x1="530" y1="135" x2="310" y2="135" stroke="#0284c7" stroke-width="3"/>
+          <polygon points="310,130 295,135 310,140" fill="#0284c7"/>
+          <text x="425" y="152" fill="#0369a1" font-size="12" font-weight="700" text-anchor="middle">FREEZING (&minus; Heat / Cooling)</text>
+
+          <!-- Arrow 3: Evaporation (Water -> Vapour) [Right downward] -->
+          <line x1="620" y1="170" x2="480" y2="305" stroke="#e11d48" stroke-width="3"/>
+          <polygon points="485,295 470,315 495,305" fill="#e11d48"/>
+          <text x="610" y="245" fill="#be123c" font-size="12" font-weight="700" text-anchor="middle">EVAPORATION</text>
+          <text x="610" y="260" fill="#9f1239" font-size="10" text-anchor="middle">(+ Heat absorbed)</text>
+
+          <!-- Arrow 4: Condensation (Vapour -> Water) [Right upward] -->
+          <line x1="450" y1="315" x2="590" y2="180" stroke="#0284c7" stroke-width="3"/>
+          <polygon points="585,190 600,170 575,180" fill="#0284c7"/>
+          <text x="475" y="225" fill="#0369a1" font-size="12" font-weight="700" text-anchor="middle">CONDENSATION</text>
+          <text x="475" y="240" fill="#0c4a6e" font-size="10" text-anchor="middle">(&minus; Heat / Cooling)</text>
+
+          <!-- Bottom Summary Bar -->
+          <g class="svg-node">
+            <rect x="140" y="415" width="570" height="36" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+            <text x="425" y="438" fill="#92400e" font-size="11.5" font-weight="700" text-anchor="middle">&#128161; Evaporation causes COOLING because evaporating water takes heat away from its surroundings!</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">Figure 8.1: The Three Physical States of Water and their Reversible Phase Transitions via Heating and Cooling.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Topic-by-Topic Notes -->
+    <section class="content-card">
+      <h2>&#128214; Section 2: Exhaustive Topic-by-Topic Concept Notes</h2>
+
+      <h3>8.1 Water's Disappearing Act: Investigating Evaporation</h3>
+      <p>Have you ever observed rain puddles on the school playground after a storm? A few hours later, even without anyone draining them, the puddles completely vanish! Where did that water go?</p>
+      <ul>
+        <li>When wet clothes are hung outside on a clothesline, they become completely dry.</li>
+        <li>When a teacher wipes a wet sponge across the classroom blackboard, the dark wet patches fade away in minutes.</li>
+        <li>When mop water is spread over a tiled floor, the floor dries up without a trace.</li>
+      </ul>
+
+      <div class="callout callout-def">
+        <h4>&#127777;&#65039; Scientific Definition of Evaporation</h4>
+        <p><strong>Evaporation</strong> is the process by which a liquid slowly transforms into its gaseous (vapour) state at any temperature below its boiling point.</p>
+        <ul>
+          <li>Unlike boiling, which occurs violently throughout the liquid at a fixed temperature (100 &deg;C for water), <strong>evaporation is a quiet surface phenomenon</strong> that happens continuously at all temperatures &mdash; even at room temperature and under shade!</li>
+          <li>The water molecules escape from the liquid surface into the surrounding air as invisible gas molecules called <strong>water vapour</strong>.</li>
+        </ul>
+      </div>
+
+      <h3>8.2 Another Mystery: Water Appearing on a Cold Glass (Condensation)</h3>
+      <p>Take a glass tumbler and fill it with chilled water and ice cubes. Wipe the outer surface completely dry with a napkin. Leave it undisturbed on the table for 2 minutes.</p>
+      <p><strong>Observation:</strong> Soon, tiny glistening droplets of water appear all over the <em>outside</em> surface of the cold glass!</p>
+
+      <div class="callout callout-act">
+        <h4>&#129514; Activity 8.4: Measuring Mass in Condensation (Decoded)</h4>
+        <p><strong>Question:</strong> Did water seep through the glass walls from inside, or did it come from the surrounding air?</p>
+        <p><strong>Experiment:</strong> Glass is completely non-porous and impermeable to liquids. If you add food coloring (e.g., bright blue or red) to the iced water inside the glass, the water droplets that condense on the outside remain completely <strong>clear and colourless</strong>!</p>
+        <p><strong>Scientific Conclusion:</strong> The droplets did <em>not</em> leak through the glass. Ambient air always carries invisible water vapour. When these warm water vapour molecules strike the freezing cold glass surface, they lose heat energy, slow down, and transform back into liquid water droplets. This process is called <strong>condensation</strong>.</p>
+      </div>
+
+      <div class="callout callout-def">
+        <h4>&#9729;&#65039; Scientific Definition of Condensation</h4>
+        <p><strong>Condensation</strong> is the process by which a gas or vapour cools down and transforms into its liquid state. It is the exact reverse of evaporation.</p>
+      </div>
+
+      <h3>8.3 The Three Physical States of Water</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Physical State</th>
+            <th>Natural Occurrence</th>
+            <th>Shape &amp; Volume Properties</th>
+            <th>Molecular Arrangement</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Solid (Ice, Snow, Hail, Frost)</strong></td>
+            <td>Glaciers, polar ice caps, snowy mountain peaks, hail.</td>
+            <td>Definite shape and definite fixed volume. Resists deformation.</td>
+            <td>Molecules are tightly packed in a rigid hexagonal lattice.</td>
+          </tr>
+          <tr>
+            <td><strong>Liquid (Water, Rain, Dew)</strong></td>
+            <td>Oceans, seas, rivers, lakes, ponds, tap water, groundwater.</td>
+            <td>Fixed volume, but NO fixed shape (takes the shape of the container; flows freely).</td>
+            <td>Molecules are closely held but can slide and roll past one another.</td>
+          </tr>
+          <tr>
+            <td><strong>Gas (Water Vapour, Steam)</strong></td>
+            <td>Invisible moisture in air, steam from a boiling kettle, geysers.</td>
+            <td>NO fixed shape and NO fixed volume (expands to fill any container completely).</td>
+            <td>Molecules are far apart and move rapidly in all directions.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>8.4 Phase Conversions: How States of Water Change</h3>
+      <ul>
+        <li><strong>Melting:</strong> Solid Ice + Heat &rarr; Liquid Water (occurs at 0 &deg;C).</li>
+        <li><strong>Freezing (Solidification):</strong> Liquid Water &minus; Heat (Cooling) &rarr; Solid Ice (occurs at 0 &deg;C).</li>
+        <li><strong>Boiling / Vaporization:</strong> Liquid Water + Heat &rarr; Steam / Water Vapour (occurs rapidly at 100 &deg;C).</li>
+        <li><strong>Condensation:</strong> Water Vapour &minus; Heat (Cooling) &rarr; Liquid Water droplets.</li>
+      </ul>
+
+      <h3>8.5 Factors Controlling the Speed of Evaporation</h3>
+      <p>Why do wet clothes dry in 30 minutes on a hot, windy summer day, but take two full days during a humid monsoon afternoon? Science reveals four crucial factors:</p>
+
+      <ol>
+        <li><strong>Surface Area:</strong>
+          <ul>
+            <li>Evaporation is a surface phenomenon &mdash; only molecules at the liquid-air interface can escape.</li>
+            <li>A spread-out handkerchief dries far quicker than a crumpled, folded ball of cloth.</li>
+            <li>Hot tea in a wide saucer cools and evaporates much faster than in a narrow tea cup.</li>
+          </ul>
+        </li>
+        <li><strong>Temperature:</strong>
+          <ul>
+            <li>Higher temperature provides thermal kinetic energy to water molecules, allowing them to overcome liquid intermolecular attraction and escape into the air.</li>
+            <li>Clothes dry much faster under hot summer sunshine than in cold winter shade.</li>
+          </ul>
+        </li>
+        <li><strong>Wind Speed:</strong>
+          <ul>
+            <li>Moving air quickly sweeps away the layer of humid, water-saturated air directly above the wet surface, replacing it with fresh dry air.</li>
+            <li>This is why wet clothes dry rapidly when hung in front of a ceiling fan or in a stiff breeze!</li>
+          </ul>
+        </li>
+        <li><strong>Humidity (Moisture in the Air):</strong>
+          <ul>
+            <li><strong>Humidity</strong> is the amount of water vapour already present in the air.</li>
+            <li>Air can only hold a definite maximum amount of water vapour at a given temperature. If air is already damp and humid (as during rainy monsoon months), evaporation slows down drastically. In dry desert air, evaporation is lightning fast!</li>
+          </ul>
+        </li>
+      </ol>
+
+      <h3>8.6 Evaporative Cooling: Why Evaporation Feels Cold</h3>
+      <p>When you apply a few drops of hand sanitizer, surgical spirit, or perfume to your palm, your skin immediately feels ice-cold! Why?</p>
+      
+      <div class="callout callout-hack">
+        <h4>&#10052;&#65039; The Science of Evaporative Cooling</h4>
+        <p>To change from a liquid into a gas, water molecules need energy &mdash; specifically, the <strong>latent heat of vaporization</strong>. Where do they get this heat?</p>
+        <p>They <strong>absorb heat directly from the surface they are resting upon</strong> (your skin, the cloth, or the vessel). As heat is pulled away from the surface, the temperature of that surface drops! Therefore: <strong>Evaporation always causes cooling.</strong></p>
+      </div>
+
+      <h4>Real-Life Everyday Examples of Evaporative Cooling:</h4>
+      <ul>
+        <li><strong>Sweating (Perspiration):</strong> When we exercise or play in the sun, our body produces sweat. As the sweat evaporates from our skin into the air, it absorbs excess body heat, cooling our blood and preventing dangerous heatstroke!</li>
+        <li><strong>Earthen Pitcher (Matka / Surahi):</strong> Clay pots possess millions of microscopic pores. Water seeps out through these pores to the outer surface and constantly evaporates into the breeze, pulling heat out of the water stored inside and keeping it naturally chilled!</li>
+        <li><strong>Desert Desert Coolers:</strong> An electric fan draws hot dry summer air through water-soaked honey-comb pads (khus). Water evaporates into the passing air stream, cooling the air before blowing into the room.</li>
+        <li><strong>Sprinkling Water on Rooftops:</strong> In northern India, families sprinkle buckets of water on concrete roofs and courtyards on hot summer evenings. The water absorbs the intense stored heat from the concrete to evaporate, leaving the roof cool for sleeping.</li>
+      </ul>
+
+      <div class="diagram-container">
+        <!-- SVG 2: The Global Water Cycle -->
+        <svg viewBox="0 0 850 420" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <rect width="850" height="420" fill="#f0f9ff" rx="16"/>
+
+          <!-- Sun -->
+          <circle cx="120" cy="70" r="35" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+          <text x="120" y="75" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">SUN</text>
+          <!-- Sun rays -->
+          <line x1="120" y1="20" x2="120" y2="5" stroke="#f59e0b" stroke-width="2"/>
+          <line x1="170" y1="70" x2="190" y2="70" stroke="#f59e0b" stroke-width="2"/>
+          <line x1="155" y1="105" x2="170" y2="120" stroke="#f59e0b" stroke-width="2"/>
+
+          <!-- Mountain (Right) -->
+          <polygon points="520,350 680,140 840,350" fill="#94a3b8"/>
+          <!-- Snowcap -->
+          <polygon points="640,192 680,140 720,192 700,185 680,195 660,185" fill="#ffffff"/>
+          <text x="680" y="130" fill="#334155" font-size="11" font-weight="700" text-anchor="middle">Glaciers &amp; Snow (Solid State)</text>
+
+          <!-- Ocean / Lake (Left to Center) -->
+          <path d="M 0 320 Q 200 310 400 330 T 600 350 L 600 420 L 0 420 Z" fill="#0284c7" opacity="0.8"/>
+          <text x="150" y="380" fill="#ffffff" font-size="14" font-weight="700">OCEAN / LAKE</text>
+
+          <!-- Trees (Transpiration) -->
+          <rect x="360" y="280" width="12" height="40" fill="#78350f"/>
+          <circle cx="366" cy="265" r="25" fill="#16a34a"/>
+          <text x="366" y="335" font-size="9" fill="#166534" font-weight="700" text-anchor="middle">Vegetation</text>
+
+          <!-- Evaporation Arrows (Ocean) -->
+          <line x1="140" y1="300" x2="140" y2="180" stroke="#0284c7" stroke-width="3" stroke-dasharray="4,4" class="pulsing-line"/>
+          <polygon points="135,185 140,170 145,185" fill="#0284c7"/>
+          <text x="90" y="235" fill="#0369a1" font-size="11" font-weight="700">Evaporation</text>
+
+          <!-- Transpiration Arrow (Trees) -->
+          <line x1="370" y1="235" x2="370" y2="175" stroke="#16a34a" stroke-width="2.5" stroke-dasharray="3,3"/>
+          <polygon points="366,180 370,168 374,180" fill="#16a34a"/>
+          <text x="420" y="210" fill="#15803d" font-size="10" font-weight="700">Transpiration</text>
+
+          <!-- Clouds (Condensation) -->
+          <g transform="translate(320, 70)" class="svg-node">
+            <ellipse cx="60" cy="40" rx="40" ry="25" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+            <ellipse cx="90" cy="30" rx="35" ry="25" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+            <ellipse cx="120" cy="40" rx="40" ry="25" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+            <text x="90" y="42" fill="#0369a1" font-size="11" font-weight="700" text-anchor="middle">CONDENSATION</text>
+            <text x="90" y="55" fill="#64748b" font-size="9" text-anchor="middle">(Cloud Formation)</text>
+          </g>
+
+          <!-- Rain (Precipitation) -->
+          <line x1="430" y1="120" x2="400" y2="170" stroke="#0284c7" stroke-width="2" stroke-dasharray="2,3"/>
+          <line x1="450" y1="120" x2="420" y2="170" stroke="#0284c7" stroke-width="2" stroke-dasharray="2,3"/>
+          <line x1="470" y1="120" x2="440" y2="170" stroke="#0284c7" stroke-width="2" stroke-dasharray="2,3"/>
+          <text x="490" y="160" fill="#0369a1" font-size="11" font-weight="700">Precipitation</text>
+          <text x="490" y="174" fill="#0284c7" font-size="9">(Rain, Snow, Hail)</text>
+
+          <!-- River Runoff Arrow -->
+          <path d="M 600 350 Q 500 370 380 360" fill="none" stroke="#0284c7" stroke-width="3"/>
+          <polygon points="385,355 370,360 385,365" fill="#0284c7"/>
+          <text x="480" y="390" fill="#0369a1" font-size="10" font-weight="700">River Runoff &amp; Infiltration</text>
+        </svg>
+        <div class="diagram-caption">Figure 8.2: The Global Water Cycle &mdash; Continuous circulatory loop of Evaporation, Transpiration, Condensation, Precipitation, and Surface Runoff.</div>
+      </div>
+
+      <h3>8.7 How Do Clouds Form and Give Us Rain?</h3>
+      <ol>
+        <li><strong>Rising Warm Air:</strong> Solar radiation heats up the ground and water surfaces. Warm air is lighter and rises upwards carrying water vapour.</li>
+        <li><strong>Cooling at High Altitudes:</strong> As warm air ascends into the upper troposphere, atmospheric pressure drops and temperature decreases (cooling).</li>
+        <li><strong>Role of Dust Particles (Condensation Nuclei):</strong> Water vapour cannot easily turn into droplets in clean air. Microscopic airborne particles &mdash; dust, pollen grains, volcanic ash, sea salt &mdash; act as solid seed platforms called <strong>condensation nuclei</strong> upon which water vapour condenses into tiny floating droplets (clouds).</li>
+        <li><strong>Coalescence &amp; Precipitation:</strong> As clouds drift, millions of microscopic droplets collide and fuse together into heavier drops. When drops become too heavy to remain suspended by upward air currents, gravity pulls them down as <strong>rain</strong>. If temperatures aloft are below freezing, they fall as <strong>snowflakes</strong> or frozen ice pellets called <strong>hail</strong>!</li>
+      </ol>
+    </section>
+
+    <!-- SECTION 3: Rapid Revision Bank -->
+    <section class="content-card">
+      <h2>&#9889; Section 3: Rapid Revision Formula, Law &amp; Definition Bank</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Term / Process</th>
+            <th>Scientific Definition</th>
+            <th>Crucial Real-World Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Evaporation</strong></td>
+            <td>Conversion of liquid water into gaseous vapour at any temperature below boiling point.</td>
+            <td>Wet clothes drying on clothesline; drying rain puddles.</td>
+          </tr>
+          <tr>
+            <td><strong>Condensation</strong></td>
+            <td>Conversion of water vapour into liquid droplets upon cooling.</td>
+            <td>Water drops appearing on the outside of an iced glass; cloud formation.</td>
+          </tr>
+          <tr>
+            <td><strong>Evaporative Cooling</strong></td>
+            <td>The cooling of a surface that occurs when evaporating liquid absorbs latent heat from it.</td>
+            <td>Earthen pot (matka) cooling water; human sweating.</td>
+          </tr>
+          <tr>
+            <td><strong>Transpiration</strong></td>
+            <td>Loss of water in the form of vapour from microscopic stomata on plant leaves.</td>
+            <td>Forests generating moisture for local rain clouds.</td>
+          </tr>
+          <tr>
+            <td><strong>Precipitation</strong></td>
+            <td>Water falling from clouds onto Earth in solid or liquid form.</td>
+            <td>Rain, snow, sleet, hail.</td>
+          </tr>
+          <tr>
+            <td><strong>Water Cycle</strong></td>
+            <td>The continuous circulation of water between Earth's surface and the atmosphere.</td>
+            <td>Maintains total global water volume constant over millions of years.</td>
+          </tr>
+          <tr>
+            <td><strong>Condensation Nuclei</strong></td>
+            <td>Microscopic floating dust, smoke, or salt particles upon which water vapour condenses.</td>
+            <td>Essential seed foundation for cloud formation in the atmosphere.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4: 100% Complete NCERT Solutions -->
+    <section class="content-card">
+      <h2>&#128221; Section 4: 100% Solved NCERT Exercises &amp; In-Text Activities</h2>
+      <p>Comprehensive model answers for all 10 exercises from textbook pages 161&ndash;162 plus extended learning activities:</p>
+
+      <!-- Q1 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 1</span> Which of the following best describes condensation?</summary>
+        <div class="ans-content">
+          <p><strong>Options:</strong></p>
+          <ul>
+            <li>(i) The conversion of water into its vapour state.</li>
+            <li>(ii) The process of water changing from a liquid into gaseous state.</li>
+            <li>(iii) The formation of clouds from tiny water droplets.</li>
+            <li>(iv) The conversion of water vapour into its liquid state.</li>
+          </ul>
+          <p><strong>Correct Answer: (iv) The conversion of water vapour into its liquid state.</strong></p>
+          <p><strong>Explanation:</strong> Options (i) and (ii) describe evaporation/vaporization. Option (iv) is the precise scientific definition of condensation.</p>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 2</span> Identify in which of the given processes evaporation is very important</summary>
+        <div class="ans-content">
+          <p><strong>(i) Colouring with:</strong> (a) crayons &nbsp; (b) water colours &nbsp; (c) acrylic colours &nbsp; (d) pencil colours<br>
+          <strong>Answer: (b) Water colours (and (c) acrylic colours).</strong><br>
+          <em>Reasoning:</em> Water colours rely entirely on water as a solvent to carry pigment onto drawing sheets. Once applied, water must evaporate into the air so the pigments bind dry and smudge-free to the paper fibres. Crayons and pencils use wax/graphite and involve zero evaporation.</p>
+
+          <p><strong>(ii) Writing on paper with:</strong> (a) pencil &nbsp; (b) ink pen &nbsp; (c) ball point pen<br>
+          <strong>Answer: (b) Ink pen.</strong><br>
+          <em>Reasoning:</em> Fountain pen ink contains liquid water. As you write, the liquid water must rapidly evaporate into the air so the writing dries without smudging your hands or the paper.</p>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 3</span> Why does space around natural grass feel cooler than space around plastic grass?</summary>
+        <div class="ans-content">
+          <p>Natural grass feels significantly cooler than synthetic plastic turf because:</p>
+          <ol>
+            <li><strong>Transpiration &amp; Evaporative Cooling:</strong> Living grass roots continuously absorb water from the soil and release it into the air as vapour through microscopic leaf pores (stomata). This continuous evaporation absorbs solar heat from the immediate environment, producing a natural outdoor air-conditioning effect.</li>
+            <li><strong>Plastic Heat Absorption:</strong> Artificial plastic grass is made of synthetic petroleum polymers (polyethylene/polypropylene). It has zero moisture and cannot transpire. Instead, it absorbs solar radiation and heats up to scorching temperatures (often 10 &deg;C to 20 &deg;C hotter than ambient air!).</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 4</span> Give examples of liquids other than water that evaporate</summary>
+        <div class="ans-content">
+          <p>Many volatile liquids evaporate even faster than water because of weaker intermolecular bonds:</p>
+          <ul>
+            <li><strong>Hand Sanitizer / Rubbing Alcohol (Ethanol / Isopropanol):</strong> Evaporates within seconds from hands.</li>
+            <li><strong>Acetone (Nail Polish Remover):</strong> Highly volatile liquid that evaporates almost instantly, feeling ice-cold on nails.</li>
+            <li><strong>Perfumes and Deodorants:</strong> Alcohol base evaporates quickly to disperse fragrant aroma molecules into the air.</li>
+            <li><strong>Petrol (Gasoline):</strong> Highly volatile motor fuel that vaporizes rapidly if left in an open dish.</li>
+            <li><strong>Kerosene and Diesel:</strong> Evaporate slowly at room temperature.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 5</span> How do fans dry wet clothes if fans make things cooler, not warmer?</summary>
+        <div class="ans-content">
+          <p>This common paradox is resolved by understanding how air circulation drives evaporation:</p>
+          <ol>
+            <li><strong>Fans Do NOT Change Air Temperature:</strong> An electric fan does not blow cold air; it merely circulates room air.</li>
+            <li><strong>Sweeping Away Saturated Moisture:</strong> Directly above a wet shirt, the air rapidly becomes 100% saturated with water vapour (high local humidity), stalling further evaporation. A spinning fan continuously blows this stagnant, moisture-laden air away, replacing it with fresh, drier room air.</li>
+            <li><strong>Accelerating Evaporation:</strong> Because the air boundary layer is kept dry, water molecules escape continuously from the cloth fibres at high speed.</li>
+            <li><strong>Why the Cloth Feels Cool:</strong> As water evaporates, it draws its latent heat of vaporization from the wet cloth itself, cooling the fabric down while simultaneously drying it!</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 6</span> Why is sludge from drains left in heaps for 3&ndash;4 days before transporting as manure?</summary>
+        <div class="ans-content">
+          <p>Municipal sanitation teams leave excavated drain sludge in outdoor heaps for several days for two vital scientific reasons:</p>
+          <ol>
+            <li><strong>Drastic Reduction in Weight and Volume via Evaporation:</strong> Raw drain sludge is over 80% liquid water. Leaving it in heaps under sun and wind allows massive amounts of water to evaporate. A heap weighing 1,000 kg shrinks down to 300&ndash;400 kg of dry matter, dramatically cutting transport fuel costs and truck trips.</li>
+            <li><strong>Safety &amp; Sanitation (Pathogen Inactivation):</strong> Liquid sewage sludge contains hazardous anaerobic microbes and foul-smelling gases. Sun drying dehydrates bacterial cells, while solar ultraviolet (UV) radiation acts as a natural disinfectant, converting hazardous muck into safe, dry, easily handled organic compost for agriculture.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 7</span> Household activities involving evaporation &amp; how understanding it helps</summary>
+        <div class="ans-content">
+          <p><strong>Household Activities Observed:</strong></p>
+          <ul>
+            <li>Hanging wet laundry on clotheslines to dry.</li>
+            <li>Mopping kitchen and living room floors with a wet mop.</li>
+            <li>Simmering milk or soup on the stove to thicken (making kheer or rabri).</li>
+            <li>Drying papads, potato chips, and pickles on the terrace under the sun.</li>
+            <li>Body sweating cooling us down during hot afternoons.</li>
+          </ul>
+          <p><strong>Practical Benefits of Understanding Evaporation:</strong></p>
+          <ul>
+            <li>We spread clothes wide open rather than bunching them (maximizing surface area).</li>
+            <li>We turn on ceiling fans or open balcony windows on damp days (increasing wind speed).</li>
+            <li>We store drinking water in earthen clay matkas during summers (harnessing evaporative cooling).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 8</span> How is water present in the solid state in nature?</summary>
+        <div class="ans-content">
+          <p>Water exists in its solid state (ice/snow) in various majestic natural formations across our planet:</p>
+          <ul>
+            <li><strong>Glaciers:</strong> Massive rivers of solid compressed ice moving slowly down mountain valleys (e.g., Gangotri and Yamunotri glaciers in the Himalayas).</li>
+            <li><strong>Polar Ice Caps:</strong> Gigantic continental ice sheets covering Antarctica and the Arctic sea ice pack.</li>
+            <li><strong>Snow on High Mountain Peaks:</strong> Fluffy ice crystal precipitation crowning Himalayan peaks like Everest and Kanchenjunga.</li>
+            <li><strong>Icebergs:</strong> Enormous floating blocks of freshwater ice that calve off polar glaciers and drift in polar oceans.</li>
+            <li><strong>Hailstones:</strong> Frozen pellets of layered ice falling during intense severe thunderstorms.</li>
+            <li><strong>Frost:</strong> Delicate ice crystals formed on grass blades and car windshields on cold winter mornings.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 9</span> "Water is our responsibility before it is our right." Share your thoughts.</summary>
+        <div class="ans-content">
+          <p>This powerful philosophical and environmental statement highlights an urgent truth:</p>
+          <ol>
+            <li><strong>Scarcity of Usable Freshwater:</strong> Over 97% of Earth's water is salty sea water; over 2% is locked in glaciers. Less than <strong>1%</strong> is available as freshwater in rivers, lakes, and underground aquifers for 8 billion humans and wildlife.</li>
+            <li><strong>Rights vs Responsibilities:</strong> While every living being requires water to survive (making it a fundamental human right), rights cannot exist without duties. If everyone extracts water greedily while polluting rivers and wasting groundwater, aquifers will run dry.</li>
+            <li><strong>Our Actionable Duties:</strong>
+              <ul>
+                <li>Repairing leaking household taps and cisterns immediately (a dripping tap wastes 15 liters daily!).</li>
+                <li>Adopting rooftop rainwater harvesting in our homes and schools.</li>
+                <li>Ending plastic and chemical disposal into local ponds, drains, and rivers.</li>
+                <li>Water conservation is not an option; it is our primary ethical duty to the planet.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 10</span> The seat of a two-wheeler parked in the sun has become scalding hot. How can you cool it down?</summary>
+        <div class="ans-content">
+          <p><strong>Quick Scientific Solution:</strong> Sprinkle a small amount of clean water over the hot leather/vinyl seat, or wipe it with a wet handkerchief.</p>
+          <p><strong>Scientific Explanation:</strong></p>
+          <ul>
+            <li>The dark-coloured seat absorbed intense solar thermal energy, making it too hot to sit on.</li>
+            <li>When water touches the hot seat, the water absorbs heat from the seat material and rapidly evaporates into steam/vapour.</li>
+            <li>Because water has a very high <strong>latent heat of vaporization</strong>, it extracts a tremendous amount of heat energy from the seat in just a few seconds. The seat cools down to a comfortable temperature immediately!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Extended Learning Activities -->
+      <details class="ans-box">
+        <summary><span class="tag tag-think">Learning Further 1</span> Blowing air on a wet hand vs a dry hand</summary>
+        <div class="ans-content">
+          <p><strong>Observation:</strong> When you blow air across both hands simultaneously, the wet hand feels intensely cold, while the dry hand feels almost neutral.</p>
+          <p><strong>Reason:</strong> Blowing air accelerates the rate of evaporation of water film from the wet hand. The evaporating water molecules draw latent heat directly from the living skin cells of that hand, causing a sharp drop in skin temperature (evaporative cooling). The dry hand has no liquid water to evaporate, so no heat is extracted.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: Interactive Quiz & Competency Bank -->
+    <section class="content-card">
+      <h2>&#128175; Section 5: Interactive Quiz &amp; CBSE Competency Bank</h2>
+      <p>Test your conceptual understanding in real time with our instant-feedback quiz, followed by CBSE Assertion-Reasoning, Short &amp; Long Answer questions, and Case Studies:</p>
+
+      <!-- Quiz Scoreboard -->
+      <div class="quiz-score-board">
+        <div>&#129504; Live Competency Quiz (5 MCQs)</div>
+        <div>Score: <span id="quizScore">0</span> / 5</div>
+      </div>
+
+      <!-- Interactive MCQ 1 -->
+      <div class="quiz-card" id="q1-container">
+        <div class="quiz-question">Q1. Why does an earthen pot (matka) keep water cool during blistering summer months?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(1, 'A', false, 'Clay is a natural material, but it does not make artificial ice.')">A) Clay possesses chemical compounds that freeze water naturally</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(1, 'B', true, 'Correct! Water seeps through micropores and evaporates from the outer surface, extracting heat from the water inside.')">B) Water seeps through microscopic pores and evaporates, taking heat away from water inside</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(1, 'C', false, 'The pot absorbs heat from ambient air, but cooling is driven by evaporative loss.')">C) The pot completely blocks all sunlight from reaching the water</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(1, 'D', false, 'Clay is not an active refrigerator.')">D) Clay creates negative cold rays inside the pot</button>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <!-- Interactive MCQ 2 -->
+      <div class="quiz-card" id="q2-container">
+        <div class="quiz-question">Q2. Which of the following conditions will cause a wet shirt to dry at the FASTEST possible rate?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(2, 'A', false, 'Low temperature and high humidity both drastically retard evaporation.')">A) Low temperature, high humidity, folded inside a closed closet</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(2, 'B', false, 'Crumpled cloth has a very small surface area.')">B) High temperature, low humidity, crumpled tightly in a bucket</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(2, 'C', true, 'Correct! High temperature + low humidity + strong wind + large spread-out surface area maximize evaporation.')">C) High temperature, dry air (low humidity), high wind speed, spread wide open</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(2, 'D', false, 'High humidity prevents air from absorbing extra moisture.')">D) High temperature, 100% humidity, calm breeze</button>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <!-- Interactive MCQ 3 -->
+      <div class="quiz-card" id="q3-container">
+        <div class="quiz-question">Q3. Water droplets forming on the outer surface of a glass tumbler containing iced water prove that:</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(3, 'A', false, 'Glass is non-porous; water cannot leak through.')">A) Glass is porous and allows liquid water to seep through its walls</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(3, 'B', true, 'Correct! Water vapour present in ambient air condenses into liquid drops upon contacting the cold glass.')">B) Air contains water vapour which condenses on touching the cold surface</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(3, 'C', false, 'Ice expands when freezing, but it stays inside the glass.')">C) Melting ice expands and overflows over the rim</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(3, 'D', false, 'Cold surfaces do not decompose air gases into water.')">D) Oxygen in the air turns into hydrogen on cold surfaces</button>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <!-- Interactive MCQ 4 -->
+      <div class="quiz-card" id="q4-container">
+        <div class="quiz-question">Q4. What is the fundamental difference between evaporation and boiling?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(4, 'A', false, 'Boiling occurs only at a fixed boiling point (100 °C for water).')">A) Evaporation happens only at 100 &deg;C, while boiling occurs at all temperatures</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(4, 'B', true, 'Correct! Evaporation is a slow surface process at any temperature; boiling is a rapid bulk process at 100 &deg;C.')">B) Evaporation occurs at the surface at any temperature; boiling occurs throughout the bulk liquid at 100 &deg;C</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(4, 'C', false, 'Both processes involve changing liquid water into water vapour.')">C) Evaporation produces water vapour, but boiling produces nitrogen</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(4, 'D', false, 'Boiling requires continuous external heating.')">D) Boiling causes cooling, while evaporation causes heating</button>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <!-- Interactive MCQ 5 -->
+      <div class="quiz-card" id="q5-container">
+        <div class="quiz-question">Q5. In the atmosphere, clouds are primarily formed when water vapour:</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(5, 'A', false, 'Rising air cools; it does not boil.')">A) Heats up near the Sun and turns into smoke</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(5, 'B', false, 'Freezing alone does not make floating water droplets.')">B) Freezes directly into giant rocks of ice</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(5, 'C', true, 'Correct! Rising warm air cools at high altitude and condenses around microscopic dust nuclei into tiny droplets.')">C) Cools as it rises and condenses around microscopic dust particles into floating droplets</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(5, 'D', false, 'Clouds are made of condensed water droplets, not smoke.')">D) Combines with carbon monoxide from vehicle exhausts</button>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <h3>Assertion and Reasoning Questions</h3>
+      <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 16px;">
+        <strong>Direction:</strong> (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is NOT the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.
+      </p>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">A&amp;R 1</span> Spreading wet clothes on a line</summary>
+        <div class="ans-content">
+          <p><strong>Assertion (A):</strong> Wet clothes dry significantly faster when they are spread wide open on a clothesline than when left crumpled in a heap.<br>
+          <strong>Reason (R):</strong> Spreading clothes increases the exposed surface area, which directly speeds up the rate of evaporation.</p>
+          <p><strong>Answer: A (Both A and R are true and R is the correct explanation of A).</strong></p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">A&amp;R 2</span> Acetone feeling cold on skin</summary>
+        <div class="ans-content">
+          <p><strong>Assertion (A):</strong> Putting a drop of spirit or nail polish remover on our skin gives an intense cooling sensation.<br>
+          <strong>Reason (R):</strong> The volatile liquid absorbs its required latent heat of vaporization directly from our warm skin to evaporate.</p>
+          <p><strong>Answer: A (Both A and R are true and R is the correct explanation of A).</strong></p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">A&amp;R 3</span> Water cycle and total global water volume</summary>
+        <div class="ans-content">
+          <p><strong>Assertion (A):</strong> The total volume of water on Planet Earth remains roughly constant over millions of years.<br>
+          <strong>Reason (R):</strong> The global water cycle continuously circulates water between the oceans, atmosphere, and land without destroying it.</p>
+          <p><strong>Answer: A (Both A and R are true and R is the correct explanation of A).</strong></p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">A&amp;R 4</span> Drying clothes on a humid monsoon day</summary>
+        <div class="ans-content">
+          <p><strong>Assertion (A):</strong> Clothes dry very quickly during rainy July afternoons in Mumbai or Kolkata.<br>
+          <strong>Reason (R):</strong> In rainy seasons, the atmosphere contains very low humidity.</p>
+          <p><strong>Answer: D (Both A and R are completely false).</strong><br>
+          <em>Correction:</em> In monsoon months, air is nearly saturated with moisture (high humidity), which severely retards evaporation; clothes take hours or days to dry!</p>
+        </div>
+      </details>
+
+      <h3>Short Answer Questions (2 &amp; 3 Marks)</h3>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 1</span> Why do dogs pant and stick their tongues out on hot summer afternoons? (2 Marks)</summary>
+        <div class="ans-content">
+          <p>Unlike humans, dogs have very few sweat glands across their fur-covered bodies (sweat glands are mostly on their paw pads). By panting rapidly with their moist tongues exposed, saliva continuously evaporates from their tongue surface into the air. This evaporative cooling removes excess heat from circulating blood vessels in the tongue, cooling the dog down.</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 2</span> Why do we see our breath like smoke on a cold winter morning, but not in summer? (2 Marks)</summary>
+        <div class="ans-content">
+          <p>Our exhaled breath is warm and saturated with invisible water vapour from our lungs. On a freezing winter morning, the cold outside air immediately chills our exhaled warm breath below its dew point. The water vapour instantly <strong>condenses</strong> into millions of microscopic floating liquid water droplets, which scatter light and appear like a puff of white smoke! In summer, the warm ambient air keeps the moisture in its invisible gaseous vapour state.</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 3</span> Differentiate between evaporation and boiling. (3 Marks)</summary>
+        <div class="ans-content">
+          <table>
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Evaporation</th>
+                <th>Boiling</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Temperature</strong></td>
+                <td>Occurs at any temperature below the boiling point.</td>
+                <td>Occurs only at a fixed temperature (100 &deg;C for water at 1 atm).</td>
+              </tr>
+              <tr>
+                <td><strong>Location</strong></td>
+                <td>Surface phenomenon (molecules escape only from the surface).</td>
+                <td>Bulk phenomenon (bubbles form throughout the liquid mass).</td>
+              </tr>
+              <tr>
+                <td><strong>Cooling Effect</strong></td>
+                <td>Always causes cooling of the remaining liquid/surface.</td>
+                <td>Maintains a constant boiling temperature without self-cooling.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 4</span> Why does hot tea cool faster when poured into a saucer rather than kept in a cup? (2 Marks)</summary>
+        <div class="ans-content">
+          <p>A saucer has a much larger open surface area than a narrow cup. Since evaporation is a surface phenomenon, the wider liquid surface area in a saucer allows far more energetic water molecules to escape into the air simultaneously, resulting in rapid evaporative heat loss.</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 5</span> What are condensation nuclei and why are they necessary for rain? (2 Marks)</summary>
+        <div class="ans-content">
+          <p><strong>Definition:</strong> Condensation nuclei are microscopic airborne particles of dust, soot, clay, pollen, and sea salt floating in the atmosphere.</p>
+          <p><strong>Necessity:</strong> Pure water vapour cannot easily condense into liquid droplets in clean, pristine air. These microscopic particles provide the initial physical solid surface for water vapour molecules to cling to, coalesce, and grow into cloud droplets.</p>
+        </div>
+      </details>
+
+      <h3>Long Answer Questions (5 Marks)</h3>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">LA 1</span> Explain the four major environmental factors that control the rate of evaporation, giving one daily-life example for each. (5 Marks)</summary>
+        <div class="ans-content">
+          <p>The speed at which water evaporates depends upon four critical physical factors:</p>
+          <ol>
+            <li><strong>Surface Area:</strong>
+              <ul>
+                <li><em>Principle:</em> The greater the exposed liquid surface area, the greater the number of molecules escaping into air.</li>
+                <li><em>Example:</em> A spread-out wet towel dries in 30 minutes, whereas a rolled-up towel stays soggy all day.</li>
+              </ul>
+            </li>
+            <li><strong>Temperature:</strong>
+              <ul>
+                <li><em>Principle:</em> Heat increases the kinetic energy of water molecules, allowing them to overcome intermolecular bonds.</li>
+                <li><em>Example:</em> Laundry dries much faster on a hot sunny day (38 &deg;C) than on a cold overcast day (12 &deg;C).</li>
+              </ul>
+            </li>
+            <li><strong>Wind Speed:</strong>
+              <ul>
+                <li><em>Principle:</em> Fast-moving air sweeps away the saturated vapour layer near the liquid surface, maintaining a steep humidity gradient.</li>
+                <li><em>Example:</em> Clothes dry rapidly when hung in front of a ceiling fan or in a stiff outdoor breeze.</li>
+              </ul>
+            </li>
+            <li><strong>Humidity (Moisture in Air):</strong>
+              <ul>
+                <li><em>Principle:</em> If ambient air already holds high amounts of water vapour, it cannot absorb more moisture easily.</li>
+                <li><em>Example:</em> In dry desert climates (Rajasthan), sweat dries instantly; in coastal monsoon climates (Mumbai), sweat remains sticky on the skin because high humidity retards evaporation.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">LA 2</span> Trace the complete journey of a water molecule through the global water cycle. (5 Marks)</summary>
+        <div class="ans-content">
+          <p>The water cycle is an eternal, closed thermodynamic circulation system powered by solar energy and gravity:</p>
+          <ol>
+            <li><strong>Evaporation &amp; Transpiration:</strong>
+              <ul>
+                <li>Solar radiation heats oceans, seas, and lakes, converting liquid water into invisible water vapour.</li>
+                <li>Simultaneously, green plants release water vapour through their leaf stomata via transpiration.</li>
+              </ul>
+            </li>
+            <li><strong>Ascent and Cloud Formation (Condensation):</strong>
+              <ul>
+                <li>Warm, moisture-laden air rises into the upper troposphere where temperatures are low.</li>
+                <li>The water vapour cools and condenses around microscopic floating dust nuclei, forming billions of tiny water droplets seen as clouds.</li>
+              </ul>
+            </li>
+            <li><strong>Precipitation:</strong>
+              <ul>
+                <li>Cloud droplets collide and coalesce into heavy drops. When upward air currents can no longer support their mass, gravity pulls them down as rain, or as snow/hail if freezing temperatures exist aloft.</li>
+              </ul>
+            </li>
+            <li><strong>Surface Runoff and Infiltration:</strong>
+              <ul>
+                <li>Rainwater flows over the ground into streams, rivers, and ultimately returns to the ocean.</li>
+                <li>Some water seeps into the soil (infiltration) to recharge underground aquifers, which feeds wells and mountain springs.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">LA 3</span> Design a scientific experiment to prove that water appearing on the outside of a chilled tumbler comes from the surrounding air and does NOT leak through the glass. (5 Marks)</summary>
+        <div class="ans-content">
+          <p><strong>Aim:</strong> To prove that droplets on the outside of a cold tumbler originate from ambient air moisture via condensation, not by leakage through glass walls.</p>
+          <p><strong>Apparatus:</strong> Clean glass tumbler, ice cubes, tap water, red or blue edible food dye, white paper towel, and a precision kitchen balance.</p>
+          <p><strong>Procedure:</strong></p>
+          <ol>
+            <li>Add ice cubes and water to the glass tumbler. Stir in 5 drops of deep red food dye until the liquid inside is dark crimson red.</li>
+            <li>Thoroughly wipe the outer glass surface dry with a paper towel so no moisture remains outside.</li>
+            <li>Place the tumbler on the table in an open room for 5 minutes.</li>
+            <li>Observe the droplets that begin to form on the outside glass surface.</li>
+            <li>Carefully wipe the outer droplets with a clean white paper towel and inspect the towel's colour.</li>
+          </ol>
+          <p><strong>Observation:</strong></p>
+          <ul>
+            <li>The paper towel remains completely pure white with clear colourless water stains! No red dye transfers to the outside towel.</li>
+          </ul>
+          <p><strong>Scientific Conclusion:</strong></p>
+          <ul>
+            <li>If water had seeped or leaked through pores in the glass walls, it would carry the dissolved red dye molecules and stain the outside towel red.</li>
+            <li>Because the outside droplets are 100% clear and colourless, they must have condensed solely from the invisible water vapour naturally present in the surrounding room air!</li>
+          </ul>
+        </div>
+      </details>
+
+      <h3>Competency Case Study Questions</h3>
+
+      <div class="callout callout-act">
+        <h4>&#128220; Case Study 1: The Summer Terrace Cooler</h4>
+        <p><strong>Context:</strong> Aarav's grandfather lives in a traditional brick house in Nagpur, where peak May temperatures reach 45 &deg;C. Every summer, his grandfather refuses to buy an air conditioner, relying instead on two large clay matkas for drinking water and a metal desert room cooler packed with fragrant khus grass pads. In the evening at 6 PM, Aarav helps his grandfather splash two buckets of tap water across the open concrete roof terrace.</p>
+
+        <p><strong>Questions:</strong></p>
+        <ol>
+          <li>What common scientific principle drives the cooling in the clay matka, the desert cooler, and the splashed rooftop?</li>
+          <li>Why does the desert cooler work brilliantly in dry May, but becomes sticky and ineffective during rainy July?</li>
+          <li>Why does splashing water on the rooftop at 6 PM make the bedrooms below cooler at night?</li>
+        </ol>
+
+        <details class="ans-box" style="margin-top: 12px;">
+          <summary>View Model Answers</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Evaporative Cooling.</strong> In all three cases, liquid water evaporates into gas, absorbing its high latent heat of vaporization from the adjacent surface (the matka water, incoming room air, and the hot concrete roof), drastically lowering temperatures.</li>
+              <li>In May, the desert air is extremely dry (low humidity), allowing water to evaporate at maximum speed. In July, monsoon air is already saturated with water vapour (high humidity), stalling evaporation; the cooler merely blows humid, sticky air without cooling.</li>
+              <li>The concrete slab absorbed solar heat all day. Splashing water forces the concrete to surrender its stored thermal energy to vaporize the water, preventing heat from radiating down into the bedrooms below at night.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-act">
+        <h4>&#128220; Case Study 2: The Himalayan Rain Shadow</h4>
+        <p><strong>Context:</strong> During their geography-science trip, Class 6 students traveled from the lush green, tea-growing valley of Assam to the stark, barren high-altitude desert of Ladakh. Their teacher pointed out that while Cherrapunji in Meghalaya receives over 11,000 mm of rain annually, Leh in Ladakh receives barely 100 mm of precipitation, despite both being in northern India.</p>
+
+        <p><strong>Questions:</strong></p>
+        <ol>
+          <li>Why does rising moist air from the Indian Ocean produce heavy rainfall over the southern slopes of the Himalayas?</li>
+          <li>Why does Ladakh, situated on the other side of the Himalayan mountain ridge, receive almost zero rain?</li>
+          <li>In what physical state is freshwater primarily stored in Ladakh?</li>
+        </ol>
+
+        <details class="ans-box" style="margin-top: 12px;">
+          <summary>View Model Answers</summary>
+          <div class="ans-content">
+            <ol>
+              <li>Moisture-laden monsoon winds are forced to rise when they hit the towering mountain barrier. As the air rises, it expands and cools rapidly, causing intense condensation of water vapour into clouds that dump torrential rain (orographic precipitation).</li>
+              <li>By the time the air masses cross the high peaks into Ladakh, they have already lost almost all their moisture. As the dry air descends on the northern side, it warms up, suppressing cloud formation. Ladakh is in a <strong>rain shadow zone</strong>.</li>
+              <li>In the <strong>solid state</strong>, as massive glaciers, high-altitude permafrost, and snowpacks that melt slowly in summer to feed rivers like the Indus.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Exam Hall Mistakes & Revision Points -->
+    <section class="content-card">
+      <h2>&#128680; Section 6: Exam Hall Mistakes &amp; 15 Rapid Revision Points</h2>
+
+      <div class="callout callout-warn">
+        <h4>&#10060; 5 Common Exam Hall Mistakes to Avoid</h4>
+        <ul>
+          <li><strong>Mistake 1: Believing evaporation requires boiling heat (100 &deg;C):</strong> Evaporation happens at ALL temperatures, even at 5 &deg;C or 25 &deg;C under shade! Boiling is what requires 100 &deg;C.</li>
+          <li><strong>Mistake 2: Thinking cold glass 'sweats' from inside:</strong> Glass is completely impermeable to liquids. The droplets on the outside come 100% from ambient water vapour in room air.</li>
+          <li><strong>Mistake 3: Stating that fans cool the air:</strong> Electric fans only circulate air and accelerate evaporation; they do not drop ambient air temperature by a single degree.</li>
+          <li><strong>Mistake 4: Confusing evaporation with condensation:</strong> Evaporation turns liquid into gas (absorbs heat); condensation turns gas into liquid (releases heat).</li>
+          <li><strong>Mistake 5: Overlooking the role of dust in rain:</strong> Pure clean air cannot easily form clouds. Microscopic dust particles (condensation nuclei) are mandatory for raindrops to form.</li>
+        </ul>
+      </div>
+
+      <h3>&#128640; 15 Ultra-Crisp Rapid Revision One-Liners</h3>
+      <ol>
+        <li>Water exists naturally on Earth in three physical states: solid (ice), liquid (water), and gas (water vapour).</li>
+        <li><strong>Evaporation</strong> is the slow conversion of liquid water into vapour at any temperature below its boiling point.</li>
+        <li>Evaporation is a <strong>surface phenomenon</strong>; only molecules at the top surface escape.</li>
+        <li>Evaporation speeds up with <strong>higher temperature</strong>, <strong>larger surface area</strong>, <strong>higher wind speed</strong>, and <strong>lower humidity</strong>.</li>
+        <li><strong>Evaporation causes cooling</strong> because escaping molecules carry away latent heat from the remaining surface.</li>
+        <li>Human sweating and clay matkas keep things cool through the principle of evaporative cooling.</li>
+        <li><strong>Condensation</strong> is the transformation of water vapour into liquid droplets upon cooling.</li>
+        <li>Water droplets on the outside of an iced glass tumbler prove that air contains invisible water vapour.</li>
+        <li>Pure water freezes into ice at <strong>0 &deg;C</strong> and boils into steam at <strong>100 &deg;C</strong> at standard atmospheric pressure.</li>
+        <li><strong>Transpiration</strong> is the evaporation of water vapour from plant leaves into the atmosphere.</li>
+        <li>Warm air rises because it is less dense than surrounding cold air.</li>
+        <li>As warm moist air ascends, it expands, cools, and condenses around microscopic <strong>condensation nuclei</strong> (dust).</li>
+        <li>Millions of tiny condensed water droplets cluster together in the sky to form visible <strong>clouds</strong>.</li>
+        <li>When cloud droplets become too heavy for air currents to support, they fall as <strong>precipitation</strong> (rain, snow, hail).</li>
+        <li>The endless circulation of water between Earth's surface and the atmosphere is known as the <strong>water cycle</strong>.</li>
+      </ol>
+    </section>
+  </main>
+
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // 2. Interactive Quiz Engine
+    let userScore = 0;
+    const answeredQuestions = new Set();
+
+    function checkQuizAnswer(questionNum, selectedOption, isCorrect, explanation) {
+      if (answeredQuestions.has(questionNum)) return;
+      answeredQuestions.add(questionNum);
+
+      const qContainer = document.getElementById('q' + questionNum + '-container');
+      const buttons = qContainer.querySelectorAll('.quiz-btn');
+      const feedback = document.getElementById('q' + questionNum + '-feedback');
+
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.textContent.trim().startsWith(selectedOption)) {
+          btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+        } else if (!isCorrect && isCorrectOption(questionNum, btn.textContent.trim())) {
+          btn.classList.add('correct');
+        }
+      });
+
+      if (isCorrect) {
+        userScore++;
+        document.getElementById('quizScore').textContent = userScore;
+        feedback.className = 'quiz-feedback show success-fb';
+        feedback.innerHTML = '<strong>&#10004; Excellent!</strong> ' + explanation;
+      } else {
+        feedback.className = 'quiz-feedback show error-fb';
+        feedback.innerHTML = '<strong>&#10006; Not quite!</strong> ' + explanation;
+      }
+    }
+
+    function isCorrectOption(qNum, text) {
+      const correctKeys = { 1: 'B', 2: 'C', 3: 'B', 4: 'B', 5: 'C' };
+      return text.startsWith(correctKeys[qNum]);
+    }
+
+    // 3. Audio Reader (Text-to-Speech)
+    let isSpeaking = false;
+    let speechUtterance = null;
+
+    function toggleAudioReader() {
+      const btn = document.getElementById('audioToggleBtn');
+      const textSpan = document.getElementById('audioText');
+      const iconSpan = document.getElementById('audioIcon');
+
+      if (!('speechSynthesis' in window)) {
+        alert('Sorry! Your browser does not support audio speech synthesis.');
+        return;
+      }
+
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.classList.remove('playing');
+        iconSpan.innerHTML = '&#128266;';
+        textSpan.textContent = 'Listen to Summary';
+      } else {
+        const textToRead = "Class 6 Science Chapter 8: A Journey through States of Water. " +
+          "Water exists in three states: solid ice, liquid water, and gaseous water vapour. " +
+          "Evaporation is the slow conversion of liquid into vapour at the surface at any temperature below boiling. " +
+          "Evaporation absorbs heat and causes cooling, as seen in earthen matkas and sweating. " +
+          "Condensation turns water vapour back into liquid drops upon cooling, forming clouds and rain in the global water cycle.";
+        
+        speechUtterance = new SpeechSynthesisUtterance(textToRead);
+        speechUtterance.rate = 0.95;
+        speechUtterance.pitch = 1.0;
+
+        speechUtterance.onend = () => {
+          isSpeaking = false;
+          btn.classList.remove('playing');
+          iconSpan.innerHTML = '&#128266;';
+          textSpan.textContent = 'Listen to Summary';
+        };
+
+        window.speechSynthesis.speak(speechUtterance);
+        isSpeaking = true;
+        btn.classList.add('playing');
+        iconSpan.innerHTML = '&#9209;';
+        textSpan.textContent = 'Stop Audio';
+      }
+    }
+  </script>
+</body>
+</html>
