@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Study Note: Ch 1 - The Wonderful World of Science (Class 6 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #0284c7 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      max-width: 780px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Section Card */
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    /* Sub-section Headings */
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    /* General Cards */
+    .card {
+      background: #fdfdfd;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    /* Callout Boxes */
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-box .callout-text {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .callout-def {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .callout-def i { color: #059669; }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-color: #a855f7;
+      color: #581c87;
+    }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+    .callout-warn i { color: #dc2626; }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+    .data-table tr:hover { background: #f1f5f9; }
+
+    /* Collapsible Details Answers */
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+
+    /* Diagrams Container */
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+      font-style: italic;
+    }
+
+    /* List styling */
+    .bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0.8rem 0;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .bullet-list li::before {
+      content: "\f058";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 1.75rem; }
+      .section-card { padding: 1.25rem; }
+      body { padding-top: 55px; }
+      .top-nav { padding: 0 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Top Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Master Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Competency Bank</a>
+      <a href="#sec6" class="nav-link">6. Exam Traps</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-flask-vial"></i> Class 6 Science &bull; Chapter 1 (Curiosity)
+    </div>
+    <h1 class="hero-title">The Wonderful World of Science</h1>
+    <p class="hero-sub">
+      A Complete, Child-Friendly Master Study Note on What Science Really Is, the Infinite Jigsaw Puzzle of Knowledge, Everyday Scientific Inquiry, the 5 Steps of the Scientific Method, and Why We Are All Scientists at Heart!
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT: Curiosity (Grade 6)</span>
+      <span><i class="fa-solid fa-lightbulb"></i> Theme: Scientific Inquiry &amp; Thinking</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Solved Activities &amp; Competency Bank</span>
+      <span><i class="fa-solid fa-magnifying-glass"></i> "To be a wise person, be a 'whys' person!"</span>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+
+    <!-- ========================================== -->
+    <!-- SECTION 1: BLUEPRINT & MIND MAP -->
+    <!-- ========================================== -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
+        <h2>Visual Mind Map &amp; Chapter Blueprint</h2>
+        <p class="section-sub">A clear structural overview mapping the meaning of science, the nature of scientific exploration, and the step-by-step scientific method.</p>
+      </div>
+
+      <!-- Blueprint Table -->
+      <h3 style="color: var(--primary-dark); margin: 1.5rem 0 1rem; display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fa-solid fa-compass"></i> Chapter Blueprint &amp; Core Thematic Pillars
+      </h3>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 20%;">Thematic Domain</th>
+              <th style="width: 40%;">Core Concepts &amp; Real-Life Stories</th>
+              <th style="width: 40%;">Class 6 Takeaways &amp; Exam Relevance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. What is Science?</strong></td>
+              <td>
+                &bull; A way of thinking, observing, and doing things.<br>
+                &bull; Exploring the secrets of the universe from grains of sand to galaxies.<br>
+                &bull; Driven by human curiosity.
+              </td>
+              <td>Understand that science is not merely memorizing textbooks; it is an active spirit of asking questions and seeking truth.</td>
+            </tr>
+            <tr>
+              <td><strong>2. The Giant Jigsaw Puzzle</strong></td>
+              <td>
+                &bull; Science is an infinite jigsaw puzzle.<br>
+                &bull; Every discovery adds a new puzzle piece.<br>
+                &bull; New discoveries can move old pieces (self-correcting nature of science).
+              </td>
+              <td>Learn that scientific knowledge keeps evolving as we gather more evidence and invent better tools.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Roadmap of Class 6 Curiosity</strong></td>
+              <td>
+                &bull; Living world (seed germination, caterpillars into butterflies).<br>
+                &bull; Food &amp; mindful eating.<br>
+                &bull; Materials, magnets, separation of mixtures.<br>
+                &bull; Water states, temperature, beyond Earth (planets, stars).
+              </td>
+              <td>Connect all 12 chapters of the Grade 6 syllabus into a single unified story of exploring planet Earth and beyond.</td>
+            </tr>
+            <tr>
+              <td><strong>4. The 5 Steps of Scientific Method</strong></td>
+              <td>
+                &bull; 1. Observation &rarr; 2. Questioning &rarr; 3. Hypothesis (Guess) &rarr; 4. Experiment / Testing &rarr; 5. Analysis &amp; Conclusion.<br>
+                &bull; The Broken Pen Investigation.
+              </td>
+              <td>Master the exact logical steps scientists follow to solve problems and verify explanations.</td>
+            </tr>
+            <tr>
+              <td><strong>5. We Are All Scientists!</strong></td>
+              <td>
+                &bull; The pressure cooker and spilled dal.<br>
+                &bull; Bicycle mechanic finding a tyre puncture with a water basin.<br>
+                &bull; Electrician diagnosing a non-glowing bulb.
+              </td>
+              <td>Recognize that everyday problem-solving uses the exact same scientific method as university research laboratories.</td>
+            </tr>
+            <tr>
+              <td><strong>6. Teamwork &amp; Joy of Science</strong></td>
+              <td>
+                &bull; Science is collaborative (scientists work in global teams).<br>
+                &bull; Joyful exploration like dancing in the rain.<br>
+                &bull; Golden Motto: <em>"To be a wise person, you must be a 'whys' person!"</em>
+              </td>
+              <td>Develop curiosity, teamwork, and love for scientific inquiry in daily life.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Quick Summary Cards -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+        <div class="card" style="border-top: 4px solid #059669;">
+          <h4 style="color: #047857; margin-bottom: 0.5rem;"><i class="fa-solid fa-eye"></i> Keen Observation</h4>
+          <p style="font-size: 0.9rem; color: #475569;">Looking deeply at ordinary things: watching a caterpillar transform, stars twinkling, or leaves sweating water droplets.</p>
+        </div>
+        <div class="card" style="border-top: 4px solid #0284c7;">
+          <h4 style="color: #0369a1; margin-bottom: 0.5rem;"><i class="fa-solid fa-gears"></i> Systematic Method</h4>
+          <p style="font-size: 0.9rem; color: #475569;">Following step-by-step logic: observing, posing a testable question, making an educated guess, and testing with fair experiments.</p>
+        </div>
+        <div class="card" style="border-top: 4px solid #f59e0b;">
+          <h4 style="color: #b45309; margin-bottom: 0.5rem;"><i class="fa-solid fa-puzzle-piece"></i> Dynamic Evolution</h4>
+          <p style="font-size: 0.9rem; color: #475569;">Knowledge is never final. Every answer opens new questions, expanding the magnificent jigsaw puzzle of understanding.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 2: LINE-BY-LINE MASTER NOTES -->
+    <!-- ========================================== -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2 &bull; Comprehensive Line-by-Line Study Notes</span>
+        <h2>Exhaustive Concept Explanations</h2>
+        <p class="section-sub">Every paragraph, question, activity prompt, and everyday example from Chapter 1 of NCERT Curiosity decoded in simple, conversational English.</p>
+      </div>
+
+      <!-- Topic 1 -->
+      <h3 class="topic-title">
+        <i class="fa-solid fa-lightbulb"></i> 1. What is Science? The Great Adventure
+      </h3>
+      <p>
+        Welcome to Grade 6! In primary school (the Preparatory Stage), you explored Environmental Studies (EVS). Now, as you step into the Middle Stage of school, you have an exciting, dedicated subject: <strong>Science</strong>!
+      </p>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-atom"></i>
+        <div class="callout-text">
+          <strong>Official Definition: What is Science?</strong><br>
+          <strong>Science</strong> is a systematic way of <strong>thinking, observing, and doing things</strong> to understand the world we live in and to uncover the hidden secrets of the universe.
+        </div>
+      </div>
+
+      <p>
+        Think of Science not as a heavy textbook to memorize, but as a thrilling <strong>detective adventure</strong>! When you see something strange or beautiful, you stop, ask questions, investigate clues, and find out how it works.
+      </p>
+      <ul class="bullet-list">
+        <li><strong>Why do stars twinkle in the night sky?</strong> Science explains how layers of Earth's moving atmosphere bend starlight.</li>
+        <li><strong>How does a bud know when to bloom into a flower?</strong> Science uncovers plant hormones and light-sensing pigments!</li>
+        <li><strong>Why do puddles dry up after rain?</strong> Science shows how warmth from the Sun turns liquid water into invisible water vapour.</li>
+        <li><strong>Science is Everywhere:</strong> From the freezing depths of Mariana Trench to the fiery hearts of distant galaxies; from the boiling tea in your kitchen to the ball bouncing across your school playground!</li>
+      </ul>
+
+      <!-- Topic 2 -->
+      <h3 class="topic-title">
+        <i class="fa-solid fa-puzzle-piece"></i> 2. The Infinite Jigsaw Puzzle: Dynamic Nature of Science
+      </h3>
+      <p>
+        The textbook presents a wonderful metaphor: <strong>Science is like a giant, unending jigsaw puzzle.</strong>
+      </p>
+
+      <div class="card">
+        <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;"><i class="fa-solid fa-shapes"></i> How Does the Science Puzzle Work?</h4>
+        <ol style="margin-left: 1.5rem; line-height: 1.8;">
+          <li><strong>Every discovery is a puzzle piece:</strong> When an astronomer discovers an exoplanet or a biologist discovers a new deep-sea glowing jellyfish, a new piece snaps into the puzzle.</li>
+          <li><strong>No borders to the puzzle:</strong> Unlike a cardboard toy box with 500 pieces, nature's puzzle has infinite pieces. Every answer sparks three new questions!</li>
+          <li><strong>Pieces can be moved (Self-Correction):</strong> Sometimes scientists place a piece in the wrong spot because they had limited tools. When better microscopes or telescopes are invented, old ideas are corrected.
+            <ul style="margin-top: 0.2rem;">
+              <li><em>Historical Example:</em> Centuries ago, people believed Earth was flat and stood still at the center of the universe. Careful observations and mathematical calculations proved that Earth is a spinning sphere orbiting the Sun!</li>
+            </ul>
+          </li>
+        </ol>
+      </div>
+
+      <!-- INLINE SVG 1: Scientific Method Flowchart -->
+      <div class="diagram-wrapper">
+        <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">
+          <i class="fa-solid fa-diagram-project"></i> Diagram 1: The 5-Step Scientific Method Flowchart
+        </h4>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" width="100%" height="auto" style="background:#ffffff; border-radius:12px; border:1px solid #cbd5e1; font-family:'Plus Jakarta Sans', system-ui, sans-serif;">
+          <defs>
+            <linearGradient id="stepGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#059669" />
+              <stop offset="100%" stop-color="#047857" />
+            </linearGradient>
+            <linearGradient id="stepGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7" />
+              <stop offset="100%" stop-color="#0369a1" />
+            </linearGradient>
+            <linearGradient id="stepGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b" />
+              <stop offset="100%" stop-color="#d97706" />
+            </linearGradient>
+            <linearGradient id="stepGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8b5cf6" />
+              <stop offset="100%" stop-color="#6d28d9" />
+            </linearGradient>
+            <linearGradient id="stepGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ec4899" />
+              <stop offset="100%" stop-color="#be185d" />
+            </linearGradient>
+            <filter id="shadowSM" x="-5%" y="-5%" width="110%" height="110%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1" />
+            </filter>
+          </defs>
+
+          <!-- Top Banner -->
+          <rect x="220" y="15" width="460" height="42" rx="21" fill="#059669" />
+          <text x="450" y="42" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">THE SCIENTIFIC INQUIRY CYCLE</text>
+
+          <!-- Step 1: Observation -->
+          <g transform="translate(40, 80)">
+            <rect x="0" y="0" width="145" height="180" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="2" filter="url(#shadowSM)"/>
+            <rect x="0" y="0" width="145" height="34" rx="10" fill="url(#stepGrad1)"/>
+            <rect x="0" y="24" width="145" height="10" fill="url(#stepGrad1)"/>
+            <text x="72" y="23" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">STEP 1</text>
+            <text x="72" y="60" fill="#047857" font-size="14" font-weight="800" text-anchor="middle">OBSERVE</text>
+            <text x="72" y="90" font-size="28" text-anchor="middle">👀</text>
+            <text x="72" y="130" fill="#334155" font-size="11" text-anchor="middle">Notice something</text>
+            <text x="72" y="148" fill="#334155" font-size="11" text-anchor="middle">curious or puzzling</text>
+            <text x="72" y="165" fill="#047857" font-size="10" font-weight="600" text-anchor="middle">in surroundings</text>
+          </g>
+
+          <!-- Arrow 1 to 2 -->
+          <g transform="translate(190, 165)">
+            <line x1="0" y1="0" x2="25" y2="0" stroke="#059669" stroke-width="3"/>
+            <polygon points="25,-5 35,0 25,5" fill="#059669"/>
+          </g>
+
+          <!-- Step 2: Question -->
+          <g transform="translate(230, 80)">
+            <rect x="0" y="0" width="145" height="180" rx="10" fill="#f0f9ff" stroke="#7dd3fc" stroke-width="2" filter="url(#shadowSM)"/>
+            <rect x="0" y="0" width="145" height="34" rx="10" fill="url(#stepGrad2)"/>
+            <rect x="0" y="24" width="145" height="10" fill="url(#stepGrad2)"/>
+            <text x="72" y="23" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">STEP 2</text>
+            <text x="72" y="60" fill="#0369a1" font-size="14" font-weight="800" text-anchor="middle">QUESTION</text>
+            <text x="72" y="90" font-size="28" text-anchor="middle">❓</text>
+            <text x="72" y="130" fill="#334155" font-size="11" text-anchor="middle">Ask "Why?"</text>
+            <text x="72" y="148" fill="#334155" font-size="11" text-anchor="middle">or "How?"</text>
+            <text x="72" y="165" fill="#0369a1" font-size="10" font-weight="600" text-anchor="middle">Define problem</text>
+          </g>
+
+          <!-- Arrow 2 to 3 -->
+          <g transform="translate(380, 165)">
+            <line x1="0" y1="0" x2="25" y2="0" stroke="#0284c7" stroke-width="3"/>
+            <polygon points="25,-5 35,0 25,5" fill="#0284c7"/>
+          </g>
+
+          <!-- Step 3: Hypothesis -->
+          <g transform="translate(420, 80)">
+            <rect x="0" y="0" width="145" height="180" rx="10" fill="#fffbeb" stroke="#fde68a" stroke-width="2" filter="url(#shadowSM)"/>
+            <rect x="0" y="0" width="145" height="34" rx="10" fill="url(#stepGrad3)"/>
+            <rect x="0" y="24" width="145" height="10" fill="url(#stepGrad3)"/>
+            <text x="72" y="23" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">STEP 3</text>
+            <text x="72" y="60" fill="#b45309" font-size="14" font-weight="800" text-anchor="middle">HYPOTHESIS</text>
+            <text x="72" y="90" font-size="28" text-anchor="middle">💡</text>
+            <text x="72" y="130" fill="#334155" font-size="11" text-anchor="middle">Make an educated</text>
+            <text x="72" y="148" fill="#334155" font-size="11" text-anchor="middle">guess / plausible</text>
+            <text x="72" y="165" fill="#b45309" font-size="10" font-weight="600" text-anchor="middle">explanation</text>
+          </g>
+
+          <!-- Arrow 3 to 4 -->
+          <g transform="translate(570, 165)">
+            <line x1="0" y1="0" x2="25" y2="0" stroke="#f59e0b" stroke-width="3"/>
+            <polygon points="25,-5 35,0 25,5" fill="#f59e0b"/>
+          </g>
+
+          <!-- Step 4: Experiment -->
+          <g transform="translate(610, 80)">
+            <rect x="0" y="0" width="145" height="180" rx="10" fill="#faf5ff" stroke="#d8b4fe" stroke-width="2" filter="url(#shadowSM)"/>
+            <rect x="0" y="0" width="145" height="34" rx="10" fill="url(#stepGrad4)"/>
+            <rect x="0" y="24" width="145" height="10" fill="url(#stepGrad4)"/>
+            <text x="72" y="23" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">STEP 4</text>
+            <text x="72" y="60" fill="#6d28d9" font-size="14" font-weight="800" text-anchor="middle">EXPERIMENT</text>
+            <text x="72" y="90" font-size="28" text-anchor="middle">🧪</text>
+            <text x="72" y="130" fill="#334155" font-size="11" text-anchor="middle">Test the guess</text>
+            <text x="72" y="148" fill="#334155" font-size="11" text-anchor="middle">via fair tests &amp;</text>
+            <text x="72" y="165" fill="#6d28d9" font-size="10" font-weight="600" text-anchor="middle">measurements</text>
+          </g>
+
+          <!-- Step 5: Analyse & Conclude (Below) -->
+          <g transform="translate(230, 290)">
+            <rect x="0" y="0" width="335" height="100" rx="12" fill="#fdf2f8" stroke="#f472b6" stroke-width="2" filter="url(#shadowSM)"/>
+            <rect x="0" y="0" width="335" height="30" rx="12" fill="url(#stepGrad5)"/>
+            <rect x="0" y="20" width="335" height="10" fill="url(#stepGrad5)"/>
+            <text x="167" y="21" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">STEP 5: ANALYSE &amp; CONCLUDE</text>
+            <text x="167" y="55" fill="#9d174d" font-size="13" font-weight="700" text-anchor="middle">Does evidence support the guess?</text>
+            <text x="70" y="80" fill="#047857" font-size="12" font-weight="700">YES ➔ Accept Law</text>
+            <text x="210" y="80" fill="#dc2626" font-size="12" font-weight="700">NO ➔ Form New Guess!</text>
+          </g>
+
+          <!-- Connecting line from Step 4 down to Step 5 -->
+          <path d="M 682 260 L 682 340 L 570 340" stroke="#8b5cf6" stroke-width="3" fill="none" />
+          <polygon points="570,335 560,340 570,345" fill="#8b5cf6"/>
+
+          <!-- Loopback arrow when NO (from Step 5 back to Step 3) -->
+          <path d="M 397 390 L 397 420 L 492 420 L 492 265" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="5,4" fill="none" />
+          <polygon points="487,265 492,255 497,265" fill="#dc2626"/>
+          <text x="445" y="440" fill="#dc2626" font-size="11" font-weight="700" text-anchor="middle">If False: Revise Hypothesis &amp; Retest</text>
+
+          <!-- Bottom Summary -->
+          <g transform="translate(60, 465)">
+            <rect x="0" y="0" width="780" height="40" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+            <text x="390" y="25" fill="#0f172a" font-size="12" font-weight="600" text-anchor="middle">
+              Science is an iterative, self-correcting cycle of curiosity, evidence, and logical proof!
+            </text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 1.1: The 5 Standard Phases of Scientific Inquiry showing the self-correcting feedback loop.</p>
+      </div>
+
+      <!-- Topic 3 -->
+      <h3 class="topic-title">
+        <i class="fa-solid fa-pen"></i> 3. The Broken Pen Experiment: Scientific Method in Action
+      </h3>
+      <p>
+        To prove that the scientific method is not something locked away in scary laboratories, NCERT uses an everyday problem every single student has faced: <strong>Your pen stops writing in class!</strong>
+      </p>
+
+      <div class="card">
+        <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;"><i class="fa-solid fa-clipboard-check"></i> How You Act Like a Scientist With a Broken Pen:</h4>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width: 25%;">Scientific Step</th>
+                <th style="width: 40%;">What Happens in the Story</th>
+                <th style="width: 35%;">Scientific Principle</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Observation</strong></td>
+                <td>You are writing notes in your notebook and suddenly no ink appears on the paper.</td>
+                <td>Noticing an unexpected physical event.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Question</strong></td>
+                <td><em>"Why did my pen stop writing?"</em></td>
+                <td>Formulating a precise problem to solve.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Hypothesis 1</strong></td>
+                <td>You guess: <em>"The ink refill must be completely empty."</em></td>
+                <td>Proposing a plausible hypothesis based on prior experience.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Experiment 1</strong></td>
+                <td>You unscrew the pen barrel, pull out the refill, and hold it against the classroom light.</td>
+                <td>Conducting a test to gather visible evidence.</td>
+              </tr>
+              <tr>
+                <td><strong>5. Analysis 1</strong></td>
+                <td>
+                  <strong>Result A:</strong> Refill is dry &rarr; Hypothesis confirmed! (Get a new refill).<br>
+                  <strong>Result B:</strong> Refill is half full of blue ink! &rarr; Hypothesis 1 rejected!
+                </td>
+                <td>Evaluating data against your guess.</td>
+              </tr>
+              <tr>
+                <td><strong>6. Hypothesis 2</strong></td>
+                <td>Since ink is present, you make a new guess: <em>"The ink at the metallic ball nib has dried up or clotted."</em></td>
+                <td>Refining hypothesis based on rejected previous test.</td>
+              </tr>
+              <tr>
+                <td><strong>7. Experiment 2</strong></td>
+                <td>You scribble vigorously on a rough page, or blow warm breath into the refill tip, or touch the tip to a damp paper.</td>
+                <td>Second targeted experimental verification.</td>
+              </tr>
+              <tr>
+                <td><strong>8. Final Conclusion</strong></td>
+                <td>The ball-point frees up, ink flows smoothly, and the pen writes again!</td>
+                <td>Solution reached through evidence and logic!</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- INLINE SVG 2: Everyday Scientists -->
+      <div class="diagram-wrapper">
+        <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">
+          <i class="fa-solid fa-wrench"></i> Diagram 2: Everyday People Applying the Scientific Method
+        </h4>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 460" width="100%" height="auto" style="background:#ffffff; border-radius:12px; border:1px solid #cbd5e1; font-family:'Plus Jakarta Sans', system-ui, sans-serif;">
+          <defs>
+            <linearGradient id="sc1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7" />
+              <stop offset="100%" stop-color="#0369a1" />
+            </linearGradient>
+            <linearGradient id="sc2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#059669" />
+              <stop offset="100%" stop-color="#047857" />
+            </linearGradient>
+            <linearGradient id="sc3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d97706" />
+              <stop offset="100%" stop-color="#b45309" />
+            </linearGradient>
+            <filter id="boxSh1" x="-5%" y="-5%" width="110%" height="110%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1" />
+            </filter>
+          </defs>
+
+          <!-- Header -->
+          <rect x="220" y="15" width="480" height="42" rx="21" fill="#0f766e" />
+          <text x="460" y="42" fill="#ffffff" font-size="15" font-weight="700" text-anchor="middle">EVERYDAY SCIENTISTS ALL AROUND US</text>
+
+          <!-- Case 1: Bicycle Mechanic -->
+          <g transform="translate(30, 80)">
+            <rect x="0" y="0" width="265" height="310" rx="12" fill="#f0f9ff" stroke="#bae6fd" stroke-width="2" filter="url(#boxSh1)"/>
+            <rect x="0" y="0" width="265" height="42" rx="12" fill="url(#sc1)"/>
+            <rect x="0" y="30" width="265" height="12" fill="url(#sc1)"/>
+            <text x="132" y="28" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">BICYCLE MECHANIC</text>
+
+            <circle cx="132" cy="85" r="28" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+            <text x="132" y="93" font-size="24" text-anchor="middle">🚲</text>
+
+            <text x="132" y="135" fill="#0369a1" font-size="12" font-weight="700" text-anchor="middle">Problem: Flat Tyre</text>
+            <text x="20" y="160" fill="#334155" font-size="11"><strong>Question:</strong> Where is the air leaking?</text>
+            <text x="20" y="180" fill="#334155" font-size="11"><strong>Hypothesis:</strong> Sharp thorn punctured tube.</text>
+            <text x="20" y="200" fill="#334155" font-size="11"><strong>Experiment:</strong> Pumps air into tube,</text>
+            <text x="20" y="218" fill="#334155" font-size="11">submerges it in a tub of clean water.</text>
+            <text x="20" y="240" fill="#0369a1" font-size="11"><strong>Observation:</strong> Bubbles stream out!</text>
+            <text x="20" y="260" fill="#047857" font-size="11" font-weight="700"><strong>Conclusion:</strong> Puncture located &amp; patched!</text>
+          </g>
+
+          <!-- Case 2: The Home Cook -->
+          <g transform="translate(325, 80)">
+            <rect x="0" y="0" width="265" height="310" rx="12" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="2" filter="url(#boxSh1)"/>
+            <rect x="0" y="0" width="265" height="42" rx="12" fill="url(#sc2)"/>
+            <rect x="0" y="30" width="265" height="12" fill="url(#sc2)"/>
+            <text x="132" y="28" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">HOME COOK IN KITCHEN</text>
+
+            <circle cx="132" cy="85" r="28" fill="#dcfce7" stroke="#059669" stroke-width="1.5"/>
+            <text x="132" y="93" font-size="24" text-anchor="middle">🍲</text>
+
+            <text x="132" y="135" fill="#047857" font-size="12" font-weight="700" text-anchor="middle">Problem: Cooker Dal Spilling</text>
+            <text x="20" y="160" fill="#334155" font-size="11"><strong>Question:</strong> Why is froth erupting?</text>
+            <text x="20" y="180" fill="#334155" font-size="11"><strong>Hypothesis:</strong> Too much water or high heat.</text>
+            <text x="20" y="200" fill="#334155" font-size="11"><strong>Experiment:</strong> Lowers the gas flame &amp;</text>
+            <text x="20" y="218" fill="#334155" font-size="11">adds half teaspoon of cooking oil.</text>
+            <text x="20" y="240" fill="#047857" font-size="11"><strong>Observation:</strong> Froth bubbles subside!</text>
+            <text x="20" y="260" fill="#047857" font-size="11" font-weight="700"><strong>Conclusion:</strong> Controlled heat stops spilling!</text>
+          </g>
+
+          <!-- Case 3: The Electrician -->
+          <g transform="translate(620, 80)">
+            <rect x="0" y="0" width="265" height="310" rx="12" fill="#fffbeb" stroke="#fde68a" stroke-width="2" filter="url(#boxSh1)"/>
+            <rect x="0" y="0" width="265" height="42" rx="12" fill="url(#sc3)"/>
+            <rect x="0" y="30" width="265" height="12" fill="url(#sc3)"/>
+            <text x="132" y="28" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">ELECTRICIAN</text>
+
+            <circle cx="132" cy="85" r="28" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+            <text x="132" y="93" font-size="24" text-anchor="middle">💡</text>
+
+            <text x="132" y="135" fill="#b45309" font-size="12" font-weight="700" text-anchor="middle">Problem: Bulb Won't Glow</text>
+            <text x="20" y="160" fill="#334155" font-size="11"><strong>Question:</strong> Why is the room dark?</text>
+            <text x="20" y="180" fill="#334155" font-size="11"><strong>Hypothesis:</strong> Bulb filament is burned out.</text>
+            <text x="20" y="200" fill="#334155" font-size="11"><strong>Experiment:</strong> Inserts a known good bulb</text>
+            <text x="20" y="218" fill="#334155" font-size="11">into the holder and turns switch on.</text>
+            <text x="20" y="240" fill="#b45309" font-size="11"><strong>Observation:</strong> New bulb lights up bright!</text>
+            <text x="20" y="260" fill="#047857" font-size="11" font-weight="700"><strong>Conclusion:</strong> Old bulb was blown out!</text>
+          </g>
+
+          <!-- Bottom Banner -->
+          <g transform="translate(60, 410)">
+            <text x="400" y="20" fill="#334155" font-size="12" font-weight="600" text-anchor="middle">
+              Anyone who observes, asks questions, forms testable guesses, and tests with evidence is thinking like a scientist!
+            </text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 1.2: Real-World Applications of the Scientific Method across Everyday Occupations.</p>
+      </div>
+
+      <!-- Topic 4 -->
+      <h3 class="topic-title">
+        <i class="fa-solid fa-users-gear"></i> 4. Teamwork in Science &amp; The "Whys" Person Motto
+      </h3>
+      <p>
+        Movies often show a scientist as a lonely genius working in a dark room. <strong>In reality, science is a team sport!</strong>
+      </p>
+      <ul class="bullet-list">
+        <li><strong>Collaboration:</strong> Scientists work in large teams across universities, space agencies (like ISRO and NASA), and hospital laboratories worldwide.</li>
+        <li><strong>Sharing Data:</strong> When Indian scientists launch Chandrayaan to the Moon, they share tracking data with observatories across the globe.</li>
+        <li><strong>Discussing with Friends:</strong> When you do school science experiments, discuss your observations with your classmates. Someone might notice something you missed!</li>
+      </ul>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-comment-dots"></i>
+        <div class="callout-text">
+          <strong>The Golden Textbook Motto:</strong><br>
+          <span style="font-size: 1.15rem; font-weight: 800; color: #581c87;">
+            "To be a wise person, you must be a 'whys' person!"
+          </span><br>
+          <strong>Meaning:</strong> True wisdom does not come from memorizing answers blindly. It comes from never being afraid to ask <em>"Why?"</em> and <em>"How?"</em> about the universe around you!
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 3: RAPID REVISION FACT & TERM BANK -->
+    <!-- ========================================== -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3 &bull; High-Yield Fact &amp; Term Bank</span>
+        <h2>Rapid Revision Fact &amp; Scientific Term Bank</h2>
+        <p class="section-sub">Essential definitions, the 5 phases of scientific inquiry, and golden memory facts for quick revision.</p>
+      </div>
+
+      <!-- Terminology Table -->
+      <h3 style="color: var(--primary-dark); margin: 1.5rem 0 1rem;">
+        <i class="fa-solid fa-spell-check"></i> Master Vocabulary &amp; Scientific Terminology
+      </h3>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 22%;">Scientific Term</th>
+              <th style="width: 48%;">Precise Scientific Meaning</th>
+              <th style="width: 30%;">Everyday Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Science</strong></td>
+              <td>A systematic way of thinking, observing, and experimenting to understand natural phenomena.</td>
+              <td>Investigating why objects fall to the ground (gravity).</td>
+            </tr>
+            <tr>
+              <td><strong>Curiosity</strong></td>
+              <td>The natural desire to learn, explore, and understand things that are unknown or puzzling.</td>
+              <td>Wondering why chameleon changes its skin colour.</td>
+            </tr>
+            <tr>
+              <td><strong>Observation</strong></td>
+              <td>Gathering information about the world using our five senses (sight, touch, hearing, smell, taste) or scientific instruments.</td>
+              <td>Noticing white smoke rising from hot water.</td>
+            </tr>
+            <tr>
+              <td><strong>Hypothesis</strong></td>
+              <td>A proposed educated guess or tentative explanation for an observation that can be tested through experiments.</td>
+              <td>Guessing that a pen stopped writing because ink dried up.</td>
+            </tr>
+            <tr>
+              <td><strong>Experiment</strong></td>
+              <td>A controlled test or procedure carried out to confirm or refute a hypothesis.</td>
+              <td>Dunking an inflated bicycle tube in water to find air bubbles.</td>
+            </tr>
+            <tr>
+              <td><strong>Data / Evidence</strong></td>
+              <td>Facts, measurements, or observations collected during an investigation.</td>
+              <td>Recording that water boiled at 100 °C.</td>
+            </tr>
+            <tr>
+              <td><strong>Conclusion</strong></td>
+              <td>The final judgment or explanation reached by analyzing the experimental results.</td>
+              <td>Confirming that the bulb was fused and replacing it solved the issue.</td>
+            </tr>
+            <tr>
+              <td><strong>Self-Correction</strong></td>
+              <td>The ability of science to modify or discard old theories when new, superior evidence is discovered.</td>
+              <td>Replacing the flat-Earth model with a spherical orbiting planet model.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 10 Golden Facts -->
+      <div class="card" style="background: #f8fafc; border-left: 5px solid var(--primary); margin-top: 1.5rem;">
+        <h4 style="color: var(--primary-dark); margin-bottom: 0.8rem;"><i class="fa-solid fa-star"></i> 10 Golden Facts of Chapter 1:</h4>
+        <ol style="margin-left: 1.5rem; font-size: 0.92rem; line-height: 1.8;">
+          <li>Science is not just a collection of facts; it is a <strong>method of inquiry and thinking</strong>.</li>
+          <li><strong>Curiosity</strong> is the core driving engine of all scientific discovery.</li>
+          <li>Science is compared to an <strong>infinite jigsaw puzzle</strong> where every discovery adds a new piece.</li>
+          <li>Unlike dogmatic beliefs, scientific ideas are <strong>self-correcting</strong> when new evidence appears.</li>
+          <li>The scientific method consists of <strong>5 phases: Observe &rarr; Question &rarr; Hypothesize &rarr; Experiment &rarr; Conclude</strong>.</li>
+          <li>A <strong>hypothesis</strong> is an educated guess that MUST be testable by experiment.</li>
+          <li>If an experiment disproves your guess, you do not fail; you <strong>revise your hypothesis</strong> and test again!</li>
+          <li>Everyday workers like mechanics, cooks, and electricians use the <strong>scientific method</strong> daily.</li>
+          <li>Modern science relies on <strong>global teamwork</strong> and collaborative problem solving.</li>
+          <li>Motto to remember: <em>"To be a wise person, you must be a 'whys' person!"</em></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 4: 100% COMPLETE NCERT SOLUTIONS -->
+    <!-- ========================================== -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4 &bull; 100% Complete NCERT Solutions</span>
+        <h2>Complete NCERT In-Text Activities &amp; Exercise Solutions</h2>
+        <p class="section-sub">Fully solved model answers for Activity 1.1, Activity 1.2, and Activity 1.3 presented inside collapsible test-yourself containers.</p>
+      </div>
+
+      <!-- Activity 1.1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Activity 1.1 (Page 5):</strong> "Write about a similar problem that you tried to solve. What steps did you take?"</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Everyday Problem Investigated: Television Remote Control Stopped Working</strong></p>
+          <div class="table-container" style="margin-top: 0.8rem;">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Step Number</th>
+                  <th>Scientific Step</th>
+                  <th>Action Taken by Student</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Step 1</strong></td>
+                  <td><strong>Observation</strong></td>
+                  <td>I pressed the power button on the TV remote to watch an educational documentary, but the TV did not turn on.</td>
+                </tr>
+                <tr>
+                  <td><strong>Step 2</strong></td>
+                  <td><strong>Question</strong></td>
+                  <td><em>"Why is the TV remote not sending signals to the television?"</em></td>
+                </tr>
+                <tr>
+                  <td><strong>Step 3</strong></td>
+                  <td><strong>Hypothesis 1</strong></td>
+                  <td>I guessed that the AAA batteries inside the remote were completely dead.</td>
+                </tr>
+                <tr>
+                  <td><strong>Step 4</strong></td>
+                  <td><strong>Experiment 1</strong></td>
+                  <td>I replaced both old batteries with a pair of brand-new alkaline batteries and pressed the power button again.</td>
+                </tr>
+                <tr>
+                  <td><strong>Step 5</strong></td>
+                  <td><strong>Analysis 1</strong></td>
+                  <td>The TV still did not turn on! Hypothesis 1 was <strong>rejected</strong>.</td>
+                </tr>
+                <tr>
+                  <td><strong>Step 6</strong></td>
+                  <td><strong>Hypothesis 2</strong></td>
+                  <td>I made a second guess: <em>"Dust or loose contact is blocking the infrared LED sensor at the front of the remote."</em></td>
+                </tr>
+                <tr>
+                  <td><strong>Step 7</strong></td>
+                  <td><strong>Experiment 2</strong></td>
+                  <td>I opened my smartphone camera (phone sensors can see invisible infrared light), pointed the remote LED into the camera lens, and pressed buttons. No flashing purple light was visible. Then I noticed a battery terminal spring was rusted and bent. I scraped the rust and re-aligned the spring.</td>
+                </tr>
+                <tr>
+                  <td><strong>Step 8</strong></td>
+                  <td><strong>Conclusion</strong></td>
+                  <td>The camera showed bright purple infrared flashes! I pointed it at the TV, pressed power, and the TV switched on instantly. The problem was a loose rusted battery terminal!</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Activity 1.2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Activity 1.2 (Page 6):</strong> "Describe a daily life situation where you think someone was following a scientific method."</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Model Answer: The Bicycle Repair Mechanic Diagnosing a Punctured Tyre</strong></p>
+          <p>Last Saturday, my bicycle tyre went flat on the way to the playground. I took it to Ramu Kaka's bicycle repair shop. I observed him systematically applying the scientific method:</p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li><strong>Observation:</strong> Ramu Kaka pressed the rubber tyre with his thumb. It was completely deflated and squishy.</li>
+            <li><strong>Question:</strong> Where is the air escaping from the rubber tube?</li>
+            <li><strong>Hypothesis:</strong> There is a tiny hole or thorn puncture somewhere on the inner tube.</li>
+            <li><strong>Experiment:</strong> He did not guess randomly. He removed the tyre, pulled out the rubber tube, pumped air into it until it was swollen, and submerged section after section into a wide basin filled with clean water.</li>
+            <li><strong>Observation during Test:</strong> As he submerged the third section, tiny air bubbles streamed rapidly to the surface!</li>
+            <li><strong>Conclusion:</strong> The exact location of the puncture was found. He dried the area, scrubbed it with sandpaper, applied rubber adhesive, and pressed a rubber patch on it. After refitting, the tyre stayed firm and pumped up!</li>
+          </ol>
+          <p style="margin-top: 0.5rem; font-style: italic; color: var(--primary-dark);">
+            Takeaway: Ramu Kaka didn't wear a white lab coat, but his water-basin test was pure scientific experimentation!
+          </p>
+        </div>
+      </details>
+
+      <!-- Activity 1.3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Activity 1.3 (Page 7):</strong> "If you have to ask 'Why?' about something, what would you ask? How would you attempt to find an answer?"</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>My "Why?" Question:</strong> <em>"Why do sliced apple pieces turn reddish-brown when left open on the kitchen counter for 20 minutes, while freshly cut apples remain creamy white?"</em></p>
+          <p><strong>How I Would Attempt to Find an Answer (My Experimental Plan):</strong></p>
+          <ul class="bullet-list">
+            <li><strong>Initial Guess (Hypothesis):</strong> Something in the surrounding air (like oxygen) reacts with chemicals inside the apple flesh, causing it to change colour (oxidation).</li>
+            <li><strong>Controlled Fair Experiment Setup:</strong>
+              <ol style="margin-left: 1.5rem; margin-top: 0.3rem;">
+                <li>Cut an apple into 4 identical slices.</li>
+                <li><strong>Slice A (Control):</strong> Leave exposed to open room air on a plate.</li>
+                <li><strong>Slice B (Water barrier):</strong> Submerge completely inside a bowl of water (blocks air).</li>
+                <li><strong>Slice C (Acid coating):</strong> Dip in fresh lemon juice (citric acid antioxidant) and leave on plate.</li>
+                <li><strong>Slice D (Airtight wrap):</strong> Seal tightly inside an airtight ziplock bag with all air squeezed out.</li>
+              </ol>
+            </li>
+            <li><strong>Observation after 30 Minutes:</strong>
+              <ul style="margin-top: 0.2rem;">
+                <li>Slice A turns dark brown.</li>
+                <li>Slices B, C, and D remain fresh and creamy white!</li>
+              </ul>
+            </li>
+            <li><strong>Scientific Conclusion:</strong> Apple cells contain an enzyme called polyphenol oxidase that turns brown only when exposed to atmospheric oxygen. Lemon juice (Vitamin C) and air barriers prevent this browning reaction.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 5: COMPETENCY-BASED QUESTION BANK -->
+    <!-- ========================================== -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5 &bull; CBSE / BSE Competency Question Bank</span>
+        <h2>High-Order Thinking (HOTS) &amp; Competency Bank</h2>
+        <p class="section-sub">5 MCQs with conceptual traps explained, 4 Assertion &amp; Reasoning, 5 Short Answers (2M/3M), 3 Long Answers (5M), and 2 Case Studies matching the latest CBSE guidelines.</p>
+      </div>
+
+      <!-- Part A: MCQs -->
+      <h3 style="color: var(--primary-dark); margin: 1.5rem 0 1rem;">
+        <i class="fa-solid fa-circle-question"></i> Part A: 5 High-Yield MCQs (With Traps Explained)
+      </h3>
+
+      <!-- MCQ 1 -->
+      <div class="card">
+        <p><strong>Q1. Which of the following BEST defines what Science is according to NCERT Grade 6 Curiosity?</strong></p>
+        <div style="margin: 0.5rem 0 0.8rem 1rem; font-size: 0.92rem;">
+          A) A static collection of ancient facts that never changes.<br>
+          B) A way of thinking, observing, and doing things to explore and understand the universe.<br>
+          C) Memorizing difficult chemical names and formulas without testing.<br>
+          D) Only performing dangerous experiments inside modern university laboratories.
+        </div>
+        <details class="ans-box">
+          <summary><span>View Correct Answer &amp; Examiner Trap Analysis</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-green">Option B</span></p>
+            <p><strong>Explanation:</strong> Science is an active process of inquiry combining mental reasoning, keen observation, and physical experimentation.</p>
+            <p><strong>Examiner Trap:</strong> Students often equate science with memorizing facts (Option A or C). In modern NEP pedagogy, science is defined as a systematic process of inquiry, not static memorization.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="card">
+        <p><strong>Q2. Why does the textbook compare Science to an "unending jigsaw puzzle"?</strong></p>
+        <div style="margin: 0.5rem 0 0.8rem 1rem; font-size: 0.92rem;">
+          A) Because puzzles are meant for small kindergarten children.<br>
+          B) Because each new discovery adds a piece of understanding, and old pieces can be adjusted as new evidence is found.<br>
+          C) Because scientists can never solve any questions completely.<br>
+          D) Because all pieces of nature were already discovered thousands of years ago.
+        </div>
+        <details class="ans-box">
+          <summary><span>View Correct Answer &amp; Examiner Trap Analysis</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-green">Option B</span></p>
+            <p><strong>Explanation:</strong> The metaphor highlights that scientific knowledge grows piece by piece and remains self-correcting as better tools and observations emerge.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="card">
+        <p><strong>Q3. A student hypothesizes that "Plants grow faster when given sugar water instead of plain tap water." To test this scientifically, what must the student ensure?</strong></p>
+        <div style="margin: 0.5rem 0 0.8rem 1rem; font-size: 0.92rem;">
+          A) Use different types of soil, different amounts of sunlight, and different plant species.<br>
+          B) Conduct a fair test keeping all conditions identical (sunlight, soil, pot size, water volume) changing ONLY the liquid type.<br>
+          C) Just guess the answer without growing any plants.<br>
+          D) Ask a friend to vote on which liquid is sweeter.
+        </div>
+        <details class="ans-box">
+          <summary><span>View Correct Answer &amp; Examiner Trap Analysis</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-green">Option B</span> (Conduct a fair test with controlled variables).</p>
+            <p><strong>Explanation:</strong> In scientific testing, only one independent variable is altered (liquid type) while all other control variables (sunlight, soil, pot size) are kept identical.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="card">
+        <p><strong>Q4. An electrician replaces a blown fuse wire to restore power to a house. This electrician is acting like a scientist because:</strong></p>
+        <div style="margin: 0.5rem 0 0.8rem 1rem; font-size: 0.92rem;">
+          A) The electrician holds a university doctoral degree in nuclear physics.<br>
+          B) The electrician identified a problem, deduced the cause through logical troubleshooting, and verified the fix.<br>
+          C) Electricity is a magic power that only magicians understand.<br>
+          D) The electrician guessed blindly without checking anything.
+        </div>
+        <details class="ans-box">
+          <summary><span>View Correct Answer &amp; Examiner Trap Analysis</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-green">Option B</span></p>
+            <p><strong>Explanation:</strong> Applying systematic troubleshooting (problem &rarr; hypothesis &rarr; component check &rarr; verification) is the exact practical embodiment of the scientific method.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="card">
+        <p><strong>Q5. What does the saying "To be a wise person, you must be a 'whys' person" teach young science students?</strong></p>
+        <div style="margin: 0.5rem 0 0.8rem 1rem; font-size: 0.92rem;">
+          A) You should argue with your parents about everything.<br>
+          B) True understanding comes from constantly questioning and seeking the underlying reasons behind phenomena.<br>
+          C) You must memorize answers from guidebooks without understanding.<br>
+          D) Wisdom means never asking any questions in the classroom.
+        </div>
+        <details class="ans-box">
+          <summary><span>View Correct Answer &amp; Examiner Trap Analysis</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-green">Option B</span></p>
+            <p><strong>Explanation:</strong> Asking "Why" and investigating causes is the very foundation of scientific wisdom and critical thinking.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Part B: Assertion & Reasoning -->
+      <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem;">
+        <i class="fa-solid fa-shuffle"></i> Part B: 4 Assertion &amp; Reasoning Questions
+      </h3>
+      <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 1rem;">
+        <strong>Directions:</strong> Select the correct option:<br>
+        (A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).<br>
+        (B) Both Assertion (A) and Reason (R) are true but Reason (R) is NOT the correct explanation of Assertion (A).<br>
+        (C) Assertion (A) is true but Reason (R) is false.<br>
+        (D) Assertion (A) is false but Reason (R) is true.
+      </p>
+
+      <!-- A&R 1 -->
+      <div class="card">
+        <p><strong>Question 1:</strong><br>
+        <strong>Assertion (A):</strong> Scientific theories can change over time as new discoveries are made.<br>
+        <strong>Reason (R):</strong> Science is a self-correcting process where new tools and observations can reveal that an earlier hypothesis was incomplete or placed in the wrong spot.</p>
+        <details class="ans-box">
+          <summary><span>View Evaluation &amp; Answer</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-green">Option (A)</span></p>
+            <p><strong>Evaluation:</strong> Both statements are true, and R correctly explains the dynamic, evolving nature of scientific understanding.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- A&R 2 -->
+      <div class="card">
+        <p><strong>Question 2:</strong><br>
+        <strong>Assertion (A):</strong> A bicycle mechanic testing a deflated tube in a water tub is applying the scientific method.<br>
+        <strong>Reason (R):</strong> The mechanic is conducting an experiment to gather visual evidence (escaping air bubbles) to verify the hypothesis of where the leak is located.</p>
+        <details class="ans-box">
+          <summary><span>View Evaluation &amp; Answer</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-green">Option (A)</span></p>
+            <p><strong>Evaluation:</strong> Both statements are true and directly showcase how everyday technicians utilize empirical testing.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- A&R 3 -->
+      <div class="card">
+        <p><strong>Question 3:</strong><br>
+        <strong>Assertion (A):</strong> If an experimental result disproves your hypothesis, you have failed as a scientist and must give up.<br>
+        <strong>Reason (R):</strong> In science, negative results are completely useless and have no value.</p>
+        <details class="ans-box">
+          <summary><span>View Evaluation &amp; Answer</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-purple">Both (A) and (R) are FALSE</span> (Option D / False Statements).</p>
+            <p><strong>Evaluation:</strong> Disproving a hypothesis is a huge scientific success! It rules out incorrect explanations and points the investigator toward the correct answer.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- A&R 4 -->
+      <div class="card">
+        <p><strong>Question 4:</strong><br>
+        <strong>Assertion (A):</strong> Scientific research is mostly carried out by solitary individuals who never speak to others.<br>
+        <strong>Reason (R):</strong> Scientific discoveries are confidential secrets that cannot be shared with other nations.</p>
+        <details class="ans-box">
+          <summary><span>View Evaluation &amp; Answer</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-purple">Both (A) and (R) are FALSE</span></p>
+            <p><strong>Evaluation:</strong> Science is inherently collaborative. Modern scientific breakthroughs (like space exploration and vaccine development) rely on large interdisciplinary teams working across countries.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Part C: Short Answer Questions -->
+      <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem;">
+        <i class="fa-solid fa-file-pen"></i> Part C: 5 Short Answer Questions (2M &amp; 3M)
+      </h3>
+
+      <!-- SAQ 1 -->
+      <details class="ans-box">
+        <summary><span><strong>Q1 (2 Marks):</strong> What role does "Curiosity" play in scientific discovery?</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul class="bullet-list">
+            <li><strong>The Spark of Inquiry:</strong> Curiosity is the natural human urge to wonder, explore, and ask "Why?" and "How?" when observing our surroundings.</li>
+            <li><strong>Engine of Discovery:</strong> Without curiosity, humans would take things for granted and never investigate why apples fall, why stars shine, or how diseases spread. Curiosity is the true starting point of all science.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- SAQ 2 -->
+      <details class="ans-box">
+        <summary><span><strong>Q2 (2 Marks):</strong> What is a "Hypothesis"? Give one example.</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul class="bullet-list">
+            <li><strong>Definition:</strong> A <strong>hypothesis</strong> is an educated guess or tentative explanation proposed to answer a scientific question, which can be tested and verified through experiments.</li>
+            <li><strong>Example:</strong> When a pen stops writing, guessing that <em>"the ink refill has run dry"</em> is a hypothesis.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- SAQ 3 -->
+      <details class="ans-box">
+        <summary><span><strong>Q3 (3 Marks):</strong> List the five standard steps of the scientific method in correct chronological order.</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li><strong>Observation:</strong> Noticing an interesting, unusual, or unexplained phenomenon using our senses.</li>
+            <li><strong>Questioning:</strong> Formulating a clear, specific question about what caused it.</li>
+            <li><strong>Hypothesis Formation:</strong> Proposing an educated, testable guess to explain the observation.</li>
+            <li><strong>Experimentation &amp; Testing:</strong> Conducting controlled tests and making systematic measurements.</li>
+            <li><strong>Analysis &amp; Conclusion:</strong> Evaluating data to verify or revise the hypothesis.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- SAQ 4 -->
+      <details class="ans-box">
+        <summary><span><strong>Q4 (3 Marks):</strong> How does a cook in the kitchen act like a scientist when dal froths over in a pressure cooker?</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul class="bullet-list">
+            <li><strong>Observation:</strong> Frothy yellow dal water begins erupting from the cooker weight valve, dirtying the stove.</li>
+            <li><strong>Hypothesis:</strong> The cook guesses that either the heat flame is excessively high or the water level inside the cooker is too high.</li>
+            <li><strong>Experiment &amp; Verification:</strong> The cook turns the gas burner to a low simmer and adds a drop of cooking oil (to reduce surface tension). The frothing stops immediately, confirming the hypothesis!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- SAQ 5 -->
+      <details class="ans-box">
+        <summary><span><strong>Q5 (3 Marks):</strong> Why is science considered a collaborative team activity rather than a solitary pursuit?</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li><strong>Multiple Perspectives:</strong> Different scientists bring specialized skills (mathematics, engineering, biology, computing) to tackle complex challenges.</li>
+            <li><strong>Cross-Checking &amp; Peer Review:</strong> Working in teams ensures that experimental results are verified by other researchers, preventing bias and errors.</li>
+            <li><strong>Global Synergy:</strong> Huge projects like climate modeling, space missions, and disease prevention require data sharing across continents.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Part D: Long Answer Questions -->
+      <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem;">
+        <i class="fa-solid fa-book-open-reader"></i> Part D: 3 Long Answer Questions (5 Marks Each)
+      </h3>
+
+      <!-- LAQ 1 -->
+      <details class="ans-box">
+        <summary><span><strong>Q1 (5 Marks):</strong> Explain the "Broken Pen" investigation described in NCERT Curiosity. How does it represent the scientific method step-by-step?</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Model Answer (Structured 5-Mark Marking Breakdown):</strong></p>
+          <p><strong>1. Observation &amp; Problem Identification (1 Mark):</strong><br>
+          A student is taking notes during a class lecture when suddenly the ballpoint pen ceases to leave ink on the page. The student notices the anomaly.</p>
+
+          <p><strong>2. Asking the Investigative Question (1 Mark):</strong><br>
+          The student asks: <em>"Why has my pen stopped writing?"</em></p>
+
+          <p><strong>3. Formulation of Hypothesis 1 &amp; Test (1 Mark):</strong><br>
+          The student makes an initial educated guess: <em>"The ink has run out."</em> To test this hypothesis, the student opens the pen body and inspects the plastic refill column against the classroom window light.</p>
+
+          <p><strong>4. Rejection of Hypothesis 1 &amp; Revision (1 Mark):</strong><br>
+          The student observes that the refill is still half full of blue ink. The initial hypothesis is rejected. The student does not panic; instead, the student forms <strong>Hypothesis 2</strong>: <em>"The ink at the metallic ball nib has dried up or a paper fibre is clogging the rolling ball."</em></p>
+
+          <p><strong>5. Second Test, Verification &amp; Conclusion (1 Mark):</strong><br>
+          The student scribbles rapidly with pressure on rough scrap paper and blows warm breath onto the nib. The friction and warmth liquefy the dried ink, freeing the ball. The pen writes smoothly again. This demonstrates the complete, iterative scientific inquiry cycle!</p>
+        </div>
+      </details>
+
+      <!-- LAQ 2 -->
+      <details class="ans-box">
+        <summary><span><strong>Q2 (5 Marks):</strong> "Science is like a giant, unending jigsaw puzzle." Elaborate on this statement. Explain how scientific understanding changes and evolves over time.</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Model Answer:</strong></p>
+          <p><strong>1. The Metaphor of the Jigsaw Puzzle:</strong><br>
+          The NCERT textbook describes nature as an immense, magnificent jigsaw puzzle of interconnected truths. Human beings are putting this puzzle together piece by piece through observation and experimentation.</p>
+
+          <p><strong>2. Every Discovery Adds a Piece:</strong></p>
+          <ul class="bullet-list">
+            <li>When Robert Hooke first observed cork under a primitive microscope, he placed the piece labeled "Cells".</li>
+            <li>When Isaac Newton observed a falling apple, he placed the piece labeled "Universal Gravitation".</li>
+            <li>Each piece brings a clearer picture of how nature functions.</li>
+          </ul>
+
+          <p><strong>3. The Puzzle Has No External Boundaries:</strong><br>
+          Unlike human-made board games, nature's puzzle is infinite. Answering one question (e.g., <em>"How do birds fly?"</em>) immediately creates new questions (e.g., <em>"How do migratory birds navigate across oceans at night without GPS?"</em>).</p>
+
+          <p><strong>4. Self-Correction &amp; Moving Wrong Pieces:</strong><br>
+          Occasionally, scientists put a puzzle piece in the wrong place based on limited data:</p>
+          <ul class="bullet-list">
+            <li><em>Example:</em> Early astronomers thought Earth was stationary at the center of the solar system (Geocentric model). Nicolaus Copernicus and Galileo Galilei used telescopes to prove that Earth orbits the Sun (Heliocentric model). The misplaced piece was moved!</li>
+          </ul>
+
+          <p><strong>5. Conclusion:</strong> Science is not dogmatic; it is humble and honest. It welcomes new evidence and continuously refines human understanding.</p>
+        </div>
+      </details>
+
+      <!-- LAQ 3 -->
+      <details class="ans-box">
+        <summary><span><strong>Q3 (5 Marks):</strong> Give an overview of the journey of Science in Grade 6. How do the 12 chapters of NCERT "Curiosity" connect to explore our Earth and beyond?</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Model Answer:</strong></p>
+          <p>The 12 chapters of Grade 6 Science form an interconnected exploration of our physical and living world:</p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Thematic Domain</th>
+                  <th>Chapters Included</th>
+                  <th>Core Scientific Explorations</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Foundations of Science</strong></td>
+                  <td>Chapter 1</td>
+                  <td>The nature of science, curiosity, and the scientific method.</td>
+                </tr>
+                <tr>
+                  <td><strong>The Living World</strong></td>
+                  <td>Chapters 2, 3 &amp; 10</td>
+                  <td>Biodiversity, plant &amp; animal adaptations, mindful nutrition, balanced diet, and characteristics of living organisms.</td>
+                </tr>
+                <tr>
+                  <td><strong>Matter &amp; Materials</strong></td>
+                  <td>Chapters 6 &amp; 9</td>
+                  <td>Properties of materials around us (solubility, hardness, transparency) and separation methods (handpicking, winnowing, sieving, filtration).</td>
+                </tr>
+                <tr>
+                  <td><strong>Physical Forces &amp; Measurements</strong></td>
+                  <td>Chapters 4, 5 &amp; 7</td>
+                  <td>Properties of magnets, standard units of length, rectilinear/circular motion, and temperature measurement with thermometers.</td>
+                </tr>
+                <tr>
+                  <td><strong>Natural Resources &amp; The Cosmos</strong></td>
+                  <td>Chapters 8, 11 &amp; 12</td>
+                  <td>Water states and water cycle, renewable treasures of Mother Earth, and the celestial universe (Sun, Moon, planets, constellations).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p style="margin-top: 0.8rem;">
+            <strong>Conclusion:</strong> These 12 chapters demonstrate that biology, chemistry, physics, and earth sciences are not separate islands; they are deeply connected strands of our wonderful natural world!
+          </p>
+        </div>
+      </details>
+
+      <!-- Part E: Case Studies -->
+      <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem;">
+        <i class="fa-solid fa-id-card-clip"></i> Part E: 2 Competency-Based Case Studies
+      </h3>
+
+      <!-- Case Study 1 -->
+      <div class="card">
+        <h4 style="color: var(--primary-dark);"><i class="fa-solid fa-file-lines"></i> Case Study 1: The Curious Case of the Dark Puddle</h4>
+        <p style="font-size: 0.93rem; line-height: 1.7; background: #f8fafc; padding: 1rem; border-radius: 8px; margin: 0.8rem 0;">
+          <em>"On a sunny Tuesday morning following a night of heavy rain, Kabir noticed two rainwater puddles in his school courtyard. Puddle A was located in the middle of the open cricket ground under bright direct sunshine. Puddle B was located under the dense leafy shade of a massive banyan tree. At 9:00 AM, both puddles had approximately the same diameter of 1 metre. When Kabir returned during lunch recess at 1:00 PM, Puddle A had completely vanished leaving only dry cracked mud, while Puddle B was still full of water."</em>
+        </p>
+
+        <p><strong>Sub-Questions &amp; Detailed Answers:</strong></p>
+        <ol style="margin-left: 1.5rem; line-height: 1.8;">
+          <li><strong>What scientific question would Kabir naturally ask after observing this difference?</strong><br>
+          <em>Answer:</em> <em>"Why did the puddle in direct sunshine dry up much faster than the puddle under tree shade?"</em></li>
+          <li><strong>Formulate a testable scientific hypothesis to explain Kabir's observation.</strong><br>
+          <em>Answer:</em> <strong>Hypothesis:</strong> The rate of evaporation of water increases with higher temperature and exposure to direct sunlight.</li>
+          <li><strong>How could Kabir verify this hypothesis under controlled indoor conditions?</strong><br>
+          <em>Answer:</em> Place two identical plates with 50 mL of water each: one under a glowing incandescent desk lamp (heat source) and one in a cool shaded cupboard. Measure the volume remaining after 2 hours.</li>
+        </ol>
+      </div>
+
+      <!-- Case Study 2 -->
+      <div class="card">
+        <h4 style="color: var(--primary-dark);"><i class="fa-solid fa-file-lines"></i> Case Study 2: Teamwork in Global Astronomy</h4>
+        <p style="font-size: 0.93rem; line-height: 1.7; background: #f8fafc; padding: 1rem; border-radius: 8px; margin: 0.8rem 0;">
+          <em>"In 2019, scientists unveiled the first-ever photograph of a supermassive black hole at the centre of the Messier 87 galaxy. No single telescope on Earth was powerful enough to capture this image. To solve this, over 200 astronomers, astrophysicists, and computer scientists from 20 countries joined together. They synchronized eight radio telescopes located on high volcanic mountains in Hawaii, the frozen plateau of the South Pole, and deserts in Chile and Spain to create a virtual Earth-sized telescope called the Event Horizon Telescope (EHT)."</em>
+        </p>
+
+        <p><strong>Sub-Questions &amp; Detailed Answers:</strong></p>
+        <ol style="margin-left: 1.5rem; line-height: 1.8;">
+          <li><strong>How does the EHT project exemplify the collaborative nature of modern science described in Chapter 1?</strong><br>
+          <em>Answer:</em> It proves that modern science cannot be achieved by solitary individuals; complex mysteries of the cosmos require international teams combining diverse technical skills and shared observatory data.</li>
+          <li><strong>Why could no single country capture the black hole image alone?</strong><br>
+          <em>Answer:</em> Due to diffraction limits, resolving a distant black hole required a telescope mirror as wide as planet Earth, which could only be simulated by linking telescopes scattered across multiple continents.</li>
+          <li><strong>Which step of the scientific method was represented by the supercomputer processing petabytes of telescope data?</strong><br>
+          <em>Answer:</em> <strong>Data Analysis &amp; Interpretation</strong> (Step 5), converting raw telescope readings into a verified visual image of the black hole's shadow.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 6: EXAM MISTAKES & REVISION POINTS -->
+    <!-- ========================================== -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6 &bull; Exam Hall Readiness &amp; Quick Recap</span>
+        <h2>Exam Hall Traps &amp; 15 High-Yield Revision Points</h2>
+        <p class="section-sub">Common mistakes made by Class 6 students in exams, how to avoid them, and a crisp 15-point memory checklist.</p>
+      </div>
+
+      <!-- Common Pitfalls Table -->
+      <h3 style="color: var(--primary-dark); margin: 1.5rem 0 1rem;">
+        <i class="fa-solid fa-triangle-exclamation"></i> 5 Common Student Mistakes to Avoid
+      </h3>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Common Student Mistake</th>
+              <th style="width: 35%;">Why Students Make This Mistake</th>
+              <th style="width: 40%;">Correct Scientific Understanding to Write</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mistake 1:</strong> Thinking a hypothesis is just a wild, random guess.</td>
+              <td>Students confuse "guessing" with guessing without thinking.</td>
+              <td>A scientific hypothesis is an <strong>educated, logical guess</strong> based on observation that MUST be capable of being tested and verified.</td>
+            </tr>
+            <tr>
+              <td><strong>Mistake 2:</strong> Believing an experiment is a "failure" if the guess was wrong.</td>
+              <td>Students feel getting an unexpected result is like getting a low mark on an exam.</td>
+              <td>In science, a rejected hypothesis is a <strong>valuable discovery</strong>! It eliminates an incorrect path and guides you toward the true cause.</td>
+            </tr>
+            <tr>
+              <td><strong>Mistake 3:</strong> Assuming only people in white lab coats are scientists.</td>
+              <td>Stereotypes from movies and television cartoons.</td>
+              <td><strong>Anyone</strong> who observes keenly, asks "Why", and tests solutions with evidence (cook, mechanic, electrician, student) is thinking like a scientist.</td>
+            </tr>
+            <tr>
+              <td><strong>Mistake 4:</strong> Thinking science has finished discovering everything.</td>
+              <td>Students see vast encyclopedia volumes and assume all questions are solved.</td>
+              <td>Science is an <strong>unending jigsaw puzzle</strong>. Every new answer reveals deeper mysteries waiting to be explored.</td>
+            </tr>
+            <tr>
+              <td><strong>Mistake 5:</strong> Confusing an Observation with an Inference.</td>
+              <td>Students state an assumption as a sensory fact.</td>
+              <td>An <strong>observation</strong> is direct sensory data (e.g., <em>"The pen leaves no ink on the page"</em>). An <strong>inference</strong> is an interpretation (e.g., <em>"The ink has run out"</em>).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 15 Crisp Revision Points -->
+      <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem;">
+        <i class="fa-solid fa-bolt"></i> 15 Ultra-Crisp Revision One-Liners (Memorize for 100%)
+      </h3>
+      <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+        <ol style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.85;">
+          <li><strong>Science Defined:</strong> A systematic way of thinking, observing, and doing to understand our natural universe.</li>
+          <li><strong>Curiosity's Role:</strong> The title of the textbook "Curiosity" highlights that asking "Why" is the starting engine of all scientific knowledge.</li>
+          <li><strong>Jigsaw Puzzle Metaphor:</strong> Science is an infinite puzzle where every discovery adds a piece and old pieces can be adjusted with new evidence.</li>
+          <li><strong>Self-Correction:</strong> Science evolves because old theories are replaced when more accurate evidence and instruments emerge.</li>
+          <li><strong>Step 1 (Observation):</strong> Keenly noticing something interesting or unexplained using the senses.</li>
+          <li><strong>Step 2 (Questioning):</strong> Formulating a specific "Why?" or "How?" question about the observed phenomenon.</li>
+          <li><strong>Step 3 (Hypothesis):</strong> Formulating a plausible, testable educated guess to explain the observation.</li>
+          <li><strong>Step 4 (Experimentation):</strong> Testing the guess through controlled, fair trials and systematic measurements.</li>
+          <li><strong>Step 5 (Analysis &amp; Conclusion):</strong> Deciding whether experimental evidence supports or refutes the hypothesis.</li>
+          <li><strong>Negative Results:</strong> Disproving a hypothesis is not a failure; it eliminates falsehoods and guides new testing.</li>
+          <li><strong>Everyday Problem-Solving:</strong> Troubleshooting a dead pen, a flat bicycle tyre, or an unlit bulb uses the exact scientific method.</li>
+          <li><strong>Bicycle Mechanic's Test:</strong> Submerging an inflated tube in water to see air bubbles is a classic empirical test.</li>
+          <li><strong>Kitchen Science:</strong> Lowering the stove flame to stop a pressure cooker from frothing over tests heat and pressure dynamics.</li>
+          <li><strong>Collaboration:</strong> Modern science is a global team activity where researchers share data across countries.</li>
+          <li><strong>Golden Motto:</strong> <em>"To be a wise person, you must be a 'whys' person!"</em></li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer style="background: #0f172a; color: #94a3b8; padding: 2.5rem 1.5rem; text-align: center; font-size: 0.9rem; border-top: 1px solid #334155;">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <p style="color: #f8fafc; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">
+        <i class="fa-solid fa-graduation-cap"></i> Sujit Classes &bull; Conceptual Learning Portal
+      </p>
+      <p style="margin-bottom: 1rem;">
+        Complete Master Study Note for Class 6 Science &bull; Chapter 1: The Wonderful World of Science &bull; Prepared strictly according to NCERT Curiosity &amp; CBSE Guidelines.
+      </p>
+      <p style="font-size: 0.8rem; color: #64748b;">
+        &copy; 2026 Sujit Classes. All rights reserved. Crafted for students in Odisha &amp; nationwide for conceptual mastery.
+      </p>
+      <div style="margin-top: 1rem;">
+        <a href="../../index.html" style="color: #38bdf8; text-decoration: none; font-weight: 600; margin: 0 0.75rem;">
+          <i class="fa-solid fa-house"></i> Portal Home
+        </a>
+        <a href="#sec1" style="color: #38bdf8; text-decoration: none; font-weight: 600; margin: 0 0.75rem;">
+          <i class="fa-solid fa-arrow-up"></i> Back to Top
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
