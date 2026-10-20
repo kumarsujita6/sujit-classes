@@ -35,11 +35,11 @@
     body {
       font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       background-color: var(--bg-body); color: var(--text-main);
-      line-height: 1.65; font-size: 15.5px; padding-bottom: 60px;
+      line-height: 1.68; font-size: 15.5px; padding-bottom: 60px;
     }
     .top-bar {
       position: sticky; top: 0; z-index: 1000;
-      background: rgba(255,255,255,0.92); backdrop-filter: blur(12px);
+      background: rgba(255,255,255,0.94); backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border); padding: 10px 24px;
       display: flex; flex-wrap: wrap; align-items: center;
       justify-content: space-between; gap: 12px;
@@ -63,9 +63,9 @@
     .btn-primary:hover { background: var(--primary-dark); }
     .container { max-width: 1080px; margin: 28px auto; padding: 0 20px; }
     .hero {
-      background: linear-gradient(135deg, #7c2d12 0%, #c2410c 50%, #0369a1 100%);
-      color: #ffffff; border-radius: 20px; padding: 36px 32px; margin-bottom: 32px;
-      box-shadow: 0 12px 30px -8px rgba(194, 65, 12, 0.35);
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #0369a1 100%);
+      color: #ffffff; border-radius: 20px; padding: 36px 32px; margin-bottom: 30px;
+      box-shadow: 0 12px 30px -8px rgba(30, 27, 75, 0.4);
       position: relative; overflow: hidden;
     }
     .hero-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 14px; }
@@ -74,11 +74,15 @@
       padding: 4px 12px; border-radius: 999px; font-size: 0.78rem;
       font-weight: 700; letter-spacing: 0.4px; text-transform: uppercase;
     }
-    .hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.2; margin-bottom: 10px; }
-    .hero p { font-size: 1rem; opacity: 0.92; max-width: 780px; }
+    .hero h1 { font-size: 2.2rem; font-weight: 800; line-height: 1.22; margin-bottom: 12px; }
+    .hero p { font-size: 1.02rem; opacity: 0.94; max-width: 820px; margin-bottom: 14px; }
+    .hero-quote {
+      background: rgba(0, 0, 0, 0.25); border-left: 4px solid #fde047;
+      padding: 12px 18px; border-radius: 10px; font-size: 0.93rem; font-style: italic; color: #f8fafc;
+    }
     .section-card {
       background: var(--bg-card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px 30px; margin-bottom: 28px;
+      border-radius: var(--radius); padding: 30px; margin-bottom: 28px;
       box-shadow: var(--shadow);
     }
     .section-header {
@@ -87,24 +91,26 @@
     }
     .section-num {
       background: var(--primary); color: white; font-weight: 800; font-size: 0.85rem;
-      padding: 5px 11px; border-radius: 8px; letter-spacing: 0.5px; text-transform: uppercase;
+      padding: 5px 12px; border-radius: 8px; letter-spacing: 0.5px; text-transform: uppercase;
     }
     .section-header h2 { font-size: 1.45rem; font-weight: 800; color: var(--text-main); }
     .topic-block { margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px dashed var(--border); }
     .topic-block:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
     .topic-title {
-      font-size: 1.22rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 14px;
-      display: flex; align-items: center; gap: 8px; background: #f0f9ff;
-      padding: 10px 16px; border-radius: 10px; border-left: 5px solid var(--primary);
+      font-size: 1.22rem; font-weight: 800; color: var(--primary-dark); margin-bottom: 15px;
+      display: flex; align-items: center; gap: 10px; background: #f0f9ff;
+      padding: 11px 16px; border-radius: 10px; border-left: 5px solid var(--primary);
     }
+    h3 { font-size: 1.15rem; font-weight: 800; color: #1e293b; margin: 20px 0 10px 0; }
     h4 {
-      font-size: 1rem; font-weight: 700; color: #1e293b; margin: 18px 0 10px 0;
+      font-size: 1.02rem; font-weight: 700; color: #1e293b; margin: 16px 0 10px 0;
       display: flex; align-items: center; gap: 6px;
     }
+    p { margin-bottom: 12px; }
     ul, ol { padding-left: 22px; margin-bottom: 14px; }
     li { margin-bottom: 7px; }
     li strong { color: #0f172a; }
-    .callout { border-radius: 12px; padding: 16px 20px; margin: 16px 0; border-left: 5px solid; }
+    .callout { border-radius: 12px; padding: 16px 20px; margin: 18px 0; border-left: 5px solid; }
     .callout-title { font-weight: 800; font-size: 0.95rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
     .callout-def { background-color: #f0f9ff; border-left-color: #0284c7; color: #0c4a6e; }
     .callout-act { background-color: #f0fdfa; border-left-color: #0d9488; color: #115e59; }
@@ -113,34 +119,42 @@
     .callout-warn { background-color: #fff1f2; border-left-color: #e11d48; color: #881337; }
     .quote-box {
       background: linear-gradient(to right, #f8fafc, #f0f9ff); border-left: 4px solid var(--primary);
-      padding: 16px 20px; border-radius: 10px; font-style: italic; color: #334155; margin: 14px 0;
+      padding: 16px 20px; border-radius: 10px; font-style: italic; color: #334155; margin: 16px 0;
     }
-    .table-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; border: 1px solid var(--border); }
+    .table-wrap { overflow-x: auto; margin: 18px 0; border-radius: 10px; border: 1px solid var(--border); }
     table { width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left; }
     th { background: #f1f5f9; color: #0f172a; font-weight: 700; padding: 12px 14px; border-bottom: 2px solid var(--border); }
     td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
     tr:last-child td { border-bottom: none; }
     tr:nth-child(even) { background-color: #f8fafc; }
-    .mindmap-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 20px; margin: 16px 0; }
+    .mindmap-box { background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 22px; margin: 18px 0; }
     .mm-root {
-      background: #7c2d12; color: #fff; font-weight: 800; text-align: center;
-      padding: 12px 20px; border-radius: 10px; max-width: 520px; margin: 0 auto 20px auto;
-      box-shadow: 0 4px 12px rgba(124, 45, 18, 0.25);
+      background: #1e1b4b; color: #fff; font-weight: 800; text-align: center;
+      padding: 13px 20px; border-radius: 10px; max-width: 620px; margin: 0 auto 20px auto;
+      box-shadow: 0 4px 12px rgba(30, 27, 75, 0.25);
     }
-    .mm-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-    .mm-col { background: #fff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 16px; }
-    .mm-col-ind { border-top: 5px solid #c2410c; }
+    .mm-branches { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .mm-col { background: #fff; border: 2px solid #e2e8f0; border-radius: 12px; padding: 18px; }
+    .mm-col-ind { border-top: 5px solid #ea580c; }
     .mm-col-ext { border-top: 5px solid #0284c7; }
-    .mm-branch-title { font-weight: 800; font-size: 1rem; margin-bottom: 12px; text-align: center; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
-    .mm-node { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 8px 12px; margin-bottom: 8px; font-size: 0.88rem; }
-    .diagram-card { background: #ffffff; border: 2px solid #e0f2fe; border-radius: 12px; padding: 20px; margin: 18px 0; text-align: center; }
-    .diagram-caption { font-size: 0.85rem; color: var(--text-muted); margin-top: 10px; font-weight: 600; }
-    .q-card { background: #ffffff; border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; }
-    .q-title { font-weight: 700; color: #0f172a; margin-bottom: 8px; }
-    .pyq-tag { background: #fef3c7; color: #b45309; font-size: 0.75rem; font-weight: 800; padding: 2px 8px; border-radius: 6px; margin-right: 6px; display: inline-block; }
-    details.ans-box { margin-top: 10px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; padding: 10px 14px; }
-    details.ans-box summary { cursor: pointer; font-weight: 700; font-size: 0.88rem; color: var(--primary-dark); user-select: none; }
+    .mm-branch-title { font-weight: 800; font-size: 1.02rem; margin-bottom: 12px; text-align: center; padding-bottom: 8px; border-bottom: 1px solid var(--border); }
+    .mm-node { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 9px 13px; margin-bottom: 9px; font-size: 0.88rem; }
+    .diagram-card {
+      background: #ffffff; border: 2px solid #e0f2fe; border-radius: 14px;
+      padding: 22px; margin: 22px 0; text-align: center; box-shadow: var(--shadow);
+    }
+    .diagram-caption { font-size: 0.88rem; color: var(--text-muted); margin-top: 12px; font-weight: 600; }
+    .q-card { background: #ffffff; border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin-bottom: 16px; box-shadow: 0 2px 8px rgba(15,23,42,0.03); }
+    .q-title { font-weight: 700; color: #0f172a; margin-bottom: 9px; font-size: 0.98rem; }
+    .pyq-tag { background: #fef3c7; color: #b45309; font-size: 0.75rem; font-weight: 800; padding: 3px 8px; border-radius: 6px; margin-right: 6px; display: inline-block; }
+    details.ans-box { margin-top: 10px; background: #f8fafc; border-radius: 8px; border: 1px solid #e2e8f0; padding: 11px 15px; }
+    details.ans-box summary { cursor: pointer; font-weight: 700; font-size: 0.89rem; color: var(--primary-dark); user-select: none; }
     .ans-content { margin-top: 10px; padding-top: 10px; border-top: 1px solid #e2e8f0; font-size: 0.93rem; }
+    .trap-alert {
+      background: #fff1f2; border-left: 4px solid #e11d48; padding: 8px 12px;
+      border-radius: 6px; font-size: 0.86rem; color: #881337; margin-top: 8px;
+    }
+    .mcq-opt { margin-bottom: 5px; padding-left: 6px; }
     @media print {
       body { background: #fff; font-size: 11pt; color: #000; padding: 0; }
       .top-bar { display: none !important; }
@@ -165,11 +179,11 @@
   <!-- STICKY NAVIGATION & INTERACTIVE TOOLBAR -->
   <nav class="top-bar">
     <div class="nav-links">
-      <a href="#sec1">1. Blueprint</a>
+      <a href="#sec1">1. Blueprint &amp; Mind Map</a>
       <a href="#sec2">2. Master Notes</a>
       <a href="#sec3">3. Fact Bank</a>
       <a href="#sec4">4. NCERT Solutions</a>
-      <a href="#sec5">5. PYQ &amp; CBE Bank</a>
+      <a href="#sec5">5. Competency Bank</a>
       <a href="#sec6">6. Revision &amp; Mistakes</a>
     </div>
     <div class="toolbar-actions">
@@ -187,57 +201,113 @@
         <span class="badge">Class 06 Social Science</span>
         <span class="badge">NCERT: Exploring Society: India and Beyond</span>
         <span class="badge">Theme B: Tapestry of the Past</span>
-        <span class="badge">100% Zero-Omission Master Note</span>
+        <span class="badge">Exhaustive Master Study Note</span>
       </div>
       <h1>🇮🇳 Chapter 5: India, That Is Bharat</h1>
-      <p>Complete Line-by-Line NCERT Coverage, Indigenous Names (Sapta Sindhava, Jambudvipa, Bharatavarsha), Foreign Names (Hind, Indoi, Yindu, Tianzhu, Hindustan) &amp; Solved NCERT Questions.</p>
+      <p>A complete, child-friendly guide to how our country got its names, its grand natural boundaries, and how geography shaped thousands of years of peaceful culture and unity.</p>
+      <div class="hero-quote">
+        "In India at a very early time the spiritual and cultural unity was made complete and became the very stuff of the life of all this great surge of humanity between the Himalayas and the two seas." &mdash; Sri Aurobindo
+      </div>
     </header>
 
     <!-- ==========================================
-         SECTION 1: CHAPTER BLUEPRINT & TRENDS
+         SECTION 1: CHAPTER BLUEPRINT & MIND MAP
          ========================================== -->
     <section id="sec1" class="section-card">
       <div class="section-header">
         <span class="section-num">Section 1</span>
-        <h2>🗺️ Chapter Blueprint &amp; CBSE Exam Trend Analysis</h2>
+        <h2>🗺️ Chapter Blueprint &amp; Visual Mind Map</h2>
       </div>
 
-      <h4>1. Chapter At A Glance (Interactive Visual Mind Map)</h4>
+      <p>Welcome to Chapter 5! Have you ever wondered why our country has two official names &mdash; <strong>India</strong> and <strong>Bharat</strong>? Why do people also say <em>Hindustan</em> or <em>Jambudvipa</em>? In this chapter, we will open ancient history like a storybook to explore how our ancestors and foreign visitors named this sacred land.</p>
+
+      <h4>1. Chapter Blueprint &amp; NCERT Topic Mapping</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>NCERT Section / Box</th>
+              <th>Key Concepts &amp; Real-Life Story</th>
+              <th>What You Will Learn</th>
+              <th>Exam Marks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Introduction (Page 75)</strong></td>
+              <td>Sri Aurobindo's quotation &amp; Sanchi Stupa gate carving</td>
+              <td>How India is defined culturally and geographically</td>
+              <td>1 &ndash; 2 Marks</td>
+            </tr>
+            <tr>
+              <td><strong>Physical Framework (Pages 76&ndash;77)</strong></td>
+              <td>Natural boundaries (Himalayas, rivers, 3 seas)</td>
+              <td>How mountains and oceans acted as a protective shield</td>
+              <td>2 &ndash; 3 Marks</td>
+            </tr>
+            <tr>
+              <td><strong>How Indians Named India (Pages 77&ndash;80)</strong></td>
+              <td>Sapta Sindhava, Jambudvipa, Bharatavarsha, Sangam poetry</td>
+              <td>Indigenous roots of 'Bharat' from the Rig Veda and Puranas</td>
+              <td>3 &ndash; 5 Marks</td>
+            </tr>
+            <tr>
+              <td><strong>Article 1 of Constitution (Pages 81&ndash;82)</strong></td>
+              <td>"India, that is Bharat, shall be a Union of States"</td>
+              <td>Why both names were united in the Constitution of India</td>
+              <td>2 &ndash; 3 Marks</td>
+            </tr>
+            <tr>
+              <td><strong>How Foreigners Named India (Pages 81&ndash;83)</strong></td>
+              <td>Persian (Hind/Hindu), Greek (Indoi), Chinese (Yindu/Tianzhu)</td>
+              <td>How River Sindhu gave birth to 'India' and 'Hindustan'</td>
+              <td>3 &ndash; 5 Marks</td>
+            </tr>
+            <tr>
+              <td><strong>Master Traveller Xuanzang (Page 83)</strong></td>
+              <td>17-year journey from China to Nalanda University</td>
+              <td>Motivations of ancient travellers &amp; global respect for India</td>
+              <td>2 &ndash; 4 Marks</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>2. Chapter At A Glance: Interactive Mind Map</h4>
       <div class="mindmap-box">
-        <div class="mm-root">🇮🇳 INDIA, THAT IS BHARAT: THE EVOLUTION OF OUR NAMES</div>
+        <div class="mm-root">🇮🇳 INDIA, THAT IS BHARAT: THE COMPLETE BLUEPRINT</div>
         <div class="mm-branches">
           <!-- Indigenous Names Branch -->
           <div class="mm-col mm-col-ind">
-            <div class="mm-branch-title" style="color: #c2410c;">🕉️ HOW INDIANS NAMED INDIA</div>
-            <div class="mm-node"><strong>Sapta Sindhava:</strong> Land of seven rivers in the northwest (Rig Veda)</div>
-            <div class="mm-node"><strong>Mahabharata Geography:</strong> Lists regions covering entire subcontinent (Kashmira, Kurukshetra, Vanga, Pragjyotisha, Kaccha, Kerala, Kalinga, Chola, etc.)</div>
-            <div class="mm-node"><strong>Jambudvipa:</strong> 'Island of the Jamun fruit tree' &mdash; used in Mahabharata and Ashoka's inscriptions (~250 BCE) for greater India</div>
-            <div class="mm-node"><strong>Bharatavarsha / Bharata:</strong> 'Country of the Bharatas' (Vedic group &amp; kings) &mdash; defined in Vishnu Purana (north of the ocean &amp; south of snowy mountains)</div>
-            <div class="mm-node"><strong>Sangam Literature:</strong> Defined from Cape Kumari in south to great mountain in north, ocean on east and west</div>
-            <div class="mm-node"><strong>Modern Constitution:</strong> Article 1 declares "India, that is Bharat" (Hindi: 'Bharat arthath India')</div>
+            <div class="mm-branch-title" style="color: #ea580c;">🕉️ HOW INDIANS NAMED OUR COUNTRY</div>
+            <div class="mm-node"><strong>Sapta Sindhava:</strong> 'Land of the Seven Rivers' in the northwest (Rig Veda &mdash; India's oldest text).</div>
+            <div class="mm-node"><strong>Mahabharata Geography:</strong> Over 40 regional kingdoms from Kashmir to Kerala, Kutch to Assam.</div>
+            <div class="mm-node"><strong>Jambudvipa:</strong> 'Island of the Jamun tree' &mdash; used in Mahabharata &amp; Emperor Ashoka's edicts (~250 BCE).</div>
+            <div class="mm-node"><strong>Bharatavarsha / Bharata:</strong> 'Country of the Bharatas' (Vedic clan &amp; righteous kings) &mdash; defined in Vishnu Purana.</div>
+            <div class="mm-node"><strong>Tamil Sangam Poetry:</strong> Praises kings whose fame reaches from Cape Kumari to the northern snowy mountain.</div>
+            <div class="mm-node"><strong>Article 1 of Constitution:</strong> "India, that is Bharat, shall be a Union of States" (Hindi: 'Bharat arthath India').</div>
           </div>
           <!-- Foreign Names Branch -->
           <div class="mm-col mm-col-ext">
-            <div class="mm-branch-title" style="color: #0284c7;">🌍 HOW FOREIGNERS NAMED INDIA</div>
-            <div class="mm-node"><strong>Origin in Sindhu:</strong> Most foreign names derived from River Sindhu (Indus)</div>
-            <div class="mm-node"><strong>Persians (6th C. BCE):</strong> Sindhu &rarr; Hind, Hidu, or Hindu (purely geographical term, not religious)</div>
-            <div class="mm-node"><strong>Greeks:</strong> Dropped initial 'h' &rarr; Indoi or Indike &rarr; Latin/English 'India'</div>
-            <div class="mm-node"><strong>Chinese:</strong> Sindhu &rarr; Hindhu &rarr; Indu &rarr; Yintu / Yindu</div>
-            <div class="mm-node"><strong>Tianzhu:</strong> Chinese term meaning 'Heavenly Master' (revering India as land of the Buddha)</div>
-            <div class="mm-node"><strong>Hindustan:</strong> First appeared in Persian inscription ~1,800 years ago (~3rd century CE)</div>
-            <div class="mm-node"><strong>Xuanzang (7th C. CE):</strong> Visited India for 17 years, collected Buddhist texts, translated Sanskrit to Chinese</div>
+            <div class="mm-branch-title" style="color: #0284c7;">🌍 HOW FOREIGNERS NAMED OUR COUNTRY</div>
+            <div class="mm-node"><strong>The Starting Point:</strong> River Sindhu (Indus) was the first giant natural barrier foreign visitors met.</div>
+            <div class="mm-node"><strong>Persians (6th C. BCE):</strong> Sanskrit 'S' became Persian 'H' &rarr; Hind, Hidu, or Hindu (purely a geographical name!).</div>
+            <div class="mm-node"><strong>Greeks (5th C. BCE):</strong> Dropped the initial 'H' &rarr; Indoi (people) &amp; Indike (land) &rarr; Latin/English India.</div>
+            <div class="mm-node"><strong>Chinese Pilgrims:</strong> Sindhu &rarr; Hindhu &rarr; Indu &rarr; Yintu / Yindu. Also called it 'Tianzhu' ('Heavenly Master').</div>
+            <div class="mm-node"><strong>Hindustan:</strong> 'Hindu' + '-stan' (land) &mdash; first written in a Persian inscription ~1,800 years ago (~3rd C. CE).</div>
+            <div class="mm-node"><strong>Master Scholar Xuanzang:</strong> Travelled 17 years across India, studied at Nalanda, translated Sanskrit texts to Chinese.</div>
           </div>
         </div>
       </div>
 
       <div class="callout callout-pyq">
-        <div class="callout-title">🔥 CBSE Weightage &amp; Top 5 High-Yield Exam Topics</div>
+        <div class="callout-title">🔥 CBSE &amp; BSE Exam Focus: Top 5 High-Yield Topics</div>
         <ol>
-          <li><strong>Article 1 of the Indian Constitution:</strong> Significance of the opening phrase "India, that is Bharat" ('Bharat arthath India' in Hindi).</li>
-          <li><strong>Geographical Definition in Vishnu Purana:</strong> The classic shloka defining Bharata as the land lying north of the ocean and south of the snowy mountains (Himalayas).</li>
-          <li><strong>Evolution of 'India' from 'Sindhu':</strong> Linguistic chain: Sindhu (Sanskrit) &rarr; Hindu/Hind (Persian) &rarr; Indoi/Indike (Greek) &rarr; India (Latin/English).</li>
-          <li><strong>Meaning of Jambudvipa:</strong> Literally 'island of the jamun tree', used in Mahabharata and Ashoka's rock inscriptions (~250 BCE).</li>
-          <li><strong>Motivations of Ancient Foreign Travellers:</strong> Trade, spiritual pilgrimages (Buddhism), studying at universities (Nalanda/Taxila), and diplomatic missions.</li>
+          <li><strong>The Linguistic Journey of 'India':</strong> Sindhu (Sanskrit) &rarr; Hind/Hindu (Old Persian) &rarr; Indoi/Indike (Greek) &rarr; India (Latin/English).</li>
+          <li><strong>The Vishnu Purana Definition of Bharat:</strong> Land north of the ocean and south of the snowy mountains.</li>
+          <li><strong>Article 1 of the Constitution:</strong> Why our Constitution uses both names ("India, that is Bharat").</li>
+          <li><strong>Meaning of Jambudvipa:</strong> Literally 'island of the jamun tree', used by Emperor Ashoka (~250 BCE).</li>
+          <li><strong>Motivations of Ancient Foreign Travellers:</strong> Trade, Buddhist pilgrimage, higher learning at Nalanda/Taxila, diplomacy, and exploration.</li>
         </ol>
       </div>
     </section>
@@ -248,167 +318,829 @@
     <section id="sec2" class="section-card">
       <div class="section-header">
         <span class="section-num">Section 2</span>
-        <h2>📚 Exhaustive Topic-by-Topic Notes (Zero-Omission Policy)</h2>
+        <h2>📚 Exhaustive Line-by-Line Topic Notes (Zero-Omission Policy)</h2>
       </div>
 
-      <!-- TOPIC 1 -->
+      <!-- TOPIC 2.1 -->
       <div class="topic-block">
-        <div class="topic-title">TOPIC 1: Introduction – The Land and Its Natural Boundaries</div>
-        
+        <div class="topic-title">TOPIC 2.1: The Opening Vision &mdash; Defining India and Its Living Continuity</div>
+
         <div class="quote-box">
           "In India at a very early time the spiritual and cultural unity was made complete and became the very stuff of the life of all this great surge of humanity between the Himalayas and the two seas."<br>
-          <strong>— Sri Aurobindo</strong>
+          <strong>&mdash; Sri Aurobindo (Indian philosopher, poet, and nationalist leader)</strong>
         </div>
 
+        <h4>1. Breaking Down Sri Aurobindo's Quote in Simple Words</h4>
+        <p>This quote on the very first page of our textbook teaches us three beautiful ideas:</p>
         <ul>
-          <li><strong>Modern Nation vs. Ancient Subcontinent:</strong> Today, India is a modern democratic nation with precisely demarcated borders, 28 states, 8 Union Territories, and a known census population. However, 2,000 or 5,000 years ago, political borders were constantly shifting, while the region shared a recognizable civilisational and geographical identity known as the <strong>Indian Subcontinent</strong>.</li>
-          <li><strong>Natural Boundaries of the Indian Subcontinent (Fig. 5.2):</strong>
+          <li><strong>Natural Framework ("Between the Himalayas and the two seas"):</strong> India is not an accidental line drawn on paper. Nature itself gifted India clear boundaries &mdash; the snow-capped <strong>Himalayan mountains</strong> in the north, and the vast waters of the <strong>Arabian Sea</strong> and the <strong>Bay of Bengal</strong> enclosing the southern peninsula.</li>
+          <li><strong>Spiritual and Cultural Unity:</strong> Even when India was divided into dozens of separate small kingdoms with different kings, kings fought battles, but ordinary people shared the same cultural soul. They celebrated similar festivals, respected the same sacred rivers, recited the same epics (like the <em>Ramayana</em> and <em>Mahabharata</em>), and believed in the values of truth (<em>Satya</em>) and righteousness (<em>Dharma</em>).</li>
+          <li><strong>"The Very Stuff of Life":</strong> This unity was not forced on people by any king's decree. It was part of everyday life &mdash; the way villagers farmed, sang songs, cooked food, built temples, and welcomed guests.</li>
+        </ul>
+
+        <h4>2. Sanchi Stupa North Gate: A Window into Ancient Rural India (Fig. 5.1)</h4>
+        <p>Figure 5.1 in your textbook shows a stone carving from the <strong>North Gate of the Great Stupa at Sanchi</strong> in Madhya Pradesh, created about <strong>2,300 years ago</strong> (around 300 BCE):</p>
+        <ul>
+          <li><strong>What does the carving show?</strong> It shows a peaceful Indian village. You can see simple thatched huts with rounded roofs, cattle resting under trees, men and women carrying water pots, and farmers working the fields.</li>
+          <li><strong>Why is this important?</strong> It shows us that more than two thousand years ago, daily village life in India was already organized, peaceful, and closely connected to nature. That deep respect for cows, trees, rivers, and community has continued unbroken right into our modern villages today!</li>
+        </ul>
+
+        <h4>3. The Two Big Questions of Chapter 5</h4>
+        <p>Our textbook asks two big questions on page 75:</p>
+        <ol>
+          <li><strong>How do we define India?</strong> We define India in three complementary ways:
             <ul>
-              <li><strong>North &amp; Northeast:</strong> Guarded by the towering snow-clad <strong>Himalayan Mountain Range</strong>.</li>
-              <li><strong>Northwest:</strong> Shielded by the rugged <strong>Hindu Kush</strong> and Sulaiman ranges.</li>
-              <li><strong>West:</strong> Enclosed by the waters of the <strong>Arabian Sea</strong> (part of the Indian Ocean).</li>
-              <li><strong>East:</strong> Bordered by the <strong>Bay of Bengal</strong>.</li>
-              <li><strong>South:</strong> Tapering down into the vast expanse of the <strong>Indian Ocean</strong>.</li>
+              <li><em>Geographically:</em> As a vast subcontinent bounded by the world's tallest mountains in the north and three warm oceans/seas in the south.</li>
+              <li><em>Culturally:</em> As a continuous living civilisation that unites hundreds of languages, traditions, and faiths into one family.</li>
+              <li><em>Politically:</em> As a modern democratic republic with 28 States, 8 Union Territories, and a written Constitution that guarantees equality to all citizens.</li>
             </ul>
           </li>
-          <li><strong>The Perennial River Arteries:</strong> Major river systems nurtured continuous habitation &mdash; Indus (with Jhelum, Chenab, Ravi, Beas, Sutlej), Sarasvati, Ganga, Yamuna, Chambal, Brahmaputra, Narmada, Tapti, Mahanadi, Godavari, Krishna, and Kaveri.</li>
+          <li><strong>What were the ancient names for India?</strong> Over thousands of years, our country was known by many names:
+            <ul>
+              <li><strong>Sapta Sindhava</strong> (Rig Veda &mdash; Land of Seven Rivers)</li>
+              <li><strong>Jambudvipa</strong> (Mahabharata &amp; Ashoka's Edicts &mdash; Island of the Jamun Tree)</li>
+              <li><strong>Bharatavarsha / Bharata</strong> (Rig Veda, Mahabharata &amp; Vishnu Purana &mdash; Country of the Bharatas)</li>
+              <li><strong>Hind / Hindu / Hindustan</strong> (Ancient Persian inscriptions)</li>
+              <li><strong>Indoi / Indike / India</strong> (Ancient Greek and Roman records)</li>
+              <li><strong>Yintu / Yindu &amp; Tianzhu</strong> (Ancient Chinese travelogues)</li>
+            </ul>
+          </li>
+        </ol>
+
+        <h4>4. Modern Nation vs. Ancient Subcontinent</h4>
+        <ul>
+          <li><strong>Today:</strong> India is a modern sovereign nation with fixed, legally recognized borders, defined states, state capitals, a national flag, and a regular census counting its 1.4 billion people.</li>
+          <li><strong>In Ancient Times (500, 2,000, or 5,000 years ago):</strong> There was no passport, and borders between kingdoms shifted whenever a king won or lost a battle. However, everyone recognized the entire landmass as one distinct world &mdash; the <strong>Indian Subcontinent</strong>. People travelled freely from Taxila in the northwest to Kalinga in the east and Kanchi in the south for trade, studies, and pilgrimage.</li>
         </ul>
 
         <div class="callout callout-def">
-          <div class="callout-title">📘 Key Definition: Inhabitants</div>
-          <p><strong>Inhabitants:</strong> The people who live permanently or for prolonged periods in a particular geographical region or country.</p>
+          <div class="callout-title">📘 Key NCERT Definition: Inhabitants</div>
+          <p><strong>Inhabitants:</strong> The people who live permanently or for a long time in a particular geographical place or country.</p>
         </div>
       </div>
 
-      <!-- TOPIC 2 -->
+      <!-- TOPIC 2.2 -->
       <div class="topic-block">
-        <div class="topic-title">TOPIC 2: How Indians Named India – Indigenous Perspectives</div>
-        
-        <h4>1. Sapta Sindhava (Rig Veda)</h4>
-        <ul>
-          <li>The <strong>Rig Veda</strong> is India's most ancient sacred text, composed several thousand years ago.</li>
-          <li>It refers to the northwestern region of the Indian Subcontinent as <strong>Sapta Sindhava</strong>, meaning the <strong>'land of the seven rivers'</strong>.</li>
-          <li>The Sanskrit word <em>Sindhu</em> specifically denoted the mighty River Indus, and at times referred to a great river or water body in general. The seven rivers included the Indus, Sarasvati, and five tributaries of Punjab (Sutlej, Beas, Ravi, Chenab, Jhelum).</li>
-        </ul>
+        <div class="topic-title">TOPIC 2.2: Physical and Natural Diversity &mdash; The Geographical Shield of India</div>
 
-        <h4>2. Regional Pan-Indian Awareness in the Mahabharata</h4>
-        <ul>
-          <li>The <strong>Mahabharata</strong>, composed from a few centuries BCE onward, shows an intricate knowledge of every corner of the subcontinent.</li>
-          <li>It enumerates dozens of kingdoms and territories (Fig. 5.4), including:
+        <p>Take a look at the physical map of the Indian Subcontinent (Fig. 5.2). You will notice that India is geographically blessed like no other place on Earth. Nature built massive walls and open waterways that acted both as a fortress of safety and as highways of communication.</p>
+
+        <h4>1. The Four Great Natural Boundaries of India</h4>
+        <ol>
+          <li><strong>The Northern Fortress &mdash; The Great Himalayas:</strong>
             <ul>
-              <li><em>North:</em> Kashmira (Kashmir), Kurukshetra (Haryana), Gandhara, Kamboja, Madra</li>
-              <li><em>East:</em> Vanga (Bengal), Pundra, Pragjyotisha (Assam), Anga, Magadha, Videha</li>
-              <li><em>West:</em> Kaccha (Kutch), Anarta, Saurashtra (Gujarat), Matsya, Avanti</li>
-              <li><em>Central:</em> Chedi, Vidarbha, Ashmaka, Kosala, Kashi</li>
-              <li><em>South:</em> Kalinga (Odisha), Andhra, Dravida, Chola, Pandya, Kerala</li>
+              <li>A towering wall of snow and rock stretching over 2,400 kilometres from west to east, with peaks exceeding 8,000 metres.</li>
+              <li><strong>Climate Shield:</strong> The Himalayas block the freezing Arctic and Siberian polar winds from entering India, keeping our winters mild and pleasant.</li>
+              <li><strong>Rain Catcher:</strong> They stop the moisture-laden southwest monsoon winds from escaping into Central Asia, forcing them to shed heavy rainfall across the Indian plains.</li>
+              <li><strong>River Fountain:</strong> Enormous glaciers (such as Gangotri and Yamunotri) melt slowly throughout the hot summer, feeding perennial rivers like the Indus, Ganga, and Brahmaputra with fresh water all year round.</li>
             </ul>
+          </li>
+          <li><strong>The Northwestern Gateway &mdash; Hindu Kush &amp; Mountain Passes:</strong>
+            <ul>
+              <li>To the northwest stand the rugged <strong>Hindu Kush</strong>, Sulaiman, and Kirthar mountain ranges.</li>
+              <li>While these ranges kept out casual wanderers, they had narrow natural gaps called <strong>mountain passes</strong> (such as the famous <strong>Khyber Pass</strong> and <strong>Bolan Pass</strong>).</li>
+              <li>These passes acted as historical doorways. Peaceful traders with camel caravans, Buddhist monks, scholars, and foreign ambassadors used these passes to travel between India, Central Asia, Persia, and China.</li>
+            </ul>
+          </li>
+          <li><strong>The Vast River Plains (Indo-Gangetic-Brahmaputra):</strong>
+            <ul>
+              <li>Beneath the Himalayas lies one of the largest, flattest, and most fertile river plains in the world.</li>
+              <li>Over thousands of years, rivers brought down fine fertile mud called <strong>alluvium</strong> from the mountains. This rich silt made farming easy and abundant.</li>
+              <li>Because food was plentiful, large populations settled here, leading to India's earliest great cities, empires (like the Mauryas and Guptas), universities, and philosophical traditions.</li>
+            </ul>
+          </li>
+          <li><strong>The Peninsular Plateau and the Three Coastal Seas:</strong>
+            <ul>
+              <li>South of the river plains rises the triangular <strong>Deccan Plateau</strong>, flanked by the green <strong>Western Ghats</strong> and <strong>Eastern Ghats</strong>.</li>
+              <li>The southern half of India is surrounded by three warm bodies of water:
+                <ul>
+                  <li>The <strong>Arabian Sea</strong> on the west</li>
+                  <li>The <strong>Bay of Bengal</strong> on the east</li>
+                  <li>The mighty <strong>Indian Ocean</strong> at the southern apex (Cape Kumari / Kanyakumari)</li>
+                </ul>
+              </li>
+              <li>These seas acted as a natural moat protecting India from naval invasions, while skilled Indian sailors used seasonal monsoon winds to sail merchant ships to Rome, Persia, Arabia, Sri Lanka, and Southeast Asia.</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 NCERT "Think About It" Decoded (Textbook Page 77)</div>
+          <p><strong>Question:</strong> <em>"Consider the physical map of the Indian Subcontinent at the start of the chapter. What are its natural boundaries that you can make out?"</em></p>
+          <p><strong>Student-Friendly Answer:</strong></p>
+          <ul>
+            <li><strong>In the North:</strong> The snowy peaks of the <strong>Himalayan Mountain Range</strong> form a giant continuous wall separating India from the Tibetan Plateau.</li>
+            <li><strong>In the Northwest:</strong> The rugged <strong>Hindu Kush</strong> and Sulaiman mountain ranges form the boundary with Central Asia.</li>
+            <li><strong>In the West:</strong> The waters of the <strong>Arabian Sea</strong> enclose the western coast.</li>
+            <li><strong>In the East:</strong> The <strong>Bay of Bengal</strong> borders the eastern coastline.</li>
+            <li><strong>In the South:</strong> The vast <strong>Indian Ocean</strong> wraps around the southern tip at Cape Kumari (Kanyakumari).</li>
+          </ul>
+        </div>
+
+        <h4>2. Interactive Visual Graphic: The Physical Framework of India</h4>
+        <div class="diagram-card">
+          <svg viewBox="0 0 1020 640" width="100%" style="max-width: 1000px; height: auto;" font-family="'Plus Jakarta Sans', sans-serif" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="himalayaGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#e2e8f0"/>
+      <stop offset="100%" stop-color="#94a3b8"/>
+    </linearGradient>
+    <linearGradient id="plainsGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#86efac"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+    <linearGradient id="plateauGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#eab308"/>
+    </linearGradient>
+    <linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <filter id="shadow2" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="3" stdDeviation="5" flood-opacity="0.2" flood-color="#000000"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1020" height="640" rx="18" fill="url(#bgGrad2)"/>
+
+  <!-- Title Banner -->
+  <rect x="30" y="20" width="960" height="54" rx="12" fill="#1e1b4b" stroke="#3730a3" stroke-width="1.5"/>
+  <text x="510" y="44" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="800" letter-spacing="0.5">PHYSICAL FRAMEWORK &amp; NATURAL BOUNDARIES OF INDIA</text>
+  <text x="510" y="62" text-anchor="middle" fill="#a5b4fc" font-size="12" font-weight="600">The Natural Fortress That Shaped Indian Civilization, Trade, and Cultural Unity</text>
+
+  <!-- DIAGRAM CANVAS AREA -->
+  <g transform="translate(30, 86)">
+    <!-- Canvas background -->
+    <rect width="960" height="400" rx="14" fill="#091426" stroke="#1e293b" stroke-width="1.5"/>
+
+    <!-- Northern Sky & Cold Wind Arrows -->
+    <path d="M 50,40 Q 250,20 480,40 Q 720,20 910,40" fill="none" stroke="#60a5fa" stroke-width="2" stroke-dasharray="6,4"/>
+    <text x="480" y="24" text-anchor="middle" fill="#93c5fd" font-size="11" font-weight="700">❄️ Freezing Central Asian / Polar Winds Blocked by the Himalayas</text>
+
+    <!-- 1. HIMALAYAN MOUNTAIN WALL -->
+    <!-- Mountain Peaks Silhouette -->
+    <polygon points="120,115 160,65 200,115 240,60 290,120 340,55 400,120 460,50 520,120 580,52 640,118 700,58 760,118 810,65 850,115 850,135 120,135" fill="url(#himalayaGrad)" stroke="#cbd5e1" stroke-width="1.5"/>
+    <!-- Snow peak caps -->
+    <polygon points="150,80 160,65 170,80" fill="#ffffff"/>
+    <polygon points="230,75 240,60 250,75" fill="#ffffff"/>
+    <polygon points="330,70 340,55 350,70" fill="#ffffff"/>
+    <polygon points="450,65 460,50 470,65" fill="#ffffff"/>
+    <polygon points="570,67 580,52 590,67" fill="#ffffff"/>
+    <polygon points="690,72 700,58 710,72" fill="#ffffff"/>
+
+    <!-- Himalayan Label Pill -->
+    <rect x="290" y="92" width="380" height="26" rx="6" fill="#0f172a" fill-opacity="0.85" stroke="#38bdf8" stroke-width="1"/>
+    <text x="480" y="109" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="800">🏔️ THE GREAT HIMALAYAS (HIMADRI) &gt; 8,000 m</text>
+
+    <!-- Northwest Gateway: Hindu Kush & Passes -->
+    <polygon points="40,140 75,90 115,140 120,170 40,170" fill="#64748b" stroke="#94a3b8" stroke-width="1"/>
+    <rect x="42" y="132" width="105" height="42" rx="6" fill="#1e293b" fill-opacity="0.9" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="94" y="148" text-anchor="middle" fill="#f8fafc" font-size="10" font-weight="800">HINDU KUSH</text>
+    <text x="94" y="161" text-anchor="middle" fill="#fcd34d" font-size="9" font-weight="700">Khyber &amp; Bolan Passes</text>
+    <text x="94" y="171" text-anchor="middle" fill="#94a3b8" font-size="8.5">(Gateway for Trade/Monks)</text>
+
+    <!-- 2. NORTHERN RIVER PLAINS (Indo-Gangetic-Brahmaputra) -->
+    <path d="M 115,135 L 850,135 L 820,215 L 160,215 Z" fill="#14532d" fill-opacity="0.85" stroke="#22c55e" stroke-width="1.5"/>
+    <rect x="310" y="144" width="340" height="22" rx="5" fill="#166534" stroke="#4ade80" stroke-width="1"/>
+    <text x="480" y="159" text-anchor="middle" fill="#bbf7d0" font-size="11.5" font-weight="800">🌱 VAST INDO-GANGETIC &amp; BRAHMAPUTRA PLAINS</text>
+
+    <!-- Rivers running across the plains -->
+    <!-- Indus river system (West) -->
+    <path d="M 320,135 Q 260,150 200,165 Q 160,185 140,250" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+    <text x="145" y="185" fill="#bae6fd" font-size="9.5" font-weight="700">River Indus &amp; 5 Rivers</text>
+
+    <!-- Ganga & Yamuna system (Centre to East) -->
+    <path d="M 400,135 Q 460,165 540,175 Q 640,185 700,230" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+    <path d="M 380,138 Q 430,170 510,178" fill="none" stroke="#7dd3fc" stroke-width="1.5" stroke-dasharray="3,2"/>
+    <text x="500" y="193" fill="#bae6fd" font-size="9.5" font-weight="700">River Ganga &amp; Yamuna</text>
+
+    <!-- Brahmaputra (Northeast) -->
+    <path d="M 750,135 Q 810,150 790,180 Q 730,205 705,230" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+    <text x="760" y="165" fill="#bae6fd" font-size="9.5" font-weight="700">Brahmaputra</text>
+
+    <!-- 3. CENTRAL HIGHLANDS & PENINSULAR PLATEAU -->
+    <!-- Inverted Triangle / Deccan Plateau -->
+    <path d="M 210,218 L 750,218 L 520,360 L 440,360 Z" fill="#78350f" fill-opacity="0.8" stroke="#f59e0b" stroke-width="1.5"/>
+
+    <!-- Vindhya & Satpura Barrier -->
+    <line x1="260" y1="226" x2="700" y2="226" stroke="#d97706" stroke-width="3" stroke-dasharray="8,4"/>
+    <text x="480" y="238" text-anchor="middle" fill="#fed7aa" font-size="10.5" font-weight="800">VINDHYA &amp; SATPURA RANGES (Central Divide)</text>
+
+    <!-- Peninsular Rivers -->
+    <path d="M 330,242 Q 240,245 190,250" fill="none" stroke="#38bdf8" stroke-width="1.8"/>
+    <text x="250" y="252" fill="#bae6fd" font-size="8.5">Narmada / Tapti</text>
+
+    <path d="M 420,260 Q 560,265 670,270" fill="none" stroke="#38bdf8" stroke-width="1.8"/>
+    <text x="560" y="266" fill="#bae6fd" font-size="8.5">Mahanadi</text>
+
+    <path d="M 360,280 Q 520,290 640,300" fill="none" stroke="#38bdf8" stroke-width="1.8"/>
+    <text x="510" y="286" fill="#bae6fd" font-size="8.5">Godavari &amp; Krishna</text>
+
+    <path d="M 400,325 Q 490,335 570,335" fill="none" stroke="#38bdf8" stroke-width="1.8"/>
+    <text x="490" y="328" fill="#bae6fd" font-size="8.5">Kaveri</text>
+
+    <!-- Deccan Plateau Core Badge -->
+    <rect x="400" y="295" width="160" height="24" rx="6" fill="#451a03" stroke="#f59e0b" stroke-width="1"/>
+    <text x="480" y="311" text-anchor="middle" fill="#fef3c7" font-size="11" font-weight="800">⛰️ DECCAN PLATEAU</text>
+
+    <!-- Western Ghats & Eastern Ghats -->
+    <path d="M 230,230 Q 320,320 440,360" fill="none" stroke="#10b981" stroke-width="3.5"/>
+    <text x="240" y="300" fill="#a7f3d0" font-size="9.5" font-weight="800" transform="rotate(-40 240,300)">WESTERN GHATS</text>
+
+    <path d="M 720,230 Q 620,320 520,360" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="8,4"/>
+    <text x="630" y="300" fill="#a7f3d0" font-size="9.5" font-weight="800" transform="rotate(40 630,300)">EASTERN GHATS</text>
+
+    <!-- 4. SURROUNDING THREE SEAS -->
+    <!-- Arabian Sea (West) -->
+    <rect x="25" y="240" width="150" height="130" rx="10" fill="#0369a1" fill-opacity="0.6" stroke="#38bdf8" stroke-width="1"/>
+    <text x="100" y="270" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="800">ARABIAN SEA</text>
+    <text x="100" y="290" text-anchor="middle" fill="#e0f2fe" font-size="9.5">🌊 Western Maritime</text>
+    <text x="100" y="305" text-anchor="middle" fill="#e0f2fe" font-size="9.5">Trade to Persia, Arabia</text>
+    <text x="100" y="320" text-anchor="middle" fill="#e0f2fe" font-size="9.5">&amp; Roman Empire</text>
+    <text x="100" y="348" text-anchor="middle" fill="#7dd3fc" font-size="16">⛵ ⇄ 🚢</text>
+
+    <!-- Bay of Bengal (East) -->
+    <rect x="785" y="240" width="150" height="130" rx="10" fill="#0369a1" fill-opacity="0.6" stroke="#38bdf8" stroke-width="1"/>
+    <text x="860" y="270" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="800">BAY OF BENGAL</text>
+    <text x="860" y="290" text-anchor="middle" fill="#e0f2fe" font-size="9.5">🌊 Eastern Maritime</text>
+    <text x="860" y="305" text-anchor="middle" fill="#e0f2fe" font-size="9.5">Voyages to Sri Lanka,</text>
+    <text x="860" y="320" text-anchor="middle" fill="#e0f2fe" font-size="9.5">Java, Bali &amp; China</text>
+    <text x="860" y="348" text-anchor="middle" fill="#7dd3fc" font-size="16">🚢 ⇄ ⛵</text>
+
+    <!-- Southern Tip: Cape Kumari & Indian Ocean -->
+    <circle cx="480" cy="365" r="5" fill="#f43f5e"/>
+    <text x="480" y="380" text-anchor="middle" fill="#fecdd3" font-size="10" font-weight="800">📍 CAPE KUMARI (Kanyakumari)</text>
+
+    <!-- Indian Ocean Banner -->
+    <rect x="330" y="388" width="300" height="26" rx="6" fill="#0c4a6e" stroke="#38bdf8" stroke-width="1"/>
+    <text x="480" y="405" text-anchor="middle" fill="#38bdf8" font-size="12" font-weight="800">🌊 INDIAN OCEAN (Convergence of Seas)</text>
+
+    <!-- Compass Rose -->
+    <g transform="translate(890, 75)">
+      <circle cx="0" cy="0" r="22" fill="#1e293b" stroke="#cbd5e1" stroke-width="1"/>
+      <line x1="0" y1="-18" x2="0" y2="18" stroke="#ef4444" stroke-width="2"/>
+      <line x1="-18" y1="0" x2="18" y2="0" stroke="#cbd5e1" stroke-width="1.5"/>
+      <text x="0" y="-8" text-anchor="middle" fill="#ef4444" font-size="9" font-weight="800">N</text>
+      <text x="0" y="16" text-anchor="middle" fill="#cbd5e1" font-size="8" font-weight="700">S</text>
+      <text x="12" y="3" text-anchor="middle" fill="#cbd5e1" font-size="8" font-weight="700">E</text>
+      <text x="-12" y="3" text-anchor="middle" fill="#cbd5e1" font-size="8" font-weight="700">W</text>
+    </g>
+  </g>
+
+  <!-- BOTTOM 4 EXPLANATORY CARDS (Why Geography Matters) -->
+  <g transform="translate(30, 502)">
+    <!-- Card 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="228" height="114" rx="10" fill="#ffffff" filter="url(#shadow2)"/>
+      <rect x="0" y="0" width="228" height="6" rx="3" fill="#0284c7"/>
+      <text x="12" y="24" fill="#0369a1" font-size="12" font-weight="800">1. Himalayan Shield</text>
+      <text x="12" y="42" fill="#334155" font-size="10.5">Blocks Arctic cold winds.</text>
+      <text x="12" y="58" fill="#334155" font-size="10.5">Catches monsoon rains.</text>
+      <text x="12" y="74" fill="#475569" font-size="10">Perennial melting glaciers feed</text>
+      <text x="12" y="90" fill="#475569" font-size="10">Indus, Ganga &amp; Brahmaputra.</text>
+    </g>
+
+    <!-- Card 2 -->
+    <g transform="translate(244, 0)">
+      <rect width="228" height="114" rx="10" fill="#ffffff" filter="url(#shadow2)"/>
+      <rect x="0" y="0" width="228" height="6" rx="3" fill="#16a34a"/>
+      <text x="12" y="24" fill="#15803d" font-size="12" font-weight="800">2. River Plains</text>
+      <text x="12" y="42" fill="#334155" font-size="10.5">Deep alluvial fertile silt.</text>
+      <text x="12" y="58" fill="#334155" font-size="10.5">Easy farming &amp; food surplus.</text>
+      <text x="12" y="74" fill="#475569" font-size="10">Cradle of dense settlements,</text>
+      <text x="12" y="90" fill="#475569" font-size="10">Janapadas, art &amp; philosophy.</text>
+    </g>
+
+    <!-- Card 3 -->
+    <g transform="translate(488, 0)">
+      <rect width="228" height="114" rx="10" fill="#ffffff" filter="url(#shadow2)"/>
+      <rect x="0" y="0" width="228" height="6" rx="3" fill="#d97706"/>
+      <text x="12" y="24" fill="#b45309" font-size="12" font-weight="800">3. Peninsular Plateau</text>
+      <text x="12" y="42" fill="#334155" font-size="10.5">Ancient mineral storehouse.</text>
+      <text x="12" y="58" fill="#334155" font-size="10.5">Sturdy rock &amp; fertile deltas.</text>
+      <text x="12" y="74" fill="#475569" font-size="10">Narmada, Godavari &amp; Kaveri</text>
+      <text x="12" y="90" fill="#475569" font-size="10">nurtured great kingdoms.</text>
+    </g>
+
+    <!-- Card 4 -->
+    <g transform="translate(732, 0)">
+      <rect width="228" height="114" rx="10" fill="#ffffff" filter="url(#shadow2)"/>
+      <rect x="0" y="0" width="228" height="6" rx="3" fill="#7c3aed"/>
+      <text x="12" y="24" fill="#6d28d9" font-size="12" font-weight="800">4. Three Coastal Seas</text>
+      <text x="12" y="42" fill="#334155" font-size="10.5">Natural protective moat.</text>
+      <text x="12" y="58" fill="#334155" font-size="10.5">Monsoon sailing highways.</text>
+      <text x="12" y="74" fill="#475569" font-size="10">Trade of spices, cotton, gems</text>
+      <text x="12" y="90" fill="#475569" font-size="10">with Rome, Arabia &amp; SE Asia.</text>
+    </g>
+  </g>
+</svg>
+          <div class="diagram-caption">Fig. 5.6 Interactive Diagram: Physical framework, mountain barriers, river systems, and coastal waters of the Indian Subcontinent.</div>
+        </div>
+
+        <h4>3. How Geography Shaped Indian Civilization</h4>
+        <ul>
+          <li><strong>Agriculture &amp; Food Security:</strong> Perennial rivers and rich monsoon rains allowed Indian farmers to grow two or three crops a year (rice, wheat, barley, pulses, cotton), ensuring that our ancient society had food to spare for scholars, artists, monks, and craftsmen.</li>
+          <li><strong>Safe Isolation with Open Doorways:</strong> The mountains and seas gave India safety to build its unique philosophy, art, mathematics, and Ayurveda for centuries without constant foreign destruction, while mountain passes and sea ports kept India connected to world knowledge and international trade.</li>
+          <li><strong>Unity in Diversity:</strong> Because each geographical pocket (deserts of Rajasthan, backwaters of Kerala, snowy hills of Kashmir, river deltas of Bengal) had its own climate and landscape, people developed distinct foods, languages, and clothing, yet all remained tied together by the same land and shared cultural values.</li>
+        </ul>
+      </div>
+
+      <!-- TOPIC 2.3 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 2.3: How Indians Named India &mdash; The Indigenous Names</div>
+
+        <p>Now let us investigate how the people living in this land named their own home in ancient sacred books, poems, and inscriptions. Notice how our ancestors' names always highlighted nature, rivers, trees, and noble heroes!</p>
+
+        <h4>1. Sapta Sindhava (The Rig Veda)</h4>
+        <ul>
+          <li>The <strong>Rig Veda</strong> is India's most ancient text, composed several thousand years ago in Vedic Sanskrit.</li>
+          <li>In this ancient scripture, the northwestern region of the Indian Subcontinent is called <strong>Sapta Sindhava</strong>, which translates to <strong>'the land of the seven rivers'</strong>.</li>
+          <li><strong>What does 'Sindhu' mean?</strong> In Sanskrit, <em>Sindhu</em> refers specifically to the mighty <strong>River Indus</strong>. It was also used generally to describe any great river or large body of water.</li>
+          <li><strong>Which were the Seven Rivers?</strong> The seven sacred rivers celebrated in the Rig Veda are:
+            <ol>
+              <li><em>Sindhu</em> (Indus)</li>
+              <li><em>Sarasvati</em> (revered as the holy mother of wisdom and rivers)</li>
+              <li><em>Vitasta</em> (modern Jhelum)</li>
+              <li><em>Asikni</em> (modern Chenab)</li>
+              <li><em>Parushni</em> (modern Ravi)</li>
+              <li><em>Vipasha</em> (modern Beas)</li>
+              <li><em>Shutudri</em> (modern Sutlej)</li>
+            </ol>
           </li>
         </ul>
 
-        <h4>3. Jambudvipa ('Island of the Jamun Tree')</h4>
+        <h4>2. Pan-Indian Regional Awareness in the Mahabharata (Fig. 5.4)</h4>
         <ul>
-          <li><strong>Meaning:</strong> Literally translates to <em>'the island of the fruit of the jamun tree'</em> (jambul / Malabar plum tree), a native Indian fruit tree.</li>
-          <li>Used in the Mahabharata, Buddhist texts, and Jain traditions to designate the immense continent-sized landmass of India.</li>
-          <li><strong>Historical Inscription Clue:</strong> Around <strong>250 BCE</strong>, Emperor <strong>Ashoka</strong> used the name <strong>Jambudvipa</strong> in his stone inscriptions to describe his vast realm, which stretched across modern-day India, Pakistan, Bangladesh, and eastern Afghanistan.</li>
+          <li>As centuries passed, Indian literature expanded its view to embrace the entire length and breadth of the subcontinent.</li>
+          <li>The <strong>Mahabharata</strong>, one of India's two great epics composed from a few centuries BCE onward, lists dozens of regions and kingdoms covering all four directions of India:
+            <ul>
+              <li><strong>In the North:</strong> <em>Kashmira</em> (modern Jammu &amp; Kashmir), <em>Gandhara</em> (Peshawar/Rawalpindi), <em>Kamboja</em>, <em>Kurukshetra</em> (modern Haryana), <em>Madra</em> (Punjab).</li>
+              <li><strong>In the East:</strong> <em>Vanga</em> (Bengal), <em>Pundra</em> (northern Bengal), <em>Pragjyotisha</em> or <em>Kamarupa</em> (modern Assam), <em>Magadha</em> (southern Bihar), <em>Videha</em> (northern Bihar), <em>Anga</em>.</li>
+              <li><strong>In the West:</strong> <em>Kaccha</em> (Kutch in Gujarat), <em>Anarta</em> and <em>Saurashtra</em> (Kathiawar peninsula in Gujarat), <em>Matsya</em> (eastern Rajasthan), <em>Avanti</em> (Malwa, Madhya Pradesh).</li>
+              <li><strong>In Central India &amp; Deccan:</strong> <em>Chedi</em>, <em>Vidarbha</em> (eastern Maharashtra), <em>Ashmaka</em> (on the Godavari river), <em>Dakshina Kosala</em> (Chhattisgarh/Odisha).</li>
+              <li><strong>In the South:</strong> <em>Kalinga</em> (coastal Odisha), <em>Dravida</em>, <em>Chola</em> (coastal Tamil Nadu), <em>Pandya</em> (southern Tamil Nadu), <em>Kerala</em> (southwestern coast), <em>Kishkindhya</em> (Hampi, Karnataka).</li>
+            </ul>
+          </li>
+          <li>This vast list shows that 2,500 years ago, Indians did not think of themselves as isolated tribes; they possessed an intimate geographical map of their whole shared motherland!</li>
+        </ul>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 NCERT "Let's Explore" Decoded (Textbook Page 78)</div>
+          <p><strong>Prompt:</strong> <em>"Do you recognise the names of any regions given in the map (Fig. 5.4) on page 79? List the ones that you have heard of."</em></p>
+          <p><strong>Student Answer &amp; Quick Guide:</strong></p>
+          <ul>
+            <li><strong>Kashmira:</strong> Modern Kashmir valley in northern India.</li>
+            <li><strong>Kurukshetra:</strong> Famous battlefield in Haryana where the Bhagavad Gita was spoken.</li>
+            <li><strong>Kaccha:</strong> The great salt desert region of Kutch in Gujarat.</li>
+            <li><strong>Kerala:</strong> The modern coastal state of Kerala in southern India.</li>
+            <li><strong>Vanga:</strong> The region of Bengal (origin of the word 'Bangla').</li>
+            <li><strong>Pragjyotisha:</strong> The ancient name of Assam and the Brahmaputra valley.</li>
+            <li><strong>Kalinga:</strong> The historical name of coastal Odisha.</li>
+            <li><strong>Magadha:</strong> Southern Bihar, the birthplace of the Maurya Empire.</li>
+            <li><strong>Chola &amp; Pandya:</strong> Famous kingdoms of Tamil Nadu celebrated in history.</li>
+          </ul>
+        </div>
+
+        <h4>3. Jambudvipa &mdash; The Island of the Jamun Tree</h4>
+        <ul>
+          <li><strong>Literal Meaning:</strong> <em>Jambudvipa</em> literally means <strong>'the island of the fruit of the jamun tree'</strong>. The <em>jamun</em> (jambul or Malabar plum tree) is a grand shady fruit tree native to India, bearing sweet, deep-purple berries.</li>
+          <li>In ancient Indian geography and cosmology, the world was pictured as large continental divisions called <em>dvipas</em> (islands), each marked by a native tree. The Indian subcontinent was crowned <strong>Jambudvipa</strong>.</li>
+          <li><strong>Emperor Ashoka's Edicts (~250 BCE):</strong>
+            <ul>
+              <li>We know this was not just a mythological term because Emperor <strong>Ashoka</strong>, who ruled almost all of South Asia around 250 BCE, carved the name <strong>Jambudvipa</strong> on stone pillars and rocks!</li>
+              <li>In his inscriptions, Ashoka used <em>Jambudvipa</em> to describe the entire territory of his empire &mdash; which included modern India, Pakistan, Bangladesh, and eastern parts of Afghanistan.</li>
+            </ul>
+          </li>
         </ul>
 
         <h4>4. Bharatavarsha and Bharata</h4>
         <ul>
-          <li><strong>Origin:</strong> Means <em>'the country of the Bharatas'</em>. The Bharatas were a prominent Vedic tribe mentioned in the Rig Veda. In later epics and puranas, several legendary righteous kings named Bharata (such as the son of Dushyanta and Shakuntala) ruled this land.</li>
-          <li><strong>The Classic Definition in Vishnu Purana:</strong>
+          <li><strong>Origin &amp; Meaning:</strong> <em>Bharatavarsha</em> means <strong>'the country of the Bharatas'</strong>.</li>
+          <li><strong>The Rigvedic Roots:</strong> The name <em>Bharata</em> first appears in the <strong>Rig Veda</strong>, where it refers to one of the most powerful and respected Vedic tribes or clans.</li>
+          <li><strong>Legendary Righteous Kings:</strong> In later epics and Puranas, several noble kings were named Bharata. The most famous was <strong>King Bharata</strong>, the son of King Dushyanta and Queen Shakuntala. Ancient traditions describe him as a just emperor whose fair rule established peace across the land. Another noble Bharata is the beloved brother of Lord Rama in the <em>Ramayana</em>, renowned for selfless devotion.</li>
+          <li><strong>The Classic Definition in the Vishnu Purana:</strong>
+            <p>A few centuries later, an ancient text called the <strong>Vishnu Purana</strong> gave the most precise geographical definition of India ever written in antiquity:</p>
             <div class="quote-box">
               "uttaraṃ yat samudrasya himādreścaiva dakṣiṇam |<br>
               varṣaṃ tad bhārataṃ nāma bhāratī yatra santatiḥ ||"<br>
-              <strong>"The country that lies north of the ocean and south of the snowy mountains is called Bhārata."</strong>
+              <strong>"The country that lies north of the ocean and south of the snowy mountains is called Bhārata; there dwell the descendants of Bharata."</strong>
             </div>
           </li>
-          <li>This name became universally accepted across the subcontinent. In North India, it is pronounced <strong>Bharat</strong>, while in South Indian languages (Tamil, Malayalam, Telugu, Kannada), it is often rendered as <strong>Bharatam</strong>.</li>
+          <li><strong>Living Name Today:</strong> This ancient name is alive and spoken every single day! In Northern and Central India, people say <strong>Bharat</strong>. In Southern Indian languages like Tamil, Telugu, Kannada, and Malayalam, it is often pronounced as <strong>Bharatam</strong>.</li>
         </ul>
 
-        <h4>5. Ancient Tamil Literature (Sangam Poetry)</h4>
-        <p>Ancient Tamil Sangam poetry from ~2,000 years ago expressed the exact same geographic unity, praising kings whose renown stretched:</p>
-        <div class="quote-box">
-          "...from [Cape] Kumari in the south, from the great mountain [Himalayas] in the north, from the oceans on the east [Bay of Bengal] and on the west [Arabian Sea]..."
-        </div>
-        <p>This demonstrates that people in both northern and southern India shared a unified geographical vision of their motherland.</p>
-
-        <h4>6. The Modern Constitution of India</h4>
         <div class="callout callout-act">
-          <div class="callout-title">🧪 DON'T MISS OUT: Article 1 of the Constitution</div>
+          <div class="callout-title">🧪 NCERT "Think About It" Decoded (Textbook Page 80)</div>
+          <p><strong>Question:</strong> <em>"Have you identified the 'snowy mountains'? Do you think this brief description of Bhārata is correct?"</em></p>
+          <p><strong>Simple Answer:</strong></p>
           <ul>
-            <li><strong>English Text:</strong> Article 1(1) famously declares: <em>"India, that is Bharat, shall be a Union of States."</em></li>
-            <li><strong>Hindi Text:</strong> Formulated as <em>"Bhārat arthāth India, rājyoṅ kā saṅgh hogā."</em></li>
-            <li>This seamlessly links our ancient civilisational heritage (<strong>Bharat</strong>) with our recognized international name (<strong>India</strong>).</li>
+            <li><strong>Identifying Snowy Mountains:</strong> Yes, the 'snowy mountains' (<em>himādri</em> in Sanskrit, where <em>hima</em> means snow and <em>adri</em> means mountain) refer to the towering <strong>Himalayan Mountains</strong>.</li>
+            <li><strong>Is the description correct?</strong> Yes, it is 100% geographically correct! Even today, India is precisely defined as the land lying south of the Himalayas and north of the Indian Ocean. It shows that ancient Indian scholars had accurate knowledge of their country's physical boundaries thousands of years ago!</li>
           </ul>
+        </div>
+
+        <h4>5. Ancient Tamil Sangam Literature (~2,000 Years Ago)</h4>
+        <p>Was this geographical definition known only in North India? Not at all! Ancient poems from <strong>Tamil Sangam literature</strong>, composed in the far south of India around 2,000 years ago, praise a righteous king whose fame is celebrated:</p>
+        <div class="quote-box">
+          "...from [Cape] Kumari in the south, from the great mountain in the north, from the oceans on the east and on the west..."
+        </div>
+        <p>Here, the ancient Tamil poet clearly recognizes:
+          <br>&bull; <em>Cape Kumari</em> = Kanyakumari (the southernmost tip)
+          <br>&bull; <em>The great mountain</em> = The snowy Himalayas in the north
+          <br>&bull; <em>The two oceans</em> = The Bay of Bengal in the east and the Arabian Sea in the west.
+        </p>
+        <p>This proves that more than 2,000 years ago, Indians living thousands of miles apart in Kashmir, Tamil Nadu, Gujarat, and Assam shared the exact same geographical vision of their motherland!</p>
+
+        <h4>6. The Modern Constitution of India: Article 1</h4>
+        <p>When India became an independent democratic republic, the leaders who framed our Constitution united both our ancient heritage and our modern international identity.</p>
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 DON'T MISS OUT: Article 1 of the Indian Constitution (Textbook Page 81)</div>
+          <ul>
+            <li><strong>English Version:</strong> The very first sentence of Article 1(1) reads:
+              <br><strong style="font-size: 1.05rem; color: #0369a1;">"India, that is Bharat, shall be a Union of States."</strong>
+            </li>
+            <li><strong>Hindi Version:</strong> In the official Hindi translation, it is phrased as:
+              <br><strong style="font-size: 1.05rem; color: #ea580c;">"Bhārat arthāth India, rājyoṅ kā saṅgh hogā."</strong>
+            </li>
+            <li><strong>What is a Constitution?</strong> A Constitution is the supreme legal document that spells out the basic principles, rights, duties, and laws of a nation. The Indian Constitution came into force on <strong>26 January 1950</strong> (celebrated every year as Republic Day).</li>
+          </ul>
+        </div>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 NCERT "Let's Explore" Decoded (Textbook Page 81)</div>
+          <p><strong>Prompt:</strong> <em>"In this reproduction of the first page of the original Constitution of India in Fig. 5.5 (page 82), can you make out the phrase 'India, that is Bharat'?"</em></p>
+          <p><strong>Answer:</strong> Yes! Right at the top of Article 1 under Part I titled <em>"The Union and its Territory"</em>, the very first line clearly says: <strong>"1. (1) India, that is Bharat, shall be a Union of States."</strong> This historic line bridges our millennia-old civilisational identity (Bharat) with our modern world recognition (India).</p>
         </div>
       </div>
 
-      <!-- TOPIC 3 -->
+      <!-- TOPIC 2.4 -->
       <div class="topic-block">
-        <div class="topic-title">TOPIC 3: How Foreigners Named India – Persian, Greek &amp; Chinese Origins</div>
-        
-        <p>Foreign travellers, merchants, and conquerors almost universally named India based on the first major geographic barrier they encountered: the <strong>River Sindhu (Indus)</strong>.</p>
+        <div class="topic-title">TOPIC 2.4: How Foreigners Named India &mdash; Persian, Greek, Latin, Chinese &amp; Arabic Origins</div>
 
-        <h4>1. Persian Origin: Hind, Hidu, and Hindu</h4>
+        <p>Now let us look at India through the eyes of visitors from across the mountains and seas. When foreign merchants, travellers, and kings marched towards India from the west, the very first giant natural landmark they encountered was the majestic <strong>River Sindhu (Indus)</strong>. As a result, almost every foreign name for our country was born from this one river!</p>
+
+        <h4>1. The Persian Connection: Hind, Hidu, and Hindu (6th Century BCE)</h4>
         <ul>
-          <li>In the <strong>6th century BCE</strong>, the Achaemenid Persian Empire expanded eastward to the Indus valley under Emperor Darius I.</li>
-          <li>In the Old Persian language, the initial Sanskrit sound 'S' shifted to 'H'. Thus, <strong>Sindhu</strong> became <strong>Hind</strong>, <strong>Hidu</strong>, or <strong>Hindu</strong>.</li>
-          <li><em>Crucial Clarification:</em> In ancient Persian, <strong>'Hindu' was purely a geographical term</strong> meaning 'the land or people beyond the Sindhu river'. It did <strong>not</strong> refer to religion!</li>
+          <li>In the <strong>6th century BCE</strong> (over 2,500 years ago), the Persian Emperor Darius I of the Achaemenid Empire expanded his realm eastward to the banks of the Indus River.</li>
+          <li><strong>The Linguistic Sound Shift:</strong> The ancient Persian language was closely related to Sanskrit, but Persian speakers had difficulty pronouncing the Sanskrit initial sound 'S'. In Old Persian, <strong>'S' naturally softened into 'H'</strong>.</li>
+          <li>Therefore, the Sanskrit river name <strong>Sindhu</strong> became <strong>Hind</strong>, <strong>Hidu</strong>, or <strong>Hindu</strong> in Persian stone inscriptions!</li>
+          <li><strong>CRITICAL EXAM POINT:</strong> In ancient Persian, <strong>'Hindu' was purely a geographical name</strong> meaning 'the land and people living along or beyond the Indus River'. It had <strong>no religious meaning at all</strong> back then!</li>
         </ul>
 
-        <h4>2. Greek Origin: Indoi and Indike</h4>
+        <h4>2. The Greek and Roman Connection: Indoi &rarr; Indike &rarr; India</h4>
         <ul>
-          <li>Ancient Greek historians (like Herodotus and Megasthenes) borrowed the Persian term.</li>
-          <li>Because the classical Greek language lacked the aspirated 'H' sound at the beginning of words, they dropped the initial 'H' from 'Hindu', producing <strong>Indoi</strong> (the people) and <strong>Indike</strong> (the land).</li>
-          <li>Under the Roman Empire and Medieval Europe, this became Latinized as <strong>India</strong>, which became standard in modern English and global geography (French: <em>Inde</em>).</li>
+          <li>Ancient Greek historians (like Herodotus, known as the 'Father of History', and Megasthenes, who lived at the Mauryan court in Pataliputra) learned about India through the Persians.</li>
+          <li><strong>Dropping the 'H':</strong> The ancient Greek alphabet and language did not have the letter or sound 'H' at the start of words. Therefore, the Greeks dropped the initial 'H' from the Persian word 'Hindu'!</li>
+          <li>'Hindu' became <strong>Indoi</strong> (referring to the Indian people) and <strong>Indike</strong> (referring to the land of India).</li>
+          <li>Later, when the Roman Empire rose to power, Roman scholars adopted the Greek word into Latin as <strong>India</strong>.</li>
+          <li>From Latin, the word passed into modern English as <strong>India</strong>, into French as <strong>Inde</strong>, and into Spanish and Italian as <strong>India</strong>.</li>
         </ul>
 
-        <!-- Visual Evolution Diagram -->
-        <div class="diagram-card">
-          <div style="font-family: 'JetBrains Mono', monospace; font-size: 1.1rem; font-weight: 700; color: #0369a1; padding: 12px; background: #f0f9ff; border-radius: 8px; display: inline-block;">
-            Sindhu (Sanskrit) &rarr; Hindu / Hind (Old Persian) &rarr; Indoi / Indike (Greek) &rarr; India (Latin / English)
-          </div>
-          <div class="diagram-caption">Fig. 5.6 Concept Visual: Linguistic evolution of the name 'India' through phonetic shifts.</div>
-        </div>
-
-        <h4>3. Chinese Names: Yintu, Yindu &amp; Tianzhu</h4>
+        <h4>3. The Chinese Connection: Yintu, Yindu, and Tianzhu</h4>
         <ul>
-          <li>Ancient Chinese pilgrims and records also derived their names from Sindhu:
-            <div style="font-family: 'JetBrains Mono', monospace; margin: 10px 0; padding: 8px; background: #f8fafc; border: 1px solid var(--border); border-radius: 6px;">
+          <li>Ancient China and India enjoyed deep trade and spiritual connections through the famous Silk Road.</li>
+          <li>In Chinese records, the name of India also evolved from <em>Sindhu</em> through a step-by-step sound shift:
+            <div style="font-family: 'JetBrains Mono', monospace; background: #f1f5f9; padding: 10px 14px; border-radius: 8px; margin: 10px 0; font-weight: 700; color: #0369a1;">
               Sindhu &rarr; Hindhu &rarr; Indu &rarr; Yintu / Yindu
             </div>
           </li>
-          <li><strong>Tianzhu ('Heavenly Master'):</strong> The Chinese also referred to India as <strong>Tianzhu</strong>. This poetic term translates to <em>'Heavenly Master'</em> or <em>'Heavenly Realm'</em>, reflecting the deep reverence Chinese scholars held for India as the sacred birthplace of Gautama Buddha.</li>
+          <li><strong>Tianzhu ('Heavenly Master'):</strong> The ancient Chinese also had another special name for India: <strong>Tianzhu</strong>.
+            <ul>
+              <li>This poetic term can be translated as <strong>'Heavenly Master'</strong> or <strong>'Heavenly Realm'</strong>.</li>
+              <li>Why did the Chinese give such an honorable name? Because India was the holy birthplace of <strong>Siddhartha Gautama (the Buddha)</strong>! Chinese emperors and monks revered India as the sacred homeland of wisdom and enlightenment.</li>
+            </ul>
+          </li>
         </ul>
 
-        <h4>4. Hindustan: Origin and History</h4>
+        <h4>4. The Name 'Hindustan'</h4>
         <ul>
-          <li>The term <strong>Hindustān</strong> combines the Persian word <em>Hindu</em> (land of Sindhu) with the Persian suffix <em>-stān</em> (meaning 'land of' or 'place of').</li>
-          <li><strong>Earliest Historical Record:</strong> The word 'Hindustan' was <strong>first used in a Sasanian Persian royal inscription roughly 1,800 years ago (~3rd century CE)</strong>, specifically the Naqsh-e Rustam inscription of Shapur I!</li>
-          <li>Later during the medieval era, it became the widespread term used by Central Asian, Persian, and Mughal rulers to denote the subcontinent.</li>
+          <li>You hear the word <strong>Hindustan</strong> often in national songs and daily speech. But when was it first written down?</li>
+          <li>The term combines the Persian word <strong>Hindu</strong> (the land of the Sindhu) with the Persian suffix <strong>-stan</strong> (meaning 'land of' or 'place of', as in Rajasthan, Uzbekistan, or Kazakhstan).</li>
+          <li><strong>Earliest Record:</strong> The word 'Hindustan' was <strong>first used in a royal Persian inscription roughly 1,800 years ago</strong> (in the 3rd century CE, during the Sasanian Empire at Naqsh-e Rustam in Iran).</li>
+          <li>Later, during the medieval period (from the 11th century CE onward), Turkish, Afghan, and Mughal rulers used 'Hindustan' to describe northern and central India, and eventually the entire subcontinent.</li>
         </ul>
 
         <div class="callout callout-act">
-          <div class="callout-title">🧪 In-Box Decoded: Master Traveller Xuanzang</div>
+          <div class="callout-title">🧪 DON'T MISS OUT: Master Traveller Xuanzang (Textbook Page 83)</div>
           <ul>
-            <li><strong>Journey:</strong> Xuanzang (formerly spelt Hiuen Tsang) travelled overland from China to India in the <strong>7th century CE</strong> (during King Harshavardhana's reign).</li>
-            <li><strong>17 Years of Study:</strong> He travelled through India for 17 years, studied at Nalanda University, collected hundreds of Sanskrit Buddhist manuscripts, and carried them back to China.</li>
-            <li><strong>Translation Work:</strong> He spent the rest of his life translating these Sanskrit texts into Chinese, preserving ancient Indian knowledge for world history.</li>
+            <li><strong>Who was he?</strong> Xuanzang (formerly spelt Hiuen Tsang or Hsuan-tsang) was a courageous Chinese Buddhist monk and scholar who travelled overland to India in the <strong>7th century CE</strong> during the reign of King Harshavardhana.</li>
+            <li><strong>17 Years in India:</strong> He braved burning deserts, frozen mountain passes, and robber gangs to reach India. He spent <strong>17 long years</strong> travelling across India, visiting sacred Buddhist sites and studying Buddhist philosophy and Sanskrit at the world-famous <strong>Nalanda University</strong> in modern Bihar.</li>
+            <li><strong>Preserving Ancient Knowledge:</strong> When Xuanzang returned to China, he loaded pack-horses with hundreds of precious Sanskrit manuscripts, statues, and relics. He spent the remaining years of his life in China translating these Sanskrit texts into Chinese, preserving ancient Indian ideas for world history!</li>
           </ul>
         </div>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 NCERT "Let's Explore" Decoded: Master Names Table (Textbook Page 83)</div>
+          <p><strong>Prompt:</strong> <em>"Can you complete this table of the many names of India?"</em></p>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Language / Culture</th>
+                  <th>Name(s) for India</th>
+                  <th>Linguistic Origin &amp; Meaning</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Persian</strong></td>
+                  <td><strong>Hind / Hidu / Hindu / Hindustan</strong></td>
+                  <td>Derived from Sanskrit 'Sindhu' (S shifted to H) + '-stan' (land)</td>
+                </tr>
+                <tr>
+                  <td><strong>Greek</strong></td>
+                  <td><strong>Indoi / Indike</strong></td>
+                  <td>Persian 'Hindu' with initial 'H' dropped (sound absent in Greek)</td>
+                </tr>
+                <tr>
+                  <td><strong>Latin</strong></td>
+                  <td><strong>India</strong></td>
+                  <td>Latin adaptation of Greek 'Indike' / River Indus</td>
+                </tr>
+                <tr>
+                  <td><strong>Chinese</strong></td>
+                  <td><strong>Yintu / Yindu &amp; Tianzhu</strong></td>
+                  <td>'Yindu' via Sindhu; 'Tianzhu' means 'Heavenly Master / Realm'</td>
+                </tr>
+                <tr>
+                  <td><strong>Arabic &amp; Persian</strong></td>
+                  <td><strong>Al-Hind / Hindustan</strong></td>
+                  <td>'Al-Hind' in Arabic; 'Hindustan' in Middle/Modern Persian</td>
+                </tr>
+                <tr>
+                  <td><strong>English</strong></td>
+                  <td><strong>India</strong></td>
+                  <td>Adopted directly from Latin 'India' via European trade</td>
+                </tr>
+                <tr>
+                  <td><strong>French</strong></td>
+                  <td><strong>Inde</strong></td>
+                  <td>French evolution from Latin 'India'</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <h4>5. Interactive Visual Graphic: The Linguistic Evolution of India's Names</h4>
+        <div class="diagram-card">
+          <svg viewBox="0 0 1020 560" width="100%" style="max-width: 1000px; height: auto;" font-family="'Plus Jakarta Sans', sans-serif" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGrad1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="indGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ea580c"/>
+      <stop offset="100%" stop-color="#c2410c"/>
+    </linearGradient>
+    <linearGradient id="forGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#0284c7"/>
+      <stop offset="100%" stop-color="#0369a1"/>
+    </linearGradient>
+    <filter id="shadow1" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.15" flood-color="#000000"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1020" height="560" rx="18" fill="url(#bgGrad1)"/>
+
+  <!-- Main Title Banner -->
+  <rect x="30" y="22" width="960" height="58" rx="12" fill="#1e1b4b" stroke="#4338ca" stroke-width="1.5"/>
+  <text x="510" y="47" text-anchor="middle" fill="#f8fafc" font-size="19" font-weight="800" letter-spacing="0.5">THE EVOLUTION OF OUR COUNTRY'S NAMES</text>
+  <text x="510" y="67" text-anchor="middle" fill="#93c5fd" font-size="12.5" font-weight="600">Tracing Indigenous Civilisational Roots and Foreign Linguistic Adaptations</text>
+
+  <!-- LEFT STREAM: INDIGENOUS NAMES -->
+  <rect x="30" y="96" width="465" height="42" rx="10" fill="url(#indGrad)"/>
+  <text x="262" y="122" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="800">HOW INDIANS NAMED OUR LAND (Indigenous Roots)</text>
+
+  <!-- Left Card 1: Sapta Sindhava -->
+  <g transform="translate(30, 150)">
+    <rect width="465" height="74" rx="10" fill="#ffffff" stroke="#fed7aa" stroke-width="1.5" filter="url(#shadow1)"/>
+    <rect x="0" y="0" width="7" height="74" rx="3" fill="#ea580c"/>
+    <text x="20" y="24" fill="#9a3412" font-size="13" font-weight="800">1. SAPTA SINDHAVA (Rig Veda — Ancient Vedic Era)</text>
+    <text x="20" y="44" fill="#334155" font-size="12">Meaning: <tspan font-weight="700" fill="#0f172a">'Land of the Seven Rivers'</tspan> in northwestern India.</text>
+    <text x="20" y="62" fill="#64748b" font-size="11.5">Seven Rivers: Indus (Sindhu), Sarasvati, Jhelum, Chenab, Ravi, Beas, Sutlej.</text>
+  </g>
+
+  <!-- Left Card 2: Jambudvipa -->
+  <g transform="translate(30, 236)">
+    <rect width="465" height="82" rx="10" fill="#ffffff" stroke="#fed7aa" stroke-width="1.5" filter="url(#shadow1)"/>
+    <rect x="0" y="0" width="7" height="82" rx="3" fill="#c2410c"/>
+    <text x="20" y="24" fill="#9a3412" font-size="13" font-weight="800">2. JAMBUDVIPA (Mahabharata &amp; Emperor Ashoka ~250 BCE)</text>
+    <text x="20" y="44" fill="#334155" font-size="12">Meaning: <tspan font-weight="700" fill="#0f172a">'Island of the fruit of the Jamun tree'</tspan> (native Indian tree).</text>
+    <text x="20" y="62" fill="#334155" font-size="11.5">Used by Emperor Ashoka in stone edicts for greater India</text>
+    <text x="20" y="76" fill="#64748b" font-size="11">(embracing modern India, Pakistan, Bangladesh &amp; parts of Afghanistan).</text>
+  </g>
+
+  <!-- Left Card 3: Bharatavarsha / Bharata -->
+  <g transform="translate(30, 330)">
+    <rect width="465" height="96" rx="10" fill="#ffffff" stroke="#fed7aa" stroke-width="1.5" filter="url(#shadow1)"/>
+    <rect x="0" y="0" width="7" height="96" rx="3" fill="#ea580c"/>
+    <text x="20" y="24" fill="#9a3412" font-size="13" font-weight="800">3. BHARATAVARSHA &amp; BHARATA (Rig Veda &amp; Puranas)</text>
+    <text x="20" y="44" fill="#334155" font-size="12">Meaning: <tspan font-weight="700" fill="#0f172a">'Country of the Bharatas'</tspan> (Vedic clan &amp; legendary righteous kings).</text>
+    <text x="20" y="62" fill="#0369a1" font-size="11.5" font-weight="700">Vishnu Purana Definition:</text>
+    <text x="20" y="78" fill="#475569" font-size="11" font-style="italic">"Land north of the ocean and south of the snowy mountains (Himalayas)."</text>
+    <text x="20" y="92" fill="#64748b" font-size="10.5">Matched by Tamil Sangam Poetry: 'From Cape Kumari to the northern mountain.'</text>
+  </g>
+
+  <!-- Synthesis Box: Article 1 of Constitution -->
+  <g transform="translate(30, 438)">
+    <rect width="960" height="96" rx="12" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" filter="url(#shadow1)"/>
+    <rect x="14" y="14" width="70" height="68" rx="10" fill="#16a34a"/>
+    <circle cx="49" cy="40" r="16" fill="#ffffff"/>
+    <text x="49" y="46" text-anchor="middle" fill="#16a34a" font-size="18" font-weight="800">1</text>
+    <text x="49" y="70" text-anchor="middle" fill="#ffffff" font-size="9" font-weight="800">ARTICLE</text>
+    <text x="100" y="38" fill="#14532d" font-size="14.5" font-weight="800">CONSTITUTION OF INDIA (ARTICLE 1 — 1950 CE): THE SACRED SYNTHESIS</text>
+    <text x="100" y="60" fill="#15803d" font-size="14" font-weight="800">"India, that is Bharat, shall be a Union of States." <tspan font-weight="600" fill="#334155" font-size="12.5">(Hindi: "Bharat arthath India")</tspan></text>
+    <text x="100" y="80" fill="#475569" font-size="11.5">Unites our timeless ancient civilisational heritage (Bharat) with our modern recognized global name (India).</text>
+  </g>
+
+  <!-- RIGHT STREAM: FOREIGN NAMES -->
+  <rect x="525" y="96" width="465" height="42" rx="10" fill="url(#forGrad)"/>
+  <text x="757" y="122" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="800">HOW FOREIGNERS NAMED OUR LAND (Foreign Roots)</text>
+
+  <!-- Right Card 1: Sanskrit Root Sindhu -->
+  <g transform="translate(525, 150)">
+    <rect width="465" height="52" rx="10" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5"/>
+    <text x="232" y="25" text-anchor="middle" fill="#1e40af" font-size="12" font-weight="800">UNIVERSAL STARTING POINT: RIVER SINDHU (INDUS)</text>
+    <text x="232" y="42" text-anchor="middle" fill="#475569" font-size="11">The first natural geographic barrier encountered by foreigners entering from the west.</text>
+  </g>
+
+  <!-- Right Branch A: Persian & Hindustan -->
+  <g transform="translate(525, 212)">
+    <rect width="465" height="74" rx="10" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5" filter="url(#shadow1)"/>
+    <rect x="0" y="0" width="7" height="74" rx="3" fill="#0284c7"/>
+    <text x="20" y="23" fill="#0369a1" font-size="12.5" font-weight="800">PERSIAN: HIND / HIDU / HINDU (6th Century BCE)</text>
+    <text x="20" y="41" fill="#334155" font-size="11.5">Phonetic shift: Sanskrit 'S' became Persian 'H' (<tspan font-weight="700">Sindhu → Hindu</tspan>).</text>
+    <text x="20" y="56" fill="#e11d48" font-size="11" font-weight="700">Note: 'Hindu' was purely GEOGRAPHICAL, not a religious term!</text>
+    <text x="20" y="70" fill="#64748b" font-size="11"><tspan font-weight="700" fill="#0f172a">Hindustan:</tspan> 'Hindu' + '-stan' (land) — first found in Persian inscription ~1,800 yrs ago.</text>
+  </g>
+
+  <!-- Right Branch B: Greek & Latin to English -->
+  <g transform="translate(525, 296)">
+    <rect width="465" height="66" rx="10" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5" filter="url(#shadow1)"/>
+    <rect x="0" y="0" width="7" height="66" rx="3" fill="#0369a1"/>
+    <text x="20" y="23" fill="#0369a1" font-size="12.5" font-weight="800">GREEK &amp; LATIN: INDOI → INDUS → INDIA</text>
+    <text x="20" y="42" fill="#334155" font-size="11.5">Greeks dropped initial 'H' (missing in Greek) → <tspan font-weight="700">Indoi</tspan> (people) &amp; <tspan font-weight="700">Indike</tspan> (land).</text>
+    <text x="20" y="58" fill="#475569" font-size="11">Romans Latinized this to <tspan font-weight="700" fill="#0f172a">India</tspan> → became modern English <tspan font-weight="700">India</tspan> &amp; French <tspan font-weight="700">Inde</tspan>.</text>
+  </g>
+
+  <!-- Right Branch C: Chinese Yindu & Tianzhu -->
+  <g transform="translate(525, 372)">
+    <rect width="465" height="54" rx="10" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5" filter="url(#shadow1)"/>
+    <rect x="0" y="0" width="7" height="54" rx="3" fill="#0284c7"/>
+    <text x="20" y="22" fill="#0369a1" font-size="12" font-weight="800">CHINESE: YINTU / YINDU &amp; TIANZHU (Master Xuanzang)</text>
+    <text x="20" y="38" fill="#334155" font-size="11">Phonetic path: Sindhu → Hindhu → Indu → <tspan font-weight="700" fill="#0f172a">Yindu</tspan>.</text>
+    <text x="20" y="50" fill="#7c3aed" font-size="11" font-weight="700">Tianzhu = 'Heavenly Master' (revering India as the holy land of the Buddha).</text>
+  </g>
+</svg>
+          <div class="diagram-caption">Fig. 5.7 Concept Visual: Tracing the twin branches &mdash; Indigenous Civilisational Roots (Bharat) and Foreign Geographic Roots (Sindhu &rarr; India).</div>
+        </div>
+      </div>
+
+      <!-- TOPIC 2.5 -->
+      <div class="topic-block">
+        <div class="topic-title">TOPIC 2.5: Cultural and Social Unity &mdash; How Geography Shaped Indian Civilization</div>
+
+        <p>How did a subcontinent with dozens of languages, different clothing styles, and diverse regional kingdoms maintain such a strong, unbroken feeling of oneness? The secret lies in India's geography and culture working hand-in-hand!</p>
+
+        <h4>1. The Sacred Pilgrim Circuits (Tirthas)</h4>
+        <ul>
+          <li>For thousands of years, ordinary Indians from all walks of life undertook holy journeys called <strong>Tirthas</strong> across the length and breadth of the country.</li>
+          <li>Look at the four great sacred corners (the <em>Char Dham</em>) established across India:
+            <ul>
+              <li><strong>Badrinath</strong> in the snowy northern Himalayas (Uttarakhand)</li>
+              <li><strong>Rameswaram</strong> along the southern sea (Tamil Nadu)</li>
+              <li><strong>Puri (Jagannath Temple)</strong> on the eastern coast (Odisha)</li>
+              <li><strong>Dwarka</strong> on the western coast (Gujarat)</li>
+            </ul>
+          </li>
+          <li>When a pilgrim from Tamil Nadu walked to Badrinath, or a scholar from Bengal travelled to Dwarka, they interacted with local families, tasted new foods, learned local words, and shared common stories. These pilgrimage circuits acted like invisible cultural threads sewing all regions into a single fabric!</li>
+        </ul>
+
+        <h4>2. The Great Internal Trade Corridors</h4>
+        <ul>
+          <li>Geography provided natural highway routes that kept Indian markets humming with trade:
+            <ul>
+              <li><strong>Uttarapatha (The Great Northern Highway):</strong> Stretched from Taxila and Gandhara in the northwest, across the fertile Ganga plain, all the way to Tamralipti (a major port in Bengal).</li>
+              <li><strong>Dakshinapatha (The Southern Route):</strong> Connected the prosperous cities of the northern plains (like Varanasi and Ujjain) with the Deccan plateau, Godavari valley, and southern trading ports.</li>
+            </ul>
+          </li>
+          <li>Merchants carried fine cotton textiles from Varanasi, spices and black pepper from Kerala, sandalwood from Karnataka, pearls from the Gulf of Mannar, and iron implements from Magadha, exchanging wealth and friendship across borders.</li>
+        </ul>
+
+        <h4>3. Common Heritage, Shared Epics &amp; The Rhythm of the Monsoon</h4>
+        <ul>
+          <li><strong>Shared Epics:</strong> Stories from the <em>Ramayana</em>, <em>Mahabharata</em>, <em>Panchatantra</em>, and Buddhist <em>Jataka tales</em> were told, sung, danced, and sculpted in every corner of India. Whether in Odia, Tamil, Bengali, Marathi, or Assamese, children grew up listening to the same moral lessons of courage, truth, and respect for all living beings.</li>
+          <li><strong>The Rhythm of the Monsoon:</strong> The Indian monsoon does not ask which kingdom or religion you belong to! It sweeps across the entire subcontinent from June to September. Every farmer from Punjab to Tamil Nadu waits for the same clouds, celebrates the same agricultural seasons, and shares the same joy of harvest. This common rhythm of nature made Indians feel like one single family.</li>
+        </ul>
       </div>
     </section>
 
     <!-- ==========================================
-         SECTION 3: FACT BANK & QUICK-REFERENCE TABLES
+         SECTION 3: FACT & TERMINOLOGY BANK
          ========================================== -->
     <section id="sec3" class="section-card">
       <div class="section-header">
         <span class="section-num">Section 3</span>
-        <h2>📊 Fact Bank &amp; Quick-Reference Comparison Tables</h2>
+        <h2>📊 Rapid Revision Fact &amp; Terminology Bank</h2>
       </div>
 
-      <h4>Table 5.1: Master Synthesis of the Many Names of India Across World Languages</h4>
+      <h4>1. Key Terminology Glossary (Exam-Essential Definitions)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Term / Keyword</th>
+              <th>Simple Definition for Class 6 Students</th>
+              <th>Key Context / Source</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Inhabitants</strong></td>
+              <td>People who live permanently or for a long period in a specific place or country.</td>
+              <td>NCERT Page 77 Vocabulary Box</td>
+            </tr>
+            <tr>
+              <td><strong>Subcontinent</strong></td>
+              <td>A vast, distinct part of a continent separated by natural barriers like mountain chains and oceans.</td>
+              <td>Refers to the Indian Subcontinent</td>
+            </tr>
+            <tr>
+              <td><strong>Sapta Sindhava</strong></td>
+              <td>'Land of the Seven Rivers' in Sanskrit &mdash; the fertile northwestern region watered by the Indus and its sister rivers.</td>
+              <td>Rig Veda (Oldest sacred text of India)</td>
+            </tr>
+            <tr>
+              <td><strong>Sindhu</strong></td>
+              <td>The Sanskrit name for the Indus River; also used generally for a great river, stream, or ocean.</td>
+              <td>Root of 'Hind', 'Indoi', and 'India'</td>
+            </tr>
+            <tr>
+              <td><strong>Jambudvipa</strong></td>
+              <td>'The island of the fruit of the jamun tree' &mdash; an ancient name for the Indian subcontinent.</td>
+              <td>Mahabharata &amp; Emperor Ashoka's Edicts (~250 BCE)</td>
+            </tr>
+            <tr>
+              <td><strong>Bharatavarsha / Bharata</strong></td>
+              <td>'The country of the Bharatas' &mdash; named after the prominent Vedic Bharata tribe and noble legendary kings.</td>
+              <td>Rig Veda, Mahabharata &amp; Vishnu Purana</td>
+            </tr>
+            <tr>
+              <td><strong>Constitution</strong></td>
+              <td>The supreme legal document that spells out the basic principles, rights, duties, and laws of a nation.</td>
+              <td>Enacted 26 Jan 1950 (Article 1)</td>
+            </tr>
+            <tr>
+              <td><strong>Hind / Hindu</strong></td>
+              <td>The ancient Persian adaptation of Sanskrit 'Sindhu' (S shifted to H); purely a geographical label for the Indus region.</td>
+              <td>Persian Achaemenid Inscriptions (6th C. BCE)</td>
+            </tr>
+            <tr>
+              <td><strong>Indoi / Indike</strong></td>
+              <td>The ancient Greek names for the people (Indoi) and land (Indike) of India, created by dropping the initial 'H' from 'Hindu'.</td>
+              <td>Greek writings (Herodotus, Megasthenes)</td>
+            </tr>
+            <tr>
+              <td><strong>Yintu / Yindu</strong></td>
+              <td>The ancient Chinese phonetic adaptation of the river name Sindhu (via Hindhu &rarr; Indu).</td>
+              <td>Chinese Buddhist travelogues</td>
+            </tr>
+            <tr>
+              <td><strong>Tianzhu</strong></td>
+              <td>An ancient Chinese honorific name for India meaning 'Heavenly Master', honoring India as the land of Gautama Buddha.</td>
+              <td>Chinese Buddhist records</td>
+            </tr>
+            <tr>
+              <td><strong>Hindustan</strong></td>
+              <td>The combination of Persian 'Hindu' + '-stan' (land); meaning 'Land of the Indus'.</td>
+              <td>Sasanian Inscription (~1,800 years ago)</td>
+            </tr>
+            <tr>
+              <td><strong>Perennial River</strong></td>
+              <td>A river that flows with fresh water all year round because it is fed by melting mountain glaciers and monsoon rains.</td>
+              <td>Himalayan rivers: Indus, Ganga, Brahmaputra</td>
+            </tr>
+            <tr>
+              <td><strong>Tirtha</strong></td>
+              <td>A sacred pilgrimage site (usually by a river, mountain, or holy temple) where people travel to purify their minds and connect across regions.</td>
+              <td>Ancient pan-Indian pilgrimage tradition</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>2. Table 5.1: Master Synthesis of the Many Names of India Across World Languages</h4>
       <div class="table-wrap">
         <table>
           <thead>
@@ -417,6 +1149,7 @@
               <th>Name(s) Used</th>
               <th>Literal Meaning / Etymology</th>
               <th>Earliest Historical Evidence</th>
+              <th>Cultural Context</th>
             </tr>
           </thead>
           <tbody>
@@ -424,80 +1157,92 @@
               <td><strong>Vedic Sanskrit</strong></td>
               <td><strong>Sapta Sindhava</strong></td>
               <td>'Land of the Seven Rivers'</td>
-              <td>Rig Veda (~2nd millennium BCE)</td>
+              <td>Rig Veda (~several thousand years ago)</td>
+              <td>Northwestern region of India where the Vedic hymns were sung</td>
             </tr>
             <tr>
               <td><strong>Epic Sanskrit</strong></td>
               <td><strong>Jambudvīpa</strong></td>
               <td>'Island of the Jamun fruit tree'</td>
-              <td>Mahabharata &amp; Ashoka's Inscriptions (~250 BCE)</td>
+              <td>Mahabharata &amp; Ashoka's Edicts (~250 BCE)</td>
+              <td>Used in Buddhist, Jain, and royal edicts for the greater subcontinent</td>
             </tr>
             <tr>
               <td><strong>Classical Sanskrit</strong></td>
               <td><strong>Bhāratavarṣha / Bhārata</strong></td>
               <td>'Country of the Bharatas' (Vedic clan / King Bharata)</td>
               <td>Rig Veda, Mahabharata &amp; Vishnu Purana</td>
+              <td>Universal name for the land between the snowy mountains and southern ocean</td>
             </tr>
             <tr>
               <td><strong>Ancient Tamil</strong></td>
-              <td>Land from <strong>Kumari to Himalayas</strong></td>
+              <td>Land from <strong>Cape Kumari to Himalayas</strong></td>
               <td>From Cape Kumari to the northern snowy mountain</td>
               <td>Sangam Poetry (~2,000 years ago)</td>
+              <td>Shows shared geographic unity between South and North India</td>
             </tr>
             <tr>
               <td><strong>Old Persian</strong></td>
               <td><strong>Hind / Hidu / Hindu</strong></td>
-              <td>Geographical adaptation of Sanskrit 'Sindhu'</td>
+              <td>Sound shift: Sanskrit 'S' became Persian 'H'</td>
               <td>Achaemenid Inscriptions (6th century BCE)</td>
+              <td>Purely a geographic term for the Indus basin; NOT religious</td>
             </tr>
             <tr>
-              <td><strong>Middle Persian (Sasanian)</strong></td>
+              <td><strong>Middle Persian</strong></td>
               <td><strong>Hindustān</strong></td>
-              <td>'Land of the Indus / Hindus'</td>
-              <td>Persian Inscription (~1,800 years ago, ~3rd C. CE)</td>
+              <td>'Hindu' + '-stān' (Land of the Indus / Hindus)</td>
+              <td>Sasanian Inscription (~1,800 years ago, ~3rd C. CE)</td>
+              <td>Used widely by medieval Central Asian, Afghan, and Mughal rulers</td>
             </tr>
             <tr>
               <td><strong>Ancient Greek</strong></td>
               <td><strong>Indoi / Indike</strong></td>
-              <td>Adapted from Persian 'Hindu' (dropped 'H')</td>
-              <td>Herodotus &amp; Megasthenes (5th–4th C. BCE)</td>
+              <td>Dropped Persian initial 'H' (sound absent in Greek)</td>
+              <td>Herodotus &amp; Megasthenes (5th&ndash;4th C. BCE)</td>
+              <td>Used by Alexander's historians and Greek ambassadors</td>
             </tr>
             <tr>
               <td><strong>Latin / English</strong></td>
               <td><strong>India</strong></td>
-              <td>Derived from Greek 'Indike' / Indus</td>
-              <td>Roman writings &amp; British legal documents</td>
+              <td>Derived from Greek 'Indike' via Roman Latin</td>
+              <td>Roman classical texts &amp; modern global usage</td>
+              <td>Official internationally recognized name of the modern Republic</td>
             </tr>
             <tr>
               <td><strong>French</strong></td>
               <td><strong>Inde</strong></td>
               <td>French derivation of Latin 'India'</td>
-              <td>Medieval &amp; modern French texts</td>
+              <td>Medieval and modern European trade records</td>
+              <td>French literature and world geography</td>
             </tr>
             <tr>
               <td><strong>Ancient Chinese</strong></td>
-              <td><strong>Yintu / Yindu / Tianzhu</strong></td>
-              <td>Phonetic shift from Sindhu; 'Tianzhu' = Heavenly Master</td>
-              <td>Chinese Buddhist travelogues (e.g. Xuanzang)</td>
+              <td><strong>Yintu / Yindu &amp; Tianzhu</strong></td>
+              <td>'Yindu' via Sindhu; 'Tianzhu' means 'Heavenly Master'</td>
+              <td>Chinese Buddhist travelogues (Xuanzang, 7th C. CE)</td>
+              <td>Reflects deep veneration for India as the sacred homeland of the Buddha</td>
             </tr>
             <tr>
-              <td><strong>Modern Indian Constitution</strong></td>
+              <td><strong>Constitution of India</strong></td>
               <td><strong>India, that is Bharat</strong></td>
-              <td>Constitutional dual nomenclature uniting modern &amp; ancient</td>
-              <td>Constitution of India (1950 CE)</td>
+              <td>Dual constitutional nomenclature</td>
+              <td>Constitution of India (enacted 1950 CE)</td>
+              <td>Harmonious blend of ancient civilisational heritage and modern nationhood</td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <h4>Table 5.2: Regions Mentioned in the Mahabharata (Fig. 5.4) &amp; Modern Equivalents</h4>
+      <h4>3. Table 5.2: Ancient Regions in the Mahabharata (Fig. 5.4) &amp; Modern Equivalents</h4>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
               <th>Ancient Region in Mahabharata</th>
-              <th>Approximate Modern State / Territory</th>
-              <th>Geographical Zone</th>
+              <th>Approximate Modern State / Region</th>
+              <th>Geographical Zone in India</th>
+              <th>Historical Significance</th>
             </tr>
           </thead>
           <tbody>
@@ -505,41 +1250,101 @@
               <td><strong>Kāshmīra</strong></td>
               <td>Jammu &amp; Kashmir</td>
               <td>Northern Himalayas</td>
+              <td>Renowned center of Sanskrit learning and Shaiva philosophy</td>
             </tr>
             <tr>
               <td><strong>Kurukṣhetra</strong></td>
               <td>Haryana</td>
               <td>Northern Plains</td>
+              <td>Historic plain of the great war and the teaching of the Gita</td>
             </tr>
             <tr>
               <td><strong>Prāgjyotiṣha / Kāmarūpa</strong></td>
               <td>Assam / Northeast India</td>
               <td>Eastern Brahmaputra Valley</td>
+              <td>Ancient kingdom of King Bhagadatta, famed for silk and elephants</td>
             </tr>
             <tr>
               <td><strong>Vanga &amp; Puṇḍra</strong></td>
-              <td>Bengal (West Bengal &amp; Bangladesh)</td>
+              <td>West Bengal &amp; Bangladesh</td>
               <td>Eastern Deltaic Plain</td>
+              <td>Prosperous agricultural and maritime trading hub on the Bay of Bengal</td>
             </tr>
             <tr>
-              <td><strong>Kaccha &amp; Ānarta / Saurāṣhṭra</strong></td>
+              <td><strong>Kaccha &amp; Saurāṣhṭra / Ānarta</strong></td>
               <td>Kutch &amp; Kathiawar (Gujarat)</td>
               <td>Western Coast</td>
+              <td>Maritime ports connecting India to ancient Mesopotamia and Persia</td>
             </tr>
             <tr>
               <td><strong>Kalinga</strong></td>
               <td>Odisha</td>
               <td>Eastern Coastal Plain</td>
+              <td>Maritime empire famous for fearless Sadhabas (merchants) sailing to Bali and Java</td>
             </tr>
             <tr>
               <td><strong>Vidarbha &amp; Aśhmaka</strong></td>
               <td>Maharashtra / Deccan</td>
               <td>Central Deccan Plateau</td>
+              <td>Ancient kingdom of Queen Damayanti and King Nala; Ashmaka along Godavari</td>
             </tr>
             <tr>
               <td><strong>Chola, Pāṇḍya &amp; Kerala</strong></td>
               <td>Tamil Nadu &amp; Kerala</td>
               <td>Deep Peninsular South</td>
+              <td>Sangam literary dynasties famed for spice trade (black gold) and grand temples</td>
+            </tr>
+            <tr>
+              <td><strong>Gandhāra &amp; Kāmboja</strong></td>
+              <td>Peshawar (Pakistan) &amp; Eastern Afghanistan</td>
+              <td>Northwestern Frontier</td>
+              <td>Home of Taxila University and trade hub on the Silk Road</td>
+            </tr>
+            <tr>
+              <td><strong>Magadha &amp; Kosala</strong></td>
+              <td>Bihar &amp; Eastern Uttar Pradesh</td>
+              <td>Middle Ganga Valley</td>
+              <td>Heart of early empires, birth of Buddhism and Jainism</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>4. Table 5.3: Comparing Indigenous Names vs. Foreign Names</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Comparison Aspect</th>
+              <th>Indigenous Names (How Indians Named India)</th>
+              <th>Foreign Names (How Foreigners Named India)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Primary Examples</strong></td>
+              <td>Sapta Sindhava, Jambudvipa, Bharatavarsha, Bharata</td>
+              <td>Hind, Hindu, Indoi, Indike, India, Yindu, Tianzhu, Hindustan</td>
+            </tr>
+            <tr>
+              <td><strong>Core Source / Foundation</strong></td>
+              <td>Sacred rivers, native fruit trees (Jamun), noble tribes, righteous kings</td>
+              <td>The first geographical physical barrier reached: the River Sindhu (Indus)</td>
+            </tr>
+            <tr>
+              <td><strong>Internal Feeling</strong></td>
+              <td>Reflects living culture, spiritual values, moral duty, and sacred geography</td>
+              <td>Reflects geographical location, trade destinations, and reverence (e.g. Tianzhu)</td>
+            </tr>
+            <tr>
+              <td><strong>Geographical Scope</strong></td>
+              <td>Expanded from the 7 rivers to cover the entire land between snow and sea</td>
+              <td>Started at the Indus borderland and gradually extended to the whole subcontinent</td>
+            </tr>
+            <tr>
+              <td><strong>Modern Presence</strong></td>
+              <td>Celebrated in Article 1 ("Bharat") and in everyday Indian languages</td>
+              <td>Celebrated in Article 1 ("India") and in international treaties and world maps</td>
             </tr>
           </tbody>
         </table>
@@ -552,8 +1357,164 @@
     <section id="sec4" class="section-card">
       <div class="section-header">
         <span class="section-num">Section 4</span>
-        <h2>✍️ NCERT Textbook Solutions (Complete Line-by-Line)</h2>
+        <h2>✍️ 100% Complete NCERT Solutions (Topper Style)</h2>
       </div>
+
+      <p>Here are exhaustive, structured, child-friendly solutions for <strong>every single in-text prompt, box, and end-of-chapter exercise</strong> from Chapter 5 of the NCERT textbook. Click on any question to view the model answer!</p>
+
+      <!-- PART 1: IN-TEXT PROMPTS -->
+      <h3>Part 1: Decoded In-Text Prompts, Activities &amp; "Think About It" Boxes</h3>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">NCERT Page 75</span> <strong>The Big Questions:</strong> (1) How do we define India? (2) What were the ancient names for India?</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>1. How do we define India?</strong></p>
+            <ul>
+              <li><strong>Geographically:</strong> India is a unique subcontinent bounded by the snow-capped <strong>Himalayas</strong> in the north and surrounded by three water bodies &mdash; the <strong>Arabian Sea</strong>, the <strong>Bay of Bengal</strong>, and the <strong>Indian Ocean</strong>.</li>
+              <li><strong>Culturally:</strong> India is an ancient, living civilization where hundreds of diverse languages, foods, and traditions thrive peacefully under a shared spirit of <em>unity in diversity</em>.</li>
+              <li><strong>Politically:</strong> Today, India is a modern democratic nation of 28 States and 8 Union Territories governed by the Constitution of India.</li>
+            </ul>
+            <p><strong>2. What were the ancient names for India?</strong></p>
+            <ul>
+              <li><strong>Sapta Sindhava:</strong> 'Land of the Seven Rivers' (mentioned in the Rig Veda).</li>
+              <li><strong>Jambudvipa:</strong> 'Island of the Jamun tree' (used in the Mahabharata and Emperor Ashoka's inscriptions).</li>
+              <li><strong>Bharatavarsha / Bharata:</strong> 'Country of the Bharatas' (from the Rigvedic tribe and legendary King Bharata, defined in the Vishnu Purana).</li>
+              <li><strong>Hind / Hindu:</strong> Coined by ancient Persians from the river 'Sindhu'.</li>
+              <li><strong>Indoi / Indike / India:</strong> Coined by ancient Greeks and Romans.</li>
+              <li><strong>Yintu / Yindu &amp; Tianzhu:</strong> Used by ancient Chinese scholars and monks.</li>
+              <li><strong>Hindustan:</strong> Used in Persian inscriptions ~1,800 years ago and widely used in medieval times.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">NCERT Page 77</span> <strong>Think About It:</strong> Consider the physical map of the Indian Subcontinent at the start of the chapter (Fig. 5.2). What are its natural boundaries that you can make out?</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p>Looking at the physical map in Fig. 5.2, we can identify five grand natural boundaries that frame our subcontinent:</p>
+            <ul>
+              <li><strong>Northern Boundary:</strong> The towering <strong>Himalayan Mountain Range</strong> with its snowy peaks forms a massive natural wall stretching along the entire north.</li>
+              <li><strong>Northwestern Boundary:</strong> The rugged <strong>Hindu Kush</strong>, Sulaiman, and Kirthar mountain ranges mark the boundary in the northwest.</li>
+              <li><strong>Western Boundary:</strong> The warm waters of the <strong>Arabian Sea</strong> wash the western coastline.</li>
+              <li><strong>Eastern Boundary:</strong> The <strong>Bay of Bengal</strong> frames the eastern coast.</li>
+              <li><strong>Southern Boundary:</strong> The vast expanse of the <strong>Indian Ocean</strong> converges at the southern tip (Cape Kumari / Kanyakumari).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">NCERT Page 78</span> <strong>Let's Explore:</strong> Do you recognise the names of any regions given in the map (Fig. 5.4) on page 79? List the ones that you have heard of.</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p>Yes, several ancient regions in Fig. 5.4 are familiar to us today because their names are still used or celebrated in Indian history and culture:</p>
+            <ul>
+              <li><strong>Kashmira:</strong> The beautiful valley of Kashmir in northern India.</li>
+              <li><strong>Kurukshetra:</strong> The famous sacred plain in Haryana where the Mahabharata battle took place.</li>
+              <li><strong>Kaccha:</strong> The Kutch district of Gujarat, famous for the Rann of Kutch.</li>
+              <li><strong>Kerala:</strong> The lush coastal state of Kerala in southwestern India.</li>
+              <li><strong>Kalinga:</strong> Ancient coastal Odisha, famous for maritime trade and the Kalinga War of Emperor Ashoka.</li>
+              <li><strong>Vanga:</strong> The delta region of Bengal, from which the modern name 'Bengal' or 'Bangla' is derived.</li>
+              <li><strong>Pragjyotisha:</strong> The ancient name for Assam in the northeastern Brahmaputra valley.</li>
+              <li><strong>Magadha:</strong> Southern Bihar, the seat of ancient empires like the Mauryas and Guptas.</li>
+              <li><strong>Chola &amp; Pandya:</strong> Renowned ancient kingdoms of Tamil Nadu celebrated for art, grand temples, and seafaring trade.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">NCERT Page 80</span> <strong>Think About It:</strong> Have you identified the 'snowy mountains'? Do you think this brief description of Bhārata is correct?</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>1. Identification of the 'snowy mountains':</strong></p>
+            <p>Yes, the 'snowy mountains' mentioned in the Vishnu Purana (<em>himādri</em> in Sanskrit) are the <strong>Himalayan Mountains</strong> (from <em>Hima</em> = snow and <em>Alaya</em> = home/abode, meaning 'the abode of snow').</p>
+            <p><strong>2. Is this brief description correct?</strong></p>
+            <p>Yes, it is remarkably accurate! The Vishnu Purana states: <em>"The country that lies north of the ocean and south of the snowy mountains is called Bhārata."</em> Geographically, the Indian subcontinent is precisely enclosed between the snow-clad Himalayas in the north and the Indian Ocean in the south. This shows that ancient Indian scholars had a crystal-clear, scientific understanding of their subcontinent's physical geography thousands of years ago!</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">NCERT Page 81</span> <strong>Let's Explore:</strong> In this reproduction of the first page of the original Constitution of India in Fig. 5.5 (page 82), can you make out the phrase 'India, that is Bharat'?</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p>Yes, absolutely! On the first page of the original Constitution of India (under <strong>Part I: The Union and its Territory</strong>), Article 1(1) clearly and boldly begins with the words:</p>
+            <div class="quote-box" style="font-weight: 700; color: #0369a1;">
+              "1. (1) India, that is Bharat, shall be a Union of States."
+            </div>
+            <p>This famous sentence gave constitutional approval to both names, uniting our timeless ancient heritage (<strong>Bharat</strong>) with our recognized global name (<strong>India</strong>).</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">NCERT Page 83</span> <strong>Let's Explore:</strong> Complete the table of the many names of India (Persian, Greek, Latin, Chinese, Arabic &amp; Persian, English, French).</div>
+        <details class="ans-box" open>
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p>Here is the fully completed NCERT table with linguistic explanations:</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Language / Source</th>
+                    <th>Name for India</th>
+                    <th>How It Was Formed</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Persian</strong></td>
+                    <td><strong>Hind / Hidu / Hindu</strong></td>
+                    <td>Sanskrit 'Sindhu' became 'Hind' or 'Hindu' because Old Persian replaced 'S' with 'H'.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Greek</strong></td>
+                    <td><strong>Indoi / Indike</strong></td>
+                    <td>Greeks dropped the initial 'H' from Persian 'Hindu' because the Greek alphabet lacked an 'H' sound.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Latin</strong></td>
+                    <td><strong>India</strong></td>
+                    <td>Romans adapted Greek 'Indike' into Latin as 'India'.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Chinese</strong></td>
+                    <td><strong>Yintu / Yindu &amp; Tianzhu</strong></td>
+                    <td>'Yindu' shifted phonetically from Sindhu; 'Tianzhu' means 'Heavenly Master / Realm'.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Arabic &amp; Persian</strong></td>
+                    <td><strong>Al-Hind / Hindustān</strong></td>
+                    <td>'Al-Hind' in Arabic; 'Hindustan' adds the Persian suffix '-stan' (land) to 'Hindu'.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>English</strong></td>
+                    <td><strong>India</strong></td>
+                    <td>Inherited from Latin 'India' via European trade and legal documents.</td>
+                  </tr>
+                  <tr>
+                    <td><strong>French</strong></td>
+                    <td><strong>Inde</strong></td>
+                    <td>French adaptation of Latin 'India'.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- PART 2: END-OF-CHAPTER EXERCISES -->
+      <h3 style="margin-top: 30px;">Part 2: End-of-Chapter Exercises, Activities &amp; Projects (Textbook Page 84)</h3>
 
       <div class="q-card">
         <div class="q-title">Q1. Discuss what could be the meaning of the quotation at the start of the chapter: <em>"In India at a very early time the spiritual and cultural unity was made complete and became the very stuff of the life of all this great surge of humanity between the Himalayas and the two seas."</em> &mdash; Sri Aurobindo</div>
@@ -561,36 +1522,57 @@
           <summary>View Complete Model Answer</summary>
           <div class="ans-content">
             <p><strong>Answer:</strong></p>
-            <p>Sri Aurobindo’s profound quote highlights three vital dimensions of our nation's identity:</p>
+            <p>Sri Aurobindo’s quotation explains three deep truths about our country's history and character:</p>
             <ul>
-              <li><strong>Natural Geographic Unity:</strong> India is naturally framed by clear geographic boundaries &mdash; bounded by the majestic <strong>Himalayas</strong> in the north and the <strong>two seas</strong> (the Arabian Sea on the west and the Bay of Bengal on the east, converging at the Indian Ocean in the south).</li>
-              <li><strong>Spiritual &amp; Cultural Unity Above Political Division:</strong> Long before India possessed a single unified political government, people throughout this vast land shared common philosophical ideas, moral values (such as Dharma, truth, non-violence), revered texts (Ramayana, Mahabharata), sacred rivers (Ganga, Kaveri), and pilgrimage routes.</li>
-              <li><strong>"Very Stuff of Life":</strong> This cultural unity was not an artificial law imposed from above; it became an organic, living part of daily customs, festivals, art, and philosophy celebrated by millions of diverse people living across the subcontinent.</li>
+              <li><strong>Natural Geographic Boundaries ("Between the Himalayas and the two seas"):</strong> India was gifted natural boundaries by Mother Nature &mdash; guarded by the towering <strong>Himalayan wall</strong> in the north and embraced by the <strong>Arabian Sea</strong> and the <strong>Bay of Bengal</strong> in the south. This made the subcontinent a distinct geographic home.</li>
+              <li><strong>Spiritual &amp; Cultural Unity Above Political Division:</strong> Long before India had a single modern government, people across different kingdoms shared the same values. Whether living in Kashmir or Tamil Nadu, Gujarat or Assam, people worshipped sacred rivers (Ganga, Kaveri, Narmada), shared universal epics (<em>Ramayana</em> and <em>Mahabharata</em>), celebrated seasonal harvest festivals, and respected moral duties like truth and compassion.</li>
+              <li><strong>"The Very Stuff of Life":</strong> This cultural oneness was not a political law forced from above. It was organic and living &mdash; woven into the daily habits, songs, family traditions, farming routines, and philosophy of millions of ordinary people ("the great surge of humanity").</li>
             </ul>
           </div>
         </details>
       </div>
 
       <div class="q-card">
-        <div class="q-title">Q2. State whether True or False (with detailed historical explanations):</div>
+        <div class="q-title">Q2. State whether True or False (with step-by-step reasons for each statement):</div>
         <details class="ans-box" open>
           <summary>View Complete Model Answer</summary>
           <div class="ans-content">
             <ol type="a">
-              <li><strong>The Ṛig Veda describes the entire geography of India.</strong><br>
-              <strong style="color: #e11d48;">FALSE.</strong> <em>Explanation:</em> The Rig Veda primarily focuses on the northwestern part of the subcontinent, which it names <strong>Sapta Sindhava</strong> (the land of the seven rivers). It does not describe the geography of southern or eastern peninsular India.</li>
-              <li style="margin-top: 8px;"><strong>The Viṣhṇu Purāṇa describes the entire Subcontinent.</strong><br>
-              <strong style="color: #16a34a;">TRUE.</strong> <em>Explanation:</em> The Vishnu Purana explicitly defines the entire subcontinent as the country lying north of the ocean and south of the snowy mountains (Himalayas), named <strong>Bhārata</strong>.</li>
-              <li style="margin-top: 8px;"><strong>In Aśhoka’s time, ‘Jambudvīpa’ included what is today India, parts of Afghanistan, Bangladesh and Pakistan.</strong><br>
-              <strong style="color: #16a34a;">TRUE.</strong> <em>Explanation:</em> Emperor Ashoka's empire (~250 BCE) encompassed almost the entire subcontinent, stretching from eastern Afghanistan and Pakistan through present-day India and Bangladesh, which he referred to as <strong>Jambudvipa</strong> in his edicts.</li>
-              <li style="margin-top: 8px;"><strong>The Mahābhārata lists many regions, including Kashmir, Kutch, and Kerala.</strong><br>
-              <strong style="color: #16a34a;">TRUE.</strong> <em>Explanation:</em> The Mahabharata lists diverse geographical regions across the length and breadth of India, specifically mentioning Kāshmīra, Kaccha, and Kerala.</li>
-              <li style="margin-top: 8px;"><strong>The term ‘Hindustān’ first appeared in a Greek inscription more than 2,000 years ago.</strong><br>
-              <strong style="color: #e11d48;">FALSE.</strong> <em>Explanation:</em> The term 'Hindustan' first appeared in a <strong>Persian inscription</strong> (not Greek) roughly <strong>1,800 years ago</strong> (in the Sasanian era, ~3rd century CE).</li>
-              <li style="margin-top: 8px;"><strong>In ancient Persian, the word ‘Hindu’ refers to the Hindu religion.</strong><br>
-              <strong style="color: #e11d48;">FALSE.</strong> <em>Explanation:</em> In ancient Persian, 'Hindu' was a <strong>purely geographical designation</strong> derived from 'Sindhu', referring to the region and people of the Indus River, with no religious connotation.</li>
-              <li style="margin-top: 8px;"><strong>‘Bhārata’ is a name given to India by foreign travellers.</strong><br>
-              <strong style="color: #e11d48;">FALSE.</strong> <em>Explanation:</em> 'Bhārata' is an <strong>indigenous name</strong> created by Indians themselves, derived from the Vedic Bharata people and legendary kings.</li>
+              <li>
+                <strong>The Ṛig Veda describes the entire geography of India.</strong><br>
+                <span style="color: #e11d48; font-weight: 800;">FALSE.</span><br>
+                <em>Explanation:</em> The Rig Veda primarily describes the northwestern region of the Indian Subcontinent, which it calls <strong>Sapta Sindhava</strong> (the land of the seven rivers). It does not describe peninsular southern India or the eastern deltaic regions.
+              </li>
+              <li style="margin-top: 10px;">
+                <strong>The Viṣhṇu Purāṇa describes the entire Subcontinent.</strong><br>
+                <span style="color: #16a34a; font-weight: 800;">TRUE.</span><br>
+                <em>Explanation:</em> The Vishnu Purana explicitly gives the famous geographical verse defining the entire subcontinent as the country lying north of the ocean and south of the snowy mountains (Himalayas), named <strong>Bhārata</strong>.
+              </li>
+              <li style="margin-top: 10px;">
+                <strong>In Aśhoka’s time, ‘Jambudvīpa’ included what is today India, parts of Afghanistan, Bangladesh and Pakistan.</strong><br>
+                <span style="color: #16a34a; font-weight: 800;">TRUE.</span><br>
+                <em>Explanation:</em> Emperor Ashoka's realm (~250 BCE) was a vast empire extending across modern-day India, Bangladesh, Pakistan, and eastern parts of Afghanistan, which he referred to in his rock inscriptions as <strong>Jambudvipa</strong>.
+              </li>
+              <li style="margin-top: 10px;">
+                <strong>The Mahābhārata lists many regions, including Kashmir, Kutch, and Kerala.</strong><br>
+                <span style="color: #16a34a; font-weight: 800;">TRUE.</span><br>
+                <em>Explanation:</em> The Mahabharata gives a pan-Indian geographical survey, explicitly listing regions from all corners of India, including <em>Kāshmīra</em> (Kashmir), <em>Kaccha</em> (Kutch in Gujarat), and <em>Kerala</em> in the southwest.
+              </li>
+              <li style="margin-top: 10px;">
+                <strong>The term ‘Hindustān’ first appeared in a Greek inscription more than 2,000 years ago.</strong><br>
+                <span style="color: #e11d48; font-weight: 800;">FALSE.</span><br>
+                <em>Explanation:</em> The term 'Hindustan' first appeared in a <strong>Persian inscription</strong> (not Greek), specifically a Sasanian royal inscription roughly <strong>1,800 years ago</strong> (~3rd century CE).
+              </li>
+              <li style="margin-top: 10px;">
+                <strong>In ancient Persian, the word ‘Hindu’ refers to the Hindu religion.</strong><br>
+                <span style="color: #e11d48; font-weight: 800;">FALSE.</span><br>
+                <em>Explanation:</em> In ancient Persian, 'Hindu' was a <strong>purely geographical term</strong> derived from the river name 'Sindhu'. It meant the land and people near the Indus River and had no religious meaning.
+              </li>
+              <li style="margin-top: 10px;">
+                <strong>‘Bhārata’ is a name given to India by foreign travellers.</strong><br>
+                <span style="color: #e11d48; font-weight: 800;">FALSE.</span><br>
+                <em>Explanation:</em> 'Bhārata' is an <strong>indigenous name</strong> created by Indians themselves, rooted in the Rigvedic Bharata tribe and noble legendary kings like King Bharata.
+              </li>
             </ol>
           </div>
         </details>
@@ -602,11 +1584,18 @@
           <summary>View Complete Model Answer</summary>
           <div class="ans-content">
             <p><strong>Answer:</strong></p>
-            <p><em>(Creative student response with historical foundation):</em></p>
+            <p><em>(Creative, student-friendly answer grounded in historical and geographical reality):</em></p>
+            <p>If I had lived 2,000 years ago as a young student wandering across this beautiful subcontinent, I would have suggested three meaningful names:</p>
             <ul>
-              <li><strong>Name 1: Himasāgara (The Land Between Snow and Ocean):</strong> Derived from <em>Hima</em> (snowy peaks of the north) and <em>Sagara</em> (vast ocean of the south). I would choose this name because the towering Himalayas and the roaring Indian Ocean are the two great natural sentinels that embrace and protect our land.</li>
-              <li><strong>Name 2: Suvarṇadvīpa / Ratnagarbha (The Golden Sanctuary of Abundance):</strong> Because India’s fertile river plains yielded bountiful golden harvests, precious gems, cotton textiles, and rich spices that attracted traders from across the ancient world.</li>
-              <li><strong>Name 3: Nadīmātṛkā (The Land Blessed by Rivers as Mothers):</strong> Because from the Indus and Ganga to the Godavari and Kaveri, rivers have nourished our civilisations, watered our crops, and been worshipped as living mothers.</li>
+              <li><strong>1. Himasāgara (The Realm Between Snow and Ocean):</strong>
+                <br><em>Why?</em> Derived from Sanskrit <em>Hima</em> (the snowy Himalayan peaks in the north) and <em>Sāgara</em> (the vast roaring southern ocean). These two natural sentinels guard our home like loving parents &mdash; the mountains give us sweet river water and gentle winters, while the ocean brings the monsoon clouds and ships from distant lands.
+              </li>
+              <li><strong>2. Nadīmātṛkā (The Land Blessed by Rivers as Mothers):</strong>
+                <br><em>Why?</em> In our ancient culture, every river is worshipped as a mother (<em>Mātā</em>). From the Indus and Sarasvati in the west, to the Ganga, Yamuna, and Brahmaputra in the east, and the Godavari, Krishna, and Kaveri in the south, rivers gave us drinking water, nurtured our crops, and carried our boats. Calling our land <em>Nadīmātṛkā</em> honors the lifelines of our civilization.
+              </li>
+              <li><strong>3. Ratnagarbha (The Sanctuary of Hidden Treasures):</strong>
+                <br><em>Why?</em> Because India was blessed with rich black soil, sweet spices (like black pepper and cardamom), golden wheat, dazzling pearls from the southern seas, precious gems from the Deccan, and above all, the priceless philosophical treasures of peace, truth, and wisdom.
+              </li>
             </ul>
           </div>
         </details>
@@ -618,13 +1607,23 @@
           <summary>View Complete Model Answer</summary>
           <div class="ans-content">
             <p><strong>Answer:</strong></p>
-            <p>Travelling to India in ancient times required braving dangerous deserts, high mountain passes, and turbulent seas. Despite these perils, foreigners undertook journeys for five primary motivations:</p>
+            <p>Travelling to India in ancient times was perilous. Travellers had to cross scorching deserts, frozen mountain passes, and stormy seas infested with pirates. Yet thousands of brave people made the journey. Their five major motivations were:</p>
             <ol>
-              <li><strong>Trade and Commerce:</strong> India was renowned worldwide for its luxury goods &mdash; fine cotton and silk textiles, spices (black pepper or 'black gold'), gemstones, pearls, ivory, and iron/steel. Merchants from Rome, Greece, Persia, Arabia, and China came to trade gold and silver for Indian goods.</li>
-              <li><strong>Spiritual Pilgrimage (Land of the Buddha):</strong> India was the sacred birthplace of Buddhism. Devout Buddhist monks and pilgrims (such as Faxian, Xuanzang, and Yijing from China) travelled thousands of miles to visit holy sites like Bodh Gaya, Sarnath, and Kushinagar.</li>
-              <li><strong>Higher Education and Knowledge Traditions:</strong> Ancient Indian universities like <strong>Nalanda</strong>, <strong>Taxila</strong>, and <strong>Vikramashila</strong> were world-famous academic centres. Foreign scholars came to study philosophy, astronomy, medicine (Ayurveda), mathematics, and grammar from Indian masters.</li>
-              <li><strong>Diplomatic and Royal Envoys:</strong> Foreign emperors sent official ambassadors to Indian royal courts to build political alliances, negotiate trade treaties, and establish friendly relations (e.g. Megasthenes sent by Seleucus Nicator to the court of Chandragupta Maurya).</li>
-              <li><strong>Military Conquests and Expeditions:</strong> Attracted by India’s legendary wealth, rulers such as Darius I of Persia and Alexander the Great of Macedonia launched military campaigns to capture fertile frontier territories along the Indus valley.</li>
+              <li><strong>Trade and Commerce (Luxury Spices &amp; Textiles):</strong>
+                <br>India was famous throughout the ancient world for its extraordinary wealth and luxury goods. Roman, Persian, Arab, and Greek merchants sailed to Indian ports to buy <strong>spices</strong> (especially black pepper, called <em>'black gold'</em> in Rome), fine muslin and cotton cloth, silk, gemstones, pearls, ivory, and iron/steel tools, paying in heaps of gold and silver coins.
+              </li>
+              <li><strong>Spiritual Pilgrimage (The Sacred Land of the Buddha):</strong>
+                <br>India was the holy birthplace of <strong>Buddhism</strong>. Devout Buddhist monks and pilgrims from China, Korea, Sri Lanka, and Southeast Asia (such as Faxian and Xuanzang) travelled thousands of miles on foot to visit sacred pilgrimage sites like Bodh Gaya (where the Buddha attained enlightenment), Sarnath (where he delivered his first sermon), and Kushinagar.
+              </li>
+              <li><strong>Higher Learning &amp; Academic Curiosity (World-Famous Universities):</strong>
+                <br>Ancient Indian universities like <strong>Nalanda</strong> (in Bihar), <strong>Taxila</strong> (in Gandhara), and <strong>Vikramashila</strong> were international centers of higher learning. Foreign scholars came to study mathematics, astronomy, medicine (Ayurveda), logic, grammar, and philosophy from revered Indian gurus.
+              </li>
+              <li><strong>Royal Diplomacy and Political Embassies:</strong>
+                <br>Foreign rulers sent official ambassadors to build friendly relations, negotiate peace treaties, and secure trade privileges with powerful Indian emperors. A famous example is <strong>Megasthenes</strong>, the Greek ambassador sent by Seleucus Nicator to the court of Emperor Chandragupta Maurya at Pataliputra.
+              </li>
+              <li><strong>Exploration, Curiosity and Military Conquest:</strong>
+                <br>Some rulers and adventurers marched to India out of sheer geographic fascination or the desire to conquer its legendary wealth. For example, Emperor Darius I of Persia (6th C. BCE) and Alexander the Great of Macedonia (4th C. BCE) led military expeditions to explore and conquer territories along the fertile Indus valley.
+              </li>
             </ol>
           </div>
         </details>
@@ -632,119 +1631,478 @@
     </section>
 
     <!-- ==========================================
-         SECTION 5: PYQ & COMPETENCY-BASED QUESTION BANK
+         SECTION 5: COMPETENCY-BASED QUESTION BANK
          ========================================== -->
     <section id="sec5" class="section-card">
       <div class="section-header">
         <span class="section-num">Section 5</span>
-        <h2>🎯 CBSE PYQs &amp; Competency-Based Exam Bank</h2>
+        <h2>🎯 CBSE &amp; BSE Competency-Based Exam Bank</h2>
       </div>
 
+      <p>This exam bank is prepared strictly on latest CBSE &amp; BSE Competency-Based Assessment guidelines. It covers <strong>5 Multiple Choice Questions with trap analysis, 4 Assertion-Reasoning questions, 5 Short Answer questions, 3 Long Answer questions, and 2 Source-Based Case Studies</strong>.</p>
+
+      <!-- PART A: MCQS -->
+      <h3>Part A: Multiple Choice Questions (1 Mark Each &mdash; With Traps Decoded)</h3>
+
       <div class="q-card">
-        <div class="q-title"><span class="pyq-tag">CBSE 1-Mark MCQ</span> Which ancient text contains the famous verse describing Bhārata as lying north of the ocean and south of the snowy mountains?</div>
+        <div class="q-title"><span class="pyq-tag">MCQ 1</span> Which ancient Sanskrit text explicitly gives the famous geographical shloka defining Bhārata as the land situated north of the ocean and south of the snowy mountains?</div>
+        <div class="mcq-opt">(a) Ṛig Veda</div>
+        <div class="mcq-opt">(b) Viṣhṇu Purāṇa</div>
+        <div class="mcq-opt">(c) Arthaśhāstra</div>
+        <div class="mcq-opt">(d) Saṅgam Poetry</div>
         <details class="ans-box">
-          <summary>View Answer &amp; Explanation</summary>
+          <summary>View Correct Answer &amp; Trap Alert</summary>
           <div class="ans-content">
             <p><strong>Correct Answer: (b) Viṣhṇu Purāṇa</strong></p>
-            <p><em>Explanation:</em> The Vishnu Purana explicitly gives the shloka: <em>"uttaraṃ yat samudrasya himādreścaiva dakṣiṇam..."</em> defining the entire subcontinent between the Himalayas and the Indian Ocean as Bhārata.</p>
+            <p><em>Explanation:</em> The Vishnu Purana (Book 2, Chapter 3) explicitly gives the verse: <em>"uttaraṃ yat samudrasya himādreścaiva dakṣiṇam | varṣaṃ tad bhārataṃ nāma..."</em> defining the entire subcontinent between the Himalayas and the Indian Ocean as Bhārata.</p>
+            <div class="trap-alert">
+              <strong>⚠️ Exam Hall Trap Alert:</strong> Many students blindly choose (a) <em>Rig Veda</em> because it is the oldest text. Remember: The Rig Veda only mentions <strong>Sapta Sindhava</strong> (the northwestern river region). The pan-subcontinental definition appears in the <strong>Vishnu Purana</strong>!
+            </div>
           </div>
         </details>
       </div>
 
       <div class="q-card">
-        <div class="q-title"><span class="pyq-tag">CBSE 2-Mark Short Answer</span> What does the term 'Jambudvīpa' literally mean, and which Mauryan emperor used it in his inscriptions?</div>
+        <div class="q-title"><span class="pyq-tag">MCQ 2</span> The term 'Jambudvīpa' was used in stone inscriptions around 250 BCE to describe the entire Indian subcontinent by which famous emperor?</div>
+        <div class="mcq-opt">(a) Chandragupta Maurya</div>
+        <div class="mcq-opt">(b) Emperor Aśhoka</div>
+        <div class="mcq-opt">(c) King Harshavardhana</div>
+        <div class="mcq-opt">(d) Kanishka</div>
         <details class="ans-box">
-          <summary>View Answer &amp; Explanation</summary>
+          <summary>View Correct Answer &amp; Trap Alert</summary>
           <div class="ans-content">
-            <p><strong>Answer:</strong></p>
+            <p><strong>Correct Answer: (b) Emperor Aśhoka</strong></p>
+            <p><em>Explanation:</em> Emperor Ashoka (~250 BCE) carved the name <em>Jambudvipa</em> on his rock and pillar edicts to refer to his vast empire covering modern India, Pakistan, Bangladesh, and parts of Afghanistan.</p>
+            <div class="trap-alert">
+              <strong>⚠️ Exam Hall Trap Alert:</strong> Do not confuse Ashoka with King Harshavardhana. Harsha ruled much later in the 7th century CE (when Xuanzang visited India).
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">MCQ 3</span> When the ancient Persians in the 6th century BCE used the word 'Hindu' or 'Hind' in their stone inscriptions, what did it mean?</div>
+        <div class="mcq-opt">(a) A follower of the Vedic Hindu religion</div>
+        <div class="mcq-opt">(b) A purely geographical term referring to the region of the Indus (Sindhu) River</div>
+        <div class="mcq-opt">(c) A speaker of the Sanskrit language</div>
+        <div class="mcq-opt">(d) A soldier in the Persian imperial army</div>
+        <details class="ans-box">
+          <summary>View Correct Answer &amp; Trap Alert</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (b) A purely geographical term referring to the region of the Indus (Sindhu) River</strong></p>
+            <p><em>Explanation:</em> In ancient Old Persian, 'Hindu' was created by a phonetic shift where Sanskrit 'S' became Persian 'H' (Sindhu &rarr; Hindu). It denoted the geographic region around the river, not a religion!</p>
+            <div class="trap-alert">
+              <strong>⚠️ Exam Hall Trap Alert:</strong> Option (a) is the #1 trap in Class 6 exams! In ancient history, 'Hindu' was strictly geographical. Its modern use as a religious term developed many centuries later.
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">MCQ 4</span> Ancient Chinese Buddhist texts and scholars referred to India by the honorific name 'Tianzhu'. What does 'Tianzhu' literally mean, and why was it given?</div>
+        <div class="mcq-opt">(a) 'Land of Seven Rivers' &mdash; because of the Indus tributaries</div>
+        <div class="mcq-opt">(b) 'Heavenly Master' &mdash; out of deep reverence for India as the land of the Buddha</div>
+        <div class="mcq-opt">(c) 'Island of the Jamun Tree' &mdash; because of Indian fruit orchards</div>
+        <div class="mcq-opt">(d) 'Golden Country' &mdash; because of Indian spice wealth</div>
+        <details class="ans-box">
+          <summary>View Correct Answer &amp; Trap Alert</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (b) 'Heavenly Master' &mdash; out of deep reverence for India as the land of the Buddha</strong></p>
+            <p><em>Explanation:</em> While Chinese writers also used <em>Yintu</em> or <em>Yindu</em> as a phonetic translation of Sindhu, they used <em>Tianzhu</em> ('Heavenly Master / Realm') to honor India as the holy birthplace of Gautama Buddha.</p>
+            <div class="trap-alert">
+              <strong>⚠️ Exam Hall Trap Alert:</strong> Students often confuse 'Yindu' with 'Tianzhu'. <em>Yindu</em> is phonetic (sound-based from Sindhu); <em>Tianzhu</em> is honorific (meaning-based).
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">MCQ 5</span> The name 'Hindustān' was first recorded in history in a royal inscription of which civilization, and roughly how long ago?</div>
+        <div class="mcq-opt">(a) Ancient Greek inscription about 2,500 years ago</div>
+        <div class="mcq-opt">(b) Persian Sasanian inscription roughly 1,800 years ago</div>
+        <div class="mcq-opt">(c) British colonial charter 300 years ago</div>
+        <div class="mcq-opt">(d) Chinese Han dynasty scroll 2,000 years ago</div>
+        <details class="ans-box">
+          <summary>View Correct Answer &amp; Trap Alert</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (b) Persian Sasanian inscription roughly 1,800 years ago</strong></p>
+            <p><em>Explanation:</em> The term 'Hindustan' (combining Persian 'Hindu' + '-stan') was first found in a Persian inscription from the 3rd century CE (~1,800 years ago) during the Sasanian era in Iran.</p>
+            <div class="trap-alert">
+              <strong>⚠️ Exam Hall Trap Alert:</strong> False statement in NCERT True/False says "first appeared in a Greek inscription". It was <strong>Persian</strong>, not Greek!
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- PART B: ASSERTION & REASONING -->
+      <h3 style="margin-top: 26px;">Part B: Assertion &amp; Reasoning Questions (1 Mark Each)</h3>
+      <p style="font-size: 0.9rem; color: var(--text-muted);"><em>Directions: Choose (a) Both A and R are true, and R is the correct explanation of A. (b) Both A and R are true, but R is not the correct explanation of A. (c) A is true, but R is false. (d) A is false, but R is true.</em></p>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">A&amp;R 1</span></div>
+        <p><strong>Assertion (A):</strong> The Ṛig Veda describes the entire geographical extent of modern India from Kashmir to Kanyakumari.<br>
+        <strong>Reason (R):</strong> The Ṛig Veda was composed in the northwestern part of the subcontinent, which it names 'Sapta Sindhava' (the land of the seven rivers).</p>
+        <details class="ans-box">
+          <summary>View Correct Answer &amp; Step-by-Step Logic</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (d) A is false, but R is true.</strong></p>
+            <p><strong>Logic:</strong></p>
             <ul>
-              <li><strong>Literal Meaning:</strong> <em>'The island of the fruit of the jamun tree'</em> (jambul / Malabar plum tree, a native Indian tree).</li>
-              <li><strong>Emperor:</strong> Emperor <strong>Ashoka</strong> (c. 250 BCE) used the term 'Jambudvipa' in his rock and pillar edicts to describe his entire empire.</li>
+              <li><strong>Assertion (A) is FALSE:</strong> The Rig Veda does not describe the entire subcontinent; it focuses specifically on the northwestern river valley.</li>
+              <li><strong>Reason (R) is TRUE:</strong> The Rig Veda was indeed composed in the northwest and specifically names that region <em>Sapta Sindhava</em>.</li>
             </ul>
           </div>
         </details>
       </div>
 
       <div class="q-card">
-        <div class="q-title"><span class="pyq-tag">CBSE 3-Mark Analytical</span> Trace how the name 'India' evolved from the Sanskrit word 'Sindhu'.</div>
+        <div class="q-title"><span class="pyq-tag">A&amp;R 2</span></div>
+        <p><strong>Assertion (A):</strong> The ancient Greeks referred to our subcontinent as 'Indoi' and 'Indike', from which the English name 'India' was eventually born.<br>
+        <strong>Reason (R):</strong> The ancient Greek language lacked the initial letter and sound 'H', so they dropped the 'H' from the Persian word 'Hindu'.</p>
         <details class="ans-box">
-          <summary>View Answer &amp; Explanation</summary>
+          <summary>View Correct Answer &amp; Step-by-Step Logic</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (a) Both A and R are true, and R is the correct explanation of A.</strong></p>
+            <p><strong>Logic:</strong></p>
+            <ul>
+              <li>The Greeks learned about India from Persian accounts where the region was called <em>Hindu</em>.</li>
+              <li>Because Greek speakers could not pronounce an initial aspirated 'H', they naturally dropped it, creating <em>Indoi</em> and <em>Indike</em>. Later, the Romans adapted this into Latin as <em>India</em>.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">A&amp;R 3</span></div>
+        <p><strong>Assertion (A):</strong> Ancient Tamil Sangam poetry defined the boundaries of India from Cape Kumari in the south to the great snowy mountain in the north.<br>
+        <strong>Reason (R):</strong> Ancient Indians living in both northern and southern parts of the subcontinent shared a common understanding of their geography.</p>
+        <details class="ans-box">
+          <summary>View Correct Answer &amp; Step-by-Step Logic</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (a) Both A and R are true, and R is the correct explanation of A.</strong></p>
+            <p><strong>Logic:</strong></p>
+            <ul>
+              <li>Both statements are true. The Sangam poems from the deep south describe the exact same boundaries (Himalayas and the two oceans) as the northern Sanskrit Vishnu Purana, proving a shared pan-Indian civilisational geography.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">A&amp;R 4</span></div>
+        <p><strong>Assertion (A):</strong> Article 1 of the Indian Constitution declares: "India, that is Bharat, shall be a Union of States."<br>
+        <strong>Reason (R):</strong> The framers of the Constitution wanted to connect our ancient civilisational roots (Bharat) with our recognized modern international identity (India).</p>
+        <details class="ans-box">
+          <summary>View Correct Answer &amp; Step-by-Step Logic</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (a) Both A and R are true, and R is the correct explanation of A.</strong></p>
+            <p><strong>Logic:</strong></p>
+            <ul>
+              <li>The framers chose this harmonious dual nomenclature specifically so that our republic would honor its timeless domestic cultural heritage while ensuring seamless continuity in world diplomacy and the United Nations.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- PART C: SHORT ANSWER QUESTIONS -->
+      <h3 style="margin-top: 26px;">Part C: Short Answer Questions (2 Marks &amp; 3 Marks)</h3>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">2-Mark SAQ</span> Q1. What does the term 'Sapta Sindhava' mean, and which ancient text mentions it?</div>
+        <details class="ans-box">
+          <summary>View Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Literal Meaning:</strong> <em>Sapta Sindhava</em> is a Vedic Sanskrit phrase meaning <strong>'the land of the seven rivers'</strong> (referring to the Indus, Sarasvati, and five Punjab tributaries: Jhelum, Chenab, Ravi, Beas, and Sutlej).</li>
+              <li><strong>Ancient Text:</strong> It is mentioned in the <strong>Rig Veda</strong>, India's most ancient sacred text composed several thousand years ago.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">2-Mark SAQ</span> Q2. Explain the literal meaning of 'Jambudvīpa' and state which emperor used it in his inscriptions.</div>
+        <details class="ans-box">
+          <summary>View Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <ul>
+              <li><strong>Literal Meaning:</strong> <em>Jambudvipa</em> literally translates to <strong>'the island of the fruit of the jamun tree'</strong> (the native Indian jambul or Malabar plum tree).</li>
+              <li><strong>Emperor:</strong> Emperor <strong>Ashoka</strong> used the term 'Jambudvipa' around <strong>250 BCE</strong> in his stone inscriptions to denote his entire empire, which spanned modern India, Pakistan, Bangladesh, and parts of Afghanistan.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">3-Mark SAQ</span> Q3. How did the natural barrier of the Himalayas shape the climate and history of India?</div>
+        <details class="ans-box">
+          <summary>View Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p>The Himalayas shaped India in three vital ways:</p>
+            <ul>
+              <li><strong>1. Shield Against Freezing Polar Winds:</strong> The towering mountain wall blocks bone-chilling Arctic winds from Central Asia, keeping the Indian plains pleasantly warm throughout winter.</li>
+              <li><strong>2. Inducing Monsoon Rainfall:</strong> They trap moisture-heavy southwest monsoon clouds blowing in from the Indian Ocean, forcing them to bring bountiful rain for agriculture.</li>
+              <li><strong>3. Perennial River Lifelines:</strong> Enormous Himalayan snowfields and glaciers feed perennial rivers (Indus, Ganga, Brahmaputra), supplying drinking and irrigation water all year round.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">3-Mark SAQ</span> Q4. Explain step-by-step how the name 'India' was derived from the Sanskrit word 'Sindhu'.</div>
+        <details class="ans-box">
+          <summary>View Model Answer</summary>
           <div class="ans-content">
             <p><strong>Answer:</strong></p>
             <ol>
-              <li><strong>Sanskrit to Old Persian:</strong> The Persians in the 6th century BCE encountered the Indus River, known in Sanskrit as <em>Sindhu</em>. In Old Persian, initial 'S' shifted to 'H', turning <em>Sindhu</em> into <strong>Hindu</strong>, <strong>Hidu</strong>, or <strong>Hind</strong>.</li>
-              <li><strong>Persian to Ancient Greek:</strong> The Greeks adopted this term from Persia. Because classical Greek lacked an initial 'H' sound, they dropped 'H', creating <strong>Indoi</strong> (the people) and <strong>Indike</strong> (the land).</li>
-              <li><strong>Greek to Latin &amp; English:</strong> Under the Romans, the Greek name was Latinized as <strong>India</strong>, which subsequently entered English and European languages.</li>
+              <li><strong>Sanskrit to Old Persian:</strong> In the 6th century BCE, Persians conquered the Indus basin. In Old Persian, initial Sanskrit 'S' softened to 'H'. Thus, <strong>Sindhu</strong> became <strong>Hind</strong> or <strong>Hindu</strong> (a geographical name for the Indus river region).</li>
+              <li><strong>Persian to Ancient Greek:</strong> The Greeks learned the term from the Persians. Because ancient Greek lacked the initial 'H' sound, they dropped 'H', turning 'Hindu' into <strong>Indoi</strong> (the people) and <strong>Indike</strong> (the land).</li>
+              <li><strong>Greek to Latin and English:</strong> The Romans adapted 'Indike' into Latin as <strong>India</strong>. This Latin word was inherited by modern English, French (<em>Inde</em>), and other European languages.</li>
             </ol>
           </div>
         </details>
       </div>
 
       <div class="q-card">
-        <div class="q-title"><span class="pyq-tag">CBSE 5-Mark Case Study</span> "The Constitution of India balances both our ancient civilisational heritage and our modern international standing." Explain this statement with reference to Article 1.</div>
+        <div class="q-title"><span class="pyq-tag">3-Mark SAQ</span> Q5. How did pilgrimage circuits (Tirthas) and ancient trade routes help foster unity across the Indian Subcontinent?</div>
         <details class="ans-box">
-          <summary>View Answer &amp; Explanation</summary>
+          <summary>View Model Answer</summary>
           <div class="ans-content">
             <p><strong>Answer:</strong></p>
-            <p>Article 1 of the Indian Constitution begins with the historic phrase: <strong>"India, that is Bharat, shall be a Union of States."</strong> (In Hindi: <em>"Bhārat arthāth India..."</em>). This formulation is deeply significant:</p>
             <ul>
-              <li><strong>Civilisational Root (Bharat):</strong> <em>Bharat</em> connects the modern republic with thousands of years of indigenous history, literature (Rig Veda, Mahabharata, Vishnu Purana), and cultural identity as the land of the Bharatas.</li>
-              <li><strong>International Recognition (India):</strong> <em>India</em> preserves continuity with international treaties, colonial-era state documents, the United Nations Charter, and global geographical recognition.</li>
-              <li><strong>Harmonious Synthesis:</strong> By declaring that both names are legally and culturally synonymous, the framers of the Constitution honored India's timeless past while anchoring it firmly in modern democratic nationhood.</li>
+              <li><strong>Pilgrimage Circuits (Tirthas):</strong> Sacred pilgrimage spots were located in all four corners &mdash; Badrinath in the north, Rameswaram in the south, Puri in the east, and Dwarka in the west. When pilgrims travelled thousands of miles, they exchanged cultural traditions, made friends across kingdoms, and developed a feeling of shared brotherhood.</li>
+              <li><strong>Internal Trade Corridors:</strong> Great routes like <strong>Uttarapatha</strong> (in the north) and <strong>Dakshinapatha</strong> (connecting north to south) allowed merchants, scholars, and artisans to travel safely, trading goods (textiles, spices, metals) and sharing ideas.</li>
+              <li><strong>Common Values:</strong> These journeys spread universal moral epics (<em>Ramayana</em>, <em>Mahabharata</em>) and artistic styles to every village, creating a deep feeling of cultural unity.</li>
             </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- PART D: LONG ANSWER QUESTIONS -->
+      <h3 style="margin-top: 26px;">Part D: Long Answer Questions (5 Marks Each)</h3>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">5-Mark LAQ</span> Q1. "India is a land where physical geography created both natural protection and cultural unity." Describe how mountains, rivers, and seas helped India develop a unique and continuous civilization.</div>
+        <details class="ans-box">
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p>India’s physical geography has been the great cradle of its history and civilization. The interplay of mountains, river plains, and coastal waters shaped India in five fundamental ways:</p>
+            <ul>
+              <li><strong>1. The Himalayan Mountain Barrier:</strong>
+                <br>The towering Himalayas in the north and the Hindu Kush in the northwest acted as a colossal natural protective wall. They protected India from constant nomadic invasions, giving ancient Indian society centuries of peace to develop science, philosophy, astronomy, mathematics, and Ayurveda.
+              </li>
+              <li><strong>2. Controlled Mountain Gateways:</strong>
+                <br>Passes like the <strong>Khyber Pass</strong> and <strong>Bolan Pass</strong> in the northwest prevented total isolation. They served as controlled doors through which peaceful trade caravans, scholars, and Buddhist pilgrims travelled, enriching India's culture while keeping the land secure.
+              </li>
+              <li><strong>3. Fertile Alluvial River Plains:</strong>
+                <br>The vast plains formed by the <strong>Indus</strong>, <strong>Ganga</strong>, and <strong>Brahmaputra</strong> brought deep fertile silt from the mountains. This allowed our ancestors to produce surplus food, leading to early urbanization, flourishing craft guilds, and mighty empires like the Mauryas and Guptas.
+              </li>
+              <li><strong>4. Peninsular River Systems:</strong>
+                <br>Peninsular rivers such as the <strong>Mahanadi</strong>, <strong>Godavari</strong>, <strong>Krishna</strong>, and <strong>Kaveri</strong> supported prosperous kingdoms in the south (like the Cholas, Pandyas, and Cheras) and created deltaic regions celebrated for agriculture and monumental temple architecture.
+              </li>
+              <li><strong>5. The Three Coastal Seas as Maritime Highways:</strong>
+                <br>Enclosed by the <strong>Arabian Sea</strong>, <strong>Bay of Bengal</strong>, and <strong>Indian Ocean</strong>, India was protected on three sides while enjoying open access to international maritime trade. Using seasonal monsoon winds, Indian merchants traded spices, textiles, and gems with Rome, Arabia, Egypt, and Southeast Asia (Java, Sumatra, Bali).
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">5-Mark LAQ</span> Q2. Trace the complete historical story of how our country came to have its prominent names: 'Bharat', 'Hindustan', and 'India'. Mention ancient sources, linguistic shifts, and historical periods.</div>
+        <details class="ans-box">
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p>Our country has received different names over millennia, reflecting both internal civilisational growth and external foreign contact:</p>
+            <ul>
+              <li><strong>1. The Story of 'Bharat' / 'Bharatavarsha':</strong>
+                <ul>
+                  <li><em>Vedic Roots:</em> The name <em>Bharata</em> first appears in the <strong>Rig Veda</strong> as one of the prominent Vedic tribes.</li>
+                  <li><em>Legendary Kings:</em> In the epics and Puranas, the country was called <em>Bharatavarsha</em> ('the country of the Bharatas') after noble, righteous rulers, notably <strong>King Bharata</strong>, the son of Dushyanta and Shakuntala.</li>
+                  <li><em>Geographical Definition:</em> The <strong>Vishnu Purana</strong> explicitly defined <em>Bhārata</em> as the land situated north of the ocean and south of the snowy mountains. Today, it remains our beloved national name in Hindi and regional Indian languages (<em>Bharatam</em> in South India).</li>
+                </ul>
+              </li>
+              <li><strong>2. The Story of 'Hindustan':</strong>
+                <ul>
+                  <li><em>Linguistic Origin:</em> Derived from the Old Persian adaptation of the Sanskrit river name <em>Sindhu</em> (where 'S' shifted to 'H', becoming <em>Hindu</em>).</li>
+                  <li><em>Suffix Addition:</em> Combining <em>Hindu</em> with the Persian suffix <em>-stān</em> ('land of') created <em>Hindustan</em> ('the land of the Indus').</li>
+                  <li><em>Historical Record:</em> First recorded in a royal Sasanian Persian inscription roughly <strong>1,800 years ago</strong> (~3rd century CE). Later, during the medieval period, it became widely used by Delhi Sultanate and Mughal rulers to denote northern India and the subcontinent.</li>
+                </ul>
+              </li>
+              <li><strong>3. The Story of 'India':</strong>
+                <ul>
+                  <li><em>Greek Shift:</em> Ancient Greeks borrowed the Persian word 'Hindu', but because their language lacked the initial 'H' sound, they dropped 'H' to form <strong>Indoi</strong> (people) and <strong>Indike</strong> (land).</li>
+                  <li><em>Latin &amp; English Evolution:</em> Roman scholars Latinized the Greek term into <strong>India</strong>. Through European trade and British colonial administration, 'India' became established globally and is the recognized international name of our country.</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">5-Mark LAQ</span> Q3. Explain the constitutional significance of Article 1: "India, that is Bharat, shall be a Union of States." Why was this specific phrasing chosen by the framers of our Constitution?</div>
+        <details class="ans-box">
+          <summary>View Complete Model Answer</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong></p>
+            <p>On 26 January 1950, the Constitution of India came into force. Article 1(1) of the Constitution begins with the historic phrase: <strong>"India, that is Bharat, shall be a Union of States."</strong> (In Hindi: <em>"Bhārat arthāth India..."</em>). The framers chose this formulation for three profound reasons:</p>
+            <ul>
+              <li><strong>1. Honoring Ancient Civilisational Heritage (Bharat):</strong>
+                <br>The name <strong>Bharat</strong> roots our modern republic in thousands of years of continuous culture, philosophy, literature (Rig Veda, Mahabharata, Puranas), and indigenous identity. It reminds every citizen that our nation is not an artificial creation of yesterday, but an ancient civilization of peace and wisdom.
+              </li>
+              <li><strong>2. Maintaining International Continuity (India):</strong>
+                <br>The name <strong>India</strong> had been used worldwide for centuries in international law, treaties, cartography, navigation, and the United Nations Charter. Retaining 'India' ensured that our new independent republic did not lose its recognized legal standing in global affairs.
+              </li>
+              <li><strong>3. A Harmonious Constitutional Compromise:</strong>
+                <br>During the Constituent Assembly debates, some leaders favored 'Bharat' while others preferred 'India'. Dr. B. R. Ambedkar and the drafting committee resolved the debate brilliantly by placing both names together: <em>"India, that is Bharat"</em>. This declared that both names are equal, complementary, and sacred to all Indians.
+              </li>
+              <li><strong>4. "Union of States":</strong>
+                <br>This phrase emphasizes that while India has diverse states with regional languages and cultures, the nation is an indivisible, united family under one supreme Constitution.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- PART E: CASE STUDIES -->
+      <h3 style="margin-top: 26px;">Part E: Competency-Based Source Case Studies (4 Marks Each)</h3>
+
+      <!-- Case Study 1 -->
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">Case Study 1</span> Read the source extract below and answer the questions that follow:</div>
+        <div class="quote-box" style="font-style: normal; font-size: 0.92rem;">
+          <em>"The ancient Indian texts are difficult to date with exact years, but stone inscriptions give us firm clues. Emperor Aśhoka ruled about 250 BCE. He carved moral messages and imperial edicts on hard rocks and polished sandstone pillars throughout his vast empire. In one of these inscriptions, he used the ancient name 'Jambudvīpa' to describe the whole of India, which at that time included modern India, Pakistan, Bangladesh, and eastern parts of Afghanistan. Jambudvīpa literally means 'the island of the fruit of the jamun tree', a grand native fruit tree of our land."</em>
+        </div>
+        <div class="ans-content" style="border-top: none; padding-top: 6px;">
+          <p><strong>Sub-Questions:</strong></p>
+          <ol>
+            <li>What does the name 'Jambudvīpa' literally mean? <strong>(1 Mark)</strong></li>
+            <li>Which modern neighboring countries were included within Jambudvipa during Emperor Ashoka's reign? <strong>(1 Mark)</strong></li>
+            <li>Why do historians consider stone inscriptions more reliable than stories passed down by word of mouth? <strong>(2 Marks)</strong></li>
+          </ol>
+        </div>
+        <details class="ans-box">
+          <summary>View Complete Model Answers</summary>
+          <div class="ans-content">
+            <p><strong>Answers:</strong></p>
+            <ol>
+              <li><strong>Literal Meaning:</strong> <em>Jambudvipa</em> literally means <strong>'the island of the fruit of the jamun tree'</strong> (the native Indian jambul or Malabar plum tree).</li>
+              <li><strong>Modern Countries:</strong> Besides modern India, Ashoka's Jambudvipa included <strong>Pakistan</strong>, <strong>Bangladesh</strong>, and eastern parts of <strong>Afghanistan</strong>.</li>
+              <li><strong>Reliability of Inscriptions:</strong>
+                <ul>
+                  <li>Stone inscriptions are <strong>permanent contemporary records</strong> carved during the ruler's actual lifetime, so their words cannot be easily altered or exaggerated by later generations.</li>
+                  <li>In contrast, oral stories passed down by word of mouth change over time as storytellers add or forget details.</li>
+                </ul>
+              </li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <!-- Case Study 2 -->
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">Case Study 2</span> Read the source extract below and answer the questions that follow:</div>
+        <div class="quote-box" style="font-style: normal; font-size: 0.92rem;">
+          <em>"Xuanzang (formerly spelt Hiuen Tsang) travelled from China to India in the 7th century CE. Driven by a deep desire to study original Buddhist scriptures, he undertook a dangerous overland journey lasting thousands of miles. He spent 17 years travelling across India, meeting famous scholars, and studying at Nalanda University. When he returned to China, he carried hundreds of Sanskrit manuscripts and devoted the rest of his life to translating them into Chinese. The ancient Chinese also reverently referred to India as 'Tianzhu', meaning 'Heavenly Master', in honor of the Buddha."</em>
+        </div>
+        <div class="ans-content" style="border-top: none; padding-top: 6px;">
+          <p><strong>Sub-Questions:</strong></p>
+          <ol>
+            <li>During which century CE did Master Xuanzang travel to India, and how many years did he spend here? <strong>(1 Mark)</strong></li>
+            <li>Why did the ancient Chinese call India 'Tianzhu'? <strong>(1 Mark)</strong></li>
+            <li>State two major reasons why Xuanzang's visit was of immense value to world history. <strong>(2 Marks)</strong></li>
+          </ol>
+        </div>
+        <details class="ans-box">
+          <summary>View Complete Model Answers</summary>
+          <div class="ans-content">
+            <p><strong>Answers:</strong></p>
+            <ol>
+              <li><strong>Century &amp; Duration:</strong> Xuanzang travelled in the <strong>7th century CE</strong> and spent <strong>17 years</strong> in India.</li>
+              <li><strong>Meaning of Tianzhu:</strong> <em>Tianzhu</em> means <strong>'Heavenly Master'</strong> or 'Heavenly Realm'. The Chinese gave this name to show supreme reverence for India as the sacred birthplace of Gautama Buddha.</li>
+              <li><strong>Value to History:</strong>
+                <ul>
+                  <li><strong>Preservation of Lost Manuscripts:</strong> By translating hundreds of Sanskrit Buddhist texts into Chinese, he preserved valuable knowledge that was later lost in India during medieval wars.</li>
+                  <li><strong>Accurate Historical Record:</strong> His detailed travel journal (<em>Great Tang Records on the Western Regions</em>) provides modern historians with accurate eyewitness accounts of 7th-century Indian cities, kings (like Harsha), Nalanda University, and daily life.</li>
+                </ul>
+              </li>
+            </ol>
           </div>
         </details>
       </div>
     </section>
 
     <!-- ==========================================
-         SECTION 6: REVISION & COMMON MISTAKES
+         SECTION 6: EXAM HALL COMMON MISTAKES & REVISION
          ========================================== -->
     <section id="sec6" class="section-card">
       <div class="section-header">
         <span class="section-num">Section 6</span>
-        <h2>⚡ 5-Minute Rapid Revision &amp; Exam Hall Traps</h2>
+        <h2>⚡ Common Exam Hall Mistakes &amp; 15-Point Rapid Revision</h2>
       </div>
 
+      <h4>1. Six Common "Exam Hall Traps" &amp; How to Avoid Them</h4>
       <div class="callout callout-warn">
-        <div class="callout-title">⚠️ 5 Common "Exam Hall Mistakes" &amp; How to Avoid Them</div>
+        <div class="callout-title">⚠️ Common Student Mistakes in Chapter 5</div>
         <ol>
-          <li><strong>Mistake 1: Claiming 'Hindu' originally referred to religion.</strong><br>
-          <em>Fix:</em> In ancient Persian, 'Hindu' was a <strong>purely geographical term</strong> derived from the river 'Sindhu'.</li>
-          <li><strong>Mistake 2: Thinking 'Bhārata' was given by foreign invaders.</strong><br>
-          <em>Fix:</em> 'Bhārata' is an <strong>ancient indigenous name</strong> rooted in the Rig Veda and Sanskrit literature.</li>
-          <li><strong>Mistake 3: Stating that the Rig Veda describes all of India.</strong><br>
-          <em>Fix:</em> The Rig Veda only mentions <strong>Sapta Sindhava</strong> in the northwest; pan-Indian geography appears later in the Mahabharata and Puranas.</li>
-          <li><strong>Mistake 4: Believing 'Hindustan' is an ancient Greek word.</strong><br>
-          <em>Fix:</em> 'Hindustan' is a <strong>Persian word</strong>, first recorded in a Persian inscription ~1,800 years ago (~3rd century CE).</li>
-          <li><strong>Mistake 5: Confusing Chinese 'Yindu' with 'Tianzhu'.</strong><br>
-          <em>Fix:</em> <strong>Yindu</strong> is a phonetic adaptation of Sindhu; <strong>Tianzhu</strong> translates honorifically to 'Heavenly Master'.</li>
+          <li>
+            <strong>Mistake 1: Believing the ancient Persian word 'Hindu' referred to religion.</strong><br>
+            <span style="color: #16a34a; font-weight: 700;">Correct Fact:</span> In 6th century BCE Persian stone inscriptions, 'Hindu' was a <strong>purely geographical term</strong> derived from the river 'Sindhu'. It meant the land and people near the Indus River. It had zero religious meaning back then!
+          </li>
+          <li style="margin-top: 8px;">
+            <strong>Mistake 2: Writing that the Rig Veda describes all of India.</strong><br>
+            <span style="color: #16a34a; font-weight: 700;">Correct Fact:</span> The Rig Veda only mentions <strong>Sapta Sindhava</strong> in the northwest. The description of the entire subcontinent from the Himalayas to the ocean appears later in the <strong>Vishnu Purana</strong> and <strong>Mahabharata</strong>.
+          </li>
+          <li style="margin-top: 8px;">
+            <strong>Mistake 3: Thinking 'Bhārata' was given by foreign invaders.</strong><br>
+            <span style="color: #16a34a; font-weight: 700;">Correct Fact:</span> 'Bhārata' is an <strong>indigenous name</strong> created by Indians themselves, rooted in the Rigvedic Bharata tribe and noble kings like King Bharata.
+          </li>
+          <li style="margin-top: 8px;">
+            <strong>Mistake 4: Claiming 'Hindustan' was first used by the Greeks or British.</strong><br>
+            <span style="color: #16a34a; font-weight: 700;">Correct Fact:</span> 'Hindustan' is a <strong>Persian word</strong>, first recorded in a royal Persian inscription roughly <strong>1,800 years ago</strong> (~3rd century CE).
+          </li>
+          <li style="margin-top: 8px;">
+            <strong>Mistake 5: Confusing Chinese 'Yindu' with 'Tianzhu'.</strong><br>
+            <span style="color: #16a34a; font-weight: 700;">Correct Fact:</span> <strong>Yindu</strong> is a phonetic adaptation of Sindhu (sound-based), while <strong>Tianzhu</strong> ('Heavenly Master') is an honorific title revering India as the land of the Buddha.
+          </li>
+          <li style="margin-top: 8px;">
+            <strong>Mistake 6: Writing that Emperor Ashoka called his realm 'India'.</strong><br>
+            <span style="color: #16a34a; font-weight: 700;">Correct Fact:</span> Emperor Ashoka used the ancient name <strong>Jambudvipa</strong> ('Island of the Jamun tree') in his stone edicts, not 'India'.
+          </li>
         </ol>
       </div>
 
-      <h4>⚡ 15 Ultra-Crisp Rapid Revision One-Liners</h4>
+      <h4>2. 15 Ultra-Crisp Rapid Revision One-Liners (5-Minute Exam Prep)</h4>
       <ol>
-        <li>⚡ The natural boundaries of the Indian Subcontinent are the <strong>Himalayas</strong> in the north, <strong>Hindu Kush</strong> in the northwest, <strong>Arabian Sea</strong> in the west, <strong>Bay of Bengal</strong> in the east, and <strong>Indian Ocean</strong> in the south.</li>
-        <li>⚡ Sri Aurobindo observed that India's <strong>spiritual and cultural unity</strong> was established in antiquity between the Himalayas and the two seas.</li>
-        <li>⚡ The <strong>Rig Veda</strong> gives the northwest region the name <strong>Sapta Sindhava</strong> ('land of the seven rivers').</li>
-        <li>⚡ The <strong>Mahabharata</strong> lists regions covering the entire subcontinent, including Kashmira, Kurukshetra, Vanga, Pragjyotisha, Kaccha, and Kerala.</li>
-        <li>⚡ <strong>Jambudvīpa</strong> means 'the island of the jamun tree' and was used in the Mahabharata and Emperor Ashoka's inscriptions (~250 BCE).</li>
-        <li>⚡ <strong>Bhāratavarṣha</strong> means 'the country of the Bharatas', referencing a Vedic tribe and legendary kings.</li>
-        <li>⚡ The <strong>Viṣhṇu Purāṇa</strong> defines Bhārata as the land north of the ocean and south of the snowy mountains.</li>
-        <li>⚡ Ancient <strong>Tamil Sangam poetry</strong> defined the realm from Cape Kumari in the south to the great northern mountain (Himalayas).</li>
-        <li>⚡ <strong>Article 1</strong> of the Constitution of India begins with the words: <strong>"India, that is Bharat"</strong> (Hindi: <em>'Bhārat arthāth India'</em>).</li>
-        <li>⚡ The Persians (6th C. BCE) adapted the Sanskrit river name 'Sindhu' into <strong>Hind</strong>, <strong>Hidu</strong>, or <strong>Hindu</strong> (a geographical term).</li>
-        <li>⚡ The ancient Greeks dropped the initial 'H' to create <strong>Indoi</strong> and <strong>Indike</strong>, which became Latinized as <strong>India</strong>.</li>
-        <li>⚡ The ancient Chinese derived <strong>Yintu / Yindu</strong> from Sindhu, and also used <strong>Tianzhu</strong> ('Heavenly Master') out of reverence for the Buddha.</li>
-        <li>⚡ The term <strong>Hindustān</strong> was first inscribed in a Persian inscription roughly <strong>1,800 years ago</strong> (~3rd century CE).</li>
-        <li>⚡ Chinese Buddhist scholar <strong>Xuanzang</strong> spent 17 years in 7th century CE India, studying at Nalanda and translating Sanskrit texts into Chinese.</li>
-        <li>⚡ Ancient travellers visited India for <strong>trade</strong>, <strong>Buddhist pilgrimages</strong>, <strong>higher learning at Nalanda/Taxila</strong>, <strong>diplomatic missions</strong>, and <strong>conquests</strong>.</li>
+        <li>⚡ <strong>Natural Frame:</strong> India is naturally framed by the <strong>Himalayas</strong> in the north, <strong>Arabian Sea</strong> in the west, <strong>Bay of Bengal</strong> in the east, and <strong>Indian Ocean</strong> in the south.</li>
+        <li>⚡ <strong>Sri Aurobindo's Insight:</strong> India achieved <strong>spiritual and cultural unity</strong> in antiquity, making it the very stuff of daily life between the mountains and the two seas.</li>
+        <li>⚡ <strong>Sanchi Stupa Gate:</strong> The 2,300-year-old carving from the North Gate shows peaceful rural village life in ancient India.</li>
+        <li>⚡ <strong>Rig Veda &amp; Sapta Sindhava:</strong> The Rig Veda calls the northwest region <strong>Sapta Sindhava</strong> ('land of the seven rivers').</li>
+        <li>⚡ <strong>Mahabharata Map:</strong> The Mahabharata lists regional kingdoms across all four directions, including Kashmira, Kurukshetra, Vanga, Pragjyotisha, Kaccha, and Kerala.</li>
+        <li>⚡ <strong>Jambudvipa Meaning:</strong> <em>Jambudvipa</em> literally means <strong>'the island of the fruit of the jamun tree'</strong> (jambul / Malabar plum tree).</li>
+        <li>⚡ <strong>Emperor Ashoka's Edicts (~250 BCE):</strong> Ashoka used <strong>Jambudvipa</strong> to describe his entire realm (embracing modern India, Pakistan, Bangladesh, and Afghanistan).</li>
+        <li>⚡ <strong>Bharatavarsha Origin:</strong> Means <strong>'country of the Bharatas'</strong>, honoring a prominent Vedic tribe and righteous legendary kings.</li>
+        <li>⚡ <strong>Vishnu Purana Definition:</strong> The country lying <strong>north of the ocean and south of the snowy mountains</strong> is called Bhārata.</li>
+        <li>⚡ <strong>Tamil Sangam Match:</strong> 2,000-year-old Sangam poems praised kings whose fame stretched <strong>from Cape Kumari to the northern snowy mountain</strong>.</li>
+        <li>⚡ <strong>Article 1 of Constitution:</strong> Officially declares: <strong>"India, that is Bharat, shall be a Union of States"</strong> (Hindi: <em>'Bhārat arthāth India'</em>).</li>
+        <li>⚡ <strong>Persian Sound Shift:</strong> In the 6th century BCE, Persians shifted Sanskrit 'S' to 'H', turning <em>Sindhu</em> into <strong>Hind</strong>, <strong>Hidu</strong>, or <strong>Hindu</strong> (a geographical name).</li>
+        <li>⚡ <strong>Greek Indoi to India:</strong> Greeks dropped the initial 'H' to create <strong>Indoi</strong> and <strong>Indike</strong>, which Romans Latinized as <strong>India</strong>.</li>
+        <li>⚡ <strong>Chinese Tianzhu:</strong> Ancient Chinese referred to India as <strong>Yindu</strong> (from Sindhu) and <strong>Tianzhu</strong> ('Heavenly Master', revering the Buddha).</li>
+        <li>⚡ <strong>Hindustan Record:</strong> The name <strong>Hindustan</strong> was first inscribed in a Persian inscription roughly <strong>1,800 years ago</strong> (~3rd century CE).</li>
       </ol>
     </section>
 
   </div>
 
+  <!-- INTERACTIVE CLIENT-SIDE JAVASCRIPT -->
   <script>
+    // Expand or collapse all answer boxes
     function toggleAllAnswers(openState) {
       const detailsList = document.querySelectorAll('details.ans-box');
       detailsList.forEach(item => {
@@ -752,7 +2110,7 @@
       });
     }
 
-    // Automatic safeguard to strip any accidental cite tags from text nodes
+    // Automatic safeguard to scrub any accidental cite tags from text nodes
     document.addEventListener("DOMContentLoaded", function () {
       const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
       let node;
