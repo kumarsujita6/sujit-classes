@@ -47,9 +47,11 @@ Always lowercase with hyphens (`-`). Never use spaces or native Odia script in f
 4. Update the `studyMaterials` array in `index.html` with the new entry and set `isLive: true`.
 5. Run git commit and push to `origin/main`.
 
+
+
 ## 6. Depth, Graphics, and Anti-Summarization Guardrails
-- **Zero-Omission Rule:** Never condense, omit, or summarize chapters. The file must serve as a complete classroom teaching replacement for the NCERT textbook.
-- **Minimum Target Size:** Quality master notes must range between 100 KB and 130 KB. If a generated file is under 90 KB, details were omitted and it must be expanded.
-- **Embedded Visuals:** Every chapter must include at least 2 to 3 embedded, clean `<svg>` inline diagrams (maps, cross-sections, timelines, charts) with responsive layouts.
-- **Simple, Clear Diction:** Explain every difficult technical term in simple, accessible language suitable for 11-to-12-year-old middle school students.
-- **Complete Question Bank:** Fully solve every In-Text activity, "Let's Explore", "Think About It", and End-of-Chapter exercise, followed by an exhaustive CBSE Question Bank (MCQs, Assertion/Reasoning, 2M, 3M, 5M, and Case Studies).
+- **Zero-Omission Rule:** Never condense, cut, or summarize topics, activities, or question banks. The file must serve as a complete, comprehensive classroom teaching replacement for the NCERT textbook.
+- **No File Size Ceiling:** There is **NO upper limit on file size**. Prioritize completeness, thorough step-by-step explanations, and rich interactive visuals over keeping file sizes low. Never trim content to meet an arbitrary kilobyte target.
+- **Embedded Visuals:** Include full, rich inline responsive `<svg>` diagrams for core geographic, cultural, and historical concepts.
+- **Accessible Diction:** Explain all concepts in simple, everyday language that an 11-to-12-year-old student can easily understand on the first read.
+- **Full NCERT & CBE Coverage:** Every single in-text prompt, box, activity, and end-of-chapter exercise must be thoroughly solved in simple, point-wise language.
