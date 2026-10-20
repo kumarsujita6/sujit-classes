@@ -1,0 +1,1703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Master Study Note: Ch 4 - Exploring Magnets (Class 6 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --primary-light: #dbeafe;
+      --secondary: #dc2626;
+      --secondary-light: #fee2e2;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #dc2626 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Section Card */
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    /* Sub-section Headings */
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    /* General Cards */
+    .card {
+      background: #fdfdfd;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    /* Callout Boxes */
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-box .callout-text {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .callout-def {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+    .callout-def i { color: #2563eb; }
+
+    .callout-act {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .callout-act i { color: #059669; }
+
+    .callout-pyq {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-color: #a855f7;
+      color: #581c87;
+    }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+    .callout-warn i { color: #dc2626; }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+    .data-table tr:hover { background: #f1f5f9; }
+
+    /* Collapsible Details Answers */
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #bfdbfe;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-red { background: #fee2e2; color: #b91c1c; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-green { background: #dcfce7; color: #15803d; }
+
+    /* Diagrams Container */
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.6rem;
+      font-style: italic;
+    }
+
+    /* List styling */
+    .bullet-list {
+      list-style-type: none;
+      padding-left: 0;
+      margin: 0.8rem 0;
+    }
+
+    .bullet-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .bullet-list li::before {
+      content: "\f058";
+      font-family: "Font Awesome 6 Free";
+      font-weight: 900;
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .hero-title { font-size: 1.75rem; }
+      .section-card { padding: 1.25rem; }
+      body { padding-top: 55px; }
+      .top-nav { padding: 0 0.75rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky Top Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Master Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Competency Bank</a>
+      <a href="#sec6" class="nav-link">6. Exam Traps</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-magnet"></i> Class 6 Science &bull; Chapter 4 (Curiosity)
+    </div>
+    <h1 class="hero-title">Exploring Magnets</h1>
+    <p class="hero-sub">
+      A Complete Master Study Note on Magnetic vs Non-Magnetic Materials, Poles of a Magnet (N &amp; S Inseparable Pairs), Finding Directions with a Magnetic Compass, Earth as a Giant Magnet, Attraction vs Repulsion (The Sure Test of Magnetism), Safe Storage &amp; Maglev Trains.
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT: Curiosity (Grade 6)</span>
+      <span><i class="fa-solid fa-compass"></i> Theme: Physical Forces &amp; Magnetism</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Solved Activities &amp; 11 Exercises</span>
+      <span><i class="fa-solid fa-train"></i> Magnetic Levitation &amp; Maglev</span>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+
+    <!-- ========================================== -->
+    <!-- SECTION 1: BLUEPRINT & MIND MAP -->
+    <!-- ========================================== -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
+        <h2>Visual Mind Map &amp; Chapter Blueprint</h2>
+        <p class="section-sub">A structural blueprint mapping the history of magnetism, magnetic materials, poles, Earth's geomagnetic field, the magnetic compass, and laws of interaction.</p>
+      </div>
+
+      <!-- Blueprint Table -->
+      <h3 style="color: var(--primary-dark); margin: 1.5rem 0 1rem; display: flex; align-items: center; gap: 0.5rem;">
+        <i class="fa-solid fa-compass"></i> Chapter Blueprint &amp; Core Thematic Pillars
+      </h3>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 20%;">Thematic Pillar</th>
+              <th style="width: 40%;">Core Concepts &amp; Key Experiments</th>
+              <th style="width: 40%;">Class 6 Takeaway &amp; Exam Relevance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Magnetic Materials</strong></td>
+              <td>
+                &bull; Reshma's story of ancient spice navigation from Kerala.<br>
+                &bull; <strong>Magnetic:</strong> Iron, Nickel, Cobalt, Steel.<br>
+                &bull; <strong>Non-Magnetic:</strong> Wood, plastic, glass, aluminum, copper.
+              </td>
+              <td>Classify everyday objects accurately as magnetic or non-magnetic based on empirical testing.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Magnetic Poles</strong></td>
+              <td>
+                &bull; Maximum attraction at ends; minimum in middle (U-clip experiment).<br>
+                &bull; Two poles: <strong>North Pole (N)</strong> and <strong>South Pole (S)</strong>.<br>
+                &bull; Magnetic poles <em>always exist in pairs</em> (monopoles cannot exist).
+              </td>
+              <td>Understand that breaking a magnet in half does not isolate a single pole; each piece becomes a complete two-pole magnet.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Direction Finding &amp; Compass</strong></td>
+              <td>
+                &bull; A freely suspended magnet always settles in the <strong>North-South direction</strong>.<br>
+                &bull; Earth behaves like a giant bar magnet.<br>
+                &bull; Structure &amp; working of a <strong>Magnetic Compass</strong>.<br>
+                &bull; Making your own floating needle compass.
+              </td>
+              <td>Master navigation principles used by ancient maritime explorers and modern aviators.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Attraction &amp; Repulsion</strong></td>
+              <td>
+                &bull; <strong>Like poles repel</strong> (N-N, S-S).<br>
+                &bull; <strong>Unlike poles attract</strong> (N-S, S-N).<br>
+                &bull; <strong>Repulsion is the ONLY sure test of magnetism!</strong>
+              </td>
+              <td>Explain why attraction alone cannot confirm if an object is a magnet (a magnet attracts unmagnetized iron too).</td>
+            </tr>
+            <tr>
+              <td><strong>5. Care &amp; Proper Storage</strong></td>
+              <td>
+                &bull; Demagnetization by heating, dropping, or hammering.<br>
+                &bull; Safe storage in pairs with unlike poles opposite, wooden separator, and soft iron keepers across ends.
+              </td>
+              <td>Learn physical preservation of magnetic domains and safe handling near electronic devices.</td>
+            </tr>
+            <tr>
+              <td><strong>6. Modern Applications</strong></td>
+              <td>
+                &bull; Maglev (Magnetic Levitation) bullet trains.<br>
+                &bull; Magnetic cranes in junkyards, refrigerator gaskets, MRI hospital scanners.
+              </td>
+              <td>Appreciate how magnetic forces shape modern frictionless transportation and advanced medical diagnostics.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Quick Summary Cards -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 1.5rem;">
+        <div class="card" style="border-top: 4px solid #2563eb;">
+          <h4 style="color: #1d4ed8; margin-bottom: 0.5rem;"><i class="fa-solid fa-arrows-left-right"></i> Pole Pairing</h4>
+          <p style="font-size: 0.9rem; color: #475569;">Every magnet has North and South poles. Break it into a thousand pieces, and every tiny fragment is a full magnet with two poles!</p>
+        </div>
+        <div class="card" style="border-top: 4px solid #dc2626;">
+          <h4 style="color: #b91c1c; margin-bottom: 0.5rem;"><i class="fa-solid fa-hand-holding-hand"></i> Fundamental Law</h4>
+          <p style="font-size: 0.9rem; color: #475569;">Like poles push away (repel); unlike poles pull together (attract). Repulsion is the only foolproof test of a magnet!</p>
+        </div>
+        <div class="card" style="border-top: 4px solid #16a34a;">
+          <h4 style="color: #15803d; margin-bottom: 0.5rem;"><i class="fa-solid fa-compass"></i> Planetary Compass</h4>
+          <p style="font-size: 0.9rem; color: #475569;">Earth is a massive cosmic magnet whose magnetic South is near geographic North, gently guiding compass needles home.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 2: LINE-BY-LINE MASTER NOTES -->
+    <!-- ========================================== -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2 &bull; Comprehensive Line-by-Line Study Notes</span>
+        <h2>Exhaustive Concept Explanations</h2>
+        <p class="section-sub">Step-by-step scientific explanations of magnetic properties, pole behaviors, compass construction, and magnetic levitation.</p>
+      </div>
+
+      <!-- Topic 1 -->
+      <h3 class="topic-title">
+        <i class="fa-solid fa-ship"></i> 1. The Tale of the Spice Ship &amp; What is a Magnet?
+      </h3>
+      <p>
+        Chapter 4 opens with a story: <strong>Reshma</strong>, a curious young schoolgirl from a coastal town in Kerala, is writing an adventure story for her grandmother's 60th birthday. Her story describes an ancient merchant ship carrying cardamom, cinnamon, and black pepper from the Malabar coast across the choppy Arabian Sea.
+      </p>
+      <p>
+        How did ancient sailors find their way across vast, featureless oceans on dark, cloudy nights when no stars were visible? They used a magical black stone called a <strong>Lodestone (natural magnet of iron oxide / magnetite)</strong> suspended from a string, or a floating magnetized needle!
+      </p>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-magnet"></i>
+        <div class="callout-text">
+          <strong>Key Definition: Magnet</strong><br>
+          A <strong>magnet</strong> is an object made of certain materials that creates an invisible magnetic field around itself, attracting magnetic materials like iron, nickel, cobalt, and steel, and exerting forces of attraction or repulsion on other magnets.
+        </div>
+      </div>
+
+      <!-- Topic 2 -->
+      <h3 class="topic-title">
+        <i class="fa-solid fa-cubes"></i> 2. Magnetic vs Non-Magnetic Materials (Activity 4.1)
+      </h3>
+      <p>
+        When you bring a magnet near different objects in your classroom, you immediately observe a sharp divide:
+      </p>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 20%;">Category</th>
+              <th style="width: 45%;">Scientific Definition</th>
+              <th style="width: 35%;">Everyday Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Magnetic Materials</strong></td>
+              <td>Materials that are attracted towards a magnet and can be magnetized.</td>
+              <td>Iron nails, steel paperclips, safety pins, nickel coins, cobalt blades, sewing needles.</td>
+            </tr>
+            <tr>
+              <td><strong>Non-Magnetic Materials</strong></td>
+              <td>Materials that are NOT attracted towards a magnet and cannot be magnetized.</td>
+              <td>Plastic ruler, wooden pencil, glass tumbler, rubber eraser, aluminum foil, copper wire, paper, cotton cloth.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Common Student Misconception to Avoid:</strong><br>
+          Many students assume that <em>"all metals are attracted by magnets"</em>. <strong>This is completely FALSE!</strong><br>
+          Metals like <strong>Aluminum, Copper, Brass, Gold, and Silver</strong> are completely <strong>NON-MAGNETIC</strong>! A magnet only attracts specific ferromagnetic metals (Iron, Nickel, Cobalt, and Steel).
+        </div>
+      </div>
+
+      <!-- Topic 3 -->
+      <h3 class="topic-title">
+        <i class="fa-solid fa-arrows-left-right-to-line"></i> 3. Poles of a Magnet: Where is Strength Concentrated?
+      </h3>
+      <p>
+        Is a bar magnet equally strong all over its body? Let us look at <strong>Activity 4.2</strong>:
+      </p>
+
+      <div class="card">
+        <h4 style="color: var(--primary-dark);"><i class="fa-solid fa-flask-vial"></i> Activity 4.2: Rolling a Bar Magnet over Steel U-Clips / Iron Filings</h4>
+        <ul class="bullet-list">
+          <li><strong>Procedure:</strong> Spread a large heap of small steel U-clips or fine iron filings uniformly on a flat sheet of white paper. Roll a bar magnet over the heap and gently lift it up.</li>
+          <li><strong>Observation:</strong> Almost all the clips cluster in dense, prickly clumps at the <strong>two opposite ends</strong> of the bar magnet! In the middle section, almost no clips stick (or only 1 or 2).</li>
+          <li><strong>Scientific Conclusion:</strong> The magnetic attractive power is concentrated at the two extreme ends of the magnet. These regions of maximum attraction are called the <strong>Poles of the Magnet</strong>.</li>
+        </ul>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-link"></i>
+        <div class="callout-text">
+          <strong>The Golden Law of Magnetic Poles:</strong><br>
+          <strong>Magnetic poles ALWAYS exist in inseparable pairs!</strong><br>
+          Every magnet, regardless of its shape (bar, ring, horseshoe, disc, or button), always has two poles: a <strong>North Pole (N)</strong> and a <strong>South Pole (S)</strong>.<br>
+          <em>What if you snap a bar magnet in half?</em> You do NOT get an isolated North pole and an isolated South pole! The moment it breaks, two new poles instantly appear at the broken ends, creating two complete, fully functional smaller magnets! <strong>Single magnetic monopoles do not exist in nature.</strong>
+        </div>
+      </div>
+
+      <!-- INLINE SVG 1: Poles & Field Distribution -->
+      <div class="diagram-wrapper">
+        <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">
+          <i class="fa-solid fa-diagram-project"></i> Diagram 1: Magnetic Poles, Field Concentration &amp; Interaction Laws
+        </h4>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="100%" height="auto" style="background:#ffffff; border-radius:12px; border:1px solid #cbd5e1; font-family:'Plus Jakarta Sans', system-ui, sans-serif;">
+          <defs>
+            <filter id="magSh" x="-5%" y="-5%" width="110%" height="110%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1" />
+            </filter>
+          </defs>
+
+          <!-- Top Banner -->
+          <rect x="220" y="15" width="480" height="42" rx="21" fill="#2563eb" />
+          <text x="460" y="42" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">MAGNETIC POLES &amp; LAWS OF INTERACTION</text>
+
+          <!-- Section A: Bar Magnet with Iron Filings -->
+          <g transform="translate(60, 80)">
+            <rect x="0" y="0" width="380" height="200" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" filter="url(#magSh)"/>
+            <text x="190" y="30" fill="#0f172a" font-size="13" font-weight="700" text-anchor="middle">POLES CONCENTRATE MAXIMUM ATTRACTION</text>
+
+            <!-- Bar Magnet Body -->
+            <rect x="70" y="65" width="120" height="45" fill="#dc2626" rx="4"/>
+            <text x="130" y="93" fill="#ffffff" font-size="16" font-weight="800" text-anchor="middle">N (North)</text>
+
+            <rect x="190" y="65" width="120" height="45" fill="#2563eb" rx="4"/>
+            <text x="250" y="93" fill="#ffffff" font-size="16" font-weight="800" text-anchor="middle">S (South)</text>
+
+            <!-- Iron Filings Cluster at North -->
+            <path d="M 50 60 Q 60 85 50 110 Q 70 95 65 65 Z" fill="#475569"/>
+            <path d="M 40 70 Q 55 87 40 105 Z" fill="#64748b"/>
+            <text x="50" y="145" fill="#dc2626" font-size="11" font-weight="700" text-anchor="middle">Dense cluster (10+ pins)</text>
+
+            <!-- Iron Filings Cluster at South -->
+            <path d="M 330 60 Q 320 85 330 110 Q 310 95 315 65 Z" fill="#475569"/>
+            <path d="M 340 70 Q 325 87 340 105 Z" fill="#64748b"/>
+            <text x="330" y="145" fill="#2563eb" font-size="11" font-weight="700" text-anchor="middle">Dense cluster (10+ pins)</text>
+
+            <!-- Middle Section -->
+            <text x="190" y="135" fill="#64748b" font-size="11" text-anchor="middle">Bare Center (0-2 pins)</text>
+            <text x="190" y="180" fill="#334155" font-size="11" font-style="italic" text-anchor="middle">Poles A and C attract maximum; Center B has zero force.</text>
+          </g>
+
+          <!-- Section B: Breaking a Magnet -->
+          <g transform="translate(480, 80)">
+            <rect x="0" y="0" width="380" height="200" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" filter="url(#magSh)"/>
+            <text x="190" y="30" fill="#0f172a" font-size="13" font-weight="700" text-anchor="middle">BREAKING A MAGNET: POLES EXIST IN PAIRS</text>
+
+            <!-- Original Magnet -->
+            <rect x="90" y="50" width="100" height="28" fill="#dc2626"/>
+            <text x="140" y="69" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">N</text>
+            <rect x="190" y="50" width="100" height="28" fill="#2563eb"/>
+            <text x="240" y="69" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">S</text>
+
+            <!-- Broken Arrow -->
+            <text x="190" y="105" fill="#94a3b8" font-size="16" text-anchor="middle">⬇ Snapped into two halves ⬇</text>
+
+            <!-- Two Smaller Magnets -->
+            <rect x="60" y="125" width="60" height="24" fill="#dc2626"/>
+            <text x="90" y="141" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">N</text>
+            <rect x="120" y="125" width="60" height="24" fill="#2563eb"/>
+            <text x="150" y="141" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">S</text>
+
+            <rect x="200" y="125" width="60" height="24" fill="#dc2626"/>
+            <text x="230" y="141" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">N</text>
+            <rect x="260" y="125" width="60" height="24" fill="#2563eb"/>
+            <text x="290" y="141" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">S</text>
+
+            <text x="190" y="180" fill="#15803d" font-size="11" font-weight="700" text-anchor="middle">Each broken piece instantly becomes a complete N-S magnet!</text>
+          </g>
+
+          <!-- Section C: Attraction & Repulsion (Bottom) -->
+          <g transform="translate(60, 300)">
+            <rect x="0" y="0" width="800" height="175" rx="12" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1.5" filter="url(#magSh)"/>
+            <text x="400" y="28" fill="#1e3a8a" font-size="14" font-weight="800" text-anchor="middle">THE CARDINAL LAW: ATTRACTION VS REPULSION</text>
+
+            <!-- Case 1: Unlike Poles Attract -->
+            <g transform="translate(40, 45)">
+              <rect x="20" y="10" width="70" height="30" fill="#dc2626"/><text x="55" y="30" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">N</text>
+              <rect x="90" y="10" width="70" height="30" fill="#2563eb"/><text x="125" y="30" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">S</text>
+
+              <line x1="170" y1="25" x2="195" y2="25" stroke="#16a34a" stroke-width="3"/>
+              <polygon points="195,20 205,25 195,30" fill="#16a34a"/>
+              <line x1="240" y1="25" x2="215" y2="25" stroke="#16a34a" stroke-width="3"/>
+              <polygon points="215,20 205,25 215,30" fill="#16a34a"/>
+
+              <rect x="250" y="10" width="70" height="30" fill="#dc2626"/><text x="285" y="30" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">N</text>
+              <rect x="320" y="10" width="70" height="30" fill="#2563eb"/><text x="355" y="30" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">S</text>
+
+              <text x="205" y="65" fill="#15803d" font-size="12" font-weight="800" text-anchor="middle">UNLIKE POLES ATTRACT (S &harr; N pull together!)</text>
+            </g>
+
+            <!-- Case 2: Like Poles Repel -->
+            <g transform="translate(440, 45)">
+              <rect x="20" y="10" width="70" height="30" fill="#2563eb"/><text x="55" y="30" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">S</text>
+              <rect x="90" y="10" width="70" height="30" fill="#dc2626"/><text x="125" y="30" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">N</text>
+
+              <line x1="185" y1="25" x2="165" y2="25" stroke="#dc2626" stroke-width="3"/>
+              <polygon points="165,20 155,25 165,30" fill="#dc2626"/>
+              <line x1="225" y1="25" x2="245" y2="25" stroke="#dc2626" stroke-width="3"/>
+              <polygon points="245,20 255,25 245,30" fill="#dc2626"/>
+
+              <rect x="250" y="10" width="70" height="30" fill="#dc2626"/><text x="285" y="30" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">N</text>
+              <rect x="320" y="10" width="70" height="30" fill="#2563eb"/><text x="355" y="30" fill="#fff" font-size="11" font-weight="700" text-anchor="middle">S</text>
+
+              <text x="205" y="65" fill="#b91c1c" font-size="12" font-weight="800" text-anchor="middle">LIKE POLES REPEL (N &harr; N push apart!)</text>
+            </g>
+
+            <text x="400" y="150" fill="#0369a1" font-size="11" font-weight="700" text-anchor="middle">
+              Golden Rule: Repulsion is the ONLY sure test of magnetism! (Because magnets attract iron too).
+            </text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 4.1: Magnetic Pole Concentration, Invariance of Pole Pairs upon Division, and Like/Unlike Interaction Laws.</p>
+      </div>
+
+      <!-- Topic 4 -->
+      <h3 class="topic-title">
+        <i class="fa-solid fa-compass"></i> 4. Finding Directions &amp; Earth as a Giant Cosmic Magnet
+      </h3>
+      <p>
+        Tie a cotton thread around the exact centre of a bar magnet and hang it freely from a wooden stand (Activity 4.3). Rotate it gently and let it come to rest.
+      </p>
+      <ul class="bullet-list">
+        <li><strong>Observation:</strong> No matter how many times you spin it, the magnet always settles in the exact same orientation: <strong>North-South direction!</strong></li>
+        <li><strong>North-Seeking Pole (North Pole):</strong> The end of the magnet pointing towards the Earth's geographic North.</li>
+        <li><strong>South-Seeking Pole (South Pole):</strong> The end pointing towards the Earth's geographic South.</li>
+      </ul>
+
+      <div class="card">
+        <h4 style="color: var(--primary-dark);"><i class="fa-solid fa-earth-americas"></i> Why Does a Freely Suspended Magnet Always Point North-South?</h4>
+        <p>
+          Because <strong>planet Earth itself behaves like an enormous, churning bar magnet!</strong>
+        </p>
+        <ul class="bullet-list" style="margin-top: 0.4rem;">
+          <li>Deep inside the Earth's molten outer core, moving liquid iron creates a gigantic magnetic field.</li>
+          <li>Earth's <strong>Magnetic South Pole</strong> is located near the geographic North Pole, and Earth's <strong>Magnetic North Pole</strong> is located near the geographic South Pole!</li>
+          <li>Since unlike poles attract, the North pole of our bar magnet is magnetically drawn to the Earth's magnetic South pole located at the top of the globe (geographic North)!</li>
+        </ul>
+      </div>
+
+      <!-- INLINE SVG 2: Earth & Maglev -->
+      <div class="diagram-wrapper">
+        <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">
+          <i class="fa-solid fa-train"></i> Diagram 2: The Magnetic Compass, Earth's Magnetic Field &amp; Magnetic Levitation
+        </h4>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 480" width="100%" height="auto" style="background:#ffffff; border-radius:12px; border:1px solid #cbd5e1; font-family:'Plus Jakarta Sans', system-ui, sans-serif;">
+          <defs>
+            <filter id="diagSh4" x="-5%" y="-5%" width="110%" height="110%">
+              <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1" />
+            </filter>
+          </defs>
+
+          <!-- Top Banner -->
+          <rect x="220" y="15" width="480" height="42" rx="21" fill="#0284c7" />
+          <text x="460" y="42" fill="#ffffff" font-size="15" font-weight="700" text-anchor="middle">EARTH'S GEOMAGNETISM &amp; FLOATING RING MAGNETS</text>
+
+          <!-- Left: Earth & Compass -->
+          <g transform="translate(40, 80)">
+            <rect x="0" y="0" width="400" height="350" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" filter="url(#diagSh4)"/>
+            <text x="200" y="30" fill="#0f172a" font-size="13" font-weight="700" text-anchor="middle">EARTH AS A GIANT MAGNET</text>
+
+            <!-- Earth Circle -->
+            <circle cx="200" cy="170" r="105" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+            <text x="200" y="90" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">Geographic North Pole (True North)</text>
+
+            <!-- Internal Giant Magnet in Earth -->
+            <g transform="translate(180, 110)">
+              <rect x="0" y="0" width="40" height="60" fill="#2563eb" rx="2"/>
+              <text x="20" y="35" fill="#fff" font-size="13" font-weight="800" text-anchor="middle">S</text>
+              <rect x="0" y="60" width="40" height="60" fill="#dc2626" rx="2"/>
+              <text x="20" y="95" fill="#fff" font-size="13" font-weight="800" text-anchor="middle">N</text>
+            </g>
+
+            <text x="200" y="270" fill="#0f172a" font-size="11" font-weight="700" text-anchor="middle">Geographic South Pole (True South)</text>
+
+            <!-- Small Compass Needle Floating Above -->
+            <g transform="translate(60, 130)">
+              <circle cx="45" cy="45" r="35" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+              <!-- Needle -->
+              <polygon points="45,20 50,45 40,45" fill="#dc2626"/>
+              <polygon points="45,70 50,45 40,45" fill="#2563eb"/>
+              <text x="45" y="16" fill="#dc2626" font-size="9" font-weight="700" text-anchor="middle">N</text>
+              <text x="45" y="82" fill="#2563eb" font-size="9" font-weight="700" text-anchor="middle">S</text>
+              <text x="45" y="100" fill="#334155" font-size="9" font-weight="600" text-anchor="middle">Compass Needle</text>
+            </g>
+
+            <text x="200" y="320" fill="#0369a1" font-size="11" font-weight="600" text-anchor="middle">
+              Compass North points North because Earth has a magnetic South pole there!
+            </text>
+          </g>
+
+          <!-- Right: Floating Ring Magnets (Magnetic Levitation) -->
+          <g transform="translate(480, 80)">
+            <rect x="0" y="0" width="400" height="350" rx="14" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5" filter="url(#diagSh4)"/>
+            <text x="200" y="30" fill="#92400e" font-size="13" font-weight="700" text-anchor="middle">EXPERIMENT: FLOATING RING MAGNETS (LEVITATION)</text>
+
+            <!-- Wooden Stand / Rod -->
+            <rect x="193" y="60" width="14" height="230" fill="#d97706" rx="4"/>
+            <rect x="140" y="280" width="120" height="15" fill="#b45309" rx="3"/>
+
+            <!-- Ring Magnet Y (Bottom) -->
+            <rect x="130" y="240" width="140" height="35" rx="6" fill="#2563eb" stroke="#1d4ed8" stroke-width="1.5"/>
+            <rect x="130" y="240" width="140" height="18" rx="6" fill="#dc2626"/>
+            <text x="200" y="254" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle">NORTH POLE</text>
+            <text x="200" y="270" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle">SOUTH POLE</text>
+            <text x="290" y="260" fill="#0f172a" font-size="12" font-weight="700">Ring Magnet Y</text>
+
+            <!-- Air Gap with Repulsion Arrows -->
+            <g transform="translate(170, 190)">
+              <text x="30" y="15" fill="#dc2626" font-size="18" font-weight="800" text-anchor="middle">⚡ REPULSION ⚡</text>
+              <line x1="30" y1="22" x2="30" y2="42" stroke="#dc2626" stroke-width="2.5"/>
+              <polygon points="30,45 26,37 34,37" fill="#dc2626"/>
+              <line x1="30" y1="-5" x2="30" y2="-22" stroke="#dc2626" stroke-width="2.5"/>
+              <polygon points="30,-25 26,-17 34,-17" fill="#dc2626"/>
+            </g>
+
+            <!-- Ring Magnet X (Floating on Top) -->
+            <rect x="130" y="140" width="140" height="35" rx="6" fill="#dc2626" stroke="#b91c1c" stroke-width="1.5"/>
+            <rect x="130" y="157" width="140" height="18" rx="6" fill="#2563eb"/>
+            <text x="200" y="153" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle">SOUTH POLE</text>
+            <text x="200" y="170" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle">NORTH POLE</text>
+            <text x="290" y="160" fill="#0f172a" font-size="12" font-weight="700">Ring Magnet X (Floats!)</text>
+
+            <text x="200" y="320" fill="#78350f" font-size="11" font-weight="600" text-anchor="middle">
+              Like poles face each other (N against N), defying gravity without touching!
+            </text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 4.2: Earth's Core Geomagnetic Polarity and Magnetic Levitation of Like-Pole Ring Magnets.</p>
+      </div>
+
+      <!-- Topic 5 -->
+      <h3 class="topic-title">
+        <i class="fa-solid fa-box-archive"></i> 5. How to Care for and Safely Store Magnets
+      </h3>
+      <p>
+        Magnets do not stay strong forever if abused. They can lose their magnetic power (a process called <strong>demagnetization</strong>).
+      </p>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-ban"></i>
+        <div class="callout-text">
+          <strong>How Magnets Lose Their Power (Causes of Demagnetization):</strong>
+          <ol style="margin-top: 0.3rem; margin-left: 1.2rem;">
+            <li><strong>Heating:</strong> Heating a magnet over a flame randomizes the aligned magnetic atomic domains.</li>
+            <li><strong>Hammering:</strong> Hitting a magnet with a hammer shatters internal magnetic alignment.</li>
+            <li><strong>Dropping:</strong> Dropping magnets repeatedly onto hard stone floors knocks atoms out of alignment.</li>
+            <li><strong>Near Electronics:</strong> Storing magnets near mobile phones, laptops, debit/credit cards, and television sets can corrupt electronic memories and erase magnetic strips.</li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="card">
+        <h4 style="color: var(--primary-dark);"><i class="fa-solid fa-shield-halved"></i> How to Store Bar Magnets Properly:</h4>
+        <ul class="bullet-list">
+          <li>Always store bar magnets in <strong>pairs with unlike poles side-by-side</strong> (North pole beside South pole).</li>
+          <li>Place a non-magnetic piece of <strong>wood</strong> between the two magnets to prevent direct clash.</li>
+          <li>Place two pieces of <strong>soft iron (called keepers)</strong> across both ends. The keepers channel magnetic field lines into a complete closed loop, preserving magnetic strength for decades!</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 3: RAPID REVISION FACT & TERM BANK -->
+    <!-- ========================================== -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3 &bull; High-Yield Fact &amp; Term Bank</span>
+        <h2>Rapid Revision Fact &amp; Scientific Term Bank</h2>
+        <p class="section-sub">Quick glossary, pole interaction matrix, and 10 golden exam facts for instant recall.</p>
+      </div>
+
+      <!-- Terminology Table -->
+      <h3 style="color: var(--primary-dark); margin: 1.5rem 0 1rem;">
+        <i class="fa-solid fa-spell-check"></i> Master Vocabulary &amp; Official Textbook Glossary
+      </h3>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 22%;">Term</th>
+              <th style="width: 48%;">Scientific Definition</th>
+              <th style="width: 30%;">Everyday Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Magnet</strong></td>
+              <td>An object that produces a magnetic field and attracts ferromagnetic materials.</td>
+              <td>Bar magnet, horseshoe magnet.</td>
+            </tr>
+            <tr>
+              <td><strong>Magnetic Material</strong></td>
+              <td>Substances that are strongly attracted by a magnet (Iron, Nickel, Cobalt, Steel).</td>
+              <td>Iron nail, safety pin, steel paperclip.</td>
+            </tr>
+            <tr>
+              <td><strong>Non-Magnetic Material</strong></td>
+              <td>Substances that experience no attractive force from a magnet.</td>
+              <td>Wood, glass, plastic, rubber, copper, aluminium.</td>
+            </tr>
+            <tr>
+              <td><strong>Magnetic Poles</strong></td>
+              <td>The two end regions of a magnet where its magnetic force is concentrated to a maximum.</td>
+              <td>North (N) and South (S) poles.</td>
+            </tr>
+            <tr>
+              <td><strong>Magnetic Compass</strong></td>
+              <td>A navigational tool with a freely pivoted magnetized needle that aligns with Earth's North-South axis.</td>
+              <td>Ship navigation compass.</td>
+            </tr>
+            <tr>
+              <td><strong>Repulsion</strong></td>
+              <td>The pushing away force exerted between two identical magnetic poles (N-N or S-S).</td>
+              <td>Two ring magnets repelling and levitating.</td>
+            </tr>
+            <tr>
+              <td><strong>Magnetic Keepers</strong></td>
+              <td>Soft iron bars placed across the poles of stored permanent magnets to maintain field loops.</td>
+              <td>Iron strips on school bar magnet boxes.</td>
+            </tr>
+            <tr>
+              <td><strong>Maglev</strong></td>
+              <td>Magnetic Levitation technology using strong repelling electromagnets to float high-speed trains.</td>
+              <td>Shanghai Maglev Train (430 km/h).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 10 Golden Facts -->
+      <div class="card" style="background: #f8fafc; border-left: 5px solid var(--primary); margin-top: 1.5rem;">
+        <h4 style="color: var(--primary-dark); margin-bottom: 0.8rem;"><i class="fa-solid fa-star"></i> 10 Golden Facts of Chapter 4:</h4>
+        <ol style="margin-left: 1.5rem; font-size: 0.92rem; line-height: 1.8;">
+          <li>A magnet attracts only <strong>magnetic materials</strong>: Iron, Nickel, Cobalt, and Steel.</li>
+          <li>Non-magnetic materials include <strong>copper, aluminum, gold, silver, wood, glass, and plastic</strong>.</li>
+          <li>Every magnet has two poles: <strong>North Pole</strong> and <strong>South Pole</strong>.</li>
+          <li>Magnetic strength is <strong>maximum at the poles</strong> and nearly zero at the centre.</li>
+          <li>A freely suspended magnet always rests along the geographic <strong>North-South direction</strong>.</li>
+          <li><strong>Like poles repel</strong> each other; <strong>unlike poles attract</strong> each other.</li>
+          <li><strong>Repulsion is the ONLY sure test of magnetism</strong> (because magnets attract both unlike poles and unmagnetized iron).</li>
+          <li>Magnetic poles <strong>always occur in pairs</strong>; monopoles do not exist.</li>
+          <li>Earth itself behaves as a giant magnet whose magnetic South pole lies near the geographic North Pole.</li>
+          <li>Magnets are damaged by <strong>heating, hammering, or dropping</strong>, and must be stored with <strong>iron keepers</strong>.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 4: 100% COMPLETE NCERT SOLUTIONS -->
+    <!-- ========================================== -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4 &bull; 100% Complete NCERT Solutions</span>
+        <h2>Complete NCERT In-Text Activities &amp; Exercise Solutions</h2>
+        <p class="section-sub">Every single question from "Let us enhance our learning" (Questions 1 to 11) answered with CBSE topper model point-wise explanations.</p>
+      </div>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>NCERT Q1 (Page 74):</strong> Fill in the blanks: (i) Unlike poles... (ii) Materials attracted... (iii) Compass needle... (iv) A magnet always has...</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <ul class="bullet-list">
+            <li>(i) Unlike poles of two magnets <strong>attract</strong> each other, whereas like poles <strong>repel</strong> each other.</li>
+            <li>(ii) The materials that are attracted towards a magnet are called <strong>magnetic materials</strong>.</li>
+            <li>(iii) The needle of a magnetic compass rests along the <strong>North-South</strong> direction.</li>
+            <li>(iv) A magnet always has <strong>two</strong> poles.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>NCERT Q2 (Page 74):</strong> True (T) or False (F): (i) Broken into single pole... (ii) Similar poles repel... (iii) Filings stick in middle... (iv) Freely suspended aligns N-S...</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <ul class="bullet-list">
+            <li>(i) A magnet can be broken into pieces to obtain a single pole: <strong>FALSE [ F ]</strong><br>
+            <em>Correction:</em> Breaking a magnet creates two smaller complete magnets, each with both North and South poles. Isolated monopoles cannot exist.</li>
+            <li>(ii) Similar poles of a magnet repel each other: <strong>TRUE [ T ]</strong><br>
+            <em>Reason:</em> Like poles (N-N or S-S) push away from each other.</li>
+            <li>(iii) Iron filings mostly stick in the middle of a bar magnet when brought near them: <strong>FALSE [ F ]</strong><br>
+            <em>Correction:</em> Filings cluster mostly at the two end poles where magnetic attraction is concentrated. The middle has virtually zero attraction.</li>
+            <li>(iv) A freely suspended bar magnet always aligns with the north-south direction: <strong>TRUE [ T ]</strong><br>
+            <em>Reason:</em> Earth's geomagnetic field guides the magnetic axis along the geographic North-South direction.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>NCERT Q3 (Page 75):</strong> Fill in the blanks: Column I vs Column II pole interactions (N-N, N-?, S-N, ?-S)</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Column I (Pole Configuration)</th>
+                  <th>Column II (Resulting Interaction)</th>
+                  <th>Scientific Rule Applied</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>N &ndash; N</strong></td>
+                  <td><strong>Repulsion</strong></td>
+                  <td>Like poles repel.</td>
+                </tr>
+                <tr>
+                  <td><strong>N &ndash; S</strong></td>
+                  <td><strong>Attraction</strong></td>
+                  <td>Unlike poles attract.</td>
+                </tr>
+                <tr>
+                  <td><strong>S &ndash; N</strong></td>
+                  <td><strong>Attraction</strong></td>
+                  <td>Unlike poles attract.</td>
+                </tr>
+                <tr>
+                  <td><strong>S &ndash; S</strong></td>
+                  <td><strong>Repulsion</strong></td>
+                  <td>Like poles repel.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>NCERT Q4 (Page 75):</strong> Atharv rolled a bar magnet over U-clips. Which option in Table 4.3 is likely to be his observation?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Correct Option:</strong> <span class="badge badge-blue">Option (i)</span> &mdash; <strong>Position A: 10, Position B: 2, Position C: 10</strong>.</p>
+          <p><strong>Scientific Justification:</strong></p>
+          <ul class="bullet-list">
+            <li>Positions <strong>A</strong> and <strong>C</strong> represent the two extreme <strong>Poles</strong> of the bar magnet (North and South), where the magnetic attractive force is at its maximum intensity. Hence, a high number of clips (10 clips each) cling to A and C.</li>
+            <li>Position <strong>B</strong> represents the exact <strong>Centre</strong> of the bar magnet, where magnetic force lines cancel each other out, leaving negligible attractive force. Hence, almost no clips (only 2) stick at B.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>NCERT Q5 (Page 75):</strong> Reshma has three identical metal bars (two magnets, one iron piece). How to identify which two are magnets without other tools?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Method (Using the "Repulsion is the Sure Test" Principle):</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li>Label the three bars <strong>Bar 1, Bar 2, and Bar 3</strong>. Each bar has two ends (let's call them End A and End B).</li>
+            <li>Take Bar 1 and bring its End A close to both ends of Bar 2, and then close to both ends of Bar 3. Repeat by testing every pair against each other.</li>
+            <li><strong>How to identify:</strong>
+              <ul style="margin-top: 0.2rem;">
+                <li>The plain iron bar will show <strong>attraction to both ends of any magnet</strong> and will <em>NEVER</em> show repulsion to anything!</li>
+                <li>When the two true magnets are brought together, one combination of ends will show <strong>REPULSION</strong> (pushing away) because like poles repel!</li>
+              </ul>
+            </li>
+            <li><strong>Conclusion:</strong> The two bars that exhibit mutual <strong>repulsion</strong> at one of their end pairings are the two <strong>magnets</strong>. The third bar, which only ever gets attracted and never repels, is the plain <strong>iron piece</strong>!</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>NCERT Q6 (Page 75):</strong> How can you find the poles of an unmarked magnet using a marked magnet?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Step-by-Step Procedure:</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li>Take the marked magnet and identify its known <strong>North pole (N)</strong>.</li>
+            <li>Bring the marked North pole close to one end (End 1) of the unmarked magnet:
+              <ul style="margin-top: 0.2rem;">
+                <li><strong>Case A (Repulsion):</strong> If End 1 is <strong>repelled (pushed away)</strong> by the marked North pole, then End 1 must be the <strong>North Pole</strong> (since like poles repel). Consequently, the opposite end (End 2) is the <strong>South Pole</strong>.</li>
+                <li><strong>Case B (Attraction):</strong> If End 1 is <strong>attracted</strong>, then test End 2. End 2 will be repelled by the marked North pole, proving that End 2 is the <strong>North Pole</strong> and End 1 is the <strong>South Pole</strong>.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>NCERT Q7 (Page 76):</strong> A bar magnet has no markings. How would you find its North pole without using another magnet?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Procedure (Using Earth's Geographic Field):</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li>Tie a thin piece of cotton thread around the exact middle of the unmarked bar magnet so that it balances horizontally.</li>
+            <li>Suspend the thread freely from a wooden stand in an open room far away from iron objects or electrical appliances.</li>
+            <li>Gently disturb the magnet and allow it to oscillate until it comes to a complete rest.</li>
+            <li>Determine geographic directions using the morning sunrise (Sun rises in the East, so your left hand points North when facing East).</li>
+            <li><strong>Identification:</strong> The end of the magnet that consistently points towards the <strong>geographic North</strong> is its <strong>North Pole</strong>! The opposite end pointing south is its <strong>South Pole</strong>.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>NCERT Q8 (Page 76):</strong> If Earth is a magnet, guess its magnetic poles by looking at a magnetic compass needle direction.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Deduction:</strong></p>
+          <ul class="bullet-list">
+            <li>We know that the <strong>North pole of a compass needle points towards geographic North</strong>.</li>
+            <li>Under the cardinal law of magnetism, <strong>unlike poles attract each other</strong>. Therefore, the North pole of the compass can only be pulled towards a magnetic <em>South</em> pole!</li>
+            <li><strong>Conclusion:</strong> The <strong>Earth's Magnetic South Pole</strong> is located near the geographic North Pole, and the <strong>Earth's Magnetic North Pole</strong> is located near the geographic South Pole!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>NCERT Q9 (Page 76):</strong> Steel screws keep falling while repairing a gadget. Suggest a solution to the mechanic.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Scientific Solution: Magnetize the Screwdriver Tip!</strong></p>
+          <ul class="bullet-list">
+            <li>The mechanic can stroke the steel shaft and tip of the screwdriver with one pole of a strong permanent magnet 30 to 40 times in one continuous direction (from handle towards the tip).</li>
+            <li>Alternatively, the mechanic can attach a small strong neodymium/disc magnet directly onto the metal shaft of the screwdriver.</li>
+            <li><strong>Result:</strong> The steel tip turns into a temporary magnet. Because steel screws are a magnetic material, they will cling firmly to the screwdriver tip and will not slip or fall into tiny gadget compartments!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>NCERT Q10 (Page 76):</strong> Ring magnet X floats above Y on a rod (Fig 4.16). Why? Suggest a way to make them contact without pushing.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <ul class="bullet-list">
+            <li><strong>Reason for Floating:</strong> Ring magnet X does not slide down to touch Y because their <strong>like poles face each other</strong> (either North facing North, or South facing South). The strong upward magnetic force of <strong>repulsion</strong> counteracts gravity, causing magnet X to levitate in mid-air!</li>
+            <li><strong>How to bring them into contact without pushing:</strong>
+              <ol style="margin-left: 1.5rem; margin-top: 0.3rem;">
+                <li>Lift ring magnet X off the wooden rod.</li>
+                <li><strong>Flip magnet X upside down</strong> (invert its faces) and slide it back onto the rod!</li>
+                <li>Now, <strong>unlike poles face each other</strong> (North facing South). The magnetic force of <strong>attraction</strong> will immediately snap magnet X down to stick firmly onto magnet Y without any pushing!</li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q11 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>NCERT Q11 (Page 76):</strong> Three magnets arranged in U-shape (Fig 4.17). Polarity at end 5 is North (N). Find polarity at 1, 2, 3, 4, and 6.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Arrangement Analysis:</strong></p>
+          <ul class="bullet-list">
+            <li>We are given that <strong>End 5 is North (N)</strong>.</li>
+            <li>Since End 5 and End 6 belong to the same single bar magnet:
+              <br>&rarr; <strong>End 6 = South (S)</strong> (opposite pole of the same magnet).</li>
+            <li>In Fig 4.17, the three magnets are clinging together at their contact junctions through <strong>magnetic attraction</strong> (unlike poles cling):
+              <br>&rarr; Contact between End 4 and End 5: Since End 5 is N, End 4 must be attracted to it &rarr; <strong>End 4 = South (S)</strong>.</li>
+            <li>Since End 3 and End 4 belong to the middle horizontal bar magnet:
+              <br>&rarr; <strong>End 3 = North (N)</strong> (opposite pole of the middle magnet).</li>
+            <li>Contact between End 2 and End 3: Since End 3 is N, End 2 must be attracted to it &rarr; <strong>End 2 = South (S)</strong>.</li>
+            <li>Since End 1 and End 2 belong to the first vertical bar magnet:
+              <br>&rarr; <strong>End 1 = North (N)</strong>.</li>
+          </ul>
+          <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1rem; margin-top: 0.8rem;">
+            <strong>Final Polarity Summary:</strong><br>
+            &bull; End 1: <strong>North (N)</strong><br>
+            &bull; End 2: <strong>South (S)</strong><br>
+            &bull; End 3: <strong>North (N)</strong><br>
+            &bull; End 4: <strong>South (S)</strong><br>
+            &bull; End 5: <strong>North (N) [Given]</strong><br>
+            &bull; End 6: <strong>South (S)</strong>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 5: COMPETENCY-BASED QUESTION BANK -->
+    <!-- ========================================== -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5 &bull; CBSE / BSE Competency Question Bank</span>
+        <h2>High-Order Thinking (HOTS) &amp; Competency Bank</h2>
+        <p class="section-sub">5 MCQs with conceptual traps explained, 4 Assertion &amp; Reasoning, 5 Short Answers (2M/3M), 3 Long Answers (5M), and 2 Case Studies matching the latest CBSE guidelines.</p>
+      </div>
+
+      <!-- Part A: MCQs -->
+      <h3 style="color: var(--primary-dark); margin: 1.5rem 0 1rem;">
+        <i class="fa-solid fa-circle-question"></i> Part A: 5 High-Yield MCQs (With Traps Explained)
+      </h3>
+
+      <!-- MCQ 1 -->
+      <div class="card">
+        <p><strong>Q1. A student brings a known North pole of a magnet near an unmarked metal rod. The rod end is attracted. Can the student conclude that the rod is a magnet?</strong></p>
+        <div style="margin: 0.5rem 0 0.8rem 1rem; font-size: 0.92rem;">
+          A) Yes, because attraction only happens between two magnets.<br>
+          B) No, because a magnet attracts both opposite magnetic poles and unmagnetized iron pieces.<br>
+          C) Yes, the rod is definitely a South pole.<br>
+          D) No, the rod must be made of plastic.
+        </div>
+        <details class="ans-box">
+          <summary><span>View Correct Answer &amp; Examiner Trap Analysis</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-blue">Option B</span></p>
+            <p><strong>Explanation:</strong> Attraction is ambiguous; a magnet attracts unmagnetized iron and opposite poles. <strong>Repulsion is the ONLY sure test of magnetism!</strong></p>
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="card">
+        <p><strong>Q2. A bar magnet is broken cleanly into 4 equal smaller pieces. How many total magnetic poles are present now?</strong></p>
+        <div style="margin: 0.5rem 0 0.8rem 1rem; font-size: 0.92rem;">
+          A) 2 poles (1 North and 1 South)<br>
+          B) 4 poles<br>
+          C) 8 poles (4 North and 4 South poles)<br>
+          D) Zero poles (magnetism is destroyed)
+        </div>
+        <details class="ans-box">
+          <summary><span>View Correct Answer &amp; Examiner Trap Analysis</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-blue">Option C</span> (8 poles: 4 North and 4 South poles).</p>
+            <p><strong>Explanation:</strong> Each broken piece becomes a full, independent magnet possessing 1 North and 1 South pole. 4 pieces &times; 2 poles = 8 poles.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="card">
+        <p><strong>Q3. Which of the following metals will NOT be attracted by a strong horseshoe magnet?</strong></p>
+        <div style="margin: 0.5rem 0 0.8rem 1rem; font-size: 0.92rem;">
+          A) Steel key<br>
+          B) Pure Copper wire<br>
+          C) Nickel coin<br>
+          D) Iron sewing needle
+        </div>
+        <details class="ans-box">
+          <summary><span>View Correct Answer &amp; Examiner Trap Analysis</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-blue">Option B</span> (Pure Copper wire).</p>
+            <p><strong>Trap Alert:</strong> Copper is a non-magnetic metal. Steel, nickel, and iron are all magnetic.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="card">
+        <p><strong>Q4. How should two bar magnets be stored safely to prevent them from losing their magnetism over time?</strong></p>
+        <div style="margin: 0.5rem 0 0.8rem 1rem; font-size: 0.92rem;">
+          A) Heated in boiling water and sealed in plastic.<br>
+          B) In pairs with like poles together and iron strips on top.<br>
+          C) In pairs with unlike poles side-by-side, separated by a wooden piece, with soft iron keepers across both ends.<br>
+          D) Kept loose inside a metal toolbox next to mobile phones.
+        </div>
+        <details class="ans-box">
+          <summary><span>View Correct Answer &amp; Examiner Trap Analysis</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-blue">Option C</span></p>
+            <p><strong>Explanation:</strong> Storing with unlike poles adjacent and soft iron keepers creates a closed magnetic circuit that prevents self-demagnetization.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="card">
+        <p><strong>Q5. How do Maglev (Magnetic Levitation) trains achieve speeds exceeding 450 km/h with whisper-quiet operation?</strong></p>
+        <div style="margin: 0.5rem 0 0.8rem 1rem; font-size: 0.92rem;">
+          A) They run on giant rubber tyres coated in oil.<br>
+          B) Powerful repelling magnetic forces lift the entire train above the guideway track, eliminating physical wheel-rail friction.<br>
+          C) Jet aircraft rocket boosters push them along steel tracks.<br>
+          D) They travel inside a vacuum pipe under water.
+        </div>
+        <details class="ans-box">
+          <summary><span>View Correct Answer &amp; Examiner Trap Analysis</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-blue">Option B</span></p>
+            <p><strong>Explanation:</strong> Magnetic levitation eliminates all mechanical track friction, leaving only air resistance to overcome.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Part B: Assertion & Reasoning -->
+      <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem;">
+        <i class="fa-solid fa-shuffle"></i> Part B: 4 Assertion &amp; Reasoning Questions
+      </h3>
+      <p style="font-size: 0.9rem; color: #64748b; margin-bottom: 1rem;">
+        <strong>Directions:</strong> Select the correct option:<br>
+        (A) Both Assertion (A) and Reason (R) are true and Reason (R) is the correct explanation of Assertion (A).<br>
+        (B) Both Assertion (A) and Reason (R) are true but Reason (R) is NOT the correct explanation of Assertion (A).<br>
+        (C) Assertion (A) is true but Reason (R) is false.<br>
+        (D) Assertion (A) is false but Reason (R) is true.
+      </p>
+
+      <!-- A&R 1 -->
+      <div class="card">
+        <p><strong>Question 1:</strong><br>
+        <strong>Assertion (A):</strong> Repulsion is considered the only definitive and sure test of magnetism.<br>
+        <strong>Reason (R):</strong> A magnet attracts both opposite magnetic poles and unmagnetized pieces of iron, whereas repulsion occurs exclusively between like poles of two magnets.</p>
+        <details class="ans-box">
+          <summary><span>View Evaluation &amp; Answer</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-blue">Option (A)</span></p>
+            <p><strong>Evaluation:</strong> Both statements are true, and R correctly explains why attraction alone is insufficient to verify magnetism.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- A&R 2 -->
+      <div class="card">
+        <p><strong>Question 2:</strong><br>
+        <strong>Assertion (A):</strong> A magnetic compass needle always aligns itself in the geographic North-South direction.<br>
+        <strong>Reason (R):</strong> The Earth itself behaves like a gigantic magnet with its magnetic South pole situated near the geographic North Pole.</p>
+        <details class="ans-box">
+          <summary><span>View Evaluation &amp; Answer</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-blue">Option (A)</span></p>
+            <p><strong>Evaluation:</strong> Both A and R are true, and R explains why the North-seeking tip of the needle is attracted toward the Arctic region.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- A&R 3 -->
+      <div class="card">
+        <p><strong>Question 3:</strong><br>
+        <strong>Assertion (A):</strong> When a bar magnet is cut exactly in half, one half becomes an isolated North pole and the other becomes an isolated South pole.<br>
+        <strong>Reason (R):</strong> Magnetic monopoles can easily be isolated in standard physics laboratories.</p>
+        <details class="ans-box">
+          <summary><span>View Evaluation &amp; Answer</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-red">Both (A) and (R) are FALSE</span></p>
+            <p><strong>Evaluation:</strong> Magnetic poles always exist in inseparable pairs. Cutting creates two complete dipole magnets.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- A&R 4 -->
+      <div class="card">
+        <p><strong>Question 4:</strong><br>
+        <strong>Assertion (A):</strong> Heating a permanent bar magnet strongly over a Bunsen burner flame causes it to lose its magnetic strength.<br>
+        <strong>Reason (R):</strong> Thermal energy disrupts and randomizes the orderly alignment of atomic magnetic domains inside the metal.</p>
+        <details class="ans-box">
+          <summary><span>View Evaluation &amp; Answer</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <span class="badge badge-blue">Option (A)</span></p>
+            <p><strong>Evaluation:</strong> Both statements are true and provide the precise molecular reason for thermal demagnetization.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Part C: Short Answer Questions -->
+      <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem;">
+        <i class="fa-solid fa-file-pen"></i> Part C: 5 Short Answer Questions (2M &amp; 3M)
+      </h3>
+
+      <!-- SAQ 1 -->
+      <details class="ans-box">
+        <summary><span><strong>Q1 (2 Marks):</strong> Why does a freely suspended bar magnet point North-South?</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul class="bullet-list">
+            <li><strong>Earth's Magnetic Field:</strong> The planet Earth behaves like a giant bar magnet with magnetic poles deep within its core.</li>
+            <li><strong>Unlike Poles Attract:</strong> Earth's magnetic South pole lies near geographic North. It pulls the magnet's North pole toward geographic North, while Earth's magnetic North pole pulls the magnet's South pole toward geographic South.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- SAQ 2 -->
+      <details class="ans-box">
+        <summary><span><strong>Q2 (2 Marks):</strong> Why is repulsion called the "sure test" of magnetism?</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul class="bullet-list">
+            <li>A magnet attracts both <strong>unlike magnetic poles</strong> AND <strong>unmagnetized iron pieces</strong>. Thus, attraction cannot prove if an object is itself a magnet.</li>
+            <li>However, <strong>repulsion occurs ONLY between two like magnetic poles</strong>. If an object is repelled by a magnet, it is guaranteed to be a magnet!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- SAQ 3 -->
+      <details class="ans-box">
+        <summary><span><strong>Q3 (3 Marks):</strong> How can you make your own temporary magnetic compass at home using a sewing needle?</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Method (Activity 4.4):</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li>Take an iron sewing needle and stroke it with one pole of a bar magnet 30 to 40 times in one direction (never back and forth).</li>
+            <li>Pass the magnetized needle through a small piece of cork or flat foam disc.</li>
+            <li>Float the cork in a wide bowl of water so that the needle stays horizontal without touching the bowl sides.</li>
+            <li><strong>Result:</strong> When spun, the floating needle will always come to rest pointing in the <strong>North-South direction</strong>, acting as a true compass!</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- SAQ 4 -->
+      <details class="ans-box">
+        <summary><span><strong>Q4 (3 Marks):</strong> List three precautions to keep permanent magnets safe from losing their strength.</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Precautions:</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li><strong>Never heat magnets</strong> over a gas stove or open flame.</li>
+            <li><strong>Never drop them</strong> from heights onto hard floors or hit them with hammers.</li>
+            <li><strong>Store in pairs</strong> with opposite poles adjacent, a wooden spacer between them, and soft iron keepers bridging both ends.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- SAQ 5 -->
+      <details class="ans-box">
+        <summary><span><strong>Q5 (3 Marks):</strong> Explain how Maglev trains use magnetic forces to achieve extreme high speeds.</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul class="bullet-list">
+            <li><strong>Magnetic Levitation:</strong> Powerful repelling electromagnets on the train and guideway track push against each other, lifting the train 10 to 15 mm into the air.</li>
+            <li><strong>Zero Track Friction:</strong> Because the train has no wheels touching the ground, physical rolling friction is completely eliminated.</li>
+            <li><strong>Propulsion:</strong> Shifting magnetic polarities pull and push the train forward smoothly, allowing quiet speeds above 450 km/h.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Part D: Long Answer Questions -->
+      <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem;">
+        <i class="fa-solid fa-book-open-reader"></i> Part D: 3 Long Answer Questions (5 Marks Each)
+      </h3>
+
+      <!-- LAQ 1 -->
+      <details class="ans-box">
+        <summary><span><strong>Q1 (5 Marks):</strong> Describe the properties of magnets in detail. Support each property with an experimental activity.</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Model Answer (Structured 5-Mark Marking Breakdown):</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li><strong>Attractive Property (1 Mark):</strong> Magnets attract ferromagnetic materials like iron, nickel, cobalt, and steel. <em>Experiment:</em> Rolling a magnet picks up iron nails while leaving plastic beads behind.</li>
+            <li><strong>Polar Concentration (1 Mark):</strong> Magnetic attraction is strongest at the two ends (poles) and nearly zero in the middle. <em>Experiment:</em> In Activity 4.2, iron filings clump densely at the ends, leaving the centre bare.</li>
+            <li><strong>Directive Property (1 Mark):</strong> A freely suspended magnet always aligns itself along the geographic North-South line. <em>Experiment:</em> A bar magnet hung from a thread consistently points North-South when rotated.</li>
+            <li><strong>Law of Poles (1 Mark):</strong> Like poles repel each other; unlike poles attract. <em>Experiment:</em> Bringing North to North on toy cars pushes them backward, while North to South pulls them together.</li>
+            <li><strong>Inseparable Dipoles (1 Mark):</strong> Isolated magnetic monopoles do not exist. Snapping a magnet in half immediately creates two smaller complete magnets with paired N and S poles.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- LAQ 2 -->
+      <details class="ans-box">
+        <summary><span><strong>Q2 (5 Marks):</strong> What is a Magnetic Compass? Describe its internal construction, working principle, and historical importance in ocean navigation.</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Model Answer:</strong></p>
+          <p><strong>1. Construction of a Magnetic Compass:</strong></p>
+          <ul class="bullet-list">
+            <li>Consists of a small circular casing made of non-magnetic material (such as brass, aluminum, or clear plastic) covered with a transparent glass top.</li>
+            <li>A light, magnetized steel needle is balanced on a sharp friction-free central pivot so it can rotate freely in the horizontal plane.</li>
+            <li>The North pole of the needle is painted with a bright red tip or luminous dot.</li>
+            <li>A circular dial underneath is marked with cardinal directions: North (N), South (S), East (E), West (W), and intermediate headings (NE, NW, SE, SW).</li>
+          </ul>
+
+          <p><strong>2. Working Principle:</strong></p>
+          <p>Earth acts as an enormous magnet whose magnetic South pole is situated near the geographic North Pole. When the compass is placed flat, Earth's geomagnetic field exerts torque on the magnetized needle, pulling the red North-seeking tip to align with true geographic North.</p>
+
+          <p><strong>3. Historical Importance in Maritime Navigation:</strong></p>
+          <p>Before the compass, ancient sailors could only navigate near coastlines or by looking at the Sun and the Pole Star. During monsoon storms or overcast nights, ships frequently became lost and wrecked. The magnetic compass allowed explorers to venture fearlessly into open oceans (like the spice trade route from Kerala to Arabia and Europe), transforming global commerce!</p>
+        </div>
+      </details>
+
+      <!-- LAQ 3 -->
+      <details class="ans-box">
+        <summary><span><strong>Q3 (5 Marks):</strong> Explain why a magnet loses its magnetism if mistreated. How must bar magnets and horseshoe magnets be stored for long-term preservation?</span> <i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>Model Answer:</strong></p>
+          <p><strong>1. Why Magnets Lose Magnetism (Demagnetization):</strong><br>
+          Inside magnetic metals, microscopic groups of atoms act like tiny magnets called <em>domains</em>. In a strong magnet, all these domains point in the same direction. When a magnet is subjected to severe physical stress (hammering, dropping) or heat, the intense vibrations jumble and randomize these domains. When the domains point in all directions, their magnetic effects cancel out, and the magnet dies.</p>
+
+          <p><strong>2. Proper Storage of Bar Magnets:</strong></p>
+          <ul class="bullet-list">
+            <li>Bar magnets must always be stored in <strong>pairs with opposite poles placed side-by-side</strong> (North pole beside South pole).</li>
+            <li>A strip of <strong>dry wood</strong> must be placed between them to keep them physically separated.</li>
+            <li>Two thick pieces of <strong>soft iron (magnetic keepers)</strong> must be placed across both open ends. This guides magnetic field lines into a continuous closed loop, preventing free poles from neutralizing themselves over time.</li>
+          </ul>
+
+          <p><strong>3. Proper Storage of a Horseshoe Magnet:</strong><br>
+          A single horseshoe (U-shaped) magnet only needs a single flat soft iron keeper placed across its two adjacent poles (bridging N and S) to lock the magnetic loop securely.</p>
+        </div>
+      </details>
+
+      <!-- Part E: Case Studies -->
+      <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem;">
+        <i class="fa-solid fa-id-card-clip"></i> Part E: 2 Competency-Based Case Studies
+      </h3>
+
+      <!-- Case Study 1 -->
+      <div class="card">
+        <h4 style="color: var(--primary-dark);"><i class="fa-solid fa-file-lines"></i> Case Study 1: The Floating Ring Toy</h4>
+        <p style="font-size: 0.93rem; line-height: 1.7; background: #f8fafc; padding: 1rem; border-radius: 8px; margin: 0.8rem 0;">
+          <em>"Aarav received a science toy consisting of a vertical smooth plastic rod fixed to a wooden base. The kit had three identical ceramic ring magnets painted red on one face and blue on the other. Aarav slid Ring 1 down the rod with its red face pointing up. Next, he slid Ring 2 with its red face pointing down. Ring 2 did not drop onto Ring 1; instead, it bounced and hovered in mid-air with a 2 cm visible air gap! When Aarav placed a 50-gram weight on Ring 2, it moved down slightly but continued to float without touching."</em>
+        </p>
+
+        <p><strong>Sub-Questions &amp; Detailed Answers:</strong></p>
+        <ol style="margin-left: 1.5rem; line-height: 1.8;">
+          <li><strong>What phenomenon explains why Ring 2 hovered in mid-air?</strong><br>
+          <em>Answer:</em> <strong>Magnetic Levitation caused by Repulsion</strong> between like magnetic poles (both facing red surfaces have identical polarity, e.g., North facing North).</li>
+          <li><strong>What will happen if Aarav removes Ring 2, flips it over so the blue face points down, and slides it back?</strong><br>
+          <em>Answer:</em> Ring 2 will immediately accelerate downward and snap tightly onto Ring 1 due to <strong>magnetic attraction</strong> between unlike poles (Red North attracts Blue South).</li>
+          <li><strong>How does this toy demonstrate the technology used in Maglev bullet trains?</strong><br>
+          <em>Answer:</em> It shows that strong repelling magnetic forces can overcome gravity and support heavy weights in mid-air, eliminating friction between moving surfaces.</li>
+        </ol>
+      </div>
+
+      <!-- Case Study 2 -->
+      <div class="card">
+        <h4 style="color: var(--primary-dark);"><i class="fa-solid fa-file-lines"></i> Case Study 2: The Junkyard Electromagnetic Crane</h4>
+        <p style="font-size: 0.93rem; line-height: 1.7; background: #f8fafc; padding: 1rem; border-radius: 8px; margin: 0.8rem 0;">
+          <em>"At a municipal metal recycling yard in Cuttack, a large crane with a flat circular disc moves over heaps of mixed city waste. When the crane operator presses a switch inside his cabin, hundreds of crushed tin cans, iron rods, rusted steel car doors, and engine blocks jump through the air and stick to the disc. The operator swings the crane arm over a waiting transport truck and flips the switch off. Instantly, all the heavy metal objects drop cleanly into the truck bed without anyone touching them."</em>
+        </p>
+
+        <p><strong>Sub-Questions &amp; Detailed Answers:</strong></p>
+        <ol style="margin-left: 1.5rem; line-height: 1.8;">
+          <li><strong>Why did aluminum beverage cans and copper wires in the garbage heap remain behind on the ground?</strong><br>
+          <em>Answer:</em> Because aluminum and copper are <strong>non-magnetic materials</strong> that experience no attractive force from a magnet.</li>
+          <li><strong>Why did all the iron objects drop into the truck bed when the operator flipped the switch off?</strong><br>
+          <em>Answer:</em> The crane uses an <strong>electromagnet</strong> that only possesses magnetism when electric current flows. Turning off the switch cuts the current, switching off the magnetic field and releasing the scrap.</li>
+          <li><strong>Identify two key advantages of using a magnetic crane over manual labour in a scrap yard.</strong><br>
+          <em>Answer:</em> It moves tons of heavy, sharp iron scrap rapidly without human injury and instantly separates magnetic iron from non-magnetic debris.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SECTION 6: EXAM MISTAKES & REVISION POINTS -->
+    <!-- ========================================== -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6 &bull; Exam Hall Readiness &amp; Quick Recap</span>
+        <h2>Exam Hall Traps &amp; 15 High-Yield Revision Points</h2>
+        <p class="section-sub">Common mistakes made by Class 6 students in exams, how to avoid them, and a crisp 15-point memory checklist.</p>
+      </div>
+
+      <!-- Common Pitfalls Table -->
+      <h3 style="color: var(--primary-dark); margin: 1.5rem 0 1rem;">
+        <i class="fa-solid fa-triangle-exclamation"></i> 5 Common Student Mistakes to Avoid
+      </h3>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Common Student Mistake</th>
+              <th style="width: 35%;">Why Students Make This Mistake</th>
+              <th style="width: 40%;">Correct Scientific Understanding to Write</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mistake 1:</strong> Claiming that all shiny metals are magnetic.</td>
+              <td>Students associate metal lustre with magnetism.</td>
+              <td><strong>Copper, Aluminum, Gold, and Brass</strong> are metals, but they are <strong>NON-MAGNETIC</strong>! Only iron, nickel, cobalt, and steel are magnetic.</td>
+            </tr>
+            <tr>
+              <td><strong>Mistake 2:</strong> Believing breaking a magnet isolates single poles.</td>
+              <td>Thinking cutting separates the North half from the South half.</td>
+              <td>Breaking creates <strong>two complete new magnets</strong>. Magnetic monopoles DO NOT exist in nature!</td>
+            </tr>
+            <tr>
+              <td><strong>Mistake 3:</strong> Using attraction as proof that an unknown bar is a magnet.</td>
+              <td>Forgetting that a magnet attracts both opposite poles and plain iron.</td>
+              <td><strong>Repulsion is the ONLY sure test</strong> of a magnet, because only two like poles can repel.</td>
+            </tr>
+            <tr>
+              <td><strong>Mistake 4:</strong> Assuming Earth's magnetic North is at geographic North.</td>
+              <td>Confusing geographic names with magnetic polarity.</td>
+              <td>Earth's <strong>magnetic SOUTH pole</strong> lies near geographic North (which is why the North tip of a compass is attracted there!).</td>
+            </tr>
+            <tr>
+              <td><strong>Mistake 5:</strong> Storing bar magnets with like poles side-by-side.</td>
+              <td>Forgetting proper storage configuration.</td>
+              <td>Bar magnets must be stored with <strong>unlike poles side-by-side</strong>, separated by wood, and closed with soft iron keepers.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 15 Crisp Revision Points -->
+      <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem;">
+        <i class="fa-solid fa-bolt"></i> 15 Ultra-Crisp Revision One-Liners (Memorize for 100%)
+      </h3>
+      <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem;">
+        <ol style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.85;">
+          <li><strong>Lodestone (Magnetite):</strong> The naturally occurring magnetic iron ore used by ancient maritime navigators.</li>
+          <li><strong>Magnetic Metals:</strong> Iron, Nickel, Cobalt, and Steel are strongly attracted to magnets.</li>
+          <li><strong>Non-Magnetic Materials:</strong> Wood, plastic, glass, rubber, paper, copper, and aluminium are not attracted by magnets.</li>
+          <li><strong>Poles:</strong> Every magnet has two poles &mdash; North (N) and South (S) &mdash; where magnetic force is strongest.</li>
+          <li><strong>Middle Region:</strong> The central section of a bar magnet exhibits almost zero magnetic attractive force.</li>
+          <li><strong>Inseparable Pairs:</strong> Cutting a magnet produces smaller complete magnets; a solitary magnetic pole cannot exist.</li>
+          <li><strong>Directive Property:</strong> A freely suspended magnet always settles pointing along the Earth's geographic North-South line.</li>
+          <li><strong>Earth's Magnetism:</strong> Earth acts as a giant magnet with its magnetic South pole situated near geographic North.</li>
+          <li><strong>Magnetic Compass:</strong> Uses a pivoted magnetized needle to indicate cardinal directions (N, S, E, W).</li>
+          <li><strong>Like Poles Repel:</strong> North repels North, and South repels South.</li>
+          <li><strong>Unlike Poles Attract:</strong> North attracts South, and South attracts North.</li>
+          <li><strong>Sure Test:</strong> Repulsion is the only foolproof test of magnetism.</li>
+          <li><strong>Demagnetization:</strong> Magnets lose their strength when heated, hammered, or dropped from heights.</li>
+          <li><strong>Safe Storage:</strong> Keep bar magnets in pairs with opposite poles adjacent, wooden spacers, and soft iron keepers.</li>
+          <li><strong>Maglev Trains:</strong> Magnetic levitation eliminates wheel-rail friction, enabling speeds over 450 km/h.</li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer style="background: #0f172a; color: #94a3b8; padding: 2.5rem 1.5rem; text-align: center; font-size: 0.9rem; border-top: 1px solid #334155;">
+    <div style="max-width: 800px; margin: 0 auto;">
+      <p style="color: #f8fafc; font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem;">
+        <i class="fa-solid fa-graduation-cap"></i> Sujit Classes &bull; Conceptual Learning Portal
+      </p>
+      <p style="margin-bottom: 1rem;">
+        Complete Master Study Note for Class 6 Science &bull; Chapter 4: Exploring Magnets &bull; Prepared strictly according to NCERT Curiosity &amp; CBSE Guidelines.
+      </p>
+      <p style="font-size: 0.8rem; color: #64748b;">
+        &copy; 2026 Sujit Classes. All rights reserved. Crafted for students in Odisha &amp; nationwide for conceptual mastery.
+      </p>
+      <div style="margin-top: 1rem;">
+        <a href="../../index.html" style="color: #38bdf8; text-decoration: none; font-weight: 600; margin: 0 0.75rem;">
+          <i class="fa-solid fa-house"></i> Portal Home
+        </a>
+        <a href="#sec1" style="color: #38bdf8; text-decoration: none; font-weight: 600; margin: 0 0.75rem;">
+          <i class="fa-solid fa-arrow-up"></i> Back to Top
+        </a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
