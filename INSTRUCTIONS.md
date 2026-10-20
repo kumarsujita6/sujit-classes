@@ -55,3 +55,19 @@ Always lowercase with hyphens (`-`). Never use spaces or native Odia script in f
 - **Embedded Visuals:** Include full, rich inline responsive `<svg>` diagrams for core geographic, cultural, and historical concepts.
 - **Accessible Diction:** Explain all concepts in simple, everyday language that an 11-to-12-year-old student can easily understand on the first read.
 - **Full NCERT & CBE Coverage:** Every single in-text prompt, box, activity, and end-of-chapter exercise must be thoroughly solved in simple, point-wise language.
+
+
+## 7. Interactive UI & Fluid Animation Standards for HTML Notes
+Every generated chapter HTML note must incorporate:
+1. **Reading Progress Bar (Top-Fixed):**
+   - A thin 4px linear gradient progress bar at the very top of the window that fills from 0% to 100% as the reader scrolls.
+2. **Interactive Quiz Engine (Section 5):**
+   - Render MCQs with clickable button options.
+   - Clicking an option must immediately evaluate:
+     - Correct option: Turns **Green** with an affirmative icon.
+     - Wrong option: Turns **Red** and highlights the correct choice.
+   - Displays real-time score counters for students.
+3. **Audio Reader (Text-to-Speech):**
+   - Add a "🔊 Listen to Summary" button utilizing `window.speechSynthesis` so young students can listen to pronunciation and explanations.
+4. **Interactive SVG Micro-Animations:**
+   - Include gentle CSS hover effects, glowing lines, or rotating indicator needles inside diagrams.

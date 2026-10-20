@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sujit Classes | Digital Study Portal (Class 6 to 10 - English & Odia Medium)</title>
+  <title>Sujit Classes | Interactive Digital Study Portal (Class 6 to 10)</title>
   <!-- Google Fonts: Plus Jakarta Sans & Noto Sans Oriya -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,10 +19,25 @@
       --odia-light: #ccfbf1;
       --bg-body: #f8fafc;
       --bg-card: #ffffff;
+      --bg-card-hover: #ffffff;
       --text-main: #0f172a;
-      --text-muted: #475569;
+      --text-muted: #64748b;
       --border: #e2e8f0;
-      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.03);
+      --radius: 16px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    [data-theme="dark"] {
+      --bg-body: #090d16;
+      --bg-card: #111827;
+      --bg-card-hover: #172033;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #1f293d;
+      --shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+      --primary-light: #082f49;
+      --odia-light: #134e4a;
     }
 
     * {
@@ -39,14 +54,16 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     /* Top Navbar */
     .navbar {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
-      padding: 14px 24px;
+      padding: 12px 24px;
       position: sticky;
       top: 0;
       z-index: 1000;
@@ -55,6 +72,11 @@
       align-items: center;
       flex-wrap: wrap;
       gap: 12px;
+      transition: var(--transition);
+    }
+
+    [data-theme="dark"] .navbar {
+      background: rgba(17, 24, 39, 0.85);
     }
 
     .brand {
@@ -66,64 +88,78 @@
     }
 
     .brand-logo {
-      width: 42px;
-      height: 42px;
+      width: 44px;
+      height: 44px;
       background: linear-gradient(135deg, var(--primary), var(--odia-primary));
       color: white;
-      border-radius: 10px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 800;
       font-size: 1.25rem;
-      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.25);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+      transition: transform 0.3s ease;
+    }
+
+    .brand:hover .brand-logo {
+      transform: rotate(-6deg) scale(1.05);
     }
 
     .brand-text h1 {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
       font-weight: 800;
       line-height: 1.1;
-      color: #0f172a;
+      letter-spacing: -0.3px;
     }
 
     .brand-text span {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       color: var(--text-muted);
       font-weight: 600;
     }
 
-    .nav-stats {
+    .nav-actions {
       display: flex;
-      gap: 8px;
+      gap: 10px;
       align-items: center;
-      font-size: 0.8rem;
-      font-weight: 700;
     }
 
-    .stat-pill {
-      background: #f1f5f9;
-      padding: 6px 12px;
-      border-radius: 999px;
-      color: var(--text-muted);
+    .theme-toggle-btn {
+      background: var(--bg-card);
       border: 1px solid var(--border);
+      color: var(--text-main);
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+
+    .theme-toggle-btn:hover {
+      transform: scale(1.08);
+      border-color: var(--primary);
     }
 
     /* Hero Banner */
     .hero {
-      background: linear-gradient(135deg, #0f172a 0%, #0369a1 55%, #0d9488 100%);
+      background: linear-gradient(135deg, #090d16 0%, #0369a1 55%, #0d9488 100%);
       color: white;
-      padding: 40px 20px 54px 20px;
+      padding: 44px 20px 60px 20px;
       text-align: center;
-    }
-
-    .hero-inner {
-      max-width: 820px;
-      margin: 0 auto;
+      position: relative;
     }
 
     .hero-badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.16);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
       padding: 5px 14px;
       border-radius: 999px;
       font-size: 0.78rem;
@@ -131,40 +167,48 @@
       letter-spacing: 0.5px;
       text-transform: uppercase;
       margin-bottom: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .hero h2 {
-      font-size: 2.1rem;
+      font-size: 2.2rem;
       font-weight: 800;
       margin-bottom: 8px;
       line-height: 1.25;
+      letter-spacing: -0.5px;
     }
 
     .hero p {
-      font-size: 0.96rem;
+      font-size: 0.98rem;
       opacity: 0.9;
       max-width: 650px;
       margin: 0 auto 22px auto;
     }
 
-    /* Search Bar */
+    /* Search Box */
     .search-box {
-      max-width: 540px;
+      max-width: 560px;
       margin: 0 auto;
       position: relative;
     }
 
     .search-box input {
       width: 100%;
-      padding: 14px 20px 14px 46px;
-      border-radius: 12px;
+      padding: 15px 75px 15px 48px;
+      border-radius: 14px;
       border: none;
       font-family: inherit;
       font-size: 0.95rem;
       font-weight: 500;
-      color: var(--text-main);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      color: #0f172a;
+      background: #ffffff;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
       outline: none;
+      transition: var(--transition);
+    }
+
+    .search-box input:focus {
+      box-shadow: 0 0 0 4px rgba(2, 132, 199, 0.4), 0 12px 30px rgba(0, 0, 0, 0.25);
     }
 
     .search-icon {
@@ -172,32 +216,107 @@
       left: 16px;
       top: 50%;
       transform: translateY(-50%);
-      font-size: 1.1rem;
+      font-size: 1.15rem;
+    }
+
+    .kbd-shortcut {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #f1f5f9;
+      color: #64748b;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 4px 8px;
+      border-radius: 6px;
+      border: 1px solid #cbd5e1;
+      pointer-events: none;
     }
 
     /* Main Container */
     .container {
-      max-width: 1160px;
+      max-width: 1180px;
       width: 100%;
-      margin: -28px auto 40px auto;
+      margin: -32px auto 40px auto;
       padding: 0 20px;
       position: relative;
       z-index: 10;
       flex: 1;
     }
 
-    /* Control Panel */
+    /* Progress Tracker Widget */
+    .progress-widget {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      box-shadow: var(--shadow);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      transition: var(--transition);
+    }
+
+    .progress-text {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .progress-icon {
+      font-size: 1.5rem;
+    }
+
+    .progress-info h4 {
+      font-size: 0.95rem;
+      font-weight: 800;
+    }
+
+    .progress-info p {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .progress-bar-wrap {
+      flex: 1;
+      min-width: 200px;
+      max-width: 380px;
+      background: var(--border);
+      height: 10px;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      width: 0%;
+      transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .progress-percentage {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    /* Filter Controls Panel */
     .control-panel {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: var(--radius);
       padding: 22px 24px;
       box-shadow: var(--shadow);
       margin-bottom: 24px;
+      transition: var(--transition);
     }
 
     .filter-label {
-      font-size: 0.76rem;
+      font-size: 0.74rem;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.6px;
@@ -206,15 +325,16 @@
       display: block;
     }
 
-    /* Step 1: Medium Switcher */
+    /* Medium Switcher */
     .medium-switcher {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
-      background: #f1f5f9;
+      background: var(--bg-body);
       padding: 6px;
       border-radius: 12px;
       margin-bottom: 20px;
+      border: 1px solid var(--border);
     }
 
     .medium-btn {
@@ -223,11 +343,11 @@
       padding: 12px 16px;
       border-radius: 9px;
       font-family: inherit;
-      font-size: 0.96rem;
+      font-size: 0.94rem;
       font-weight: 800;
       color: var(--text-muted);
       cursor: pointer;
-      transition: all 0.2s;
+      transition: var(--transition);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -237,16 +357,16 @@
     .medium-btn.active-english {
       background: var(--primary);
       color: white;
-      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3);
     }
 
     .medium-btn.active-odia {
       background: var(--odia-primary);
       color: white;
-      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.3);
+      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.3);
     }
 
-    /* Step 2: Class Tabs */
+    /* Class Tabs */
     .class-tabs {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -256,15 +376,15 @@
 
     .class-tab {
       border: 1.5px solid var(--border);
-      background: #fff;
+      background: var(--bg-card);
       padding: 10px 8px;
-      border-radius: 10px;
+      border-radius: 12px;
       font-family: inherit;
       font-weight: 800;
       font-size: 0.92rem;
       color: var(--text-main);
       cursor: pointer;
-      transition: all 0.2s;
+      transition: var(--transition);
       text-align: center;
     }
 
@@ -278,20 +398,21 @@
 
     .class-tab:hover {
       border-color: #94a3b8;
-      background: #f8fafc;
+      transform: translateY(-2px);
     }
 
     .class-tab.active {
       border-color: var(--primary);
       background: var(--primary-light);
       color: var(--primary-dark);
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
     }
 
-    .class-tab.active span {
-      color: var(--primary-dark);
+    [data-theme="dark"] .class-tab.active {
+      color: #7dd3fc;
     }
 
-    /* Step 3: Dynamic Subject Cards for the Selected Class */
+    /* Subject Cards Grid */
     .subject-cards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
@@ -300,43 +421,40 @@
 
     .subject-folder {
       border: 1.5px solid var(--border);
-      background: #f8fafc;
+      background: var(--bg-body);
       border-radius: 12px;
       padding: 11px 14px;
       cursor: pointer;
-      transition: all 0.2s;
+      transition: var(--transition);
       display: flex;
       align-items: center;
       gap: 10px;
       text-align: left;
       font-family: inherit;
+      color: var(--text-main);
     }
 
     .subject-folder:hover {
-      background: #ffffff;
-      border-color: #94a3b8;
+      background: var(--bg-card);
+      border-color: var(--primary);
       transform: translateY(-2px);
     }
 
     .subject-folder.active {
-      background: #0f172a;
-      border-color: #0f172a;
-      color: #ffffff;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+      background: var(--text-main);
+      border-color: var(--text-main);
+      color: var(--bg-card);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
     }
 
     .sub-icon {
-      font-size: 1.4rem;
+      font-size: 1.35rem;
       line-height: 1;
-    }
-
-    .sub-info {
-      overflow: hidden;
     }
 
     .sub-name {
       font-weight: 800;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
       line-height: 1.25;
       white-space: nowrap;
       overflow: hidden;
@@ -364,14 +482,15 @@
     .status-title {
       font-size: 1.15rem;
       font-weight: 800;
-      color: var(--text-main);
+      letter-spacing: -0.3px;
     }
 
     .status-count {
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 700;
       color: var(--text-muted);
-      background: #e2e8f0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       padding: 4px 12px;
       border-radius: 999px;
     }
@@ -386,18 +505,20 @@
     .material-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 20px;
+      border-radius: var(--radius);
+      padding: 22px;
       box-shadow: var(--shadow);
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.2s, box-shadow 0.2s;
+      transition: var(--transition);
+      position: relative;
     }
 
     .material-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.12);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px -6px rgba(15, 23, 42, 0.12);
+      border-color: var(--primary);
     }
 
     .card-top-tags {
@@ -409,23 +530,36 @@
     }
 
     .subject-tag {
-      font-size: 0.73rem;
+      font-size: 0.72rem;
       font-weight: 800;
       padding: 4px 10px;
       border-radius: 6px;
-      background: #e0f2fe;
-      color: #0369a1;
+      background: var(--primary-light);
+      color: var(--primary);
     }
 
-    .status-badge {
+    .badge-live {
+      background: #dcfce7;
+      color: #15803d;
       font-size: 0.72rem;
       font-weight: 700;
       padding: 3px 8px;
       border-radius: 999px;
     }
 
-    .badge-live { background: #dcfce7; color: #15803d; }
-    .badge-soon { background: #f1f5f9; color: #64748b; }
+    .badge-soon {
+      background: #f1f5f9;
+      color: #64748b;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 999px;
+    }
+
+    [data-theme="dark"] .badge-soon {
+      background: #1e293b;
+      color: #94a3b8;
+    }
 
     .card-ch-num {
       font-size: 0.8rem;
@@ -435,11 +569,12 @@
     }
 
     .card-title {
-      font-size: 1.06rem;
+      font-size: 1.08rem;
       font-weight: 800;
       color: var(--text-main);
       margin-bottom: 8px;
       line-height: 1.35;
+      letter-spacing: -0.2px;
     }
 
     .card-desc {
@@ -448,10 +583,13 @@
       margin-bottom: 18px;
     }
 
-    .card-actions {
+    .card-footer {
       display: flex;
+      align-items: center;
       gap: 10px;
       margin-top: auto;
+      padding-top: 14px;
+      border-top: 1px dashed var(--border);
     }
 
     .card-btn {
@@ -459,45 +597,83 @@
       text-align: center;
       text-decoration: none;
       padding: 10px 14px;
-      border-radius: 9px;
+      border-radius: 10px;
       font-weight: 700;
       font-size: 0.86rem;
-      transition: all 0.2s;
+      transition: var(--transition);
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 6px;
     }
 
-    .btn-read { background: var(--primary); color: white; }
-    .btn-read:hover { background: var(--primary-dark); }
-    .btn-disabled { background: #f1f5f9; color: #94a3b8; cursor: not-allowed; }
+    .btn-read {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-read:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    .btn-disabled {
+      background: var(--border);
+      color: var(--text-muted);
+      cursor: not-allowed;
+    }
+
+    .checkbox-btn {
+      background: transparent;
+      border: 1.5px solid var(--border);
+      width: 38px;
+      height: 38px;
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      transition: var(--transition);
+    }
+
+    .checkbox-btn:hover {
+      border-color: var(--success);
+      transform: scale(1.05);
+    }
+
+    .checkbox-btn.completed {
+      background: var(--success-light);
+      border-color: var(--success);
+      color: var(--success);
+    }
 
     .empty-state {
       grid-column: 1 / -1;
       text-align: center;
-      padding: 44px 20px;
-      background: white;
-      border-radius: 14px;
+      padding: 48px 20px;
+      background: var(--bg-card);
+      border-radius: var(--radius);
       border: 1px dashed var(--border);
     }
 
     footer {
-      background: #0f172a;
-      color: #cbd5e1;
+      background: var(--bg-card);
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
       padding: 30px 20px;
       text-align: center;
       font-size: 0.88rem;
       margin-top: auto;
     }
 
-    footer strong { color: white; }
-
-    @media (max-width: 680px) {
+    @media (max-width: 720px) {
       .medium-switcher { grid-template-columns: 1fr; }
       .class-tabs { grid-template-columns: repeat(3, 1fr); }
       .subject-cards-grid { grid-template-columns: repeat(2, 1fr); }
-      .hero h2 { font-size: 1.65rem; }
+      .hero h2 { font-size: 1.7rem; }
+      .progress-widget { flex-direction: column; align-items: stretch; }
+      .progress-bar-wrap { max-width: 100%; }
     }
   </style>
 </head>
@@ -509,31 +685,46 @@
       <div class="brand-logo">SC</div>
       <div class="brand-text">
         <h1>Sujit Classes</h1>
-        <span>Class 6 to 10 • Subject-Wise Study Portal</span>
+        <span>Study Portal • Classes 6 to 10</span>
       </div>
     </a>
-    <div class="nav-stats">
-      <span class="stat-pill">🇬🇧 English Medium (CBSE)</span>
-      <span class="stat-pill">🇮🇳 ଓଡ଼ିଆ ମାଧ୍ୟମ (BSE)</span>
+    <div class="nav-actions">
+      <button class="theme-toggle-btn" id="themeToggle" onclick="toggleTheme()" title="Toggle Dark/Light Mode">🌙</button>
     </div>
   </nav>
 
   <!-- HERO HEADER -->
   <header class="hero">
     <div class="hero-inner">
-      <span class="hero-badge">📚 Class-Wise & Subject-Wise Master Notes</span>
-      <h2>Choose Your Medium, Class & Subject</h2>
-      <p>Every class has its own dedicated subjects for both CBSE English Medium and BSE Odia Medium.</p>
+      <span class="hero-badge">✨ Interactive Digital Learning Experience</span>
+      <h2>Master Notes, Diagrams &amp; Question Banks</h2>
+      <p>Clean, child-friendly explanations for CBSE English Medium and BSE Odia Medium.</p>
       
       <div class="search-box">
         <span class="search-icon">🔍</span>
-        <input type="text" id="searchInput" placeholder="Search any chapter or subject (e.g., Oceans, Algebra, ବୀଜଗଣିତ)..." oninput="renderMaterials()">
+        <input type="text" id="searchInput" placeholder="Search any topic, chapter, or subject..." oninput="renderMaterials()">
+        <span class="kbd-shortcut">Ctrl K</span>
       </div>
     </div>
   </header>
 
   <!-- MAIN CONTAINER -->
   <main class="container">
+
+    <!-- STUDENT PROGRESS TRACKER -->
+    <div class="progress-widget" id="progressWidget">
+      <div class="progress-text">
+        <span class="progress-icon">🎯</span>
+        <div class="progress-info">
+          <h4>Your Study Progress</h4>
+          <p id="progressSubtext">Track completed chapters as you prepare</p>
+        </div>
+      </div>
+      <div class="progress-bar-wrap">
+        <div class="progress-bar-fill" id="progressBarFill"></div>
+      </div>
+      <div class="progress-percentage" id="progressPercent">0%</div>
+    </div>
 
     <!-- STEP-BY-STEP FILTER PANEL -->
     <section class="control-panel">
@@ -545,7 +736,7 @@
           🇬🇧 English Medium (CBSE / NCERT)
         </button>
         <button id="btn-odia" class="medium-btn" onclick="selectMedium('odia')">
-          🇮🇳 ଓଡ଼ିଆ ମାଧ୍ୟମ (Odia Medium - BSE Odisha)
+          🇮🇳 ଓଡ଼ିଆ ମାଧ୍ୟମ (BSE Odisha)
         </button>
       </div>
 
@@ -559,15 +750,13 @@
         <button class="class-tab" onclick="selectClass(10)">Class 10 <span>ଦଶମ ଶ୍ରେଣୀ</span></button>
       </div>
 
-      <!-- 3. SUBJECTS OF THAT SPECIFIC CLASS -->
-      <span class="filter-label" id="subjectStepLabel">Step 3: Select Subject for Class 6 (ବିଷୟ ବାଛନ୍ତୁ)</span>
-      <div class="subject-cards-grid" id="subjectGrid">
-        <!-- Dynamically populated based on selected Medium + Class -->
-      </div>
+      <!-- 3. SUBJECTS -->
+      <span class="filter-label" id="subjectStepLabel">Step 3: Select Subject for Class 6</span>
+      <div class="subject-cards-grid" id="subjectGrid"></div>
 
     </section>
 
-    <!-- CURRENT SELECTION HEADING -->
+    <!-- STATUS BAR -->
     <div class="status-bar">
       <div class="status-title" id="currentHeading">🇬🇧 English Medium • Class 6 • All Subjects</div>
       <div class="status-count" id="resultCount">0 Chapters</div>
@@ -580,467 +769,154 @@
 
   <footer>
     <p><strong>Sujit Classes – Digital Learning Portal</strong></p>
-    <p style="margin-top: 4px; opacity: 0.8;">Prepared by Sujit Sir | Secondary Education (Classes 6–10) • Odisha, India</p>
+    <p style="margin-top: 4px; opacity: 0.8;">Prepared for Secondary Students (Classes 6–10) • Odisha, India</p>
   </footer>
 
-  <!-- =========================================================================
-       JAVASCRIPT: CLASS-WISE SUBJECTS & CHAPTER DATABASE
-       ========================================================================= -->
   <script>
-    /*
-     * 1. EXACT SUBJECT LIST FOR EVERY CLASS & MEDIUM
-     * Each class has its own specific subjects!
-     */
+    // Theme Management
+    function initTheme() {
+      const savedTheme = localStorage.getItem('sc_theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      updateThemeButton(savedTheme);
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      const target = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', target);
+      localStorage.setItem('sc_theme', target);
+      updateThemeButton(target);
+    }
+
+    function updateThemeButton(theme) {
+      document.getElementById('themeToggle').textContent = theme === 'dark' ? '☀️' : '🌙';
+    }
+
+    // Ctrl+K to Search
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        document.getElementById('searchInput').focus();
+      }
+    });
+
+    // Subject Configurations
     const classSubjectsConfig = {
       english: {
         6: [
+          { id: 'Social Science', name: 'Social Science', icon: '🌍' },
           { id: 'Science', name: 'Science', icon: '🔬' },
           { id: 'Mathematics', name: 'Mathematics', icon: '📐' },
-          { id: 'Social Science', name: 'Social Science', icon: '🌍' },
           { id: 'English', name: 'English', icon: '📖' },
-          { id: 'Odia', name: 'Odia (MIL)', icon: '📝' },
-          { id: 'Hindi / Sanskrit', name: 'Hindi / Sanskrit', icon: '🕉️' }
+          { id: 'Odia', name: 'Odia (MIL)', icon: '📝' }
         ],
         7: [
+          { id: 'English', name: 'English', icon: '📖' },
           { id: 'Science', name: 'Science', icon: '🔬' },
           { id: 'Mathematics', name: 'Mathematics', icon: '📐' },
-          { id: 'Social Science', name: 'Social Science', icon: '🌍' },
-          { id: 'English', name: 'English', icon: '📖' },
-          { id: 'Odia', name: 'Odia (MIL)', icon: '📝' },
-          { id: 'Hindi / Sanskrit', name: 'Hindi / Sanskrit', icon: '🕉️' }
+          { id: 'Social Science', name: 'Social Science', icon: '🌍' }
         ],
         8: [
           { id: 'Science', name: 'Science', icon: '🔬' },
           { id: 'Mathematics', name: 'Mathematics', icon: '📐' },
-          { id: 'Social Science', name: 'Social Science', icon: '🌍' },
-          { id: 'English', name: 'English', icon: '📖' },
-          { id: 'Information Tech', name: 'Computer / IT', icon: '💻' },
-          { id: 'Odia / Hindi', name: 'Odia / Hindi', icon: '📝' }
+          { id: 'Social Science', name: 'Social Science', icon: '🌍' }
         ],
         9: [
           { id: 'Science', name: 'Science (Exploration)', icon: '🔬' },
           { id: 'Mathematics', name: 'Maths (Ganita Manjari)', icon: '📐' },
           { id: 'Social Science', name: 'SST (Understanding Society)', icon: '🌍' },
-          { id: 'English', name: 'English (Kaveri)', icon: '📖' },
-          { id: 'Odia / Hindi / Sanskrit', name: 'Odia / Ganga / Sharda', icon: '📝' },
-          { id: 'IT / AI', name: 'IT / Artificial Intell.', icon: '🤖' }
+          { id: 'English', name: 'English (Kaveri)', icon: '📖' }
         ],
         10: [
           { id: 'Physics', name: 'Physics', icon: '⚡' },
           { id: 'Chemistry', name: 'Chemistry', icon: '🧪' },
           { id: 'Biology', name: 'Biology', icon: '🧬' },
-          { id: 'Mathematics', name: 'Mathematics', icon: '📐' },
-          { id: 'History & Pol. Sc.', name: 'History & Pol. Sc.', icon: '🏛️' },
-          { id: 'Geography & Econ.', name: 'Geography & Econ.', icon: '🌏' },
-          { id: 'English', name: 'English', icon: '📖' },
-          { id: 'Odia / Hindi', name: 'Odia / Hindi', icon: '📝' }
+          { id: 'Mathematics', name: 'Mathematics', icon: '📐' }
         ]
       },
       odia: {
         6: [
-          { id: 'ବିଜ୍ଞାନ (Science)', name: 'ବିଜ୍ଞାନ (Science)', icon: '🔬' },
-          { id: 'ଗଣିତ (Maths)', name: 'ଗଣିତ (Maths)', icon: '📐' },
-          { id: 'ଇତିହାସ ଓ ରାଜନୀତି', name: 'ଇତିହାସ ଓ ରାଜନୀତି', icon: '🏛️' },
           { id: 'ଭୂଗୋଳ (Geography)', name: 'ଭୂଗୋଳ (Geography)', icon: '🌍' },
-          { id: 'ସାହିତ୍ୟ (MIL Odia)', name: 'ସାହିତ୍ୟ (MIL Odia)', icon: '📕' },
+          { id: 'ବିଜ୍ଞାନ (Science)', name: 'ବିଜ୍ଞାନ (Science)', icon: '🔬' },
           { id: 'ଇଂରାଜୀ (English)', name: 'ଇଂରାଜୀ (English)', icon: '🔤' }
         ],
         7: [
-          { id: 'ବିଜ୍ଞାନ (Science)', name: 'ବିଜ୍ଞାନ (Science)', icon: '🔬' },
-          { id: 'ଗଣିତ (Maths)', name: 'ଗଣିତ (Maths)', icon: '📐' },
-          { id: 'ଇତିହାସ ଓ ରାଜନୀତି', name: 'ଇତିହାସ ଓ ରାଜନୀତି', icon: '🏛️' },
-          { id: 'ଭୂଗୋଳ (Geography)', name: 'ଭୂଗୋଳ (Geography)', icon: '🌍' },
-          { id: 'ସାହିତ୍ୟ (MIL Odia)', name: 'ସାହିତ୍ୟ (MIL Odia)', icon: '📕' },
-          { id: 'ଇଂରାଜୀ (English)', name: 'ଇଂରାଜୀ (English)', icon: '🔤' }
+          { id: 'ଇଂରାଜୀ (English)', name: 'ଇଂରାଜୀ (English)', icon: '🔤' },
+          { id: 'ବିଜ୍ଞାନ (Science)', name: 'ବିଜ୍ଞାନ (Science)', icon: '🔬' }
         ],
         8: [
           { id: 'ବୀଜଗଣିତ (Algebra)', name: 'ବୀଜଗଣିତ (Algebra)', icon: '➕' },
-          { id: 'ଜ୍ୟାମିତି (Geometry)', name: 'ଜ୍ୟାମିତି (Geometry)', icon: '📐' },
-          { id: 'ବିଜ୍ଞାନ (Science)', name: 'ବିଜ୍ଞାନ (Science)', icon: '🔬' },
-          { id: 'ଇତିହାସ ଓ ରାଜନୀତି', name: 'ଇତିହାସ ଓ ରାଜନୀତି', icon: '🏛️' },
-          { id: 'ଭୂଗୋଳ (Geography)', name: 'ଭୂଗୋଳ (Geography)', icon: '🌍' },
-          { id: 'ସାହିତ୍ୟ (MIL Odia)', name: 'ସାହିତ୍ୟ (MIL Odia)', icon: '📕' },
-          { id: 'ଇଂରାଜୀ (English)', name: 'ଇଂରାଜୀ (English)', icon: '🔤' }
+          { id: 'ଜ୍ୟାମିତି (Geometry)', name: 'ଜ୍ୟାମିତି (Geometry)', icon: '📐' }
         ],
         9: [
           { id: 'ବୀଜଗଣିତ (Algebra)', name: 'ବୀଜଗଣିତ (Algebra)', icon: '➕' },
-          { id: 'ଜ୍ୟାମିତି (Geometry)', name: 'ଜ୍ୟାମିତି (Geometry)', icon: '📐' },
-          { id: 'ଭୌତିକ ବିଜ୍ଞାନ (SCP)', name: 'ଭୌତିକ ବିଜ୍ଞାନ (SCP)', icon: '⚡' },
-          { id: 'ଜୀବ ବିଜ୍ଞାନ (SCL)', name: 'ଜୀବ ବିଜ୍ଞାନ (SCL)', icon: '🧬' },
-          { id: 'ଇତିହାସ (History)', name: 'ଇତିହାସ (History)', icon: '🏛️' },
-          { id: 'ଭୂଗୋଳ (Geography)', name: 'ଭୂଗୋଳ ଓ ଅର୍ଥନୀତି', icon: '🌍' },
-          { id: 'ସାହିତ୍ୟ (FLO)', name: 'ସାହିତ୍ୟ (FLO)', icon: '📕' },
-          { id: 'ଇଂରାଜୀ (SLE)', name: 'ଇଂରାଜୀ (SLE)', icon: '🔤' },
-          { id: 'ସଂସ୍କୃତ / ହିନ୍ଦୀ', name: 'ସଂସ୍କୃତ / ହିନ୍ଦୀ', icon: '🕉️' }
+          { id: 'ଜ୍ୟାମିତି (Geometry)', name: 'ଜ୍ୟାମିତି (Geometry)', icon: '📐' }
         ],
         10: [
           { id: 'ବୀଜଗଣିତ (Algebra)', name: 'ବୀଜଗଣିତ (Algebra)', icon: '➕' },
-          { id: 'ଜ୍ୟାମିତି (Geometry)', name: 'ଜ୍ୟାମିତି (Geometry)', icon: '📐' },
-          { id: 'ଭୌତିକ ବିଜ୍ଞାନ (SCP)', name: 'ଭୌତିକ ବିଜ୍ଞାନ (SCP)', icon: '⚡' },
-          { id: 'ଜୀବ ବିଜ୍ଞାନ (SCL)', name: 'ଜୀବ ବିଜ୍ଞାନ (SCL)', icon: '🧬' },
-          { id: 'ଇତିହାସ (History)', name: 'ଇତିହାସ (History)', icon: '🏛️' },
-          { id: 'ଭୂଗୋଳ (Geography)', name: 'ଭୂଗୋଳ ଓ ଅର୍ଥନୀତି', icon: '🌍' },
-          { id: 'ସାହିତ୍ୟ (FLO)', name: 'ସାହିତ୍ୟ (FLO)', icon: '📕' },
-          { id: 'ଇଂରାଜୀ (SLE)', name: 'ଇଂରାଜୀ (SLE)', icon: '🔤' },
-          { id: 'ସଂସ୍କୃତ / ହିନ୍ଦୀ', name: 'ସଂସ୍କୃତ / ହିନ୍ଦୀ', icon: '🕉️' }
+          { id: 'ଭୌତିକ ବିଜ୍ଞାନ (SCP)', name: 'ଭୌତିକ ବିଜ୍ଞାନ (SCP)', icon: '⚡' }
         ]
       }
     };
 
-    /*
-     * 2. CHAPTERS DATABASE
-     * Make sure 'subject' matches one of the 'id' names in classSubjectsConfig above!
-     */
+    // Live Chapters Database
     const studyMaterials = [
-      // ================= ENGLISH MEDIUM - CLASS 6 =================
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 14',
-        title: 'Economic Activities Around Us',
-        desc: 'Complete Master Note: Primary, Secondary & Tertiary Sectors, Kautilya’s Arthashastra, AMUL Dairy Cooperative Revolution, Paper Lifecycle & Interdependence.',
-        link: 'english/class6/sst-ch14-economic-activities-around-us.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 13',
-        title: 'The Value of Work',
-        desc: 'Complete Master Note: Economic vs Non-Economic Activities, Salary, Wage, Fee, Payment in Kind, Value Addition (₹600 to ₹1000 Chair), Sevā, Langar & Swachh Bharat.',
-        link: 'english/class6/sst-ch13-the-value-of-work.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 12',
-        title: 'Grassroots Democracy – Part 3: Local Government in Urban Areas',
-        desc: 'Complete Master Note: Municipal Corporations, Councils & Nagar Panchayats, Wards, Oldest Corporation (Madras 1688), Indore Model & Panchayati Raj Comparison.',
-        link: 'english/class6/sst-ch12-grassroots-democracy-part-3-local-government-in-urban-areas.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 11',
-        title: 'Grassroots Democracy – Part 2: Local Government in Rural Areas',
-        desc: 'Complete Master Note: 3-Tier Panchayati Raj Architecture, Gram Sabha, Exemplary Sarpanchs, Child-Friendly Bal Panchayats & Kautilya’s Arthashastra.',
-        link: 'english/class6/sst-ch11-grassroots-democracy-part-2-local-government-in-rural-areas.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 10',
-        title: 'Grassroots Democracy – Part 1: Governance',
-        desc: 'Complete Master Note: 3 Organs & 3 Tiers of Government, Separation of Powers, Checks & Balances, Dr. Kalam, Direct vs Representative Democracy.',
-        link: 'english/class6/sst-ch10-grassroots-democracy-part-1-governance.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 9',
-        title: 'Family and Community',
-        desc: 'Complete Master Note: Family as Core Unit, Joint vs Nuclear, Kinship Semantics, Dharma & Values, Halma Tradition, RWAs & Interdependence.',
-        link: 'english/class6/sst-ch9-family-and-community.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 8',
-        title: "Unity in Diversity, or ‘Many in the One’",
-        desc: 'Complete Master Note: The Many in the One, Food & Spices, The Sari & Chintz, Harvest Festivals, Panchatantra & Epics in Folklore.',
-        link: 'english/class6/sst-ch8-unity-in-diversity-or-many-in-the-one.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 7',
-        title: "India's Cultural Roots",
-        desc: 'Complete Master Note: The Banyan Tree, Four Vedas & Chanting, Upanishads, Buddhism, Jainism, Tribal Traditions & NCERT Solutions.',
-        link: 'english/class6/sst-ch7-indias-cultural-roots.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 6',
-        title: 'The Beginnings of Indian Civilisation',
-        desc: 'Complete Master Note: First Urbanisation, Town Planning, Great Bath, Lothal Dockyard, Seals, Reservoirs & NCERT Solutions.',
-        link: 'english/class6/sst-ch6-the-beginnings-of-indian-civilisation.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 5',
-        title: 'India, That Is Bharat',
-        desc: 'Complete Master Note: Sapta Sindhava, Jambudvipa, Bharatavarsha, Persian/Greek Etymology of India, Xuanzang & NCERT Solutions.',
-        link: 'english/class6/sst-ch5-india-that-is-bharat.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 4',
-        title: 'Timeline and Sources of History',
-        desc: 'Complete Master Note: BCE/CE Without Year Zero, Archaeological & Literary Sources, Ice Age, First Crops & NCERT Solutions.',
-        link: 'english/class6/sst-ch4-timeline-and-historical-sources.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 3',
-        title: 'Landforms and Life',
-        desc: 'Complete Master Note: Mountains, Plateaus, Plains, Deserts, Sacred Confluences, Sangam Tinai & NCERT Solutions.',
-        link: 'english/class6/sst-ch3-landforms-and-life.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 2',
-        title: 'Oceans and Continents',
-        desc: 'Complete Master Note: 5 Oceans, 7 Continents, 2004 Tsunami, Islands, Crossword & Topper PYQ Bank.',
-        link: 'english/class6/sst-ch2-oceans-and-continents.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Social Science',
-        chapter: 'Chapter 1',
-        title: 'Locating Places on the Earth',
-        desc: 'Maps, Globes, Latitudes, Longitudes, IST & Time Zones with NCERT Solutions.',
-        link: 'english/class6/sst-ch1-locating-places-on-the-earth.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Science',
-        chapter: 'Chapter 1',
-        title: 'The Wonderful World of Science',
-        desc: 'Complete Master Note: What is Science, Infinite Jigsaw Puzzle, 5 Steps of Scientific Method, Everyday Scientists & 100% NCERT Solutions.',
-        link: 'english/class6/sci-ch1-the-wonderful-world-of-science.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Science',
-        chapter: 'Chapter 2',
-        title: 'Diversity in the Living World',
-        desc: 'Complete Master Note: Plant Groups (Herbs/Shrubs/Trees), Monocot vs Dicot Golden Rule, Animal Habitats, Adaptations & Sacred Groves.',
-        link: 'english/class6/sci-ch2-diversity-in-the-living-world.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Science',
-        chapter: 'Chapter 3',
-        title: 'Mindful Eating: A Path to a Healthy Body',
-        desc: 'Complete Master Note: Nutrients, Starch/Fat/Protein Tests, Balanced Diet, Deficiency Diseases, Millets & Food Miles.',
-        link: 'english/class6/sci-ch3-mindful-eating-a-path-to-a-healthy-body.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Science',
-        chapter: 'Chapter 4',
-        title: 'Exploring Magnets',
-        desc: 'Complete Master Note: Discovery of Magnets, Magnetic Poles, Magnetic vs Non-Magnetic Materials, Magnetic Compass, Earth as a Magnet & Maglev Trains.',
-        link: 'english/class6/sci-ch4-exploring-magnets.html',
-        isLive: true
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'Mathematics',
-        chapter: 'Chapter 1',
-        title: 'Patterns in Mathematics',
-        desc: 'Number sequences, shape patterns, step-by-step exercises & practice problems.',
-        link: '#',
-        isLive: false
-      },
-      {
-        medium: 'english',
-        classNum: 6,
-        subject: 'English',
-        chapter: 'Unit 1',
-        title: 'Fables and Folk Tales (A Bottle of Dew, The Raven and the Fox, Rama to the Rescue)',
-        desc: 'Complete Master Note: Summaries, Word Meanings, Homophones, Present Progressive, Adverbs & NCERT Solutions.',
-        link: 'english/class6/eng-unit1-fables-and-folk-tales.html',
-        isLive: true
-      },
-       // ================= ENGLISH MEDIUM - CLASS 7 =================
-      {
-        medium: 'english',
-        classNum: 7,
-        subject: 'English',
-        chapter: 'Unit 1',
-        title: 'Learning Together (The Day the River Spoke, Try Again, Three Days to See)',
-        desc: 'Complete Master Note: Summaries, Word Meanings, Grammar, Metaphors, Modals & NCERT Solutions.',
-        link: 'english/class7/eng-unit1-learning-together.html',
-        isLive: true
-      },
-      // ================= ENGLISH MEDIUM - CLASS 8 =================
-      {
-        medium: 'english',
-        classNum: 8,
-        subject: 'Information Tech',
-        chapter: 'Module 1',
-        title: 'Information Threats and Security',
-        desc: 'Cyber threats, malware types, firewalls, and safe browsing practices.',
-        link: '#',
-        isLive: false
-      },
+      // Class 6 Social Science
+      { id: 'c6_sst_1', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 1', title: 'Locating Places on the Earth', desc: 'Latitudes, Longitudes, Scale, Symbols, Ujjayinī Meridian, IST & International Date Line.', link: 'english/class6/sst-ch1-locating-places-on-the-earth.html', isLive: true },
+      { id: 'c6_sst_2', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 2', title: 'Oceans and Continents', desc: '5 Oceans, 7 Continents, 2004 Tsunami, Islands, Antarctica bases & Water Cycle.', link: 'english/class6/sst-ch2-oceans-and-continents.html', isLive: true },
+      { id: 'c6_sst_3', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 3', title: 'Landforms and Life', desc: 'Mountains, Plateaus, Plains, Deserts, Sacred Confluences & 5 Sangam Tinais.', link: 'english/class6/sst-ch3-landforms-and-life.html', isLive: true },
+      { id: 'c6_sst_4', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 4', title: 'Timeline and Historical Sources', desc: 'Chronology, BCE & CE, Archaeology, Numismatics, Epigraphy & Manuscripts.', link: 'english/class6/sst-ch4-timeline-and-historical-sources.html', isLive: true },
+      { id: 'c6_sst_5', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 5', title: 'India, That Is Bharat', desc: 'Name origins, Rigvedic roots, Article 1 of Constitution & natural boundaries.', link: 'english/class6/sst-ch5-india-that-is-bharat.html', isLive: true },
+      { id: 'c6_sst_6', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 6', title: 'The Beginnings of Indian Civilisation', desc: 'Mehrgarh, Indus-Sarasvati Civilisation, Town Planning, Lothal & Decline.', link: 'english/class6/sst-ch6-the-beginnings-of-indian-civilisation.html', isLive: true },
+      { id: 'c6_sst_7', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 7', title: "India's Cultural Roots", desc: 'Vedas, Upanishads, Epics, Buddhism, Jainism, Tribal Traditions & Values.', link: 'english/class6/sst-ch7-indias-cultural-roots.html', isLive: true },
+      { id: 'c6_sst_8', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 8', title: "Unity in Diversity, or 'Many in the One'", desc: 'Regional traditions, shared civilisational threads & geographical harmony.', link: 'english/class6/sst-ch8-unity-in-diversity-or-many-in-the-one.html', isLive: true },
+      { id: 'c6_sst_9', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 9', title: 'Family and Community', desc: 'Family structures, community living, mutual support & civic duties.', link: 'english/class6/sst-ch9-family-and-community.html', isLive: true },
+      { id: 'c6_sst_10', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 10', title: 'Grassroots Democracy — Part 1: Governance', desc: 'Concept of governance, democracy, three levels of government & Constitution.', link: 'english/class6/sst-ch10-grassroots-democracy-part-1-governance.html', isLive: true },
+      { id: 'c6_sst_11', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 11', title: 'Grassroots Democracy — Part 2: Rural Local Government', desc: 'Panchayati Raj, Gram Sabha, Sarpanch, Panchayat Samiti & Zilla Parishad.', link: 'english/class6/sst-ch11-grassroots-democracy-part-2-local-government-in-rural-areas.html', isLive: true },
+      { id: 'c6_sst_12', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 12', title: 'Grassroots Democracy — Part 3: Urban Local Government', desc: 'Municipalities, Municipal Corporations, Ward Councillors & City Services.', link: 'english/class6/sst-ch12-grassroots-democracy-part-3-local-government-in-urban-areas.html', isLive: true },
 
-      // ================= ENGLISH MEDIUM - CLASS 10 =================
-      {
-        medium: 'english',
-        classNum: 10,
-        subject: 'Physics',
-        chapter: 'Chapter 9',
-        title: 'Light – Reflection and Refraction',
-        desc: 'Ray diagrams, mirror & lens formulas, sign convention, and 10-Year Board PYQs.',
-        link: '#',
-        isLive: false
-      },
-      {
-        medium: 'english',
-        classNum: 10,
-        subject: 'Biology',
-        chapter: 'Chapter 6',
-        title: 'Control and Coordination',
-        desc: 'Human nervous system, reflex arc, plant hormones & endocrine glands.',
-        link: '#',
-        isLive: false
-      },
-      {
-        medium: 'english',
-        classNum: 10,
-        subject: 'Geography & Econ.',
-        chapter: 'Geography Ch 1',
-        title: 'Resources and Development',
-        desc: 'Resource planning in India, soil classification map & Board questions.',
-        link: '#',
-        isLive: false
-      },
-      {
-        medium: 'english',
-        classNum: 10,
-        subject: 'Geography & Econ.',
-        chapter: 'Economics Ch 2',
-        title: 'Sectors of the Indian Economy',
-        desc: 'Primary, Secondary & Tertiary sectors, Organised vs Unorganised sectors.',
-        link: '#',
-        isLive: false
-      },
+      // Class 6 English
+      { id: 'c6_eng_1', medium: 'english', classNum: 6, subject: 'English', chapter: 'Unit 1', title: 'Fables and Folk Tales', desc: 'A Bottle of Dew, The Raven and the Fox, Rama to the Rescue with Grammar.', link: 'english/class6/eng-unit1-fables-and-folk-tales.html', isLive: true },
+      { id: 'c6_eng_1_odia', medium: 'odia', classNum: 6, subject: 'ଇଂରାଜୀ (English)', chapter: 'Unit 1', title: 'Fables and Folk Tales', desc: 'A Bottle of Dew, The Raven and the Fox, Rama to the Rescue with Grammar.', link: 'english/class6/eng-unit1-fables-and-folk-tales.html', isLive: true },
 
-      // ================= ODIA MEDIUM - CLASS 6 =================
-      {
-        medium: 'odia',
-        classNum: 6,
-        subject: 'ଭୂଗୋଳ (Geography)',
-        chapter: 'ଅଧ୍ୟାୟ ୨',
-        title: 'ମହାସାଗର ଓ ମହାଦେଶ (Oceans & Continents)',
-        desc: 'ପୃଥିବୀର ୫ଟି ମହାସାଗର ଓ ୭ଟି ମହାଦେଶର ସମ୍ପୂର୍ଣ୍ଣ ନୋଟ୍ସ ଏବଂ ପ୍ରଶ୍ନୋତ୍ତର।',
-        link: '#',
-        isLive: false
-      },
-      {
-        medium: 'odia',
-        classNum: 6,
-        subject: 'ବିଜ୍ଞାନ (Science)',
-        chapter: 'ଅଧ୍ୟାୟ ୧',
-        title: 'ଖାଦ୍ୟ ଓ ଏହାର ଉତ୍ସ (Food & Sources)',
-        desc: 'ଉଦ୍ଭିଦ ଓ ପ୍ରାଣୀମାନଙ୍କଠାରୁ ମିଳୁଥିବା ଖାଦ୍ୟ ଏବଂ ଅଭ୍ୟାସ ପ୍ରଶ୍ନୋତ୍ତର।',
-        link: '#',
-        isLive: false
-      },
-      {
-         medium: 'odia',
-         classNum: 6,
-         subject: 'ଇଂରାଜୀ (English)',
-         chapter: 'Unit 1',
-         title: 'Fables and Folk Tales (A Bottle of Dew, The Raven and the Fox, Rama to the Rescue)',
-         desc: 'Complete Master Note: Summaries, Word Meanings, Homophones, Present Progressive, Adverbs & NCERT Solutions.',
-         link: 'english/class6/eng-unit1-fables-and-folk-tales.html',
-         isLive: true
-       },
-    // ================= ODIA MEDIUM - CLASS 7 =================
-      {
-        medium: 'odia',
-        classNum: 7,
-        subject: 'ଇଂରାଜୀ (English)',
-        chapter: 'Unit 1',
-        title: 'Learning Together (The Day the River Spoke, Try Again, Three Days to See)',
-        desc: 'Complete Master Note: Summaries, Word Meanings, Grammar, Metaphors, Modals & NCERT Solutions.',
-        link: 'english/class7/eng-unit1-learning-together.html',
-        isLive: true
-      },
-      // ================= ODIA MEDIUM - CLASS 10 =================
-      {
-        medium: 'odia',
-        classNum: 10,
-        subject: 'ବୀଜଗଣିତ (Algebra)',
-        chapter: 'ଅଧ୍ୟାୟ ୧',
-        title: 'ସରଳ ସହସମୀକରଣ (Linear Simultaneous Equations)',
-        desc: 'ଅପସାରଣ ଓ ବଜ୍ରଗୁଣନ ପଦ୍ଧତି ଏବଂ ଅନୁଶୀଳନୀ-1(a), 1(b) ର ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ।',
-        link: '#',
-        isLive: false
-      },
-      {
-        medium: 'odia',
-        classNum: 10,
-        subject: 'ଭୌତିକ ବିଜ୍ଞାନ (SCP)',
-        chapter: 'ଅଧ୍ୟାୟ ୧',
-        title: 'ରାସାୟନିକ ପ୍ରତିକ୍ରିୟା ଓ ସମୀକରଣ',
-        desc: 'ମାଟ୍ରିକ୍ ପରୀକ୍ଷା ପାଇଁ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ନୋଟ୍ସ, ସମୀକରଣ ସମତୁଲ ଓ ସମ୍ଭାବ୍ୟ ପ୍ରଶ୍ନ।',
-        link: '#',
-        isLive: false
-      },
-      {
-        medium: 'odia',
-        classNum: 10,
-        subject: 'ସାହିତ୍ୟ (FLO)',
-        chapter: 'ପଦ୍ୟ - ୧',
-        title: 'ବନ୍ଦେ ଉତ୍କଳ ଜନନୀ (Bande Utkala Janani)',
-        desc: 'କାନ୍ତକବି ଲକ୍ଷ୍ମୀକାନ୍ତ ମହାପାତ୍ରଙ୍କ କବିତାର ସରଳାର୍ଥ ଓ ଦୀର୍ଘ ପ୍ରଶ୍ନୋତ୍ତର।',
-        link: '#',
-        isLive: false
-      }
+      // Class 7 English
+      { id: 'c7_eng_1', medium: 'english', classNum: 7, subject: 'English', chapter: 'Unit 1', title: 'Learning Together', desc: 'The Day the River Spoke, Try Again, Three Days to See with Grammar & Vocab.', link: 'english/class7/eng-unit1-learning-together.html', isLive: true },
+      { id: 'c7_eng_1_odia', medium: 'odia', classNum: 7, subject: 'ଇଂରାଜୀ (English)', chapter: 'Unit 1', title: 'Learning Together', desc: 'The Day the River Spoke, Try Again, Three Days to See with Grammar & Vocab.', link: 'english/class7/eng-unit1-learning-together.html', isLive: true }
     ];
 
-    // Current Filter State
+    // Filter States
     let currentMedium = 'english';
     let currentClass = 6;
     let currentSubject = 'All';
 
+    // Progress Storage
+    function getCompletedMap() {
+      return JSON.parse(localStorage.getItem('sc_completed') || '{}');
+    }
+
+    function toggleCompleted(id) {
+      const map = getCompletedMap();
+      map[id] = !map[id];
+      localStorage.setItem('sc_completed', JSON.stringify(map));
+      updateProgressWidget();
+      renderMaterials();
+    }
+
+    function updateProgressWidget() {
+      const map = getCompletedMap();
+      const liveItems = studyMaterials.filter(m => m.isLive);
+      const completedCount = liveItems.filter(m => map[m.id]).length;
+      const total = liveItems.length;
+      const percent = total > 0 ? Math.round((completedCount / total) * 100) : 0;
+
+      document.getElementById('progressBarFill').style.width = `${percent}%`;
+      document.getElementById('progressPercent').textContent = `${percent}%`;
+      document.getElementById('progressSubtext').textContent = `${completedCount} of ${total} Live Chapters Completed`;
+    }
+
     function selectMedium(medium) {
       currentMedium = medium;
-      currentSubject = 'All'; // Reset subject to All when switching medium
+      currentSubject = 'All';
       document.getElementById('btn-eng').className = medium === 'english' ? 'medium-btn active-english' : 'medium-btn';
       document.getElementById('btn-odia').className = medium === 'odia' ? 'medium-btn active-odia' : 'medium-btn';
       renderSubjects();
@@ -1049,7 +925,7 @@
 
     function selectClass(classNum) {
       currentClass = classNum;
-      currentSubject = 'All'; // Reset subject to All when switching class
+      currentSubject = 'All';
       const tabs = document.querySelectorAll('#classTabs .class-tab');
       tabs.forEach((tab, index) => {
         tab.classList.toggle('active', index + 6 === classNum);
@@ -1064,15 +940,12 @@
       renderMaterials();
     }
 
-    // Dynamically renders the Subject Folders specific to the selected Medium & Class
     function renderSubjects() {
       const subjectGrid = document.getElementById('subjectGrid');
       const stepLabel = document.getElementById('subjectStepLabel');
-      stepLabel.textContent = `Step 3: Select Subject for Class ${currentClass} (ବିଷୟ ବାଛନ୍ତୁ)`;
+      stepLabel.textContent = `Step 3: Select Subject for Class ${currentClass}`;
 
       const subjectsForClass = classSubjectsConfig[currentMedium][currentClass] || [];
-
-      // Count chapters per subject for this class & medium
       const classItems = studyMaterials.filter(m => m.medium === currentMedium && m.classNum === currentClass);
 
       let html = `
@@ -1107,6 +980,7 @@
       const grid = document.getElementById('materialsGrid');
       const heading = document.getElementById('currentHeading');
       const countEl = document.getElementById('resultCount');
+      const completedMap = getCompletedMap();
 
       const mediumLabel = currentMedium === 'english' ? '🇬🇧 English Medium (CBSE)' : '🇮🇳 ଓଡ଼ିଆ ମାଧ୍ୟମ (BSE)';
       heading.textContent = `${mediumLabel} • Class ${currentClass} • ${currentSubject}`;
@@ -1129,37 +1003,47 @@
       if (filtered.length === 0) {
         grid.innerHTML = `
           <div class="empty-state">
-            <h3 style="margin-bottom:6px;">📂 No chapters uploaded in "${currentSubject}" for Class ${currentClass} yet</h3>
-            <p style="color:var(--text-muted); font-size:0.9rem;">Study notes for this subject will be added soon!</p>
+            <h3 style="margin-bottom:6px;">📂 No chapters found</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem;">No chapters uploaded in this category yet.</p>
           </div>
         `;
         return;
       }
 
-      grid.innerHTML = filtered.map(item => `
-        <article class="material-card">
-          <div>
-            <div class="card-top-tags">
-              <span class="subject-tag">${item.subject}</span>
-              <span class="status-badge ${item.isLive ? 'badge-live' : 'badge-soon'}">
-                ${item.isLive ? '● Live Note' : '⏳ Coming Soon'}
-              </span>
+      grid.innerHTML = filtered.map(item => {
+        const isDone = completedMap[item.id] || false;
+        return `
+          <article class="material-card" style="${isDone ? 'border-color: #10b981;' : ''}">
+            <div>
+              <div class="card-top-tags">
+                <span class="subject-tag">${item.subject}</span>
+                <span class="${item.isLive ? 'badge-live' : 'badge-soon'}">
+                  ${item.isLive ? '● Live Note' : '⏳ Coming Soon'}
+                </span>
+              </div>
+              <div class="card-ch-num">${item.chapter} • Class ${item.classNum}</div>
+              <h3 class="card-title">${item.title}</h3>
+              <p class="card-desc">${item.desc}</p>
             </div>
-            <div class="card-ch-num">${item.chapter} • Class ${item.classNum}</div>
-            <h3 class="card-title">${item.title}</h3>
-            <p class="card-desc">${item.desc}</p>
-          </div>
-          <div class="card-actions">
-            ${item.isLive 
-              ? `<a href="${item.link}" class="card-btn btn-read">📖 Open Master Note &rarr;</a>`
-              : `<span class="card-btn btn-disabled">🔒 Uploading Soon</span>`
-            }
-          </div>
-        </article>
-      `).join('');
+            <div class="card-footer">
+              ${item.isLive 
+                ? `<a href="${item.link}" class="card-btn btn-read">📖 Read Chapter &rarr;</a>`
+                : `<span class="card-btn btn-disabled">🔒 In Progress</span>`
+              }
+              ${item.isLive ? `
+                <button class="checkbox-btn ${isDone ? 'completed' : ''}" onclick="toggleCompleted('${item.id}')" title="${isDone ? 'Mark as Unfinished' : 'Mark as Completed'}">
+                  ${isDone ? '✓' : '○'}
+                </button>
+              ` : ''}
+            </div>
+          </article>
+        `;
+      }).join('');
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      initTheme();
+      updateProgressWidget();
       renderSubjects();
       renderMaterials();
     });
