@@ -459,9 +459,340 @@
       h1 { font-size: 2.1rem; }
       .audio-toolbar { flex-direction: column; align-items: stretch; }
     }
+  
+  /* ========================================================
+     SUJIT CLASSES ENHANCED DESIGN SYSTEM (Teacher-Crafted)
+     ======================================================== */
+  :root {
+    --primary-gradient: linear-gradient(90deg, #0284c7 0%, #38bdf8 50%, #10b981 100%);
+    --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* 1. Top-Fixed Vibrant Reading Progress Bar */
+  #reading-progress-bar, .reading-progress-bar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 0%;
+    height: 4px !important;
+    background: var(--primary-gradient) !important;
+    z-index: 999999 !important;
+    transition: width 0.1s ease-out !important;
+    box-shadow: 0 1px 4px rgba(2, 132, 199, 0.3) !important;
+  }
+
+  /* 2. Floating Back to Top Button */
+  .back-to-top-btn {
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    width: 46px !important;
+    height: 46px !important;
+    border-radius: 50% !important;
+    background: #0284c7 !important;
+    color: #ffffff !important;
+    border: none !important;
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+    cursor: pointer !important;
+    box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    transform: translateY(12px) !important;
+    transition: opacity 0.3s ease, transform 0.3s var(--ease-spring), background-color 0.2s ease !important;
+    z-index: 9999 !important;
+  }
+  .back-to-top-btn.visible {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+    transform: translateY(0) !important;
+  }
+  .back-to-top-btn:hover {
+    background: #0369a1 !important;
+    transform: translateY(-3px) scale(1.08) !important;
+    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.45) !important;
+  }
+
+  /* 3. Sticky Section Pill Navigation Bar */
+  .top-nav, .top-bar {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 10000 !important;
+    background: rgba(255, 255, 255, 0.92) !important;
+    backdrop-filter: blur(14px) !important;
+    -webkit-backdrop-filter: blur(14px) !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04) !important;
+  }
+  .nav-links {
+    display: flex !important;
+    gap: 8px !important;
+    align-items: center !important;
+  }
+  .nav-links a {
+    text-decoration: none !important;
+    font-weight: 600 !important;
+    font-size: 0.84rem !important;
+    padding: 6px 14px !important;
+    border-radius: 9999px !important;
+    transition: all 0.2s var(--ease-spring) !important;
+    white-space: nowrap !important;
+  }
+  .nav-links a:hover {
+    background: #e0f2fe !important;
+    color: #0369a1 !important;
+    transform: translateY(-1px) !important;
+  }
+
+  /* 4. Pastel Callout Boxes Elevated Design */
+  .callout, .callout-box {
+    border-radius: 14px !important;
+    padding: 1.35rem 1.6rem !important;
+    margin: 1.6rem 0 !important;
+    border-left: 5px solid !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02) !important;
+  }
+  .callout:hover, .callout-box:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.05) !important;
+  }
+  .callout-def {
+    background: #f0fdf4 !important;
+    border-color: #10b981 !important;
+    color: #065f46 !important;
+  }
+  .callout-act {
+    background: #eff6ff !important;
+    border-color: #3b82f6 !important;
+    color: #1e3a8a !important;
+  }
+  .callout-pyq {
+    background: #fffbeb !important;
+    border-color: #f59e0b !important;
+    color: #78350f !important;
+  }
+  .callout-hack {
+    background: #faf5ff !important;
+    border-color: #8b5cf6 !important;
+    color: #581c87 !important;
+  }
+  .callout-warn {
+    background: #fef2f2 !important;
+    border-color: #ef4444 !important;
+    color: #7f1d1d !important;
+  }
+  .callout-title {
+    font-weight: 800 !important;
+    font-size: 0.98rem !important;
+    margin-bottom: 0.6rem !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  /* 5. Collapsible Question Cards (<details class="ans-box">) */
+  details.ans-box {
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 12px !important;
+    margin: 1.1rem 0 !important;
+    background: #ffffff !important;
+    overflow: hidden !important;
+    transition: all 0.25s var(--ease-spring) !important;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02) !important;
+  }
+  details.ans-box summary {
+    list-style: none !important;
+    padding: 1rem 1.35rem !important;
+    background: #f8fafc !important;
+    font-weight: 700 !important;
+    font-size: 0.94rem !important;
+    color: #1e293b !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    user-select: none !important;
+    transition: all 0.2s ease !important;
+  }
+  details.ans-box summary::-webkit-details-marker {
+    display: none !important;
+  }
+  details.ans-box summary::after {
+    content: "▾" !important;
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+    color: #0284c7 !important;
+    transition: transform 0.3s var(--ease-spring) !important;
+    display: inline-block !important;
+    line-height: 1 !important;
+  }
+  details.ans-box[open] summary::after {
+    transform: rotate(180deg) !important;
+  }
+  details.ans-box[open] {
+    border-color: #0284c7 !important;
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.08) !important;
+  }
+  details.ans-box[open] summary {
+    background: #f0f9ff !important;
+    color: #0369a1 !important;
+    border-bottom: 1px solid #bae6fd !important;
+  }
+  details.ans-box .ans-content {
+    padding: 1.35rem !important;
+    background: #ffffff !important;
+    font-size: 0.94rem !important;
+    line-height: 1.7 !important;
+  }
+
+  /* 6. Interactive Quiz Engine (Section 5) */
+  .quiz-score-banner {
+    background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%) !important;
+    border: 1.5px solid #a7f3d0 !important;
+    border-radius: 14px !important;
+    padding: 14px 22px !important;
+    margin: 1.5rem 0 2rem 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    flex-wrap: wrap !important;
+    gap: 12px !important;
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08) !important;
+  }
+  .quiz-score-badge {
+    font-weight: 800 !important;
+    font-size: 1.05rem !important;
+    color: #065f46 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+  .quiz-teacher-msg {
+    font-size: 0.9rem !important;
+    font-weight: 600 !important;
+    color: #0369a1 !important;
+  }
+  .quiz-opt-btn {
+    width: 100% !important;
+    text-align: left !important;
+    padding: 12px 18px !important;
+    margin: 8px 0 !important;
+    border-radius: 10px !important;
+    border: 1.5px solid #cbd5e1 !important;
+    background: #ffffff !important;
+    font-family: inherit !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    color: #1e293b !important;
+    cursor: pointer !important;
+    transition: all 0.2s var(--ease-spring) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.03) !important;
+  }
+  .quiz-opt-btn:hover:not(.evaluated) {
+    border-color: #0284c7 !important;
+    background: #f0f9ff !important;
+    transform: translateX(4px) !important;
+  }
+  .quiz-opt-btn.correct-opt {
+    background: #ecfdf5 !important;
+    border-color: #10b981 !important;
+    color: #065f46 !important;
+    font-weight: 700 !important;
+  }
+  .quiz-opt-btn.wrong-opt {
+    background: #fef2f2 !important;
+    border-color: #ef4444 !important;
+    color: #991b1b !important;
+    font-weight: 600 !important;
+  }
+  .quiz-opt-indicator {
+    font-weight: 800 !important;
+    font-size: 1.1rem !important;
+  }
+
+  /* 7. Inline Responsive SVG Diagrams & Micro-Animations */
+  svg {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  .diagram-card, .diagram-wrapper {
+    margin: 2rem 0 !important;
+    text-align: center !important;
+    background: #ffffff !important;
+    border: 1.5px solid #e2e8f0 !important;
+    border-radius: 16px !important;
+    padding: 20px !important;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.03) !important;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+  }
+  .diagram-card:hover, .diagram-wrapper:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.06) !important;
+  }
+  svg g:hover rect, svg g:hover circle {
+    filter: brightness(1.04) !important;
+  }
+
+  /* Audio Button */
+  .audio-btn {
+    background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%) !important;
+    color: #ffffff !important;
+    border: none !important;
+    padding: 8px 18px !important;
+    border-radius: 9999px !important;
+    font-size: 0.86rem !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    margin: 12px auto !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.3) !important;
+  }
+  .audio-btn:hover {
+    transform: translateY(-2px) scale(1.04) !important;
+    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.4) !important;
+  }
+
+  /* 8. Clean Print Stylesheet */
+  @media print {
+    #reading-progress-bar, .back-to-top-btn, .top-nav, .top-bar, .toolbar-actions, .audio-btn {
+      display: none !important;
+    }
+    body {
+      padding-top: 0 !important;
+      background: #ffffff !important;
+      color: #000000 !important;
+      font-size: 11pt !important;
+    }
+    .section-card {
+      border: 1px solid #ccc !important;
+      box-shadow: none !important;
+      page-break-inside: avoid !important;
+      margin-bottom: 20px !important;
+    }
+    details.ans-box {
+      border: 1px solid #ccc !important;
+      display: block !important;
+    }
+    details.ans-box .ans-content {
+      display: block !important;
+    }
+  }
+
   </style>
 </head>
 <body>
+  <!-- Top-Fixed Reading Progress Bar -->
+  <div id="reading-progress-bar"></div>
 
   <!-- Reading Progress Bar -->
   <div id="progress-container"><div id="progress-bar"></div></div>
@@ -1577,5 +1908,216 @@
       }
     }
   </script>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    // Reading Progress Bar & Back to Top
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) {
+        bar.style.width = scrolled + '%';
+      }
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 320) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    // Teacher Audio Reader (TTS)
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.querySelector('.container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+      }
+    }
+
+    // Interactive Quiz Engine for Section 5
+    function initInteractiveQuizEngine() {
+      var sec5 = document.getElementById('sec5');
+      if (!sec5) return;
+
+      var qCards = sec5.querySelectorAll('.q-card, .card, .quiz-card');
+      var mcqCards = [];
+
+      qCards.forEach(function(card) {
+        var details = card.querySelector('details.ans-box');
+        var text = card.innerText;
+        var isMCQ = card.classList.contains('quiz-card') || 
+          (details && (text.indexOf('Option ') !== -1 || text.indexOf('Answer: (') !== -1 || text.indexOf('(a)') !== -1 || text.indexOf('A)') !== -1));
+        if (isMCQ && !card.getAttribute('data-quiz-init')) {
+          mcqCards.push(card);
+        }
+      });
+
+      if (mcqCards.length === 0) return;
+
+      var scoreBanner = sec5.querySelector('.quiz-score-banner') || sec5.querySelector('.quiz-score-board');
+      if (!scoreBanner) {
+        scoreBanner = document.createElement('div');
+        scoreBanner.className = 'quiz-score-banner';
+        scoreBanner.innerHTML = '<div class="quiz-score-badge"><span>🎯</span> Mastered: <span id="quizScoreCount">0</span> / ' + mcqCards.length + ' Questions</div><div class="quiz-teacher-msg" id="quizTeacherMsg">Click an option to test your knowledge!</div>';
+        var firstH = sec5.querySelector('h3, h4');
+        if (firstH && firstH.nextSibling) {
+          sec5.insertBefore(scoreBanner, firstH.nextSibling);
+        } else {
+          sec5.prepend(scoreBanner);
+        }
+      }
+
+      var currentScore = 0;
+      var answeredMap = {};
+
+      function updateScore() {
+        var countEl = document.getElementById('quizScoreCount');
+        var msgEl = document.getElementById('quizTeacherMsg');
+        if (countEl) countEl.textContent = currentScore;
+        if (msgEl) {
+          if (currentScore === mcqCards.length) {
+            msgEl.textContent = "🌟 Brilliant! You answered all questions correctly!";
+          } else if (currentScore >= Math.ceil(mcqCards.length / 2)) {
+            msgEl.textContent = "👏 Great effort! Keep going to achieve full mastery!";
+          } else if (currentScore > 0) {
+            msgEl.textContent = "👍 Good start! Review the teacher notes and keep practicing!";
+          } else {
+            msgEl.textContent = "💡 Select your answer to check feedback!";
+          }
+        }
+      }
+
+      mcqCards.forEach(function(card, qIdx) {
+        card.setAttribute('data-quiz-init', 'true');
+        var details = card.querySelector('details.ans-box');
+        var ansContent = details ? details.querySelector('.ans-content') : null;
+        var ansText = ansContent ? ansContent.innerText.toLowerCase() : '';
+
+        var optContainer = card.querySelector('.quiz-options');
+        if (!optContainer) {
+          var candidates = card.querySelectorAll('p, div');
+          var targetEl = null;
+          for (var i = 0; i < candidates.length; i++) {
+            var t = candidates[i].innerText;
+            if ((t.indexOf('A)') !== -1 && t.indexOf('B)') !== -1) || (t.indexOf('(a)') !== -1 && t.indexOf('(b)') !== -1)) {
+              targetEl = candidates[i];
+              break;
+            }
+          }
+
+          if (targetEl) {
+            var lines = targetEl.innerHTML.split(/<br\s*[\/]?>/i);
+            if (lines.length >= 2) {
+              optContainer = document.createElement('div');
+              optContainer.className = 'quiz-options';
+              optContainer.style.margin = '12px 0';
+
+              lines.forEach(function(line) {
+                var trimmed = line.trim();
+                if (trimmed.length > 0) {
+                  var btn = document.createElement('button');
+                  btn.type = 'button';
+                  btn.className = 'quiz-opt-btn';
+                  btn.innerHTML = '<span>' + trimmed + '</span><span class="quiz-opt-indicator"></span>';
+                  optContainer.appendChild(btn);
+                }
+              });
+
+              targetEl.parentNode.replaceChild(optContainer, targetEl);
+            }
+          }
+        }
+
+        if (optContainer) {
+          var btns = optContainer.querySelectorAll('.quiz-opt-btn');
+          btns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+              if (answeredMap[qIdx]) return;
+
+              var btnText = btn.innerText.toLowerCase();
+              var letter = '';
+              var match = btnText.match(/^\s*\(?([a-d])\)?/);
+              if (match) letter = match[1];
+
+              var isCorrect = false;
+              if (letter) {
+                if (ansText.indexOf('option ' + letter) !== -1 || 
+                    ansText.indexOf('answer: ' + letter) !== -1 || 
+                    ansText.indexOf('answer: (' + letter + ')') !== -1 ||
+                    ansText.indexOf('(' + letter + ')') !== -1) {
+                  isCorrect = true;
+                }
+              }
+
+              btns.forEach(function(b) {
+                b.classList.add('evaluated');
+                b.style.cursor = 'default';
+              });
+
+              if (isCorrect) {
+                btn.classList.add('correct-opt');
+                var ind = btn.querySelector('.quiz-opt-indicator');
+                if (ind) ind.textContent = '✓';
+                currentScore++;
+                answeredMap[qIdx] = true;
+              } else {
+                btn.classList.add('wrong-opt');
+                var ind = btn.querySelector('.quiz-opt-indicator');
+                if (ind) ind.textContent = '✗';
+                answeredMap[qIdx] = false;
+                btns.forEach(function(b) {
+                  var bMatch = b.innerText.toLowerCase().match(/^\s*\(?([a-d])\)?/);
+                  if (bMatch) {
+                    var bLet = bMatch[1];
+                    if (ansText.indexOf('option ' + bLet) !== -1 || ansText.indexOf('(' + bLet + ')') !== -1) {
+                      b.classList.add('correct-opt');
+                      var bInd = b.querySelector('.quiz-opt-indicator');
+                      if (bInd) bInd.textContent = '✓';
+                    }
+                  }
+                });
+              }
+
+              if (details) {
+                details.open = true;
+              }
+              updateScore();
+            });
+          });
+        }
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      initInteractiveQuizEngine();
+    });
+  </script>
+
 </body>
 </html>
