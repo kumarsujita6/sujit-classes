@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 6 English Unit 3: Nurturing Nature - Poorvi Master Study Notes</title>
+  <style>
+    :root {
+      --primary-color: #2e7d32;
+      --primary-light: #e8f5e9;
+      --secondary-color: #1b5e20;
+      --accent-color: #f57f17;
+      --text-dark: #212121;
+      --text-light: #555555;
+      --bg-white: #ffffff;
+      --bg-alt: #f1f8e9;
+      --border-color: #c8e6c9;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.68;
+      color: var(--text-dark);
+      background-color: #fafbf9;
+      padding: 0;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, #2e7d32, #66bb6a, #fbc02d);
+      z-index: 9999;
+      transition: width 0.1s ease-out;
+    }
+
+    header.header {
+      background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 50%, #388e3c 100%);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(27,94,32,0.25);
+      position: relative;
+    }
+    header.header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    header.header p {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      max-width: 840px;
+      margin: 0 auto 18px;
+    }
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .badge {
+      background: rgba(255,255,255,0.22);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .audio-btn {
+      background: #f57f17;
+      color: #ffffff;
+      border: none;
+      padding: 9px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .audio-btn:hover {
+      background: #e65100;
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .nav-breadcrumb {
+      margin-bottom: 25px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    .nav-breadcrumb a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-breadcrumb a:hover { text-decoration: underline; }
+
+    section {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-bottom: 35px;
+      box-shadow: var(--shadow);
+      border: 1px solid #dcedc8;
+    }
+    section h2 {
+      font-size: 1.65rem;
+      color: var(--primary-color);
+      border-left: 5px solid var(--secondary-color);
+      padding-left: 14px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section h3 {
+      font-size: 1.3rem;
+      color: #1b5e20;
+      margin: 26px 0 14px;
+      font-weight: 600;
+      border-bottom: 2px dashed #c8e6c9;
+      padding-bottom: 6px;
+    }
+    section h4 {
+      font-size: 1.08rem;
+      color: #212121;
+      margin: 18px 0 10px;
+      font-weight: 600;
+    }
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 10px 0 18px 24px; }
+    li { margin-bottom: 8px; }
+
+    .callout {
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-size: 0.96rem;
+      border-left: 4px solid;
+    }
+    .callout-def { background: #e8f5e9; border-color: #2e7d32; color: #1b5e20; }
+    .callout-act { background: #e0f2f1; border-color: #00897b; color: #004d40; }
+    .callout-pyq { background: #fffde7; border-color: #fbc02d; color: #f57f17; }
+    .callout-hack { background: #f3e5f5; border-color: #ab47bc; color: #4a148c; }
+    .callout-warn { background: #ffebee; border-color: #e53935; color: #b71c1c; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid #c8e6c9;
+      padding: 11px 14px;
+      text-align: left;
+    }
+    .data-table th {
+      background-color: #e8f5e9;
+      color: #1b5e20;
+      font-weight: 600;
+    }
+    .data-table tr:nth-child(even) { background-color: #f9fbe7; }
+
+    .odia-summary-box {
+      background: #fdfaf5;
+      border-left: 4px solid #f57f17;
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      color: #3e2723;
+    }
+    .odia-summary-box h4 {
+      color: #e65100;
+      margin-bottom: 8px;
+    }
+
+    .diagram-container {
+      margin: 25px auto;
+      text-align: center;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #c8e6c9;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: #666;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .svg-node {
+      transition: transform 0.25s ease, filter 0.25s ease;
+      cursor: pointer;
+    }
+    .svg-node:hover {
+      transform: scale(1.03);
+      filter: drop-shadow(0 4px 8px rgba(46,125,50,0.25));
+    }
+    @keyframes pulseLeaf {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+    .pulsing-leaf {
+      animation: pulseLeaf 2.5s infinite ease-in-out;
+      transform-origin: center;
+    }
+
+    details.ans-box {
+      background: #fdfdfd;
+      border: 1px solid #c8e6c9;
+      border-radius: 8px;
+      padding: 12px 18px;
+      margin: 15px 0;
+      transition: var(--transition);
+    }
+    details.ans-box[open] {
+      background: #f1f8e9;
+      border-color: #81c784;
+    }
+    details.ans-box summary {
+      font-weight: 600;
+      color: #1b5e20;
+      cursor: pointer;
+      outline: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    details.ans-box summary::-webkit-details-marker { display: none; }
+    details.ans-box summary::after {
+      content: "➕ View Answer";
+      font-size: 0.85rem;
+      background: #e8f5e9;
+      color: #2e7d32;
+      padding: 3px 10px;
+      border-radius: 15px;
+      border: 1px solid #a5d6a7;
+    }
+    details.ans-box[open] summary::after {
+      content: "➖ Hide Answer";
+      background: #c8e6c9;
+      color: #1b5e20;
+    }
+    .ans-content {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed #a5d6a7;
+      color: #212121;
+    }
+
+    /* Quiz Styling */
+    .quiz-card {
+      background: #fff;
+      border: 1px solid #dcedc8;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 18px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .quiz-question {
+      font-weight: 600;
+      font-size: 1.02rem;
+      margin-bottom: 12px;
+      color: #1b5e20;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .quiz-opt-btn {
+      background: #f9fbe7;
+      border: 1px solid #c8e6c9;
+      border-radius: 6px;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .quiz-opt-btn:hover {
+      background: #e8f5e9;
+      border-color: #81c784;
+    }
+    .quiz-opt-btn.correct {
+      background: #d4edda !important;
+      border-color: #28a745 !important;
+      color: #155724 !important;
+      font-weight: 600;
+    }
+    .quiz-opt-btn.incorrect {
+      background: #f8d7da !important;
+      border-color: #dc3545 !important;
+      color: #721c24 !important;
+    }
+    .quiz-feedback {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .quiz-feedback.show { display: block; }
+    .quiz-feedback.correct-fb { background: #e8f5e9; border: 1px solid #a5d6a7; color: #1b5e20; }
+    .quiz-feedback.incorrect-fb { background: #ffebee; border: 1px solid #ef9a9a; color: #b71c1c; }
+    .quiz-score-board {
+      background: #e8f5e9;
+      border: 2px solid #81c784;
+      border-radius: 10px;
+      padding: 15px 20px;
+      text-align: center;
+      margin: 20px 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1b5e20;
+    }
+
+    .mistake-card {
+      background: #fff8f8;
+      border-left: 5px solid #d32f2f;
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin: 12px 0;
+    }
+    .mistake-card h4 { color: #c62828; margin-bottom: 6px; }
+
+    footer {
+      background: #1b5e20;
+      color: #c8e6c9;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+    footer a { color: #ffd54f; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress-bar"></div>
+
+  <header class="header">
+    <h1>Class 6 English &bull; Unit 3</h1>
+    <p>Theme: Nurturing Nature &bull; "Neem Baba", "What a Bird Thought", and "Spices That Heal Us"</p>
+    <button class="audio-btn" id="audio-tts-btn" onclick="toggleAudioReader()">
+      <span>🔊 Listen to Notes</span>
+    </button>
+    <div class="badge-bar">
+      <span class="badge">NCERT Poorvi Textbook</span>
+      <span class="badge">Bilingual English + Odia</span>
+      <span class="badge">Compound Words &amp; Modals</span>
+      <span class="badge">100% Comprehensive</span>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="nav-breadcrumb">
+      <a href="../../index.html">Portal Home</a> &raquo; 
+      <a href="../../index.html#english-medium">Class 6 English</a> &raquo; 
+      <span>Unit 3: Nurturing Nature</span>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section id="section1">
+      <h2>Section 1: Visual Mind Map &amp; Unit Blueprint</h2>
+      <p>Nature is humanity's eternal mother, healer, and teacher. In Unit 3 of NCERT Class 6 English <em>Poorvi</em>, "Nurturing Nature", we celebrate Earth's living wonders through three distinct perspectives: the ancient medicinal wisdom of the personified <strong>Neem Baba</strong>, the philosophical expanding worldview of a young fledgling in <strong>What a Bird Thought</strong>, and the time-tested household remedies residing in our grandmother's kitchen in <strong>Spices That Heal Us</strong>.</p>
+
+      <div class="diagram-container">
+        <!-- SVG 1: The Bird's Four Evolutionary Horizons -->
+        <svg viewBox="0 0 940 420" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gEgg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e0f7fa"/>
+              <stop offset="100%" stop-color="#80deea"/>
+            </linearGradient>
+            <linearGradient id="gNest" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fff8e1"/>
+              <stop offset="100%" stop-color="#ffe082"/>
+            </linearGradient>
+            <linearGradient id="gTree" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e8f5e9"/>
+              <stop offset="100%" stop-color="#a5d6a7"/>
+            </linearGradient>
+            <linearGradient id="gSky" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e1f5fe"/>
+              <stop offset="100%" stop-color="#29b6f6"/>
+            </linearGradient>
+            <marker id="greenArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#2e7d32" />
+            </marker>
+          </defs>
+
+          <!-- Title -->
+          <text x="470" y="32" font-size="20" font-weight="bold" fill="#1b5e20" text-anchor="middle">THE BIRD'S FOUR EXPANDING HORIZONS &bull; "WHAT A BIRD THOUGHT"</text>
+          <text x="470" y="52" font-size="12" fill="#666" text-anchor="middle">The Metaphor of Intellectual &amp; Spiritual Growth: From a Shell to the Infinite Sky</text>
+
+          <!-- STAGE 1: Pale Blue Shell -->
+          <g class="svg-node">
+            <rect x="25" y="80" width="195" height="180" rx="12" fill="url(#gEgg)" stroke="#00acc1" stroke-width="2"/>
+            <text x="122" y="108" font-size="15" font-weight="bold" fill="#006064" text-anchor="middle">STAGE 1: THE SHELL</text>
+            <circle cx="122" cy="145" r="28" fill="#e0f7fa" stroke="#00acc1" stroke-width="2"/>
+            <text x="122" y="150" font-size="18" text-anchor="middle">🥚</text>
+            <text x="122" y="195" font-size="12" font-weight="bold" fill="#006064" text-anchor="middle">"World made of Pale Shell"</text>
+            <text x="122" y="215" font-size="11" fill="#444" text-anchor="middle">&bull; Lived first in a little house</text>
+            <text x="122" y="233" font-size="11" fill="#444" text-anchor="middle">&bull; Protected, cozy &amp; small</text>
+            <text x="122" y="250" font-size="10.5" fill="#555" text-anchor="middle">ଓଡ଼ିଆ: ଅଣ୍ଡାର ନୀଳ ଖୋଳପା</text>
+          </g>
+
+          <path d="M 220 170 L 255 170" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#greenArrow)"/>
+
+          <!-- STAGE 2: The Straw Nest -->
+          <g class="svg-node">
+            <rect x="260" y="80" width="195" height="180" rx="12" fill="url(#gNest)" stroke="#ffa000" stroke-width="2"/>
+            <text x="357" y="108" font-size="15" font-weight="bold" fill="#e65100" text-anchor="middle">STAGE 2: THE NEST</text>
+            <circle cx="357" cy="145" r="28" fill="#fff8e1" stroke="#ffa000" stroke-width="2"/>
+            <text x="357" y="150" font-size="18" text-anchor="middle">🪺</text>
+            <text x="357" y="195" font-size="12" font-weight="bold" fill="#e65100" text-anchor="middle">"World made of Warm Straw"</text>
+            <text x="357" y="215" font-size="11" fill="#444" text-anchor="middle">&bull; Hatched into cozy nest</text>
+            <text x="357" y="233" font-size="11" fill="#444" text-anchor="middle">&bull; Thought mother made world</text>
+            <text x="357" y="250" font-size="10.5" fill="#555" text-anchor="middle">ଓଡ଼ିଆ: କୁଟାକାଠିର ନିରାପଦ ବସା</text>
+          </g>
+
+          <path d="M 455 170 L 490 170" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#greenArrow)"/>
+
+          <!-- STAGE 3: The Leafy Tree Bough -->
+          <g class="svg-node">
+            <rect x="495" y="80" width="195" height="180" rx="12" fill="url(#gTree)" stroke="#43a047" stroke-width="2"/>
+            <text x="592" y="108" font-size="15" font-weight="bold" fill="#1b5e20" text-anchor="middle">STAGE 3: THE TREE</text>
+            <circle cx="592" cy="145" r="28" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+            <text x="592" y="150" font-size="18" text-anchor="middle">🌳</text>
+            <text x="592" y="195" font-size="12" font-weight="bold" fill="#1b5e20" text-anchor="middle">"World made of Leaves"</text>
+            <text x="592" y="215" font-size="11" fill="#444" text-anchor="middle">&bull; Fluttered to tree bough</text>
+            <text x="592" y="233" font-size="11" fill="#444" text-anchor="middle">&bull; Saw green canopy leaves</text>
+            <text x="592" y="250" font-size="10.5" fill="#555" text-anchor="middle">ଓଡ଼ିଆ: ଶାଖାପ୍ରଶାଖାର ସବୁଜ ପତ୍ର</text>
+          </g>
+
+          <path d="M 690 170 L 725 170" stroke="#2e7d32" stroke-width="2.5" marker-end="url(#greenArrow)"/>
+
+          <!-- STAGE 4: The Boundless Blue Sky -->
+          <g class="svg-node">
+            <rect x="730" y="80" width="190" height="180" rx="12" fill="url(#gSky)" stroke="#0288d1" stroke-width="2"/>
+            <text x="825" y="108" font-size="15" font-weight="bold" fill="#01579b" text-anchor="middle">STAGE 4: THE SKY</text>
+            <circle cx="825" cy="145" r="28" fill="#e1f5fe" stroke="#0288d1" stroke-width="2"/>
+            <text x="825" y="150" font-size="18" text-anchor="middle">🕊️</text>
+            <text x="825" y="195" font-size="12" font-weight="bold" fill="#01579b" text-anchor="middle">"World is Boundless &amp; Vast"</text>
+            <text x="825" y="215" font-size="11" fill="#444" text-anchor="middle">&bull; Soared beyond the tree</text>
+            <text x="825" y="233" font-size="11" fill="#444" text-anchor="middle">&bull; Discovered limitless sky</text>
+            <text x="825" y="250" font-size="10.5" fill="#555" text-anchor="middle">ଓଡ଼ିଆ: ଅସୀମ ଅନନ୍ତ ନୀଳ ଆକାଶ</text>
+          </g>
+
+          <!-- Philosophical Synthesis Banner -->
+          <g class="svg-node">
+            <rect x="120" y="285" width="700" height="110" rx="12" fill="#f1f8e9" stroke="#81c784" stroke-width="1.8"/>
+            <text x="470" y="315" font-size="16" font-weight="bold" fill="#1b5e20" text-anchor="middle">THE PHILOSOPHICAL ALLEGORY OF EDUCATION</text>
+            <text x="470" y="340" font-size="12.5" fill="#333" text-anchor="middle">Just as the bird graduates from an eggshell to a straw nest, then tree leaves, and finally the open sky,</text>
+            <text x="470" y="360" font-size="12.5" fill="#333" text-anchor="middle">a child's mind grows through education from self-centered ignorance into infinite cosmic wonder.</text>
+            <text x="470" y="380" font-size="12" font-weight="600" fill="#2e7d32" text-anchor="middle">ଓଡ଼ିଆ: ଶିକ୍ଷା ଓ ଅନୁଭୂତି ମଣିଷର ଚିନ୍ତାଧାରାକୁ ସଂକୀର୍ଣ୍ଣତାରୁ ଅନନ୍ତ ଜ୍ଞାନ ଆଡ଼କୁ ବିସ୍ତାର କରେ।</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">Figure 3.1: Expanding Worldview &mdash; The Four Growth Horizons in "What a Bird Thought".</div>
+      </div>
+
+      <div class="diagram-container">
+        <!-- SVG 2: Nature's Pharmacy - Healing Spices Grid -->
+        <svg viewBox="0 0 940 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gHaldi" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fff9c4"/>
+              <stop offset="100%" stop-color="#fbc02d"/>
+            </linearGradient>
+            <linearGradient id="gAdrak" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffe0b2"/>
+              <stop offset="100%" stop-color="#fb8c00"/>
+            </linearGradient>
+            <linearGradient id="gLaung" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d7ccc8"/>
+              <stop offset="100%" stop-color="#6d4c41"/>
+            </linearGradient>
+            <linearGradient id="gElaichi" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#c8e6c9"/>
+              <stop offset="100%" stop-color="#43a047"/>
+            </linearGradient>
+            <linearGradient id="gMethi" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f0f4c3"/>
+              <stop offset="100%" stop-color="#c0ca33"/>
+            </linearGradient>
+            <linearGradient id="gDalchini" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffccbc"/>
+              <stop offset="100%" stop-color="#d84315"/>
+            </linearGradient>
+          </defs>
+
+          <text x="470" y="32" font-size="20" font-weight="bold" fill="#1b5e20" text-anchor="middle">NATURE'S KITCHEN PHARMACY &bull; "SPICES THAT HEAL US"</text>
+          <text x="470" y="52" font-size="12.5" fill="#666" text-anchor="middle">Traditional Ayurvedic Wisdom: Healing Everyday Ailments Using Natural Spices</text>
+
+          <!-- 1. Turmeric (Haldi) -->
+          <g class="svg-node">
+            <rect x="35" y="80" width="265" height="135" rx="10" fill="url(#gHaldi)" stroke="#f57f17" stroke-width="1.8"/>
+            <text x="167" y="105" font-size="15" font-weight="bold" fill="#e65100" text-anchor="middle">TURMERIC (Haldi / ହଳଦୀ)</text>
+            <text x="167" y="125" font-size="11.5" fill="#444" text-anchor="middle">Plant Part: Rhizome / Root</text>
+            <text x="167" y="145" font-size="11" fill="#333" text-anchor="middle">&bull; Powerful antiseptic &amp; anti-inflammatory</text>
+            <text x="167" y="163" font-size="11" fill="#333" text-anchor="middle">&bull; Haldi-doodh cures wounds &amp; body aches</text>
+            <text x="167" y="185" font-size="10.5" font-weight="bold" fill="#d84315" text-anchor="middle">ଓଡ଼ିଆ: କ୍ଷତ ଶୁଖାଏ, ରୋଗ ପ୍ରତିରୋଧକ</text>
+          </g>
+
+          <!-- 2. Ginger (Adrak) -->
+          <g class="svg-node">
+            <rect x="335" y="80" width="270" height="135" rx="10" fill="url(#gAdrak)" stroke="#e65100" stroke-width="1.8"/>
+            <text x="470" y="105" font-size="15" font-weight="bold" fill="#bf360c" text-anchor="middle">GINGER (Adrak / ଅଦା)</text>
+            <text x="470" y="125" font-size="11.5" fill="#444" text-anchor="middle">Plant Part: Underground Stem (Rhizome)</text>
+            <text x="470" y="145" font-size="11" fill="#333" text-anchor="middle">&bull; Relieves throat irritation &amp; cough</text>
+            <text x="470" y="163" font-size="11" fill="#333" text-anchor="middle">&bull; Ginger tea cures cold, nausea &amp; chills</text>
+            <text x="470" y="185" font-size="10.5" font-weight="bold" fill="#bf360c" text-anchor="middle">ଓଡ଼ିଆ: କାଶ, ଥଣ୍ଡା ଓ କଫ ଉପଶମ କରେ</text>
+          </g>
+
+          <!-- 3. Cloves (Laung) -->
+          <g class="svg-node">
+            <rect x="640" y="80" width="265" height="135" rx="10" fill="url(#gLaung)" stroke="#5d4037" stroke-width="1.8"/>
+            <text x="772" y="105" font-size="15" font-weight="bold" fill="#3e2723" text-anchor="middle">CLOVE (Laung / ଲବଙ୍ଗ)</text>
+            <text x="772" y="125" font-size="11.5" fill="#444" text-anchor="middle">Plant Part: Dried Flower Bud</text>
+            <text x="772" y="145" font-size="11" fill="#333" text-anchor="middle">&bull; Eugenol numbs acute toothaches</text>
+            <text x="772" y="163" font-size="11" fill="#333" text-anchor="middle">&bull; Freshens breath &amp; eases sore throat</text>
+            <text x="772" y="185" font-size="10.5" font-weight="bold" fill="#3e2723" text-anchor="middle">ଓଡ଼ିଆ: ଦାନ୍ତବିନ୍ଧା ଦୂର କରେ</text>
+          </g>
+
+          <!-- 4. Cardamom (Elaichi) -->
+          <g class="svg-node">
+            <rect x="35" y="235" width="265" height="135" rx="10" fill="url(#gElaichi)" stroke="#2e7d32" stroke-width="1.8"/>
+            <text x="167" y="260" font-size="15" font-weight="bold" fill="#1b5e20" text-anchor="middle">CARDAMOM (Elaichi / ଗୁଜୁରାତି)</text>
+            <text x="167" y="280" font-size="11.5" fill="#444" text-anchor="middle">Plant Part: Dried Seed Pod / Fruit</text>
+            <text x="167" y="300" font-size="11" fill="#333" text-anchor="middle">&bull; Natural aromatic mouth freshener</text>
+            <text x="167" y="318" font-size="11" fill="#333" text-anchor="middle">&bull; Aids gastric digestion &amp; eases nausea</text>
+            <text x="167" y="340" font-size="10.5" font-weight="bold" fill="#1b5e20" text-anchor="middle">ଓଡ଼ିଆ: ହଜମ କରାଏ, ମୁଖ ସୁଗନ୍ଧିତ କରେ</text>
+          </g>
+
+          <!-- 5. Cinnamon (Dalchini) -->
+          <g class="svg-node">
+            <rect x="335" y="235" width="270" height="135" rx="10" fill="url(#gDalchini)" stroke="#d84315" stroke-width="1.8"/>
+            <text x="470" y="260" font-size="15" font-weight="bold" fill="#bf360c" text-anchor="middle">CINNAMON (Dalchini / ଡାଲଚିନି)</text>
+            <text x="470" y="280" font-size="11.5" fill="#444" text-anchor="middle">Plant Part: Dried Inner Tree Bark</text>
+            <text x="470" y="300" font-size="11" fill="#333" text-anchor="middle">&bull; Sweet aroma; warms body circulation</text>
+            <text x="470" y="318" font-size="11" fill="#333" text-anchor="middle">&bull; Balances blood sugar &amp; metabolic health</text>
+            <text x="470" y="340" font-size="10.5" font-weight="bold" fill="#bf360c" text-anchor="middle">ଓଡ଼ିଆ: ରକ୍ତ ସଞ୍ଚାଳନ ସୁସ୍ଥ ରଖେ</text>
+          </g>
+
+          <!-- 6. Fenugreek (Methi) -->
+          <g class="svg-node">
+            <rect x="640" y="235" width="265" height="135" rx="10" fill="url(#gMethi)" stroke="#9e9d24" stroke-width="1.8"/>
+            <text x="772" y="260" font-size="15" font-weight="bold" fill="#827717" text-anchor="middle">FENUGREEK (Methi / ମେଥି)</text>
+            <text x="772" y="280" font-size="11.5" fill="#444" text-anchor="middle">Plant Part: Seeds &amp; Leaves</text>
+            <text x="772" y="300" font-size="11" fill="#333" text-anchor="middle">&bull; Soaked seeds relieve joint pains &amp; gas</text>
+            <text x="772" y="318" font-size="11" fill="#333" text-anchor="middle">&bull; Helps regulate glucose &amp; healthy hair</text>
+            <text x="772" y="340" font-size="10.5" font-weight="bold" fill="#827717" text-anchor="middle">ଓଡ଼ିଆ: ଗଣ୍ଠିବାତ ଓ ପେଟ ଯନ୍ତ୍ରଣା କମାଏ</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">Figure 3.2: Nature's Healing Treasures &mdash; Common Indian Spices, Plant Parts, and Medicinal Uses.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="section2">
+      <h2>Section 2: Exhaustive Text-by-Text &amp; Stanza-by-Stanza Notes</h2>
+
+      <!-- ==========================================
+           PART A: NEEM BABA
+           ========================================== -->
+      <h3>Part A: "Neem Baba" (Prose Drama / Dialogue)</h3>
+
+      <h4>1. Pre-Reading Prompts Decoded</h4>
+      <ul>
+        <li><strong>Uses of a Tree:</strong> Provides life-giving oxygen, cooling shade, delicious fruits, timber for homes, prevents soil erosion, and offers medicinal ingredients.</li>
+        <li><strong>What We Know About Neem:</strong> It is bitter in taste; its leaves repel insects; its twigs (datun) are used as natural toothbrushes; it is an Ayurvedic medicine.</li>
+        <li><strong>What We Want to Know:</strong> How old is the neem tree? Why is it revered across India? What specific chemicals make it an insect repellent?</li>
+      </ul>
+
+      <h4>2. Detailed Narrative Breakdown</h4>
+      <p><strong>1. Amber's Encounter:</strong> Returning from school on a blistering hot afternoon, young Amber takes shelter under the thick, cooling boughs of a massive neem tree. As she leans against the textured trunk, the tree speaks to her in a warm, gentle voice, introducing himself as <strong>Neem Baba</strong>. Amber is thrilled to converse with a tree who has watched her play since infancy.</p>
+
+      <p><strong>2. Age and Origins of Neem:</strong> Neem Baba reveals that the neem species is ancient, having originated in the Indo-Pakistan subcontinent millions of years ago. Today, his family thrives throughout Asia, Africa, and other tropical and subtropical regions. Fossil and historical records reveal neem was cultivated during the ancient Indus-Sarasvati Civilisation.</p>
+
+      <p><strong>3. The Story of the Name:</strong> In Sanskrit, neem is called <em>Arishta</em>, which translates to "the reliever of sickness". In Hindi, it is known as <em>Nimb</em> (derived from the Sanskrit root meaning 'to bestow good health'). It is affectionately called the <em>"Village Pharmacy"</em> because every single part of the tree heals ailments.</p>
+
+      <p><strong>4. Medicinal Uses of Different Parts:</strong></p>
+      <ul>
+        <li><strong>Twigs (Datun):</strong> Chewing fresh, slender neem twigs cleans teeth, strengthens gums, and prevents cavities due to powerful antibacterial oils.</li>
+        <li><strong>Leaves:</strong> Dried neem leaves placed in book cupboards or grain storage bins repel moths, silverfish, and termites. Boiling leaves in bathing water cures skin rashes, measles, and allergies.</li>
+        <li><strong>Bark &amp; Roots:</strong> Brewed into tonics that reduce fevers and heal chronic skin diseases.</li>
+        <li><strong>Neem Seed Powder &amp; Oil:</strong> When sprayed on agricultural crops, neem seed extract acts as a 100% natural, non-toxic bio-pesticide that repels agricultural pests without harming beneficial earthworms or honeybees.</li>
+        <li><strong>Air Purifier:</strong> Neem Baba continuously filters ambient dust and toxins from the air, releasing cool, fragrant oxygen that revitalizes weary travellers.</li>
+      </ul>
+
+      <h4>3. Bilingual Vocabulary Bank (English to Odia) &bull; Neem Baba</h4>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Word / Phrase</th>
+            <th>Part of Speech</th>
+            <th>Simple English Meaning</th>
+            <th>ଓଡ଼ିଆ ଅର୍ଥ (Odia Meaning)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Subcontinent</strong></td>
+            <td>Noun</td>
+            <td>A large, distinct landmass forming part of a continent</td>
+            <td>ଉପମହାଦେଶ (ଯଥା: ଭାରତୀୟ ଉପମହାଦେଶ)</td>
+          </tr>
+          <tr>
+            <td><strong>Arishta</strong></td>
+            <td>Noun (Sanskrit)</td>
+            <td>Reliever of sickness; complete healing</td>
+            <td>ଅରିଷ୍ଟ (ରୋଗ ନିବାରକ / ସ୍ୱାସ୍ଥ୍ୟ ପ୍ରଦାୟକ)</td>
+          </tr>
+          <tr>
+            <td><strong>Twigs</strong></td>
+            <td>Noun</td>
+            <td>Slender woody shoots growing from branches</td>
+            <td>ଛୋଟ ଡାଳ / ଦାନ୍ତକାଠି (ଦାନ୍ତ ଘସିବା ପାଇଁ)</td>
+          </tr>
+          <tr>
+            <td><strong>Insect repellent</strong></td>
+            <td>Noun phrase</td>
+            <td>A substance that drives away insects and pests</td>
+            <td>କୀଟପତଙ୍ଗ ନିବାରକ ଦ୍ରବ୍ୟ</td>
+          </tr>
+          <tr>
+            <td><strong>Bio-pesticide</strong></td>
+            <td>Noun</td>
+            <td>A natural pest control agent derived from plants</td>
+            <td>ଜୈବ କୀଟନାଶକ (ରାସାୟନିକ ମୁକ୍ତ)</td>
+          </tr>
+          <tr>
+            <td><strong>Personification</strong></td>
+            <td>Literary Device</td>
+            <td>Giving human attributes to plants or objects</td>
+            <td>ମାନବୀକରଣ (ବୃକ୍ଷକୁ ମନୁଷ୍ୟ ଭାବେ ଚିତ୍ରଣ)</td>
+          </tr>
+          <tr>
+            <td><strong>Thought-provoking</strong></td>
+            <td>Adjective</td>
+            <td>Making one think seriously and deeply</td>
+            <td>ଚିନ୍ତାଦ୍ଦୀପକ / ଗଭୀର ଭାବନା ଜାଗ୍ରତ କରୁଥିବା</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Odia Summary Box -->
+      <div class="odia-summary-box">
+        <h4>📖 ଗଳ୍ପର ସାରାଂଶ: ନିମ ବାବା (Neem Baba - Odia Summary)</h4>
+        <p><strong>ବିଷୟବସ୍ତୁ:</strong> ଖରାଟିଆ ଅପରାହ୍ନରେ ବିଦ୍ୟାଳୟରୁ ଫେରୁଥିବା ଆମ୍ବର (Amber) ନାମକ ଜଣେ କୁନି ଝିଅ ରାସ୍ତା କଡ଼ରେ ଥିବା ଏକ ବିରାଟ ନିମ ଗଛ ଛାଇରେ ବିଶ୍ରାମ ନେଲା। ସେହି ସମୟରେ ଗଛଟି ଜଣେ ସ୍ନେହୀ ବୟୋଜ୍ୟେଷ୍ଠ ବ୍ୟକ୍ତିଙ୍କ ପରି ତା’ ସହିତ କଥାବାର୍ତ୍ତା ଆରମ୍ଭ କଲା ଏବଂ ନିଜର ପରିଚୟ 'ନିମ ବାବା' ଭାବରେ ଦେଲା।</p>
+        <p>ନିମ ବାବା ଆମ୍ବରକୁ କହିଲେ ଯେ ସେ କୋଟି କୋଟି ବର୍ଷ ପୂର୍ବେ ଭାରତୀୟ ଉପମହାଦେଶରେ ଜନ୍ମଗ୍ରହଣ କରିଥିଲେ ଏବଂ ଆଜି ତାଙ୍କ ପରିବାର ଏସିଆ ଓ ଆଫ୍ରିକାର ଅନେକ ଦେଶରେ ବ୍ୟାପିଛି। ସଂସ୍କୃତରେ ତାଙ୍କୁ 'ଅରିଷ୍ଟ' (Arishta) କୁହାଯାଏ, ଯାହାର ଅର୍ଥ ହେଉଛି "ସମସ୍ତ ରୋଗର ନିବାରକ"। ଭାରତରେ ନିମକୁ "ଗ୍ରାମ୍ୟ ଡାକ୍ତରଖାନା" (Village Pharmacy) କୁହାଯାଏ, କାରଣ ତାର ପ୍ରତ୍ୟେକ ଅଂଶ ଔଷଧୀୟ ଗୁଣରେ ପରିପୂର୍ଣ୍ଣ।</p>
+        <p>ନିମ ଦାନ୍ତକାଠି ଦାନ୍ତକୁ ଶକ୍ତ ଓ ଜୀବାଣୁମୁକ୍ତ ରଖେ। ନିମ ପତ୍ର ପକାଇଲେ ଧାନ-ଚାଉଳ କିମ୍ବା ବହିପତ୍ରରେ ପୋକ ଲାଗନ୍ତି ନାହିଁ। ନିମ ମଞ୍ଜିରୁ ପ୍ରସ୍ତୁତ ତେଲ ଓ ଗୁଣ୍ଡ ଫସଲରେ କୀଟନାଶକ ଭାବେ ବ୍ୟବହୃତ ହୁଏ, ଯାହା ପରିବେଶକୁ ପ୍ରଦୂଷଣ ମୁକ୍ତ ରଖେ। ନିମ ଗଛ ବାୟୁମଣ୍ଡଳକୁ ବିଶୁଦ୍ଧ କରେ। ଆମ୍ବର ନିମ ବାବାଙ୍କ ଏହି ଅପୂର୍ବ ଦାନ ବିଷୟରେ ଜାଣି ତାଙ୍କୁ କୃତଜ୍ଞତା ଜଣାଇଲା ଏବଂ ଗଛର ଯତ୍ନ ନେବାକୁ ପ୍ରତିଜ୍ଞା କଲା।</p>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #c8e6c9;">
+
+      <!-- ==========================================
+           PART B: WHAT A BIRD THOUGHT
+           ========================================== -->
+      <h3>Part B: "What a Bird Thought" (Poem)</h3>
+
+      <h4>1. Stanza-by-Stanza Literary Breakdown</h4>
+      <div style="background: #fafbf9; padding: 18px 20px; border-radius: 8px; margin: 15px 0; border: 1px solid #c8e6c9;">
+        <p><strong>Stanza 1:</strong><br>
+        <em>"I lived first in a little house,<br>
+        And lived there very well;<br>
+        The world to me was small and round<br>
+        And made of pale-blue shell."</em></p>
+        <p><strong>Explanation:</strong> The baby bird recalls its earliest memory inside the egg. Its entire world was snug, comfortable, and confined within the smooth, pale-blue shell. At this stage, the embryonic chick believed that the entire universe was nothing more than that tiny blue egg.</p>
+      </div>
+
+      <div style="background: #fafbf9; padding: 18px 20px; border-radius: 8px; margin: 15px 0; border: 1px solid #c8e6c9;">
+        <p><strong>Stanza 2:</strong><br>
+        <em>"I lived next in a little nest,<br>
+        Nor needed any other;<br>
+        I thought the world was made of straw,<br>
+        And brooded by my mother."</em></p>
+        <p><strong>Explanation:</strong> After hatching, the nestling moves into its second home: a woven straw nest. Sheltered under its mother's warm, comforting wings, the young bird believes the entire world is made entirely of dry straw and maternal care.</p>
+      </div>
+
+      <div style="background: #fafbf9; padding: 18px 20px; border-radius: 8px; margin: 15px 0; border: 1px solid #c8e6c9;">
+        <p><strong>Stanza 3:</strong><br>
+        <em>"One day I fluttered from the nest<br>
+        To see what I could find.<br>
+        I said, 'The world is made of leaves,<br>
+        I have been very blind.'"</em></p>
+        <p><strong>Explanation:</strong> Growing feathers and strength, the fledgling hops onto the edge of the nest and flutters out onto the tree branches. Observing the vast green foliage rustling around it, the bird laughs at its past foolishness, now concluding that the world is composed entirely of green leaves!</p>
+      </div>
+
+      <div style="background: #fafbf9; padding: 18px 20px; border-radius: 8px; margin: 15px 0; border: 1px solid #c8e6c9;">
+        <p><strong>Stanza 4:</strong><br>
+        <em>"At last I flew beyond the tree,<br>
+        And saw the sky so blue;<br>
+        Now, how the world is really made<br>
+        I cannot tell—can you?"</em></p>
+        <p><strong>Explanation:</strong> Finally, fully fledged with strong wings, the bird launches into the wide-open sky. Gazing at the infinite, boundary-less blue expanse stretching beyond mountains and plains, the bird realizes that reality is far grander than any single creature can comprehend. It ends with a humble, philosophical question to the reader: <em>"Can you tell how the world is really made?"</em></p>
+      </div>
+
+      <h4>2. Poetic Devices &amp; Analysis</h4>
+      <ul>
+        <li><strong>Rhyme Scheme:</strong> Regular <strong>ABCB</strong> in each 4-line stanza (well/shell in Stanza 1; other/mother in Stanza 2; find/blind in Stanza 3; blue/you in Stanza 4).</li>
+        <li><strong>Alliteration:</strong> <em>"lived there very well"</em>, <em>"saw the sky so blue"</em>.</li>
+        <li><strong>Symbolism:</strong> The egg, nest, tree, and sky symbolize the progressive stages of a human child's cognitive development (infancy &rarr; family shelter &rarr; neighbourhood/school &rarr; limitless adult world).</li>
+      </ul>
+
+      <h4>3. Bilingual Vocabulary Bank &bull; What a Bird Thought</h4>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Word</th>
+            <th>Part of Speech</th>
+            <th>Simple English Meaning</th>
+            <th>ଓଡ଼ିଆ ଅର୍ଥ (Odia Meaning)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Pale-blue</strong></td>
+            <td>Adjective</td>
+            <td>Light blue in colour</td>
+            <td>ଫିକା ନୀଳ ରଙ୍ଗ</td>
+          </tr>
+          <tr>
+            <td><strong>Straw</strong></td>
+            <td>Noun</td>
+            <td>Dry cut stalks of grain used for nests</td>
+            <td>ଶୁଖିଲା କୁଟା / ନଡ଼ା</td>
+          </tr>
+          <tr>
+            <td><strong>Brooded</strong></td>
+            <td>Verb</td>
+            <td>Sat on eggs or protected young under wings</td>
+            <td>ଡେଣା ତଳେ ଉଷୁମାଇ ସ୍ନେହରେ ରଖିବା</td>
+          </tr>
+          <tr>
+            <td><strong>Fluttered</strong></td>
+            <td>Verb</td>
+            <td>Flew with quick, light flapping wings</td>
+            <td>ଡେଣା ଝାଡ଼ି ଉଡ଼ିବା / ଫଡ଼ଫଡ଼ ହେବା</td>
+          </tr>
+          <tr>
+            <td><strong>Blind</strong></td>
+            <td>Adjective</td>
+            <td>Lacking awareness; unable to see truth</td>
+            <td>ଅଜ୍ଞ / ସତ୍ୟ ନଦେଖିପାରିବା</td>
+          </tr>
+          <tr>
+            <td><strong>Beyond</strong></td>
+            <td>Preposition</td>
+            <td>Further than; on the farther side of</td>
+            <td>ସେପାରି / ବାହାରେ</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Odia Summary Box -->
+      <div class="odia-summary-box">
+        <h4>📖 କବିତାର ସାରାଂଶ: ଏକ ପକ୍ଷୀର ଚିନ୍ତାଧାରା (What a Bird Thought - Odia Summary)</h4>
+        <p><strong>ଭାବାର୍ଥ:</strong> ଏହି ସୁନ୍ଦର କବିତାରେ ଏକ ଛୋଟ ପକ୍ଷୀ ତାର ଜୀବନର କ୍ରମବିକାଶ ଏବଂ ପୃଥିବୀ ବିଷୟରେ ତାର ଚିନ୍ତାଧାରାର ପରିବର୍ତ୍ତନ ବର୍ଣ୍ଣନା କରିଛି। ପ୍ରଥମେ ସେ ଅଣ୍ଡା ଭିତରେ ଥିଲା ଏବଂ ଭାବୁଥିଲା ଯେ ସମଗ୍ର ପୃଥିବୀ କେବଳ ଏକ ଫିକା-ନୀଳ ରଙ୍ଗର ଖୋଳପାରେ ତିଆରି।</p>
+        <p>ଅଣ୍ଡା ଫୁଟିବା ପରେ ସେ ମାଆ ସହିତ କୁଟାରେ ତିଆରି ବସାରେ ରହିଲା ଏବଂ ଭାବିଲା ଯେ ପୃଥିବୀଟି କେବଳ କୁଟାକାଠି ଓ ମାଆର ସ୍ନେହରେ ଗଠିତ। କିଛି ଦିନ ପରେ ଯେତେବେଳେ ତାର ଡେଣା ଗଜୁରିଲା, ସେ ଡେଇଁପଡ଼ି ଗଛର ଡାଳକୁ ଗଲା ଏବଂ ଚାରିଆଡ଼େ ସବୁଜ ପତ୍ର ଦେଖି ଭାବିଲା ଯେ ପୃଥିବୀ କେବଳ ପତ୍ରରେ ଗଢ଼ା।</p>
+        <p>ଶେଷରେ, ଯେତେବେଳେ ସେ ସମ୍ପୂର୍ଣ୍ଣ ଶକ୍ତିଶାଳୀ ହୋଇ ଗଛରୁ ଉପରକୁ ଉଡ଼ିଗଲା ଏବଂ ଅସୀମ ନୀଳ ଆକାଶ ଦେଖିଲା, ସେ ଆଶ୍ଚର୍ଯ୍ୟ ହୋଇଗଲା। ସେ ବୁଝିପାରିଲା ଯେ ପୃଥିବୀ କେତେ ବିଶାଳ ଓ ଅସୀମ, ତାହା କେହି ସଠିକ୍ ଭାବେ କହିପାରିବେ ନାହିଁ। ଏହି କବିତା ଶିକ୍ଷା ଦିଏ ଯେ ମନୁଷ୍ୟର ଜ୍ଞାନ ବୃଦ୍ଧି ପାଇବା ସହିତ ତାର ଦୃଷ୍ଟିକୋଣ ମଧ୍ୟ ବିସ୍ତାରିତ ହୁଏ।</p>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #c8e6c9;">
+
+      <!-- ==========================================
+           PART C: SPICES THAT HEAL US
+           ========================================== -->
+      <h3>Part C: "Spices That Heal Us" (Informative Letter / Article)</h3>
+
+      <h4>1. Detailed Text Breakdown</h4>
+      <p>Written in the form of a warm grandmotherly letter or health guide, this text decodes the treasure trove of Indian spices found inside the household <em>masala dabba</em> (spice box). Long before commercial synthetic medicines were invented, our ancestors relied on spices for daily vitality, immunity, and acute ailment relief.</p>
+
+      <h4>2. Profiles of the Healer Spices:</h4>
+      <ul>
+        <li><strong>1. Turmeric (Haldi):</strong> Obtained from the underground rhizome (root). Vibrant golden yellow. Contains the active compound <em>curcumin</em>. Powerful natural antiseptic and anti-inflammatory agent. Applied to fresh cuts to stop bleeding and drunk with warm milk (<em>Haldi Doodh</em>) to relieve chest congestion and soothe sore throats.</li>
+        <li><strong>2. Ginger (Adrak):</strong> Pungent rhizome. Grated fresh into teas or combined with honey to soothe coughs, colds, sore throats, and motion sickness.</li>
+        <li><strong>3. Black Pepper (Kali Mirch):</strong> Dried berries known as the "King of Spices". Stimulates digestive enzymes, clears nasal passages, and boosts nutrient absorption.</li>
+        <li><strong>4. Cardamom (Elaichi):</strong> The fragrant "Queen of Spices". Chewed after meals as a refreshing mouth cleanser and natural digestive aid that prevents acidity.</li>
+        <li><strong>5. Cinnamon (Dalchini):</strong> Aromatic dried inner bark of the Cinnamomum tree. Improves peripheral blood circulation and maintains healthy blood glucose levels.</li>
+        <li><strong>6. Cloves (Laung):</strong> Dried, unopened flower buds. Rich in <em>eugenol</em>, a natural pain-numbing agent used for centuries to cure toothache and tooth sensitivity.</li>
+        <li><strong>7. Fenugreek (Methi) &amp; Asafoetida (Heeng):</strong> Methi seeds soaked overnight ease joint pains and diabetes. Warm Heeng water applied on a baby's tummy relieves gas, bloating, and stomach ache.</li>
+      </ul>
+
+      <h4>3. Bilingual Vocabulary Bank &bull; Spices That Heal Us</h4>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Word</th>
+            <th>Part of Speech</th>
+            <th>Simple English Meaning</th>
+            <th>ଓଡ଼ିଆ ଅର୍ଥ (Odia Meaning)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Rhizome</strong></td>
+            <td>Noun</td>
+            <td>An underground continuously growing horizontal stem</td>
+            <td>ଭୂଗର୍ଭସ୍ଥ ରୂପାନ୍ତରିତ କାଣ୍ଡ (ଯଥା: ହଳଦୀ, ଅଦା)</td>
+          </tr>
+          <tr>
+            <td><strong>Antiseptic</strong></td>
+            <td>Adjective / Noun</td>
+            <td>Preventing the growth of disease-causing microorganisms</td>
+            <td>ଜୀବାଣୁନାଶକ / କ୍ଷତ ବିଶୋଧକ</td>
+          </tr>
+          <tr>
+            <td><strong>Aromatic</strong></td>
+            <td>Adjective</td>
+            <td>Having a pleasant and distinctive sweet smell</td>
+            <td>ସୁଗନ୍ଧିତ / ବାସ୍ନାଯୁକ୍ତ</td>
+          </tr>
+          <tr>
+            <td><strong>Digestion</strong></td>
+            <td>Noun</td>
+            <td>The process of breaking down food in the stomach</td>
+            <td>ହଜମ ପ୍ରକ୍ରିୟା / ପରିପାକ</td>
+          </tr>
+          <tr>
+            <td><strong>Remedy</strong></td>
+            <td>Noun</td>
+            <td>A treatment or medicine that cures a disease</td>
+            <td>ଉପଚାର / ଘରୋଇ ଔଷଧ</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Odia Summary Box -->
+      <div class="odia-summary-box">
+        <h4>📖 ବିଷୟବସ୍ତୁର ସାରାଂଶ: ଆମକୁ ସୁସ୍ଥ ରଖୁଥିବା ମସଲା (Spices That Heal Us - Odia Summary)</h4>
+        <p><strong>ମୁଖ୍ୟ ଭାବାର୍ଥ:</strong> ଆମ ଭାରତୀୟ ରୋଷେଇ ଘରର ମସଲା ବାକ୍ସ କେବଳ ଖାଦ୍ୟର ସ୍ୱାଦ ବଢ଼ାଏ ନାହିଁ, ବରଂ ଏହା ଏକ ପ୍ରାକୃତିକ ଡାକ୍ତରଖାନା ଭଳି କାମ କରେ। ଏହି ପାଠରେ ବିଭିନ୍ନ ମସଲାର ଔଷଧୀୟ ଗୁଣ ବିଷୟରେ ବର୍ଣ୍ଣନା କରାଯାଇଛି:</p>
+        <ul>
+          <li><strong>ହଳଦୀ:</strong> ଏହା ଏକ ପ୍ରାକୃତିକ ଜୀବାଣୁନାଶକ। କଟିଯାଇଥିବା ସ୍ଥାନରେ ଲଗାଇଲେ ରକ୍ତ ବନ୍ଦ ହୁଏ ଏବଂ କ୍ଷୀରରେ ହଳଦୀ ମିଶାଇ ପିଇଲେ ଶରୀରର ଯନ୍ତ୍ରଣା ଓ ଥଣ୍ଡା ଦୂର ହୁଏ।</li>
+          <li><strong>ଅଦା:</strong> ଅଦା ଚାହା କିମ୍ବା ମହୁ ସହିତ ଅଦାରସ ପିଇଲେ କାଶ, କଫ ଓ ତଣ୍ଟି କୁଣ୍ଡେଇହେବା ଭଲ ହୋଇଯାଏ।</li>
+          <li><strong>ଲବଙ୍ଗ:</strong> ଏହାର ତେଲ ଦାନ୍ତବିନ୍ଧା ପାଇଁ ରାମବାଣ ସଦୃଶ।</li>
+          <li><strong>ଗୁଜୁରାତି:</strong> ଏହା ଖାଦ୍ୟ ହଜମ କରାଏ ଏବଂ ମୁହଁରୁ ଦୁର୍ଗନ୍ଧ ଦୂର କରେ।</li>
+          <li><strong>ଡାଲଚିନି:</strong> ଏହା ରକ୍ତ ସଞ୍ଚାଳନକୁ ସ୍ୱାଭାବିକ ରଖି ଶରୀରକୁ ଉଷ୍ମତା ପ୍ରଦାନ କରେ।</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="section3">
+      <h2>Section 3: Master Vocabulary, Literary Device &amp; Grammar Bank</h2>
+
+      <h3>1. Three Types of Compound Words</h3>
+      <p>A <strong>compound word</strong> is formed when two or more distinct words are joined together to create a new word with a specialized meaning.</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Compound Type</th>
+            <th>Grammatical Structure</th>
+            <th>Examples from Unit 3</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Open Compound Words</strong></td>
+            <td>Written with a space separating the two words, but read as a single concept.</td>
+            <td>neem oil, seed powder, well known, tree bough, fruit chaat.</td>
+          </tr>
+          <tr>
+            <td><strong>Closed Compound Words</strong></td>
+            <td>Written as a single solid word with no space between roots.</td>
+            <td>something, grandmother, childhood, classroom, eyesight.</td>
+          </tr>
+          <tr>
+            <td><strong>Hyphenated Compound Words</strong></td>
+            <td>Written with a hyphen (-) connecting the constituent words.</td>
+            <td>cleanliness-parting, thought-provoking, well-trained, pale-blue.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>2. Modal Auxiliary Verbs &amp; Their Functions</h3>
+      <p><strong>Modals</strong> are helping verbs that express the speaker's attitude, obligation, ability, or probability.</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Modal Verb</th>
+            <th>Communicative Function</th>
+            <th>Example Sentence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>May</strong></td>
+            <td>Permission / Polite Suggestion / Possibility</td>
+            <td>You <em>may</em> share these spice cures with your friends.</td>
+          </tr>
+          <tr>
+            <td><strong>Should</strong></td>
+            <td>Advice / Moral Recommendation</td>
+            <td>You <em>should</em> try to remember these home cures.</td>
+          </tr>
+          <tr>
+            <td><strong>Can</strong></td>
+            <td>Ability / Capability</td>
+            <td>Neem oil <em>can</em> help repel harmful crop pests.</td>
+          </tr>
+          <tr>
+            <td><strong>Must</strong></td>
+            <td>Compulsion / Strong Obligation / Necessity</td>
+            <td>You <em>must</em> consult an elder before trying a home cure.</td>
+          </tr>
+          <tr>
+            <td><strong>Need to</strong></td>
+            <td>Necessity / Requirement</td>
+            <td>I <em>need to</em> soak the methi seeds overnight.</td>
+          </tr>
+          <tr>
+            <td><strong>Used to</strong></td>
+            <td>Past Habit (no longer happening)</td>
+            <td>Grandmother <em>used to</em> put heeng water on my tummy.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>3. Irregular Present vs. Past Verbs</h3>
+      <ul>
+        <li><strong>become &rarr; became:</strong> Amber <em>became</em> good friends with Neem Baba.</li>
+        <li><strong>find &rarr; found:</strong> The fledgling <em>found</em> out how vast the world was.</li>
+        <li><strong>make &rarr; made:</strong> Mother bird <em>made</em> the nest of straw.</li>
+        <li><strong>tell &rarr; told:</strong> Neem Baba <em>told</em> her stories of ancient India.</li>
+        <li><strong>give &rarr; gave:</strong> Spices <em>gave</em> natural relief from body ache.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="section4">
+      <h2>Section 4: 100% Complete NCERT Solutions</h2>
+
+      <!-- ==============================================
+           NEEM BABA SOLUTIONS
+           ============================================== -->
+      <h3>Part 1: Solutions for "Neem Baba"</h3>
+
+      <details class="ans-box">
+        <summary>Let us think and reflect (Pages 79–81): Neem Baba Fact Sheet &amp; Questions</summary>
+        <div class="ans-content">
+          <p><strong>I. Complete the Neem Fact Sheet:</strong></p>
+          <ul>
+            <li><strong>Age of Neem:</strong> Born millions of years ago in the Indian subcontinent.</li>
+            <li><strong>Sanskrit Name:</strong> <em>Arishta</em> (Reliever of sickness).</li>
+            <li><strong>Hindi Name:</strong> <em>Nimb</em>.</li>
+            <li><strong>Common Title:</strong> Village Pharmacy / Nature's Doctor.</li>
+            <li><strong>Twigs use:</strong> Natural toothbrushes (datun) for healthy teeth and gums.</li>
+            <li><strong>Dried leaves use:</strong> Placed in clothes and grain bins to repel moths and insects.</li>
+            <li><strong>Seed powder/oil use:</strong> Natural bio-pesticide for protecting crops.</li>
+          </ul>
+
+          <p><strong>II. In-Text Comprehension Questions:</strong></p>
+          <ol>
+            <li><strong>Why does Amber address the tree as "Neem Baba"?</strong><br>
+            Amber addresses the tree as "Neem Baba" with affection and respect because the tree is very old, wise, protective, and has watched generations of children grow up under its soothing shade.</li>
+            <li><strong>How does the neem tree help in purifying the environment?</strong><br>
+            The neem tree traps dust and airborne pollutants on its dense foliage, absorbs carbon dioxide, and continuously releases pure, fragrant oxygen, cooling the surrounding air.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Let us learn (Pages 81–83): Compound Words &amp; Past Verbs</summary>
+        <div class="ans-content">
+          <p><strong>1. Categorizing Compound Words:</strong></p>
+          <ul>
+            <li><strong>Open Compound Words:</strong> neem oil, seed powder, well known.</li>
+            <li><strong>Closed Compound Words:</strong> something, grandmother, childhood.</li>
+            <li><strong>Hyphenated Compound Words:</strong> cleanliness-parting, thought-provoking, well-trained.</li>
+          </ul>
+
+          <p><strong>2. Matching Present to Past Verbs:</strong></p>
+          <ol>
+            <li>become &rarr; <strong>became</strong> (I want to become a doctor when I grow up.)</li>
+            <li>find &rarr; <strong>found</strong> (She found the lost notebook under the desk.)</li>
+            <li>make &rarr; <strong>made</strong> (Grandmother made delicious spice tea.)</li>
+            <li>discover &rarr; <strong>discovered</strong> (Scientists discovered ancient neem seeds.)</li>
+            <li>tell &rarr; <strong>told</strong> (Neem Baba told Amber ancient stories.)</li>
+            <li>give &rarr; <strong>gave</strong> (The tree gave cool shade to the girl.)</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- ==============================================
+           WHAT A BIRD THOUGHT SOLUTIONS
+           ============================================== -->
+      <h3>Part 2: Solutions for "What a Bird Thought"</h3>
+
+      <details class="ans-box">
+        <summary>Let us think and reflect (Pages 88–90): Stanza Comprehension &amp; Rhyming Words</summary>
+        <div class="ans-content">
+          <p><strong>I. Rhyming Words Table:</strong></p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Stanza</th>
+                <th>Rhyming Words from Poem</th>
+                <th>New Rhyming Words</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Stanza 1</td>
+                <td>well &bull; shell</td>
+                <td>bell, tell, fell</td>
+              </tr>
+              <tr>
+                <td>Stanza 2</td>
+                <td>other &bull; mother</td>
+                <td>brother, another</td>
+              </tr>
+              <tr>
+                <td>Stanza 3</td>
+                <td>find &bull; blind</td>
+                <td>mind, kind, bind</td>
+              </tr>
+              <tr>
+                <td>Stanza 4</td>
+                <td>blue &bull; you</td>
+                <td>true, new, flew</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><strong>II. Complete the Bird's New Stanza:</strong></p>
+          <p><em>I fly high and I fly low,<br>
+          But one thing I surely <strong>know</strong>,<br>
+          Whenever I wish to rest,<br>
+          My little nest is the <strong>best</strong>.</em></p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Let us listen (Page 90): Missing Words from Parrot Paro Poem (Transcript Page 102)</summary>
+        <div class="ans-content">
+          <p><strong>Completed Listening Poem:</strong></p>
+          <p><em>I'm a parrot, my name is Paro,<br>
+          My feathers are <strong>bright</strong> and they glow.<br>
+          In the morning, I spread my wings,<br>
+          <strong>Fly</strong> around and see wonderful things.<br>
+          Come with me through the skies so <strong>blue</strong>,<br>
+          To places old and places new.<br>
+          Among the <strong>trees</strong>, where the breeze is light,<br>
+          Many new <strong>sights</strong>, oh, what a sight!</em></p>
+        </div>
+      </details>
+
+      <!-- ==============================================
+           SPICES THAT HEAL US SOLUTIONS
+           ============================================== -->
+      <h3>Part 3: Solutions for "Spices That Heal Us"</h3>
+
+      <details class="ans-box">
+        <summary>Let us learn (Pages 96–98): Spice Classification Table &amp; Modal Auxiliary Exercises</summary>
+        <div class="ans-content">
+          <p><strong>I. Spice Classification Table:</strong></p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Spice Name</th>
+                <th>Part of Plant</th>
+                <th>Colour</th>
+                <th>Texture</th>
+                <th>Taste</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Turmeric (Haldi)</strong></td>
+                <td>Root / Rhizome</td>
+                <td>Golden Yellow</td>
+                <td>Powdery / Rough</td>
+                <td>Earthy / Bitter</td>
+              </tr>
+              <tr>
+                <td><strong>Fenugreek (Methi)</strong></td>
+                <td>Seeds</td>
+                <td>Golden Brown</td>
+                <td>Hard / Rough</td>
+                <td>Bitter</td>
+              </tr>
+              <tr>
+                <td><strong>Cinnamon (Dalchini)</strong></td>
+                <td>Inner Bark</td>
+                <td>Brown</td>
+                <td>Dry / Rough</td>
+                <td>Sweet / Spicy</td>
+              </tr>
+              <tr>
+                <td><strong>Clove (Laung)</strong></td>
+                <td>Flower Bud</td>
+                <td>Dark Brown</td>
+                <td>Rough / Pointed</td>
+                <td>Pungent / Hot</td>
+              </tr>
+              <tr>
+                <td><strong>Black Pepper (Kali Mirch)</strong></td>
+                <td>Fruit / Berry</td>
+                <td>Black</td>
+                <td>Wrinkled / Rough</td>
+                <td>Sharp / Spicy</td>
+              </tr>
+              <tr>
+                <td><strong>Cardamom (Elaichi)</strong></td>
+                <td>Fruit Pod with Seeds</td>
+                <td>Green</td>
+                <td>Papery pod / Tiny seeds</td>
+                <td>Sweet / Minty</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <p><strong>II. Modal Dialogue Completion (Page 97):</strong></p>
+          <p><strong>Ajay:</strong> Anand had fever last week. He <strong>should</strong> take good rest.<br>
+          <strong>Suman:</strong> Yes, he <strong>must</strong> or he will fall ill again.<br>
+          <strong>Ajay:</strong> He <strong>can</strong> take grandmother's natural cures.<br>
+          <strong>Suman:</strong> Yes, we <strong>need to</strong> remember how effective they are.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="section5">
+      <h2>Section 5: Exhaustive CBSE/BSE Competency Question Bank</h2>
+
+      <h3>Part A: Interactive Multiple Choice Questions (MCQs)</h3>
+      <div class="quiz-score-board" id="quizScoreBoard">
+        Quiz Score: <span id="currentScore">0</span> / 5 answered correctly
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qCard1">
+        <div class="quiz-question">Q1. Why is the neem tree celebrated in ancient Sanskrit literature as "Arishta"?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 0, false)">A. Because its wood is used to make royal chariots</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 1, true)">B. Because the word means 'reliever of sickness' and cures all ailments</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 2, false)">C. Because it bears sweet edible mangoes</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 3, false)">D. Because it only grows on mountain peaks</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback1"></div>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qCard2">
+        <div class="quiz-question">Q2. In "What a Bird Thought", what did the young fledgling believe the world was made of during its second stage of life?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 0, false)">A. Pale-blue shell</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 1, true)">B. Warm dry straw</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 2, false)">C. Crisp green leaves</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 3, false)">D. Boundless blue sky</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback2"></div>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qCard3">
+        <div class="quiz-question">Q3. Which kitchen spice contains eugenol and is traditionally pressed against an aching tooth for instant relief?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 0, false)">A. Turmeric</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 1, false)">B. Cardamom</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 2, true)">C. Clove</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 3, false)">D. Cinnamon</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback3"></div>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qCard4">
+        <div class="quiz-question">Q4. Which of the following is a 'Hyphenated Compound Word'?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 0, false)">A. grandmother</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 1, false)">B. seed powder</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 2, true)">C. thought-provoking</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 3, false)">D. childhood</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback4"></div>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qCard5">
+        <div class="quiz-question">Q5. Which modal auxiliary verb expresses a 'compulsion or mandatory obligation'?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 0, false)">A. may</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 1, false)">B. can</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 2, false)">C. should</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 3, true)">D. must</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback5"></div>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #c8e6c9;">
+
+      <h3>Part B: Assertion &amp; Reasoning Questions</h3>
+      <p><em>Directions: Choose (A) if both Assertion and Reason are true and Reason is the correct explanation. Choose (B) if both are true but Reason is NOT the correct explanation. Choose (C) if Assertion is true but Reason is false. Choose (D) if Assertion is false but Reason is true.</em></p>
+
+      <div class="quiz-card">
+        <p><strong>Q1. Assertion (A):</strong> Dried neem leaves are placed inside grain storage containers and book trunks.<br>
+        <strong>Reason (R):</strong> Neem leaves contain natural compounds that act as organic insect repellents, protecting grains and clothes from pests.</p>
+        <details class="ans-box">
+          <summary>View Correct Option &amp; Analysis</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (A)</strong><br>
+            Both Assertion and Reason are true, and Reason directly explains the insect-repelling property of neem leaves.
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q2. Assertion (A):</strong> The fledgling in "What a Bird Thought" believed from the start that the world was boundless and blue.<br>
+        <strong>Reason (R):</strong> The young bird's understanding of the world expanded gradually as it transitioned from egg to nest, tree, and open sky.</p>
+        <details class="ans-box">
+          <summary>View Correct Option &amp; Analysis</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (D)</strong><br>
+            Assertion (A) is FALSE (initially it thought the world was a pale blue shell). Reason (R) is scientifically and poetically TRUE.
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q3. Assertion (A):</strong> Warm milk mixed with turmeric (Haldi Doodh) is recommended in Indian households for body pain and cough.<br>
+        <strong>Reason (R):</strong> Turmeric contains curcumin, an active compound renowned for its powerful anti-inflammatory and antiseptic qualities.</p>
+        <details class="ans-box">
+          <summary>View Correct Option &amp; Analysis</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (A)</strong><br>
+            Both Assertion and Reason are true, and curcumin's biological action explains why haldi-doodh is an effective traditional remedy.
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q4. Assertion (A):</strong> In the sentence "You must wash your hands before eating", 'must' expresses a mild optional suggestion.<br>
+        <strong>Reason (R):</strong> The modal 'must' is used in English grammar to indicate strong necessity or strict obligation.</p>
+        <details class="ans-box">
+          <summary>View Correct Option &amp; Analysis</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (D)</strong><br>
+            Assertion (A) is FALSE ('must' is strong obligation, not mild suggestion). Reason (R) is TRUE.
+          </div>
+        </details>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #c8e6c9;">
+
+      <h3>Part C: Short Answer Questions (2M &amp; 3M)</h3>
+
+      <div class="quiz-card">
+        <p><strong>Q1. What is Personification? How is it illustrated in the text "Neem Baba"? (2 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Model Answer &amp; Marking Breakdown</summary>
+          <div class="ans-content">
+            <ul>
+              <li><strong>Definition (1 Mark):</strong> Personification is a literary figure of speech where an inanimate object, plant, or animal is given human characteristics, thoughts, feelings, or speech.</li>
+              <li><strong>Illustration (1 Mark):</strong> The neem tree is personified as "Neem Baba", an affectionate elder who speaks warmly to schoolgirl Amber and narrates his life history.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q2. Trace the four stages of the bird's expanding perception of the world in "What a Bird Thought". (3 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Model Answer &amp; Marking Breakdown</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Stage 1 (Egg):</strong> World made of a small, round, pale-blue shell.</li>
+              <li><strong>Stage 2 (Nest):</strong> World made of warm, dry straw cared for by mother bird.</li>
+              <li><strong>Stage 3 (Bough):</strong> World made of green leaves on the tree branches.</li>
+              <li><strong>Stage 4 (Sky):</strong> World is boundless, vast, and mysterious under the open blue sky.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q3. Explain the three types of compound words with one example of each from Unit 3. (3 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Model Answer &amp; Marking Breakdown</summary>
+          <div class="ans-content">
+            <ul>
+              <li><strong>Open Compound Word (1 Mark):</strong> Words written with a space between them (e.g., <em>neem oil</em>).</li>
+              <li><strong>Closed Compound Word (1 Mark):</strong> Words joined together without any space (e.g., <em>grandmother</em>).</li>
+              <li><strong>Hyphenated Compound Word (1 Mark):</strong> Words connected with a hyphen (e.g., <em>thought-provoking</em>).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #c8e6c9;">
+
+      <h3>Part D: Long Answer Questions (5 Marks)</h3>
+
+      <div class="quiz-card">
+        <p><strong>Q1. "Nature provides both shelter for the body and wisdom for the soul." How do the three chapters of Unit 3 ("Neem Baba", "What a Bird Thought", and "Spices That Heal Us") collectively reflect this philosophy? (5 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Comprehensive 5-Mark Solution</summary>
+          <div class="ans-content">
+            <p>Unit 3 presents a holistic celebration of the natural world across three complementary dimensions:</p>
+            <ol>
+              <li><strong>Physical Protection &amp; Environmental Health (1.5 Marks):</strong> In <em>Neem Baba</em>, the tree provides cooling shade from scorching sun, purifies urban air, cleans teeth, and offers natural bio-pesticides that protect crops without toxic chemical damage.</li>
+              <li><strong>Intellectual &amp; Spiritual Growth (1.5 Marks):</strong> In <em>What a Bird Thought</em>, nature acts as the classroom of life. The growing fledgling discovers that reality is far grander than its immediate shelter, teaching humans that our minds must shed small boundaries and embrace universal knowledge.</li>
+              <li><strong>Everyday Holistic Healing (2 Marks):</strong> In <em>Spices That Heal Us</em>, nature is our kitchen physician. Common culinary roots, barks, seeds, and buds (turmeric, ginger, clove, cardamom) provide non-toxic, sustainable cures for colds, toothaches, wounds, and indigestion.
+                <br>Together, the unit inspires young students to respect, conserve, and live in harmonious partnership with Mother Nature.
+              </li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q2. Prepare an informative presentation script for your school assembly on: "Traditional Indian Kitchen Spices as Natural Healers". Cover at least four spices with plant part, key active property, and primary health benefit. (5 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Comprehensive 5-Mark Solution</summary>
+          <div class="ans-content">
+            <p><strong>Respected Principal, Teachers, and Fellow Students,</strong><br>
+            Good morning! Today, I present our indigenous wisdom: <em>The Natural Healers in our Spice Box</em>:</p>
+            <ol>
+              <li><strong>Turmeric (Haldi &bull; Root/Rhizome) (1.25M):</strong> The golden healer of Ayurveda. Rich in curcumin, it is a potent antiseptic. Applied to cuts to prevent infection, and taken with warm milk to relieve coughs and body ache.</li>
+              <li><strong>Ginger (Adrak &bull; Rhizome) (1.25M):</strong> The cold-weather champion. Pungent and warming, ginger tea soothes sore throats, relieves nausea, and expels chest congestion.</li>
+              <li><strong>Clove (Laung &bull; Dried Flower Bud) (1.25M):</strong> The dentist's friend. Contains eugenol, which numbs throbbing toothaches and freshens oral breath naturally.</li>
+              <li><strong>Cardamom (Elaichi &bull; Seed Pod) (1.25M):</strong> The aromatic digestive. Chewing green cardamom pods after meals balances stomach acidity, eases indigestion, and leaves a pleasant aroma.</li>
+            </ol>
+            <p>Let us cherish and preserve this natural heritage. Thank you!</p>
+          </div>
+        </details>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #c8e6c9;">
+
+      <h3>Part E: Competency-Based Extract Studies</h3>
+
+      <div class="quiz-card">
+        <h4>Extract Study 1: From "What a Bird Thought"</h4>
+        <p><em>"At last I flew beyond the tree,<br>
+        And saw the sky so blue;<br>
+        Now, how the world is really made<br>
+        I cannot tell—can you?"</em></p>
+        
+        <p><strong>Questions:</strong><br>
+        1. Where did the bird fly in this final stanza? (1M)<br>
+        2. What does the bird's inability to describe how the world is made signify? (2M)<br>
+        3. Identify the rhyme scheme of this stanza and list the rhyming pair. (1M)</p>
+
+        <details class="ans-box">
+          <summary>View Extract Study 1 Solutions</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Destination (1M):</strong> The bird soared beyond the confines of the tree into the wide open blue sky.</li>
+              <li><strong>Significance (2M):</strong> It signifies intellectual humility and the realization that the universe is boundless, infinitely complex, and cannot be captured within narrow preconceived notions.</li>
+              <li><strong>Rhyme &amp; Pair (1M):</strong> Rhyme scheme is <strong>ABCB</strong>; the rhyming word pair is <strong>blue &mdash; you</strong>.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="section6">
+      <h2>Section 6: Common Exam Mistakes &amp; 15 Rapid Revision Points</h2>
+
+      <h3>5 Common Student Mistakes in Exams</h3>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 1: Confusing Plant Parts for Spices</h4>
+        <p><strong>Incorrect:</strong> Writing that clove is a tree bark and cinnamon is a seed.<br>
+        <strong>Correct:</strong> Clove is a <strong>dried flower bud</strong>, and Cinnamon is the <strong>dried inner bark</strong> of a tree!</p>
+      </div>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 2: Mixing Up Open and Closed Compound Words</h4>
+        <p><strong>Incorrect:</strong> Writing "neemoil" as one word, or "grand mother" as two words.<br>
+        <strong>Correct:</strong> "Neem oil" is an <strong>open compound word</strong> (with space), while "grandmother" is a <strong>closed compound word</strong> (no space).</p>
+      </div>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 3: Misidentifying the Rhyme Scheme of "What a Bird Thought"</h4>
+        <p><strong>Incorrect:</strong> Stating the poem has an AABB rhyme scheme.<br>
+        <strong>Correct:</strong> The poem has an <strong>ABCB</strong> rhyme scheme (lines 2 and 4 rhyme in each stanza: well/shell, other/mother, find/blind, blue/you).</p>
+      </div>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 4: Confusing 'May' with 'Must'</h4>
+        <p><strong>Incorrect:</strong> Writing "You may consult a doctor immediately" when giving an urgent medical warning.<br>
+        <strong>Correct:</strong> Use <strong>must</strong> for strong necessity and safety mandates; <strong>may</strong> is reserved for polite permission or mild possibility.</p>
+      </div>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 5: Assuming Neem is Harmful to Earthworms</h4>
+        <p><strong>Incorrect:</strong> Claiming neem bio-pesticide kills all soil organisms.<br>
+        <strong>Correct:</strong> Neem seed extract is a selective <strong>bio-pesticide</strong> that repels harmful plant-eating insects while leaving beneficial earthworms and pollinating bees completely unharmed!</p>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #c8e6c9;">
+
+      <h3>15 Ultra-Crisp Rapid Revision Points</h3>
+      <ol style="margin-left: 24px; line-height: 1.8;">
+        <li><strong>Unit 3 Theme:</strong> "Nurturing Nature" &mdash; exploring the botanical, philosophical, and medicinal marvels of nature.</li>
+        <li><strong>"Neem Baba"</strong> features an imaginative dialogue between young Amber and an ancient, wise neem tree.</li>
+        <li>Neem originated in the <strong>Indian subcontinent</strong> millions of years ago and was cultivated in the Indus-Sarasvati Civilisation.</li>
+        <li>Sanskrit name for neem is <strong>Arishta</strong> (Reliever of Sickness); in Hindi, it is <strong>Nimb</strong>.</li>
+        <li>Neem is affectionately known as the <strong>"Village Pharmacy"</strong> because every single part has healing properties.</li>
+        <li>Neem twigs (<em>datun</em>) prevent tooth decay; dried leaves repel insects in clothes and grain bins.</li>
+        <li>Neem seed extract functions as an eco-friendly <strong>bio-pesticide</strong> that protects crops without toxic runoff.</li>
+        <li><strong>"What a Bird Thought"</strong> is a four-stanza poem tracing the expanding worldview of a young bird.</li>
+        <li>The four horizons of the bird are: <strong>Egg</strong> (shell) &rarr; <strong>Nest</strong> (straw) &rarr; <strong>Tree</strong> (leaves) &rarr; <strong>Sky</strong> (boundless blue).</li>
+        <li>The poem follows an <strong>ABCB</strong> rhyme scheme and symbolizes human intellectual development.</li>
+        <li><strong>"Spices That Heal Us"</strong> decodes traditional Indian spices found in grandmother's kitchen box.</li>
+        <li><strong>Turmeric</strong> is a rhizome containing curcumin, prized for antiseptic and anti-inflammatory wound healing.</li>
+        <li><strong>Clove</strong> is a dried flower bud containing eugenol, renowned for numbing severe toothache.</li>
+        <li><strong>Compound words</strong> exist in three forms: Open (<em>neem oil</em>), Closed (<em>grandmother</em>), and Hyphenated (<em>thought-provoking</em>).</li>
+        <li><strong>Modal verbs</strong> indicate mood/obligation: <em>can</em> (ability), <em>may</em> (permission), <em>should</em> (advice), <em>must</em> (compulsion).</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Sujit Classes &bull; Class 6 English Poorvi Master Study Series</p>
+    <p>Aligned with NEP 2020 &bull; NCERT Guidelines &bull; Bilingual English + Odia Pedagogy</p>
+    <p style="margin-top: 10px;"><a href="../../index.html">&larr; Back to Portal Study Materials</a></p>
+  </footer>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) {
+        bar.style.width = scrolled + '%';
+      }
+    });
+
+    // Audio TTS Reader
+    var isReading = false;
+    var speechSynth = window.speechSynthesis;
+    var speechUtterance = null;
+
+    function toggleAudioReader() {
+      var btn = document.getElementById('audio-tts-btn');
+      if (!isReading) {
+        var textContent = document.querySelector('.container').innerText;
+        speechUtterance = new SpeechSynthesisUtterance(textContent);
+        speechUtterance.rate = 1.0;
+        speechUtterance.pitch = 1.0;
+        speechUtterance.onend = function() {
+          isReading = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Notes</span>';
+        };
+        speechSynth.speak(speechUtterance);
+        isReading = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Audio</span>';
+      } else {
+        speechSynth.cancel();
+        isReading = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Notes</span>';
+      }
+    }
+
+    // Interactive Quiz Engine
+    var quizExplanations = {
+      1: {
+        correctText: "Correct! In Sanskrit, 'Arishta' means 'reliever of sickness', reflecting neem's complete medicinal qualities.",
+        incorrectText: "Incorrect. Sanskrit 'Arishta' signifies 'reliever of sickness' due to neem's extensive healing properties."
+      },
+      2: {
+        correctText: "Correct! In Stanza 2, after hatching into its nest, the bird thought 'the world was made of straw'.",
+        incorrectText: "Incorrect. In the nest (Stanza 2), the fledgling thought the world was made of straw brooded by its mother."
+      },
+      3: {
+        correctText: "Correct! Cloves (dried flower buds) contain eugenol, an active compound that numbs dental nerve pain.",
+        incorrectText: "Incorrect. Clove is the spice containing eugenol that numbs toothaches effectively."
+      },
+      4: {
+        correctText: "Correct! 'Thought-provoking' is written with a hyphen, making it a hyphenated compound word.",
+        incorrectText: "Incorrect. 'Thought-provoking' has a hyphen between its two components."
+      },
+      5: {
+        correctText: "Correct! The modal 'must' expresses strong necessity, strict obligation, or compulsion.",
+        incorrectText: "Incorrect. 'Must' is used for strict compulsion. 'Should' is advice, 'can' is ability, and 'may' is permission."
+      }
+    };
+
+    var answeredCorrectly = {};
+
+    function handleQuiz(qNum, optIdx, isCorrect) {
+      var card = document.getElementById('qCard' + qNum);
+      if (!card) return;
+      var buttons = card.querySelectorAll('.quiz-opt-btn');
+      var feedback = document.getElementById('qFeedback' + qNum);
+
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('correct', 'incorrect');
+      }
+
+      if (isCorrect) {
+        buttons[optIdx].classList.add('correct');
+        feedback.className = 'quiz-feedback show correct-fb';
+        feedback.innerHTML = '<strong>' + quizExplanations[qNum].correctText + '</strong>';
+        answeredCorrectly[qNum] = true;
+      } else {
+        buttons[optIdx].classList.add('incorrect');
+        feedback.className = 'quiz-feedback show incorrect-fb';
+        feedback.innerHTML = '<strong>' + quizExplanations[qNum].incorrectText + '</strong>';
+        answeredCorrectly[qNum] = false;
+      }
+
+      var totalCorrect = 0;
+      for (var key in answeredCorrectly) {
+        if (answeredCorrectly[key] === true) {
+          totalCorrect++;
+        }
+      }
+      var scoreElem = document.getElementById('currentScore');
+      if (scoreElem) {
+        scoreElem.innerText = totalCorrect;
+      }
+    }
+  </script>
+</body>
+</html>
