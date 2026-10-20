@@ -1,0 +1,1726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 6 Science Chapter 12: Beyond Earth - Master Study Notes</title>
+  <style>
+    :root {
+      --primary-color: #0d47a1;
+      --primary-light: #e3f2fd;
+      --secondary-color: #1565c0;
+      --accent-color: #ffd600;
+      --text-dark: #212121;
+      --text-light: #555555;
+      --bg-white: #ffffff;
+      --bg-alt: #f0f4f8;
+      --border-color: #bbdefb;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.68;
+      color: var(--text-dark);
+      background-color: #f8fafc;
+      padding: 0;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, #1565c0, #42a5f5, #ffd600);
+      z-index: 9999;
+      transition: width 0.1s ease-out;
+    }
+
+    header.header {
+      background: linear-gradient(135deg, #0a192f 0%, #0d47a1 50%, #1a237e 100%);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(10,25,47,0.3);
+      position: relative;
+    }
+    header.header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    header.header p {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 18px;
+    }
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .badge {
+      background: rgba(255,255,255,0.2);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .audio-btn {
+      background: #ffd600;
+      color: #0a192f;
+      border: none;
+      padding: 9px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+    }
+    .audio-btn:hover {
+      background: #ffea00;
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .nav-breadcrumb {
+      margin-bottom: 25px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    .nav-breadcrumb a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-breadcrumb a:hover { text-decoration: underline; }
+
+    section {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-bottom: 35px;
+      box-shadow: var(--shadow);
+      border: 1px solid #e2e8f0;
+    }
+    section h2 {
+      font-size: 1.65rem;
+      color: var(--primary-color);
+      border-left: 5px solid var(--secondary-color);
+      padding-left: 14px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section h3 {
+      font-size: 1.25rem;
+      color: #1565c0;
+      margin: 22px 0 12px;
+      font-weight: 600;
+    }
+    section h4 {
+      font-size: 1.05rem;
+      color: #1e293b;
+      margin: 16px 0 8px;
+      font-weight: 600;
+    }
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 10px 0 18px 24px; }
+    li { margin-bottom: 8px; }
+
+    .callout {
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-size: 0.96rem;
+      border-left: 4px solid;
+    }
+    .callout-def { background: #e3f2fd; border-color: #1976d2; color: #0d47a1; }
+    .callout-act { background: #ede7f6; border-color: #7e57c2; color: #4a148c; }
+    .callout-pyq { background: #fff9c4; border-color: #fbc02d; color: #f57f17; }
+    .callout-hack { background: #e8f5e9; border-color: #43a047; color: #1b5e20; }
+    .callout-warn { background: #ffebee; border-color: #e53935; color: #b71c1c; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid #bbdefb;
+      padding: 11px 14px;
+      text-align: left;
+    }
+    .data-table th {
+      background-color: #e3f2fd;
+      color: #0d47a1;
+      font-weight: 600;
+    }
+    .data-table tr:nth-child(even) { background-color: #f8fafc; }
+
+    .diagram-container {
+      margin: 25px auto;
+      text-align: center;
+      background: #0b1329;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #1e293b;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .svg-node {
+      transition: transform 0.25s ease, filter 0.25s ease;
+      cursor: pointer;
+    }
+    .svg-node:hover {
+      transform: scale(1.03);
+      filter: drop-shadow(0 0 10px rgba(255,214,0,0.6));
+    }
+    @keyframes starTwinkle {
+      0% { opacity: 0.3; transform: scale(0.85); }
+      50% { opacity: 1; transform: scale(1.15); }
+      100% { opacity: 0.3; transform: scale(0.85); }
+    }
+    .twinkling-star {
+      animation: starTwinkle 3s infinite ease-in-out;
+      transform-origin: center;
+    }
+    @keyframes orbitPulse {
+      0% { stroke-opacity: 0.3; }
+      50% { stroke-opacity: 0.8; }
+      100% { stroke-opacity: 0.3; }
+    }
+    .orbit-line {
+      animation: orbitPulse 4s infinite ease-in-out;
+    }
+
+    details.ans-box {
+      background: #fdfdfd;
+      border: 1px solid #bbdefb;
+      border-radius: 8px;
+      padding: 12px 18px;
+      margin: 15px 0;
+      transition: var(--transition);
+    }
+    details.ans-box[open] {
+      background: #f0f7ff;
+      border-color: #64b5f6;
+    }
+    details.ans-box summary {
+      font-weight: 600;
+      color: #0d47a1;
+      cursor: pointer;
+      outline: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    details.ans-box summary::-webkit-details-marker { display: none; }
+    details.ans-box summary::after {
+      content: "➕ View Answer";
+      font-size: 0.85rem;
+      background: #e3f2fd;
+      color: #1565c0;
+      padding: 3px 10px;
+      border-radius: 15px;
+      border: 1px solid #90caf9;
+    }
+    details.ans-box[open] summary::after {
+      content: "➖ Hide Answer";
+      background: #bbdefb;
+      color: #0d47a1;
+    }
+    .ans-content {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed #90caf9;
+      color: #212121;
+    }
+
+    /* Quiz Styling */
+    .quiz-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 18px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .quiz-question {
+      font-weight: 600;
+      font-size: 1.02rem;
+      margin-bottom: 12px;
+      color: #0d47a1;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .quiz-opt-btn {
+      background: #f8fafc;
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .quiz-opt-btn:hover {
+      background: #e3f2fd;
+      border-color: #64b5f6;
+    }
+    .quiz-opt-btn.correct {
+      background: #d4edda !important;
+      border-color: #28a745 !important;
+      color: #155724 !important;
+      font-weight: 600;
+    }
+    .quiz-opt-btn.incorrect {
+      background: #f8d7da !important;
+      border-color: #dc3545 !important;
+      color: #721c24 !important;
+    }
+    .quiz-feedback {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .quiz-feedback.show { display: block; }
+    .quiz-feedback.correct-fb { background: #e8f5e9; border: 1px solid #a5d6a7; color: #1b5e20; }
+    .quiz-feedback.incorrect-fb { background: #ffebee; border: 1px solid #ef9a9a; color: #b71c1c; }
+    .quiz-score-board {
+      background: #e3f2fd;
+      border: 2px solid #64b5f6;
+      border-radius: 10px;
+      padding: 15px 20px;
+      text-align: center;
+      margin: 20px 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #0d47a1;
+    }
+
+    .mistake-card {
+      background: #fff8f8;
+      border-left: 5px solid #d32f2f;
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin: 12px 0;
+    }
+    .mistake-card h4 { color: #c62828; margin-bottom: 6px; }
+
+    footer {
+      background: #0a192f;
+      color: #94a3b8;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+    footer a { color: #64b5f6; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress-bar"></div>
+
+  <header class="header">
+    <h1>Class 6 Science &bull; Chapter 12</h1>
+    <p>Beyond Earth: Stars, Constellations, Pole Star, The Solar System, Milky Way Galaxy, Space Exploration &amp; India's Celestial Heritage</p>
+    <button class="audio-btn" id="audio-tts-btn" onclick="toggleAudioReader()">
+      <span>🔊 Listen to Notes</span>
+    </button>
+    <div class="badge-bar">
+      <span class="badge">NCERT Curiosity Textbook</span>
+      <span class="badge">NEP 2020 Aligned</span>
+      <span class="badge">ISRO Missions</span>
+      <span class="badge">100% Comprehensive</span>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="nav-breadcrumb">
+      <a href="../../index.html">Portal Home</a> &raquo; 
+      <a href="../../index.html#english-medium">Class 6 Science</a> &raquo; 
+      <span>Chapter 12: Beyond Earth</span>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section id="section1">
+      <h2>Section 1: Visual Mind Map &amp; Chapter Blueprint</h2>
+      <p>Since ancient times, gazing at the starry night sky has sparked humanity's greatest curiosity. In this culminating chapter of Class 6 Science, we journey from the dark, crystal-clear skies of Ladakh into deep cosmic space—exploring twinkling stars, identifiable constellations, our planetary family guided by the Sun, the grand spiral of the Milky Way galaxy, and the boundless Universe.</p>
+
+      <div class="diagram-container">
+        <!-- SVG 1: Solar System Architectural Map & Planetary Order -->
+        <svg viewBox="0 0 940 460" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="sunGlow" cx="0%" cy="50%" r="80%">
+              <stop offset="0%" stop-color="#fff59d"/>
+              <stop offset="40%" stop-color="#fbc02d"/>
+              <stop offset="85%" stop-color="#e65100"/>
+              <stop offset="100%" stop-color="#bf360c"/>
+            </radialGradient>
+            <linearGradient id="terrestrialGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#0288d1"/>
+              <stop offset="100%" stop-color="#26a69a"/>
+            </linearGradient>
+            <linearGradient id="gasGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#7e57c2"/>
+              <stop offset="100%" stop-color="#ab47bc"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Cosmic Background Stars -->
+          <circle cx="120" cy="50" r="1.5" fill="#fff" class="twinkling-star"/>
+          <circle cx="280" cy="80" r="1.2" fill="#fff" opacity="0.7"/>
+          <circle cx="450" cy="40" r="2" fill="#ffd600" class="twinkling-star"/>
+          <circle cx="680" cy="65" r="1.4" fill="#fff"/>
+          <circle cx="860" cy="45" r="1.8" fill="#fff" class="twinkling-star"/>
+          <circle cx="340" cy="410" r="1.5" fill="#fff"/>
+          <circle cx="750" cy="420" r="2" fill="#fff" class="twinkling-star"/>
+
+          <!-- Title -->
+          <text x="490" y="32" font-size="20" font-weight="bold" fill="#ffd600" text-anchor="middle">OUR SOLAR SYSTEM &bull; CELESTIAL BLUEPRINT &amp; PLANETARY ORDER</text>
+          <text x="490" y="52" font-size="12" fill="#94a3b8" text-anchor="middle">Eight Planets Revolving in Fixed Elliptical Orbits Around the Central Star: The Sun</text>
+
+          <!-- Sun Representation (Left Arc) -->
+          <path d="M 0 60 A 240 240 0 0 1 0 420 Z" fill="url(#sunGlow)" filter="drop-shadow(0 0 25px rgba(255,160,0,0.8))"/>
+          <text x="25" y="245" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle" transform="rotate(-90 25 245)">THE SUN (Star)</text>
+
+          <!-- Bracket for Inner / Terrestrial Planets -->
+          <rect x="75" y="80" width="280" height="24" rx="6" fill="#03254c" stroke="#0288d1" stroke-width="1.2"/>
+          <text x="215" y="96" font-size="11" font-weight="bold" fill="#4fc3f7" text-anchor="middle">INNER TERRESTRIAL PLANETS (Rocky)</text>
+
+          <!-- Bracket for Outer / Gas & Ice Giants -->
+          <rect x="495" y="80" width="410" height="24" rx="6" fill="#201138" stroke="#7e57c2" stroke-width="1.2"/>
+          <text x="700" y="96" font-size="11" font-weight="bold" fill="#ce93d8" text-anchor="middle">OUTER GASEOUS &amp; ICE GIANTS (Atmospheric)</text>
+
+          <!-- PLANETS WITH ORBIT STEMS -->
+          <!-- 1. Mercury -->
+          <g class="svg-node">
+            <line x1="100" y1="120" x2="100" y2="340" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+            <circle cx="100" cy="240" r="9" fill="#9e9e9e"/>
+            <text x="100" y="275" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Mercury</text>
+            <text x="100" y="292" font-size="9.5" fill="#94a3b8" text-anchor="middle">Budha &bull; 88 d</text>
+            <text x="100" y="306" font-size="9" fill="#fbbf24" text-anchor="middle">Smallest</text>
+          </g>
+
+          <!-- 2. Venus -->
+          <g class="svg-node">
+            <line x1="170" y1="120" x2="170" y2="340" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+            <circle cx="170" cy="240" r="16" fill="#e0a96d"/>
+            <text x="170" y="278" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Venus</text>
+            <text x="170" y="295" font-size="9.5" fill="#94a3b8" text-anchor="middle">Shukra</text>
+            <text x="170" y="309" font-size="9" fill="#f87171" text-anchor="middle">Hottest &bull; Brightest</text>
+          </g>
+
+          <!-- 3. Earth -->
+          <g class="svg-node">
+            <line x1="250" y1="120" x2="250" y2="340" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+            <circle cx="250" cy="240" r="17" fill="#1e88e5"/>
+            <!-- Landmass detail -->
+            <circle cx="248" cy="238" r="8" fill="#43a047" opacity="0.6"/>
+            <!-- Moon -->
+            <circle cx="273" cy="225" r="4" fill="#cfd8dc"/>
+            <text x="250" y="278" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Earth</text>
+            <text x="250" y="295" font-size="9.5" fill="#94a3b8" text-anchor="middle">Prithvi &bull; 365.25 d</text>
+            <text x="250" y="309" font-size="9" fill="#4ade80" text-anchor="middle">Only Living Oasis</text>
+          </g>
+
+          <!-- 4. Mars -->
+          <g class="svg-node">
+            <line x1="330" y1="120" x2="330" y2="340" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+            <circle cx="330" cy="240" r="12" fill="#e53935"/>
+            <text x="330" y="275" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Mars</text>
+            <text x="330" y="292" font-size="9.5" fill="#94a3b8" text-anchor="middle">Mangala</text>
+            <text x="330" y="306" font-size="9" fill="#fb923c" text-anchor="middle">"Red Planet" (Iron)</text>
+          </g>
+
+          <!-- ASTEROID BELT -->
+          <g class="svg-node">
+            <rect x="390" y="115" width="40" height="235" rx="6" fill="#1e293b" stroke="#475569" stroke-dasharray="2,3"/>
+            <text x="410" y="225" font-size="11" font-weight="bold" fill="#facc15" text-anchor="middle" transform="rotate(-90 410 225)">ASTEROID BELT (Rocky Debris)</text>
+          </g>
+
+          <!-- 5. Jupiter -->
+          <g class="svg-node">
+            <line x1="530" y1="120" x2="530" y2="340" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+            <circle cx="530" cy="240" r="34" fill="#d7ccc8"/>
+            <ellipse cx="530" cy="235" rx="33" ry="5" fill="#8d6e63" opacity="0.6"/>
+            <ellipse cx="530" cy="248" rx="31" ry="4" fill="#a1887f" opacity="0.7"/>
+            <!-- Red Spot -->
+            <ellipse cx="545" cy="252" rx="6" ry="4" fill="#c62828"/>
+            <text x="530" y="295" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">Jupiter</text>
+            <text x="530" y="312" font-size="9.5" fill="#94a3b8" text-anchor="middle">Brihaspati &bull; Largest</text>
+            <text x="530" y="326" font-size="9" fill="#fde047" text-anchor="middle">Gas Giant (H₂/He)</text>
+          </g>
+
+          <!-- 6. Saturn -->
+          <g class="svg-node">
+            <line x1="655" y1="120" x2="655" y2="340" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+            <!-- Saturn Ring -->
+            <ellipse cx="655" cy="240" rx="44" ry="12" fill="none" stroke="#ffe082" stroke-width="4.5" opacity="0.85" transform="rotate(-15 655 240)"/>
+            <circle cx="655" cy="240" r="26" fill="#ffe082"/>
+            <text x="655" y="295" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">Saturn</text>
+            <text x="655" y="312" font-size="9.5" fill="#94a3b8" text-anchor="middle">Shani &bull; Ring System</text>
+            <text x="655" y="326" font-size="9" fill="#fde047" text-anchor="middle">Least Dense (Floats!)</text>
+          </g>
+
+          <!-- 7. Uranus -->
+          <g class="svg-node">
+            <line x1="770" y1="120" x2="770" y2="340" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+            <circle cx="770" cy="240" r="19" fill="#4dd0e1"/>
+            <ellipse cx="770" cy="240" rx="27" ry="5" fill="none" stroke="#e0f7fa" stroke-width="1.5" opacity="0.6" transform="rotate(80 770 240)"/>
+            <text x="770" y="285" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Uranus</text>
+            <text x="770" y="302" font-size="9.5" fill="#94a3b8" text-anchor="middle">Indra &bull; Ice Giant</text>
+            <text x="770" y="316" font-size="9" fill="#67e8f9" text-anchor="middle">Tilted on side (98°)</text>
+          </g>
+
+          <!-- 8. Neptune -->
+          <g class="svg-node">
+            <line x1="865" y1="120" x2="865" y2="340" stroke="#334155" stroke-width="1" stroke-dasharray="3,3"/>
+            <circle cx="865" cy="240" r="18" fill="#1565c0"/>
+            <text x="865" y="285" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">Neptune</text>
+            <text x="865" y="302" font-size="9.5" fill="#94a3b8" text-anchor="middle">Varuna &bull; Furthest</text>
+            <text x="865" y="316" font-size="9" fill="#60a5fa" text-anchor="middle">Windiest Planet</text>
+          </g>
+
+          <!-- Bottom Mnemonic Ribbon -->
+          <rect x="140" y="380" width="660" height="50" rx="10" fill="#0f172a" stroke="#ffd600" stroke-width="1.5"/>
+          <text x="470" y="403" font-size="13" font-weight="bold" fill="#ffd600" text-anchor="middle">Mnemonic for Planetary Order from the Sun:</text>
+          <text x="470" y="421" font-size="12" font-weight="600" fill="#ffffff" text-anchor="middle">"My Very Educated Mother Just Served Us Noodles" (Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, Neptune)</text>
+        </svg>
+        <div class="diagram-caption">Figure 12.1: Architectural Map of our Solar System &mdash; Planetary Order, Relative Positions, and Structural Classification.</div>
+      </div>
+
+      <div class="callout callout-def">
+        <strong>What is a Celestial Body?</strong> Any natural physical object located outside Earth's atmosphere in outer space—such as the Sun, other stars, planets, moons, asteroids, comets, and meteoroids.
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="section2">
+      <h2>Section 2: Exhaustive Topic-by-Topic Notes</h2>
+
+      <!-- 12.1 Stars and Constellations -->
+      <h3>12.1 Stars and Constellations: Celestial Storytellers</h3>
+      <p>When we look up into a clear, dark night sky far away from polluted cities, we see thousands of twinkling dots of light. These are <strong>stars</strong>.</p>
+      
+      <h4>Core Scientific Facts About Stars:</h4>
+      <ul>
+        <li><strong>Self-Luminous:</strong> Stars are gigantic glowing spheres of superheated gas (principally hydrogen and helium) that generate their own heat and light through <em>nuclear fusion</em> in their cores.</li>
+        <li><strong>Enormous Distances:</strong> Stars appear as tiny pinpoints because they are situated at unimaginable distances from Earth. The nearest star to Earth is our <strong>Sun</strong> (approx. 150 million km away). The next nearest star system (Alpha Centauri) is over 40 trillion km away!</li>
+        <li><strong>Why Stars Twinkle:</strong> Stars twinkle because their light travels through constantly moving layers of Earth's atmosphere with varying temperatures and densities, which continually refracts (bends) the light rays back and forth.</li>
+      </ul>
+
+      <div class="callout callout-act">
+        <strong>🧪 Decoded Activity 12.1: Drawing and Imagining Patterns in Stars</strong><br>
+        <strong>Setup:</strong> Observe a bright field of stars in the night sky or look at a star chart (Fig. 12.2). Draw imaginary lines connecting bright star dots and invent an animal, hunter, or object that the shape resembles.<br>
+        <strong>Insight:</strong> Thousands of years ago, human ancestors across diverse civilizations (Indian, Greek, Mesopotamian, Chinese, Arabic) played this exact celestial game. They connected star groups into familiar mythological figures, beasts, and heroes. These recognizable star groupings are called <strong>constellations</strong>.
+      </div>
+
+      <h4>Major Constellations Studied in Grade 6:</h4>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Constellation Name</th>
+            <th>Indian / Sanskrit Name</th>
+            <th>Prominent Features &amp; Identifying Stars</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Ursa Major (Great Bear)</strong></td>
+            <td><strong>Saptaṛiṣhi (Seven Sages)</strong></td>
+            <td>Contains the famous 7-star pattern known as the <strong>Big Dipper</strong> (or Great Cart/Ladle). Four stars form the bowl and three form the curved handle. The two front stars of the bowl are the <em>Pointer Stars</em> pointing directly to the North Star (Polaris).</td>
+          </tr>
+          <tr>
+            <td><strong>Ursa Minor (Little Bear)</strong></td>
+            <td><strong>Laghu Saptaṛiṣhi</strong></td>
+            <td>Contains the <strong>Little Dipper</strong> pattern. The star at the very tip of the Little Dipper's tail is the famous <strong>Pole Star (Polaris / Dhruva Tārā)</strong>.</td>
+          </tr>
+          <tr>
+            <td><strong>Orion (The Hunter)</strong></td>
+            <td><strong>Mṛiga (The Deer / Hunter)</strong></td>
+            <td>One of the most magnificent winter constellations. Features three bright stars in a straight line forming <em>Orion's Belt</em>. Contains giant bright stars: red supergiant <em>Betelgeuse (Ārdrā)</em> and blue supergiant <em>Rigel</em>.</td>
+          </tr>
+          <tr>
+            <td><strong>Canis Major (The Great Dog)</strong></td>
+            <td><strong>Mṛigavyādha / Lubdhaka</strong></td>
+            <td>Follows Orion the Hunter across the sky. Contains <strong>Sirius</strong>, which is the <em>brightest star in the entire night sky</em>.</td>
+          </tr>
+          <tr>
+            <td><strong>Taurus (The Bull)</strong></td>
+            <td><strong>Vṛiṣhabha</strong></td>
+            <td>Located near Orion; contains the famous glittering star cluster <em>Pleiades (Kṛittikā)</em> and the reddish giant star <em>Aldebaran (Rohiṇī)</em>.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-hack">
+        <strong>✨ Indian Astronomy &bull; Nakṣhatras:</strong><br>
+        In traditional Indian astronomy, the ecliptic path across the sky is divided into <strong>27 Nakṣhatras</strong> (lunar mansions). Each Nakṣhatra represents a prominent star or star cluster that the Moon visits on successive nights—such as <em>Ārdrā</em> (Betelgeuse in Orion), <em>Kṛittikā</em> (Pleiades in Taurus), <em>Rohiṇī</em>, and <em>Aśhwinī</em>.
+      </div>
+
+      <div class="diagram-container">
+        <!-- SVG 2: Navigating the Night Sky (Locating Pole Star & Sirius) -->
+        <svg viewBox="0 0 940 440" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="navSky" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#050c1e"/>
+              <stop offset="100%" stop-color="#0a192f"/>
+            </linearGradient>
+            <marker id="cyanArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#00e5ff" />
+            </marker>
+            <marker id="goldArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#ffd600" />
+            </marker>
+          </defs>
+
+          <rect x="0" y="0" width="940" height="440" fill="url(#navSky)" rx="12"/>
+
+          <!-- Title -->
+          <text x="470" y="32" font-size="18" font-weight="bold" fill="#00e5ff" text-anchor="middle">CELESTIAL NAVIGATION &bull; LOCATING THE POLE STAR &amp; SIRIUS</text>
+          <text x="470" y="52" font-size="12" fill="#94a3b8" text-anchor="middle">Using Guide Constellations (Big Dipper &amp; Orion's Belt) to Find Key Celestial Landmarks</text>
+
+          <!-- Dividing Dashed Line -->
+          <line x1="470" y1="70" x2="470" y2="400" stroke="#334155" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+          <!-- LEFT SIDE: FINDING POLE STAR (NORTH) -->
+          <text x="235" y="80" font-size="15" font-weight="bold" fill="#ffd600" text-anchor="middle">METHOD 1: FINDING THE POLE STAR (NORTH)</text>
+
+          <!-- Big Dipper (Saptaṛiṣhi) Stars -->
+          <!-- Handle -->
+          <circle cx="80" cy="180" r="3.5" fill="#fff"/>
+          <text x="75" y="170" font-size="10" fill="#cbd5e1">Alkaid</text>
+          <line x1="80" y1="180" x2="130" y2="195" stroke="#64748b" stroke-width="1.5"/>
+
+          <circle cx="130" cy="195" r="3.5" fill="#fff"/>
+          <text x="130" y="185" font-size="10" fill="#cbd5e1">Mizar</text>
+          <line x1="130" y1="195" x2="180" y2="230" stroke="#64748b" stroke-width="1.5"/>
+
+          <circle cx="180" cy="230" r="3.5" fill="#fff"/>
+          <text x="180" y="220" font-size="10" fill="#cbd5e1">Alioth</text>
+          <line x1="180" y1="230" x2="225" y2="250" stroke="#64748b" stroke-width="1.5"/>
+
+          <!-- Bowl -->
+          <circle cx="225" cy="250" r="3.5" fill="#fff"/>
+          <text x="215" y="268" font-size="10" fill="#cbd5e1">Megrez</text>
+
+          <circle cx="215" cy="315" r="3.5" fill="#fff"/>
+          <text x="200" y="333" font-size="10" fill="#cbd5e1">Phecda</text>
+
+          <circle cx="300" cy="310" r="4.5" fill="#ffd600"/>
+          <text x="315" y="328" font-size="11" font-weight="bold" fill="#ffd600">Merak</text>
+
+          <circle cx="310" cy="245" r="4.5" fill="#ffd600"/>
+          <text x="330" y="240" font-size="11" font-weight="bold" fill="#ffd600">Dubhe</text>
+
+          <!-- Bowl outlines -->
+          <line x1="225" y1="250" x2="215" y2="315" stroke="#64748b" stroke-width="1.5"/>
+          <line x1="215" y1="315" x2="300" y2="310" stroke="#64748b" stroke-width="1.5"/>
+          <line x1="300" y1="310" x2="310" y2="245" stroke="#ffd600" stroke-width="2.5"/>
+          <line x1="310" y1="245" x2="225" y2="250" stroke="#64748b" stroke-width="1.5"/>
+
+          <!-- Pointer Line from Merak through Dubhe to Polaris -->
+          <line x1="300" y1="310" x2="325" y2="135" stroke="#00e5ff" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#cyanArrow)"/>
+
+          <!-- POLE STAR (Dhruva Tārā) -->
+          <g class="svg-node">
+            <circle cx="330" cy="115" r="7" fill="#00e5ff" filter="drop-shadow(0 0 8px #00e5ff)" class="twinkling-star"/>
+            <text x="330" y="95" font-size="13" font-weight="bold" fill="#00e5ff" text-anchor="middle">POLE STAR (Polaris / Dhruva Tārā)</text>
+            <text x="330" y="135" font-size="10.5" fill="#ffffff" text-anchor="middle">Marks True North &bull; Stays Stationary!</text>
+          </g>
+
+          <text x="235" y="375" font-size="11.5" fill="#94a3b8" text-anchor="middle">The two front bowl stars (Merak &amp; Dubhe) are called the</text>
+          <text x="235" y="392" font-size="12" font-weight="bold" fill="#00e5ff" text-anchor="middle">"Pointer Stars" &mdash; extend line ~5 times their gap to find North</text>
+
+
+          <!-- RIGHT SIDE: FINDING SIRIUS VIA ORION -->
+          <text x="705" y="80" font-size="15" font-weight="bold" fill="#ffd600" text-anchor="middle">METHOD 2: FINDING SIRIUS VIA ORION'S BELT</text>
+
+          <!-- Orion Constellation -->
+          <!-- Betelgeuse (Red) -->
+          <circle cx="560" cy="170" r="5.5" fill="#ff5252" filter="drop-shadow(0 0 6px #ff5252)"/>
+          <text x="530" y="160" font-size="10.5" font-weight="bold" fill="#ff5252">Betelgeuse (Ārdrā)</text>
+
+          <!-- Bellatrix -->
+          <circle cx="650" cy="180" r="4" fill="#fff"/>
+          <text x="660" y="175" font-size="10" fill="#cbd5e1">Bellatrix</text>
+
+          <!-- Belt Stars (3 in a line) -->
+          <circle cx="595" cy="235" r="4.5" fill="#ffd600"/>
+          <circle cx="610" cy="240" r="4.5" fill="#ffd600"/>
+          <circle cx="625" cy="245" r="4.5" fill="#ffd600"/>
+          <line x1="595" y1="235" x2="625" y2="245" stroke="#ffd600" stroke-width="2"/>
+          <text x="610" y="225" font-size="11" font-weight="bold" fill="#ffd600" text-anchor="middle">Orion's Belt</text>
+
+          <!-- Saiph -->
+          <circle cx="575" cy="305" r="4" fill="#fff"/>
+          <text x="555" y="320" font-size="10" fill="#cbd5e1">Saiph</text>
+
+          <!-- Rigel (Blue) -->
+          <circle cx="655" cy="295" r="5.5" fill="#40c4ff" filter="drop-shadow(0 0 6px #40c4ff)"/>
+          <text x="670" y="310" font-size="10.5" font-weight="bold" fill="#40c4ff">Rigel</text>
+
+          <!-- Body Lines -->
+          <line x1="560" y1="170" x2="650" y2="180" stroke="#64748b" stroke-width="1.2"/>
+          <line x1="560" y1="170" x2="595" y2="235" stroke="#64748b" stroke-width="1.2"/>
+          <line x1="650" y1="180" x2="625" y2="245" stroke="#64748b" stroke-width="1.2"/>
+          <line x1="595" y1="235" x2="575" y2="305" stroke="#64748b" stroke-width="1.2"/>
+          <line x1="625" y1="245" x2="655" y2="295" stroke="#64748b" stroke-width="1.2"/>
+
+          <!-- Pointer Line from Belt towards Sirius (East/South-East) -->
+          <line x1="595" y1="235" x2="785" y2="295" stroke="#ffd600" stroke-width="2.5" stroke-dasharray="6,4" marker-end="url(#goldArrow)"/>
+
+          <!-- SIRIUS STAR (Brightest in Canis Major) -->
+          <g class="svg-node">
+            <circle cx="810" cy="305" r="8" fill="#ffffff" stroke="#ffd600" stroke-width="2.5" filter="drop-shadow(0 0 12px #fff)" class="twinkling-star"/>
+            <text x="810" y="332" font-size="13" font-weight="bold" fill="#ffd600" text-anchor="middle">SIRIUS (Lubdhaka)</text>
+            <text x="810" y="348" font-size="10.5" fill="#ffffff" text-anchor="middle">Brightest Star in the Night Sky</text>
+            <text x="810" y="362" font-size="9.5" fill="#cbd5e1" text-anchor="middle">Located in Canis Major (The Great Dog)</text>
+          </g>
+
+          <text x="705" y="392" font-size="11.5" fill="#94a3b8" text-anchor="middle">Extend an imaginary straight line eastwards through the three belt stars</text>
+        </svg>
+        <div class="diagram-caption">Figure 12.2: Star Navigation Blueprint &mdash; Tracing Pointer Stars to the Pole Star, and Orion's Belt to Sirius.</div>
+      </div>
+
+      <h4>The Unique Significance of the Pole Star (Dhruva Tārā):</h4>
+      <p>Why does the Pole Star stay stationary while all other stars appear to revolve across the sky?
+      <br>Because the Pole Star lies <strong>almost directly along the imaginary rotational axis of the Earth</strong> extending out from the North Pole! As the Earth spins from West to East like a spinning top, the central axis point does not move relative to the northern sky. For millennia, sailors, desert caravans, and travellers used Dhruva Tārā as an infallible navigational compass to determine true North.</p>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #bbdefb;">
+
+      <!-- 12.2 Night Sky Watching -->
+      <h3>12.2 Night Sky Watching &amp; The Threat of Light Pollution</h3>
+
+      <h4>Why Stars Appear to Move from East to West:</h4>
+      <p>Just like trees and buildings seem to rush backwards outside a moving train window, the apparent movement of the Sun, Moon, and stars from <strong>East to West</strong> is an optical illusion caused by <strong>Earth's counter-clockwise rotation on its axis from West to East</strong>.</p>
+
+      <h4>Why Stars are Invisible During the Daytime:</h4>
+      <p>Stars do <strong>not</strong> vanish or pack up their light when the Sun rises! They are present in the sky 24 hours a day. However, atmospheric air molecules scatter the intense bright sunlight in all directions (Rayleigh scattering), turning the sky bright blue. This dazzling glare completely overwhelms the faint, delicate starlight arriving from trillions of kilometres away.</p>
+
+      <h4>Light Pollution &amp; Dark Sky Reserves:</h4>
+      <p>In modern industrial cities, excessive artificial glare from streetlights, floodlights, commercial neon billboards, and vehicle headlights scatters across the night sky, creating a foggy haze known as <strong>light pollution</strong>. Light pollution obscures stars, blinds astronomers, disrupts migratory bird navigation, and disturbs human circadian sleep cycles.</p>
+
+      <div class="callout callout-act">
+        <strong>🌌 More to Know &bull; Hanle Dark Sky Reserve, Ladakh:</strong><br>
+        Situated atop Mount Saraswati (Digpa-ratsa-Ri range) at an altitude of over 4,500 metres in Hanle, Ladakh, the <strong>Indian Astronomical Observatory (IAO)</strong> houses the world-class <em>Himalayan Chandra Telescope</em> (named after Nobel Laureate Subrahmanyan Chandrasekhar).
+        <br>Why Hanle?
+        <br>&bull; <strong>Cloudless &amp; Dry:</strong> Receives minimal rainfall or snow, providing over 250 pristine cloudless nights a year.
+        <br>&bull; <strong>Ultra-Thin Atmosphere:</strong> High altitude means less air turbulence to distort telescopic images.
+        <br>&bull; <strong>Zero Light Pollution:</strong> Notified as the <strong>Hanle Dark Sky Reserve (HDSR)</strong> in December 2022. Local residents are trained as "Astronomy Ambassadors" to operate telescopes for eco-tourists!
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #bbdefb;">
+
+      <!-- 12.3 Our Solar System -->
+      <h3>12.3 Our Solar System: The Sun and Its Celestial Family</h3>
+      <p>The <strong>Solar System</strong> comprises the Sun (our central star), eight planets, their natural moons, dwarf planets, asteroids, comets, and meteoroids, all bound together by the Sun's powerful gravitational pull.</p>
+
+      <h4>The Eight Planets: Detailed Scientific Profiles</h4>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Planet</th>
+            <th>Type</th>
+            <th>Orbital Period (Year)</th>
+            <th>Moons</th>
+            <th>Distinctive Scientific Features</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Mercury (Budha)</strong></td>
+            <td>Terrestrial</td>
+            <td>88 Earth days</td>
+            <td>0</td>
+            <td>Closest to the Sun; smallest planet; crater-covered surface; no atmosphere to trap heat (extreme temperatures: +430°C by day, -180°C by night).</td>
+          </tr>
+          <tr>
+            <td><strong>2. Venus (Shukra)</strong></td>
+            <td>Terrestrial</td>
+            <td>225 Earth days</td>
+            <td>0</td>
+            <td><strong>Hottest planet in the Solar System (~465°C)</strong> due to a runaway greenhouse effect from a dense 96% CO₂ atmosphere. Brightest natural object in our sky after the Moon, often called the <em>"Morning Star"</em> or <em>"Evening Star"</em>. Spins clockwise (retrograde)!</td>
+          </tr>
+          <tr>
+            <td><strong>3. Earth (Prithvi)</strong></td>
+            <td>Terrestrial</td>
+            <td>365.25 days</td>
+            <td>1 (Moon)</td>
+            <td>The only known celestial home of life. Located in the hospitable <strong>"Goldilocks Zone"</strong> (habitable zone where water exists in liquid form). Has a protective oxygen-rich atmosphere and magnetic field shielding against cosmic radiation.</td>
+          </tr>
+          <tr>
+            <td><strong>4. Mars (Mangala)</strong></td>
+            <td>Terrestrial</td>
+            <td>687 Earth days</td>
+            <td>2 (Phobos, Deimos)</td>
+            <td>Called the <strong>"Red Planet"</strong> because its surface soil is rich in reddish iron oxide (rust). Has polar ice caps and the Solar System's tallest volcano (Olympus Mons). Explored by ISRO's historic <em>Mangalyaan (Mars Orbiter Mission)</em>.</td>
+          </tr>
+          <tr>
+            <td><strong>5. Jupiter (Brihaspati)</strong></td>
+            <td>Gas Giant</td>
+            <td>11.86 Earth years</td>
+            <td>95+</td>
+            <td><strong>Largest planet</strong>; massive ball of Hydrogen and Helium; exhibits the famous <em>Great Red Spot</em> (a gigantic storm raging for centuries). Its moon Ganymede is larger than Mercury!</td>
+          </tr>
+          <tr>
+            <td><strong>6. Saturn (Shani)</strong></td>
+            <td>Gas Giant</td>
+            <td>29.45 Earth years</td>
+            <td>146+</td>
+            <td>Famous for its spectacular, glittering ring system made of billions of chunks of water ice and rock dust. <strong>Least dense planet</strong> in the Solar System (density is less than water—Saturn would float in a giant bathtub!).</td>
+          </tr>
+          <tr>
+            <td><strong>7. Uranus (Indra)</strong></td>
+            <td>Ice Giant</td>
+            <td>84 Earth years</td>
+            <td>28</td>
+            <td>Cold, pale cyan planet rich in methane ice. Uniquely tilted on its side at an angle of 98°, appearing to roll around the Sun like a bowling ball!</td>
+          </tr>
+          <tr>
+            <td><strong>8. Neptune (Varuna)</strong></td>
+            <td>Ice Giant</td>
+            <td>164.8 Earth years</td>
+            <td>16</td>
+            <td>Furthest official planet from the Sun; deep azure blue colour; experiences the fastest, fiercest supersonic winds in the Solar System (over 2,000 km/h).</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout-pyq">
+        <strong>⭐ Why is Pluto No Longer Considered a Planet?</strong><br>
+        In August 2006, the <strong>International Astronomical Union (IAU)</strong> formally defined a "planet" as a celestial body that:
+        <br>1. Orbits around the Sun.
+        <br>2. Has sufficient mass for its gravity to pull it into a nearly round spherical shape.
+        <br>3. <strong>Has cleared the neighbourhood around its orbit</strong> of other competing debris.
+        <br>Pluto fulfills the first two criteria, but its small size and location inside the crowded Kuiper Belt meant it has <em>not cleared its orbital neighbourhood</em>. Consequently, Pluto was reclassified as a <strong>Dwarf Planet</strong>!
+      </div>
+
+      <h4>Other Crucial Members of the Solar System:</h4>
+      <ul>
+        <li><strong>Moons (Natural Satellites):</strong> Celestial bodies that orbit planets. Earth's Moon orbits Earth once every 27.3 days. Because the Moon has no atmosphere or liquid water, footprints left by Apollo astronauts and meteorite impact craters remain undisturbed for millions of years.
+          <br><em>India's Lunar Triumph:</em> On August 23, 2023, ISRO's <strong>Chandrayaan-3</strong> made history by executing a flawless soft-landing near the Moon's unexplored South Pole (the landing site is named <em>Shiv Shakti Point</em>, and August 23 is celebrated nationwide as <em>National Space Day</em>).
+        </li>
+        <li><strong>Asteroids:</strong> Thousands of rocky, irregularly shaped fragments left over from the formation of the Solar System, orbiting mainly in the <strong>Asteroid Belt</strong> between Mars and Jupiter.</li>
+        <li><strong>Comets:</strong> Cosmic snowballs of frozen gases, rock, and dust orbiting the Sun in elongated, eccentric ellipses. When approaching the Sun, solar radiation vaporizes the ice, producing a glowing head (coma) and a magnificent luminous tail of ionized gas and dust pointing directly away from the Sun.</li>
+        <li><strong>Meteors &amp; Meteorites:</strong> "Shooting stars" are not stars at all! They are small stony fragments (meteoroids) that enter Earth's atmosphere at extreme speeds. Atmospheric friction superheats them, causing them to glow and vaporize in a brilliant flash (meteor). Any fragment that survives the heat and strikes Earth's crust is called a <strong>meteorite</strong>.</li>
+      </ul>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #bbdefb;">
+
+      <!-- 12.4 & 12.5 Galaxy & Universe -->
+      <h3>12.4 The Milky Way Galaxy (Ākāśha Gangā)</h3>
+      <p>On clear, moonless nights away from urban glare, you can see a faint, luminous glowing river of mist stretching across the sky from north to south. This is our home galaxy: the <strong>Milky Way Galaxy</strong>, known poetically in Sanskrit as <strong>Ākāśha Gangā</strong> (the heavenly celestial Ganges).</p>
+      <ul>
+        <li>A <strong>galaxy</strong> is a vast cosmic system containing millions to billions of stars, interstellar gas, dust, and dark matter bound together by gravity.</li>
+        <li>The Milky Way is a spiral galaxy containing an estimated <strong>100 to 400 billion stars</strong>! Our Sun and Solar System are located on one of its outer spiral arms (the Orion Arm).</li>
+      </ul>
+
+      <h3>12.5 The Universe: The Endless Frontier</h3>
+      <p>Beyond our Milky Way lie billions of other galaxies scattered across the vastness of space (such as our neighbour, the Andromeda Galaxy). The totality of all matter, energy, galaxies, and spacetime is called the <strong>Universe</strong>.</p>
+      <ul>
+        <li><strong>Are We Alone? The Quest for Exoplanets:</strong> Astronomers use space telescopes to search for <em>exoplanets</em>—planets revolving around other stars in our galaxy. Scientists look for exoplanets situated in their parent star's habitable zone with water vapour in their atmospheres to detect possible extraterrestrial life.</li>
+        <li><strong>The Spirit of Curiosity:</strong> Science is a continuous voyage of exploration. Even the greatest space breakthroughs began with a child gazing at the stars and asking a simple "Why?".</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="section3">
+      <h2>Section 3: Rapid Revision Fact &amp; Definition Bank</h2>
+      <p>Master these high-yield astronomical definitions, laws, and facts for instant exam revision:</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Concept / Term</th>
+            <th>Scientific Definition / Core Concept</th>
+            <th>Key Exam Takeaway</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Celestial Body</strong></td>
+            <td>Any naturally occurring physical object existing outside Earth's atmosphere in space (stars, planets, moons, asteroids, comets).</td>
+            <td>Glow by self-luminescence (stars) or reflected light (planets/moons).</td>
+          </tr>
+          <tr>
+            <td><strong>Star</strong></td>
+            <td>A self-luminous celestial sphere of superheated plasma that releases light and energy via nuclear fusion of hydrogen into helium.</td>
+            <td>The Sun is the closest star to Earth (150 million km).</td>
+          </tr>
+          <tr>
+            <td><strong>Constellation</strong></td>
+            <td>An identifiable group or pattern of stars resembling an animal, mythological figure, or object, recognized by ancient cultures.</td>
+            <td>Examples: Ursa Major (Saptaṛiṣhi), Orion (Mṛiga), Cassiopeia, Taurus.</td>
+          </tr>
+          <tr>
+            <td><strong>Pole Star (Polaris / Dhruva Tārā)</strong></td>
+            <td>The bright star located almost precisely above Earth's northern rotational axis that remains stationary in the northern sky.</td>
+            <td>Used as an infallible celestial compass to locate true North.</td>
+          </tr>
+          <tr>
+            <td><strong>Pointer Stars</strong></td>
+            <td>The two outer stars in the bowl of the Big Dipper (Merak and Dubhe) that form a straight line pointing directly toward the Pole Star.</td>
+            <td>Extending this line ~5 times points directly to Polaris.</td>
+          </tr>
+          <tr>
+            <td><strong>Sirius (Lubdhaka)</strong></td>
+            <td>The brightest star in the entire night sky, located in the constellation Canis Major (The Great Dog).</td>
+            <td>Located by extending an imaginary line eastwards through Orion's 3 belt stars.</td>
+          </tr>
+          <tr>
+            <td><strong>Nakṣhatra</strong></td>
+            <td>A division of the sky into 27 lunar segments/star groupings along the ecliptic in traditional Indian astronomy.</td>
+            <td>Examples: Ārdrā (Betelgeuse), Kṛittikā (Pleiades), Rohiṇī.</td>
+          </tr>
+          <tr>
+            <td><strong>Light Pollution</strong></td>
+            <td>Excessive, misdirected artificial outdoor lighting that brightens the night sky, obscuring celestial bodies from view.</td>
+            <td>Controlled in Dark Sky Reserves like Hanle in Ladakh.</td>
+          </tr>
+          <tr>
+            <td><strong>Planet</strong></td>
+            <td>A celestial body orbiting the Sun with sufficient mass to be spherical and has cleared the neighbourhood around its orbit.</td>
+            <td>Eight planets in our Solar System; do not have their own light.</td>
+          </tr>
+          <tr>
+            <td><strong>Terrestrial Planets</strong></td>
+            <td>The four inner, rocky, dense planets nearest to the Sun: Mercury, Venus, Earth, and Mars.</td>
+            <td>Have solid surfaces, thin atmospheres, and few or no moons.</td>
+          </tr>
+          <tr>
+            <td><strong>Gas &amp; Ice Giants</strong></td>
+            <td>The four outer giant planets: Jupiter and Saturn (Gas Giants), Uranus and Neptune (Ice Giants).</td>
+            <td>Massive atmospheres of H₂, He, and CH₄; multiple rings and dozens of moons.</td>
+          </tr>
+          <tr>
+            <td><strong>Asteroids &amp; Asteroid Belt</strong></td>
+            <td>Irregular rocky bodies orbiting the Sun, concentrated predominantly between the orbits of Mars and Jupiter.</td>
+            <td>Leftovers from the early Solar System (sizes: 10 m to 500 km).</td>
+          </tr>
+          <tr>
+            <td><strong>Comet</strong></td>
+            <td>A small body composed of dust, rock, and frozen ices traveling in highly eccentric orbits around the Sun.</td>
+            <td>Develops a glowing coma and a long tail pointing away from the Sun when heated.</td>
+          </tr>
+          <tr>
+            <td><strong>Meteor vs Meteorite</strong></td>
+            <td>A <em>meteor</em> is the streak of light caused by a space pebble burning up in Earth's atmosphere. A <em>meteorite</em> is a surviving fragment that lands on Earth.</td>
+            <td>Commonly misnamed "shooting stars".</td>
+          </tr>
+          <tr>
+            <td><strong>Milky Way (Ākāśha Gangā)</strong></td>
+            <td>Our home barred-spiral galaxy containing 100–400 billion stars, including our Sun and Solar System.</td>
+            <td>Appears as a milky ribbon of light across unpolluted dark night skies.</td>
+          </tr>
+          <tr>
+            <td><strong>Exoplanet</strong></td>
+            <td>A planet located outside our Solar System that revolves around another distant star in the galaxy.</td>
+            <td>Targeted by space telescopes in the search for extraterrestrial life.</td>
+          </tr>
+          <tr>
+            <td><strong>Chandrayaan Missions</strong></td>
+            <td>ISRO's lunar exploration programme: Chandrayaan-1 discovered water on the Moon; Chandrayaan-3 achieved soft-landing at the Lunar South Pole in 2023.</td>
+            <td>August 23 is declared National Space Day in India.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="section4">
+      <h2>Section 4: 100% Complete NCERT Solutions</h2>
+      <p>All in-text activities, "Let us enhance our learning" questions, and "Learning further" projects solved with comprehensive topper-grade explanations.</p>
+
+      <!-- Exercise 1 -->
+      <details class="ans-box">
+        <summary>Q1. Match the column: Column I with Column II.</summary>
+        <div class="ans-content">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Column I</th>
+                <th>Column II (Matched Correctly)</th>
+                <th>Scientific Explanation</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>(i) Satellite of Earth</td>
+                <td><strong>(d) Moon</strong></td>
+                <td>The Moon is Earth's only natural satellite, revolving in an orbit ~384,400 km away.</td>
+              </tr>
+              <tr>
+                <td>(ii) Red planet</td>
+                <td><strong>(c) Mars</strong></td>
+                <td>Mars appears distinctly reddish because its rocky crust is rich in iron oxide (rust).</td>
+              </tr>
+              <tr>
+                <td>(iii) Constellation</td>
+                <td><strong>(a) Orion</strong></td>
+                <td>Orion (The Hunter / Mṛiga) is a prominent recognizable constellation in the winter sky.</td>
+              </tr>
+              <tr>
+                <td>(iv) Planet which is commonly called an evening star</td>
+                <td><strong>(b) Venus</strong></td>
+                <td>Venus shines brilliantly in the western sky just after sunset, earning the popular title "Evening Star".</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Exercise 2 -->
+      <details class="ans-box">
+        <summary>Q2. (i) Solve the textbook riddle. (ii) Make two similar riddles by yourself.</summary>
+        <div class="ans-content">
+          <p><strong>(i) Solving the Textbook Riddle:</strong></p>
+          <ul>
+            <li>"My first alphabet is in MAN but not in CAN" &rarr; Letter <strong>M</strong></li>
+            <li>"My second alphabet is in ACE and also in FAN" &rarr; Letter <strong>A</strong></li>
+            <li>"My third alphabet is in RAT and not in CAT" &rarr; Letter <strong>R</strong></li>
+            <li>"My fourth alphabet is in SUN but not in FUN" &rarr; Letter <strong>S</strong></li>
+          </ul>
+          <p><strong>Answer:</strong> Combining M + A + R + S gives <strong>MARS</strong> (The Red Planet!).</p>
+          
+          <p><strong>(ii) Two Original Planetary Riddles:</strong></p>
+          <div style="background: #f8fafc; padding: 12px 16px; border-radius: 8px; margin: 10px 0; border: 1px solid #cbd5e1;">
+            <strong>Riddle 1:</strong>
+            <br>&bull; My first alphabet is in <strong>EGG</strong> but not in <strong>FOG</strong> [E]
+            <br>&bull; My second alphabet is in <strong>APPLE</strong> and also in <strong>CAT</strong> [A]
+            <br>&bull; My third alphabet is in <strong>RUN</strong> but not in <strong>SUN</strong> [R]
+            <br>&bull; My fourth alphabet is in <strong>TOP</strong> and also in <strong>TOY</strong> [T]
+            <br>&bull; My fifth alphabet is in <strong>HAT</strong> but not in <strong>BAT</strong> [H]
+            <br><em>I am the only planet blessed with oceans, trees, and life. Who am I?</em>
+            <br><strong>Solution: EARTH</strong>
+          </div>
+
+          <div style="background: #f8fafc; padding: 12px 16px; border-radius: 8px; margin: 10px 0; border: 1px solid #cbd5e1;">
+            <strong>Riddle 2:</strong>
+            <br>&bull; My first alphabet is in <strong>VAN</strong> but not in <strong>MAN</strong> [V]
+            <br>&bull; My second alphabet is in <strong>NET</strong> and also in <strong>PEN</strong> [E]
+            <br>&bull; My third alphabet is in <strong>NUT</strong> but not in <strong>HUT</strong> [N]
+            <br>&bull; My fourth alphabet is in <strong>SUN</strong> and also in <strong>CUP</strong> [U]
+            <br>&bull; My fifth alphabet is in <strong>STAR</strong> but not in <strong>MOON</strong> [S]
+            <br><em>I am the hottest planet and the dazzling morning star. Who am I?</em>
+            <br><strong>Solution: VENUS</strong>
+          </div>
+        </div>
+      </details>
+
+      <!-- Exercise 3 -->
+      <details class="ans-box">
+        <summary>Q3. Which of the following is not a member of our Solar System? (i) Sirius &nbsp; (ii) Comets &nbsp; (iii) Asteroids &nbsp; (iv) Pluto</summary>
+        <div class="ans-content">
+          <p><strong>Correct Option: (i) Sirius</strong></p>
+          <p><strong>Scientific Reason:</strong><br>
+          <strong>Sirius</strong> is an independent, distant star located in the constellation <em>Canis Major</em>, situated roughly 8.6 light-years (over 80 trillion kilometres) away from Earth—completely outside our Solar System. In contrast, comets, asteroids, and the dwarf planet Pluto are all gravitationally bound members of our Solar System revolving around our Sun.</p>
+        </div>
+      </details>
+
+      <!-- Exercise 4 -->
+      <details class="ans-box">
+        <summary>Q4. Which of the following is not a planet of the Sun? (i) Jupiter &nbsp; (ii) Pluto &nbsp; (iii) Neptune &nbsp; (iv) Saturn</summary>
+        <div class="ans-content">
+          <p><strong>Correct Option: (ii) Pluto</strong></p>
+          <p><strong>Scientific Reason:</strong><br>
+          In 2006, the International Astronomical Union (IAU) reclassified <strong>Pluto</strong> from a major planet to a <strong>dwarf planet</strong> because it has not cleared the debris from its orbital path in the Kuiper Belt. Jupiter, Saturn, and Neptune remain official major planets of the Sun.</p>
+        </div>
+      </details>
+
+      <!-- Exercise 5 -->
+      <details class="ans-box">
+        <summary>Q5. Which is the brighter star, the Pole Star or Sirius?</summary>
+        <div class="ans-content">
+          <p><strong>Answer: Sirius is far brighter than the Pole Star.</strong></p>
+          <p><strong>Scientific Details:</strong></p>
+          <ul>
+            <li><strong>Sirius (in Canis Major):</strong> Is the <strong>brightest star visible in the entire night sky</strong> from anywhere on Earth (apparent magnitude of -1.46). It shines with intense brilliance because it is both intrinsically luminous and relatively close to us (8.6 light-years).</li>
+            <li><strong>Pole Star (Polaris in Ursa Minor):</strong> Is only a <strong>medium-bright, second-magnitude star</strong> (magnitude ~1.98). It is famous not because of its brightness, but because of its unique <em>stationary position</em> directly above the Earth's North Pole.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Exercise 6 -->
+      <details class="ans-box">
+        <summary>Q6. An artist's representation of the Solar System is given in Fig. 12.12. Is the order of the planets correct? If not, write the correct order in the boxes in the figure.</summary>
+        <div class="ans-content">
+          <p><strong>Answer: No, the order in the figure is incorrect.</strong></p>
+          <p><strong>The Correct Order of Planets in Increasing Distance from the Sun is:</strong></p>
+          <ol>
+            <li><strong>Mercury (Budha)</strong> &mdash; Closest to the Sun</li>
+            <li><strong>Venus (Shukra)</strong> &mdash; Second</li>
+            <li><strong>Earth (Prithvi)</strong> &mdash; Third</li>
+            <li><strong>Mars (Mangala)</strong> &mdash; Fourth</li>
+            <li><strong>Jupiter (Brihaspati)</strong> &mdash; Fifth (Beyond the Asteroid Belt)</li>
+            <li><strong>Saturn (Shani)</strong> &mdash; Sixth</li>
+            <li><strong>Uranus (Indra)</strong> &mdash; Seventh</li>
+            <li><strong>Neptune (Varuna)</strong> &mdash; Eighth (Furthest official planet)</li>
+          </ol>
+          <p><em>Helpful Memory Trick:</em> "<strong>M</strong>y <strong>V</strong>ery <strong>E</strong>ducated <strong>M</strong>other <strong>J</strong>ust <strong>S</strong>erved <strong>U</strong>s <strong>N</strong>oodles".</p>
+        </div>
+      </details>
+
+      <!-- Exercise 7 -->
+      <details class="ans-box">
+        <summary>Q7. A portion of night sky with stars is shown in Fig. 12.13. Identify the groups of stars that form the patterns—the Big Dipper and the Little Dipper. Draw lines to connect the stars and label them. Also identify and label the Pole Star.</summary>
+        <div class="ans-content">
+          <p><strong>Method to Identify and Connect the Stars:</strong></p>
+          <ol>
+            <li><strong>Locate the Big Dipper (Ursa Major / Saptaṛiṣhi):</strong> Look for the prominent group of seven bright stars shaped like a large ladle or saucepan. Connect the 4 stars forming the rectangular bowl (Megrez, Phecda, Merak, Dubhe) and the 3 stars extending outwards in a curved tail forming the handle (Alioth, Mizar, Alkaid).</li>
+            <li><strong>Identify the Pointer Stars:</strong> The two stars at the outer edge of the Big Dipper's bowl are <em>Merak</em> and <em>Dubhe</em>.</li>
+            <li><strong>Trace to the Pole Star (Polaris / Dhruva Tārā):</strong> Draw an imaginary straight line starting from Merak, passing through Dubhe, and extend it straight forward into the sky for about five times the distance between those two stars. This line directly hits a moderately bright, isolated star: the <strong>Pole Star</strong>.</li>
+            <li><strong>Locate the Little Dipper (Ursa Minor):</strong> The Pole Star forms the very last star at the tip of the handle of the Little Dipper. From the Pole Star, connect the smaller arc of stars leading down to the small rectangular bowl of the Little Dipper.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Exercise 8 -->
+      <details class="ans-box">
+        <summary>Q8. A portion of the night sky is shown in Fig. 12.14. Draw lines to connect the stars for Orion and label the star Sirius.</summary>
+        <div class="ans-content">
+          <p><strong>Step-by-Step Tracing and Labelling:</strong></p>
+          <ol>
+            <li><strong>Connect the Orion Constellation:</strong>
+              <ul>
+                <li>Locate the prominent trio of three bright stars lined up tightly in a straight row. Connect them to represent <strong>Orion's Belt</strong>.</li>
+                <li>Above the belt, locate and connect reddish <strong>Betelgeuse</strong> (the right shoulder) and <strong>Bellatrix</strong> (the left shoulder).</li>
+                <li>Below the belt, connect bright blue <strong>Rigel</strong> (the left foot) and <strong>Saiph</strong> (the right foot).</li>
+                <li>Join shoulders to belt and belt to feet to complete the hourglass shape of the Hunter.</li>
+              </ul>
+            </li>
+            <li><strong>Locate and Label Sirius:</strong>
+              <ul>
+                <li>Draw an imaginary straight line passing straight through the three stars of Orion's Belt and extend this line toward the east/south-east.</li>
+                <li>The line leads directly to an intensely bright, dazzling bluish-white star. This is <strong>Sirius (Lubdhaka)</strong>, the brightest star in the night sky, belonging to the constellation <em>Canis Major</em>.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Exercise 9 -->
+      <details class="ans-box">
+        <summary>Q9. From Earth, you can see stars fading away at dawn and appearing at dusk. During the day we do not see the stars. Explain why.</summary>
+        <div class="ans-content">
+          <p><strong>Scientific Explanation:</strong></p>
+          <ol>
+            <li><strong>Stars Do Not Disappear:</strong> Stars are present in the sky above us during daytime exactly as they are at night; they do not switch off or move away.</li>
+            <li><strong>Intense Sunlight &amp; Atmospheric Scattering:</strong> At dawn, our daytime star—the Sun—rises. The Earth's atmosphere is rich in gas molecules (nitrogen and oxygen) and fine dust particles that scatter the Sun's intense incoming light across the entire hemisphere (a phenomenon called <em>Rayleigh scattering</em>).</li>
+            <li><strong>Contrast Loss:</strong> This scattered daylight illuminates the sky with tremendous brightness. Because distant stars are millions of times fainter than direct sunlight, our eyes and the bright sky background cannot resolve their faint light. Once the Sun sets at dusk, the atmosphere darkens, and the contrast allows faint starlight to become visible once again.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Exercise 10 -->
+      <details class="ans-box">
+        <summary>Q10. During a clear night, try to observe the Big Dipper 3–4 times at an interval of 2 to 3 hours. Also try to locate the Pole Star each time. Does the Big Dipper appear to move? Draw a rough sketch to illustrate this, mentioning the time in each case.</summary>
+        <div class="ans-content">
+          <p><strong>1. Observation Findings:</strong></p>
+          <ul>
+            <li><strong>Yes, the Big Dipper clearly appears to move!</strong> Over the course of the night (e.g., observed at 8:00 PM, 11:00 PM, and 2:00 AM), the position and tilt of the Big Dipper changes continuously, sweeping in a counter-clockwise circular arc across the northern sky.</li>
+            <li><strong>The Pole Star remains completely fixed and stationary</strong> in the exact same spot in the North throughout the entire night.</li>
+          </ul>
+          <p><strong>2. Scientific Explanation:</strong></p>
+          <p>The apparent circular movement of the Big Dipper around the Pole Star is caused by the <strong>Earth's counter-clockwise rotation on its axis from West to East</strong>. Because the Pole Star lies directly on the extension of Earth's rotational axis, it serves as the fixed central pivot around which all northern circumpolar constellations seem to rotate.</p>
+        </div>
+      </details>
+
+      <!-- Exercise 11 -->
+      <details class="ans-box">
+        <summary>Q11. Think about the night sky and write a poem or a story on it.</summary>
+        <div class="ans-content">
+          <p><strong>A Night Under the Cosmic Canopy (Class 6 Poem):</strong></p>
+          <blockquote style="font-style: italic; color: #1565c0; margin: 10px 20px; line-height: 1.8;">
+            When twilight fades and daytime rests,<br>
+            The silent dark reveals its guests.<br>
+            A million lamps of diamond white,<br>
+            Turn Nubra’s sky to rivers of light.<br><br>
+            The Great Bear guides with pointers bold,<br>
+            To Dhruva Tārā, still and cold.<br>
+            While proud Orion strings his bow,<br>
+            And bright dog Sirius shines below.<br><br>
+            Beyond our Sun, beyond our Earth,<br>
+            Where swirling galaxies find their birth.<br>
+            I look up high and wonder why&mdash;<br>
+            We are cosmic dreamers beneath the sky!
+          </blockquote>
+        </div>
+      </details>
+
+      <!-- Learning Further Box -->
+      <details class="ans-box">
+        <summary>Q12. Learning Further Projects: (i) Local Planetary Names &amp; Cultural Star Stories; (ii) Light Pollution Impact &amp; Personal Action; (iii) Why Hanle, Ladakh was Chosen for the Observatory.</summary>
+        <div class="ans-content">
+          <p><strong>(i) Traditional Names of Planets &amp; Stars in Indian Languages:</strong></p>
+          <ul>
+            <li><strong>Sun:</strong> Surya / Ravi &bull; <strong>Moon:</strong> Chandra / Soma</li>
+            <li><strong>Mercury:</strong> Budha &bull; <strong>Venus:</strong> Shukra &bull; <strong>Earth:</strong> Prithvi / Bhumi &bull; <strong>Mars:</strong> Mangala</li>
+            <li><strong>Jupiter:</strong> Brihaspati / Guru &bull; <strong>Saturn:</strong> Shani</li>
+            <li><strong>Constellations:</strong> Big Dipper is revered as <em>Saptaṛiṣhi</em> (representing the seven great Vedic sages: Kratu, Pulaha, Pulastya, Atri, Angiras, Vashistha, and Marichi). Pole Star is immortalized as child prince <em>Dhruva</em>, blessed with an eternal, unshakeable throne in the sky.</li>
+          </ul>
+
+          <p><strong>(ii) Impact of Light Pollution &amp; Personal Mitigation Actions:</strong></p>
+          <ul>
+            <li><strong>Harmful Effects:</strong> Disrupts nocturnal wildlife hunting; disorients migratory birds that navigate by the stars; disrupts human production of melatonin (the sleep hormone); washes out our connection to the cosmos.</li>
+            <li><strong>Personal Action:</strong> Keep outdoor porch lights turned off when not in use; install downward-shielded light fixtures that direct illumination onto the ground rather than upward into the open sky.</li>
+          </ul>
+
+          <p><strong>(iii) Scientific Reasons Why Hanle, Ladakh was Selected for the Indian Astronomical Observatory:</strong></p>
+          <ol>
+            <li><strong>High Altitude (4,500 m):</strong> Atop Mount Saraswati, atmospheric pressure and humidity are very low, resulting in exceptionally clear air with minimal atmospheric scattering.</li>
+            <li><strong>Dry Desert Climate:</strong> Ladakh is in the rain-shadow of the Himalayas, offering over 250 completely cloud-free, clear nights annually.</li>
+            <li><strong>Extreme Darkness:</strong> Far from large cities and industrial hubs, Hanle has virtually zero artificial light pollution, making it an internationally recognized Dark Sky Reserve.</li>
+          </ol>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="section5">
+      <h2>Section 5: Exhaustive CBSE/BSE Competency Question Bank</h2>
+      <p>Test your conceptual understanding with interactive MCQs, Assertion-Reason questions, structured 2M/3M/5M questions, and real-life case studies.</p>
+
+      <h3>Part A: Interactive Multiple Choice Questions (MCQs)</h3>
+      <div class="quiz-score-board" id="quizScoreBoard">
+        Quiz Score: <span id="currentScore">0</span> / 5 answered correctly
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qCard1">
+        <div class="quiz-question">Q1. Why does the Pole Star (Dhruva Tārā) appear stationary in the night sky while all other constellations appear to rotate around it?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 0, false)">A. Because it is physically tied to the North Pole with an invisible gravity wire</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 1, true)">B. Because it lies almost directly in line with Earth's imaginary northern rotational axis</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 2, false)">C. Because it does not possess any gravity</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 3, false)">D. Because it only shines during winter months</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback1"></div>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qCard2">
+        <div class="quiz-question">Q2. Which planet holds the record for being the hottest in the Solar System, with surface temperatures scorching above 460°C?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 0, false)">A. Mercury, because it is closest to the Sun</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 1, true)">B. Venus, because of an extreme runaway greenhouse effect caused by a dense CO₂ atmosphere</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 2, false)">C. Mars, because of iron rust on its soil</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 3, false)">D. Jupiter, because it is the largest</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback2"></div>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qCard3">
+        <div class="quiz-question">Q3. Which is the brightest star in the entire night sky, and which guide constellation helps us locate it?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 0, false)">A. Betelgeuse, located via Ursa Major</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 1, false)">B. Polaris, located via Cassiopeia</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 2, true)">C. Sirius, located by extending an imaginary line through Orion's Belt</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 3, false)">D. Aldebaran, located via the Little Dipper</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback3"></div>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qCard4">
+        <div class="quiz-question">Q4. Where is the Asteroid Belt located in our Solar System?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 0, false)">A. Between the Sun and Mercury</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 1, false)">B. Between Earth and the Moon</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 2, true)">C. Between the orbits of Mars and Jupiter</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 3, false)">D. Beyond the orbit of Neptune</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback4"></div>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qCard5">
+        <div class="quiz-question">Q5. On August 23, 2023, India achieved a historic space milestone by soft-landing Chandrayaan-3 near which lunar region?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 0, false)">A. The Lunar Equator</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 1, true)">B. The Lunar South Pole</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 2, false)">C. The Sea of Tranquility</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 3, false)">D. The Lunar North Pole</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback5"></div>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #bbdefb;">
+
+      <h3>Part B: Assertion &amp; Reasoning Questions</h3>
+      <p><em>Directions: Choose (A) if both Assertion and Reason are true and Reason is the correct explanation. Choose (B) if both are true but Reason is NOT the correct explanation. Choose (C) if Assertion is true but Reason is false. Choose (D) if Assertion is false but Reason is true.</em></p>
+
+      <div class="quiz-card">
+        <p><strong>Q1. Assertion (A):</strong> Venus is hotter than Mercury, even though Mercury is much closer to the Sun.<br>
+        <strong>Reason (R):</strong> Venus possesses a dense atmosphere composed of over 96% carbon dioxide which traps solar heat through an extreme greenhouse effect.</p>
+        <details class="ans-box">
+          <summary>View Correct Option &amp; Analysis</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (A)</strong><br>
+            Both Assertion and Reason are true, and Reason is the exact explanation. Mercury has virtually no atmosphere to trap heat, whereas Venus's dense CO₂ atmosphere causes a runaway greenhouse effect, elevating temperatures to ~465°C.
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q2. Assertion (A):</strong> Stars appear to move across the night sky from East to West.<br>
+        <strong>Reason (R):</strong> Earth rotates on its imaginary axis from West to East.</p>
+        <details class="ans-box">
+          <summary>View Correct Option &amp; Analysis</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (A)</strong><br>
+            Both statements are scientifically correct, and Earth's West-to-East rotation directly causes the apparent East-to-West movement of all celestial bodies across the sky.
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q3. Assertion (A):</strong> Pluto is currently classified as the ninth planet of our Solar System.<br>
+        <strong>Reason (R):</strong> In 2006, the International Astronomical Union (IAU) reclassified Pluto as a dwarf planet.</p>
+        <details class="ans-box">
+          <summary>View Correct Option &amp; Analysis</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (D)</strong><br>
+            Assertion (A) is completely FALSE (Pluto is not an official planet today). Reason (R) is scientifically TRUE.
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q4. Assertion (A):</strong> A meteor is commonly referred to as a "shooting star".<br>
+        <strong>Reason (R):</strong> Meteors are dying stars falling out of distant galaxies into Earth's oceans.</p>
+        <details class="ans-box">
+          <summary>View Correct Option &amp; Analysis</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (C)</strong><br>
+            Assertion (A) is TRUE (colloquially called shooting stars). Reason (R) is completely FALSE (meteors are small bits of rock/dust burning in Earth's atmosphere, not actual stars!).
+          </div>
+        </details>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #bbdefb;">
+
+      <h3>Part C: Short Answer Questions (2M &amp; 3M)</h3>
+
+      <div class="quiz-card">
+        <p><strong>Q1. Differentiate between a Star and a Planet with two distinct points of comparison. (2 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Model Answer &amp; Marking Breakdown</summary>
+          <div class="ans-content">
+            <ul>
+              <li><strong>Light Source (1 Mark):</strong> Stars are self-luminous bodies that produce their own heat and light through nuclear fusion. Planets do not produce light; they shine by reflecting sunlight falling on them.</li>
+              <li><strong>Twinkling &amp; Position (1 Mark):</strong> Stars twinkle due to atmospheric refraction of distant pinpoint light and stay in fixed patterns (constellations). Planets shine with a steady light (do not twinkle) and shift positions relative to stars over time.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q2. What is a constellation? Give the English and Indian names of any two constellations. (2 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Model Answer &amp; Marking Breakdown</summary>
+          <div class="ans-content">
+            <ul>
+              <li><strong>Definition (1 Mark):</strong> A constellation is a recognizable group or pattern formed by stars in the night sky, named by ancient observers after animals, mythological characters, or tools.</li>
+              <li><strong>Two Examples (1 Mark):</strong>
+                <br>1. <strong>Ursa Major (The Great Bear)</strong> &mdash; Known in India as <em>Saptaṛiṣhi</em>.
+                <br>2. <strong>Orion (The Hunter)</strong> &mdash; Known in India as <em>Mṛiga</em>.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q3. Explain how the Pointer Stars of the Big Dipper are used to locate the Pole Star. (3 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Model Answer &amp; Marking Breakdown</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Identify the Bowl (1 Mark):</strong> Locate the 7 bright stars of the Big Dipper (Saptaṛiṣhi) and identify the four stars forming its rectangular bowl.</li>
+              <li><strong>Identify the Pointers (1 Mark):</strong> The two stars on the outer edge of the bowl away from the handle are named <em>Merak</em> and <em>Dubhe</em> (the Pointer Stars).</li>
+              <li><strong>Trace the Line (1 Mark):</strong> Imagine a straight line starting from Merak and passing through Dubhe. Extend this line straight forward for approximately five times the distance between these two stars. It will lead directly to the <strong>Pole Star (Polaris / Dhruva Tārā)</strong>.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q4. What is a comet? Why does a comet develop a luminous tail only when it comes near the Sun? (3 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Model Answer &amp; Marking Breakdown</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Composition (1 Mark):</strong> A comet is a small celestial body composed of frozen gases, water ice, dust, and rock revolving around the Sun in highly elongated orbits.</li>
+              <li><strong>Sublimation / Melting (1 Mark):</strong> When the comet is far out in deep space, it remains frozen and dark. As it approaches close to the Sun, solar heat causes the ices to evaporate (sublime) into gas and dust, forming a glowing envelope (coma).</li>
+              <li><strong>Tail Formation (1 Mark):</strong> The pressure of solar radiation and the solar wind blows this vaporized gas and dust outward, forming a spectacular tail millions of kilometres long that <strong>always points directly away from the Sun</strong>.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q5. Distinguish between Terrestrial Planets and Gas Giants in our Solar System. (3 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Model Answer &amp; Marking Breakdown</summary>
+          <div class="ans-content">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th>Terrestrial Planets (Inner)</th>
+                  <th>Gas Giants (Outer)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Members</strong></td>
+                  <td>Mercury, Venus, Earth, Mars</td>
+                  <td>Jupiter, Saturn (plus Ice Giants Uranus, Neptune)</td>
+                </tr>
+                <tr>
+                  <td><strong>Physical Structure</strong></td>
+                  <td>Small, dense, solid rocky surfaces with metallic cores.</td>
+                  <td>Massive, low-density bodies composed primarily of hydrogen, helium, and methane gases without solid crusts.</td>
+                </tr>
+                <tr>
+                  <td><strong>Moons &amp; Rings</strong></td>
+                  <td>Very few moons (Earth has 1, Mars has 2, Mercury/Venus 0); no rings.</td>
+                  <td>Dozens of moons (Jupiter 95+, Saturn 146+) and extensive ring systems.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #bbdefb;">
+
+      <h3>Part D: Long Answer Questions (5 Marks)</h3>
+
+      <div class="quiz-card">
+        <p><strong>Q1. Provide a comprehensive architectural overview of our Solar System. Describe the central star, the classification of the eight planets, and at least three other classes of celestial bodies residing within it. (5 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Comprehensive 5-Mark Solution</summary>
+          <div class="ans-content">
+            <p>Our Solar System is a gravitationally bound celestial family comprising:</p>
+            <ol>
+              <li><strong>The Central Star &mdash; The Sun (1 Mark):</strong> The massive luminous heart of our system accounting for over 99.8% of its total mass. It generates enormous energy via nuclear fusion, supplying the heat and light that illuminates all planets and powers Earth's biosphere.</li>
+              <li><strong>The Inner Terrestrial Planets (1 Mark):</strong> <em>Mercury, Venus, Earth, and Mars</em>. These are rocky, dense bodies located close to the Sun with solid surfaces and few natural satellites. Earth is the only one harboring liquid oceans and life.</li>
+              <li><strong>The Outer Giant Planets (1 Mark):</strong> <em>Jupiter, Saturn, Uranus, and Neptune</em>. Located beyond the Asteroid Belt, these are massive, low-density worlds with deep gaseous/icy atmospheres, numerous moons, and ring systems. Jupiter is the largest; Saturn is famous for magnificent rings.</li>
+              <li><strong>Asteroids and the Asteroid Belt (1 Mark):</strong> Thousands of rocky fragments orbiting in the wide gap between the orbits of Mars and Jupiter, left over from planetary formation.</li>
+              <li><strong>Comets and Natural Moons (1 Mark):</strong> Comets are icy celestial snowballs that form glowing tails when approaching the Sun. Moons are natural satellites revolving around planets (such as Earth's Moon and Jupiter's Ganymede).</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q2. Describe the constellation Orion (The Hunter). Explain how its prominent stars are identified, its significance in Indian astronomy, and how it is used as a celestial pointer to locate Sirius. (5 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Comprehensive 5-Mark Solution</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Overall Shape &amp; Structure (1 Mark):</strong> Orion is one of the most striking constellations in the winter sky, resembling an imposing hunter or warrior. It is characterized by an hourglass shape with four bright corner stars and three distinct stars aligned in the middle.</li>
+              <li><strong>Key Star Features (1 Mark):</strong>
+                <br>&bull; <strong>Orion's Belt:</strong> Three bright stars (Alnitak, Alnilam, Mintaka) lined up tightly in a straight line at the centre.
+                <br>&bull; <strong>Betelgeuse:</strong> A huge reddish supergiant star marking the hunter's right shoulder.
+                <br>&bull; <strong>Rigel:</strong> A dazzling bluish-white supergiant star marking the hunter's left foot.
+              </li>
+              <li><strong>Significance in Indian Astronomy (1 Mark):</strong> In Sanskrit astronomy, Orion is known as <strong>Mṛiga</strong> (The Deer or Antelope). The star Betelgeuse is revered as the prominent Nakṣhatra <strong>Ārdrā</strong>.</li>
+              <li><strong>Locating Sirius (2 Marks):</strong> Sirius is the brightest star in the entire night sky, belonging to the nearby constellation <em>Canis Major (The Great Dog)</em>. To locate it:
+                <br>&bull; Find the three aligned stars of Orion's Belt.
+                <br>&bull; Trace an imaginary straight line eastward through the belt stars.
+                <br>&bull; Following this pointer line directly leads to dazzling, brilliant Sirius.
+              </li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q3. Explain what Light Pollution is, identify three major adverse effects it has on humans and nature, and highlight the significance of the Hanle Dark Sky Reserve in Ladakh. (5 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Comprehensive 5-Mark Solution</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Definition of Light Pollution (1 Mark):</strong> The excessive, misdirected, or obtrusive artificial outdoor light produced by urban civilization (streetlights, neon hoardings, searchlights) that brightens the night sky and obscures celestial objects.</li>
+              <li><strong>Three Adverse Effects (2 Marks):</strong>
+                <br>&bull; <strong>Disruption of Astronomy:</strong> Urban glare washes out faint starlight, blinding ground-based optical telescopes.
+                <br>&bull; <strong>Harm to Wildlife:</strong> Disorients nocturnal animals, interferes with night-flying migratory birds navigating by star positions, and draws hatchling sea turtles away from the ocean.
+                <br>&bull; <strong>Human Health Hazards:</strong> Night-time artificial glare suppresses melatonin production, disrupting healthy circadian sleep cycles and causing insomnia.
+              </li>
+              <li><strong>Significance of Hanle Dark Sky Reserve, Ladakh (2 Marks):</strong>
+                <br>&bull; Notified in December 2022, Hanle is situated over 4,500 m above sea level atop Mount Saraswati, with ultra-thin, dry, cloud-free air.
+                <br>&bull; Houses the Indian Astronomical Observatory's <em>Himalayan Chandra Telescope</em>.
+                <br>&bull; Strict light-control protocols protect the natural pristine darkness, preserving one of the clearest windows to the deep cosmos in the world while promoting community-driven astro-tourism.
+              </li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #bbdefb;">
+
+      <h3>Part E: Competency-Based Real-World Case Studies</h3>
+
+      <!-- Case Study 1 -->
+      <div class="quiz-card">
+        <h4>Case Study 1: Yangdol and Dorjay's Night Sky Observation in Nubra</h4>
+        <p><em>Yangdol and Dorjay live in Nubra, Ladakh. On a freezing, crystal-clear winter night at 8:00 PM, their grandfather pointed out a constellation with seven prominent stars shaped like a giant saucepan. He showed them how extending a line through the two outer bowl stars pointed to a steady star in the north. At 11:30 PM, the children stepped outside again and noticed that while the ladle had shifted across the sky, that north star had not moved at all!</em></p>
+        
+        <p><strong>Questions:</strong><br>
+        1. Name the constellation and the steady star observed by the children. (1M)<br>
+        2. Why did the ladle appear to have shifted its position between 8:00 PM and 11:30 PM? (1M)<br>
+        3. Why does the northern star appear completely stationary throughout the night? (2M)</p>
+
+        <details class="ans-box">
+          <summary>View Case Study 1 Solutions</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Names (1M):</strong> The constellation is <strong>Ursa Major (Big Dipper / Saptaṛiṣhi)</strong>, and the steady northern star is the <strong>Pole Star (Polaris / Dhruva Tārā)</strong>.</li>
+              <li><strong>Apparent Shift (1M):</strong> Caused by the <strong>rotation of the Earth from West to East</strong> on its axis, making circumpolar stars appear to rotate in a counter-clockwise circle around the celestial pole.</li>
+              <li><strong>Stationary Reason (2M):</strong> The Pole Star lies <strong>almost precisely along the extension of Earth's rotational axis</strong> above the North Pole. Because Earth spins around this very axis line, the central axis point experiences no orbital displacement relative to the sky, appearing perfectly stationary.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <!-- Case Study 2 -->
+      <div class="quiz-card">
+        <h4>Case Study 2: India's Historic Leap to the Lunar South Pole</h4>
+        <p><em>On August 23, 2023, millions of Indians watched with bated breath as ISRO's Chandrayaan-3 lander (Vikram) fired its descent thrusters and executed a gentle touchdown on the lunar surface near 69° South latitude. The Pragyan rover rolled down the ramp to analyze lunar soil composition. The Government of India declared August 23 as "National Space Day" to inspire youth across schools.</em></p>
+
+        <p><strong>Questions:</strong><br>
+        1. Why did footprints left by astronauts and rover tracks remain undisturbed on the Moon for decades, unlike on Earth? (1M)<br>
+        2. Is the Moon a self-luminous celestial body? Explain how we are able to see it from Earth. (1M)<br>
+        3. What makes the Lunar South Pole scientifically significant for future human space exploration? (2M)</p>
+
+        <details class="ans-box">
+          <summary>View Case Study 2 Solutions</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Preservation of Tracks (1M):</strong> The Moon has <strong>no atmosphere, no wind, and no liquid water</strong> to cause weathering or erosion. Without wind or rain, surface tracks remain unchanged for millions of years unless struck by a meteorite.</li>
+              <li><strong>Illumination (1M):</strong> The Moon is <strong>not self-luminous</strong>; it does not produce light. It is visible from Earth solely because its dusty surface reflects incident sunlight back toward our eyes.</li>
+              <li><strong>Scientific Significance of South Pole (2M):</strong>
+                <br>&bull; Permanently shadowed craters at the lunar south pole harbor significant deposits of <strong>subsurface water ice</strong>.
+                <br>&bull; This water ice can be extracted for drinking water and split into hydrogen and oxygen to supply breathable air and rocket fuel for future manned missions to Mars!
+              </li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="section6">
+      <h2>Section 6: Exam Hall Common Mistakes &amp; 15 Rapid Revision Points</h2>
+
+      <h3>5 Common Student Mistakes in School &amp; Board Exams</h3>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 1: Believing Shooting Stars (Meteors) are Actual Stars</h4>
+        <p><strong>Incorrect:</strong> Writing that a shooting star is an old star falling out of space.<br>
+        <strong>Correct:</strong> "Shooting stars" are <strong>meteors</strong>—tiny bits of interplanetary rock or dust that enter Earth's atmosphere at high speed and burn up due to atmospheric friction, producing a streak of light. They have nothing to do with real stars!</p>
+      </div>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 2: Thinking the Pole Star is the Brightest Star</h4>
+        <p><strong>Incorrect:</strong> Claiming "The Pole Star is the brightest star in the night sky."<br>
+        <strong>Correct:</strong> The brightest star in the entire night sky is <strong>Sirius</strong> (in Canis Major). The Pole Star is only a moderately bright star; its fame lies in its <em>fixed northern position</em>, not its brightness.</p>
+      </div>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 3: Stating that Mercury is the Hottest Planet</h4>
+        <p><strong>Incorrect:</strong> Assuming Mercury must be the hottest planet simply because it is closest to the Sun.<br>
+        <strong>Correct:</strong> <strong>Venus is the hottest planet</strong> (~465°C)! Mercury has no atmosphere to trap heat, whereas Venus's dense carbon dioxide atmosphere creates a fierce runaway greenhouse effect.</p>
+      </div>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 4: Counting Pluto as the Ninth Planet</h4>
+        <p><strong>Incorrect:</strong> Listing Pluto among the 9 planets of the Solar System.<br>
+        <strong>Correct:</strong> Our Solar System officially has <strong>8 planets</strong>. Pluto was reclassified by the IAU in 2006 as a <em>dwarf planet</em> because it has not cleared its orbital path.</p>
+      </div>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 5: Confusing Rotation with Revolution</h4>
+        <p><strong>Incorrect:</strong> Saying "Earth's revolution on its axis causes day and night."<br>
+        <strong>Correct:</strong> <strong>Rotation</strong> is the spinning of Earth on its own axis (takes 24 hours &rarr; causes day and night). <strong>Revolution</strong> is the orbit of Earth around the Sun (takes 365.25 days &rarr; causes years and seasons).</p>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #bbdefb;">
+
+      <h3>15 Ultra-Crisp Rapid Revision Points</h3>
+      <ol style="margin-left: 24px; line-height: 1.8;">
+        <li><strong>Stars</strong> are self-luminous spheres of hot plasma generating heat and light via nuclear fusion; the <strong>Sun</strong> is our closest star.</li>
+        <li><strong>Constellations</strong> are recognizable patterns of stars (e.g., Ursa Major, Orion, Canis Major, Taurus) recognized by ancient cultures.</li>
+        <li><strong>Ursa Major (Saptaṛiṣhi)</strong> contains the Big Dipper; its two outer pointer stars (Merak and Dubhe) point directly to the Pole Star.</li>
+        <li><strong>Pole Star (Polaris / Dhruva Tārā)</strong> lies almost directly above Earth's northern axis, remaining stationary in the North as a navigational compass.</li>
+        <li><strong>Sirius (Lubdhaka)</strong> is the brightest star in the night sky, located in <em>Canis Major</em> by extending Orion's three belt stars eastward.</li>
+        <li><strong>Apparent Motion:</strong> Stars appear to move East to West because Earth rotates on its axis from <strong>West to East</strong>.</li>
+        <li><strong>Daytime Invisibility:</strong> Stars are present in daytime, but bright sunlight scattered by atmospheric gases completely overpowers their faint light.</li>
+        <li><strong>Light Pollution</strong> is excessive artificial lighting obscuring the night sky; minimized in designated Dark Sky Reserves like <strong>Hanle in Ladakh</strong>.</li>
+        <li><strong>The Solar System</strong> consists of the Sun, eight planets, moons, dwarf planets, asteroids, comets, and meteoroids bound by gravity.</li>
+        <li><strong>Planetary Order from the Sun:</strong> Mercury &rarr; Venus &rarr; Earth &rarr; Mars &rarr; Jupiter &rarr; Saturn &rarr; Uranus &rarr; Neptune.</li>
+        <li><strong>Terrestrial Planets</strong> (Mercury, Venus, Earth, Mars) are dense and rocky; <strong>Gas &amp; Ice Giants</strong> (Jupiter, Saturn, Uranus, Neptune) are massive and gaseous.</li>
+        <li><strong>Venus (Shukra)</strong> is the hottest planet (~465°C) and brightest celestial object after the Moon; often called Morning or Evening Star.</li>
+        <li><strong>Asteroid Belt</strong> is a vast collection of rocky debris orbiting the Sun between the paths of Mars and Jupiter.</li>
+        <li><strong>Milky Way (Ākāśha Gangā)</strong> is our home spiral galaxy containing 100–400 billion stars; the Solar System resides on its Orion arm.</li>
+        <li><strong>ISRO's Chandrayaan-3</strong> successfully soft-landed near the Lunar South Pole on August 23, 2023, celebrated as <em>National Space Day</em>.</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Sujit Classes &bull; Class 6 Science Curiosity Master Study Series</p>
+    <p>Adhering strictly to NEP 2020 &bull; NCERT Guidelines &bull; Clean Interactive Learning</p>
+    <p style="margin-top: 10px;"><a href="../../index.html">&larr; Back to Portal Study Materials</a></p>
+  </footer>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) {
+        bar.style.width = scrolled + '%';
+      }
+    });
+
+    // Audio TTS Reader
+    var isReading = false;
+    var speechSynth = window.speechSynthesis;
+    var speechUtterance = null;
+
+    function toggleAudioReader() {
+      var btn = document.getElementById('audio-tts-btn');
+      if (!isReading) {
+        var textContent = document.querySelector('.container').innerText;
+        speechUtterance = new SpeechSynthesisUtterance(textContent);
+        speechUtterance.rate = 1.0;
+        speechUtterance.pitch = 1.0;
+        speechUtterance.onend = function() {
+          isReading = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Notes</span>';
+        };
+        speechSynth.speak(speechUtterance);
+        isReading = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Audio</span>';
+      } else {
+        speechSynth.cancel();
+        isReading = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Notes</span>';
+      }
+    }
+
+    // Interactive Quiz Engine
+    var quizExplanations = {
+      1: {
+        correctText: "Correct! The Pole Star lies almost directly along the extension of Earth's rotational axis, so Earth's spinning does not displace its apparent position.",
+        incorrectText: "Incorrect. The Pole Star appears stationary because it aligns with Earth's imaginary northern axis of rotation."
+      },
+      2: {
+        correctText: "Correct! Venus has a dense 96% CO₂ atmosphere that traps solar radiation in an extreme runaway greenhouse effect, making it hotter than Mercury.",
+        incorrectText: "Incorrect. Venus is the hottest planet (~465°C) due to its dense CO₂ greenhouse atmosphere, even though Mercury is closer to the Sun."
+      },
+      3: {
+        correctText: "Correct! Sirius in Canis Major is the brightest star in the night sky, easily located by tracing eastward along Orion's Belt.",
+        incorrectText: "Incorrect. Sirius is the brightest star in the night sky. We locate it by extending an imaginary line through the three stars of Orion's Belt."
+      },
+      4: {
+        correctText: "Correct! The Asteroid Belt is located in the wide orbital gap between the rocky planet Mars and the gas giant Jupiter.",
+        incorrectText: "Incorrect. The Asteroid Belt orbits the Sun between Mars and Jupiter."
+      },
+      5: {
+        correctText: "Correct! On August 23, 2023, ISRO's Chandrayaan-3 achieved the world's first successful soft-landing near the Lunar South Pole.",
+        incorrectText: "Incorrect. Chandrayaan-3 landed near the Lunar South Pole (Shiv Shakti Point), celebrated as National Space Day."
+      }
+    };
+
+    var answeredCorrectly = {};
+
+    function handleQuiz(qNum, optIdx, isCorrect) {
+      var card = document.getElementById('qCard' + qNum);
+      if (!card) return;
+      var buttons = card.querySelectorAll('.quiz-opt-btn');
+      var feedback = document.getElementById('qFeedback' + qNum);
+
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('correct', 'incorrect');
+      }
+
+      if (isCorrect) {
+        buttons[optIdx].classList.add('correct');
+        feedback.className = 'quiz-feedback show correct-fb';
+        feedback.innerHTML = '<strong>' + quizExplanations[qNum].correctText + '</strong>';
+        answeredCorrectly[qNum] = true;
+      } else {
+        buttons[optIdx].classList.add('incorrect');
+        feedback.className = 'quiz-feedback show incorrect-fb';
+        feedback.innerHTML = '<strong>' + quizExplanations[qNum].incorrectText + '</strong>';
+        answeredCorrectly[qNum] = false;
+      }
+
+      var totalCorrect = 0;
+      for (var key in answeredCorrectly) {
+        if (answeredCorrectly[key] === true) {
+          totalCorrect++;
+        }
+      }
+      var scoreElem = document.getElementById('currentScore');
+      if (scoreElem) {
+        scoreElem.innerText = totalCorrect;
+      }
+    }
+  </script>
+</body>
+</html>
