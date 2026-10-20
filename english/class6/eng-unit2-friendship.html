@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 6 English Unit 2: Friendship - Poorvi Master Study Notes</title>
+  <style>
+    :root {
+      --primary-color: #8e24aa;
+      --primary-light: #f3e5f5;
+      --secondary-color: #5e35b1;
+      --accent-color: #ffb300;
+      --text-dark: #212121;
+      --text-light: #555555;
+      --bg-white: #ffffff;
+      --bg-alt: #fdf7ff;
+      --border-color: #e1bee7;
+      --shadow: 0 4px 12px rgba(0,0,0,0.08);
+      --radius: 12px;
+      --transition: all 0.3s ease;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.68;
+      color: var(--text-dark);
+      background-color: #fbf9fc;
+      padding: 0;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: linear-gradient(90deg, #8e24aa, #ab47bc, #ffb300);
+      z-index: 9999;
+      transition: width 0.1s ease-out;
+    }
+
+    header.header {
+      background: linear-gradient(135deg, #4a148c 0%, #7b1fa2 50%, #8e24aa 100%);
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 16px rgba(74,20,140,0.25);
+      position: relative;
+    }
+    header.header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    header.header p {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      max-width: 840px;
+      margin: 0 auto 18px;
+    }
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 15px;
+    }
+    .badge {
+      background: rgba(255,255,255,0.22);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .audio-btn {
+      background: #ffb300;
+      color: #3e2723;
+      border: none;
+      padding: 9px 20px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-size: 0.92rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    }
+    .audio-btn:hover {
+      background: #ffa000;
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .nav-breadcrumb {
+      margin-bottom: 25px;
+      font-size: 0.9rem;
+      color: var(--text-light);
+    }
+    .nav-breadcrumb a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-breadcrumb a:hover { text-decoration: underline; }
+
+    section {
+      background: var(--bg-white);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-bottom: 35px;
+      box-shadow: var(--shadow);
+      border: 1px solid #ebd9f0;
+    }
+    section h2 {
+      font-size: 1.65rem;
+      color: var(--primary-color);
+      border-left: 5px solid var(--secondary-color);
+      padding-left: 14px;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section h3 {
+      font-size: 1.3rem;
+      color: #6a1b9a;
+      margin: 26px 0 14px;
+      font-weight: 600;
+      border-bottom: 2px dashed #f3e5f5;
+      padding-bottom: 6px;
+    }
+    section h4 {
+      font-size: 1.08rem;
+      color: #212121;
+      margin: 18px 0 10px;
+      font-weight: 600;
+    }
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 10px 0 18px 24px; }
+    li { margin-bottom: 8px; }
+
+    .callout {
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-size: 0.96rem;
+      border-left: 4px solid;
+    }
+    .callout-def { background: #f3e5f5; border-color: #8e24aa; color: #4a148c; }
+    .callout-act { background: #e8eaf6; border-color: #3f51b5; color: #1a237e; }
+    .callout-pyq { background: #fff8e1; border-color: #ffb300; color: #e65100; }
+    .callout-hack { background: #e8f5e9; border-color: #43a047; color: #1b5e20; }
+    .callout-warn { background: #ffebee; border-color: #e53935; color: #b71c1c; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.95rem;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid #e1bee7;
+      padding: 11px 14px;
+      text-align: left;
+    }
+    .data-table th {
+      background-color: #f3e5f5;
+      color: #4a148c;
+      font-weight: 600;
+    }
+    .data-table tr:nth-child(even) { background-color: #faf5fc; }
+
+    .odia-summary-box {
+      background: #fdf5f0;
+      border-left: 4px solid #ff7043;
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      color: #3e2723;
+    }
+    .odia-summary-box h4 {
+      color: #d84315;
+      margin-bottom: 8px;
+    }
+
+    .diagram-container {
+      margin: 25px auto;
+      text-align: center;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid #e1bee7;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: #666;
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .svg-node {
+      transition: transform 0.25s ease, filter 0.25s ease;
+      cursor: pointer;
+    }
+    .svg-node:hover {
+      transform: scale(1.03);
+      filter: drop-shadow(0 4px 8px rgba(142,36,170,0.2));
+    }
+    @keyframes pulseHeart {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.12); }
+      100% { transform: scale(1); }
+    }
+    .pulsing-heart {
+      animation: pulseHeart 2s infinite ease-in-out;
+      transform-origin: center;
+    }
+
+    details.ans-box {
+      background: #fdfdfd;
+      border: 1px solid #e1bee7;
+      border-radius: 8px;
+      padding: 12px 18px;
+      margin: 15px 0;
+      transition: var(--transition);
+    }
+    details.ans-box[open] {
+      background: #faf3fc;
+      border-color: #ba68c8;
+    }
+    details.ans-box summary {
+      font-weight: 600;
+      color: #6a1b9a;
+      cursor: pointer;
+      outline: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    details.ans-box summary::-webkit-details-marker { display: none; }
+    details.ans-box summary::after {
+      content: "➕ View Answer";
+      font-size: 0.85rem;
+      background: #f3e5f5;
+      color: #8e24aa;
+      padding: 3px 10px;
+      border-radius: 15px;
+      border: 1px solid #ce93d8;
+    }
+    details.ans-box[open] summary::after {
+      content: "➖ Hide Answer";
+      background: #e1bee7;
+      color: #4a148c;
+    }
+    .ans-content {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed #ce93d8;
+      color: #212121;
+    }
+
+    /* Quiz Styling */
+    .quiz-card {
+      background: #fff;
+      border: 1px solid #ebd9f0;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 18px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .quiz-question {
+      font-weight: 600;
+      font-size: 1.02rem;
+      margin-bottom: 12px;
+      color: #4a148c;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .quiz-opt-btn {
+      background: #faf5fc;
+      border: 1px solid #e1bee7;
+      border-radius: 6px;
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .quiz-opt-btn:hover {
+      background: #f3e5f5;
+      border-color: #ab47bc;
+    }
+    .quiz-opt-btn.correct {
+      background: #d4edda !important;
+      border-color: #28a745 !important;
+      color: #155724 !important;
+      font-weight: 600;
+    }
+    .quiz-opt-btn.incorrect {
+      background: #f8d7da !important;
+      border-color: #dc3545 !important;
+      color: #721c24 !important;
+    }
+    .quiz-feedback {
+      display: none;
+      margin-top: 10px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      line-height: 1.5;
+    }
+    .quiz-feedback.show { display: block; }
+    .quiz-feedback.correct-fb { background: #e8f5e9; border: 1px solid #a5d6a7; color: #1b5e20; }
+    .quiz-feedback.incorrect-fb { background: #ffebee; border: 1px solid #ef9a9a; color: #b71c1c; }
+    .quiz-score-board {
+      background: #f3e5f5;
+      border: 2px solid #ab47bc;
+      border-radius: 10px;
+      padding: 15px 20px;
+      text-align: center;
+      margin: 20px 0;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #4a148c;
+    }
+
+    .mistake-card {
+      background: #fff8f8;
+      border-left: 5px solid #d32f2f;
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin: 12px 0;
+    }
+    .mistake-card h4 { color: #c62828; margin-bottom: 6px; }
+
+    footer {
+      background: #2a0845;
+      color: #d1c4e9;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.9rem;
+      margin-top: 50px;
+    }
+    footer a { color: #ffb300; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress-bar"></div>
+
+  <header class="header">
+    <h1>Class 6 English &bull; Unit 2</h1>
+    <p>Theme: Friendship &bull; "The Unlikely Best Friends", "A Friend's Prayer", and "The Chair"</p>
+    <button class="audio-btn" id="audio-tts-btn" onclick="toggleAudioReader()">
+      <span>🔊 Listen to Notes</span>
+    </button>
+    <div class="badge-bar">
+      <span class="badge">NCERT Poorvi Textbook</span>
+      <span class="badge">Bilingual English + Odia</span>
+      <span class="badge">Past Tense &amp; Conjunctions</span>
+      <span class="badge">100% Comprehensive</span>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <div class="nav-breadcrumb">
+      <a href="../../index.html">Portal Home</a> &raquo; 
+      <a href="../../index.html#english-medium">Class 6 English</a> &raquo; 
+      <span>Unit 2: Friendship</span>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section id="section1">
+      <h2>Section 1: Visual Mind Map &amp; Unit Blueprint</h2>
+      <p>Friendship is one of life's most precious treasures. In Unit 2 of the NCERT Class 6 English textbook <em>Poorvi</em>, we explore three distinct literary masterpieces that examine the true nature of companionship: an affectionate animal folktale showing loyalty that transcends species barriers, a heartfelt lyrical prayer teaching unconditional acceptance, and an amusing school story revealing the test between fair-weather companions and true friends for life.</p>
+
+      <div class="diagram-container">
+        <!-- SVG 1: Emotional & Narrative Arc of "The Unlikely Best Friends" -->
+        <svg viewBox="0 0 940 440" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gElephant" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#4a148c"/>
+              <stop offset="100%" stop-color="#7b1fa2"/>
+            </linearGradient>
+            <linearGradient id="gDog" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f57c00"/>
+              <stop offset="100%" stop-color="#ffa726"/>
+            </linearGradient>
+            <linearGradient id="gBox" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ffffff"/>
+              <stop offset="100%" stop-color="#f3e5f5"/>
+            </linearGradient>
+            <marker id="purpleArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#7b1fa2" />
+            </marker>
+          </defs>
+
+          <!-- Title -->
+          <text x="470" y="32" font-size="20" font-weight="bold" fill="#4a148c" text-anchor="middle">STORY ARC &bull; THE UNLIKELY BEST FRIENDS (GAJARAJ &amp; BUNTEE)</text>
+          <text x="470" y="52" font-size="12" fill="#666" text-anchor="middle">From Royal Loneliness to Inseparable Companionship, Separation Grief &amp; Joyful Reunion</text>
+
+          <!-- STEP 1: Royal Isolation -->
+          <g class="svg-node">
+            <rect x="30" y="80" width="190" height="110" rx="10" fill="url(#gBox)" stroke="#8e24aa" stroke-width="1.8"/>
+            <text x="125" y="105" font-size="14" font-weight="bold" fill="#4a148c" text-anchor="middle">1. ROYAL LONELINESS</text>
+            <text x="125" y="128" font-size="11" fill="#333" text-anchor="middle">&bull; Gajaraj lives in luxury</text>
+            <text x="125" y="146" font-size="11" fill="#333" text-anchor="middle">&bull; Fed &amp; bathed by mahout</text>
+            <text x="125" y="164" font-size="11" fill="#b71c1c" text-anchor="middle">&bull; But longs for a friend!</text>
+          </g>
+
+          <!-- Connector 1 -->
+          <path d="M 220 135 L 260 135" stroke="#7b1fa2" stroke-width="2.5" marker-end="url(#purpleArrow)"/>
+
+          <!-- STEP 2: The Unlikely Bond -->
+          <g class="svg-node">
+            <rect x="270" y="80" width="190" height="110" rx="10" fill="url(#gBox)" stroke="#8e24aa" stroke-width="1.8"/>
+            <text x="365" y="105" font-size="14" font-weight="bold" fill="#e65100" text-anchor="middle">2. SHARING &amp; BONDING</text>
+            <text x="365" y="128" font-size="11" fill="#333" text-anchor="middle">&bull; Hungry dog strays in</text>
+            <text x="365" y="146" font-size="11" fill="#333" text-anchor="middle">&bull; Gajaraj shares his sweet food</text>
+            <text x="365" y="164" font-size="11" fill="#2e7d32" text-anchor="middle">&bull; Inseparable playmates form</text>
+          </g>
+
+          <!-- Connector 2 -->
+          <path d="M 460 135 L 500 135" stroke="#7b1fa2" stroke-width="2.5" marker-end="url(#purpleArrow)"/>
+
+          <!-- STEP 3: Greedy Mahout & Separation -->
+          <g class="svg-node">
+            <rect x="510" y="80" width="190" height="110" rx="10" fill="url(#gBox)" stroke="#c62828" stroke-width="1.8"/>
+            <text x="605" y="105" font-size="14" font-weight="bold" fill="#c62828" text-anchor="middle">3. CRUEL SEPARATION</text>
+            <text x="605" y="128" font-size="11" fill="#333" text-anchor="middle">&bull; Farmer buys dog from mahout</text>
+            <text x="605" y="146" font-size="11" fill="#333" text-anchor="middle">&bull; Dog tied with rope in village</text>
+            <text x="605" y="164" font-size="11" fill="#c62828" text-anchor="middle">&bull; Gajaraj refuses food &amp; bath</text>
+          </g>
+
+          <!-- Connector 3 -->
+          <path d="M 700 135 L 740 135" stroke="#7b1fa2" stroke-width="2.5" marker-end="url(#purpleArrow)"/>
+
+          <!-- STEP 4: Royal Proclamation & Reunion -->
+          <g class="svg-node">
+            <rect x="750" y="80" width="165" height="110" rx="10" fill="url(#gBox)" stroke="#2e7d32" stroke-width="1.8"/>
+            <text x="832" y="105" font-size="14" font-weight="bold" fill="#1b5e20" text-anchor="middle">4. TRIUMPHANT RETURN</text>
+            <text x="832" y="128" font-size="11" fill="#333" text-anchor="middle">&bull; King issues proclamation</text>
+            <text x="832" y="146" font-size="11" fill="#333" text-anchor="middle">&bull; Dog freed; runs to stable</text>
+            <text x="832" y="164" font-size="11" fill="#1b5e20" text-anchor="middle">&bull; Elephant lifts dog on head!</text>
+          </g>
+
+          <!-- CENTRAL THEMATIC BRIDGE -->
+          <g class="svg-node">
+            <rect x="150" y="230" width="640" height="175" rx="14" fill="#faf5fc" stroke="#ab47bc" stroke-width="2"/>
+            <!-- Pulsing Heart Centerpiece -->
+            <path d="M 470 260 C 470 245 440 240 440 265 C 440 285 470 305 470 305 C 470 305 500 285 500 265 C 500 240 470 245 470 260 Z" fill="#e91e63" class="pulsing-heart"/>
+            <text x="470" y="330" font-size="16" font-weight="bold" fill="#4a148c" text-anchor="middle">THE CORE ESSENCE OF TRUE FRIENDSHIP</text>
+            <text x="470" y="352" font-size="12" fill="#555" text-anchor="middle">&bull; Genuine friendship sees no disparity in size, species, wealth, or status.</text>
+            <text x="470" y="372" font-size="12" fill="#555" text-anchor="middle">&bull; Material comforts cannot replace love, companionship, and emotional connection.</text>
+            <text x="470" y="392" font-size="12" font-weight="600" fill="#2e7d32" text-anchor="middle">&bull; In Odia: ପ୍ରକୃତ ବନ୍ଧୁତା ଧନୀ-ଦରିଦ୍ର କିମ୍ବା ଆକାର ଦେଖେନାହିଁ; ଏହା ହୃଦୟର ପବିତ୍ର ବନ୍ଧନ।</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">Figure 2.1: Narrative Blueprint &mdash; The Unlikely Bond between Gajaraj the Elephant and Buntee the Dog.</div>
+      </div>
+
+      <div class="diagram-container">
+        <!-- SVG 2: The Magic Chair Test of True Friendship -->
+        <svg viewBox="0 0 940 380" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gBad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d32f2f"/>
+              <stop offset="100%" stop-color="#ef5350"/>
+            </linearGradient>
+            <linearGradient id="gGood" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2e7d32"/>
+              <stop offset="100%" stop-color="#4caf50"/>
+            </linearGradient>
+          </defs>
+
+          <text x="470" y="32" font-size="19" font-weight="bold" fill="#4a148c" text-anchor="middle">GRANDPA'S MAGIC CHAIR EXPERIMENT &bull; DISCOVERING REAL FRIENDS</text>
+          <text x="470" y="52" font-size="12.5" fill="#666" text-anchor="middle">Mario's Bet: How Stumbling on an Invisible Chair Separated Shallow Show-offs from Lifelong Friends</text>
+
+          <!-- Left Branch: Fair-weather Companions -->
+          <g class="svg-node">
+            <rect x="60" y="85" width="370" height="235" rx="12" fill="#fff" stroke="#e57373" stroke-width="2"/>
+            <rect x="60" y="85" width="370" height="42" rx="12" fill="url(#gBad)"/>
+            <text x="245" y="112" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">FAIR-WEATHER COMPANIONS (The Crowd)</text>
+            <text x="245" y="155" font-size="13" font-weight="600" fill="#c62828" text-anchor="middle">❌ What Did They Do?</text>
+            <text x="245" y="180" font-size="12" fill="#444" text-anchor="middle">&bull; Watched Mario boast about his chair</text>
+            <text x="245" y="202" font-size="12" fill="#444" text-anchor="middle">&bull; Laughed loudly when Mario fell on his bottom</text>
+            <text x="245" y="224" font-size="12" fill="#444" text-anchor="middle">&bull; Enjoyed and mocked his embarrassment</text>
+            <text x="245" y="255" font-size="12" font-weight="bold" fill="#c62828" text-anchor="middle">Verdict: Mere companions who relish bad luck!</text>
+            <text x="245" y="285" font-size="11.5" fill="#555" text-anchor="middle">ଓଡ଼ିଆ: ବିପଦ ବେଳେ ଉପହାସ କରୁଥିବା ସାଧାରଣ ସାଥୀ</text>
+          </g>
+
+          <!-- Right Branch: True Friends -->
+          <g class="svg-node">
+            <rect x="510" y="85" width="370" height="235" rx="12" fill="#fff" stroke="#81c784" stroke-width="2"/>
+            <rect x="510" y="85" width="370" height="42" rx="12" fill="url(#gGood)"/>
+            <text x="695" y="112" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">TRUE LOYAL FRIENDS (Guneet, Asma, Deepa)</text>
+            <text x="695" y="155" font-size="13" font-weight="600" fill="#2e7d32" text-anchor="middle">✅ What Did They Do?</text>
+            <text x="695" y="180" font-size="12" fill="#444" text-anchor="middle">&bull; Did not join the mocking laughter</text>
+            <text x="695" y="202" font-size="12" fill="#444" text-anchor="middle">&bull; Rushed forward and caught Mario mid-air</text>
+            <text x="695" y="224" font-size="12" fill="#444" text-anchor="middle">&bull; Held him up so he wouldn't get hurt</text>
+            <text x="695" y="255" font-size="12" font-weight="bold" fill="#2e7d32" text-anchor="middle">Verdict: Real "Friends for Life" who care!</text>
+            <text x="695" y="285" font-size="11.5" fill="#555" text-anchor="middle">ଓଡ଼ିଆ: ପଡ଼ିଯିବା ବେଳେ ଧରି ରଖୁଥିବା ପ୍ରକୃତ ଚିରନ୍ତନ ବନ୍ଧୁ</text>
+          </g>
+
+          <!-- Bottom Footer -->
+          <rect x="180" y="335" width="580" height="35" rx="8" fill="#f3e5f5" stroke="#ce93d8" stroke-width="1.2"/>
+          <text x="470" y="358" font-size="12" font-weight="600" fill="#4a148c" text-anchor="middle">Moral Axiom: A friend is not tested in laughter, but in times of stumble and fall.</text>
+        </svg>
+        <div class="diagram-caption">Figure 2.2: The Magic Chair Litmus Test &mdash; Differentiating Companions from Real Friends for Life.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="section2">
+      <h2>Section 2: Exhaustive Text-by-Text &amp; Stanza-by-Stanza Notes</h2>
+
+      <!-- ==========================================
+           PART A: THE UNLIKELY BEST FRIENDS
+           ========================================== -->
+      <h3>Part A: "The Unlikely Best Friends" (Prose Story)</h3>
+
+      <h4>1. Pre-Reading Prompts Decoded</h4>
+      <ul>
+        <li><strong>Why Friends are Important:</strong> Friends provide emotional warmth, companionship, and someone to share joy, secrets, and sorrows with. Without friends, even a palace feels lonely.</li>
+        <li><strong>Meaning of 'Unlikely':</strong> 'Unlikely' means unexpected, improbable, or not expected to happen. "Unlikely best friends" refers to two individuals from completely different backgrounds, sizes, or species (like an elephant and a stray dog, or a cow and a leopard) who form a deeply loving bond.</li>
+      </ul>
+
+      <h4>2. Detailed Narrative Breakdown</h4>
+      <p><strong>1. Gajaraj in the Royal Stables:</strong> Gajaraj was the king's prize elephant, housed in the finest booth of the royal stables. The king had ordered the best caretakers to look after him. The mahout fed him sumptuous food and gave him daily refreshing baths in the elephant pond. Despite this lavish comfort, Gajaraj was sorrowful because he lacked a companion to play and converse with.</p>
+      
+      <p><strong>2. The Arrival of the Stray Dog:</strong> One evening, a scrawny, famished stray dog strayed into the stable smelling the delicious aroma of elephant food. Gajaraj noticed how exhausted and hungry the little dog was. Instead of chasing the intruder away, Gajaraj gently nudged some sweet rice balls and green fodder toward him. The dog ate eagerly, wagged his tail in gratitude, and slept curled near Gajaraj's massive legs.</p>
+
+      <p><strong>3. The Flourishing Bond:</strong> Over subsequent weeks, the elephant and dog became inseparable companions. The mahout named the dog <em>Buntee</em>. Gajaraj would gently lift Buntee onto his broad back with his trunk, spray water playfully over him during pond baths, and share all his meals. The huge pachyderm and tiny canine proved that genuine affection needs no common language or size match.</p>
+
+      <p><strong>4. The Separation:</strong> One afternoon, a visiting farmer saw Buntee doing playful acrobatics around Gajaraj. Wanting the intelligent dog to guard his rural farm, the farmer offered a handful of silver coins to the greedy mahout. Seeing quick money, the mahout sold Buntee and handed him over. Neither the farmer nor the mahout noticed the silent tears streaming down the faces of the two friends.</p>
+
+      <p><strong>5. Gajaraj's Heartbreak:</strong> From the moment Buntee was dragged away, Gajaraj fell into profound depression. He refused sugarcane, sweet rice, and fresh leaves. He stood motionless with bowed head, refusing to enter the elephant pond for his bath. The mahout feared for his own job as the king's prized elephant grew thin and weak.</p>
+
+      <p><strong>6. The Royal Proclamation &amp; Reunion:</strong> When informed that Gajaraj was wasting away without any physical illness, the wise king immediately deduced that the elephant was grieving the sudden loss of his beloved companion. The king issued an urgent royal proclamation: <em>"Whoever holds the dog that lived in the royal stable must release him immediately, or face royal punishment!"</em> Upon hearing the proclamation, the frightened farmer untied Buntee. The loyal dog dashed across fields, racing miles back to the palace stables. Gajaraj trumpeted in ecstasy, lifting Buntee high in the air with his trunk, while Buntee licked Gajaraj's cheeks. Gajaraj immediately resumed eating, his heart healed by love!</p>
+
+      <h4>3. Bilingual Vocabulary Bank (English to Odia) &bull; The Unlikely Best Friends</h4>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Word</th>
+            <th>Part of Speech</th>
+            <th>Simple English Meaning</th>
+            <th>ଓଡ଼ିଆ ଅର୍ଥ (Odia Meaning)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Booth</strong></td>
+            <td>Noun</td>
+            <td>An enclosed rectangular compartment or stall</td>
+            <td>ହାତୀ ବାନ୍ଧିବା ସ୍ୱତନ୍ତ୍ର କୋଠରୀ / ଘର</td>
+          </tr>
+          <tr>
+            <td><strong>Stables</strong></td>
+            <td>Noun</td>
+            <td>Living quarters or shelters for animals (horses/elephants)</td>
+            <td>ଅଶ୍ୱଶାଳା / ହସ୍ତୀଶାଳା</td>
+          </tr>
+          <tr>
+            <td><strong>Mahout</strong></td>
+            <td>Noun</td>
+            <td>A person who trains, rides, and cares for an elephant</td>
+            <td>ମାହୁନ୍ତ (ହାତୀ ପରିଚାଳକ)</td>
+          </tr>
+          <tr>
+            <td><strong>Interacted</strong></td>
+            <td>Verb</td>
+            <td>Communicated and engaged with others</td>
+            <td>କଥାବାର୍ତ୍ତା ବା ଭାବ ବିନିମୟ କରିବା</td>
+          </tr>
+          <tr>
+            <td><strong>Strayed</strong></td>
+            <td>Verb</td>
+            <td>Wandered away from home or safe area</td>
+            <td>ବାଟବଣା ହୋଇ ଭଟକି ଆସିବା</td>
+          </tr>
+          <tr>
+            <td><strong>Unlikely</strong></td>
+            <td>Adjective</td>
+            <td>Not expected to happen; surprising pairing</td>
+            <td>ଅପ୍ରତ୍ୟାଶିତ / ଅସମ୍ଭବ ମନେହେଉଥିବା</td>
+          </tr>
+          <tr>
+            <td><strong>Inseparable</strong></td>
+            <td>Adjective</td>
+            <td>Unable to be separated; always staying together</td>
+            <td>ଅଭିନ୍ନ / ଅବିଚ୍ଛେଦ୍ୟ</td>
+          </tr>
+          <tr>
+            <td><strong>Munching</strong></td>
+            <td>Verb</td>
+            <td>Chewing steadily and audibly</td>
+            <td>ମନଖୁସିରେ ଚୋବାଇ ଖାଇବା</td>
+          </tr>
+          <tr>
+            <td><strong>Proclamation</strong></td>
+            <td>Noun</td>
+            <td>An official public announcement by a ruler</td>
+            <td>ରାଜକୀୟ ଘୋଷଣା / ଡେଙ୍ଗୁରା</td>
+          </tr>
+          <tr>
+            <td><strong>Trumpeted</strong></td>
+            <td>Verb</td>
+            <td>Made a loud, high cry (sound of an elephant)</td>
+            <td>ହାତୀର ଆନନ୍ଦର ଗର୍ଜନ (ବୃଂହିତ)</td>
+          </tr>
+          <tr>
+            <td><strong>Rejoiced</strong></td>
+            <td>Verb</td>
+            <td>Felt or showed great joy and happiness</td>
+            <td>ଆନନ୍ଦ ଉଲ୍ଲାସ ପ୍ରକାଶ କରିବା</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Odia Summary Box -->
+      <div class="odia-summary-box">
+        <h4>📖 ଗଳ୍ପର ସାରାଂଶ: ଅପ୍ରତ୍ୟାଶିତ ପ୍ରକୃତ ବନ୍ଧୁ (The Unlikely Best Friends - Odia Summary)</h4>
+        <p><strong>ବିଷୟବସ୍ତୁ:</strong> ରାଜପ୍ରାସାଦର ସର୍ବୋତ୍ତମ ହାତୀଶାଳାରେ 'ଗଜରାଜ' ନାମକ ଏକ ରାଜକୀୟ ହାତୀ ରହୁଥିଲା। ରାଜା ତାକୁ ବହୁତ ଭଲ ପାଉଥିଲେ ଏବଂ ତାର ଯତ୍ନ ନେବା ପାଇଁ ଜଣେ ମାହୁନ୍ତ ରଖିଥିଲେ। ମାହୁନ୍ତ ତାକୁ ସମୟମତେ ସୁସ୍ୱାଦୁ ଖାଦ୍ୟ ଦେଉଥିଲା ଏବଂ ପୋଖରୀରେ ଗାଧୋଇ ଦେଉଥିଲା। ଏସବୁ ରାଜକୀୟ ସୁଖସୁବିଧା ଥାଇ ମଧ୍ୟ ଗଜରାଜ ମନଦୁଃଖରେ ରହୁଥିଲା, କାରଣ ତା’ ସହିତ ଖେଳିବା ପାଇଁ ତାର କୌଣସି ସାଙ୍ଗ ନଥିଲା।</p>
+        <p>ଦିନେ ସନ୍ଧ୍ୟାରେ ଗୋଟିଏ କ୍ଷୁଧାର୍ତ୍ତ ଓ କ୍ଳାନ୍ତ ବୁଲା କୁକୁର ହାତୀଶାଳା ଭିତରକୁ ପଶିଆସିଲା। ଗଜରାଜ ତାର କ୍ଷୁଧା ବୁଝିପାରି ନିଜ ଖାଦ୍ୟ ତା' ଆଗକୁ ବଢ଼ାଇଦେଲା। କୁକୁରଟି ଖାଇସାରି ଆନନ୍ଦରେ ଲାଞ୍ଜ ହଲାଇଲା ଏବଂ ହାତୀର ପାଦ ପାଖରେ ଶୋଇପଡ଼ିଲା। ସେହିଦିନଠାରୁ ଦୁହିଁଙ୍କ ମଧ୍ୟରେ ଏକ ଅଭିନ୍ନ ବନ୍ଧୁତା ସୃଷ୍ଟି ହେଲା। ମାହୁନ୍ତ ତାର ନାମ ଦେଲା 'ବଣ୍ଟି'। ଗଜରାଜ ନିଜ ଶୁଣ୍ଢରେ ବଣ୍ଟିକୁ ପିଠି ଉପରେ ବସାଉଥିଲା ଏବଂ ପୋଖରୀରେ ପାଣି ଛିଞ୍ଚି ଏକାଠି ଖେଳୁଥିଲେ।</p>
+        <p>ଦିନେ ଜଣେ ଗ୍ରାମୀଣ କୃଷକ କୁକୁରଟିର ଚଞ୍ଚଳତା ଦେଖି ତାକୁ ଘର ଜଗିବା ପାଇଁ ନେବାକୁ ଚାହିଁଲା ଏବଂ ଲୋଭୀ ମାହୁନ୍ତକୁ କିଛି ଟଙ୍କା ଦେଇ କୁକୁରକୁ କିଣିନେଲା। ବଣ୍ଟିକୁ ଦଉଡ଼ିରେ ବାନ୍ଧି ନିଆଯିବା ପରେ ଗଜରାଜ ଅତ୍ୟନ୍ତ ଦୁଃଖୀ ହୋଇପଡ଼ିଲା। ସେ ଖାଇବା-ପିଇବା ବନ୍ଦ କରିଦେଲା ଏବଂ ଗାଧୋଇବାକୁ ମଧ୍ୟ ଗଲାନାହିଁ। ଖବର ପାଇ ବୁଦ୍ଧିମାନ ରାଜା ବୁଝିପାରିଲେ ଯେ ହାତୀଟି କୌଣସି ରୋଗରେ ନୁହେଁ, ବରଂ ନିଜ ପ୍ରିୟ ବନ୍ଧୁ ବଣ୍ଟିର ବିରହରେ ଶୁଖିଯାଉଛି। ରାଜା ତୁରନ୍ତ ଘୋଷଣା କଲେ ଯେ ଯିଏ କୁକୁରକୁ ନେଇଛି, ସେ ତୁରନ୍ତ ତାକୁ ଛାଡ଼ିଦେଉ। ଭୟଭୀତ କୃଷକ କୁକୁରକୁ ମୁକ୍ତ କରିଦେଲା। ବଣ୍ଟି ଦୌଡ଼ି ଦୌଡ଼ି ରାଜପ୍ରାସାଦକୁ ଫେରିଆସିଲା। ଦୁଇ ବନ୍ଧୁ ପରସ୍ପରକୁ ଦେଖି ଆନନ୍ଦରେ ନାଚିଉଠିଲେ ଏବଂ ଗଜରାଜ ପୁଣି ଖୁସିରେ ଖାଇବା ଆରମ୍ଭ କଲା।</p>
+        <p><strong>ଶିକ୍ଷଣୀୟ ନୀତିବାଣୀ:</strong> ପ୍ରକୃତ ବନ୍ଧୁତା କେବେହେଲେ ବାହ୍ୟ ରୂପ, ଆକାର କିମ୍ବା ଧନ-ସମ୍ପଦ ଉପରେ ନିର୍ଭର କରେନାହିଁ। ଏହା ହେଉଛି ପରସ୍ପର ପ୍ରତି ଥିବା ନିଃସ୍ୱାର୍ଥପର ପ୍ରେମ ଓ ସହାନୁଭୂତିର ପବିତ୍ର ବନ୍ଧନ।</p>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #e1bee7;">
+
+      <!-- ==========================================
+           PART B: A FRIEND'S PRAYER (POEM)
+           ========================================== -->
+      <h3>Part B: "A Friend's Prayer" by Jill Wolf (Poem)</h3>
+
+      <h4>1. Pre-Reading Exploration: Wish vs. Hope vs. Prayer</h4>
+      <ul>
+        <li><strong>Wish:</strong> A casual longing for something pleasant (e.g., <em>"I wish my friend brings idli tomorrow."</em>).</li>
+        <li><strong>Hope:</strong> An expectation of a positive outcome with emotional investment (e.g., <em>"I hope my friend and I win the race."</em>).</li>
+        <li><strong>Prayer:</strong> A solemn, heartfelt invocation seeking divine benevolence and spiritual well-being for another person (e.g., <em>"May my friend get well soon."</em>). Sentence 3 is closest to a true prayer because it invokes blessings for someone else's recovery without personal gain.</li>
+      </ul>
+
+      <h4>2. Stanza-by-Stanza Literary Breakdown</h4>
+      <div style="background: #faf5fc; padding: 18px 20px; border-radius: 8px; margin: 15px 0; border: 1px solid #e1bee7;">
+        <p><em>"May my friendships always be<br>
+        The most important thing to me.<br>
+        With special friends I feel I’m blessed,<br>
+        So let me give my very best."</em></p>
+        <p><strong>Explanation:</strong> The speaker begins with a solemn invocation: asking that the bond of friendship always remain the most cherished priority in life. Realizing that having true, special friends is an immense divine blessing, the speaker resolves to reciprocate by offering their genuine best effort, loyalty, and affection.</p>
+      </div>
+
+      <div style="background: #faf5fc; padding: 18px 20px; border-radius: 8px; margin: 15px 0; border: 1px solid #e1bee7;">
+        <p><em>"I want to do much more than share<br>
+        The hopes and plans of friends who care;<br>
+        I’ll try all that a friend can do<br>
+        To make their wishes come true."</em></p>
+        <p><strong>Explanation:</strong> True friendship is not merely passive listening or casual conversation. The speaker wants to actively invest themselves into helping friends achieve their heartfelt ambitions, working selflessly to turn their dreams into reality.</p>
+      </div>
+
+      <div style="background: #faf5fc; padding: 18px 20px; border-radius: 8px; margin: 15px 0; border: 1px solid #e1bee7;">
+        <p><em>"Let me use my heart to see,<br>
+        To realise what friends can be,<br>
+        And make no judgements from afar,<br>
+        But love my friends the way they are."</em></p>
+        <p><strong>Explanation:</strong> The closing stanza presents the poem's moral climax. The poet asks for the empathy to <em>"use my heart to see"</em>—to perceive character through love and understanding rather than superficial appearances. She resolves never to judge friends critically from a distance, but to embrace and cherish them unconditionally with all their unique qualities.</p>
+      </div>
+
+      <h4>3. Poetic Devices &amp; Analysis</h4>
+      <ul>
+        <li><strong>Rhyme Scheme:</strong> Consistent <strong>AABB CCDD EEFF</strong> rhyming couplets (be/me, blessed/best; share/care, do/true; see/be, afar/are). This creates a soothing, melodious, prayerful rhythm.</li>
+        <li><strong>Metaphor:</strong> <em>"Let me use my heart to see"</em> &mdash; Comparing emotional empathy and intuition to physical vision (seeing with emotional understanding rather than physical eyes).</li>
+        <li><strong>Alliteration:</strong> Repetition of consonant sounds, e.g., <em>"friends who care"</em>, <em>"make their wishes come true"</em>.</li>
+        <li><strong>Tone:</strong> Devotional, humble, sincere, and deeply compassionate.</li>
+      </ul>
+
+      <h4>4. Bilingual Vocabulary Bank &bull; A Friend's Prayer</h4>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Word / Phrase</th>
+            <th>Part of Speech</th>
+            <th>Simple English Meaning</th>
+            <th>ଓଡ଼ିଆ ଅର୍ଥ (Odia Meaning)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Blessed</strong></td>
+            <td>Adjective</td>
+            <td>Fortunate; favored with divine grace</td>
+            <td>ଭାଗ୍ୟବାନ / ଆଶୀର୍ବାଦପ୍ରାପ୍ତ</td>
+          </tr>
+          <tr>
+            <td><strong>Hopes and plans</strong></td>
+            <td>Noun phrase</td>
+            <td>Aspirations, future ambitions, and dreams</td>
+            <td>ଆଶା, ଅଭିଳାଷ ଓ ଭବିଷ୍ୟତ ଯୋଜନା</td>
+          </tr>
+          <tr>
+            <td><strong>Realise</strong></td>
+            <td>Verb</td>
+            <td>To understand clearly and deeply</td>
+            <td>ଉପଲବ୍ଧି କରିବା / ହୃଦୟଙ୍ଗମ କରିବା</td>
+          </tr>
+          <tr>
+            <td><strong>Judgements from afar</strong></td>
+            <td>Noun phrase</td>
+            <td>Forming critical opinions without knowing someone closely</td>
+            <td>ଦୂରରୁ ଦେଖି କାହା ବିଷୟରେ ନକାରାତ୍ମକ ମତ ଦେବା</td>
+          </tr>
+          <tr>
+            <td><strong>The way they are</strong></td>
+            <td>Idiom / Phrase</td>
+            <td>Unconditionally; accepting someone with all their traits</td>
+            <td>ସେମାନେ ଯେପରି ଅଛନ୍ତି, ସେହିପରି ଗ୍ରହଣ କରିବା</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Odia Summary Box -->
+      <div class="odia-summary-box">
+        <h4>📖 କବିତାର ସାରାଂଶ: ଜଣେ ବନ୍ଧୁର ପ୍ରାର୍ଥନା (A Friend's Prayer - Odia Summary)</h4>
+        <p><strong>ଭାବାର୍ଥ:</strong> କବୟିତ୍ରୀ ଜିଲ୍ ୱୁଲ୍ଫ୍ (Jill Wolf) ଏହି କବିତାରେ ନିଜର ପ୍ରିୟ ବନ୍ଧୁମାନଙ୍କ ପାଇଁ ଏକ ନିଷ୍ଠାପର ପ୍ରାର୍ଥନା କରିଛନ୍ତି। ସେ କହିଛନ୍ତି ଯେ ବନ୍ଧୁତା ଯେପରି ସର୍ବଦା ତାଙ୍କ ଜୀବନର ସବୁଠାରୁ ମୂଲ୍ୟବାନ ସମ୍ପଦ ହୋଇ ରହୁ। ଭଲ ବନ୍ଧୁ ପାଇବା ଭଗବାନଙ୍କର ଏକ ବଡ଼ ଆଶୀର୍ବାଦ, ତେଣୁ ସେ ନିଜ ବନ୍ଧୁଙ୍କ ଖୁସି ପାଇଁ ନିଜର ସର୍ବୋତ୍ତମ ଉଦ୍ୟମ କରିବାକୁ ଚାହାନ୍ତି।</p>
+        <p>କବୟିତ୍ରୀ କେବଳ ବନ୍ଧୁଙ୍କର ସୁଖ-ଦୁଃଖ ଶୁଣିବାରେ ସୀମିତ ରହିବାକୁ ଚାହାନ୍ତି ନାହିଁ; ବରଂ ସେମାନଙ୍କର ସ୍ୱପ୍ନ ଓ ଲକ୍ଷ୍ୟ ପୂରଣ କରିବା ପାଇଁ ସବୁମତେ ସାହାଯ୍ୟ କରିବାକୁ ଇଚ୍ଛା କରନ୍ତି। ସେ ଭଗବାନଙ୍କୁ ପ୍ରାର୍ଥନା କରିଛନ୍ତି ଯେ ତାଙ୍କୁ ଏପରି ଏକ ହୃଦୟ ଦିଅନ୍ତୁ, ଯାହା ଦ୍ୱାରା ସେ ବନ୍ଧୁର ଅନ୍ତରକୁ ବୁଝିପାରିବେ। କାହାକୁ ଦୂରରୁ ଦେଖି ତାର ତ୍ରୁଟି ଖୋଜିବା କିମ୍ବା ବିଚାର କରିବା ପରିବର୍ତ୍ତେ, ବନ୍ଧୁ ଯେପରି ଅଛନ୍ତି ତାଙ୍କୁ ସେହିପରି ସ୍ନେହରେ ଗ୍ରହଣ କରିବା ହିଁ ପ୍ରକୃତ ବନ୍ଧୁତାର ମୂଳମନ୍ତ୍ର।</p>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #e1bee7;">
+
+      <!-- ==========================================
+           PART C: THE CHAIR (SHORT STORY)
+           ========================================== -->
+      <h3>Part C: "The Chair" (Short Story)</h3>
+
+      <h4>1. Detailed Narrative Breakdown</h4>
+      <p><strong>1. Mario's Boasting &amp; Grandpa's Bet:</strong> Mario was an outgoing schoolboy who took immense pride in his social popularity. He constantly bragged that he had dozens of best friends at school. His wise grandfather listened patiently and offered a friendly wager: <em>"Mario, I bet you a fruit chaat that you don't have as many real friends as you think. Most of them are mere companions or casual playmates."</em> Mario eagerly accepted the bet, confident of winning.</p>
+
+      <p><strong>2. The Invisible "Magic Chair":</strong> When Mario asked how to prove who his true friends were, his grandfather fetched an unseen object from the attic. Holding out empty hands, Grandpa announced: <em>"Take this very special invisible chair. Because it is invisible, it is tricky to sit on. But take it to school; if you manage to sit on it, its magic will instantly reveal who your real friends are!"</em></p>
+
+      <p><strong>3. The Schoolyard Spectacle:</strong> Filled with determination, Mario took the invisible chair to school. During the recess break, he gathered his classmates in a large circle and declared dramatically: <em>"Nobody move! You are about to witness something miraculous!"</em> Mario bent his knees and attempted to sit back onto the empty air. Immediately, he lost balance and crashed flat onto the ground!</p>
+
+      <p><strong>4. Mockery vs. Support:</strong> Everyone in the circle burst into uncontrollable laughter, pointing fingers and mocking him. Thinking it was just a <em>"technical glitch"</em>, Mario got up and tried sitting again. Once more, he tumbled backwards. The crowd roared with delight, relishing his humiliation. But on his third attempt, just as he was about to hit the hard dirt, three classmates—<strong>Guneet, Asma, and Deepa</strong>—lunged forward, caught him firmly under the arms, and prevented him from getting hurt!</p>
+
+      <p><strong>5. The Revelation of True Friendship:</strong> Mario looked around. The dozens of people he considered his "best friends" had done nothing but mock him. Only Guneet, Asma, and Deepa cared enough to save him from falling. Mario finally grasped his grandfather's profound wisdom: <strong>Real friends don't laugh at our embarrassments or take joy in our misfortunes; they step forward to support us when we stumble.</strong></p>
+
+      <p><strong>6. The Fruit Chaat Celebration:</strong> That evening, Mario conceded the bet and brought his three true friends to meet his grandfather. They shared stories, celebrated with plates of delicious fruit chaat, and agreed to use the "invisible chair test" to cherish true friends for life.</p>
+
+      <h4>2. Bilingual Vocabulary Bank &bull; The Chair</h4>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Word / Phrase</th>
+            <th>Part of Speech</th>
+            <th>Simple English Meaning</th>
+            <th>ଓଡ଼ିଆ ଅର୍ଥ (Odia Meaning)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Showed off</strong></td>
+            <td>Phrasal verb</td>
+            <td>Boasted; tried to impress others excessively</td>
+            <td>ବଡ଼ିମା ବା ଗର୍ବ ପ୍ରକାଶ କରିବା</td>
+          </tr>
+          <tr>
+            <td><strong>Attic</strong></td>
+            <td>Noun</td>
+            <td>A storage room just below the roof of a house</td>
+            <td>ଘରର ଛାତ ତଳେ ଥିବା ଅଟ୍ଟାଳି / କୋଠରୀ</td>
+          </tr>
+          <tr>
+            <td><strong>Invisible</strong></td>
+            <td>Adjective</td>
+            <td>Cannot be seen with physical eyes</td>
+            <td>ଅଦୃଶ୍ୟ (ଯାହା ଦେଖାଯାଏ ନାହିଁ)</td>
+          </tr>
+          <tr>
+            <td><strong>Tricky</strong></td>
+            <td>Adjective</td>
+            <td>Requiring care and skill because it is difficult</td>
+            <td>ଜଟିଳ / କଷ୍ଟସାଧ୍ୟ କୌଶଳପୂର୍ଣ୍ଣ</td>
+          </tr>
+          <tr>
+            <td><strong>Determined</strong></td>
+            <td>Adjective</td>
+            <td>Having a firm decision without giving up</td>
+            <td>ଦୃଢ଼ସଂକଳ୍ପବଦ୍ଧ</td>
+          </tr>
+          <tr>
+            <td><strong>Bad luck</strong></td>
+            <td>Noun</td>
+            <td>Misfortune; an unlucky event</td>
+            <td>ଦୁର୍ଭାଗ୍ୟ / ବିପଦ</td>
+          </tr>
+          <tr>
+            <td><strong>Friends for life</strong></td>
+            <td>Idiom</td>
+            <td>True loyal friends who remain together forever</td>
+            <td>ଆଜୀବନ ସାଥୀ / ଚିରନ୍ତନ ବନ୍ଧୁ</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Odia Summary Box -->
+      <div class="odia-summary-box">
+        <h4>📖 ଗଳ୍ପର ସାରାଂଶ: ଅଦୃଶ୍ୟ ଚୌକି (The Chair - Odia Summary)</h4>
+        <p><strong>ବିଷୟବସ୍ତୁ:</strong> ମାରିଓ ନାମକ ଜଣେ ବାଳକ ସର୍ବଦା ଗର୍ବ କରୁଥିଲା ଯେ ବିଦ୍ୟାଳୟରେ ତାର ଅନେକ ସାଙ୍ଗ ଅଛନ୍ତି। ଦିନେ ତାର ଚତୁର ଜେଜେବାପା ତାକୁ କହିଲେ, "ମୁଁ ତୁମ ସହିତ 'ଫ୍ରୁଟ୍ ଚାଟ୍' (ଫଳ ଚାଟ୍) ବାଜି ଲଗାଉଛି ଯେ ତୁମର ପ୍ରକୃତ ବନ୍ଧୁ ଖୁବ୍ କମ୍ ଅଛନ୍ତି। ବାକି ସମସ୍ତେ କେବଳ ସାଧାରଣ ସାଥୀ।" ମାରିଓ ଏହି ବାଜି ଗ୍ରହଣ କଲା।</p>
+        <p>ଜେଜେବାପା ଘରର ଅଟ୍ଟାଳିରୁ ଏକ କାଳ୍ପନିକ 'ଅଦୃଶ୍ୟ ଚୌକି' ଆଣିବାର ଅଭିନୟ କରି ମାରିଓକୁ ଦେଲେ ଏବଂ କହିଲେ ଯେ ଯଦି ସେ ବିଦ୍ୟାଳୟରେ ଏହା ଉପରେ ବସିପାରିବ, ତେବେ ଏହାର ଯାଦୁ ଦ୍ୱାରା ପ୍ରକୃତ ବନ୍ଧୁ କିଏ ତାହା ଜଣାପଡ଼ିବ। ମାରିଓ ସ୍କୁଲ୍ ଯାଇ ରିସେସ୍ (ଛୁଟି) ସମୟରେ ସମସ୍ତ ସାଙ୍ଗମାନଙ୍କୁ ଗୋଲାକାରରେ ଠିଆ କରାଇଲା ଏବଂ ଅଦୃଶ୍ୟ ଚୌକିରେ ବସିବାକୁ ଚେଷ୍ଟା କରି ତଳେ କଚାଡ଼ି ହୋଇ ପଡ଼ିଗଲା।</p>
+        <p>ସେଠାରେ ଥିବା ଅଧିକାଂଶ ପିଲା ତାକୁ ଦେଖି ଉପହାସ କରି ହସିବାକୁ ଲାଗିଲେ। ମାରିଓ ପୁନର୍ବାର ଚେଷ୍ଟା କଲା ଏବଂ ପୁଣି ଖସିପଡ଼ିଲା। କିନ୍ତୁ ତୃତୀୟ ଥର ପଡ଼ିବା ବେଳେ ତାର ତିନିଜଣ ସହପାଠୀ—ଗୁନୀତ, ଅସ୍ମା ଏବଂ ଦୀପା ଦୌଡ଼ିଆସି ତାକୁ ତଳେ ପଡ଼ିବା ପୂର୍ବରୁ ଧରି ପକାଇଲେ। ମାରିଓ ବୁଝିପାରିଲା ଯେ ଯେଉଁମାନେ ଆମ ବିପଦରେ ହସନ୍ତି ସେମାନେ ପ୍ରକୃତ ବନ୍ଧୁ ନୁହଁନ୍ତି; ବରଂ ଯେଉଁମାନେ ଆମକୁ ପଡ଼ିଯିବା ବେଳେ ଧରି ଉଠାନ୍ତି, ସେମାନେ ହିଁ ଚିରନ୍ତନ ବନ୍ଧୁ। ଶେଷରେ ମାରିଓ ତାର ସେହି ତିନିଜଣ ପ୍ରକୃତ ବନ୍ଧୁଙ୍କୁ ଜେଜେଙ୍କ ପାଖକୁ ନେଇ ଆନନ୍ଦରେ ଫ୍ରୁଟ୍ ଚାଟ୍ ଖାଇ ବାଜି ସମାପ୍ତ କଲା।</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="section3">
+      <h2>Section 3: Master Vocabulary, Literary Device &amp; Grammar Bank</h2>
+
+      <h3>1. The Three Forms of Past Tense Decoded</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Tense Form</th>
+            <th>Grammatical Structure</th>
+            <th>When to Use &bull; Core Function</th>
+            <th>Examples from Unit 2</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Simple Past Tense</strong></td>
+            <td>Subject + Verb (2nd form / V2) [add -d, -ed, or irregular]</td>
+            <td>Shows an action that happened and finished at a definite time in the past.</td>
+            <td>Gajaraj <em>looked</em> sad. The king <em>ordered</em>. Buntee <em>wagged</em> his tail.</td>
+          </tr>
+          <tr>
+            <td><strong>Past Progressive Tense</strong></td>
+            <td>Subject + was / were + (Verb + ing)</td>
+            <td>Shows an action that was ongoing or continuous at a specific moment in the past.</td>
+            <td>Gajaraj <em>was looking</em> out. The dog <em>was munching</em> sweet rice.</td>
+          </tr>
+          <tr>
+            <td><strong>Past Perfect Tense</strong></td>
+            <td>Subject + had + Past Participle (V3)</td>
+            <td>Shows an action that had already been completed BEFORE another action in the past.</td>
+            <td>The farmer <em>had tied</em> the dog before Gajaraj stopped eating.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>2. Correlative Conjunctions: 'Neither... Nor' vs. 'Either... Or'</h3>
+      <ul>
+        <li><strong>Neither... Nor (Negative Pairing):</strong> Connects two negative alternatives (meaning not the first one, AND not the second one).
+          <br><em>Example:</em> "Neither the farmer nor the mahout noticed the two friends were in tears." (The farmer did not notice, and the mahout also did not notice).
+          <br><em>Subject-Verb Agreement Rule:</em> The verb agrees with the closer subject: <em>"Neither the teacher nor the students <u>were</u> present."</em>
+        </li>
+        <li><strong>Either... Or (Affirmative Choice):</strong> Connects two positive alternatives where one of the two will occur.
+          <br><em>Example:</em> "Either Rohit or Anuj will win the race."
+        </li>
+      </ul>
+
+      <h3>3. Morphology: Root Words &amp; Suffixes</h3>
+      <p>A <strong>root word</strong> is a primary base word. A <strong>suffix</strong> is a letter or group of letters added to the end of a root word to modify its meaning or part of speech.</p>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Root Word</th>
+            <th>Suffix</th>
+            <th>New Form</th>
+            <th>Part of Speech Change &bull; Example Sentence</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>friend</strong> (noun)</td>
+            <td>-ly</td>
+            <td><strong>friendly</strong> (adj)</td>
+            <td>The elephant was friendly with the dog.</td>
+          </tr>
+          <tr>
+            <td><strong>magic</strong> (noun)</td>
+            <td>-al</td>
+            <td><strong>magical</strong> (adj)</td>
+            <td>Grandpa gave him a magical invisible chair.</td>
+          </tr>
+          <tr>
+            <td><strong>care</strong> (noun/verb)</td>
+            <td>-ful</td>
+            <td><strong>careful</strong> (adj)</td>
+            <td>Be careful while balancing on the chair.</td>
+          </tr>
+          <tr>
+            <td><strong>celebrate</strong> (verb)</td>
+            <td>-tion</td>
+            <td><strong>celebration</strong> (noun)</td>
+            <td>They had a grand celebration with fruit chaat.</td>
+          </tr>
+          <tr>
+            <td><strong>courage</strong> (noun)</td>
+            <td>-ous</td>
+            <td><strong>courageous</strong> (adj)</td>
+            <td>The courageous dog dashed miles back to the palace.</td>
+          </tr>
+          <tr>
+            <td><strong>friend</strong> (noun)</td>
+            <td>-ship</td>
+            <td><strong>friendship</strong> (noun)</td>
+            <td>Their friendship withstood the test of time.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>4. Descriptive Adjectives &amp; Collocations</h3>
+      <ul>
+        <li><strong>Brave soldier:</strong> The brave soldier protected the border.</li>
+        <li><strong>Heavy rain:</strong> Heavy rain flooded the village pathways.</li>
+        <li><strong>Clever plan:</strong> Grandpa devised a clever plan to teach Mario a lesson.</li>
+        <li><strong>True friends:</strong> Guneet, Asma, and Deepa proved to be true friends.</li>
+        <li><strong>Slight cold:</strong> Mario stayed indoors because of a slight cold.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="section4">
+      <h2>Section 4: 100% Complete NCERT Solutions</h2>
+      <p>Complete model point-wise answers to all in-text questions, "Let us think and reflect", grammar, listening, speaking, and writing tasks.</p>
+
+      <!-- ==============================================
+           THE UNLIKELY BEST FRIENDS EXERCISES
+           ============================================== -->
+      <h3>Part 1: Solutions for "The Unlikely Best Friends"</h3>
+
+      <details class="ans-box">
+        <summary>Let us discuss (Page 43): In-Text Comprehension Check</summary>
+        <div class="ans-content">
+          <ol>
+            <li><strong>Why was Gajaraj sad in spite of royal comforts?</strong><br>
+            Gajaraj was sad because he had no friends to play, interact, or share his feelings with. The mahout was only a caretaker, not an emotional companion.</li>
+            <li><strong>How did Gajaraj and the dog become friends?</strong><br>
+            When the hungry, tired dog wandered into the stable, Gajaraj compassionately pushed his sweet rice balls toward him. The dog ate gratefully and slept near Gajaraj. Soon, they began playing games together and became inseparable friends.</li>
+            <li><strong>Why did the mahout sell the dog?</strong><br>
+            The mahout was greedy. When a visiting farmer offered a handful of silver coins to buy the playful dog, the mahout sold Buntee without caring about Gajaraj's feelings.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Let us think and reflect (Pages 46–48): Complete Textual Solutions</summary>
+        <div class="ans-content">
+          <p><strong>I. Multiple Choice Questions:</strong></p>
+          <ol>
+            <li>Gajaraj lived in a: <strong>(c) stable</strong></li>
+            <li>The dog was named: <strong>(b) Buntee</strong></li>
+            <li>The elephant refused to eat because: <strong>(d) he was missing his friend</strong></li>
+          </ol>
+
+          <p><strong>II. Short Answer Questions:</strong></p>
+          <ol>
+            <li><strong>Describe how Gajaraj and Buntee spent their days together.</strong><br>
+            They spent their days playing together. Gajaraj lifted Buntee onto his back with his trunk, sprayed water over him playfully in the elephant pond, and shared his daily sweet food.</li>
+            <li><strong>What happened to Gajaraj after Buntee was taken away?</strong><br>
+            Gajaraj fell into deep grief. He completely stopped eating food, refused to drink water, and would not go to the pond for his daily bath, growing visibly weak and thin.</li>
+            <li><strong>How did the king solve the mystery of Gajaraj's illness?</strong><br>
+            The king realized that Gajaraj had no physical disease; his illness was caused by sorrow over the loss of his canine companion. The king immediately issued a royal proclamation ordering anyone holding the stable dog to release him at once.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Let us learn (Pages 48–50): Tenses &amp; Conjunctions Solutions</summary>
+        <div class="ans-content">
+          <p><strong>1. Classification of Verbs into Past Tense Forms:</strong></p>
+          <ul>
+            <li><strong>Simple Past Tense (V2):</strong> looked, gave, hated, noticed, went, served, told, asked, felt, touched, joined, arrived, threw.</li>
+            <li><strong>Past Progressive Tense (was/were + V-ing):</strong> was looking, was missing, was munching.</li>
+            <li><strong>Past Perfect Tense (had + V3):</strong> had ordered, had followed, had remained, had tied.</li>
+          </ul>
+
+          <p><strong>2. Fill in the Blanks with Correct Verb Forms (Page 49):</strong></p>
+          <p>The farmer came back and <strong>noticed</strong> that Buntee was sad. He <strong>had tied</strong> Buntee with a rope the day before. He <strong>asked</strong> Buntee why he was sad. The farmer <strong>felt</strong> that Buntee <strong>was missing</strong> Gajaraj and set him free.</p>
+
+          <p><strong>3. Using 'Neither... Nor' and 'Either... Or':</strong></p>
+          <ul>
+            <li><em>Neither Shikha nor Anuj likes to tell stories.</em> &rarr; Neither of the two enjoys storytelling.</li>
+            <li><em>Either Bhavesh or Abha made this painting.</em> &rarr; One of the two individuals created this artwork.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Let us listen (Page 49–50): The Vadodara Cow and Leopard Story</summary>
+        <div class="ans-content">
+          <p><strong>1. Fill in the Blanks from the Audio Transcript (Page 71):</strong></p>
+          <p>The leopard is a <strong>wild</strong> animal but it became a friend of a cow. When the leopard grew up, it left the village. It came in the <strong>night</strong> to meet the cow. The leopard would sit <strong>beside</strong> the cow. They also played together. <strong>Villagers</strong> were surprised at their friendship.</p>
+          
+          <p><strong>2. Chronological Ordering of Sentences:</strong></p>
+          <ol>
+            <li><strong>1:</strong> The cow took care of the leopard cub as a mother.</li>
+            <li><strong>2:</strong> The leopard left the village after growing up.</li>
+            <li><strong>3:</strong> The leopard came to meet the cow at night.</li>
+            <li><strong>4:</strong> The leopard stopped coming regularly.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- ==============================================
+           A FRIEND'S PRAYER EXERCISES
+           ============================================== -->
+      <h3>Part 2: Solutions for "A Friend's Prayer"</h3>
+
+      <details class="ans-box">
+        <summary>Let us think and reflect (Pages 54–56): Complete Solutions</summary>
+        <div class="ans-content">
+          <p><strong>I. Complete the Summary by Selecting the Correct Options:</strong></p>
+          <p>The poet says a <strong>prayer for</strong> friendship and friends. She wants that friendship should always be an important part of her <strong>complete life</strong>. She says that her friendship makes her feel <strong>blessed</strong>. She wishes to do the best she can for her friends. She wants to <strong>listen to</strong> the wishes of her friends. As a good friend, she <strong>prays</strong> that she is able to make her friends' wishes come true. She wants her <strong>heart</strong> to understand what a true friend is. She prays that she loves her friends <strong>as they are</strong>. She tells us that <strong>true</strong> friends accept their friends for all their qualities.</p>
+
+          <p><strong>II. One-Word Answers:</strong></p>
+          <ol>
+            <li>How does the poet feel about special friends? &rarr; <strong>Blessed</strong></li>
+            <li>What does the poet use to realise what friends can be? &rarr; <strong>Heart</strong></li>
+          </ol>
+
+          <p><strong>III. Stanza Comprehension Questions:</strong></p>
+          <ol>
+            <li><em>"I want to do much more than share / The hopes and plans of friends who care..."</em>
+              <br>(i) These lines tell us that the speaker is: <strong>B. caring</strong>
+              <br>(ii) How will the speaker make her friends' wishes come true? &rarr; <strong>By trying hard</strong>
+              <br>(iii) My friends will feel <strong>happy / delighted</strong> if their wishes come true.
+            </li>
+            <li><em>"Let me use my heart to see / To realise what friends can be / And make no judgements from afar..."</em>
+              <br>(i) 'To see with heart' means to look with: <strong>love and understanding</strong>.
+              <br>(ii) Why should we make no judgements from afar? &rarr; Because judging people without knowing them closely leads to prejudice; true friendship requires accepting people unconditionally.
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- ==============================================
+           THE CHAIR EXERCISES
+           ============================================== -->
+      <h3>Part 3: Solutions for "The Chair"</h3>
+
+      <details class="ans-box">
+        <summary>Let us discuss &amp; Word Grid (Pages 59–64): Complete Solutions</summary>
+        <div class="ans-content">
+          <p><strong>1. Friendship Word Grid Solutions (Page 59):</strong></p>
+          <p>Eight friendship words found in the grid:</p>
+          <ul>
+            <li>1. <strong>LAUGHTER</strong> (Row 1, horizontal)</li>
+            <li>2. <strong>HELPFUL</strong> (Row 3, horizontal)</li>
+            <li>3. <strong>LOYAL</strong> (Row 6, horizontal)</li>
+            <li>4. <strong>LOVING</strong> (Row 9, horizontal)</li>
+            <li>5. <strong>CARE</strong> (Vertical/Diagonal)</li>
+            <li>6. <strong>TRUST</strong> (Vertical)</li>
+            <li>7. <strong>HONEST</strong> (Vertical)</li>
+            <li>8. <strong>SHARE</strong> (Horizontal)</li>
+          </ul>
+
+          <p><strong>2. Synonyms of Friend:</strong></p>
+          <ol type="i">
+            <li>A person with whom you do activities together: <strong>partner</strong></li>
+            <li>An informal word for friends: <strong>buddies</strong></li>
+            <li>A person who you spend a lot of time with: <strong>companion</strong></li>
+            <li>Children who are in the same class as you at school: <strong>classmates</strong></li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Let us think and reflect (Pages 64–66): Textual Q&amp;A</summary>
+        <div class="ans-content">
+          <p><strong>I. Extract-Based Questions:</strong></p>
+          <ol>
+            <li><em>"Take it. It’s a very special chair..."</em>
+              <br>(i) Two words that describe the chair: <strong>invisible</strong> and <strong>tricky / magical</strong>.
+              <br>(ii) Why was it tricky to sit on? Because it was completely invisible (made of empty air!), requiring balance that was impossible without support.
+              <br>(iii) Why did Grandpa call it 'special'? Because its true power was magical—it revealed who Mario's genuine friends were.
+            </li>
+            <li><em>"Wait, wait, just a slight technical problem..."</em>
+              <br>(i) Mario says there was a technical problem because <strong>he missed the seat and fell on the floor</strong>.
+              <br>(ii) Mario's friends were very caring and helpful: <strong>False</strong> (most of them laughed and mocked him; only three helped).
+              <br>(iii) Mario wouldn't give up. This shows he is: <strong>a. strong-willed</strong>.
+            </li>
+          </ol>
+
+          <p><strong>II. Detailed Answer Questions:</strong></p>
+          <ol>
+            <li><strong>What was the bet about?</strong><br>
+            The bet was between Mario and his grandfather for a bowl of fruit chaat. Grandpa bet that Mario did not have as many true friends as he boasted, and that most of his classmates were merely casual companions.</li>
+            <li><strong>What happened when Mario sat on the chair for the first time?</strong><br>
+            Mario lost his balance, missed the seat, and crashed flat onto the ground. His classmates burst out laughing and made fun of him.</li>
+            <li><strong>How was Mario able to find his real friends?</strong><br>
+            When Mario attempted to sit on the chair again, instead of laughing, Guneet, Asma, and Deepa rushed forward, held him up, and prevented him from falling. This proved they genuinely cared for his well-being.</li>
+            <li><strong>What does 'friends for life' mean to you?</strong><br>
+            'Friends for life' means loyal, reliable companions who stand beside you in times of difficulty and failure, not just during fun and celebrations.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Let us write &amp; explore (Pages 69–71): Writing Tasks &amp; Acrostic Poem</summary>
+        <div class="ans-content">
+          <p><strong>1. Complete Mario's Message to Guneet:</strong></p>
+          <p><em>Dear Guneet,<br>
+          I am <strong>thankful to</strong> God to have you as a <strong>real</strong> friend for life. When everyone was <strong>laughing at</strong> me, Deepa, Asma and you showed me that you <strong>care for</strong> me. You are indeed a <strong>blessing</strong> in my life.<br>
+          Best wishes, Mario</em></p>
+
+          <p><strong>2. Acrostic Poem on F-R-I-E-N-D-S:</strong></p>
+          <ul>
+            <li><strong>F</strong> &mdash; Faithful through good times and bad</li>
+            <li><strong>R</strong> &mdash; Ready to help whenever I am sad</li>
+            <li><strong>I</strong> &mdash; Inspiring me to do my very best</li>
+            <li><strong>E</strong> &mdash; Encouraging me in every test</li>
+            <li><strong>N</strong> &mdash; Never judging me from afar</li>
+            <li><strong>D</strong> &mdash; Delighting in who we are</li>
+            <li><strong>S</strong> &mdash; Supporting me so I will never fall!</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="section5">
+      <h2>Section 5: Exhaustive CBSE/BSE Competency Question Bank</h2>
+
+      <h3>Part A: Interactive Multiple Choice Questions (MCQs)</h3>
+      <div class="quiz-score-board" id="quizScoreBoard">
+        Quiz Score: <span id="currentScore">0</span> / 5 answered correctly
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qCard1">
+        <div class="quiz-question">Q1. Why did Gajaraj the elephant stop eating and refuse his daily bath in the royal pond?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 0, false)">A. The water in the pond had turned muddy</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 1, false)">B. He caught a severe fever</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 2, true)">C. He was grieving the painful separation from his beloved friend, Buntee</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 3, false)">D. He wanted to escape into the wild jungle</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback1"></div>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qCard2">
+        <div class="quiz-question">Q2. In the poem "A Friend's Prayer", what does the poet mean by the line: "Let me use my heart to see"?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 0, false)">A. To wear strong reading spectacles</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 1, true)">B. To understand and perceive friends through deep love, empathy, and kindness</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 2, false)">C. To inspect friends' health with a stethoscope</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 3, false)">D. To judge friends by their physical clothing</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback2"></div>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qCard3">
+        <div class="quiz-question">Q3. What is the rhyme scheme of Jill Wolf's poem "A Friend's Prayer"?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 0, true)">A. AABB CCDD EEFF</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 1, false)">B. ABAB CDCD EFEF</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 2, false)">C. ABBA CDDC EFFE</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 3, false)">D. Free verse (no rhyme)</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback3"></div>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qCard4">
+        <div class="quiz-question">Q4. How did Guneet, Asma, and Deepa prove they were Mario's true friends?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 0, false)">A. By giving Mario money to buy fruit chaat</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 1, false)">B. By laughing louder than everyone else</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 2, true)">C. By catching Mario firmly when he tumbled from the invisible chair</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 3, false)">D. By bringing a real wooden chair from the staffroom</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback4"></div>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qCard5">
+        <div class="quiz-question">Q5. Which sentence correctly uses the correlative conjunctions 'neither... nor'?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 0, false)">A. Neither Rohit or Anuj wants to play cricket.</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 1, true)">B. Neither the farmer nor the mahout noticed the elephant's silent tears.</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 2, false)">C. Either Gajaraj nor Buntee ate the food.</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 3, false)">D. Neither Mario was happy or his grandpa won.</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback5"></div>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #e1bee7;">
+
+      <h3>Part B: Assertion &amp; Reasoning Questions</h3>
+      <p><em>Directions: Choose (A) if both Assertion and Reason are true and Reason is the correct explanation. Choose (B) if both are true but Reason is NOT the correct explanation. Choose (C) if Assertion is true but Reason is false. Choose (D) if Assertion is false but Reason is true.</em></p>
+
+      <div class="quiz-card">
+        <p><strong>Q1. Assertion (A):</strong> Gajaraj felt lonely despite living in the best booth of the royal stables.<br>
+        <strong>Reason (R):</strong> Material luxuries and royal comfort cannot substitute for emotional companionship and mutual affection.</p>
+        <details class="ans-box">
+          <summary>View Correct Option &amp; Analysis</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (A)</strong><br>
+            Both statements are true, and Reason is the exact psychological explanation of Gajaraj's initial sadness.
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q2. Assertion (A):</strong> The crowd of classmates who laughed at Mario were his real friends.<br>
+        <strong>Reason (R):</strong> True friends always step forward to catch and support us when we stumble.</p>
+        <details class="ans-box">
+          <summary>View Correct Option &amp; Analysis</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (D)</strong><br>
+            Assertion (A) is completely FALSE (the laughing crowd were fair-weather companions). Reason (R) is true.
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q3. Assertion (A):</strong> In the poem "A Friend's Prayer", the poet wishes to make no judgements from afar.<br>
+        <strong>Reason (R):</strong> The poet believes that true friends should love and accept each other unconditionally as they are.</p>
+        <details class="ans-box">
+          <summary>View Correct Option &amp; Analysis</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (A)</strong><br>
+            Both Assertion and Reason are true, representing the central moral theme of the poem.
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q4. Assertion (A):</strong> The sentence "Gajaraj was munching sweet sugarcane" is in the Past Progressive Tense.<br>
+        <strong>Reason (R):</strong> Past Progressive tense is formed using was/were + Verb-ing to describe an ongoing action in the past.</p>
+        <details class="ans-box">
+          <summary>View Correct Option &amp; Analysis</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (A)</strong><br>
+            Both Assertion and Reason are grammatically correct, and Reason accurately explains the grammatical formation.
+          </div>
+        </details>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #e1bee7;">
+
+      <h3>Part C: Short Answer Questions (2M &amp; 3M)</h3>
+
+      <div class="quiz-card">
+        <p><strong>Q1. How did Gajaraj and Buntee communicate their affection despite being animals of completely different species? (2 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Model Answer &amp; Marking Breakdown</summary>
+          <div class="ans-content">
+            <ul>
+              <li><strong>Physical Affection (1 Mark):</strong> Gajaraj gently lifted Buntee with his trunk, set him on his back, and sprayed water over him in the pond.</li>
+              <li><strong>Emotional Sharing (1 Mark):</strong> They shared daily meals together, Buntee wagged his tail and curled near Gajaraj's feet, proving that love transcends verbal speech.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q2. What bet did Mario's grandfather propose, and what lesson was he trying to teach? (3 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Model Answer &amp; Marking Breakdown</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>The Bet (1 Mark):</strong> Grandpa bet a bowl of fruit chaat that Mario did not have as many genuine friends as he boastfully claimed.</li>
+              <li><strong>The Method (1 Mark):</strong> He gave Mario an imaginary invisible chair to sit on in front of his classmates.</li>
+              <li><strong>The Lesson (1 Mark):</strong> To teach Mario that fair-weather companions laugh at your falls, while true friends for life step forward to support and catch you.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q3. Explain the difference between 'Simple Past', 'Past Progressive', and 'Past Perfect' with one example each from Unit 2. (3 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Model Answer &amp; Marking Breakdown</summary>
+          <div class="ans-content">
+            <ul>
+              <li><strong>Simple Past (1 Mark):</strong> Finished past event. <em>Example:</em> "The dog <em>arrived</em> at the stable."</li>
+              <li><strong>Past Progressive (1 Mark):</strong> Ongoing past action. <em>Example:</em> "Gajaraj <em>was looking</em> sadly out of his booth."</li>
+              <li><strong>Past Perfect (1 Mark):</strong> Action completed before another past event. <em>Example:</em> "The farmer <em>had tied</em> the dog before Gajaraj stopped eating."</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #e1bee7;">
+
+      <h3>Part D: Long Answer Questions (5 Marks)</h3>
+
+      <div class="quiz-card">
+        <p><strong>Q1. Compare and contrast the themes of friendship presented in "The Unlikely Best Friends" and "The Chair". How do both stories define true loyalty? (5 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Comprehensive 5-Mark Solution</summary>
+          <div class="ans-content">
+            <p>Both stories provide profound perspectives on true companionship:</p>
+            <ol>
+              <li><strong>Transcendence of Differences (1.5 Marks):</strong> In <em>The Unlikely Best Friends</em>, friendship blossoms between two completely dissimilar animals (a massive royal elephant and a frail stray dog). It teaches that genuine friendship is blind to physical disparities, status, and species.</li>
+              <li><strong>Quality Over Quantity (1.5 Marks):</strong> In <em>The Chair</em>, Mario boasts of having hundreds of friends. His experience proves that a large circle of superficial companions is worthless if they abandon or mock you in your moment of embarrassment. True loyalty is measured in quality, not numbers.</li>
+              <li><strong>Action as the Measure of Loyalty (2 Marks):</strong> In both narratives, friendship is proved through selfless action:
+                <br>&bull; Gajaraj risks his life by grieving and fasting until his friend is restored.
+                <br>&bull; Guneet, Asma, and Deepa risk public mockery by diving forward to catch Mario when he falls.
+                <br>Both stories conclude that a true friend is one who stands by you through suffering, adversity, and stumbles.
+              </li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="quiz-card">
+        <p><strong>Q2. Write a detailed character sketch of Mario's grandfather in "The Chair". Highlight his wisdom, teaching methodology, and loving relationship with his grandson. (5 Marks)</strong></p>
+        <details class="ans-box">
+          <summary>View Comprehensive 5-Mark Solution</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Gentle and Observant Mentor (1.5 Marks):</strong> Grandpa noticed Mario's growing vanity and boastfulness about his popularity. Instead of scolding or lecturing Mario harshly, he devised an affectionate, playful approach to teach him an enduring life lesson.</li>
+              <li><strong>Creative Pedagogy (The Invisible Chair) (2 Marks):</strong> Grandpa invented the brilliant metaphor of the "invisible magic chair". By creating a situation where Mario would inevitably stumble, Grandpa allowed reality to reveal the difference between genuine supporters and mocking onlookers.</li>
+              <li><strong>Warmth and Celebration (1.5 Marks):</strong> Grandpa was never spiteful in victory. When Mario realized the truth, Grandpa warmly welcomed Mario and his three true friends, treated them to fruit chaat, and shared stories, helping Mario cement his lifelong friendships.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #e1bee7;">
+
+      <h3>Part E: Competency-Based Extract &amp; Case Studies</h3>
+
+      <div class="quiz-card">
+        <h4>Case Study 1: Monika and Manu's School Experience</h4>
+        <p><em>When Manu was admitted to a new school mid-session, she felt completely alienated, shy, and overwhelmed. Monika noticed her hesitation on day one. Monika introduced Manu to teachers, shared her lecture notes, and ate lunch with her. Later, when Manu fell sick during exams, Monika brought homework to her house daily.</em></p>
+        
+        <p><strong>Questions:</strong><br>
+        1. How does Monika exemplify the qualities celebrated in "A Friend's Prayer"? (1M)<br>
+        2. Identify whether Monika is a "companion" or a "friend for life" based on Mario's grandfather's definitions. Justify. (2M)<br>
+        3. Convert the sentence: <em>"Monika shared her notes"</em> into Past Progressive Tense. (1M)</p>
+
+        <details class="ans-box">
+          <summary>View Case Study 1 Solutions</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Qualities (1M):</strong> Monika demonstrates selflessness, active empathy ("seeing with the heart"), and helping make her friend's life comfortable without judgment.</li>
+              <li><strong>Classification (2M):</strong> Monika is a <strong>friend for life</strong>. Unlike casual companions who only share leisure moments, Monika stood beside Manu during vulnerability, illness, and academic difficulty, providing continuous emotional and practical support.</li>
+              <li><strong>Grammar Conversion (1M):</strong> <em>"Monika was sharing her notes."</em></li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="section6">
+      <h2>Section 6: Common Exam Mistakes &amp; 15 Rapid Revision Points</h2>
+
+      <h3>5 Common Student Mistakes in English Literature &amp; Grammar Exams</h3>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 1: Confusing Past Progressive with Past Perfect</h4>
+        <p><strong>Incorrect:</strong> Writing "Gajaraj was had eating food." or using 'had + ing'.<br>
+        <strong>Correct:</strong> Past Progressive is <strong>was/were + verb-ing</strong> (was eating). Past Perfect is <strong>had + V3</strong> (had eaten).</p>
+      </div>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 2: Mixing Correlative Conjunctions</h4>
+        <p><strong>Incorrect:</strong> "Neither Gajaraj <u>or</u> Buntee were happy."<br>
+        <strong>Correct:</strong> Always pair <strong>neither with nor</strong>, and <strong>either with or</strong>!</p>
+      </div>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 3: Misinterpreting "Seeing with the Heart"</h4>
+        <p><strong>Incorrect:</strong> Thinking the poet is discussing a biological organ.<br>
+        <strong>Correct:</strong> "Using the heart to see" is a <strong>metaphor</strong> meaning understanding someone through empathy, kindness, and love rather than surface appearances.</p>
+      </div>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 4: Believing Mario's Chair was an Actual Wooden Object</h4>
+        <p><strong>Incorrect:</strong> Writing that the carpenter built a transparent plastic chair.<br>
+        <strong>Correct:</strong> The chair was entirely <strong>imaginary/invisible</strong>. Grandpa used it as a psychological test to see who would catch Mario when he pretended to sit and fell.</p>
+      </div>
+
+      <div class="mistake-card">
+        <h4>❌ Mistake 5: Misunderstanding the Moral of Gajaraj's Story</h4>
+        <p><strong>Incorrect:</strong> Stating the story teaches that elephants are good circus animals.<br>
+        <strong>Correct:</strong> The story proves that <strong>love and true companionship transcend physical differences</strong> and that material luxury cannot heal emotional loneliness.</p>
+      </div>
+
+      <hr style="margin: 25px 0; border: none; border-top: 1px solid #e1bee7;">
+
+      <h3>15 Ultra-Crisp Rapid Revision Points</h3>
+      <ol style="margin-left: 24px; line-height: 1.8;">
+        <li><strong>Unit 2 Theme:</strong> "Friendship" &mdash; exploring empathy, unconditional acceptance, and true loyalty across three diverse literary selections.</li>
+        <li><strong>"The Unlikely Best Friends"</strong> depicts the deep emotional bond between <em>Gajaraj</em> (royal elephant) and <em>Buntee</em> (stray dog).</li>
+        <li>Gajaraj was housed in the finest royal stable booth, but suffered from <strong>loneliness</strong> until he shared food with a stray dog.</li>
+        <li>The greedy mahout sold Buntee to a visiting farmer for a handful of silver coins without the king's knowledge.</li>
+        <li>Separation caused Gajaraj to stop eating and bathing; the king diagnosed the elephant's illness as <strong>grief</strong> and issued a royal proclamation.</li>
+        <li>Upon release, Buntee ran miles back to the stable; Gajaraj celebrated by lifting the dog onto his head with his trunk.</li>
+        <li><strong>"A Friend's Prayer"</strong> by Jill Wolf is a lyrical poem expressing selfless devotion to friends.</li>
+        <li>The poem follows an <strong>AABB CCDD EEFF</strong> rhyme scheme with regular musical couplets.</li>
+        <li><em>"Let me use my heart to see"</em> is a metaphor advocating emotional empathy over superficial judgment.</li>
+        <li><strong>"The Chair"</strong> revolves around Mario, a boy who boasted about having dozens of friends.</li>
+        <li>Grandpa bet a bowl of <strong>fruit chaat</strong> that most of Mario's acquaintances were merely casual companions.</li>
+        <li>Mario tried to sit on Grandpa's invisible chair; while the crowd mocked his falls, <strong>Guneet, Asma, and Deepa</strong> caught him.</li>
+        <li>The story teaches that <strong>true friends catch you when you stumble</strong>, whereas fair-weather friends laugh at your misfortune.</li>
+        <li><strong>Simple Past</strong> describes completed past actions (V2); <strong>Past Progressive</strong> describes continuing past actions (was/were + ing).</li>
+        <li><strong>Past Perfect</strong> (had + V3) describes an action that happened before another past event.</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Sujit Classes &bull; Class 6 English Poorvi Master Study Series</p>
+    <p>Aligned with NEP 2020 &bull; NCERT Guidelines &bull; Bilingual English + Odia Pedagogy</p>
+    <p style="margin-top: 10px;"><a href="../../index.html">&larr; Back to Portal Study Materials</a></p>
+  </footer>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) {
+        bar.style.width = scrolled + '%';
+      }
+    });
+
+    // Audio TTS Reader
+    var isReading = false;
+    var speechSynth = window.speechSynthesis;
+    var speechUtterance = null;
+
+    function toggleAudioReader() {
+      var btn = document.getElementById('audio-tts-btn');
+      if (!isReading) {
+        var textContent = document.querySelector('.container').innerText;
+        speechUtterance = new SpeechSynthesisUtterance(textContent);
+        speechUtterance.rate = 1.0;
+        speechUtterance.pitch = 1.0;
+        speechUtterance.onend = function() {
+          isReading = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Notes</span>';
+        };
+        speechSynth.speak(speechUtterance);
+        isReading = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Audio</span>';
+      } else {
+        speechSynth.cancel();
+        isReading = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Notes</span>';
+      }
+    }
+
+    // Interactive Quiz Engine
+    var quizExplanations = {
+      1: {
+        correctText: "Correct! Gajaraj was grieving the sudden loss of Buntee; emotional sorrow made him refuse all food and baths.",
+        incorrectText: "Incorrect. Gajaraj was not physically sick; he was heartbroken because his beloved friend Buntee had been sold."
+      },
+      2: {
+        correctText: "Correct! 'Seeing with the heart' is a metaphor for perceiving and understanding friends with empathy and kindness rather than physical judgment.",
+        incorrectText: "Incorrect. The phrase is a poetic metaphor meaning to understand friends through emotional empathy and unconditional love."
+      },
+      3: {
+        correctText: "Correct! The poem has three 4-line stanzas with rhyming couplets: be/me (AA), blessed/best (BB), share/care (CC), do/true (DD), see/be (EE), afar/are (FF).",
+        incorrectText: "Incorrect. Each stanza consists of two rhyming couplets, giving the rhyme scheme AABB CCDD EEFF."
+      },
+      4: {
+        correctText: "Correct! Guneet, Asma, and Deepa rushed forward and caught Mario so he wouldn't fall, proving they genuinely cared for his well-being.",
+        incorrectText: "Incorrect. While other classmates mocked him, Guneet, Asma, and Deepa proved their friendship by physically catching and supporting Mario."
+      },
+      5: {
+        correctText: "Correct! 'Neither... nor' connects two negative choices with grammatical accuracy.",
+        incorrectText: "Incorrect. Always pair 'neither' with 'nor' and 'either' with 'or'. Option B is the only grammatically correct sentence."
+      }
+    };
+
+    var answeredCorrectly = {};
+
+    function handleQuiz(qNum, optIdx, isCorrect) {
+      var card = document.getElementById('qCard' + qNum);
+      if (!card) return;
+      var buttons = card.querySelectorAll('.quiz-opt-btn');
+      var feedback = document.getElementById('qFeedback' + qNum);
+
+      for (var i = 0; i < buttons.length; i++) {
+        buttons[i].classList.remove('correct', 'incorrect');
+      }
+
+      if (isCorrect) {
+        buttons[optIdx].classList.add('correct');
+        feedback.className = 'quiz-feedback show correct-fb';
+        feedback.innerHTML = '<strong>' + quizExplanations[qNum].correctText + '</strong>';
+        answeredCorrectly[qNum] = true;
+      } else {
+        buttons[optIdx].classList.add('incorrect');
+        feedback.className = 'quiz-feedback show incorrect-fb';
+        feedback.innerHTML = '<strong>' + quizExplanations[qNum].incorrectText + '</strong>';
+        answeredCorrectly[qNum] = false;
+      }
+
+      var totalCorrect = 0;
+      for (var key in answeredCorrectly) {
+        if (answeredCorrectly[key] === true) {
+          totalCorrect++;
+        }
+      }
+      var scoreElem = document.getElementById('currentScore');
+      if (scoreElem) {
+        scoreElem.innerText = totalCorrect;
+      }
+    }
+  </script>
+</body>
+</html>
