@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 6 Science Chapter 6: Materials Around Us - Complete Master Study Note (Curiosity NEP)</title>
+  <meta name="description" content="Interactive master study note for Class 6 Science Chapter 6: Materials Around Us. Classification of materials, lustre, hardness, transparency, solubility, floating/sinking, matter, solved NCERT exercises, and interactive quiz.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --error: #dc2626;
+      --error-light: #fee2e2;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --radius: 16px;
+      --radius-sm: 8px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* 1. Top Reading Progress Bar */
+    #progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 9999;
+    }
+
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #059669, #0284c7, #d97706);
+      transition: width 0.1s ease-out;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding-bottom: 80px;
+    }
+
+    header {
+      background: linear-gradient(135deg, #047857 0%, #059669 50%, #0284c7 100%);
+      color: white;
+      padding: 60px 20px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    header h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    header p {
+      font-size: 1.15rem;
+      max-width: 760px;
+      margin: 0 auto 24px;
+      opacity: 0.95;
+      font-weight: 400;
+    }
+
+    /* Audio Reader Button */
+    .audio-btn-container {
+      margin: 18px 0;
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .audio-btn {
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--primary-dark);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: var(--shadow);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: white;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .audio-btn.playing {
+      background: #fee2e2;
+      color: #b91c1c;
+    }
+
+    .nav-breadcrumb {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+      flex-wrap: wrap;
+    }
+
+    .nav-breadcrumb a {
+      color: white;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: -25px auto 0;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .quick-stats {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--border);
+      margin-bottom: 40px;
+    }
+
+    .stat-card {
+      text-align: center;
+      padding: 12px;
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+    }
+
+    .stat-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .content-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 36px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    .content-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--text);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid var(--primary-light);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .content-card h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin: 24px 0 12px;
+    }
+
+    .content-card h4 {
+      font-size: 1.1rem;
+      color: var(--text);
+      margin: 18px 0 8px;
+    }
+
+    p {
+      margin-bottom: 16px;
+      font-size: 1.02rem;
+      color: #334155;
+    }
+
+    ul, ol {
+      margin: 12px 0 20px 24px;
+      color: #334155;
+    }
+
+    li {
+      margin-bottom: 10px;
+      font-size: 1.02rem;
+    }
+
+    strong {
+      color: #0f172a;
+    }
+
+    .callout {
+      border-left: 5px solid;
+      padding: 18px 22px;
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      margin: 24px 0;
+    }
+
+    .callout-def {
+      background-color: var(--primary-light);
+      border-left-color: var(--primary);
+      color: #064e3b;
+    }
+
+    .callout-act {
+      background-color: var(--secondary-light);
+      border-left-color: var(--secondary);
+      color: #075985;
+    }
+
+    .callout-pyq {
+      background-color: var(--accent-light);
+      border-left-color: var(--accent);
+      color: #92400e;
+    }
+
+    .callout-warn {
+      background-color: #fee2e2;
+      border-left-color: #ef4444;
+      color: #991b1b;
+    }
+
+    .callout-hack {
+      background-color: #f3e8ff;
+      border-left-color: #a855f7;
+      color: #6b21a8;
+    }
+
+    .callout h4 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      background: white;
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+
+    th, td {
+      padding: 14px 18px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.98rem;
+    }
+
+    th {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      font-weight: 700;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    .diagram-container {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      margin: 28px 0;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      margin-top: 12px;
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* Interactive SVG Animations */
+    .svg-node {
+      transition: transform 0.25s ease, filter 0.25s ease;
+      cursor: pointer;
+    }
+
+    .svg-node:hover {
+      transform: translateY(-3px);
+      filter: drop-shadow(0 6px 12px rgba(5, 150, 105, 0.25));
+    }
+
+    @keyframes pulseGlow {
+      0% { opacity: 0.7; }
+      50% { opacity: 1; filter: drop-shadow(0 0 6px rgba(5, 150, 105, 0.6)); }
+      100% { opacity: 0.7; }
+    }
+
+    .pulsing-line {
+      animation: pulseGlow 2.5s infinite ease-in-out;
+    }
+
+    /* Interactive Quiz Engine */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-question {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quiz-btn {
+      background: #f8fafc;
+      border: 2px solid var(--border);
+      padding: 12px 18px;
+      border-radius: var(--radius-sm);
+      text-align: left;
+      font-size: 0.98rem;
+      font-family: inherit;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-btn:hover:not(:disabled) {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      transform: translateX(4px);
+    }
+
+    .quiz-btn.correct {
+      background: var(--success-light) !important;
+      border-color: var(--success) !important;
+      color: #14532d !important;
+      font-weight: 700;
+    }
+
+    .quiz-btn.incorrect {
+      background: var(--error-light) !important;
+      border-color: var(--error) !important;
+      color: #991b1b !important;
+      font-weight: 600;
+    }
+
+    .quiz-feedback {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      display: none;
+    }
+
+    .quiz-feedback.show {
+      display: block;
+    }
+
+    .quiz-feedback.success-fb {
+      background: var(--success-light);
+      border-left: 4px solid var(--success);
+      color: #14532d;
+    }
+
+    .quiz-feedback.error-fb {
+      background: var(--error-light);
+      border-left: 4px solid var(--error);
+      color: #991b1b;
+    }
+
+    .quiz-score-board {
+      background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+      color: white;
+      padding: 16px 24px;
+      border-radius: var(--radius-sm);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+
+    /* Solved Questions Accordion */
+    details.ans-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 16px;
+      transition: all 0.2s ease;
+      overflow: hidden;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+      background: white;
+    }
+
+    summary {
+      padding: 16px 20px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      color: #1e293b;
+    }
+
+    summary:hover {
+      background-color: #f1f5f9;
+    }
+
+    summary::after {
+      content: '+';
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      transition: transform 0.2s ease;
+    }
+
+    details[open] summary::after {
+      content: '−';
+    }
+
+    .ans-content {
+      padding: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 0.98rem;
+      background: white;
+    }
+
+    .ans-content p:last-child {
+      margin-bottom: 0;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-right: 6px;
+    }
+
+    .tag-ncert { background: #d1fae5; color: #065f46; }
+    .tag-exam { background: #fef3c7; color: #92400e; }
+    .tag-think { background: #e0f2fe; color: #075985; }
+
+    @media (max-width: 768px) {
+      header { padding: 40px 16px 30px; }
+      header h1 { font-size: 1.85rem; }
+      .content-card { padding: 22px 16px; }
+      th, td { padding: 10px 12px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Fixed Reading Progress Bar -->
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <header>
+    <div class="badge">NCERT Science (Curiosity) &bull; Class 6</div>
+    <h1>Materials Around Us</h1>
+    <p id="chapter-summary-text">Complete Class 6 Master Note: Sorting materials, understanding lustre, hardness, transparency, solubility, density &amp; floating behavior, space displacement, and the true scientific nature of matter.</p>
+    
+    <!-- Audio Reader (Text-to-Speech) -->
+    <div class="audio-btn-container">
+      <button class="audio-btn" id="audioToggleBtn" onclick="toggleAudioReader()">
+        <span id="audioIcon">&#128266;</span> <span id="audioText">Listen to Summary</span>
+      </button>
+    </div>
+
+    <div class="nav-breadcrumb">
+      <a href="../../index.html">Home</a> &rsaquo; 
+      <a href="../../index.html#class6">Class 6</a> &rsaquo; 
+      <a href="#">Science</a> &rsaquo; 
+      <span>Chapter 6: Materials Around Us</span>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Quick Stats -->
+    <div class="quick-stats">
+      <div class="stat-card">
+        <div class="stat-number">100%</div>
+        <div class="stat-label">NEP Curiosity Aligned</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">8</div>
+        <div class="stat-label">Activities Decoded</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">10 + 4</div>
+        <div class="stat-label">NCERT Exercises Solved</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">19</div>
+        <div class="stat-label">Competency Qs &amp; Traps</div>
+      </div>
+    </div>
+
+    <!-- SECTION 1: Blueprint & Mind Map -->
+    <section class="content-card">
+      <h2>&#128506;&#65039; Section 1: Visual Blueprint &amp; Mind Map</h2>
+      <p>Everything in our universe is made of <strong>materials</strong>, which form <strong>matter</strong>. We classify materials based on their observable physical properties so that we can choose the right material for every practical purpose. Here is the master architecture of Chapter 6:</p>
+
+      <div class="diagram-container">
+        <!-- SVG 1: Mind Map Flowchart -->
+        <svg viewBox="0 0 850 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <rect width="850" height="480" fill="#f8fafc" rx="16"/>
+
+          <!-- Central Node: MATERIALS AROUND US -->
+          <g class="svg-node">
+            <rect x="290" y="25" width="270" height="60" rx="12" fill="#059669" stroke="#047857" stroke-width="2"/>
+            <text x="425" y="52" fill="#ffffff" font-size="16" font-weight="700" text-anchor="middle">MATERIALS AROUND US</text>
+            <text x="425" y="70" fill="#d1fae5" font-size="12" text-anchor="middle">Objects &bull; Properties &bull; Matter</text>
+          </g>
+
+          <!-- Branch 1: Classification & Grouping (Left) -->
+          <line x1="360" y1="85" x2="200" y2="150" stroke="#059669" stroke-width="2.5" stroke-dasharray="4,4" class="pulsing-line"/>
+          <g class="svg-node">
+            <rect x="70" y="150" width="260" height="50" rx="10" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+            <text x="200" y="175" fill="#065f46" font-size="15" font-weight="700" text-anchor="middle">1. Objects vs Materials</text>
+            <text x="200" y="191" fill="#047857" font-size="11" text-anchor="middle">Why &amp; How We Group Things</text>
+          </g>
+
+          <!-- Branch 2: Six Observable Properties (Right) -->
+          <line x1="490" y1="85" x2="650" y2="150" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="4,4" class="pulsing-line"/>
+          <g class="svg-node">
+            <rect x="520" y="150" width="260" height="50" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+            <text x="650" y="175" fill="#0369a1" font-size="15" font-weight="700" text-anchor="middle">2. Properties of Materials</text>
+            <text x="650" y="191" fill="#0284c7" font-size="11" text-anchor="middle">Testing &amp; Identifying Behaviour</text>
+          </g>
+
+          <!-- Left Sub-branches -->
+          <line x1="140" y1="200" x2="100" y2="255" stroke="#059669" stroke-width="1.5"/>
+          <g class="svg-node">
+            <rect x="20" y="255" width="160" height="85" rx="8" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.5"/>
+            <text x="100" y="275" fill="#065f46" font-size="12" font-weight="700" text-anchor="middle">Object &ne; Material</text>
+            <text x="100" y="293" fill="#64748b" font-size="10" text-anchor="middle">&bull; 1 object = many materials</text>
+            <text x="100" y="308" fill="#64748b" font-size="10" text-anchor="middle">(e.g. pencil = wood, graphite)</text>
+            <text x="100" y="323" fill="#64748b" font-size="10" text-anchor="middle">&bull; 1 material = many objects</text>
+          </g>
+
+          <line x1="260" y1="200" x2="300" y2="255" stroke="#059669" stroke-width="1.5"/>
+          <g class="svg-node">
+            <rect x="200" y="255" width="180" height="85" rx="8" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.5"/>
+            <text x="290" y="275" fill="#065f46" font-size="12" font-weight="700" text-anchor="middle">Why We Group</text>
+            <text x="290" y="293" fill="#64748b" font-size="10" text-anchor="middle">&bull; Systematic study &amp; order</text>
+            <text x="290" y="308" fill="#64748b" font-size="10" text-anchor="middle">&bull; Quick location (kitchen/shop)</text>
+            <text x="290" y="323" fill="#059669" font-size="10" font-weight="600" text-anchor="middle">&bull; Matching property to purpose</text>
+          </g>
+
+          <!-- Right Sub-branches: 6 Core Properties Grid -->
+          <line x1="650" y1="200" x2="650" y2="250" stroke="#0284c7" stroke-width="1.5"/>
+          <g class="svg-node">
+            <rect x="420" y="250" width="400" height="130" rx="10" fill="#ffffff" stroke="#bae6fd" stroke-width="1.5"/>
+            <text x="620" y="272" fill="#0369a1" font-size="13" font-weight="700" text-anchor="middle">SIX MASTER PHYSICAL PROPERTIES</text>
+            
+            <text x="440" y="295" fill="#0f172a" font-size="11" font-weight="700">1. Lustre:</text>
+            <text x="510" y="295" fill="#64748b" font-size="10.5">Shiny (metals, foil) vs Dull (chalk, wood)</text>
+            
+            <text x="440" y="315" fill="#0f172a" font-size="11" font-weight="700">2. Hardness:</text>
+            <text x="510" y="315" fill="#64748b" font-size="10.5">Incompressible (stone, iron) vs Soft (cotton, sponge)</text>
+            
+            <text x="440" y="335" fill="#0f172a" font-size="11" font-weight="700">3. Optical:</text>
+            <text x="510" y="335" fill="#64748b" font-size="10.5">Transparent (glass) | Translucent (wax) | Opaque (wood)</text>
+            
+            <text x="440" y="355" fill="#0f172a" font-size="11" font-weight="700">4. Solubility:</text>
+            <text x="510" y="355" fill="#64748b" font-size="10.5">Soluble (salt, sugar) vs Insoluble (sand, oil)</text>
+
+            <text x="440" y="372" fill="#0f172a" font-size="11" font-weight="700">5. Float / Sink:</text>
+            <text x="510" y="372" fill="#64748b" font-size="10.5">Floats (leaf, oil) vs Sinks (iron nail, coin, stone)</text>
+          </g>
+
+          <!-- Integration bottom bar: Definition of Matter -->
+          <g class="svg-node">
+            <rect x="160" y="415" width="530" height="42" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+            <text x="425" y="441" fill="#92400e" font-size="12" font-weight="700" text-anchor="middle">&#9879;&#65039; Definition of Matter: Anything that has MASS and occupies SPACE (VOLUME) is Matter!</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">Figure 6.1: Blueprint of Materials Around Us &mdash; Relationship between objects, materials, testing properties, and the scientific definition of matter.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: Topic-by-Topic Notes -->
+    <section class="content-card">
+      <h2>&#128214; Section 2: Exhaustive Topic-by-Topic Concept Notes</h2>
+
+      <h3>6.1 Observing Objects Around Us</h3>
+      <p>Look around you right now: classroom desks, water bottles, notebooks, window panes, clothes, and school bags. All these items are called <strong>objects</strong>. But what are objects made of? Objects are made of substances called <strong>materials</strong>!</p>
+      
+      <ul>
+        <li><strong>One object made of multiple materials:</strong> A pencil is made of wood (casing), graphite mixed with clay (lead), aluminium/brass (ferrule band), and synthetic rubber (eraser tip).</li>
+        <li><strong>One material used to make many different objects:</strong> Wood can be used to carve a dining chair, study table, cricket bat, doors, bullock cart wheels, and pencil bodies. Glass is used to make window panes, drinking glasses, mirrors, spectacles, and test tubes.</li>
+        <li><strong>Same object made from different materials:</strong> A drinking cup or tumbler can be made from glass, stainless steel, plastic, ceramic (clay), or paper!</li>
+      </ul>
+
+      <div class="callout callout-def">
+        <h4>&#128161; Object vs Material &mdash; Never Confuse the Two!</h4>
+        <p>An <strong>object</strong> is a finished item designed for a specific human use (e.g., spoon, shoe, plate). A <strong>material</strong> is the specific matter or substance out of which the object is constructed (e.g., steel, leather, ceramic, plastic).</p>
+      </div>
+
+      <h3>6.2 How Do We Group Materials? (The Science of Classification)</h3>
+      <p>Why do supermarkets sort soaps in one aisle, biscuits in another, and fresh fruits in a separate section? Imagine if a shopkeeper dumped all pulses, shampoos, spices, and candies into one giant heap &mdash; finding a single pack of turmeric would take hours!</p>
+      <p>Similarly, scientists group materials based on shared characteristics. <strong>Classification</strong> is the systematic arrangement of objects or materials into categories based on similarities and differences in their observable properties.</p>
+
+      <div class="callout callout-act">
+        <h4>&#129514; Activity 6.3: Why Can't a Tumbler be Made of Cloth?</h4>
+        <p><strong>Thought Experiment:</strong> Could you make a water-carrying tumbler using a piece of woven cotton bedsheet or silk cloth?</p>
+        <p><strong>Observation &amp; Reasoning:</strong> Cotton cloth is porous &mdash; it has microscopic open pores between the woven threads. When you pour water into a cloth pouch, the water leaks straight through!</p>
+        <p><strong>Scientific Conclusion:</strong> We choose a material to make an object based on its <strong>properties</strong> and the <strong>intended purpose</strong> of that object. To hold liquids, the material must be waterproof and non-porous (such as glass, plastic, or metal).</p>
+      </div>
+
+      <h3>6.3 Physical Properties of Materials</h3>
+      <p>In Grade 6 Science (NEP Curiosity), we systematically explore six fundamental physical properties that define materials:</p>
+
+      <h4>6.3.1 Appearance: Lustrous vs Non-Lustrous Materials</h4>
+      <ul>
+        <li><strong>Lustre:</strong> Lustre refers to the special shiny glow or metallic sheen seen on the freshly cut or polished surface of a material.</li>
+        <li><strong>Lustrous Materials:</strong> Freshly cut metals such as gold, silver, copper, iron, aluminium, and shiny metallic foils exhibit bright lustre.</li>
+        <li><strong>Non-Lustrous (Dull) Materials:</strong> Wood, paper, chalk, rubber, cardboard, and dry soil do not shine and have a dull appearance.</li>
+        <li><strong>Why do old iron gates or copper vessels lose their shine?</strong> Metals react slowly with atmospheric oxygen, moisture, and carbon dioxide over weeks and months, forming a dull tarnish or oxide layer (corrosion/rust). When you rub the surface with sandpaper, the fresh metal beneath is exposed, and the lustre reappears immediately!</li>
+      </ul>
+
+      <h4>6.3.2 Hardness: Compressibility and Scratch Resistance</h4>
+      <ul>
+        <li><strong>Soft Materials:</strong> Materials that can be easily compressed, bent, deformed, or scratched with our fingernails are called soft materials (e.g., sponge, cotton wool, fresh dough, soap, candle wax).</li>
+        <li><strong>Hard Materials:</strong> Materials that cannot be compressed by hand and resist being scratched by an iron nail or key are called hard materials (e.g., iron rod, stone pebble, diamond, brick, glass, hardened steel).</li>
+        <li><strong>The Scratch Test:</strong> If material A can make a scratch mark on material B, material A is harder than material B. For example, an iron nail easily scratches a wooden block, proving iron is harder than wood.</li>
+      </ul>
+
+      <h4>6.3.3 Optical Property: Transparency, Translucency, and Opacity</h4>
+      <p>How materials interact with light rays determines whether we can see through them:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Definition</th>
+            <th>Light Transmission</th>
+            <th>Clear Real-Life Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Transparent</strong></td>
+            <td>Substances through which objects can be seen clearly and distinctly.</td>
+            <td>Allows almost all light to pass straight through without scattering.</td>
+            <td>Clear glass, clean air, pure water, clear cellophane sheet.</td>
+          </tr>
+          <tr>
+            <td><strong>Translucent</strong></td>
+            <td>Substances through which objects can be seen, but NOT clearly (blurred or hazy).</td>
+            <td>Allows light to pass partially while scattering the rays.</td>
+            <td>Butter paper, frosted glass, oiled paper, thin tracing paper, fog/mist.</td>
+          </tr>
+          <tr>
+            <td><strong>Opaque</strong></td>
+            <td>Substances through which we cannot see at all.</td>
+            <td>Completely blocks, absorbs, or reflects light; allows zero light to pass.</td>
+            <td>Wooden door, brick wall, cardboard sheet, iron plate, thick book.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="diagram-container">
+        <!-- SVG 2: Optical Behavior of Light Through Transparent, Translucent, and Opaque -->
+        <svg viewBox="0 0 850 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <rect width="850" height="360" fill="#f8fafc" rx="16"/>
+
+          <text x="425" y="32" fill="#0f172a" font-size="16" font-weight="700" text-anchor="middle">OPTICAL BEHAVIOUR: TRANSPARENT vs TRANSLUCENT vs OPAQUE</text>
+
+          <!-- Panel 1: Transparent -->
+          <g transform="translate(30, 55)" class="svg-node">
+            <rect width="240" height="280" rx="12" fill="#ffffff" stroke="#bae6fd" stroke-width="2"/>
+            <rect width="240" height="42" rx="12" fill="#e0f2fe"/>
+            <text x="120" y="27" fill="#0369a1" font-size="14" font-weight="700" text-anchor="middle">1. Transparent</text>
+
+            <!-- Light source and slab -->
+            <circle cx="35" cy="115" r="14" fill="#f59e0b"/>
+            <!-- Transparent slab -->
+            <rect x="100" y="70" width="30" height="90" fill="#bae6fd" opacity="0.6" stroke="#0284c7" stroke-width="1.5"/>
+            <!-- Parallel rays pass straight -->
+            <line x1="50" y1="105" x2="210" y2="105" stroke="#f59e0b" stroke-width="2.5"/>
+            <line x1="50" y1="115" x2="210" y2="115" stroke="#f59e0b" stroke-width="2.5"/>
+            <line x1="50" y1="125" x2="210" y2="125" stroke="#f59e0b" stroke-width="2.5"/>
+            <!-- Arrowheads -->
+            <polygon points="210,102 218,105 210,108" fill="#f59e0b"/>
+            <polygon points="210,112 218,115 210,118" fill="#f59e0b"/>
+            <polygon points="210,122 218,125 210,128" fill="#f59e0b"/>
+
+            <text x="120" y="185" font-size="11" font-weight="700" fill="#0369a1" text-anchor="middle">Light passes straight through</text>
+            <text x="120" y="205" font-size="10" fill="#475569" text-anchor="middle">Objects seen crisp &amp; sharp</text>
+            <text x="120" y="222" font-size="10" fill="#475569" text-anchor="middle">&bull; Clear Glass &bull; Pure Water &bull; Air</text>
+            <rect x="20" y="240" width="200" height="26" rx="6" fill="#f0f9ff"/>
+            <text x="120" y="258" font-size="10" font-weight="600" fill="#0284c7" text-anchor="middle">100% Light Transmission</text>
+          </g>
+
+          <!-- Panel 2: Translucent -->
+          <g transform="translate(305, 55)" class="svg-node">
+            <rect width="240" height="280" rx="12" fill="#ffffff" stroke="#fed7aa" stroke-width="2"/>
+            <rect width="240" height="42" rx="12" fill="#ffedd5"/>
+            <text x="120" y="27" fill="#c2410c" font-size="14" font-weight="700" text-anchor="middle">2. Translucent</text>
+
+            <!-- Light source and slab -->
+            <circle cx="35" cy="115" r="14" fill="#f59e0b"/>
+            <!-- Translucent slab -->
+            <rect x="100" y="70" width="30" height="90" fill="#fed7aa" opacity="0.8" stroke="#ea580c" stroke-width="1.5"/>
+            <!-- Incoming rays -->
+            <line x1="50" y1="105" x2="100" y2="105" stroke="#f59e0b" stroke-width="2.5"/>
+            <line x1="50" y1="115" x2="100" y2="115" stroke="#f59e0b" stroke-width="2.5"/>
+            <line x1="50" y1="125" x2="100" y2="125" stroke="#f59e0b" stroke-width="2.5"/>
+            <!-- Scattered outgoing rays -->
+            <line x1="130" y1="105" x2="205" y2="85" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="3,2"/>
+            <line x1="130" y1="115" x2="210" y2="120" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="3,2"/>
+            <line x1="130" y1="125" x2="200" y2="150" stroke="#f59e0b" stroke-width="1.8" stroke-dasharray="3,2"/>
+
+            <text x="120" y="185" font-size="11" font-weight="700" fill="#c2410c" text-anchor="middle">Light is scattered partially</text>
+            <text x="120" y="205" font-size="10" fill="#475569" text-anchor="middle">Objects appear blurred &amp; hazy</text>
+            <text x="120" y="222" font-size="10" fill="#475569" text-anchor="middle">&bull; Butter paper &bull; Frosted glass</text>
+            <rect x="20" y="240" width="200" height="26" rx="6" fill="#fff7ed"/>
+            <text x="120" y="258" font-size="10" font-weight="600" fill="#c2410c" text-anchor="middle">Partial Light Transmission</text>
+          </g>
+
+          <!-- Panel 3: Opaque -->
+          <g transform="translate(580, 55)" class="svg-node">
+            <rect width="240" height="280" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+            <rect width="240" height="42" rx="12" fill="#f1f5f9"/>
+            <text x="120" y="27" fill="#334155" font-size="14" font-weight="700" text-anchor="middle">3. Opaque</text>
+
+            <!-- Light source and slab -->
+            <circle cx="35" cy="115" r="14" fill="#f59e0b"/>
+            <!-- Opaque solid slab -->
+            <rect x="100" y="70" width="30" height="90" fill="#475569" stroke="#1e293b" stroke-width="1.5"/>
+            <!-- Blocked rays -->
+            <line x1="50" y1="105" x2="100" y2="105" stroke="#f59e0b" stroke-width="2.5"/>
+            <line x1="50" y1="115" x2="100" y2="115" stroke="#f59e0b" stroke-width="2.5"/>
+            <line x1="50" y1="125" x2="100" y2="125" stroke="#f59e0b" stroke-width="2.5"/>
+            <!-- Reflected backward ray -->
+            <line x1="100" y1="115" x2="70" y2="85" stroke="#f59e0b" stroke-width="1.5"/>
+            <!-- Shadow on right -->
+            <rect x="150" y="80" width="50" height="70" fill="#94a3b8" opacity="0.3"/>
+            <text x="175" y="120" font-size="10" fill="#64748b" text-anchor="middle">Shadow</text>
+
+            <text x="120" y="185" font-size="11" font-weight="700" fill="#334155" text-anchor="middle">Completely blocks all light</text>
+            <text x="120" y="205" font-size="10" fill="#475569" text-anchor="middle">Cannot see through at all</text>
+            <text x="120" y="222" font-size="10" fill="#475569" text-anchor="middle">&bull; Wood &bull; Brick Wall &bull; Iron</text>
+            <rect x="20" y="240" width="200" height="26" rx="6" fill="#f8fafc"/>
+            <text x="120" y="258" font-size="10" font-weight="600" fill="#475569" text-anchor="middle">Zero Light Transmission</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">Figure 6.2: Ray Diagram Analysis of Transparent, Translucent, and Opaque materials with shadow formation.</div>
+      </div>
+
+      <h4>6.3.4 Solubility in Water: Soluble vs Insoluble</h4>
+      <p>Water is known as the <em>universal solvent</em> because it dissolves more substances than any other liquid on Earth. This property is crucial for digestion, blood transport, and plant sap circulation.</p>
+
+      <ul>
+        <li><strong>Soluble Substances:</strong> Substances that completely dissolve and disappear in water to form a uniform, single-phase solution.
+          <br><em>Examples:</em> Common table salt (sodium chloride), cane sugar, glucose powder, alum, lemon juice, vinegar.
+        </li>
+        <li><strong>Insoluble Substances:</strong> Substances that do not dissolve in water even after vigorous stirring for several minutes.
+          <br><em>Examples:</em> Sand, chalk powder, sawdust, iron filings, sulfur powder, wheat flour (suspension).
+        </li>
+        <li><strong>Miscible vs Immiscible Liquids:</strong>
+          <ul>
+            <li><strong>Miscible liquids:</strong> Liquids that mix completely with water (e.g., vinegar, alcohol, honey, lemon juice).</li>
+            <li><strong>Immiscible liquids:</strong> Liquids that do NOT mix with water and form a separate layer on standing (e.g., mustard oil, coconut oil, kerosene, diesel). Since oils are less dense than water, they float on top as a distinct upper layer!</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h4>6.3.5 Buoyancy: Floating vs Sinking in Water</h4>
+      <p>Why does a giant wooden log float on a river, while a tiny iron pin drops straight to the riverbed? This depends on whether the material is lighter or heavier than an equal volume of water (the concept of <strong>density</strong>):</p>
+      <ul>
+        <li><strong>Objects that Float in Water:</strong> Materials that are less dense than water stay on the surface (e.g., dry fallen leaves, cork, thermocol, dry wood, ice, plastic bottle caps, drops of oil).</li>
+        <li><strong>Objects that Sink in Water:</strong> Materials that are denser than water sink straight to the bottom (e.g., iron nail, stone pebble, coin, glass marble, brass key).</li>
+      </ul>
+
+      <h4>6.3.6 Space and Volume: The Displacement Principle</h4>
+      <p>Every object occupies a specific amount of three-dimensional space. The amount of space occupied by a three-dimensional object is called its <strong>volume</strong>.</p>
+      <div class="callout callout-act">
+        <h4>&#129514; The Crow and the Pitcher Experiment Decoded</h4>
+        <p>Take a graduated measuring cylinder filled with 100 mL of water. Gently drop a small stone pebble into the cylinder using a thread.</p>
+        <p><strong>Observation:</strong> The water level immediately rises from 100 mL to 125 mL!</p>
+        <p><strong>Scientific Reason:</strong> Two objects cannot occupy the exact same physical space at the same time. The submerged pebble pushes aside (displaces) a volume of water equal to its own volume (125 &minus; 100 = <strong>25 mL</strong>).</p>
+      </div>
+
+      <h3>6.4 What is Matter?</h3>
+      <p>By connecting all our observations across this chapter, science arrives at one grand conclusion:</p>
+      <div class="callout callout-def">
+        <h4>&#9879;&#65039; Scientific Definition of Matter</h4>
+        <p><strong>Matter</strong> is defined as anything that has <strong>mass</strong> (it can be weighed) and occupies <strong>space</strong> (it has volume).</p>
+        <ul>
+          <li><strong>Examples of Matter:</strong> Water, air, ice, desks, apples, dust particles, planets, and our own bodies.</li>
+          <li><strong>What is NOT Matter?</strong> Non-material concepts that do NOT occupy space and have zero mass &mdash; such as <strong>thoughts, feelings, love, friendship, shadow, heat, sound, and sunlight</strong>. These are forms of energy or mental sensations, not matter!</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Rapid Revision Bank -->
+    <section class="content-card">
+      <h2>&#9889; Section 3: Rapid Revision Formula, Law &amp; Definition Bank</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Term / Concept</th>
+            <th>Scientific Definition</th>
+            <th>High-Yield Key Examples</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Object</strong></td>
+            <td>A finished article made of one or more materials designed for a specific human function.</td>
+            <td>Pencil, chair, tumbler, school bag, spectacle.</td>
+          </tr>
+          <tr>
+            <td><strong>Material</strong></td>
+            <td>The substance or matter out of which an object is made.</td>
+            <td>Wood, glass, plastic, iron, cotton, leather.</td>
+          </tr>
+          <tr>
+            <td><strong>Lustre</strong></td>
+            <td>The natural shiny metallic sheen seen on freshly cut or polished surfaces of materials.</td>
+            <td>Gold, silver, copper, fresh aluminium foil.</td>
+          </tr>
+          <tr>
+            <td><strong>Hardness</strong></td>
+            <td>Resistance of a material to being compressed, indented, deformed, or scratched.</td>
+            <td>Hard: Iron, stone, diamond. Soft: Sponge, wax, cotton.</td>
+          </tr>
+          <tr>
+            <td><strong>Transparent</strong></td>
+            <td>Materials that allow light to pass through completely, allowing objects behind to be seen clearly.</td>
+            <td>Clear glass, pure clean water, clean air.</td>
+          </tr>
+          <tr>
+            <td><strong>Translucent</strong></td>
+            <td>Materials that allow light to pass partially, resulting in blurred, hazy vision.</td>
+            <td>Butter paper, frosted glass, oiled paper sheet.</td>
+          </tr>
+          <tr>
+            <td><strong>Opaque</strong></td>
+            <td>Materials that block light completely, through which nothing can be seen.</td>
+            <td>Cardboard, brick wall, wooden door, thick metal.</td>
+          </tr>
+          <tr>
+            <td><strong>Solubility</strong></td>
+            <td>The ability of a solid, liquid, or gas to dissolve uniformly in a liquid solvent (like water).</td>
+            <td>Soluble: Sugar, salt. Insoluble: Sand, sawdust.</td>
+          </tr>
+          <tr>
+            <td><strong>Miscibility</strong></td>
+            <td>The property of two liquids to mix together in all proportions to form a single uniform layer.</td>
+            <td>Miscible: Water + vinegar. Immiscible: Water + mustard oil.</td>
+          </tr>
+          <tr>
+            <td><strong>Matter</strong></td>
+            <td>Anything that has mass and occupies space (volume).</td>
+            <td>Air, water, book, apple (NOT matter: light, heat, thought).</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4: 100% Complete NCERT Solutions -->
+    <section class="content-card">
+      <h2>&#128221; Section 4: 100% Solved NCERT Exercises &amp; In-Text Activities</h2>
+      <p>Exhaustive, point-wise model answers for all 10 exercises from textbook pages 119&ndash;121 plus extended learning activities:</p>
+
+      <!-- Q1 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 1</span> Visit your kitchen and observe how your parents have organised various edibles. Suggest a better sorting method.</summary>
+        <div class="ans-content">
+          <p><strong>Current Kitchen Observation:</strong></p>
+          <ul>
+            <li>Spices, salt, and turmeric are kept near the cooking stove for easy reach.</li>
+            <li>Grains (rice, wheat flour) and pulses (dal) are stored in large plastic/steel containers on lower shelves.</li>
+            <li>Snacks, biscuits, and breakfast cereals are stored on middle shelves.</li>
+          </ul>
+          <p><strong>Suggestions for an Improved Sorting System:</strong></p>
+          <ol>
+            <li><strong>Use Transparent Airtight Jars:</strong> Replace opaque tins with transparent glass or BPA-free clear plastic jars so ingredients can be spotted in 1 second without opening lids.</li>
+            <li><strong>Clear Labeling:</strong> Label jars clearly with ingredient names and expiry dates to avoid accidental mix-ups (e.g., confusing salt and powdered sugar!).</li>
+            <li><strong>Frequency-of-Use Zoning:</strong> Store everyday spices on revolving lazy-susans near the stove; store occasional festive ingredients on top shelves.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 2</span> Unscramble the letters (Column I) and match with their properties (Column II)</summary>
+        <div class="ans-content">
+          <table>
+            <thead>
+              <tr>
+                <th>Scrambled Word</th>
+                <th>Unscrambled Keyword</th>
+                <th>Matched Property</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>(i) T R E M A T</td>
+                <td><strong>MATTER</strong></td>
+                <td><strong>(b) Occupies space and has mass</strong></td>
+              </tr>
+              <tr>
+                <td>(ii) U L S B E L O</td>
+                <td><strong>SOLUBLE</strong></td>
+                <td><strong>(d) Mixes completely in water</strong></td>
+              </tr>
+              <tr>
+                <td>(iii) T N E R P A S N A R T</td>
+                <td><strong>TRANSPARENT</strong></td>
+                <td><strong>(a) Objects can be seen clearly through it</strong></td>
+              </tr>
+              <tr>
+                <td>(iv) E R U S T L</td>
+                <td><strong>LUSTRE</strong></td>
+                <td><strong>(c) Shiny surface</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 3</span> Why are containers used to store materials in shops and at home usually transparent?</summary>
+        <div class="ans-content">
+          <p>Shopkeepers and homemakers choose transparent glass or clear plastic containers because:</p>
+          <ol>
+            <li><strong>Instant Identification:</strong> Transparent walls allow light to pass through, making the stored contents (candies, pulses, spices) clearly visible from the outside without needing to open the container.</li>
+            <li><strong>Saves Time and Effort:</strong> Customers can see available goods at a glance, and cooks don't waste time unsealing multiple lids while cooking.</li>
+            <li><strong>Inventory Tracking:</strong> It is easy to notice when an item is running low so it can be refilled before running out completely.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 4</span> State whether True [T] or False [F] and correct false statements</summary>
+        <div class="ans-content">
+          <p><strong>(i) Wood is translucent while glass is opaque.</strong><br>
+          <strong>Answer: FALSE [F]</strong><br>
+          <em>Correction:</em> Wood is <strong>opaque</strong> (blocks all light) while clean glass is <strong>transparent</strong> (allows light to pass completely).</p>
+
+          <p><strong>(ii) Aluminium foil has lustre while an eraser does not.</strong><br>
+          <strong>Answer: TRUE [T]</strong><br>
+          <em>Justification:</em> Aluminium is a metal with a shiny metallic surface (lustre), whereas rubber is non-metallic and has a dull, non-lustrous appearance.</p>
+
+          <p><strong>(iii) Sugar dissolves in water whereas sawdust does not.</strong><br>
+          <strong>Answer: TRUE [T]</strong><br>
+          <em>Justification:</em> Sugar is highly soluble in water forming a clear homogeneous solution, while insoluble sawdust floats or remains suspended.</p>
+
+          <p><strong>(iv) An apple is a matter because it occupies no space and has mass.</strong><br>
+          <strong>Answer: FALSE [F]</strong><br>
+          <em>Correction:</em> An apple is matter because it <strong>occupies space (has volume)</strong> AND <strong>has mass</strong>.</p>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 5</span> Matching desirable properties for making chairs with materials</summary>
+        <div class="ans-content">
+          <p><strong>Analysis of Properties:</strong></p>
+          <ul>
+            <li><strong>(i) Hardness (does not bend or shake on sitting even after long use):</strong><br>
+              <strong>Iron / Steel / Stone / Solid Wood (Teak or Sheesham).</strong> These materials have high tensile strength and rigidity.</li>
+            <li><strong>(ii) Lightweight (easy to lift or take from one place to another):</strong><br>
+              <strong>Plastic / Bamboo / Cane.</strong> These materials have low density and can be picked up effortlessly by children.</li>
+            <li><strong>(iii) Does not feel very cold when sitting during winters:</strong><br>
+              <strong>Wood / Bamboo / Cane.</strong> These materials are poor thermal conductors and do not rapidly draw heat away from the human body.</li>
+            <li><strong>(iv) Can be cleaned regularly and made to look new even after long use:</strong><br>
+              <strong>Moulded Plastic / Polished Stainless Steel / Granite Stone.</strong> They are non-porous, waterproof, and can be wiped down with soapy water repeatedly without rusting or rotting.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 6</span> Choosing container materials for (i) food waste, (ii) broken glass, (iii) wastepaper</summary>
+        <div class="ans-content">
+          <table>
+            <thead>
+              <tr>
+                <th>Waste Type</th>
+                <th>Recommended Container Material</th>
+                <th>Properties Considered</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>(i) Food Waste</strong></td>
+                <td>High-density Plastic (HDPE) or Stainless Steel with an airtight lid.</td>
+                <td><strong>Waterproof, non-porous, corrosion-resistant, washable.</strong> Prevents smelly liquid seepage and blocks pests like flies and rats.</td>
+              </tr>
+              <tr>
+                <td><strong>(ii) Broken Glass</strong></td>
+                <td>Thick rigid plastic drum or galvanised steel tin.</td>
+                <td><strong>High hardness, puncture resistance, rigidity.</strong> Sharp glass shards cannot pierce through the container walls, protecting sanitation workers.</td>
+              </tr>
+              <tr>
+                <td><strong>(iii) Wastepaper</strong></td>
+                <td>Corrugated cardboard box, light plastic bin, or wicker basket.</td>
+                <td><strong>Lightweight, dry, inexpensive.</strong> Paper waste is dry and non-corrosive, so heavy-duty containment is not required.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 7</span> Air vs wooden door visibility MCQ</summary>
+        <div class="ans-content">
+          <p><strong>Statement:</strong> Air is all around us but does not hinder us from seeing each other. Whereas, if a wooden door comes in between, we cannot see each other. It is because air is ______ and the wooden door is ______.</p>
+          <p><strong>Correct Answer: (i) transparent, opaque</strong></p>
+          <p><strong>Explanation:</strong> Clean air allows light rays to pass freely without distortion (transparent), while a solid wooden door blocks light completely (opaque).</p>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 8</span> Identifying mysterious materials X and Y</summary>
+        <div class="ans-content">
+          <p><strong>Clues Given:</strong></p>
+          <ul>
+            <li><strong>Material X:</strong> Rigid, does not change shape easily on pressing &rarr; <strong>Hard</strong>. Dissolves completely in water &rarr; <strong>Soluble</strong>.</li>
+            <li><strong>Material Y:</strong> Changes shape easily on pressing &rarr; <strong>Soft</strong>. Remains unchanged in water &rarr; <strong>Insoluble</strong>.</li>
+          </ul>
+          <p><strong>Identification &amp; Justification:</strong></p>
+          <ul>
+            <li><strong>Material X can be Rock Salt (or a Sugar Candy cube / Alum crystal).</strong> It is a hard, crystalline solid that cannot be compressed by hand, yet dissolves completely when stirred in water.</li>
+            <li><strong>Material Y can be a Sponge (or Modeling Clay / Candle Wax / Soft Rubber).</strong> It is compressible and easily deforms under finger pressure, but does not dissolve in water.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 9</span> "Who am I?" Riddle Identification &amp; Self-Made Riddle</summary>
+        <div class="ans-content">
+          <p><strong>(i) Textbook Riddles Solved:</strong></p>
+          <ul>
+            <li><strong>(a) I have lustre:</strong> <strong>Gold / Silver / Copper / Aluminium / Fresh Steel.</strong></li>
+            <li><strong>(b) I can be easily compressed:</strong> <strong>Sponge / Cotton ball / Foam.</strong></li>
+            <li><strong>(c) I am hard and soluble in water:</strong> <strong>Sugar cube / Rock salt / Alum (phitkari).</strong></li>
+            <li><strong>(d) You cannot see clearly through me:</strong> <strong>Translucent material (Butter paper / Frosted glass / Oiled sheet).</strong></li>
+            <li><strong>(e) I have mass and volume but you cannot see me:</strong> <strong>Air (or Oxygen / Nitrogen gas).</strong></li>
+          </ul>
+          <p><strong>(ii) Self-Made Riddles:</strong></p>
+          <ul>
+            <li><em>Riddle 1:</em> "I am a golden liquid. I do not mix with water and I float right to the top because I am lighter than water. Who am I?" &rarr; <strong>Mustard oil (or Cooking oil)</strong>.</li>
+            <li><em>Riddle 2:</em> "I am an opaque black solid made of carbon. You use me to write notes every day inside a wooden pencil, but I make your hands dirty if you touch me directly. Who am I?" &rarr; <strong>Graphite</strong>.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary><span class="tag tag-ncert">Exercise 10</span> Solubility pairing with vinegar, honey, mustard oil, water, glucose, and wheat flour</summary>
+        <div class="ans-content">
+          <p><strong>Pairs where one material is SOLUBLE in the other:</strong></p>
+          <ol>
+            <li><strong>Glucose in Water:</strong> Glucose powder dissolves rapidly and completely in water to make an energising solution.</li>
+            <li><strong>Honey in Water (or Vinegar in Water):</strong> Honey and vinegar are miscible in water, mixing uniformly without forming a separate boundary.</li>
+          </ol>
+          <p><strong>Pairs where one material remains INSOLUBLE in the other:</strong></p>
+          <ol>
+            <li><strong>Mustard oil in Water:</strong> Oil is immiscible; it floats on the water surface and forms a distinct separate layer.</li>
+            <li><strong>Wheat flour in Water:</strong> Flour particles do not dissolve; they form a cloudy suspension and gradually settle to the bottom as sediment.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Extended Learning Activities -->
+      <details class="ans-box">
+        <summary><span class="tag tag-think">Learning Further 1 &amp; 2</span> Recycling Survey: What properties do junk dealers (kabadiwalas) check before buying?</summary>
+        <div class="ans-content">
+          <p><strong>Properties Checked by Recyclers:</strong></p>
+          <ul>
+            <li><strong>Material Type:</strong> Scrap dealers sort items into metals (iron, copper, aluminium, brass), plastics, paper/cardboard, and glass.</li>
+            <li><strong>Magnetic Property:</strong> They use a strong handheld magnet to quickly separate magnetic iron scrap from valuable non-magnetic metals (copper and aluminium).</li>
+            <li><strong>Plastic Flexibility &amp; Thermoplastic Nature:</strong> Rigid recyclable plastics (HDPE, PET bottles) are bought readily, whereas multi-layered contaminated packaging chips packets (metallised plastic) are often rejected because they cannot be melted cleanly.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-think">Learning Further 3 &amp; 4</span> Household Object Classification &amp; Upcycling Project</summary>
+        <div class="ans-content">
+          <p><strong>Core Scientific Insight:</strong> There is a strict, intentional relationship between the <strong>properties of a material</strong> and the <strong>function of an object</strong>. We choose:</p>
+          <ul>
+            <li>Metals for cooking utensils because of high heat conductivity and mechanical hardness.</li>
+            <li>Bakelite / Wood for pan handles because of poor thermal conductivity (insulators preventing burns).</li>
+            <li>Cotton / Wool for clothing because of breathability, softness, and thermal insulation.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: Interactive Quiz & Competency Bank -->
+    <section class="content-card">
+      <h2>&#128175; Section 5: Interactive Quiz &amp; CBSE Competency Bank</h2>
+      <p>Test your mastery with our instant-feedback quiz engine, followed by CBSE Assertion-Reasoning, Short &amp; Long Answer questions, and Case Studies:</p>
+
+      <!-- Quiz Scoreboard -->
+      <div class="quiz-score-board">
+        <div>&#129504; Live Competency Quiz (5 MCQs)</div>
+        <div>Score: <span id="quizScore">0</span> / 5</div>
+      </div>
+
+      <!-- Interactive MCQ 1 -->
+      <div class="quiz-card" id="q1-container">
+        <div class="quiz-question">Q1. Which of the following is NOT classified as matter in science?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(1, 'A', false, 'Air occupies volume and has mass, so it is matter.')">A) Air trapped inside a balloon</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(1, 'B', false, 'A wooden study table has mass and volume, so it is matter.')">B) A wooden study table</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(1, 'C', true, 'Correct! Sunlight is a form of electromagnetic radiation (energy); it has no mass and occupies no space.')">C) Sunlight entering through a window</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(1, 'D', false, 'A glass of pure water has mass and volume, so it is matter.')">D) A glass of water</button>
+        </div>
+        <div class="quiz-feedback" id="q1-feedback"></div>
+      </div>
+
+      <!-- Interactive MCQ 2 -->
+      <div class="quiz-card" id="q2-container">
+        <div class="quiz-question">Q2. An iron key and a dry wooden cork are placed in a bucket of water. What will happen?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(2, 'A', false, 'Wood is less dense than water, so it does not sink.')">A) Both will sink to the bottom</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(2, 'B', true, 'Correct! The iron key is denser than water and sinks; the dry cork is less dense and floats.')">B) The iron key sinks, while the cork floats</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(2, 'C', false, 'Iron cannot float in water without being shaped into a hollow vessel.')">C) The cork sinks, while the iron key floats</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(2, 'D', false, 'Both will remain suspended in the exact center.')">D) Both float on the surface</button>
+        </div>
+        <div class="quiz-feedback" id="q2-feedback"></div>
+      </div>
+
+      <!-- Interactive MCQ 3 -->
+      <div class="quiz-card" id="q3-container">
+        <div class="quiz-question">Q3. A sheet of butter paper held in front of a glowing bulb allows us to see:</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(3, 'A', false, 'Clear sharp visibility is a property of transparent glass, not butter paper.')">A) The bulb filament clearly and sharply</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(3, 'B', true, 'Correct! Butter paper is translucent &mdash; it scatters light and provides only a hazy view.')">B) A blurred, hazy glow of light</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(3, 'C', false, 'Translucent sheets let some light pass; they do not block all light completely.')">C) Total pitch darkness (zero light)</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(3, 'D', false, 'Butter paper does not behave like a mirror reflection.')">D) An inverted mirror reflection</button>
+        </div>
+        <div class="quiz-feedback" id="q3-feedback"></div>
+      </div>
+
+      <!-- Interactive MCQ 4 -->
+      <div class="quiz-card" id="q4-container">
+        <div class="quiz-question">Q4. When mustard oil is vigorously shaken with water in a test tube and then left undisturbed for 10 minutes:</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(4, 'A', false, 'Oil and water are immiscible; oil cannot dissolve.')">A) Mustard oil completely dissolves in water</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(4, 'B', false, 'Mustard oil is lighter than water, so it does not settle to the bottom.')">B) Mustard oil settles as a dense sediment at the bottom</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(4, 'C', true, 'Correct! Oil is immiscible and less dense than water, forming a separate upper floating layer.')">C) Mustard oil separates and forms a distinct floating layer on top</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(4, 'D', false, 'Water does not evaporate at room temperature within 10 minutes.')">D) Water completely evaporates, leaving only oil</button>
+        </div>
+        <div class="quiz-feedback" id="q4-feedback"></div>
+      </div>
+
+      <!-- Interactive MCQ 5 -->
+      <div class="quiz-card" id="q5-container">
+        <div class="quiz-question">Q5. Why do old copper and iron articles lose their metallic shine over time?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuizAnswer(5, 'A', false, 'Metals do not rot biologically like organic food.')">A) Because the metal rots like vegetable peels</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(5, 'B', true, 'Correct! Atmospheric gases and moisture react with the surface to form a dull tarnish layer.')">B) Because they react with atmospheric moisture and oxygen, forming a dull tarnish</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(5, 'C', false, 'Lustre is an inherent surface property, not something that leaks out.')">C) Because all metallic lustre leaks out into the air</button>
+          <button class="quiz-btn" onclick="checkQuizAnswer(5, 'D', false, 'Indoor items also lose shine if exposed to humid air.')">D) Because gravity compresses the shiny atoms</button>
+        </div>
+        <div class="quiz-feedback" id="q5-feedback"></div>
+      </div>
+
+      <h3>Assertion and Reasoning Questions</h3>
+      <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 16px;">
+        <strong>Direction:</strong> (A) Both A and R are true and R is the correct explanation of A. (B) Both A and R are true but R is NOT the correct explanation of A. (C) A is true but R is false. (D) A is false but R is true.
+      </p>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">A&amp;R 1</span> Tumblers made of woven cloth</summary>
+        <div class="ans-content">
+          <p><strong>Assertion (A):</strong> Tumblers used to drink water are never made of woven cloth.<br>
+          <strong>Reason (R):</strong> Cloth is porous and cannot retain liquids.</p>
+          <p><strong>Answer: A (Both A and R are true and R is the correct explanation of A).</strong></p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">A&amp;R 2</span> Restoring shine to tarnished metals</summary>
+        <div class="ans-content">
+          <p><strong>Assertion (A):</strong> Rubbing a rusted or tarnished iron rod with sandpaper restores its shiny lustre.<br>
+          <strong>Reason (R):</strong> Sandpaper scrapes off the dull superficial oxide layer, exposing the fresh, unreacted metal underneath.</p>
+          <p><strong>Answer: A (Both A and R are true and R is the correct explanation of A).</strong></p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">A&amp;R 3</span> Nature of shadows</summary>
+        <div class="ans-content">
+          <p><strong>Assertion (A):</strong> A dark shadow formed by an opaque tree on the ground is considered matter.<br>
+          <strong>Reason (R):</strong> A shadow occupies space on the ground and can be measured in square metres.</p>
+          <p><strong>Answer: D (A is false but R is false as well &mdash; Assertion is completely False).</strong><br>
+          <em>Correction:</em> A shadow is merely the absence of light; it has zero mass and cannot occupy physical space. Therefore, a shadow is NOT matter!</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">A&amp;R 4</span> Water as a universal solvent</summary>
+        <div class="ans-content">
+          <p><strong>Assertion (A):</strong> Water plays an indispensable role in the functioning of the human body.<br>
+          <strong>Reason (R):</strong> Water can dissolve a large variety of nutrients, minerals, and biochemical wastes.</p>
+          <p><strong>Answer: A (Both A and R are true and R is the correct explanation of A).</strong></p>
+        </div>
+      </details>
+
+      <h3>Short Answer Questions (2 &amp; 3 Marks)</h3>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 1</span> Why do shopkeepers prefer to keep biscuits and toffees in transparent jars? (2 Marks)</summary>
+        <div class="ans-content">
+          <p>Shopkeepers use transparent glass or clear plastic jars because:</p>
+          <ol>
+            <li><strong>Visibility:</strong> Buyers can easily spot different varieties of biscuits and sweets from a distance without opening lids.</li>
+            <li><strong>Convenience &amp; Hygiene:</strong> The shopkeeper can quickly retrieve items without repeatedly unsealing multiple opaque containers, keeping food fresh and hygienic.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 2</span> Differentiate between transparent, translucent, and opaque materials with 1 example each. (3 Marks)</summary>
+        <div class="ans-content">
+          <table>
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Light Transmission</th>
+                <th>Visibility of Objects</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Transparent</strong></td>
+                <td>Allows full light to pass straight through.</td>
+                <td>Objects seen clearly and sharply.</td>
+                <td>Clear window glass plate.</td>
+              </tr>
+              <tr>
+                <td><strong>Translucent</strong></td>
+                <td>Allows partial light to pass with scattering.</td>
+                <td>Objects seen blurred and hazy.</td>
+                <td>Butter paper / Frosted glass.</td>
+              </tr>
+              <tr>
+                <td><strong>Opaque</strong></td>
+                <td>Completely blocks all light rays.</td>
+                <td>Objects cannot be seen at all.</td>
+                <td>Solid wooden panel.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 3</span> Give three examples of objects that float on water and three that sink. What property determines this? (3 Marks)</summary>
+        <div class="ans-content">
+          <ul>
+            <li><strong>Floating Objects:</strong> Dry fallen leaf, plastic bottle cap, dry wooden stick.</li>
+            <li><strong>Sinking Objects:</strong> Iron nail, stone pebble, 5-rupee metal coin.</li>
+            <li><strong>Determining Property:</strong> <strong>Density</strong> (mass per unit volume). Objects less dense than water float, while objects denser than water sink.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 4</span> Why is air considered matter even though we cannot see it? (2 Marks)</summary>
+        <div class="ans-content">
+          <p>Air qualifies as matter because it satisfies both criteria of the scientific definition:</p>
+          <ol>
+            <li><strong>Air occupies space (Volume):</strong> Inflating a balloon causes it to expand, proving air takes up volume.</li>
+            <li><strong>Air has mass:</strong> An inflated football weighs noticeably more on a sensitive balance than a deflated football.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">SA 5</span> What happens when you test the hardness of a piece of chalk and an iron nail using a scratch test? (2 Marks)</summary>
+        <div class="ans-content">
+          <p>When an iron nail is rubbed against a piece of chalk, the sharp nail easily carves a deep groove into the chalk. In contrast, the chalk cannot scratch the iron nail. This proves that the iron nail is <strong>hard</strong>, while the chalk is relatively <strong>soft</strong>.</p>
+        </div>
+      </details>
+
+      <h3>Long Answer Questions (5 Marks)</h3>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">LA 1</span> Explain five major physical properties used to classify materials around us, giving one real-life application for each. (5 Marks)</summary>
+        <div class="ans-content">
+          <p>The five core physical properties are:</p>
+          <ol>
+            <li><strong>Appearance (Lustre):</strong> Materials can be shiny (lustrous) or dull.
+              <br><em>Application:</em> Gold and silver are crafted into jewellery because of their lasting metallic lustre.</li>
+            <li><strong>Hardness:</strong> Materials can be compressible (soft) or rigid (hard).
+              <br><em>Application:</em> Steel and granite are used in building pillars and bridges for high mechanical hardness.</li>
+            <li><strong>Transparency:</strong> Materials are transparent, translucent, or opaque.
+              <br><em>Application:</em> Car windscreens are made of transparent toughened glass so drivers have an unobstructed view.</li>
+            <li><strong>Solubility:</strong> Ability to dissolve in water.
+              <br><em>Application:</em> Sugar and salt dissolve in water, making ORS drinks and everyday cooking possible.</li>
+            <li><strong>Floating / Sinking (Density):</strong> Behavior in water.
+              <br><em>Application:</em> Thermocol and hollow plastics are used in life jackets because they float reliably on water.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">LA 2</span> Describe an activity to prove that liquids can be miscible or immiscible with water. (5 Marks)</summary>
+        <div class="ans-content">
+          <p><strong>Aim:</strong> To investigate how different liquids mix with water.</p>
+          <p><strong>Materials Required:</strong> Four test tubes, test tube stand, water, vinegar, lemon juice, mustard oil, and kerosene.</p>
+          <p><strong>Procedure:</strong></p>
+          <ol>
+            <li>Fill each test tube half-full with clean tap water.</li>
+            <li>Add 5 mL of vinegar to Tube A, lemon juice to Tube B, mustard oil to Tube C, and kerosene to Tube D.</li>
+            <li>Shake each test tube vigorously for 30 seconds.</li>
+            <li>Place all tubes in the stand and let them sit undisturbed for 10 minutes.</li>
+          </ol>
+          <p><strong>Observations:</strong></p>
+          <ul>
+            <li><strong>Tubes A &amp; B (Vinegar &amp; Lemon Juice):</strong> The liquids mix completely and disappear into the water, forming a single uniform solution. They are <strong>miscible</strong>.</li>
+            <li><strong>Tubes C &amp; D (Mustard Oil &amp; Kerosene):</strong> The oils do not mix. They separate out and float on top as a distinct, separate oily layer. They are <strong>immiscible</strong>.</li>
+          </ul>
+          <p><strong>Conclusion:</strong> Some liquids dissolve uniformly in water (miscible), while others separate into two distinct layers (immiscible).</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span class="tag tag-exam">LA 3</span> "An object can be made from a combination of several materials." Justify this with the example of a bicycle and a cooking pan. (5 Marks)</summary>
+        <div class="ans-content">
+          <p>Objects are rarely made of a single material because different parts of an object must fulfill completely different functions:</p>
+          <ol>
+            <li><strong>The Bicycle:</strong>
+              <ul>
+                <li><strong>Frame:</strong> Made of high-strength steel or aluminium alloy &mdash; rigid, hard, and bears the rider's weight.</li>
+                <li><strong>Tires &amp; Tubes:</strong> Made of vulcanised elastic rubber &mdash; flexible, grips the asphalt, and absorbs road shocks.</li>
+                <li><strong>Seat (Saddle):</strong> Padded with soft foam and synthetic leather &mdash; compressible, comfortable for sitting.</li>
+                <li><strong>Reflector / Headlamp Cover:</strong> Made of transparent/translucent acrylic plastic &mdash; lets light through for night road safety.</li>
+              </ul>
+            </li>
+            <li><strong>The Cooking Pan:</strong>
+              <ul>
+                <li><strong>Base &amp; Body:</strong> Made of aluminium, iron, or copper &mdash; excellent conductors of heat that cook food rapidly and withstand open stove flames.</li>
+                <li><strong>Handle:</strong> Made of Bakelite plastic or treated wood &mdash; poor conductors of heat (insulators), allowing cooks to lift hot pans safely without burning their hands.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <h3>Competency Case Study Questions</h3>
+
+      <div class="callout callout-act">
+        <h4>&#128220; Case Study 1: The Kitchen Storage Dilemma</h4>
+        <p><strong>Context:</strong> Mrs. Verma moved into a new apartment and purchased two types of kitchen jars: one set of transparent borosilicate glass jars and another set of heavy stainless steel canisters. She decided to store whole spices, breakfast cornflakes, and colorful pulses in the glass jars, while storing cooking oil and whole wheat flour in the steel canisters.</p>
+
+        <p><strong>Questions:</strong></p>
+        <ol>
+          <li>What scientific property made glass jars the ideal choice for pulses and cornflakes?</li>
+          <li>Why did Mrs. Verma choose stainless steel rather than unbaked clay pots for storing cooking oil?</li>
+          <li>If a cook accidentally drops an iron spoon and a dry bay leaf into a basin of water, what will happen to each? Explain why.</li>
+        </ol>
+
+        <details class="ans-box" style="margin-top: 12px;">
+          <summary>View Model Answers</summary>
+          <div class="ans-content">
+            <ol>
+              <li><strong>Transparency.</strong> Glass allows light to pass through, enabling instant identification of the contents and monitoring of food quantities without opening lids.</li>
+              <li>Stainless steel is non-porous, waterproof, and non-reactive. Unbaked clay is porous; cooking oil would seep through its micropores, making the pot greasy and unhygienic.</li>
+              <li>The iron spoon will sink straight to the bottom because iron is denser than water. The dry bay leaf will float on the surface because dry leaves are porous, light, and less dense than water.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-act">
+        <h4>&#128220; Case Study 2: The Junk Yard Science Investigation</h4>
+        <p><strong>Context:</strong> Kabir visited a local scrap recycling center with his science teacher. He observed workers using a massive circular crane that picked up heaps of old vehicle chassis, iron pipes, and steel drums effortlessly, while ignoring nearby heaps of broken plastic chairs, discarded cardboard boxes, and copper wiring.</p>
+
+        <p><strong>Questions:</strong></p>
+        <ol>
+          <li>What device was mounted on the crane to pick up specific scrap materials, and what property did it exploit?</li>
+          <li>Why were copper wires not attracted to the crane?</li>
+          <li>Are old plastic chairs and cardboard boxes classified as matter? Justify your answer using the scientific definition.</li>
+        </ol>
+
+        <details class="ans-box" style="margin-top: 12px;">
+          <summary>View Model Answers</summary>
+          <div class="ans-content">
+            <ol>
+              <li>The crane was equipped with a high-power <strong>electromagnet</strong> that exploited the <strong>magnetic property</strong> of ferrous metals (iron and steel).</li>
+              <li>Copper is a non-magnetic metal. Electromagnets only attract ferromagnetic materials like iron, cobalt, and nickel.</li>
+              <li><strong>Yes, absolutely.</strong> Both plastic chairs and cardboard boxes have measurable mass (they can be weighed on a scale) and occupy three-dimensional space (volume), which satisfies the scientific definition of matter.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Exam Hall Mistakes & Revision Points -->
+    <section class="content-card">
+      <h2>&#128680; Section 6: Exam Hall Mistakes &amp; 15 Rapid Revision Points</h2>
+
+      <div class="callout callout-warn">
+        <h4>&#10060; 5 Common Exam Hall Mistakes to Avoid</h4>
+        <ul>
+          <li><strong>Mistake 1: Confusing an object with a material:</strong> Students often write "pencil is a material" or "wood is an object". Remember: Wood is the material; the pencil is the finished object.</li>
+          <li><strong>Mistake 2: Calling shadow, heat, or sunlight "matter":</strong> Shadows have zero mass and occupy no space. Sunlight and heat are forms of energy, not matter!</li>
+          <li><strong>Mistake 3: Believing all metals remain lustrous forever:</strong> Metals lose their lustre over time when exposed to moist air due to surface oxidation (tarnishing). Scraping with sandpaper restores the shine.</li>
+          <li><strong>Mistake 4: Confusing translucent with transparent:</strong> Transparent gives a clear, crisp view; translucent allows light through but gives a blurred, indistinct view.</li>
+          <li><strong>Mistake 5: Assuming heavier objects always sink:</strong> A giant 10,000-tonne hollow steel ship floats on the ocean, while a tiny 1-gram iron pebble sinks. Sinking and floating depend on density, not just total mass!</li>
+        </ul>
+      </div>
+
+      <h3>&#128640; 15 Ultra-Crisp Rapid Revision One-Liners</h3>
+      <ol>
+        <li>An <strong>object</strong> is an article made for a specific use; a <strong>material</strong> is the substance out of which it is made.</li>
+        <li>One object can be made of multiple materials (e.g., pencil = wood + graphite + metal + rubber).</li>
+        <li>One material can be used to make many different objects (e.g., wood = chair, table, door, bat).</li>
+        <li><strong>Classification</strong> is the systematic grouping of materials based on similarities and differences in properties.</li>
+        <li><strong>Lustre</strong> is the shiny metallic sheen present on the freshly cut surface of metals.</li>
+        <li>Metals lose their lustre in humid air due to the formation of a dull oxide/tarnish coating.</li>
+        <li><strong>Hard materials</strong> resist being compressed or scratched (e.g., iron, stone, diamond).</li>
+        <li><strong>Soft materials</strong> can be easily compressed or scratched with fingernails (e.g., sponge, cotton, wax).</li>
+        <li><strong>Transparent</strong> materials transmit light completely, providing clear visibility (e.g., clear glass, air).</li>
+        <li><strong>Translucent</strong> materials scatter light partially, providing blurred or hazy visibility (e.g., butter paper).</li>
+        <li><strong>Opaque</strong> materials block light completely, through which nothing can be seen (e.g., wood, brick).</li>
+        <li>Substances that dissolve completely in water are <strong>soluble</strong> (e.g., salt, sugar).</li>
+        <li>Liquids that mix completely with water are <strong>miscible</strong> (e.g., vinegar); those that form a separate layer are <strong>immiscible</strong> (e.g., oil).</li>
+        <li>Materials less dense than water <strong>float</strong>; materials denser than water <strong>sink</strong>.</li>
+        <li><strong>Matter</strong> is defined as anything that has mass and occupies space (volume).</li>
+      </ol>
+    </section>
+  </main>
+
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progress-bar').style.width = scrolled + '%';
+    });
+
+    // 2. Interactive Quiz Engine
+    let userScore = 0;
+    const answeredQuestions = new Set();
+
+    function checkQuizAnswer(questionNum, selectedOption, isCorrect, explanation) {
+      if (answeredQuestions.has(questionNum)) return;
+      answeredQuestions.add(questionNum);
+
+      const qContainer = document.getElementById('q' + questionNum + '-container');
+      const buttons = qContainer.querySelectorAll('.quiz-btn');
+      const feedback = document.getElementById('q' + questionNum + '-feedback');
+
+      buttons.forEach(btn => {
+        btn.disabled = true;
+        if (btn.textContent.trim().startsWith(selectedOption)) {
+          btn.classList.add(isCorrect ? 'correct' : 'incorrect');
+        } else if (!isCorrect && isCorrectOption(questionNum, btn.textContent.trim())) {
+          btn.classList.add('correct');
+        }
+      });
+
+      if (isCorrect) {
+        userScore++;
+        document.getElementById('quizScore').textContent = userScore;
+        feedback.className = 'quiz-feedback show success-fb';
+        feedback.innerHTML = '<strong>&#10004; Excellent!</strong> ' + explanation;
+      } else {
+        feedback.className = 'quiz-feedback show error-fb';
+        feedback.innerHTML = '<strong>&#10006; Not quite!</strong> ' + explanation;
+      }
+    }
+
+    function isCorrectOption(qNum, text) {
+      const correctKeys = { 1: 'C', 2: 'B', 3: 'B', 4: 'C', 5: 'B' };
+      return text.startsWith(correctKeys[qNum]);
+    }
+
+    // 3. Audio Reader (Text-to-Speech)
+    let isSpeaking = false;
+    let speechUtterance = null;
+
+    function toggleAudioReader() {
+      const btn = document.getElementById('audioToggleBtn');
+      const textSpan = document.getElementById('audioText');
+      const iconSpan = document.getElementById('audioIcon');
+
+      if (!('speechSynthesis' in window)) {
+        alert('Sorry! Your browser does not support audio speech synthesis.');
+        return;
+      }
+
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.classList.remove('playing');
+        iconSpan.innerHTML = '&#128266;';
+        textSpan.textContent = 'Listen to Summary';
+      } else {
+        const textToRead = "Class 6 Science Chapter 6: Materials Around Us. " +
+          "Objects are made of materials. We classify materials based on properties such as appearance, hardness, transparency, solubility, and floating behavior. " +
+          "Lustrous materials have a shiny surface, while non-lustrous materials are dull. " +
+          "Transparent materials let light pass completely, translucent materials let light pass partially, and opaque materials block all light. " +
+          "Matter is anything that has mass and occupies space. Non-material things like light, heat, and shadows are not matter.";
+        
+        speechUtterance = new SpeechSynthesisUtterance(textToRead);
+        speechUtterance.rate = 0.95;
+        speechUtterance.pitch = 1.0;
+
+        speechUtterance.onend = () => {
+          isSpeaking = false;
+          btn.classList.remove('playing');
+          iconSpan.innerHTML = '&#128266;';
+          textSpan.textContent = 'Listen to Summary';
+        };
+
+        window.speechSynthesis.speak(speechUtterance);
+        isSpeaking = true;
+        btn.classList.add('playing');
+        iconSpan.innerHTML = '&#9209;';
+        textSpan.textContent = 'Stop Audio';
+      }
+    }
+  </script>
+</body>
+</html>
