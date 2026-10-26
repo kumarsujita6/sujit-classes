@@ -71,3 +71,24 @@ Every generated chapter HTML note must incorporate:
    - Add a "🔊 Listen to Summary" button utilizing `window.speechSynthesis` so young students can listen to pronunciation and explanations.
 4. **Interactive SVG Micro-Animations:**
    - Include gentle CSS hover effects, glowing lines, or rotating indicator needles inside diagrams.
+
+
+## 8. 3D Interactive Flipbook Engine Standards
+Every chapter study note must include a dual-reading mode toggle: **📖 Flipbook Mode** and **📄 Continuous Scroll Mode**.
+
+### 1. Structure of 3D Flipbook Mode:
+- **3D Perspective Container:** Use CSS `perspective: 2500px` and `transform-style: preserve-3d`.
+- **Two-Page Book Spread:** 
+  - On desktop/tablets (screen width >= 768px): Render an open two-page spread (Left Page + Right Page) on a study desk background.
+  - Center crease with realistic ambient binding shadow.
+  - Page edges with simulated stacked-paper thickness.
+  - On mobile devices (< 768px): Automatically adapt to a single responsive page flip view.
+- **Realistic Page Turn Mechanics:**
+  - Flipping a page triggers `transform: rotateY(-180deg)` with `transform-origin: left center` on the right page (or `rotateY(180deg)` with `transform-origin: right center` on the left page).
+  - Include dynamic moving lighting gradients during the flip animation to simulate the natural curve of heavy book paper.
+- **Navigation Controls:**
+  - Left ($\leftarrow$) and Right ($\rightarrow$) floating buttons on the screen edges.
+  - Keyboard arrow key listeners (`ArrowRight` for next page, `ArrowLeft` for previous page).
+  - Touch swipe listener on mobile and tablets.
+  - Subtle audio page-turn sound generated natively via the Web Audio API (synthesized paper rustle; zero external audio files needed).
+- **Default View:** Allow students to switch back to normal vertical scroll mode anytime via a sticky top toggle button (`📄 Scroll View`).
