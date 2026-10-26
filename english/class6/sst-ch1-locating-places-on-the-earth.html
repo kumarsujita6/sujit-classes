@@ -1474,14 +1474,14 @@
   }
   </style>
 </head>
-<body class="flipbook-mode">
+<body class="scroll-mode">
 
   <!-- DUAL MODE TOGGLE PILL TOOLBAR -->
   <div class="view-mode-pill-toolbar" id="modeToolbar">
-    <button type="button" class="mode-pill-btn active" id="btnBookMode" onclick="switchViewMode('book')">
+    <button type="button" class="mode-pill-btn" id="btnBookMode" onclick="switchViewMode('book')">
       <span>📖</span> 3D Book View
     </button>
-    <button type="button" class="mode-pill-btn" id="btnScrollMode" onclick="switchViewMode('scroll')">
+    <button type="button" class="mode-pill-btn active" id="btnScrollMode" onclick="switchViewMode('scroll')">
       <span>📄</span> Web Scroll View
     </button>
   </div>
@@ -4466,11 +4466,17 @@
     var totalPages = 10;
     var activeMode = 'book';
 
-    // 1. Dual Mode Toggle Switcher
-    function switchViewMode(mode) {
+    // 1. Dual Mode Toggle Switcher with LocalStorage Persistence
+    function switchViewMode(mode, savePreference) {
       activeMode = mode;
       var btnBook = document.getElementById('btnBookMode');
       var btnScroll = document.getElementById('btnScrollMode');
+
+      if (savePreference !== false) {
+        try {
+          localStorage.setItem('sc_reading_mode', mode);
+        } catch (e) {}
+      }
 
       if (mode === 'book') {
         document.body.classList.remove('scroll-mode');
@@ -5001,9 +5007,18 @@
       });
     }
 
-    // 12. Initialization on DOM Load
+    // 12. Initialization on DOM Load (Defaults to Web Scroll View, respects saved preference)
     document.addEventListener('DOMContentLoaded', function() {
-      switchViewMode('book');
+      var initialMode = 'scroll';
+      try {
+        var saved = localStorage.getItem('sc_reading_mode');
+        if (saved === 'book' || saved === 'scroll') {
+          initialMode = saved;
+        }
+      } catch (e) {
+        initialMode = 'scroll';
+      }
+      switchViewMode(initialMode, false);
       initInteractiveQuizEngine();
     });
   </script>
