@@ -2,8 +2,6 @@
 <html lang="en">
 <!DOCTYPE html>
 <html lang="en">
-<!DOCTYPE html>
-<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -929,8 +927,8 @@
     box-shadow: 0 4px 14px rgba(2, 132, 199, 0.45);
   }
 
-  /* Desk Environment (Dark study desk backdrop with soft overhead lighting) */
-  #flipbook-view {
+  /* Desk Environment (#1e2430 with soft overhead spotlighting) */
+  #flipbook-view-container {
     display: none;
     position: relative;
     min-height: 100vh;
@@ -1392,7 +1390,7 @@
 
   /* Responsive Mobile Layout (< 768px): Single full-page adaptive 3D flip */
   @media (max-width: 767px) {
-    #flipbook-view {
+    #flipbook-view-container {
       padding: 56px 8px 44px 8px;
     }
     .book-container {
@@ -1447,631 +1445,30 @@
     background-color: #1e2430 !important;
     overflow-x: hidden;
   }
-  body.flipbook-mode #scroll-view,
-  body.flipbook-mode .top-bar,
-  body.flipbook-mode #reading-progress-bar,
-  body.flipbook-mode .back-to-top-btn {
+  body.flipbook-mode #scroll-view-container {
     display: none !important;
   }
-  body.flipbook-mode #flipbook-view {
+  body.flipbook-mode #flipbook-view-container {
     display: flex !important;
   }
 
-  body.scroll-mode #flipbook-view {
+  body.scroll-mode {
+    background-color: var(--bg-body) !important;
+  }
+  body.scroll-mode #flipbook-view-container {
     display: none !important;
   }
-  body.scroll-mode #scroll-view {
+  body.scroll-mode #scroll-view-container {
     display: block !important;
   }
 
   /* Print Stylesheet */
   @media print {
     .view-mode-pill-toolbar,
-    #flipbook-view,
-    .flip-nav-arrow,
-    .flip-footer-bar {
+    #flipbook-view-container {
       display: none !important;
     }
-    #scroll-view {
-      display: block !important;
-    }
-  }
-  </style>
-
-  <style>
-  /* ========================================================
-     PURE CSS & VANILLA JS 3D INTERACTIVE FLIPBOOK ENGINE
-     ======================================================== */
-
-  /* Dual Mode Toggle Pill Toolbar */
-  .view-mode-pill-toolbar {
-    position: fixed;
-    top: 14px;
-    right: 20px;
-    z-index: 100005;
-    display: flex;
-    align-items: center;
-    background: rgba(15, 23, 42, 0.90);
-    backdrop-filter: blur(14px);
-    -webkit-backdrop-filter: blur(14px);
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 9999px;
-    padding: 4px;
-    gap: 4px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s ease;
-  }
-  .view-mode-pill-toolbar .mode-pill-btn {
-    border: none;
-    background: transparent;
-    color: #94a3b8;
-    font-family: inherit;
-    font-weight: 700;
-    font-size: 0.82rem;
-    padding: 8px 16px;
-    border-radius: 9999px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    white-space: nowrap;
-    user-select: none;
-  }
-  .view-mode-pill-toolbar .mode-pill-btn:hover {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.08);
-  }
-  .view-mode-pill-toolbar .mode-pill-btn.active {
-    background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
-    color: #ffffff;
-    box-shadow: 0 4px 14px rgba(2, 132, 199, 0.45);
-  }
-
-  /* Desk Environment (Dark study desk backdrop with soft overhead lighting) */
-  #flipbook-view {
-    display: none;
-    position: relative;
-    min-height: 100vh;
-    background: #1e2430;
-    background-image: 
-      radial-gradient(ellipse 900px 600px at 50% 18%, rgba(56, 189, 248, 0.08) 0%, transparent 70%),
-      radial-gradient(ellipse 1200px 750px at 50% 95%, rgba(13, 148, 136, 0.06) 0%, transparent 80%);
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 68px 16px 52px 16px;
-    box-sizing: border-box;
-    overflow-x: hidden;
-  }
-
-  .desk-header {
-    margin-bottom: 16px;
-    text-align: center;
-    color: #94a3b8;
-    user-select: none;
-  }
-  .desk-header .desk-badge {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 800;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    background: rgba(56, 189, 248, 0.12);
-    color: #38bdf8;
-    border: 1px solid rgba(56, 189, 248, 0.25);
-    padding: 3px 12px;
-    border-radius: 999px;
-    margin-bottom: 6px;
-  }
-  .desk-header h3 {
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #f1f5f9;
-    margin: 0;
-  }
-
-  /* 3D Perspective Stage */
-  .book-container {
-    perspective: 2500px;
-    position: relative;
-    width: 100%;
-    max-width: 1140px;
-    height: 80vh;
-    min-height: 600px;
-    max-height: 840px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  /* 3D Book wrapper */
-  .book {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    box-shadow: 0 24px 48px -12px rgba(0, 0, 0, 0.65), 0 4px 16px rgba(0, 0, 0, 0.4);
-    border-radius: 6px;
-    background: #fbf9f4;
-  }
-
-  /* Center spine vertical crease shadow mimicking paper binding */
-  .book-spine-shadow {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 44px;
-    background: linear-gradient(to right,
-      rgba(0, 0, 0, 0.26) 0%,
-      rgba(0, 0, 0, 0.08) 35%,
-      rgba(0, 0, 0, 0.00) 50%,
-      rgba(0, 0, 0, 0.08) 65%,
-      rgba(0, 0, 0, 0.26) 100%
-    );
-    z-index: 1000;
-    pointer-events: none;
-  }
-
-  /* Lateral stacked paper depth on left and right outer borders */
-  .book::before {
-    content: '';
-    position: absolute;
-    top: 5px;
-    bottom: 5px;
-    left: -9px;
-    width: 9px;
-    background: repeating-linear-gradient(to left, #e2dac7 0px, #e2dac7 1.5px, #fbf9f4 1.5px, #fbf9f4 3px);
-    border-radius: 4px 0 0 4px;
-    box-shadow: -3px 4px 10px rgba(0, 0, 0, 0.4);
-    z-index: 1;
-  }
-  .book::after {
-    content: '';
-    position: absolute;
-    top: 5px;
-    bottom: 5px;
-    right: -9px;
-    width: 9px;
-    background: repeating-linear-gradient(to right, #e2dac7 0px, #e2dac7 1.5px, #fbf9f4 1.5px, #fbf9f4 3px);
-    border-radius: 0 4px 4px 0;
-    box-shadow: 3px 4px 10px rgba(0, 0, 0, 0.4);
-    z-index: 1;
-  }
-
-  /* Base Underplates (hardcover inside linings) */
-  .book-base-plate {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 50%;
-    height: 100%;
-    background: #fbf9f4;
-    box-sizing: border-box;
-    overflow-y: auto;
-    overflow-x: hidden;
-    z-index: 0;
-  }
-  .book-base-plate.left {
-    left: 0;
-    border-right: 1px solid #e8e2d2;
-    border-radius: 6px 0 0 6px;
-    box-shadow: inset -6px 0 16px -4px rgba(0,0,0,0.06);
-  }
-  .book-base-plate.right {
-    right: 0;
-    border-left: 1px solid #e8e2d2;
-    border-radius: 0 6px 6px 0;
-    box-shadow: inset 6px 0 16px -4px rgba(0,0,0,0.06);
-  }
-
-  .bookplate-inner {
-    padding: 36px 30px;
-    height: 100%;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #1e293b;
-  }
-  .bookplate-emblem {
-    font-size: 2.8rem;
-    margin-bottom: 10px;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-  }
-  .bookplate-school {
-    font-size: 0.78rem;
-    font-weight: 800;
-    letter-spacing: 1.5px;
-    color: #0284c7;
-    text-transform: uppercase;
-    margin-bottom: 4px;
-  }
-  .bookplate-title {
-    font-size: 1.3rem;
-    font-weight: 800;
-    color: #0f172a;
-    line-height: 1.3;
-    margin-bottom: 10px;
-  }
-  .bookplate-rule {
-    width: 50px;
-    height: 3px;
-    background: linear-gradient(90deg, #0284c7, #0d9488);
-    border-radius: 2px;
-    margin: 0 auto 14px auto;
-  }
-  .bookplate-desc {
-    font-size: 0.86rem;
-    color: #64748b;
-    margin-bottom: 18px;
-    line-height: 1.5;
-  }
-  .bookplate-tips {
-    background: #f1f5f9;
-    border: 1px solid #e2e8f0;
-    border-radius: 12px;
-    padding: 12px 16px;
-    margin-bottom: 20px;
-    width: 100%;
-    max-width: 360px;
-    text-align: left;
-  }
-  .tip-item {
-    font-size: 0.82rem;
-    color: #334155;
-    margin-bottom: 6px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .tip-item:last-child {
-    margin-bottom: 0;
-  }
-  .bookplate-start-btn {
-    background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%);
-    color: #ffffff;
-    border: none;
-    font-family: inherit;
-    font-weight: 800;
-    font-size: 0.9rem;
-    padding: 11px 22px;
-    border-radius: 999px;
-    cursor: pointer;
-    box-shadow: 0 6px 18px rgba(2, 132, 199, 0.35);
-    transition: all 0.25s ease;
-  }
-  .bookplate-start-btn:hover {
-    transform: translateY(-2px) scale(1.04);
-    box-shadow: 0 8px 24px rgba(2, 132, 199, 0.5);
-  }
-
-  /* Physical Leaves (5 Leaves with 3D Flip Transforms) */
-  .book-leaf {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 50%;
-    height: 100%;
-    transform-origin: left center;
-    transform-style: preserve-3d;
-    transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
-    cursor: default;
-  }
-
-  /* Front and Back of each leaf */
-  .leaf-face {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    backface-visibility: hidden;
-    -webkit-backface-visibility: hidden;
-    background: #fbf9f4;
-    box-sizing: border-box;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-  }
-
-  /* Authentic Cream Paper styling with margin guides */
-  .leaf-face.front {
-    border-radius: 0 6px 6px 0;
-    box-shadow: inset 8px 0 20px -8px rgba(0,0,0,0.06);
-    background: #fbf9f4 linear-gradient(to right, transparent 28px, rgba(220, 210, 190, 0.35) 28px, rgba(220, 210, 190, 0.35) 29px, transparent 29px);
-  }
-  .leaf-face.back {
-    transform: rotateY(180deg);
-    border-radius: 6px 0 0 6px;
-    box-shadow: inset -8px 0 20px -8px rgba(0,0,0,0.06);
-    background: #fbf9f4 linear-gradient(to left, transparent 28px, rgba(220, 210, 190, 0.35) 28px, rgba(220, 210, 190, 0.35) 29px, transparent 29px);
-  }
-
-  /* Real-time Dynamic Gradient Shadow moving during rotation */
-  .leaf-face::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  .book-leaf.turning .leaf-face.front::after {
-    background: linear-gradient(to right, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.06) 40%, transparent 100%);
-    opacity: 1;
-  }
-  .book-leaf.turning .leaf-face.back::after {
-    background: linear-gradient(to left, rgba(0,0,0,0.22) 0%, rgba(0,0,0,0.06) 40%, transparent 100%);
-    opacity: 1;
-  }
-
-  /* Running Header & Running Footer */
-  .running-header {
-    height: 34px;
-    min-height: 34px;
-    border-bottom: 1px solid #e8e0d0;
-    margin: 0 22px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: #8c7e6a;
-    letter-spacing: 0.3px;
-    text-transform: uppercase;
-    user-select: none;
-  }
-  .running-footer {
-    height: 30px;
-    min-height: 30px;
-    border-top: 1px solid #e8e0d0;
-    margin: 0 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.76rem;
-    font-weight: 800;
-    color: #8c7e6a;
-    user-select: none;
-  }
-
-  /* Inner scrollable page body */
-  .book-page-body {
-    flex: 1;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 16px 24px 16px 24px;
-    box-sizing: border-box;
-    scrollbar-width: thin;
-    scrollbar-color: #cbd5e1 transparent;
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: #1e293b;
-  }
-  .book-page-body::-webkit-scrollbar {
-    width: 5px;
-  }
-  .book-page-body::-webkit-scrollbar-thumb {
-    background: #dcd3bd;
-    border-radius: 4px;
-  }
-
-  /* Typography & Layout inside Book Pages */
-  .book-page-body h2 {
-    font-size: 1.15rem;
-    font-weight: 800;
-    color: #0f172a;
-    margin-bottom: 8px;
-  }
-  .book-page-body h4 {
-    font-size: 0.94rem;
-    font-weight: 700;
-    color: #0369a1;
-    margin: 12px 0 6px 0;
-  }
-  .book-page-body .topic-title {
-    font-size: 1.02rem;
-    padding: 8px 12px;
-    margin-bottom: 10px;
-  }
-  .book-page-body .callout {
-    padding: 10px 14px;
-    margin: 10px 0;
-    font-size: 0.85rem;
-  }
-  .book-page-body .table-wrap {
-    margin: 10px 0;
-    font-size: 0.82rem;
-  }
-  .book-page-body th, .book-page-body td {
-    padding: 7px 9px;
-  }
-  .book-page-body .q-card {
-    padding: 10px 14px;
-    margin-bottom: 10px;
-  }
-  .book-page-body .diagram-card {
-    padding: 12px;
-    margin: 12px 0;
-  }
-  .book-page-body .mindmap-box {
-    padding: 12px;
-    margin: 10px 0;
-  }
-
-  /* Floating Circular Navigation Arrows */
-  .flip-nav-arrow {
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    background: rgba(15, 23, 42, 0.88);
-    color: #f8fafc;
-    border: 2px solid rgba(255, 255, 255, 0.16);
-    font-size: 1.35rem;
-    font-weight: 800;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-    z-index: 100002;
-    user-select: none;
-  }
-  .flip-nav-arrow:hover:not(:disabled) {
-    background: #0284c7;
-    border-color: #38bdf8;
-    color: #ffffff;
-    transform: translateY(-50%) scale(1.1);
-    box-shadow: 0 10px 28px rgba(2, 132, 199, 0.5);
-  }
-  .flip-nav-arrow:disabled {
-    opacity: 0.28;
-    cursor: not-allowed;
-    pointer-events: none;
-  }
-  .flip-nav-arrow.prev { left: 18px; }
-  .flip-nav-arrow.next { right: 18px; }
-
-  /* Bottom Floating Page Indicator & Quick Jump Dots */
-  .flip-footer-bar {
-    margin-top: 14px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    z-index: 100001;
-  }
-  .flip-page-info {
-    background: rgba(15, 23, 42, 0.88);
-    color: #e2e8f0;
-    font-size: 0.82rem;
-    font-weight: 700;
-    padding: 6px 18px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-    letter-spacing: 0.4px;
-  }
-  .flip-spread-dots {
-    display: flex;
-    gap: 8px;
-    align-items: center;
-  }
-  .flip-spread-dots .dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: rgba(148, 163, 184, 0.4);
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-  .flip-spread-dots .dot:hover {
-    background: rgba(56, 189, 248, 0.8);
-    transform: scale(1.2);
-  }
-  .flip-spread-dots .dot.active {
-    width: 24px;
-    border-radius: 999px;
-    background: #38bdf8;
-    box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
-  }
-
-  /* Responsive Mobile Layout (< 768px): Single full-page adaptive 3D flip */
-  @media (max-width: 767px) {
-    #flipbook-view {
-      padding: 56px 8px 44px 8px;
-    }
-    .book-container {
-      perspective: 1600px;
-      height: 78vh;
-      min-height: 520px;
-      max-width: 480px;
-    }
-    .book {
-      border-radius: 8px;
-    }
-    .book::before, .book::after, .book-spine-shadow {
-      display: none !important;
-    }
-    .book-base-plate.left, .book-base-plate.right {
-      display: none !important;
-    }
-    .book-leaf {
-      width: 100% !important;
-      left: 0 !important;
-      right: 0 !important;
-    }
-    .leaf-face.front, .leaf-face.back {
-      border-radius: 8px !important;
-    }
-    .flip-nav-arrow {
-      width: 44px;
-      height: 44px;
-      font-size: 1.15rem;
-    }
-    .flip-nav-arrow.prev { left: 6px; }
-    .flip-nav-arrow.next { right: 6px; }
-    .view-mode-pill-toolbar {
-      top: 8px;
-      right: 8px;
-    }
-    .view-mode-pill-toolbar .mode-pill-btn {
-      padding: 6px 12px;
-      font-size: 0.76rem;
-    }
-    .book-page-body {
-      padding: 12px 14px 12px 14px;
-      font-size: 0.84rem;
-    }
-    .running-header, .running-footer {
-      margin: 0 12px;
-    }
-  }
-
-  /* Mode Switching Visibility Rules */
-  body.flipbook-mode {
-    background-color: #1e2430 !important;
-    overflow-x: hidden;
-  }
-  body.flipbook-mode #scroll-view,
-  body.flipbook-mode .top-bar,
-  body.flipbook-mode #reading-progress-bar,
-  body.flipbook-mode .back-to-top-btn {
-    display: none !important;
-  }
-  body.flipbook-mode #flipbook-view {
-    display: flex !important;
-  }
-
-  body.scroll-mode #flipbook-view {
-    display: none !important;
-  }
-  body.scroll-mode #scroll-view {
-    display: block !important;
-  }
-
-  /* Print Stylesheet */
-  @media print {
-    .view-mode-pill-toolbar,
-    #flipbook-view,
-    .flip-nav-arrow,
-    .flip-footer-bar {
-      display: none !important;
-    }
-    #scroll-view {
+    #scroll-view-container {
       display: block !important;
     }
   }
@@ -2089,8 +1486,8 @@
     </button>
   </div>
 
-  <!-- 3D INTERACTIVE FLIPBOOK DESK VIEW -->
-  <div id="flipbook-view">
+  <!-- 3D INTERACTIVE FLIPBOOK DESK VIEW CONTAINER -->
+  <div id="flipbook-view-container">
     <div class="desk-header">
       <span class="desk-badge">CLASS 6 SOCIAL SCIENCE • CHAPTER 1</span>
       <h3>🧭 Locating Places on the Earth</h3>
@@ -2163,7 +1560,7 @@
     <span class="badge" style="background:#0d9488; color:#fff;">NCERT: Exploring Society</span>
     <span class="badge" style="background:#f59e0b; color:#fff;">✨ 3D Master Edition</span>
   </div>
-  <h1 style="font-size:1.85rem; font-weight:800; color:#0f172a; text-align:center; line-height:1.25; margin-bottom:10px;">
+  <h1 style="font-size:1.8rem; font-weight:800; color:#0f172a; text-align:center; line-height:1.25; margin-bottom:10px;">
     🧭 Chapter 1: Locating Places on the Earth
   </h1>
   <p style="text-align:center; font-size:0.92rem; color:#475569; max-width:680px; margin:0 auto 16px auto;">
@@ -2175,8 +1572,7 @@
     </button>
   </div>
 </div>
-<section id="sec1" class="section-card">
-      <div class="section-header">
+<div class="section-header">
         <span class="section-num">Section 1</span>
         <h2>🗺️ Chapter Blueprint & CBSE Exam Trend Analysis</h2>
       </div>
@@ -2227,7 +1623,6 @@
           <li><strong>Time Calculation, Local vs. Standard Time (IST) & International Date Line (IDL):</strong> Competency-based numericals and reasoning questions on the <strong>15° = 1 hour</strong> rule, why Porbandar (Gujarat) and Tinsukia (Assam) have a 2-hour local time difference yet follow the same <strong>IST (+5:30 GMT)</strong>, and how crossing the <strong>IDL (180°)</strong> changes the calendar date.</li>
         </ol>
       </div>
-    </section>
 
             </div>
             <div class="running-footer">
@@ -2243,7 +1638,7 @@
               
 <div class="section-header">
   <span class="section-num">Section 2</span>
-  <h2>📚 Topic Notes: Maps &amp; Their Components</h2>
+  <h2>📚 Topic 1: Maps &amp; Their Components</h2>
 </div>
 <div class="topic-block">
         <div class="topic-title">TOPIC 1: Introduction & A Map and Its Components</div>
@@ -2415,7 +1810,48 @@
           </table>
         </div>
 
-        
+        <!-- Decoded Activities for Topic 1 -->
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 Activity 1 Decoded ("LET'S EXPLORE" - Page 9): Navigating the Small City Map (Fig. 1.1)</div>
+          <ul>
+            <li><strong>🧪 Setup:</strong> Examining the map of an imaginary small city (Fig. 1.1 on page 8) containing a Railway Station, Lake, Apartments, Hospital, School, Market, Nagar Panchayat, Bank, Public Garden, and Museum.</li>
+            <li><strong>👀 Observation & Answers:</strong>
+              <ol>
+                <li><strong>Mark the hospital:</strong> Located right in the central part of the city, south-east of the lake and north-west of the market (marked with a red '+' sign).</li>
+                <li><strong>What is the meaning of the blue-coloured areas?</strong> The blue-coloured areas represent <strong>water bodies</strong> — specifically the <strong>Lake</strong> and the <strong>stream/river</strong> flowing into it from the north.</li>
+                <li><strong>Which is farther away from the railway station — the school, the Nagar Panchayat, or the public garden?</strong> The <strong>Public Garden</strong> (located at the extreme eastern end of the map) is the farthest away from the railway station (which is on the extreme western side).</li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 Activity 2 Decoded ("LET'S EXPLORE" - Page 10): Playground Scale & Diagonal Calculation</div>
+          <ul>
+            <li><strong>🧪 Setup:</strong> Draw a rectangular school playground measuring <strong>40 m in length</strong> and <strong>30 m in width</strong> using a scale of <strong>1 cm = 10 m</strong>.</li>
+            <li><strong>👀 Step-by-Step Calculation & Observation:</strong>
+              <ul>
+                <li>Since <strong>1 cm = 10 m</strong>, the drawn length on paper = 40 &divide; 10 = <strong>4 cm</strong>, and the drawn width on paper = 30 &divide; 10 = <strong>3 cm</strong>.</li>
+                <li>When you draw a <strong>4 cm &times; 3 cm</strong> rectangle with a ruler and measure its diagonal, you get exactly <strong>5 cm</strong> (&radic;(4&sup2; + 3&sup2;) = &radic;(16 + 9) = &radic;25 = 5 cm).</li>
+              </ul>
+            </li>
+            <li><strong>💡 Conclusion / Real Length of Diagonal:</strong> Using the scale (1 cm = 10 m), the real length of the playground's diagonal on the ground is 5 cm &times; 10 m/cm = <strong>50 metres</strong>.</li>
+          </ul>
+        </div>
+
+        <div class="callout callout-act">
+          <div class="callout-title">🧪 Activity 3 Decoded ("LET'S EXPLORE" - Page 11): True/False Direction Statements on Fig. 1.1</div>
+          <ul>
+            <li><strong>1. "The market is north of the hospital."</strong> &rarr; ❌ <strong>Incorrect (False).</strong> Looking at Fig. 1.1, the market is located <strong>south / southeast</strong> of the hospital.</li>
+            <li><strong>2. "The museum is southeast of the bank."</strong> &rarr; ✅ <strong>Correct (True).</strong> The museum lies below and slightly to the right (southeast) of the bank.</li>
+            <li><strong>3. "The railway station is northwest of the hospital."</strong> &rarr; ✅ <strong>Correct (True).</strong> From the hospital, moving up (north) and left (west) leads to the railway station.</li>
+            <li><strong>4. "The lake is northwest of the apartment blocks."</strong> &rarr; ❌ <strong>Incorrect (False).</strong> The lake is located <strong>southwest</strong> of the apartment blocks.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TOPIC 2 -->
+      
 
             </div>
             <div class="running-footer">
@@ -2424,18 +1860,18 @@
           </div>
         </div>
 
-        <!-- Leaf 1: Front = Page 3 (Topics 2, 3, 4 Part 1), Back = Page 4 (Topic 4 Part 2, Topic 5 Part 1) -->
+        <!-- Leaf 1: Front = Page 3 (Topics 2 & 3: Globe & Latitudes), Back = Page 4 (Topic 4: Longitudes & Madhya Rekha) -->
         <div class="book-leaf" id="leaf-1" data-leaf="1">
           <div class="leaf-face front book-page" data-page="3">
             <div class="running-header">
-              <span>Topic 2 &amp; 3: Globe, Coordinates &amp; Latitudes</span>
+              <span>Topics 2 &amp; 3: Globe &amp; Latitudes</span>
               <span>Ch 1: Locating Places on the Earth</span>
             </div>
             <div class="book-page-body">
               
 <div class="section-header">
   <span class="section-num">Section 2 Cont.</span>
-  <h2>🌐 Globe, System of Coordinates &amp; Latitudes</h2>
+  <h2>🌐 Topics 2 &amp; 3: Globe, System of Coordinates &amp; Latitudes</h2>
 </div>
 <div class="topic-block">
         <div class="topic-title">TOPIC 2: Mapping the Earth – The Globe & System of Coordinates</div>
@@ -2535,6 +1971,23 @@
 
       <!-- TOPIC 4 -->
       
+
+            </div>
+            <div class="running-footer">
+              <span>— Page 3 —</span>
+            </div>
+          </div>
+          <div class="leaf-face back book-page" data-page="4">
+            <div class="running-header">
+              <span>Ch 1: Locating Places on the Earth</span>
+              <span>Topic 4: Longitudes &amp; Madhya Rekha</span>
+            </div>
+            <div class="book-page-body">
+              
+<div class="section-header">
+  <span class="section-num">Section 2 Cont.</span>
+  <h2>🏛️ Topic 4: Meridians of Longitude &amp; Ancient Madhya Rekha</h2>
+</div>
 <div class="topic-block">
         <div class="topic-title">TOPIC 4: Longitudes (Meridians), Grid Lines & Ujjayinī Prime Meridian</div>
         
@@ -2636,25 +2089,7 @@
         </div>
 
         <div class="callout callout-act">
-          
-
-            </div>
-            <div class="running-footer">
-              <span>— Page 3 —</span>
-            </div>
-          </div>
-          <div class="leaf-face back book-page" data-page="4">
-            <div class="running-header">
-              <span>Ch 1: Locating Places on the Earth</span>
-              <span>Topic 4 &amp; 5: Madhya Rekha &amp; Time Zones</span>
-            </div>
-            <div class="book-page-body">
-              
-<div class="section-header">
-  <span class="section-num">Section 2 Cont.</span>
-  <h2>🏛️ Ancient Madhya Rekha &amp; Global Time Zones</h2>
-</div>
-<div class="callout-title">🧪 In-Box Info Decoded ("DON'T MISS OUT" - Pages 17–18): India's Ancient Prime Meridian – Madhya Rekha (Ujjayinī)</div>
+          <div class="callout-title">🧪 In-Box Info Decoded ("DON'T MISS OUT" - Pages 17–18): India's Ancient Prime Meridian – Madhya Rekha (Ujjayinī)</div>
           <ul>
             <li><strong>🧪 Historical Fact:</strong> The Greenwich Meridian (1884) is not the first prime meridian! Many centuries before Europe, India had a prime meridian of its own called <strong><em>madhya rekha</em> (or 'middle line')</strong>.</li>
             <li><strong>👀 Key Details (Fig. 1.5 - Page 18):</strong>
@@ -2722,6 +2157,27 @@
 
       <!-- TOPIC 5 -->
       
+
+            </div>
+            <div class="running-footer">
+              <span>— Page 4 —</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leaf 2: Front = Page 5 (Topic 5: Time Zones & IST), Back = Page 6 (Section 3 & Section 4 Part A) -->
+        <div class="book-leaf" id="leaf-2" data-leaf="2">
+          <div class="leaf-face front book-page" data-page="5">
+            <div class="running-header">
+              <span>Topic 5: Time Zones &amp; IST</span>
+              <span>Ch 1: Locating Places on the Earth</span>
+            </div>
+            <div class="book-page-body">
+              
+<div class="section-header">
+  <span class="section-num">Section 2 Cont.</span>
+  <h2>⏰ Topic 5: Time Zones, IST &amp; International Date Line</h2>
+</div>
 <div class="topic-block">
         <div class="topic-title">TOPIC 5: Understanding Time Zones, IST & the International Date Line</div>
         
@@ -2771,29 +2227,7 @@
 
         <!-- Decoded Activities for Topic 5 -->
         <div class="callout callout-act">
-          
-
-            </div>
-            <div class="running-footer">
-              <span>— Page 4 —</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Leaf 2: Front = Page 5 (Topic 5 Part 2 & Activities), Back = Page 6 (Section 3 Fact Bank & Section 4 Part A) -->
-        <div class="book-leaf" id="leaf-2" data-leaf="2">
-          <div class="leaf-face front book-page" data-page="5">
-            <div class="running-header">
-              <span>Topic 5 &amp; Decoded In-Text Activities</span>
-              <span>Ch 1: Locating Places on the Earth</span>
-            </div>
-            <div class="book-page-body">
-              
-<div class="section-header">
-  <span class="section-num">Section 2 Cont.</span>
-  <h2>🧪 Decoded NCERT In-Text Activities &amp; IST Calculations</h2>
-</div>
-<div class="callout-title">🧪 Activity Decoded ("LET'S EXPLORE" - Page 21): Porbandar (Gujarat) vs. Tinsukia (Assam)</div>
+          <div class="callout-title">🧪 Activity Decoded ("LET'S EXPLORE" - Page 21): Porbandar (Gujarat) vs. Tinsukia (Assam)</div>
           <ul>
             <li><strong>🧪 Scenario:</strong> Two friends — one in <strong>Porbandar (Gujarat)</strong> in the west and one in <strong>Tinsukia (Assam)</strong> in the east — speak on the phone in the late afternoon. In Assam, the sun has already set and it is dark, while in Gujarat it is still full daylight! (Longitude difference &approx; <strong>30°</strong>).</li>
             <li><strong>👀 Part 1: Why is it dark in Assam while still daylight in Gujarat?</strong>
@@ -2820,48 +2254,6 @@
         </div>
       </div>
     
-<!-- Decoded Activities for Topic 1 -->
-        <div class="callout callout-act">
-          <div class="callout-title">🧪 Activity 1 Decoded ("LET'S EXPLORE" - Page 9): Navigating the Small City Map (Fig. 1.1)</div>
-          <ul>
-            <li><strong>🧪 Setup:</strong> Examining the map of an imaginary small city (Fig. 1.1 on page 8) containing a Railway Station, Lake, Apartments, Hospital, School, Market, Nagar Panchayat, Bank, Public Garden, and Museum.</li>
-            <li><strong>👀 Observation & Answers:</strong>
-              <ol>
-                <li><strong>Mark the hospital:</strong> Located right in the central part of the city, south-east of the lake and north-west of the market (marked with a red '+' sign).</li>
-                <li><strong>What is the meaning of the blue-coloured areas?</strong> The blue-coloured areas represent <strong>water bodies</strong> — specifically the <strong>Lake</strong> and the <strong>stream/river</strong> flowing into it from the north.</li>
-                <li><strong>Which is farther away from the railway station — the school, the Nagar Panchayat, or the public garden?</strong> The <strong>Public Garden</strong> (located at the extreme eastern end of the map) is the farthest away from the railway station (which is on the extreme western side).</li>
-              </ol>
-            </li>
-          </ul>
-        </div>
-
-        <div class="callout callout-act">
-          <div class="callout-title">🧪 Activity 2 Decoded ("LET'S EXPLORE" - Page 10): Playground Scale & Diagonal Calculation</div>
-          <ul>
-            <li><strong>🧪 Setup:</strong> Draw a rectangular school playground measuring <strong>40 m in length</strong> and <strong>30 m in width</strong> using a scale of <strong>1 cm = 10 m</strong>.</li>
-            <li><strong>👀 Step-by-Step Calculation & Observation:</strong>
-              <ul>
-                <li>Since <strong>1 cm = 10 m</strong>, the drawn length on paper = 40 &divide; 10 = <strong>4 cm</strong>, and the drawn width on paper = 30 &divide; 10 = <strong>3 cm</strong>.</li>
-                <li>When you draw a <strong>4 cm &times; 3 cm</strong> rectangle with a ruler and measure its diagonal, you get exactly <strong>5 cm</strong> (&radic;(4&sup2; + 3&sup2;) = &radic;(16 + 9) = &radic;25 = 5 cm).</li>
-              </ul>
-            </li>
-            <li><strong>💡 Conclusion / Real Length of Diagonal:</strong> Using the scale (1 cm = 10 m), the real length of the playground's diagonal on the ground is 5 cm &times; 10 m/cm = <strong>50 metres</strong>.</li>
-          </ul>
-        </div>
-
-        <div class="callout callout-act">
-          <div class="callout-title">🧪 Activity 3 Decoded ("LET'S EXPLORE" - Page 11): True/False Direction Statements on Fig. 1.1</div>
-          <ul>
-            <li><strong>1. "The market is north of the hospital."</strong> &rarr; ❌ <strong>Incorrect (False).</strong> Looking at Fig. 1.1, the market is located <strong>south / southeast</strong> of the hospital.</li>
-            <li><strong>2. "The museum is southeast of the bank."</strong> &rarr; ✅ <strong>Correct (True).</strong> The museum lies below and slightly to the right (southeast) of the bank.</li>
-            <li><strong>3. "The railway station is northwest of the hospital."</strong> &rarr; ✅ <strong>Correct (True).</strong> From the hospital, moving up (north) and left (west) leads to the railway station.</li>
-            <li><strong>4. "The lake is northwest of the apartment blocks."</strong> &rarr; ❌ <strong>Incorrect (False).</strong> The lake is located <strong>southwest</strong> of the apartment blocks.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- TOPIC 2 -->
-      
 
             </div>
             <div class="running-footer">
@@ -2875,8 +2267,7 @@
             </div>
             <div class="book-page-body">
               
-<section id="sec3" class="section-card">
-      <div class="section-header">
+<div class="section-header">
         <span class="section-num">Section 3</span>
         <h2>🗂️ Formula, Definition, Key Dates & Coordinates Bank</h2>
       </div>
@@ -2969,14 +2360,11 @@
           </tbody>
         </table>
       </div>
-    </section>
-<section id="sec4" class="section-card">
-      <div class="section-header">
-        <span class="section-num">Section 4</span>
-        <h2>✍️ Complete NCERT Solutions (In-Text + End-of-Chapter Exercises)</h2>
-      </div>
-
-      <h4>Part A: "The Big Questions" (Page 7)</h4>
+<div class="section-header" style="margin-top:22px;">
+  <span class="section-num">Section 4</span>
+  <h2>✍️ Complete NCERT Solutions (In-Text)</h2>
+</div>
+<h4>Part A: "The Big Questions" (Page 7)</h4>
 
       <div class="q-card">
         <div class="q-title">Big Question 1: What is a map and how do we use it? What are its main components?</div>
@@ -3031,9 +2419,6 @@
         </details>
       </div>
 
-      </div>
-
-
             </div>
             <div class="running-footer">
               <span>— Page 6 —</span>
@@ -3041,7 +2426,7 @@
           </div>
         </div>
 
-        <!-- Leaf 3: Front = Page 7 (NCERT Part B Exercises), Back = Page 8 (Section 5 Question Bank MCQs & A/R) -->
+        <!-- Leaf 3: Front = Page 7 (NCERT Part B Exercises), Back = Page 8 (Section 5 MCQs & A/R) -->
         <div class="book-leaf" id="leaf-3" data-leaf="3">
           <div class="leaf-face front book-page" data-page="7">
             <div class="running-header">
@@ -3054,31 +2439,6 @@
   <span class="section-num">Section 4 Cont.</span>
   <h2>✍️ End-of-Chapter Exercises &amp; Crossword Solved</h2>
 </div>
-<div class="section-card" style="border:none; padding:0; box-shadow:none;">
-</div>
-
-
-            </div>
-            <div class="running-footer">
-              <span>— Page 6 —</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Leaf 3: Front = Page 7 (NCERT Part B Exercises), Back = Page 8 (Section 5 Question Bank MCQs & A/R) -->
-        <div class="book-leaf" id="leaf-3" data-leaf="3">
-          <div class="leaf-face front book-page" data-page="7">
-            <div class="running-header">
-              <span>Section 4: Solved NCERT Exercises</span>
-              <span>Ch 1: Locating Places on the Earth</span>
-            </div>
-            <div class="book-page-body">
-              
-<div class="section-header">
-  <span class="section-num">Section 4 Cont.</span>
-  <h2>✍️ End-of-Chapter Exercises &amp; Crossword Solved</h2>
-</div>
-<div class="section-card" style="border:none; padding:0; box-shadow:none;">
 <h4>Part B: End-of-Chapter Exercises ("Questions, activities and projects" - Pages 24–25)</h4>
 
       <div class="q-card">
@@ -3229,7 +2589,6 @@
           </div>
         </details>
       </div>
-    </section>
 
             </div>
             <div class="running-footer">
@@ -3645,8 +3004,11 @@
         </details>
       </div>
     
-<section id="sec6" class="section-card">
-      <div class="section-header">
+<div class="section-header" style="margin-top:22px;">
+  <span class="section-num">Section 6</span>
+  <h2>⚡ Teacher's Exam Tips &amp; Rapid Revision</h2>
+</div>
+<div class="section-header">
         <span class="section-num">Section 6</span>
         <h2>⚡ Teacher's Exam Tips &amp; 5-Minute Rapid Revision Cheat Sheet</h2>
       </div>
@@ -3685,8 +3047,7 @@
         <li>⚡ Large countries have multiple time zones: the <strong>USA has 6 time zones</strong> and <strong>Russia has 11 time zones</strong>.</li>
         <li>⚡ The <strong>International Date Line (IDL)</strong> lies at approx. <strong>180° longitude</strong> (deviating to avoid splitting countries into two days); crossing it <strong>eastward subtracts a day</strong> and crossing it <strong>westward adds a day</strong>.</li>
       </ol>
-    </section>
-<div class="callout callout-act" style="text-align:center; padding:22px; margin-top:20px; border-left:5px solid #10b981;">
+<div class="callout callout-act" style="text-align:center; padding:22px; margin-top:22px; border-left:5px solid #10b981;">
   <div style="font-size:2rem; margin-bottom:8px;">🎉</div>
   <div style="font-weight:800; font-size:1.15rem; color:#065f46; margin-bottom:6px;">Chapter 1 Mastered!</div>
   <p style="font-size:0.88rem; color:#064e3b; margin-bottom:14px;">
@@ -3715,7 +3076,7 @@
 
     <!-- Bottom Page Indicator & Quick Jump Dots -->
     <div class="flip-footer-bar">
-      <div class="flip-page-info" id="flipPageInfo">Page 1 of 10 (Cover)</div>
+      <div class="flip-page-info" id="flipPageInfo">Page 1 of 10 (Cover &amp; Mind Map)</div>
       <div class="flip-spread-dots" id="flipSpreadDots">
         <span class="dot active" onclick="goToSpread(0)" title="Page 1 (Cover)"></span>
         <span class="dot" onclick="goToSpread(1)" title="Pages 2–3"></span>
@@ -3728,47 +3089,42 @@
   </div>
 
 
-  <!-- TRADITIONAL WEB SCROLL VIEW -->
-  <div id="scroll-view">
+  <!-- TRADITIONAL WEB SCROLL VIEW CONTAINER -->
+  <div id="scroll-view-container">
     <!-- Top-Fixed Reading Progress Bar -->
     <div id="reading-progress-bar"></div>
 
     <!-- Sticky Navigation & Interactive Toolbar -->
     <nav class="top-bar">
-      <div class="nav-links">
-        <a href="../../index.html">🏠 Portal Home</a>
-        <a href="#sec1">1. Blueprint</a>
-        <a href="#sec2">2. Master Notes</a>
-        <a href="#sec3">3. Fact &amp; Formula Bank</a>
-        <a href="#sec4">4. NCERT Solutions</a>
-        <a href="#sec5">5. PYQ &amp; CBE Bank</a>
-        <a href="#sec6">6. Revision &amp; Mistakes</a>
-      </div>
-      <div class="toolbar-actions" style="margin-right: 230px;">
-        <button class="btn" onclick="toggleAllAnswers(true)">👁️ Expand All</button>
-        <button class="btn" onclick="toggleAllAnswers(false)">🙈 Collapse</button>
-        <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
-      </div>
-    </nav>
+    <div class="nav-links">
+      <a href="../../index.html">🏠 Portal Home</a>
+      <a href="#sec1">1. Blueprint</a>
+      <a href="#sec2">2. Master Notes</a>
+      <a href="#sec3">3. Fact & Formula Bank</a>
+      <a href="#sec4">4. NCERT Solutions</a>
+      <a href="#sec5">5. PYQ & CBE Bank</a>
+      <a href="#sec6">6. Revision & Mistakes</a>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn" onclick="toggleAllAnswers(true)">👁️ Expand All Answers</button>
+      <button class="btn" onclick="toggleAllAnswers(false)">🙈 Collapse Answers</button>
+      <button class="btn btn-primary" onclick="window.print()">🖨️ Print / Save PDF</button>
+    </div>
+  </nav>
 
     <div class="container">
-      <!-- HERO HEADER -->
       <header class="hero">
-        <div class="hero-badges">
-          <span class="badge">Class 06 Social Science</span>
-          <span class="badge">NCERT: Exploring Society: India and Beyond</span>
-          <span class="badge">Theme A: India and the World: Land and the People</span>
-          <span class="badge">✨ Complete Teacher's Study Notes</span>
-        </div>
-        <h1>🧭 Chapter 1: Locating Places on the Earth</h1>
-        <p>Complete Line-by-Line NCERT Coverage: Maps &amp; Components (Scale, Directions, Survey of India Symbols), Globes, Coordinates, Latitudes &amp; Climate Zones, Longitudes, Ujjayinī Madhya Rekha, IST, Time Zones &amp; International Date Line.</p>
-        <div>
-          <button class="audio-btn" id="teacherAudioBtn" onclick="toggleTeacherAudio()" title="Listen to Teacher's Summary">
-            <span>🔊 Listen to Teacher's Summary</span>
-          </button>
-        </div>
-      </header>
-
+      <div class="hero-badges">
+        <span class="badge">Class 06 Social Science</span>
+        <span class="badge">NCERT: Exploring Society: India and Beyond</span>
+        <span class="badge">Theme A: India and the World: Land and the People</span>
+        <span class="badge">✨ Complete Teacher's Study Notes</span>
+      </div>
+      <h1>🧭 Chapter 1: Locating Places on the Earth</h1>
+      <p>Complete Line-by-Line NCERT Coverage: Maps & Components (Scale, Directions, Survey of India Symbols), Globes, Coordinates, Latitudes & Climate Zones, Longitudes, Ujjayinī Madhya Rekha, IST, Time Zones & International Date Line.</p>
+    
+    <div><button class="audio-btn" id="teacherAudioBtn" onclick="toggleTeacherAudio()" title="Listen to Teacher's Summary"><span>🔊 Listen to Teacher's Summary</span></button></div>
+  </header>
       <section id="sec1" class="section-card">
       <div class="section-header">
         <span class="section-num">Section 1</span>
@@ -4536,31 +3892,7 @@
         </details>
       </div>
 
-      </div>
-
-
-            </div>
-            <div class="running-footer">
-              <span>— Page 6 —</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Leaf 3: Front = Page 7 (NCERT Part B Exercises), Back = Page 8 (Section 5 Question Bank MCQs & A/R) -->
-        <div class="book-leaf" id="leaf-3" data-leaf="3">
-          <div class="leaf-face front book-page" data-page="7">
-            <div class="running-header">
-              <span>Section 4: Solved NCERT Exercises</span>
-              <span>Ch 1: Locating Places on the Earth</span>
-            </div>
-            <div class="book-page-body">
-              
-<div class="section-header">
-  <span class="section-num">Section 4 Cont.</span>
-  <h2>✍️ End-of-Chapter Exercises &amp; Crossword Solved</h2>
-</div>
-<div class="section-card" style="border:none; padding:0; box-shadow:none;">
-<h4>Part B: End-of-Chapter Exercises ("Questions, activities and projects" - Pages 24–25)</h4>
+      <h4>Part B: End-of-Chapter Exercises ("Questions, activities and projects" - Pages 24–25)</h4>
 
       <div class="q-card">
         <div class="q-title">Q1. Returning to page 10 and to Fig. 5.2 in Chapter 5 of this textbook, taking the scale to be 2.5 cm = 500 km, calculate the real distance from the estuary of the Narmada River to the estuary of the Ganga river. (Hint: round off your measurement on the map to an easy number.)</div>
@@ -5215,31 +4547,37 @@
       }
     }
 
-    // 3. Desktop 2-Page Spread Mechanics
-    function updateSpreadDisplay(animatingLeaf, isForward) {
+    // 3. Desktop 2-Page Spread Mechanics & Mobile Adaptation
+    function updateSpreadDisplay(animatingLeaf) {
       var isMobile = window.innerWidth < 768;
 
       if (!isMobile) {
-        // Desktop Spread Layout
+        var allPages = document.querySelectorAll('#flipbook-view-container .book-page');
+        allPages.forEach(function(pg) {
+          pg.style.display = 'flex';
+          pg.style.position = 'absolute';
+          pg.style.width = '100%';
+          pg.style.height = '100%';
+        });
+
         for (var i = 0; i < totalLeaves; i++) {
           var leaf = document.getElementById('leaf-' + i);
           if (!leaf) continue;
+          leaf.style.width = '50%';
+          leaf.style.left = 'auto';
+          leaf.style.right = '0';
 
           if (animatingLeaf === leaf) {
-            // Keep active turning z-index high
             leaf.style.zIndex = '30';
           } else if (i < currentSpread) {
-            // Flipped to left side
             leaf.style.transform = 'rotateY(-180deg)';
             leaf.style.zIndex = String(i + 1);
           } else {
-            // Unflipped on right side
             leaf.style.transform = 'rotateY(0deg)';
             leaf.style.zIndex = String(totalLeaves - i);
           }
         }
 
-        // Update Page Label
         var pageInfo = document.getElementById('flipPageInfo');
         if (pageInfo) {
           if (currentSpread === 0) {
@@ -5257,9 +4595,8 @@
           }
         }
       } else {
-        // Mobile Single Page Layout (<768px)
-        var allPages = document.querySelectorAll('#flipbook-view .book-page');
-        allPages.forEach(function(pg) {
+        var mPages = document.querySelectorAll('#flipbook-view-container .book-page');
+        mPages.forEach(function(pg) {
           var pNum = parseInt(pg.getAttribute('data-page'), 10) - 1;
           if (pNum === currentMobilePage) {
             pg.style.display = 'flex';
@@ -5272,10 +4609,12 @@
           }
         });
 
-        // Ensure parent leaves don't clip
         for (var j = 0; j < totalLeaves; j++) {
           var mLeaf = document.getElementById('leaf-' + j);
           if (mLeaf) {
+            mLeaf.style.width = '100%';
+            mLeaf.style.left = '0';
+            mLeaf.style.right = '0';
             mLeaf.style.transform = 'none';
             mLeaf.style.zIndex = '1';
           }
@@ -5287,7 +4626,6 @@
         }
       }
 
-      // Update Navigation Buttons (prev / next disabled states)
       var prevBtn = document.getElementById('flipNavPrev');
       var nextBtn = document.getElementById('flipNavNext');
 
@@ -5299,7 +4637,6 @@
         if (nextBtn) nextBtn.disabled = (currentMobilePage === totalPages - 1);
       }
 
-      // Update Dots
       var dots = document.querySelectorAll('#flipSpreadDots .dot');
       var activeDotIdx = isMobile ? Math.floor(currentMobilePage / 2) : currentSpread;
       dots.forEach(function(d, idx) {
@@ -5418,17 +4755,17 @@
     // 6. Touch Swipe Navigation
     var touchStartX = 0;
     var touchStartY = 0;
-    var flipbookViewEl = document.getElementById('flipbook-view');
+    var flipbookContainerEl = document.getElementById('flipbook-view-container');
 
-    if (flipbookViewEl) {
-      flipbookViewEl.addEventListener('touchstart', function(e) {
+    if (flipbookContainerEl) {
+      flipbookContainerEl.addEventListener('touchstart', function(e) {
         if (e.touches && e.touches.length === 1) {
           touchStartX = e.touches[0].clientX;
           touchStartY = e.touches[0].clientY;
         }
       }, { passive: true });
 
-      flipbookViewEl.addEventListener('touchend', function(e) {
+      flipbookContainerEl.addEventListener('touchend', function(e) {
         if (e.changedTouches && e.changedTouches.length === 1) {
           var touchEndX = e.changedTouches[0].clientX;
           var touchEndY = e.changedTouches[0].clientY;
@@ -5497,8 +4834,8 @@
         utterance.pitch = 1.0;
         utterance.onend = function() {
           teacherSpeechActive = false;
-          if (btn1) btn1.innerHTML = "<span>🔊 Listen to Teacher's Summary</span>";
-          if (btn2) btn2.innerHTML = "<span>🔊 Listen to Teacher's Summary</span>";
+          if (btn1) btn1.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+          if (btn2) btn2.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
         };
         window.speechSynthesis.speak(utterance);
         teacherSpeechActive = true;
@@ -5507,8 +4844,8 @@
       } else {
         window.speechSynthesis.cancel();
         teacherSpeechActive = false;
-        if (btn1) btn1.innerHTML = "<span>🔊 Listen to Teacher's Summary</span>";
-        if (btn2) btn2.innerHTML = "<span>🔊 Listen to Teacher's Summary</span>";
+        if (btn1) btn1.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+        if (btn2) btn2.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
       }
     }
 
@@ -5666,7 +5003,6 @@
 
     // 12. Initialization on DOM Load
     document.addEventListener('DOMContentLoaded', function() {
-      // Default to 3D Book View
       switchViewMode('book');
       initInteractiveQuizEngine();
     });
