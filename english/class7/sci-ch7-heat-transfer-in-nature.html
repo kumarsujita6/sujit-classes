@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 7 - Heat Transfer in Nature (Class 7 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #ea580c;
+      --primary-light: #ffedd5;
+      --primary-dark: #c2410c;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #ea580c, #0284c7, #10b981);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 50%, #fed7aa 100%);
+      border-radius: 1.5rem;
+      padding: 3rem 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #fdba74;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #ffffff;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.3rem;
+      line-height: 1.25;
+      color: #7c2d12;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: #9a3412;
+      margin-bottom: 1.5rem;
+      max-width: 720px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      color: #7c2d12;
+      border-top: 1px solid #fed7aa;
+      padding-top: 1.25rem;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Audio Bar */
+    .audio-bar {
+      background: white;
+      border: 1px solid #fed7aa;
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .audio-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .audio-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .audio-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--surface);
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--light);
+    }
+
+    .section-tag {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    /* Typography & Content */
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      color: #1e293b;
+      margin: 1.75rem 0 0.75rem;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      color: #334155;
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 1rem; }
+    ul, ol { margin: 0 0 1.25rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+
+    /* Custom Callouts */
+    .callout {
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+
+    .callout-def {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #166534;
+    }
+
+    .callout-act {
+      background: #f0f9ff;
+      border-left: 4px solid #0284c7;
+      color: #075985;
+    }
+
+    .callout-pyq {
+      background: #fefce8;
+      border-left: 4px solid #ca8a04;
+      color: #854d0e;
+    }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-left: 4px solid #9333ea;
+      color: #6b21a8;
+    }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: #f8fafc;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      color: #1e293b;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background-color: #fbfcfe; }
+
+    /* Collapsible Solutions */
+    .ans-box {
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      background: #ffffff;
+      transition: all 0.2s ease;
+    }
+
+    .ans-box summary {
+      padding: 1rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #f8fafc;
+      transition: background 0.2s;
+    }
+
+    .ans-box summary:hover {
+      background: #f1f5f9;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+      background: #ffffff;
+    }
+
+    .step-pill {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.375rem;
+      margin-right: 0.4rem;
+    }
+
+    /* Quiz Widget */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quiz-q {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .opt-btn {
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 0.6rem;
+      background: white;
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .opt-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+
+    .opt-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+
+    .quiz-feedback {
+      display: none;
+      padding: 0.85rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* Floating Back to Top */
+    #backToTopBtn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.2s ease;
+      z-index: 999;
+    }
+
+    #backToTopBtn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero { padding: 2rem 1.25rem; }
+      .section-card { padding: 1.5rem 1rem; }
+      .top-nav { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <!-- Sticky Top Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Deep Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Quiz Engine</a>
+      <a href="#sec6" class="nav-link">6. Exam Readiness</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Hero Banner -->
+    <header class="hero">
+      <div class="hero-badge">
+        <i class="fa-solid fa-fire-flame-curved"></i> Class 7 Science Curiosity • Chapter 7
+      </div>
+      <h1>Heat Transfer in Nature</h1>
+      <p class="hero-subtitle">
+        Explore how thermal energy travels across solid utensils, circulating oceanic fluids, atmospheric winds, and the vast vacuum of space — and drives Earth's perpetual water cycle!
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><i class="fa-solid fa-book-open"></i> NCERT NEP 2020 Code: gecu107</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-clock"></i> 35 Mins Comprehensive Master Read</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-circle-check"></i> 100% In-Text Activities & Solutions Included</div>
+      </div>
+    </header>
+
+    <!-- Teacher Audio Summary Widget -->
+    <div class="audio-bar">
+      <div class="audio-info">
+        <div class="audio-icon"><i class="fa-solid fa-headphones-simple"></i></div>
+        <div>
+          <strong style="font-size: 0.95rem; color: var(--dark);">Listen to Chapter Summary</strong>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Interactive 2-Minute Speech Synthesis Overview</p>
+        </div>
+      </div>
+      <button class="audio-btn" id="ttsBtn" onclick="toggleTeacherAudio()">
+        <i class="fa-solid fa-play" id="ttsIcon"></i> <span id="ttsText">Play Audio</span>
+      </button>
+    </div>
+
+    <!-- ==========================================
+         SECTION 1: VISUAL ARCHITECTURE & BLUEPRINT
+         ========================================== -->
+    <section class="section-card" id="sec1">
+      <div class="section-header">
+        <span class="section-tag">Section 1</span>
+        <h2 class="section-title">Visual Architecture & Mind Map</h2>
+      </div>
+      <p>
+        Heat is thermal energy in transit. It always flows spontaneously from a region of higher temperature to a region of lower temperature. The diagram below illustrates the three distinct modes of heat transfer and their planetary manifestation in the global water cycle.
+      </p>
+
+      <!-- Inline SVG Concept Map -->
+      <div style="width: 100%; overflow-x: auto; background: #fffaf5; border: 1px solid #fed7aa; border-radius: 1rem; padding: 1.5rem; margin: 1.5rem 0;">
+        <svg viewBox="0 0 880 500" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="heatGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ea580c"/>
+              <stop offset="100%" stop-color="#c2410c"/>
+            </linearGradient>
+            <linearGradient id="condGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f97316"/>
+              <stop offset="100%" stop-color="#ea580c"/>
+            </linearGradient>
+            <linearGradient id="convGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+            <linearGradient id="radGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#eab308"/>
+              <stop offset="100%" stop-color="#ca8a04"/>
+            </linearGradient>
+            <linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#047857"/>
+            </linearGradient>
+            <filter id="shadowDrop" x="-10%" y="-10%" width="120%" height="120%">
+              <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.15"/>
+            </filter>
+          </defs>
+
+          <!-- Central Node: Heat Transfer -->
+          <rect x="340" y="25" width="200" height="60" rx="12" fill="url(#heatGrad)" filter="url(#shadowDrop)"/>
+          <text x="440" y="52" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" text-anchor="middle">HEAT TRANSFER</text>
+          <text x="440" y="72" fill="#ffedd5" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">(High Temp &rarr; Low Temp)</text>
+
+          <!-- Branch Lines -->
+          <path d="M 370 85 L 140 160" stroke="#f97316" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <path d="M 420 85 L 360 160" stroke="#0284c7" stroke-width="2.5"/>
+          <path d="M 470 85 L 560 160" stroke="#ca8a04" stroke-width="2.5"/>
+          <path d="M 520 85 L 750 160" stroke="#10b981" stroke-width="2.5" stroke-dasharray="4,4"/>
+
+          <!-- Mode 1: Conduction -->
+          <rect x="40" y="160" width="190" height="90" rx="10" fill="url(#condGrad)" filter="url(#shadowDrop)"/>
+          <text x="135" y="188" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="700" text-anchor="middle">1. CONDUCTION</text>
+          <text x="135" y="210" fill="#fff7ed" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">&bull; Predominant in Solids</text>
+          <text x="135" y="226" fill="#fff7ed" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">&bull; Particle vibration without bulk motion</text>
+          <text x="135" y="242" fill="#fff7ed" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">&bull; Conductors vs Insulators</text>
+
+          <!-- Mode 2: Convection -->
+          <rect x="260" y="160" width="195" height="90" rx="10" fill="url(#convGrad)" filter="url(#shadowDrop)"/>
+          <text x="357" y="188" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="700" text-anchor="middle">2. CONVECTION</text>
+          <text x="357" y="210" fill="#e0f2fe" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">&bull; In Fluids (Liquids &amp; Gases)</text>
+          <text x="357" y="226" fill="#e0f2fe" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">&bull; Actual bulk motion of particles</text>
+          <text x="357" y="242" fill="#e0f2fe" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">&bull; Hot fluid rises, cold sinks</text>
+
+          <!-- Mode 3: Radiation -->
+          <rect x="480" y="160" width="180" height="90" rx="10" fill="url(#radGrad)" filter="url(#shadowDrop)"/>
+          <text x="570" y="188" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="700" text-anchor="middle">3. RADIATION</text>
+          <text x="570" y="210" fill="#fefce8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">&bull; Electromagnetic waves</text>
+          <text x="570" y="226" fill="#fefce8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">&bull; Needs NO medium (travels in vacuum)</text>
+          <text x="570" y="242" fill="#fefce8" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">&bull; Sunlight, campfire, radiators</text>
+
+          <!-- Planetary Phenomenon: Water Cycle -->
+          <rect x="685" y="160" width="165" height="90" rx="10" fill="url(#waterGrad)" filter="url(#shadowDrop)"/>
+          <text x="767" y="188" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" text-anchor="middle">4. WATER CYCLE</text>
+          <text x="767" y="210" fill="#ecfdf5" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">&bull; Evaporation &amp; Transpiration</text>
+          <text x="767" y="226" fill="#ecfdf5" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">&bull; Condensation &amp; Clouds</text>
+          <text x="767" y="242" fill="#ecfdf5" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">&bull; Seepage &amp; Aquifers</text>
+
+          <!-- Lower Details Box 1: Conduction Examples -->
+          <path d="M 135 250 L 135 310" stroke="#ea580c" stroke-width="1.5"/>
+          <rect x="35" y="310" width="200" height="150" rx="8" fill="#fff" stroke="#fdba74" stroke-width="1.5"/>
+          <text x="135" y="333" fill="#c2410c" font-size="12" font-weight="700" text-anchor="middle">Real-World Conduction</text>
+          <text x="45" y="355" fill="#475569" font-size="11">&bull; Metal pans cook food</text>
+          <text x="45" y="375" fill="#475569" font-size="11">&bull; Wooden/plastic handles protect</text>
+          <text x="45" y="395" fill="#475569" font-size="11">&bull; Double blankets trap air (insulator)</text>
+          <text x="45" y="415" fill="#475569" font-size="11">&bull; Hollow bricks trap air in walls</text>
+          <text x="45" y="435" fill="#475569" font-size="11">&bull; Falling pins demo (Activity 7.1)</text>
+
+          <!-- Lower Details Box 2: Convection Phenomena -->
+          <path d="M 357 250 L 357 310" stroke="#0284c7" stroke-width="1.5"/>
+          <rect x="250" y="310" width="210" height="150" rx="8" fill="#fff" stroke="#7dd3fc" stroke-width="1.5"/>
+          <text x="355" y="333" fill="#0369a1" font-size="12" font-weight="700" text-anchor="middle">Natural Convection Winds</text>
+          <text x="260" y="355" fill="#475569" font-size="11">&bull; <tspan font-weight="700" fill="#0284c7">Sea Breeze (Day):</tspan> Land heats fast,</text>
+          <text x="270" y="372" fill="#475569" font-size="11">cool ocean air blows inland</text>
+          <text x="260" y="395" fill="#475569" font-size="11">&bull; <tspan font-weight="700" fill="#ea580c">Land Breeze (Night):</tspan> Land cools fast,</text>
+          <text x="270" y="412" fill="#475569" font-size="11">cool land air blows to sea</text>
+          <text x="260" y="435" fill="#475569" font-size="11">&bull; KMnO4 streaks in boiling water</text>
+
+          <!-- Lower Details Box 3: Radiation Details -->
+          <path d="M 570 250 L 570 310" stroke="#ca8a04" stroke-width="1.5"/>
+          <rect x="475" y="310" width="190" height="150" rx="8" fill="#fff" stroke="#fde047" stroke-width="1.5"/>
+          <text x="570" y="333" fill="#a16207" font-size="12" font-weight="700" text-anchor="middle">Radiation Dynamics</text>
+          <text x="485" y="355" fill="#475569" font-size="11">&bull; Heat crosses 150M km space</text>
+          <text x="485" y="375" fill="#475569" font-size="11">&bull; Dark surfaces absorb &amp; emit fast</text>
+          <text x="485" y="395" fill="#475569" font-size="11">&bull; Shiny/light surfaces reflect</text>
+          <text x="485" y="415" fill="#475569" font-size="11">&bull; Thermos flask silvered glass walls</text>
+          <text x="485" y="435" fill="#475569" font-size="11">&bull; Fireplace heats room via infrared</text>
+
+          <!-- Lower Details Box 4: Water Cycle Details -->
+          <path d="M 767 250 L 767 310" stroke="#10b981" stroke-width="1.5"/>
+          <rect x="675" y="310" width="185" height="150" rx="8" fill="#fff" stroke="#86efac" stroke-width="1.5"/>
+          <text x="767" y="333" fill="#15803d" font-size="12" font-weight="700" text-anchor="middle">Hydrological Balance</text>
+          <text x="685" y="355" fill="#475569" font-size="11">&bull; Solar heating powers evaporation</text>
+          <text x="685" y="375" fill="#475569" font-size="11">&bull; Soil seepage (Sandy vs Clayey)</text>
+          <text x="685" y="395" fill="#475569" font-size="11">&bull; Aquifer water storage</text>
+          <text x="685" y="415" fill="#475569" font-size="11">&bull; Ladakh Ice Stupa glaciers</text>
+          <text x="685" y="435" fill="#475569" font-size="11">&bull; Temperature moderation of coasts</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: COMPREHENSIVE STUDY NOTES
+         ========================================== -->
+    <section class="section-card" id="sec2">
+      <div class="section-header">
+        <span class="section-tag">Section 2</span>
+        <h2 class="section-title">Comprehensive Line-by-Line Study Notes</h2>
+      </div>
+
+      <!-- Part 1: Nature of Heat & Temperature -->
+      <h3>1. What is Heat and How Does it Flow?</h3>
+      <p>
+        In everyday language, we often say that a cup of hot tea possesses "heat" and an ice cube possesses "coldness". In physical science, however:
+      </p>
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-lightbulb"></i> Fundamental Definition: Heat</div>
+        <strong>Heat</strong> is a form of energy that transfers between two bodies (or between different parts of the same body) by virtue of a <strong>temperature difference</strong>. Heat always flows spontaneously from a body at a <em>higher temperature</em> to a body at a <em>lower temperature</em> until thermal equilibrium is attained.
+      </div>
+      <p>
+        When two objects reach identical temperatures, heat transfer ceases. In nature, heat never spontaneously flows from a colder object to a warmer object without external work.
+      </p>
+
+      <!-- Part 2: Conduction of Heat -->
+      <h3>2. Conduction: Heat Transfer in Solids</h3>
+      <p>
+        When you hold one end of a metal spoon and place the other end in boiling water or hot soup, the end you are holding gradually becomes uncomfortably hot. How did heat travel from the dipped tip to your fingers?
+      </p>
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-atom"></i> Definition: Conduction</div>
+        <strong>Conduction</strong> is the process by which heat is transferred from the hotter end of an object to its colder end through <em>direct contact between particles</em>, without any actual bulk displacement of the matter itself.
+      </div>
+
+      <h4>How Conduction Occurs at the Microscopic Level</h4>
+      <p>
+        In solids, particles (atoms or molecules) are closely packed in fixed lattice positions. When heat is supplied to one end:
+      </p>
+      <ol>
+        <li>The particles at the heated end absorb thermal kinetic energy and begin to vibrate vigorously about their mean positions.</li>
+        <li>These rapidly vibrating particles collide with their neighbouring slower-moving particles, passing on a portion of their kinetic energy.</li>
+        <li>These neighbours, in turn, collide with the next layer of particles. In this relay fashion, thermal energy is conducted along the entire length of the solid.</li>
+        <li><strong>Key Distinction:</strong> The particles themselves do not travel from the hot end to the cold end; they only oscillate in place.</li>
+      </ol>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-flask"></i> Activity 7.1: Falling of Wax-Fixed Pins on a Metal Strip</div>
+        <strong>Experimental Procedure:</strong>
+        <p>A metal strip (iron or aluminium) is clamped horizontally on an iron stand. Small metal pins are affixed to the underside of the strip at equal distances (e.g., 2 cm apart: Pins I, II, III, IV) using drops of molten candle wax. A spirit lamp or candle flame is applied at the free end.</p>
+        <strong>Observation:</strong>
+        <p>The pins do not drop simultaneously. Pin I (closest to the flame) drops first, followed by Pin II, Pin III, and finally Pin IV.</p>
+        <strong>Scientific Conclusion:</strong>
+        <p>Heat travels progressively along the metal strip by conduction, melting the wax systematically as the thermal wave advances from the hot end to the cold end.</p>
+      </div>
+
+      <h4>Conductors vs Insulators (Poor Conductors)</h4>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Good Conductors of Heat</th>
+              <th>Poor Conductors / Insulators</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Definition</strong></td>
+              <td>Materials that permit heat to pass through them quickly and easily.</td>
+              <td>Materials that resist or severely impede the flow of heat.</td>
+            </tr>
+            <tr>
+              <td><strong>Examples</strong></td>
+              <td>Copper, aluminium, iron, silver, brass.</td>
+              <td>Wood, glass, plastic, rubber, bakelite, dry air, wool, thermocol.</td>
+            </tr>
+            <tr>
+              <td><strong>Everyday Applications</strong></td>
+              <td>Base of saucepans, frying pans, tea kettles, cooking pots, automobile radiators.</td>
+              <td>Handles of cookers, wooden spatulas, winter quilts, thermocol coolers, wall insulation.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-wand-magic-sparkles"></i> Teacher Exam Hack: Why Are Two Thin Blankets Warmer than One Thick Blanket?</div>
+        When two thin blankets are placed together, a thin layer of <strong>air is trapped between them</strong>. Air is an exceptionally poor conductor of heat (an insulator). The trapped air acts as a thermal barrier, preventing body heat from escaping into the cold bedroom environment far more effectively than a single blanket of double thickness that lacks this intermediate trapped air cushion!
+      </div>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-building"></i> Architectural Application: Hollow Bricks in Hot Climates</div>
+        In modern sustainable architecture in arid and hot regions (like Rajasthan or interior Odisha during peak summer), exterior walls are built with <strong>hollow concrete or terracotta bricks</strong>. The hollow cavities enclose stationary pockets of air. Since air is a poor conductor, it severely throttles the conduction of scorching outdoor heat into the house during the day, keeping the interior pleasantly cool.
+      </div>
+
+      <!-- Part 3: Convection -->
+      <h3>3. Convection: Heat Transfer in Fluids (Liquids & Gases)</h3>
+      <p>
+        Why cannot liquids and gases transfer heat efficiently by conduction? Because the molecules in fluids are far apart and are free to move around! Instead, fluids transfer heat via <strong>convection</strong>.
+      </p>
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-water"></i> Definition: Convection</div>
+        <strong>Convection</strong> is the process of heat transfer in fluids (liquids and gases) in which the heat is carried from hotter regions to colder regions by the <strong>actual bodily movement</strong> of the heated particles themselves, establishing circular flow loops known as <em>convection currents</em>.
+      </div>
+
+      <h4>The Physics Mechanism of Convection</h4>
+      <ul>
+        <li>When a fluid is heated from below, its particles gain kinetic energy, move faster, and spread further apart.</li>
+        <li>Consequently, the heated fluid <strong>expands</strong> and its <strong>density decreases</strong> (it becomes lighter).</li>
+        <li>By Archimedes' buoyant principle, the lighter, warmer fluid rises upward.</li>
+        <li>The denser, colder fluid from the top or sides sinks downward to occupy the space vacated by the rising warm fluid.</li>
+        <li>This incoming cooler fluid is then heated, expands, and rises in turn. This continuous cyclical circulation is called a <strong>convection current</strong>.</li>
+      </ul>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-vial"></i> Activity 7.3: Visualizing Convection in Water using KMnO₄</div>
+        A round-bottom flask is filled two-thirds with water and placed on a tripod with a wire gauze. A single small crystal of potassium permanganate ($	ext{KMnO}_4$) is gently placed at the bottom center using a drinking straw. When a gentle flame is applied directly beneath the crystal:
+        <br>&bull; Brilliant purple/pink water streams are seen rising straight up from the bottom to the water surface.
+        <br>&bull; At the surface, the purple water spreads outward towards the cooler sides of the flask and descends back down along the perimeter.
+        <br>&bull; This visualises the circular convection current loop that uniformly heats water throughout the flask.
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-scale-balanced"></i> Activity 7.2: Convection in Air (Paper Cup Balance)</div>
+        Two identical paper cups are hung upside down at the two ends of a lightweight wooden meter rod, perfectly balanced on a center pivot string like a see-saw.
+        <br>&bull; When a burning candle is placed underneath one of the inverted cups, the air inside that cup is heated.
+        <br>&bull; The heated air expands, becomes less dense, and exerts an upward buoyant push as it rises, lifting that side of the balance upward!
+        <br>&bull; <em>Conclusion:</em> Warm air is lighter than cold air and rises.
+      </div>
+
+      <!-- Coastal Convection: Sea Breeze vs Land Breeze -->
+      <h3>4. Nature's Giant Convection Engine: Sea Breeze and Land Breeze</h3>
+      <p>
+        Coastal areas (such as Puri, Gopalpur, Mumbai, or Chennai) experience remarkably moderate and pleasant climates without the scorching 45°C daytime heat or freezing winter nights seen in continental interior regions like Sambalpur or Delhi. This moderation is driven by natural convection winds!
+      </p>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title"><i class="fa-solid fa-sun"></i> Physical Principle: Differential Heating of Land and Water</div>
+        From <strong>Activity 7.4</strong>, soil/sand has a much lower specific heat capacity than water:
+        <br>&bull; Land absorbs heat rapidly and warms up much faster than the sea during the daytime.
+        <br>&bull; Conversely, land loses heat rapidly and cools down much faster than the sea at night.
+        <br>&bull; Water takes a very long time to heat up and an equally long time to cool down.
+      </div>
+
+      <!-- Inline SVG for Sea Breeze & Land Breeze -->
+      <div style="width: 100%; overflow-x: auto; background: #ffffff; border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem; margin: 1.5rem 0;">
+        <svg viewBox="0 0 860 380" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Left Panel: SEA BREEZE (DAY) -->
+          <rect x="15" y="15" width="405" height="350" rx="12" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
+          <text x="217" y="42" fill="#0369a1" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" text-anchor="middle">SEA BREEZE (DAYTIME)</text>
+          
+          <!-- Sun -->
+          <circle cx="65" cy="70" r="18" fill="#f59e0b"/>
+          <path d="M 65 44 L 65 38 M 65 96 L 65 102 M 39 70 L 33 70 M 91 70 L 97 70 M 47 52 L 42 47 M 83 88 L 88 93 M 47 88 L 42 93 M 83 52 L 88 47" stroke="#f59e0b" stroke-width="2.5"/>
+
+          <!-- Land & Sea -->
+          <rect x="30" y="260" width="180" height="90" fill="#d97706" rx="6"/>
+          <text x="120" y="305" fill="#ffffff" font-weight="700" text-anchor="middle">HOT LAND</text>
+          <text x="120" y="325" fill="#fef3c7" font-size="11" text-anchor="middle">(Warms up rapidly)</text>
+
+          <rect x="225" y="270" width="180" height="80" fill="#0284c7" rx="6"/>
+          <text x="315" y="305" fill="#ffffff" font-weight="700" text-anchor="middle">COOL SEA</text>
+          <text x="315" y="325" fill="#e0f2fe" font-size="11" text-anchor="middle">(Warms up slowly)</text>
+
+          <!-- Convection Loop Day -->
+          <!-- Rising warm air from land -->
+          <path d="M 120 250 L 120 120" stroke="#dc2626" stroke-width="3" stroke-dasharray="6,4"/>
+          <polygon points="120,110 114,124 126,124" fill="#dc2626"/>
+          <text x="75" y="170" fill="#dc2626" font-size="11" font-weight="700">Warm air rises</text>
+
+          <!-- Upper air movement to sea -->
+          <path d="M 130 115 L 305 115" stroke="#94a3b8" stroke-width="2.5"/>
+          <polygon points="315,115 303,110 303,120" fill="#94a3b8"/>
+
+          <!-- Cool sinking air over sea -->
+          <path d="M 315 125 L 315 250" stroke="#0284c7" stroke-width="2.5"/>
+          <polygon points="315,260 310,248 320,248" fill="#0284c7"/>
+
+          <!-- Sea Breeze blowing landward -->
+          <path d="M 305 250 L 140 250" stroke="#0284c7" stroke-width="4"/>
+          <polygon points="130,250 144,244 144,256" fill="#0284c7"/>
+          <rect x="155" y="228" width="125" height="24" rx="4" fill="#0284c7"/>
+          <text x="217" y="244" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">SEA BREEZE &rarr;</text>
+
+          <!-- Right Panel: LAND BREEZE (NIGHT) -->
+          <rect x="440" y="15" width="405" height="350" rx="12" fill="#0f172a" stroke="#475569" stroke-width="2"/>
+          <text x="642" y="42" fill="#38bdf8" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" text-anchor="middle">LAND BREEZE (NIGHT)</text>
+
+          <!-- Moon -->
+          <path d="M 480 60 A 16 16 0 1 0 500 80 A 13 13 0 0 1 480 60 Z" fill="#f8fafc"/>
+
+          <!-- Land & Sea -->
+          <rect x="455" y="260" width="180" height="90" fill="#334155" rx="6"/>
+          <text x="545" y="305" fill="#f8fafc" font-weight="700" text-anchor="middle">COOL LAND</text>
+          <text x="545" y="325" fill="#94a3b8" font-size="11" text-anchor="middle">(Cools down rapidly)</text>
+
+          <rect x="650" y="270" width="180" height="80" fill="#0369a1" rx="6"/>
+          <text x="740" y="305" fill="#ffffff" font-weight="700" text-anchor="middle">WARM SEA</text>
+          <text x="740" y="325" fill="#bae6fd" font-size="11" text-anchor="middle">(Retains heat longer)</text>
+
+          <!-- Convection Loop Night -->
+          <!-- Rising warm air from sea -->
+          <path d="M 740 255 L 740 120" stroke="#f97316" stroke-width="3" stroke-dasharray="6,4"/>
+          <polygon points="740,110 734,124 746,124" fill="#f97316"/>
+          <text x="750" y="170" fill="#f97316" font-size="11" font-weight="700">Warm air rises</text>
+
+          <!-- Upper air movement to land -->
+          <path d="M 730 115 L 555 115" stroke="#94a3b8" stroke-width="2.5"/>
+          <polygon points="545,115 557,110 557,120" fill="#94a3b8"/>
+
+          <!-- Sinking cooler air over land -->
+          <path d="M 545 125 L 545 245" stroke="#38bdf8" stroke-width="2.5"/>
+          <polygon points="545,255 540,243 550,243" fill="#38bdf8"/>
+
+          <!-- Land Breeze blowing seaward -->
+          <path d="M 555 250 L 715 250" stroke="#38bdf8" stroke-width="4"/>
+          <polygon points="725,250 711,244 711,256" fill="#38bdf8"/>
+          <rect x="580" y="228" width="125" height="24" rx="4" fill="#0284c7"/>
+          <text x="642" y="244" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">&rarr; LAND BREEZE</text>
+        </svg>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Sea Breeze</th>
+              <th>Land Breeze</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>When it occurs</strong></td>
+              <td>During the daytime (maximum in afternoon).</td>
+              <td>During the night (late night to dawn).</td>
+            </tr>
+            <tr>
+              <td><strong>Direction of wind</strong></td>
+              <td>From the Sea &rarr; towards the Land.</td>
+              <td>From the Land &rarr; towards the Sea.</td>
+            </tr>
+            <tr>
+              <td><strong>Physical Cause</strong></td>
+              <td>Land heats up faster than sea. Warm air over land rises; cool marine air rushes inland.</td>
+              <td>Land cools down faster than sea. Sea water is relatively warmer; air above sea rises; cool air from land blows out to sea.</td>
+            </tr>
+            <tr>
+              <td><strong>Architectural Impact</strong></td>
+              <td>Windows of coastal homes face the sea to catch the refreshing sea breeze.</td>
+              <td>Fishermen take advantage of the land breeze to sail their non-motorized boats out to sea at night.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Part 4: Radiation -->
+      <h3>5. Radiation: Heat Across the Empty Vacuum</h3>
+      <p>
+        The Sun is roughly 150 million kilometres away from Earth. For most of that vast distance, space is an absolute vacuum — completely devoid of air, water, or solid matter. Neither conduction nor convection can occur in a vacuum! How then does solar heat reach our planet?
+      </p>
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-sun"></i> Definition: Radiation</div>
+        <strong>Radiation</strong> is the mode of heat transfer in the form of electromagnetic infrared waves that <strong>does not require any material medium</strong>. It can travel across both transparent media (like air and glass) and absolute vacuum at the speed of light ($3 	imes 10^8 	ext{ m/s}$).
+      </div>
+
+      <h4>Properties of Radiant Heat: Absorption and Reflection</h4>
+      <ul>
+        <li><strong>All hot objects radiate heat:</strong> The Sun, a room heater, a fireplace, a cup of tea, and even the human body constantly emit radiant infrared energy into their surroundings.</li>
+        <li><strong>Black & Dark Surfaces:</strong> Excellent absorbers as well as excellent emitters of thermal radiation. (Why solar cookers and solar water heater panels are painted matte black!).</li>
+        <li><strong>White, Light & Polished Surfaces:</strong> Poor absorbers and excellent reflectors of radiant heat. (Why we wear light-coloured cotton clothes in sweltering summers!).</li>
+      </ul>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-flask"></i> Master Application: The Science of the Thermos Flask (Vacuum Flask)</div>
+        Invented by Sir James Dewar, the vacuum flask is specifically engineered to eliminate all three modes of heat transfer:
+        <br>1. <strong>Vacuum between double glass walls:</strong> Completely stops <em>conduction</em> and <em>convection</em>, because both require particle contact or movement.
+        <br>2. <strong>Silvered/mirrored inner glass surfaces:</strong> Reflects radiant infrared heat back into the flask (or prevents outside radiation from entering), eliminating <em>radiation</em>.
+        <br>3. <strong>Insulated plastic/cork stopper:</strong> Traps hot air and prevents heat loss by conduction and convection through the top opening.
+      </div>
+
+      <!-- Part 5: The Water Cycle & Groundwater -->
+      <h3>6. Heat Transfer in Nature: The Global Water Cycle</h3>
+      <p>
+        The hydrological cycle (water cycle) is the massive planetary mechanism that recycles and redistributes water across oceans, landmasses, and the atmosphere. It is entirely driven by solar radiant heat!
+      </p>
+
+      <h4>Key Thermodynamic Steps of the Water Cycle</h4>
+      <ol>
+        <li><strong>Evaporation & Transpiration:</strong> Solar radiation heats vast ocean surfaces, rivers, lakes, and soil moisture, transforming liquid water into invisible water vapour. Plants concurrently release water vapour through leaf stomata via <em>transpiration</em>.</li>
+        <li><strong>Convection & Cloud Formation:</strong> Warm, humid air is less dense than cool dry air, so it rises high into the cooler upper troposphere via powerful atmospheric convection currents.</li>
+        <li><strong>Condensation:</strong> As the rising vapour expands and cools, it condenses around microscopic aerosol dust particles to form tiny liquid droplets, aggregating into visible clouds.</li>
+        <li><strong>Precipitation:</strong> When water droplets in clouds merge and become too heavy to remain suspended in rising air currents, they fall under gravity as rain, snow, hail, or sleet.</li>
+        <li><strong>Infiltration and Groundwater Storage:</strong> Rain falling on land partially runs off into rivers and oceans, while a critical portion seeps into the soil. This process of water soaking into the ground through soil pore spaces and permeable rock fissures is called <strong>seepage or infiltration</strong>.</li>
+      </ol>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-bore-hole"></i> Important Hydrogeological Concepts: Aquifer & Water Table</div>
+        &bull; <strong>Water Table:</strong> The upper level of the underground zone where all spaces between rocks and soil particles are completely saturated with water.
+        <br>&bull; <strong>Aquifer:</strong> An underground permeable geological reservoir composed of porous rock, gravel, or sand that stores and transmits extractable groundwater. We draw water from aquifers using tube wells and handpumps.
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-filter"></i> Activity 7.5: Rate of Water Seepage in Different Soils</div>
+        When equal quantities of water (200 mL) are poured into funnels containing sandy soil, loamy soil, and clayey soil:
+        <br>&bull; <strong>Sandy Soil:</strong> Large particle size with large pore spaces &rarr; Extremely high percolation rate (water drains through almost immediately).
+        <br>&bull; <strong>Clayey Soil:</strong> Extremely fine, tightly packed particles &rarr; High water retention, very low seepage rate (water stagnates on top).
+        <br>&bull; <strong>Significance:</strong> Regions with permeable, sandy-loam soils allow robust natural recharging of underground aquifers!
+      </div>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title"><i class="fa-solid fa-mountain"></i> Case Study: Sonam Wangchuk's Ice Stupas of Ladakh</div>
+        Ladakh is a high-altitude cold desert that receives minimal rainfall. Farmers face acute water shortages in March and April when sowing crops, while natural mountain glaciers only melt later in June under summer heat.
+        <br>Innovator <strong>Sonam Wangchuk</strong> designed <em>Ice Stupas</em> — conical artificial glaciers created by spraying winter stream water vertically through pipes into freezing night air (-30°C).
+        <br>&bull; Because of its steep conical shape, the ice stupa has a minimal surface area exposed to direct solar radiation while holding a huge volume of ice!
+        <br>&bull; Consequently, it melts very slowly, releasing fresh irrigation water right when farmers need it in spring!
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: HIGH-YIELD FACT & TERM BANK
+         ========================================== -->
+    <section class="section-card" id="sec3">
+      <div class="section-header">
+        <span class="section-tag">Section 3</span>
+        <h2 class="section-title">High-Yield Fact & Scientific Term Bank</h2>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Scientific Term</th>
+              <th>Precise Definition</th>
+              <th>High-Yield Exam Context</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Heat</strong></td>
+              <td>Energy transferred between systems solely due to a temperature gradient.</td>
+              <td>SI unit is Joule (J); always flows from high temp to low temp.</td>
+            </tr>
+            <tr>
+              <td><strong>Conduction</strong></td>
+              <td>Heat transfer in solids via inter-particle collisions without bulk migration.</td>
+              <td>Requires physical contact; cannot take place in a vacuum.</td>
+            </tr>
+            <tr>
+              <td><strong>Convection</strong></td>
+              <td>Heat transfer in fluids (liquids and gases) via actual mass motion of molecules.</td>
+              <td>Hot fluid rises (lower density); cold fluid sinks (higher density).</td>
+            </tr>
+            <tr>
+              <td><strong>Radiation</strong></td>
+              <td>Heat transfer via infrared electromagnetic waves without material medium.</td>
+              <td>Only mode that operates across vacuum; travels at light speed.</td>
+            </tr>
+            <tr>
+              <td><strong>Conductor</strong></td>
+              <td>Material allowing swift, uninhibited thermal flow (e.g. metals).</td>
+              <td>Utensil cooking bases, heat sink fins, boiler tubes.</td>
+            </tr>
+            <tr>
+              <td><strong>Insulator</strong></td>
+              <td>Material offering high thermal resistance (e.g. wood, air, glass, wool).</td>
+              <td>Cookware handles, quilts, jackets, building insulation.</td>
+            </tr>
+            <tr>
+              <td><strong>Sea Breeze</strong></td>
+              <td>Cool daytime breeze blowing from sea to land due to heated rising inland air.</td>
+              <td>Occurs during the day; stabilizes coastal temperatures.</td>
+            </tr>
+            <tr>
+              <td><strong>Land Breeze</strong></td>
+              <td>Cool nighttime breeze blowing from land to sea as land cools rapidly.</td>
+              <td>Occurs at night; aids traditional overnight fishing departures.</td>
+            </tr>
+            <tr>
+              <td><strong>Infiltration / Seepage</strong></td>
+              <td>Downward movement of rainwater through soil and rock layers into the ground.</td>
+              <td>Replenishes groundwater table and sustains agricultural wells.</td>
+            </tr>
+            <tr>
+              <td><strong>Aquifer</strong></td>
+              <td>Subterranean water-bearing stratum of permeable rock, sand, or gravel.</td>
+              <td>Natural underground freshwater reservoirs tapped by borewells.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-brain"></i> Memory Mnemonic: The 3 "C-C-R" Modes of Heat Transfer</div>
+        Remember the three modes by their signature mechanism:
+        <br>&bull; <strong>C</strong>onduction = <strong>C</strong>ontact (particles collide in solids)
+        <br>&bull; <strong>C</strong>onvection = <strong>C</strong>urrents (fluid loops rise and sink)
+        <br>&bull; <strong>R</strong>adiation = <strong>R</strong>ays (infrared electromagnetic waves across space)
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: 100% COMPLETE NCERT SOLUTIONS
+         ========================================== -->
+    <section class="section-card" id="sec4">
+      <div class="section-header">
+        <span class="section-tag">Section 4</span>
+        <h2 class="section-title">100% Complete NCERT Solutions (Let Us Enhance Our Learning)</h2>
+      </div>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Question 1:</strong> Multiple Choice Questions (Choose the correct option in each case)</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>(i) Your father bought a saucepan made of two different materials, A (pan body) and B (handle), as shown in Fig. 7.14. The materials A and B have the following properties:</strong></p>
+          <p>(a) Both A and B are good conductors of heat<br>
+          (b) Both A and B are poor conductors of heat<br>
+          (c) A is a good conductor and B is a poor conductor of heat<br>
+          (d) A is a poor conductor and B is a good conductor of heat</p>
+          <p><span class="step-pill">Correct Answer</span> <strong>(c) A is a good conductor and B is a poor conductor of heat</strong></p>
+          <p><em>Scientific Explanation:</em> Part A is the saucepan body that comes in contact with the flame; it must be a good conductor (e.g., aluminium or stainless steel) so heat is conducted rapidly and uniformly to the food. Part B is the handle held by hand; it must be an insulator / poor conductor (e.g., bakelite or wood) so heat is not transferred to the user's hand, preventing burns.</p>
+
+          <hr style="margin: 1rem 0; border: none; border-top: 1px dashed var(--border);">
+
+          <p><strong>(ii) Pins are stuck to a metal strip with wax and a burning candle is kept below the rod, as shown in Fig. 7.15. Which of the following will happen?</strong></p>
+          <p>(a) All the pins will fall almost at the same time<br>
+          (b) Pins I and II will fall earlier than pins III and IV<br>
+          (c) Pins I and II will fall later than pins III and IV<br>
+          (d) Pins II and III will fall almost at the same time</p>
+          <p><span class="step-pill">Correct Answer</span> <strong>(b) Pins I and II will fall earlier than pins III and IV</strong></p>
+          <p><em>Scientific Explanation:</em> In conduction, heat travels gradually from the heated end towards the farther end. Since Pins I and II are located closer to the burning candle flame than Pins III and IV, the thermal wave reaches their wax deposits first. The wax melts earlier, causing Pins I and II to drop before Pins III and IV.</p>
+
+          <hr style="margin: 1rem 0; border: none; border-top: 1px dashed var(--border);">
+
+          <p><strong>(iii) A smoke detector is a device that detects smoke and sounds an alarm. Suppose you are fitting a smoke detector in your room. The most suitable place for this device will be:</strong></p>
+          <p>(a) Near the floor<br>
+          (b) In the middle of a wall<br>
+          (c) On the ceiling<br>
+          (d) Anywhere in the room</p>
+          <p><span class="step-pill">Correct Answer</span> <strong>(c) On the ceiling</strong></p>
+          <p><em>Scientific Explanation:</em> Smoke consists of hot combustion gases and airborne particles. By the principle of thermal convection, hot air and smoke are lighter (less dense) than cooler ambient air and immediately rise toward the highest point in an enclosed room — the ceiling. Fitting the smoke detector on the ceiling ensures the earliest possible detection of fire.</p>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 2:</strong> A shopkeeper serves you cold lassi in a tumbler. By chance, the tumbler had a small leak. You were given another tumbler by the shopkeeper to put the leaky tumbler in it. Will this arrangement help to keep the lassi cold for a longer time? Explain.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Teacher's Answer</span> <strong>Yes, this arrangement will keep the lassi cold for a noticeably longer time.</strong></p>
+          <p><strong>Scientific Explanation:</strong></p>
+          <ol>
+            <li>When the inner leaky tumbler is placed inside the outer tumbler, a thin layer of air is trapped in the gap between the walls and bottoms of the two tumblers.</li>
+            <li>Air is an exceptionally poor conductor of heat (an insulator).</li>
+            <li>This layer of trapped air acts as a thermal barrier that significantly slows down the conduction of heat from the warm ambient room air into the cold lassi.</li>
+            <li>Consequently, thermal energy transfers into the beverage much more slowly, preserving its low temperature for an extended period.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 3:</strong> State with reason(s) whether the following statements are True [T] or False [F].</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>(i) Heat transfer takes place in solids through convection.</strong><br>
+          <span class="step-pill">Status</span> <strong>FALSE [F]</strong><br>
+          <em>Reason:</em> In solids, constituent particles are held firmly in fixed lattice positions and cannot move bodily from one place to another. Hence, heat transfer in solids occurs exclusively via <strong>conduction</strong> (vibrational energy transfer), whereas convection requires free fluid particle movement (liquids and gases).</p>
+
+          <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed var(--border);">
+
+          <p><strong>(ii) Heat transfer through convection takes place by the actual movement of particles.</strong><br>
+          <span class="step-pill">Status</span> <strong>TRUE [T]</strong><br>
+          <em>Reason:</em> In fluids, heated molecules gain energy, expand, become less dense, and physically rise upward, while cooler and denser molecules sink downward, creating actual circulation loops.</p>
+
+          <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed var(--border);">
+
+          <p><strong>(iii) Areas with clay materials allow more seepage of water than those with sandy materials.</strong><br>
+          <span class="step-pill">Status</span> <strong>FALSE [F]</strong><br>
+          <em>Reason:</em> Clay particles are microscopic and pack tightly together with minimal interconnected pore spaces, resulting in very low permeability and slow seepage. In contrast, sandy soil consists of large, loosely packed particles with large pore spaces that permit rapid percolation and seepage of water.</p>
+
+          <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed var(--border);">
+
+          <p><strong>(iv) The movement of cooler air from land to sea is called land breeze.</strong><br>
+          <span class="step-pill">Status</span> <strong>TRUE [T]</strong><br>
+          <em>Reason:</em> At night, land loses heat rapidly by radiation and becomes colder than the sea. The warm air above the sea rises, and the relatively cooler, denser air from the land blows out toward the sea, creating the <strong>land breeze</strong>.</p>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 4:</strong> Some ice cubes placed in a dish melt into water after sometime. Where do the ice cubes get heat for this transformation?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> The ice cubes (at 0°C) absorb heat from two immediate sources:</p>
+          <ol>
+            <li><strong>The Surrounding Air:</strong> The ambient room air is at a higher temperature (typically 25°C to 35°C). Heat flows spontaneously from the warmer air to the cold ice cubes by <em>convection and radiation</em>.</li>
+            <li><strong>The Dish / Container:</strong> Heat is conducted into the ice cubes directly from the base and walls of the dish through <em>conduction</em>.</li>
+          </ol>
+          <p>This absorbed thermal energy provides the <strong>latent heat of fusion</strong> required to break the rigid hydrogen-bonded crystal lattice of ice, transforming it into liquid water at the same temperature.</p>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 5:</strong> A burning incense stick is fixed, pointing downwards. In which direction would the smoke from the incense stick move? Show the movement of smoke with a diagram.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> Even though the incense stick points downwards, the <strong>smoke will always move UPWARDS</strong>.</p>
+          <p><strong>Scientific Reason:</strong> The combustion flame/ember heats the air immediately surrounding the burning tip. Heated air expands, becomes less dense than the surrounding cooler room air, and rises upward due to buoyant convection currents. The smoke particles are light and carried aloft by this rising column of hot air.</p>
+          
+          <div style="text-align: center; margin: 1rem 0;">
+            <svg viewBox="0 0 300 200" width="280" height="190" xmlns="http://www.w3.org/2000/svg">
+              <!-- Stand / Clamp -->
+              <rect x="30" y="20" width="80" height="12" fill="#64748b" rx="2"/>
+              <rect x="30" y="20" width="10" height="160" fill="#475569"/>
+              <!-- Incense Stick angled downward -->
+              <line x1="100" y1="30" x2="160" y2="150" stroke="#78350f" stroke-width="4"/>
+              <!-- Glowing Tip -->
+              <circle cx="160" cy="150" r="5" fill="#ef4444"/>
+              <circle cx="160" cy="150" r="2.5" fill="#facc15"/>
+              <!-- Rising smoke curves -->
+              <path d="M 160 145 Q 150 110, 165 80 T 155 30" stroke="#94a3b8" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="4,2"/>
+              <path d="M 162 145 Q 175 115, 160 75 T 175 25" stroke="#cbd5e1" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+              <!-- Text label -->
+              <text x="210" y="90" fill="#dc2626" font-size="11" font-weight="700">Hot smoke</text>
+              <text x="210" y="105" fill="#dc2626" font-size="11" font-weight="700">rises upwards</text>
+              <path d="M 205 85 L 180 85" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arrow)"/>
+            </svg>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 6:</strong> Two test tubes with water are heated by a candle flame as shown in Fig. 7.16. In Fig. 7.16(a), the test tube is heated at the bottom and the thermometer is placed near the top. In Fig. 7.16(b), the test tube is heated near the top and the thermometer is placed near the bottom. Which thermometer will record a higher temperature? Explain.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> <strong>The thermometer in Fig. 7.16(a) will record a significantly higher temperature.</strong></p>
+          <p><strong>Detailed Scientific Explanation:</strong></p>
+          <ul>
+            <li><strong>In Fig. 7.16(a):</strong> The water is heated at the <em>bottom</em> of the test tube. The water at the bottom gets heated, expands, becomes lighter (less dense), and rises to the top via <strong>convection currents</strong>. The thermometer placed at the top comes into direct contact with these rising hot currents and immediately registers a sharp rise in temperature.</li>
+            <li><strong>In Fig. 7.16(b):</strong> The water is heated at the <em>top</em>. The heated water becomes lighter and remains at the top; it does not sink to the bottom. Water is an extremely poor conductor of heat. Therefore, heat can reach the thermometer at the bottom only by very sluggish conduction through water, leaving the bottom water cold. (In fact, water at the top can be boiling while ice or cold water at the bottom remains unaffected!).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 7:</strong> Why are hollow bricks used to construct the outer walls of houses in hot regions?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Teacher's Answer</span> Hollow bricks are utilized because they provide superior thermal insulation.</p>
+          <ol>
+            <li>Hollow bricks contain internal air cavities or hollow cores.</li>
+            <li><strong>Stationary air is an extremely poor conductor of heat.</strong></li>
+            <li>During hot summer days, scorching exterior solar heat cannot easily conduct through the trapped air barriers to the inner walls of the home.</li>
+            <li>Similarly, during cold winter nights, the warmth inside the house is prevented from escaping outdoors.</li>
+            <li>This maintains a thermally stable, comfortable indoor room temperature naturally, drastically cutting down electricity consumption on air conditioning and fans.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 8:</strong> Explain how large water bodies prevent extreme temperature in areas around them.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Core Explanation</span> Large water bodies (oceans, seas, large lakes) moderate coastal climate through the phenomenon of <strong>high specific heat capacity</strong> combined with continuous <strong>convection breezes (Sea Breeze & Land Breeze)</strong>:</p>
+          <ul>
+            <li><strong>High Heat Capacity:</strong> Water heats up much more slowly and cools down much more slowly than land.</li>
+            <li><strong>During Summer/Daytime:</strong> The land warms up intensely, but the adjacent ocean stays relatively cool. The cool sea breeze blows over the land, depressing daytime maximum temperatures.</li>
+            <li><strong>During Winter/Nighttime:</strong> The land loses heat rapidly to clear skies, but the ocean retains its stored summer heat and stays relatively warmer. The gentle warm maritime air prevents nighttime temperatures from plummeting.</li>
+            <li>Consequently, regions bordering large water bodies experience an <strong>equable / maritime climate</strong> with minimal diurnal and seasonal temperature swings.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 9:</strong> Explain how water seeps through the surface of the Earth and gets stored as groundwater.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Mechanism</span> The process of groundwater accumulation occurs as follows:</p>
+          <ol>
+            <li><strong>Precipitation & Infiltration:</strong> When rain falls or snow melts, water flows over the ground. A substantial portion percolates down into the soil through tiny interconnected pores, soil gaps, and fractures in underlying permeable rocks. This downward movement is called <strong>seepage or infiltration</strong>.</li>
+            <li><strong>Filtration:</strong> As water passes through alternating layers of topsoil, silt, sand, and gravel, it is naturally filtered of suspended debris.</li>
+            <li><strong>Impermeable Bedrock Barrier:</strong> The seeping water continues downward under gravity until it encounters an impermeable layer of non-porous solid bedrock or dense clay through which it cannot penetrate further.</li>
+            <li><strong>Aquifer Storage:</strong> The water accumulates in the permeable sediment layer situated above this impermeable bedrock, creating an underground reservoir known as an <strong>aquifer</strong>. The upper boundary level of this saturated reservoir is termed the <strong>water table</strong>.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 10:</strong> The water cycle helps in the redistribution and replenishment of water on the Earth. Justify the statement.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Justification</span> The water cycle is nature's grand redistribution and purification engine:</p>
+          <ul>
+            <li><strong>Desalination & Purification:</strong> Over 97% of Earth's water is saline ocean water unfit for agriculture or human consumption. Solar heat evaporates pure water into vapour, naturally leaving dissolved salts and impurities behind in the ocean.</li>
+            <li><strong>Geographical Redistribution:</strong> Atmospheric convection currents and global wind systems transport water vapour hundreds and thousands of kilometres inland, far away from oceanic coasts to parched interiors, plateaus, and mountains.</li>
+            <li><strong>Replenishment of Freshwater:</strong> Precipitation (rain and snow) feeds freshwater rivers, streams, lakes, ponds, glaciers, and percolates into the ground to recharge subterranean aquifers.</li>
+            <li><strong>Ecological Continuity:</strong> Without this perpetual cyclic redistribution, continental landmasses would turn into uninhabitable deserts, as all terrestrial freshwater would permanently drain into the oceans and never return.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Exploratory Projects -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Exploratory Projects:</strong> Paper on Metal Rod & Rotating Paper Spiral Snake</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Project 1: Paper wrapped tightly around a metallic rod vs candle flame</strong></p>
+          <p><em>Observation:</em> When paper is wrapped tightly around a metallic rod and rotated continuously in a candle flame, <strong>the paper does not catch fire or burn easily</strong> (it may merely show light scorch marks).</p>
+          <p><em>Explanation:</em> The metal rod is an excellent conductor of heat. As heat is supplied by the candle flame to the paper, the underlying metal immediately conducts the heat away throughout its mass. Consequently, the temperature of the paper does not reach its ignition temperature. If the same paper were wrapped around a wooden stick (an insulator), the heat would not be conducted away, the paper would quickly attain its ignition temperature, and burst into flames!</p>
+
+          <hr style="margin: 1rem 0; border: none; border-top: 1px dashed var(--border);">
+
+          <p><strong>Project 2: Spiral paper snake suspended above a burning candle (Fig. 7.17)</strong></p>
+          <p><em>Observation:</em> The suspended paper spiral begins to spin and rotate continuously around its axis above the candle flame.</p>
+          <p><em>Explanation:</em> The candle flame heats the air directly above it. By thermal convection, this hot air expands, becomes less dense, and rushes upward in a steady convection current. As this rising stream of warm air strikes the angled helical blades of the suspended spiral paper, it exerts an upward rotational thrust, causing the snake to spin merrily!</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: CBSE/BSE COMPETENCY BANK & QUIZ
+         ========================================== -->
+    <section class="section-card" id="sec5">
+      <div class="section-header">
+        <span class="section-tag">Section 5</span>
+        <h2 class="section-title">CBSE/BSE Competency Bank & Interactive Quiz Engine</h2>
+      </div>
+      <p>Test your conceptual mastery with immediate feedback, detailed rationales, and live score tracking!</p>
+
+      <!-- Quiz Scoreboard -->
+      <div style="background: var(--light); border: 1.5px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-weight: 700; color: var(--dark);"><i class="fa-solid fa-trophy" style="color: var(--accent);"></i> Scoreboard:</span>
+        <span id="quizScoreText" style="font-weight: 800; color: var(--primary); font-size: 1.05rem;">0 / 6 Answered</span>
+      </div>
+
+      <!-- Quiz Q1 -->
+      <div class="quiz-card" id="q1-box">
+        <div class="quiz-q">1. Which mode of heat transfer can take place across an absolute vacuum without needing any material particles?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q1', 0, false)">A) Conduction</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 1, false)">B) Convection</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 2, true)">C) Radiation</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 3, false)">D) Infiltration</button>
+        </div>
+        <div class="quiz-feedback" id="q1-fb"></div>
+      </div>
+
+      <!-- Quiz Q2 -->
+      <div class="quiz-card" id="q2-box">
+        <div class="quiz-q">2. During the daytime in coastal towns like Puri, which breeze occurs and what is its direction?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q2', 0, true)">A) Sea Breeze, blowing from Sea towards Land</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 1, false)">B) Land Breeze, blowing from Land towards Sea</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 2, false)">C) Cyclone, blowing radially outwards</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 3, false)">D) Mountain Breeze, blowing downhill</button>
+        </div>
+        <div class="quiz-feedback" id="q2-fb"></div>
+      </div>
+
+      <!-- Quiz Q3 -->
+      <div class="quiz-card" id="q3-box">
+        <div class="quiz-q">3. Why does water in an earthen pot (matka) remain cool during scorching summer afternoons?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q3', 0, false)">A) The clay conducts heat rapidly to the air</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 1, true)">B) Water oozes out of pores and its evaporation draws latent heat from the pot</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 2, false)">C) The clay generates convection currents that freeze the water</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 3, false)">D) Earthen pot acts as a black body radiator</button>
+        </div>
+        <div class="quiz-feedback" id="q3-fb"></div>
+      </div>
+
+      <!-- Quiz Q4 -->
+      <div class="quiz-card" id="q4-box">
+        <div class="quiz-q">4. Why are room heaters installed near the floor, while air conditioners are mounted near the ceiling?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q4', 0, false)">A) Heaters are heavy; ACs are light</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 1, true)">B) Hot air rises by convection; cold air sinks by convection</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 2, false)">C) Radiation only works downwards from the ceiling</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 3, false)">D) Conduction is faster near the floor</button>
+        </div>
+        <div class="quiz-feedback" id="q4-fb"></div>
+      </div>
+
+      <!-- Quiz Q5 -->
+      <div class="quiz-card" id="q5-box">
+        <div class="quiz-q">5. Which of the following soils allows the highest and most rapid seepage of rainwater to recharge an aquifer?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q5', 0, true)">A) Sandy soil with large, loose grains</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 1, false)">B) Clayey soil with tightly packed fine particles</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 2, false)">C) Peat moss saturated with humus</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 3, false)">D) Concrete paved road</button>
+        </div>
+        <div class="quiz-feedback" id="q5-fb"></div>
+      </div>
+
+      <!-- Quiz Q6 -->
+      <div class="quiz-card" id="q6-box">
+        <div class="quiz-q">6. In a thermos flask, which feature is specifically engineered to stop heat transfer via radiation?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q6', 0, false)">A) The vacuum gap between the two glass walls</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 1, false)">B) The plastic cork stopper at the mouth</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 2, true)">C) The silvered, mirrored surfaces of the glass walls</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 3, false)">D) The outer plastic protective body</button>
+        </div>
+        <div class="quiz-feedback" id="q6-fb"></div>
+      </div>
+
+      <!-- Competency Based Assertion & Reason -->
+      <h3>CBSE Competency: Assertion & Reason Questions</h3>
+      
+      <div class="callout callout-pyq">
+        <div class="callout-title"><i class="fa-solid fa-circle-question"></i> Case 1: Land and Sea Differential Heating</div>
+        <strong>Assertion (A):</strong> Coastal areas like Puri experience much milder summer daytime temperatures compared to inland cities like Sambalpur.
+        <br><strong>Reason (R):</strong> During daytime, cool sea breeze blows continuously inland from the sea because water heats up much more slowly than land.
+        <br><br><strong>Evaluation:</strong> Both A and R are true, and R is the correct scientific explanation of A. Water's high specific heat ensures the ocean remains cooler than the scorched land by day, setting up a daytime sea breeze.
+      </div>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title"><i class="fa-solid fa-circle-question"></i> Case 2: Water Heating in a Test Tube</div>
+        <strong>Assertion (A):</strong> When water in the top half of a test tube is boiled over a flame, an ice cube anchored at the very bottom remains unmelted for a surprisingly long time.
+        <br><strong>Reason (R):</strong> Convection currents only carry heat upwards because warm water is less dense; furthermore, water is an extremely poor conductor of heat downward.
+        <br><br><strong>Evaluation:</strong> Both A and R are true, and R provides the precise thermodynamic mechanism. Heat cannot travel downward by convection, and conduction through liquid water is exceedingly poor.
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: EXAM HALL READINESS
+         ========================================== -->
+    <section class="section-card" id="sec6">
+      <div class="section-header">
+        <span class="section-tag">Section 6</span>
+        <h2 class="section-title">Exam Hall Readiness: Pitfalls & Lightning Revision</h2>
+      </div>
+
+      <h3>Common Student Traps & Misconceptions</h3>
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 1: "Convection can occur in all states of matter."</div>
+        <strong>Wrong!</strong> Convection strictly requires the <em>bulk migration of particles</em>. In solids, particles are locked in place and cannot flow. Hence, convection can occur <strong>only in fluids</strong> (liquids and gases).
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 2: "A woolen sweater provides heat to your body."</div>
+        <strong>Wrong!</strong> A sweater has no internal heat source. It simply traps a thick layer of stationary air within its fine wool fibres. Because air is an insulator, it blocks your own metabolic body heat from conducting outwards into cold winter surroundings!
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 3: "Land breeze blows during daytime because land is hot."</div>
+        <strong>Wrong!</strong> The name indicates the <em>origin</em> of the breeze. Land breeze blows <strong>from land to sea</strong>, and this only occurs at <strong>night</strong> when the land has cooled down below the sea temperature.
+      </div>
+
+      <h3>15 Lightning Revision Key Takeaways</h3>
+      <ol style="column-count: 2; column-gap: 2rem; margin-left: 1.5rem;">
+        <li>Heat flows spontaneously from higher temperature to lower temperature.</li>
+        <li>Conduction transfers heat in solids via atom vibrations without bulk movement.</li>
+        <li>Metals are good conductors due to free electrons; non-metals and air are poor conductors (insulators).</li>
+        <li>Two thin blankets are warmer than one thick blanket due to trapped insulating air.</li>
+        <li>Hollow bricks keep houses cool in summer by preventing conduction through air gaps.</li>
+        <li>Convection transfers heat in fluids through the actual upward buoyant motion of heated particles.</li>
+        <li>Potassium permanganate crystals in water visually demonstrate convection current loops.</li>
+        <li>Hot air expands, becomes less dense, and rises (demonstrated by smoke detectors and paper snake spirals).</li>
+        <li>Land heats up and cools down much faster than water.</li>
+        <li>Sea breeze blows from Sea &rarr; Land during the daytime.</li>
+        <li>Land breeze blows from Land &rarr; Sea during the night.</li>
+        <li>Radiation requires no medium and travels across vacuum at $3 	imes 10^8 	ext{ m/s}$.</li>
+        <li>Thermos flasks eliminate conduction and convection via vacuum, and radiation via mirrored glass walls.</li>
+        <li>Solar radiation drives evaporation and transpiration, fueling Earth's water cycle.</li>
+        <li>Infiltration recharges underground aquifers, sustaining the global water table.</li>
+      </ol>
+
+      <!-- Interactive Self-Assessment Checklist -->
+      <h3 style="margin-top: 2rem;">Interactive Student Self-Assessment</h3>
+      <div style="background: var(--light); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem;">
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can define Conduction, Convection, and Radiation and cite everyday examples of each.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can draw and explain the daytime Sea Breeze and nighttime Land Breeze convection loops.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I know why smoke detectors go on the ceiling and why room heaters sit on the floor.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I understand how a thermos flask thwarts all three modes of thermal energy transfer.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can explain the connection between solar radiation, soil infiltration, and groundwater aquifers.</span>
+        </label>
+      </div>
+    </section>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" onclick="scrollToTop()" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      // Back to top visibility
+      const btn = document.getElementById('backToTopBtn');
+      if (window.scrollY > 400) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Teacher Audio Summary (Web Speech API)
+    let isSpeaking = false;
+    let speechUtterance = null;
+
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('ttsBtn');
+      const icon = document.getElementById('ttsIcon');
+      const text = document.getElementById('ttsText');
+
+      if (!('speechSynthesis' in window)) {
+        alert('Sorry! Your browser does not support text-to-speech.');
+        return;
+      }
+
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        icon.className = 'fa-solid fa-play';
+        text.innerText = 'Play Audio';
+        btn.style.background = 'var(--primary)';
+      } else {
+        const scriptText = "Welcome to Sujit Classes Chapter Summary for Heat Transfer in Nature. " +
+          "Heat is thermal energy in transit that always flows spontaneously from a higher temperature to a lower temperature. " +
+          "There are three primary modes of heat transfer. " +
+          "First, Conduction occurs in solids through particle collisions without bulk motion. Metals are good conductors, while air, wood, and wool are insulators. " +
+          "Second, Convection occurs in fluids like liquids and gases where heated particles expand, become lighter, and rise, setting up circular convection currents. " +
+          "This convection drives coastal phenomena like the daytime Sea Breeze and nighttime Land Breeze. " +
+          "Third, Radiation transfers heat through infrared electromagnetic waves and requires no material medium, allowing sunlight to cross the empty vacuum of space. " +
+          "Finally, solar radiation powers Earth's hydrological water cycle, driving evaporation, cloud condensation, rain, and soil infiltration into underground aquifers. " +
+          "Review the interactive quiz and detailed NCERT solutions below to ace your science exams!";
+
+        speechUtterance = new SpeechSynthesisUtterance(scriptText);
+        speechUtterance.rate = 0.95;
+        speechUtterance.pitch = 1.0;
+
+        speechUtterance.onend = () => {
+          isSpeaking = false;
+          icon.className = 'fa-solid fa-play';
+          text.innerText = 'Play Audio';
+          btn.style.background = 'var(--primary)';
+        };
+
+        window.speechSynthesis.speak(speechUtterance);
+        isSpeaking = true;
+        icon.className = 'fa-solid fa-pause';
+        text.innerText = 'Pause Audio';
+        btn.style.background = '#dc2626';
+      }
+    }
+
+    // Interactive Quiz Engine
+    let quizScore = 0;
+    const answeredQuestions = new Set();
+
+    const explanations = {
+      q1: "Correct! Radiation uses electromagnetic infrared waves and does not require any material particles, which is how solar energy traverses space vacuum.",
+      q2: "Correct! During daytime, land warms faster than sea. Hot inland air rises and cool air rushes in from the sea as Sea Breeze.",
+      q3: "Correct! The porous earthenware allows water to seep to the surface where evaporation draws latent heat of vaporization from the remaining water, cooling it.",
+      q4: "Correct! Hot air expands and rises by convection (so heaters are low), while cold air is denser and sinks (so ACs are high).",
+      q5: "Correct! Sandy soil has large particles and large pore spaces, facilitating rapid water infiltration and percolation.",
+      q6: "Correct! The silvered, mirror-like coating on the inner glass surfaces reflects infrared radiation back, halting radiant heat transfer."
+    };
+
+    function checkQuiz(qId, selectedIdx, isCorrect) {
+      const qBox = document.getElementById(qId + '-box');
+      const buttons = qBox.querySelectorAll('.opt-btn');
+      const fb = document.getElementById(qId + '-fb');
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        buttons[selectedIdx].classList.add('correct');
+        fb.style.display = 'block';
+        fb.style.background = '#dcfce7';
+        fb.style.color = '#15803d';
+        fb.innerHTML = '<strong><i class="fa-solid fa-circle-check"></i> Correct!</strong> ' + explanations[qId];
+        if (!answeredQuestions.has(qId)) {
+          quizScore++;
+        }
+      } else {
+        buttons[selectedIdx].classList.add('wrong');
+        fb.style.display = 'block';
+        fb.style.background = '#fee2e2';
+        fb.style.color = '#b91c1c';
+        fb.innerHTML = '<strong><i class="fa-solid fa-circle-xmark"></i> Not quite.</strong> ' + explanations[qId];
+      }
+
+      answeredQuestions.add(qId);
+      document.getElementById('quizScoreText').innerText = quizScore + ' / 6 Correct';
+    }
+  </script>
+</body>
+</html>
