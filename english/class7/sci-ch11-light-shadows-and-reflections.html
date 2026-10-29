@@ -1,0 +1,1486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 11 - Light: Shadows and Reflections (Class 7 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-light: #eef2ff;
+      --primary-dark: #4338ca;
+      --secondary: #f59e0b;
+      --secondary-light: #fef3c7;
+      --accent: #06b6d4;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #6366f1, #f59e0b, #06b6d4);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 50%, #c7d2fe 100%);
+      border-radius: 1.5rem;
+      padding: 3rem 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #a5b4fc;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #ffffff;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.3rem;
+      line-height: 1.25;
+      color: #312e81;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: #3730a3;
+      margin-bottom: 1.5rem;
+      max-width: 720px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      color: #312e81;
+      border-top: 1px solid #c7d2fe;
+      padding-top: 1.25rem;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Audio Bar */
+    .audio-bar {
+      background: white;
+      border: 1px solid #c7d2fe;
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .audio-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .audio-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .audio-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--surface);
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--light);
+    }
+
+    .section-tag {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    /* Typography */
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      color: #1e293b;
+      margin: 1.75rem 0 0.75rem;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      color: #334155;
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 1rem; }
+    ul, ol { margin: 0 0 1.25rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+
+    /* Callouts */
+    .callout {
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+
+    .callout-def {
+      background: #eef2ff;
+      border-left: 4px solid #6366f1;
+      color: #3730a3;
+    }
+
+    .callout-act {
+      background: #ecfeff;
+      border-left: 4px solid #06b6d4;
+      color: #0e7490;
+    }
+
+    .callout-pyq {
+      background: #fefce8;
+      border-left: 4px solid #ca8a04;
+      color: #854d0e;
+    }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-left: 4px solid #9333ea;
+      color: #6b21a8;
+    }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: #f8fafc;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      color: #1e293b;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background-color: #fbfcfe; }
+
+    /* Collapsible Solutions */
+    .ans-box {
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      background: #ffffff;
+      transition: all 0.2s ease;
+    }
+
+    .ans-box summary {
+      padding: 1rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #f8fafc;
+      transition: background 0.2s;
+    }
+
+    .ans-box summary:hover {
+      background: #f1f5f9;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+      background: #ffffff;
+    }
+
+    .step-pill {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.375rem;
+      margin-right: 0.4rem;
+    }
+
+    /* Quiz Widget */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quiz-q {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .opt-btn {
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 0.6rem;
+      background: white;
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .opt-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+
+    .opt-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+
+    .quiz-feedback {
+      display: none;
+      padding: 0.85rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* Floating Back to Top */
+    #backToTopBtn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.2s ease;
+      z-index: 999;
+    }
+
+    #backToTopBtn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero { padding: 2rem 1.25rem; }
+      .section-card { padding: 1.5rem 1rem; }
+      .top-nav { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <!-- Sticky Top Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Deep Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Quiz Engine</a>
+      <a href="#sec6" class="nav-link">6. Exam Readiness</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Hero Banner -->
+    <header class="hero">
+      <div class="hero-badge">
+        <i class="fa-solid fa-lightbulb"></i> Class 7 Science Curiosity • Chapter 11
+      </div>
+      <h1>Light: Shadows and Reflections</h1>
+      <p class="hero-subtitle">
+        Explore the straight-line journey of light rays, the physics of shadow formation, the optics of pinhole cameras, and the symmetry of plane mirror reflections!
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><i class="fa-solid fa-book-open"></i> NCERT NEP 2020 Code: gecu111</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-clock"></i> 34 Mins In-Depth Master Study</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-camera"></i> Pinhole, Periscope &amp; Kaleidoscope Optics</div>
+      </div>
+    </header>
+
+    <!-- Teacher Audio Summary Widget -->
+    <div class="audio-bar">
+      <div class="audio-info">
+        <div class="audio-icon"><i class="fa-solid fa-headphones-simple"></i></div>
+        <div>
+          <strong style="font-size: 0.95rem; color: var(--dark);">Listen to Chapter Summary</strong>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Interactive 2-Minute Speech Synthesis Audio Lecture</p>
+        </div>
+      </div>
+      <button class="audio-btn" id="ttsBtn" onclick="toggleTeacherAudio()">
+        <i class="fa-solid fa-play" id="ttsIcon"></i> <span id="ttsText">Play Audio</span>
+      </button>
+    </div>
+
+    <!-- ==========================================
+         SECTION 1: VISUAL ARCHITECTURE & BLUEPRINT
+         ========================================== -->
+    <section class="section-card" id="sec1">
+      <div class="section-header">
+        <span class="section-tag">Section 1</span>
+        <h2 class="section-title">Visual Architecture &amp; Mind Map</h2>
+      </div>
+      <p>
+        Optics is the branch of physics that investigates the nature and behavior of light. Chapter 11 explores how light travels in straight lines, casts sharp shadows when obstructed, forms inverted real images through pinholes, and bounces back from polished mirrors.
+      </p>
+
+      <!-- Inline SVG Concept Map -->
+      <div style="width: 100%; overflow-x: auto; background: #faf5ff; border: 1px solid #e9d5ff; border-radius: 1rem; padding: 1.5rem; margin: 1.5rem 0;">
+        <svg viewBox="0 0 880 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="opticsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#6366f1"/>
+              <stop offset="100%" stop-color="#4338ca"/>
+            </linearGradient>
+            <linearGradient id="rectGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <linearGradient id="shadGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#475569"/>
+              <stop offset="100%" stop-color="#1e293b"/>
+            </linearGradient>
+            <linearGradient id="reflGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#06b6d4"/>
+              <stop offset="100%" stop-color="#0891b2"/>
+            </linearGradient>
+            <filter id="shadowOptics" x="-10%" y="-10%" width="120%" height="120%">
+              <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.15"/>
+            </filter>
+          </defs>
+
+          <!-- Core Node -->
+          <rect x="290" y="20" width="300" height="60" rx="12" fill="url(#opticsGrad)" filter="url(#shadowOptics)"/>
+          <text x="440" y="46" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" text-anchor="middle">LIGHT: SHADOWS &amp; REFLECTIONS</text>
+          <text x="440" y="66" fill="#e0e7ff" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">Class 7 Curiosity Science • Chapter 11</text>
+
+          <!-- Branch 1: Rectilinear Propagation -->
+          <path d="M 330 80 L 160 150" stroke="#f59e0b" stroke-width="2.5"/>
+          <rect x="40" y="150" width="240" height="90" rx="10" fill="url(#rectGrad)" filter="url(#shadowOptics)"/>
+          <text x="160" y="178" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" text-anchor="middle">1. STRAIGHT-LINE LIGHT</text>
+          <text x="160" y="200" fill="#fef3c7" font-size="11" text-anchor="middle">&bull; Rectilinear propagation</text>
+          <text x="160" y="216" fill="#fef3c7" font-size="11" text-anchor="middle">&bull; Straight vs bent pipe test</text>
+          <text x="160" y="232" fill="#fef3c7" font-size="11" text-anchor="middle">&bull; Luminous vs Non-luminous</text>
+
+          <!-- Branch 2: Shadows & Pinhole -->
+          <path d="M 440 80 L 440 150" stroke="#475569" stroke-width="2.5"/>
+          <rect x="320" y="150" width="240" height="90" rx="10" fill="url(#shadGrad)" filter="url(#shadowOptics)"/>
+          <text x="440" y="178" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" text-anchor="middle">2. SHADOWS &amp; PINHOLE</text>
+          <text x="440" y="200" fill="#f1f5f9" font-size="11" text-anchor="middle">&bull; 3 Requirements: Light, Opaque, Screen</text>
+          <text x="440" y="216" fill="#f1f5f9" font-size="11" text-anchor="middle">&bull; Size variations (Torch &amp; Sun angle)</text>
+          <text x="440" y="232" fill="#f1f5f9" font-size="11" text-anchor="middle">&bull; Pinhole camera: Inverted, real image</text>
+
+          <!-- Branch 3: Reflection & Mirrors -->
+          <path d="M 550 80 L 720 150" stroke="#06b6d4" stroke-width="2.5"/>
+          <rect x="600" y="150" width="240" height="90" rx="10" fill="url(#reflGrad)" filter="url(#shadowOptics)"/>
+          <text x="720" y="178" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" text-anchor="middle">3. REFLECTION OF LIGHT</text>
+          <text x="720" y="200" fill="#ecfeff" font-size="11" text-anchor="middle">&bull; Bouncing of light rays</text>
+          <text x="720" y="216" fill="#ecfeff" font-size="11" text-anchor="middle">&bull; Plane mirror: Virtual, erect, lateral flip</text>
+          <text x="720" y="232" fill="#ecfeff" font-size="11" text-anchor="middle">&bull; Periscope &amp; Kaleidoscope</text>
+
+          <!-- Lower Details Flow -->
+          <!-- Box 1 -->
+          <path d="M 160 240 L 160 290" stroke="#f59e0b" stroke-width="1.5"/>
+          <rect x="35" y="290" width="250" height="150" rx="8" fill="#ffffff" stroke="#fed7aa" stroke-width="1.5"/>
+          <text x="160" y="315" fill="#c2410c" font-size="12" font-weight="700" text-anchor="middle">Sources &amp; Optical Materials</text>
+          <text x="45" y="338" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Luminous:</tspan> Sun, Pole Star, Firefly, Bulb</text>
+          <text x="45" y="356" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Non-Luminous:</tspan> Moon, Mars, Mirror</text>
+          <text x="45" y="374" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Transparent:</tspan> Clear glass, clean water</text>
+          <text x="45" y="392" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Translucent:</tspan> Butter paper, frosted glass</text>
+          <text x="45" y="410" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Opaque:</tspan> Cardboard, wood, metal, human</text>
+
+          <!-- Box 2 -->
+          <path d="M 440 240 L 440 290" stroke="#475569" stroke-width="1.5"/>
+          <rect x="315" y="290" width="250" height="150" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+          <text x="440" y="315" fill="#334155" font-size="12" font-weight="700" text-anchor="middle">Shadow vs Image</text>
+          <text x="325" y="338" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Shadow:</tspan> Dark silhouette, no colors</text>
+          <text x="325" y="356" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Shortest Shadow:</tspan> 12 Noon (Sun overhead)</text>
+          <text x="325" y="374" fill="#334155" font-size="11">&bull; <tspan font-weight="700">High Flying Bird:</tspan> Umbra ends in air</text>
+          <text x="325" y="392" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Pinhole Camera:</tspan> Real, upside-down image</text>
+          <text x="325" y="410" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Tree gaps:</tspan> Natural pinholes form Sun spots</text>
+
+          <!-- Box 3 -->
+          <path d="M 720 240 L 720 290" stroke="#06b6d4" stroke-width="1.5"/>
+          <rect x="595" y="290" width="250" height="150" rx="8" fill="#ffffff" stroke="#a5f3fc" stroke-width="1.5"/>
+          <text x="720" y="315" fill="#0e7490" font-size="12" font-weight="700" text-anchor="middle">Plane Mirror &amp; Applications</text>
+          <text x="605" y="338" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Virtual &amp; Erect:</tspan> Same size, equal distance</text>
+          <text x="605" y="356" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Lateral Inversion:</tspan> Left appears as right</text>
+          <text x="605" y="374" fill="#334155" font-size="11">&bull; Letters T, O, A, M look identical</text>
+          <text x="605" y="392" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Periscope:</tspan> Two mirrors at 45&deg; in Z-tube</text>
+          <text x="605" y="410" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Kaleidoscope:</tspan> Three mirrors at 60&deg;</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: COMPREHENSIVE STUDY NOTES
+         ========================================== -->
+    <section class="section-card" id="sec2">
+      <div class="section-header">
+        <span class="section-tag">Section 2</span>
+        <h2 class="section-title">Comprehensive Line-by-Line Study Notes</h2>
+      </div>
+
+      <!-- Part 1: Sources of Light -->
+      <h3>1. Sources of Light: Luminous vs Non-Luminous Objects</h3>
+      <p>
+        Light is a form of radiant energy that stimulates the sense of vision in our eyes. To understand how we see things around us, we classify objects into two categories:
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th>Scientific Definition</th>
+              <th>Clear Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Luminous Objects</strong></td>
+              <td>Objects that produce and emit their own light independently.</td>
+              <td>The Sun, Pole Star, distant stars, burning candle flame, electric LED bulb, lighted diya, fireflies (bioluminescence).</td>
+            </tr>
+            <tr>
+              <td><strong>Non-Luminous Objects</strong></td>
+              <td>Objects that cannot emit light of their own; they become visible only when external light falling on them is reflected into our eyes.</td>
+              <td>The Moon, planets (Mars, Venus), mirrors, wooden table, books, trees, human beings.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-moon"></i> Master Scientific Fact: Moonlight is Reflected Sunlight!</div>
+        The Moon is a rocky, non-luminous celestial body. It does not generate any light of its own. What we perceive as "moonlight" is simply solar light hitting the lunar surface and bouncing (reflecting) towards Earth across empty space!
+      </div>
+
+      <!-- Part 2: Rectilinear Propagation -->
+      <h3>2. Rectilinear Propagation: Light Travels in Straight Lines</h3>
+      <p>
+        Have you ever noticed beams of sunlight piercing through thick tree branches in a forest, or light beams shooting from an automobile headlight on a dusty road? The light beams are always perfectly straight!
+      </p>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-ruler-horizontal"></i> Principle: Rectilinear Propagation of Light</div>
+        In a homogeneous transparent medium (such as air or vacuum), light always travels along a <strong>straight line path</strong>. A narrow path of light is called a <strong>ray</strong>, and a collection of parallel rays is called a <strong>beam of light</strong>.
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-eye"></i> Activity 11.2: Viewing a Candle Flame Through Straight vs Bent Pipe</div>
+        <strong>Procedure:</strong> Light a candle on a table.
+        <br>1. Look at the flame through a straight plastic pipe (e.g. Patrick in Fig. 11.16). <em>The flame is clearly visible!</em>
+        <br>2. Now bend the pipe slightly in the middle (e.g. Sahil, Rekha, Qasima) and try to look at the flame. <em>The flame is completely invisible!</em>
+        <br><strong>Scientific Conclusion:</strong> Light cannot bend around corners like sound or water; it travels strictly along straight lines.
+      </div>
+
+      <!-- Part 3: Classification of Materials -->
+      <h3>3. Optical Media: Transparent, Translucent, and Opaque</h3>
+      <p>
+        When light strikes matter, the degree to which it penetrates depends on the optical nature of the material:
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Material Type</th>
+              <th>Light Transmission Property</th>
+              <th>Visibility Behind It</th>
+              <th>Shadow Formation</th>
+              <th>Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Transparent</strong></td>
+              <td>Allows light to pass through almost completely without significant scattering.</td>
+              <td>Objects behind can be seen clearly and sharply.</td>
+              <td>Does NOT cast a shadow.</td>
+              <td>Clear window pane, clean water, air, clear cellophane sheet.</td>
+            </tr>
+            <tr>
+              <td><strong>Translucent</strong></td>
+              <td>Allows light to pass through only partially; scatters light rays in multiple directions.</td>
+              <td>Objects behind can be seen only partially, appearing blurred or hazy.</td>
+              <td>Casts a faint, light grey shadow.</td>
+              <td>Butter paper, frosted/ground glass, tissue paper, wax paper, thin muslin cloth.</td>
+            </tr>
+            <tr>
+              <td><strong>Opaque</strong></td>
+              <td>Completely blocks and absorbs/reflects incident light rays; does not let any light pass.</td>
+              <td>Objects behind cannot be seen at all.</td>
+              <td><strong>Casts a distinct, dark shadow.</strong></td>
+              <td>Cardboard, plywood, brick wall, steel plate, stone, human body.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Part 4: Shadow Formation -->
+      <h3>4. Shadow Formation: Nature and Characteristics</h3>
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-shapes"></i> Definition: Shadow</div>
+        A <strong>Shadow</strong> is the dark region or silhouette formed on a surface (screen) when an <strong>opaque obstacle</strong> is placed in the path of light, blocking light rays from travelling past in a straight line.
+      </div>
+
+      <h4>Three Essential Requirements to Form a Shadow</h4>
+      <ol>
+        <li><strong>A Source of Light:</strong> Without light (e.g. in a pitch-black room), no shadow can exist.</li>
+        <li><strong>An Opaque Object:</strong> To intercept and block the straight-travelling light rays.</li>
+        <li><strong>A Screen:</strong> A surface (ground, wall, cardboard) upon which the blocked region is cast and can be perceived.</li>
+      </ol>
+
+      <h4>Key Characteristics of Shadows</h4>
+      <ul>
+        <li><strong>Colorless / Dark:</strong> A shadow is simply the absence of light. Therefore, the shadow of a red ball, a green apple, or a blue toy car is <strong>always dark/black</strong>! (Even if illuminated by red or blue light, the shadow remains dark).</li>
+        <li><strong>Only Shows 2D Silhouette:</strong> A shadow reveals only the outer contour or shape of an object; it never reveals internal details, color, facial features, or textures.</li>
+        <li><strong>Size Variation Factors:</strong>
+          <br>&bull; When the opaque object is moved <strong>closer to the light source</strong> (or screen is moved farther), the shadow becomes <strong>LARGER</strong>.
+          <br>&bull; When the opaque object is moved <strong>closer to the screen</strong> (or farther from light), the shadow becomes <strong>SMALLER</strong>.</li>
+        <li><strong>Diurnal Variation with Sun's Position:</strong>
+          <br>&bull; <em>Morning (9 AM) and Evening (4 PM):</em> The Sun is low on the horizon; sunlight strikes obliquely at an acute angle, casting <strong>long shadows</strong>.
+          <br>&bull; <em>Solar Noon (12 PM):</em> The Sun is highest directly overhead; sunlight strikes vertically, casting the <strong>shortest shadow</strong>.</li>
+      </ul>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title"><i class="fa-solid fa-dove"></i> Why Don't We See the Shadow of a High-Flying Bird on the Ground?</div>
+        When a bird flies thousands of feet high in the sky:
+        <br>&bull; The opaque bird casts a shadow cone called the <strong>Umbra</strong> (region of total darkness).
+        <br>&bull; Because the bird is relatively small compared to the distant, broad Sun, the umbra tapers to a sharp point and terminates mid-air high above the ground!
+        <br>&bull; Only the faint, scattered penumbra reaches the ground, which is completely washed out by ambient daylight.
+        <br>&bull; However, when the bird swoops down near the ground, its umbra easily intersects the earth, casting a sharp, visible shadow!
+      </div>
+
+      <!-- Part 5: Pinhole Camera -->
+      <h3>5. The Pinhole Camera: Capturing Real Images</h3>
+      <p>
+        A <strong>Pinhole Camera</strong> is an elementary optical device that operates strictly on the rectilinear propagation of light, requiring no glass lens!
+      </p>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-camera"></i> Construction of a Sliding Pinhole Camera (Activity 11.9 &amp; 11.10)</div>
+        &bull; <strong>Box A:</strong> An outer cardboard box with a tiny pinhole (0.5 mm) pierced in the center of one face.
+        <br>&bull; <strong>Box B:</strong> A slightly smaller inner cardboard box that slides snugly into Box A, having a square window covered with translucent <strong>tracing paper (screen)</strong>.
+        <br>&bull; The insides of both boxes are painted matte black to eliminate internal stray reflections.
+      </div>
+
+      <h4>Characteristics of the Image Formed by a Pinhole Camera</h4>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Image Property</th>
+              <th>Pinhole Camera Image</th>
+              <th>Scientific Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Orientation</strong></td>
+              <td><strong>Inverted (Upside-Down)</strong></td>
+              <td>Light rays from top of object travel straight through the pinhole and strike the bottom of the screen; rays from bottom strike the top.</td>
+            </tr>
+            <tr>
+              <td><strong>Nature</strong></td>
+              <td><strong>Real</strong></td>
+              <td>Light rays physically intersect on the tracing paper screen (can be projected).</td>
+            </tr>
+            <tr>
+              <td><strong>Color</strong></td>
+              <td><strong>Coloured</strong></td>
+              <td>Retains the exact true natural colors of the external scene.</td>
+            </tr>
+            <tr>
+              <td><strong>Size</strong></td>
+              <td><strong>Diminished (Smaller)</strong></td>
+              <td>Can be enlarged by sliding the screen further back from the pinhole.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-tree"></i> Natural Pinhole Cameras under Tree Canopies</div>
+        When you walk under a large tree with dense leaves on a sunny afternoon, you notice circular bright patches of light dappling the shaded ground. These are NOT gaps shaped like circles; they are <strong>pinhole images of the circular Sun</strong>! The irregular microscopic gaps between overlapping tree leaves act as hundreds of natural pinhole cameras! During a solar eclipse, these light patches turn into crescents!
+      </div>
+
+      <!-- Part 6: Reflection of Light & Plane Mirrors -->
+      <h3>6. Reflection of Light and Plane Mirror Optics</h3>
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-mirror"></i> Definition: Reflection of Light</div>
+        <strong>Reflection</strong> is the phenomenon of the bouncing back of light rays into the same medium when they strike a smooth, polished, or shiny boundary surface (such as a silvered plane mirror).
+      </div>
+
+      <h4>The 5 Golden Properties of Images Formed by a Plane Mirror</h4>
+      <ol>
+        <li><strong>Virtual Image:</strong> The image appears behind the mirror where reflected rays seem to diverge from; it cannot be captured or projected on a physical screen.</li>
+        <li><strong>Erect (Upright):</strong> The top of the object remains at the top of the image (it is not upside-down).</li>
+        <li><strong>Same Size:</strong> The height of the image is exactly equal to the height of the object ($h_i = h_o$). Magnification $m = +1$.</li>
+        <li><strong>Equal Distance:</strong> The distance of the image behind the mirror is equal to the distance of the object in front of the mirror ($v = u$).</li>
+        <li><strong>Laterally Inverted:</strong> The left side of the object appears as the right side in the mirror image, and the right side appears as the left side!</li>
+      </ol>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title"><i class="fa-solid fa-truck-medical"></i> Why is "AMBULANCE" Written Backwards?</div>
+        The word on emergency medical ambulances is painted in laterally inverted script: <strong>"ECNALUBMA"</strong>. When the driver of a car in front looks into their rear-view plane mirror, the mirror introduces lateral inversion, correcting the reversed script so the driver clearly reads <strong>"AMBULANCE"</strong> and immediately yields right of way!
+      </div>
+
+      <!-- Part 7: Optical Instruments -->
+      <h3>7. Periscope and Kaleidoscope</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Instrument</th>
+              <th>Internal Optical Design</th>
+              <th>Working Principle</th>
+              <th>Practical Uses</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Periscope</strong></td>
+              <td>A Z-shaped tube containing <strong>two plane mirrors</strong> fixed at the bends at an angle of <strong>$45^\circ$ parallel to each other</strong>.</td>
+              <td>Two successive reflections redirect light rays over or around obstacles.</td>
+              <td>Submarines (to view surface ships from underwater), military trench warfare, viewing over crowds.</td>
+            </tr>
+            <tr>
+              <td><strong>Kaleidoscope</strong></td>
+              <td>Three identical rectangular strips of plane mirrors inclined at <strong>$60^\circ$</strong> to each other, forming an equilateral hollow prism.</td>
+              <td>Multiple mutual reflections produce an endless variety of symmetrical hexagonal geometric patterns.</td>
+              <td>Toy for optical delight; used by textile, wallpaper, and tile designers for fresh repeating motifs.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: HIGH-YIELD FACT & TERM BANK
+         ========================================== -->
+    <section class="section-card" id="sec3">
+      <div class="section-header">
+        <span class="section-tag">Section 3</span>
+        <h2 class="section-title">High-Yield Fact &amp; Scientific Term Bank</h2>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Scientific Term</th>
+              <th>Rigorous Definition</th>
+              <th>High-Yield Exam Context</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Luminous Object</strong></td>
+              <td>An object emitting light generated by itself.</td>
+              <td>Sun, stars, flame, firefly. (Moon is NOT luminous).</td>
+            </tr>
+            <tr>
+              <td><strong>Rectilinear Propagation</strong></td>
+              <td>The fundamental property of light travelling strictly in straight lines.</td>
+              <td>Explains shadow formation and pinhole camera operation.</td>
+            </tr>
+            <tr>
+              <td><strong>Opaque</strong></td>
+              <td>Material completely blocking light transmission.</td>
+              <td>Essential requirement for forming a sharp shadow.</td>
+            </tr>
+            <tr>
+              <td><strong>Umbra</strong></td>
+              <td>The completely dark central core of a shadow where all light is blocked.</td>
+              <td>Tapers to a cone for small obstacles in wide sunlight.</td>
+            </tr>
+            <tr>
+              <td><strong>Reflection</strong></td>
+              <td>Bouncing back of light rays from a polished reflective boundary.</td>
+              <td>Governed by $\text{Angle of Incidence } (i) = \text{Angle of Reflection } (r)$.</td>
+            </tr>
+            <tr>
+              <td><strong>Lateral Inversion</strong></td>
+              <td>Sideways reversal where left and right are interchanged in a mirror image.</td>
+              <td>Letters with vertical symmetry (A, H, I, M, O, T, V, W, X) appear identical.</td>
+            </tr>
+            <tr>
+              <td><strong>Virtual Image</strong></td>
+              <td>Image formed where reflected rays appear to diverge from behind mirror.</td>
+              <td>Cannot be caught on a screen; always erect in plane mirrors.</td>
+            </tr>
+            <tr>
+              <td><strong>Real Image</strong></td>
+              <td>Image formed by actual intersecting rays of light.</td>
+              <td>Can be projected on a screen (e.g. pinhole camera image).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: 100% COMPLETE NCERT SOLUTIONS
+         ========================================== -->
+    <section class="section-card" id="sec4">
+      <div class="section-header">
+        <span class="section-tag">Section 4</span>
+        <h2 class="section-title">100% Complete NCERT Solutions (Let Us Enhance Our Learning)</h2>
+      </div>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Question 1:</strong> Which of the following are luminous objects? Mars, Moon, Pole Star, Sun, Venus, Mirror.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> The luminous objects from the given list are:</p>
+          <ul>
+            <li><strong>Pole Star</strong> (A distant star undergoing nuclear fusion, emitting its own light).</li>
+            <li><strong>Sun</strong> (The central star of our solar system, emitting massive light and heat).</li>
+          </ul>
+          <p><em>Non-Luminous Objects:</em> Mars and Venus are rocky planets that only reflect sunlight; the Moon is a natural satellite reflecting sunlight; a Mirror is a silvered glass surface that reflects incident light.</p>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 2:</strong> Match the items in Column A with those in Column B: Pinhole camera, Opaque object, Transparent object, Shadow.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Matched Pairs</span></p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Column A</th>
+                  <th>Column B</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>(i) Pinhole camera</strong></td>
+                  <td><strong>Forms an inverted image</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>(ii) Opaque object</strong></td>
+                  <td><strong>Blocks light completely</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>(iii) Transparent object</strong></td>
+                  <td><strong>Light passes almost completely through it</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>(iv) Shadow</strong></td>
+                  <td><strong>The dark region formed behind the object</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 3:</strong> Sahil, Rekha, Patrick, and Qasima are trying to observe the candle flame through the pipe as shown in Fig. 11.16. Who can see the flame?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> <strong>Only Patrick can see the candle flame.</strong></p>
+          <p><strong>Scientific Reason:</strong> Light travels strictly in straight lines (<em>rectilinear propagation</em>). Patrick is using a completely <strong>straight pipe</strong>, which provides an unobstructed linear line of sight from the flame directly to his eye. Sahil, Rekha, and Qasima are using pipes with bends and zig-zag angles; the straight-moving light rays strike the inner walls of the bent pipes and are blocked, so no light reaches their eyes.</p>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 4:</strong> Look at the images shown in Fig. 11.17 and select the correct image showing the shadow formation of the boy.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> <strong>Image (a) is the correct representation.</strong></p>
+          <p><strong>Scientific Explanation:</strong></p>
+          <ol>
+            <li>A shadow is always cast on the side <strong>opposite to the source of light</strong>.</li>
+            <li>A shadow is a uniform, dark silhouette without any facial features, shirt buttons, or internal body colors.</li>
+            <li>The feet of the boy's shadow must connect with the soles of the boy standing on the ground. Option (a) accurately adheres to all these optical laws of rectilinear shadow projection.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 5:</strong> The shadow of a ball is formed on a wall by placing the ball in front of a fixed torch (Fig. 11.18). In scenario (i), ball is closer to torch; in scenario (ii), ball is closer to wall. Choose the most accurate representation of shadows.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> <strong>Option (b) is the most accurate representation.</strong></p>
+          <p><strong>Detailed Scientific Explanation:</strong></p>
+          <ul>
+            <li><strong>In Scenario (i):</strong> The ball is placed <em>closer to the torch</em> (light source). As the ball approaches the light source, it intercepts and blocks a much wider cone of diverging light rays, projecting a <strong>significantly LARGER shadow</strong> on the distant wall.</li>
+            <li><strong>In Scenario (ii):</strong> The ball is placed <em>closer to the wall</em> (farther from the torch). Here, the diverging light cone has spread out, and the ball intercepts a smaller fraction of the cone near the screen, casting a <strong>substantially SMALLER shadow</strong>.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 6:</strong> Based on Fig. 11.18, match the position of the torch in Column A with the characteristics of the ball's shadow in Column B.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Matched Pairs</span></p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Column A (Position / Setup)</th>
+                  <th>Column B (Shadow Characteristics)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>If the torch is close to the ball</strong></td>
+                  <td><strong>The shadow would be larger</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>If the torch is far away</strong></td>
+                  <td><strong>The shadow would be smaller</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>If the ball is removed from the set-up</strong></td>
+                  <td><strong>A bright spot would appear on the screen</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>If two torches are present on the left side of the ball</strong></td>
+                  <td><strong>Two shadows would appear on the screen</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 7:</strong> Suppose you view the tree shown in Fig. 11.19 through a pinhole camera. Sketch the outline of the image of the tree formed in the pinhole camera.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> The image formed by a pinhole camera is always <strong>real and inverted (upside-down)</strong>.</p>
+          <p><em>Sketch Outline:</em> The canopy/foliage of the tree will appear at the <strong>bottom</strong> of the translucent screen, while the tree trunk and roots will point <strong>upwards</strong> towards the top of the screen!</p>
+          <div style="text-align: center; margin: 1rem 0;">
+            <svg viewBox="0 0 300 180" width="260" height="150" xmlns="http://www.w3.org/2000/svg">
+              <rect x="50" y="10" width="200" height="160" fill="#f8fafc" stroke="#475569" stroke-width="2" rx="4"/>
+              <text x="150" y="30" fill="#64748b" font-size="11" text-anchor="middle">Pinhole Camera Screen</text>
+              <!-- Inverted Tree -->
+              <rect x="144" y="45" width="12" height="55" fill="#78350f"/>
+              <polygon points="120,45 180,45 150,35" fill="#78350f"/>
+              <!-- Green canopy at bottom -->
+              <circle cx="150" cy="125" r="30" fill="#16a34a"/>
+              <circle cx="135" cy="115" r="22" fill="#15803d"/>
+              <circle cx="165" cy="115" r="22" fill="#15803d"/>
+              <text x="150" y="170" fill="#dc2626" font-size="11" font-weight="700" text-anchor="middle">&uarr; INVERTED TREE IMAGE &uarr;</text>
+            </svg>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 8:</strong> Write your name on a piece of paper and hold it in front of a plane mirror such that the paper is parallel to the mirror. Sketch the image. What difference do you notice? Explain the reason for the difference.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Observation &amp; Difference</span> When your name (for example, "<strong>SUJIT</strong>") is held before a plane mirror, it appears reversed horizontally: the letters appear written backwards from right to left, and asymmetric individual letters (like <strong>S</strong> and <strong>J</strong>) appear flipped!</p>
+          <p><strong>Scientific Reason: Lateral Inversion</strong></p>
+          <p>A plane mirror forms an image where every single point on the object is mapped to a corresponding point located at an equal perpendicular distance directly behind the mirror. As a result, the right side of the object appears on the left side of the image, and the left side appears on the right side. This horizontal sideways reversal is called <strong>Lateral Inversion</strong>.</p>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 9:</strong> Measure the length of your shadow at 9 AM, 12 PM, and 4 PM. (i) At which time is your shadow the shortest? (ii) Why do you think this happens?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answers</span></p>
+          <p><strong>(i) Shortest Shadow Time:</strong><br>
+          The shadow is the <strong>shortest at 12 PM (Solar Noon)</strong>.</p>
+          <p><strong>(ii) Scientific Explanation:</strong><br>
+          The length of a shadow cast on the ground depends directly on the <strong>angle of elevation of the Sun</strong> in the sky:
+          <br>&bull; At 9 AM and 4 PM, the Sun is low on the horizon. Sunlight strikes the person at an acute slant angle, projecting a long shadow along the ground.
+          <br>&bull; At 12 PM (noon), the Sun reaches its highest zenith point in the sky, positioned almost directly vertically overhead. The rays strike nearly perpendicular to the ground, blocking light only immediately under the person's feet, producing the minimum possible horizontal shadow projection.</p>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 10:</strong> Choose the correct option: Statement A: Image formed by a plane mirror is laterally inverted. Statement B: Images of alphabets T and O appear identical to themselves in a plane mirror.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Correct Option</span> <strong>(i) Both statements are true</strong></p>
+          <p><strong>Scientific Explanation:</strong></p>
+          <ul>
+            <li><em>Statement A is TRUE:</em> All images produced by plane mirrors undergo lateral inversion (left-right reversal).</li>
+            <li><em>Statement B is TRUE:</em> The letters '<strong>T</strong>' and '<strong>O</strong>' possess <strong>vertical bilateral line symmetry</strong> (their left half is an exact mirror image of their right half). When lateral inversion swaps their left and right sides, they look completely unchanged and identical to themselves! (Other symmetric letters include A, H, I, M, U, V, W, X, Y).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q11 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 11:</strong> Given a tube of the shape shown in Fig. 11.20 and two plane mirrors smaller than the diameter of the tube. Can this tube be used to make a periscope? If yes, mark where you will fix the plane mirrors.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> <strong>Yes, this tube can certainly be used to construct a periscope.</strong></p>
+          <p><strong>How and Where to Fix the Mirrors:</strong></p>
+          <ol>
+            <li>The tube has two $90^\circ$ bends (forming a classic Z-periscope casing).</li>
+            <li><strong>Mirror 1:</strong> Fixed at the <em>top corner bend</em>, tilted at an exact <strong>$45^\circ$ angle</strong> facing towards the upper opening and downwards into the vertical tube.</li>
+            <li><strong>Mirror 2:</strong> Fixed at the <em>bottom corner bend</em>, tilted at an exact <strong>$45^\circ$ angle</strong>, placed <strong>parallel</strong> to Mirror 1, facing upwards along the vertical tube and towards the lower viewing eye-hole.</li>
+            <li><em>Optical Pathway:</em> Horizontal light rays from an elevated scene enter the top aperture, reflect $90^\circ$ downwards from Mirror 1, travel down the tube, reflect $90^\circ$ horizontally from Mirror 2, and enter the observer's eye, enabling clear viewing over barriers!</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q12 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 12:</strong> We do not see the shadow on the ground of a bird flying high in the sky. However, the shadow is seen on the ground when the bird swoops near the ground. Think and explain why it is so.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Complete Optical Explanation</span></p>
+          <ul>
+            <li>The Sun is an extended, broad light source (not a tiny mathematical point source).</li>
+            <li>When an opaque object blocks light from an extended source, it casts two shadow zones:
+              <br>1. <strong>Umbra:</strong> The central cone of complete darkness where all light rays are fully blocked.
+              <br>2. <strong>Penumbra:</strong> The surrounding region of partial shadow where only a portion of the light source is occluded.</li>
+            <li><strong>When the bird flies very high:</strong> Because the bird is relatively small, its converging cone of total shadow (umbra) tapers down and ends in mid-air high above the ground! By the time light reaches the earth, only the extremely diffuse penumbra arrives, which is completely illuminated and washed away by ambient scattered daylight. Hence, no shadow is detectable on the ground.</li>
+            <li><strong>When the bird swoops low near the ground:</strong> The ground lies well within the reach of the bird's dark umbral shadow cone before it tapers away. Consequently, a sharp, prominent dark shadow is cast onto the ground.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: CBSE/BSE COMPETENCY BANK & QUIZ
+         ========================================== -->
+    <section class="section-card" id="sec5">
+      <div class="section-header">
+        <span class="section-tag">Section 5</span>
+        <h2 class="section-title">CBSE/BSE Competency Bank &amp; Interactive Quiz Engine</h2>
+      </div>
+      <p>Challenge your optics acumen with live diagnostics, explanation reveals, and score counters!</p>
+
+      <!-- Scoreboard -->
+      <div style="background: var(--light); border: 1.5px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-weight: 700; color: var(--dark);"><i class="fa-solid fa-trophy" style="color: var(--accent);"></i> Scoreboard:</span>
+        <span id="quizScoreText" style="font-weight: 800; color: var(--primary); font-size: 1.05rem;">0 / 6 Answered</span>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-card" id="q1-box">
+        <div class="quiz-q">1. Which of the following is a non-luminous body that shines strictly by reflecting sunlight?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q1', 0, false)">A) The Sun</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 1, true)">B) The Moon</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 2, false)">C) A Firefly</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 3, false)">D) A Burning Diya</button>
+        </div>
+        <div class="quiz-feedback" id="q1-fb"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-card" id="q2-box">
+        <div class="quiz-q">2. If you stand 3 metres in front of a flat plane mirror, what is the distance between you and your virtual image?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q2', 0, false)">A) 3 metres</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 1, true)">B) 6 metres</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 2, false)">C) 1.5 metres</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 3, false)">D) 9 metres</button>
+        </div>
+        <div class="quiz-feedback" id="q2-fb"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-card" id="q3-box">
+        <div class="quiz-q">3. Which letter from the English alphabet will look completely identical to itself in a plane mirror?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q3', 0, false)">A) B</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 1, false)">B) E</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 2, false)">C) P</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 3, true)">D) M</button>
+        </div>
+        <div class="quiz-feedback" id="q3-fb"></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-card" id="q4-box">
+        <div class="quiz-q">4. The image produced by an ordinary cardboard pinhole camera on its tracing paper screen is always:</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q4', 0, true)">A) Real, inverted (upside-down), and coloured</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 1, false)">B) Virtual, erect, and magnified</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 2, false)">C) Black and white silhouette</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 3, false)">D) Virtual and inverted</button>
+        </div>
+        <div class="quiz-feedback" id="q4-fb"></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-card" id="q5-box">
+        <div class="quiz-q">5. At what angle are the two plane mirrors set inside a standard submarine periscope?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q5', 0, false)">A) 90 degrees to each other</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 1, true)">B) 45 degrees to the tube axis (parallel to each other)</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 2, false)">C) 60 degrees</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 3, false)">D) 30 degrees</button>
+        </div>
+        <div class="quiz-feedback" id="q5-fb"></div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-card" id="q6-box">
+        <div class="quiz-q">6. If an opaque red ball is illuminated with pure green light in a dark room, the shadow formed on a white wall will be:</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q6', 0, false)">A) Bright red</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 1, false)">B) Bright green</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 2, true)">C) Dark / Black</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 3, false)">D) Yellow</button>
+        </div>
+        <div class="quiz-feedback" id="q6-fb"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: EXAM HALL READINESS
+         ========================================== -->
+    <section class="section-card" id="sec6">
+      <div class="section-header">
+        <span class="section-tag">Section 6</span>
+        <h2 class="section-title">Exam Hall Readiness: Traps &amp; Lightning Revision</h2>
+      </div>
+
+      <h3>Common Exam Pitfalls &amp; Traps</h3>
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 1: "The shadow of a red rose is red."</div>
+        <strong>Wrong!</strong> A shadow is NOT an image. It is merely the absence of light caused by an obstacle blocking light rays. All shadows are always <strong>dark/black</strong>, regardless of object color!
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 2: Confusing image distance with separation distance</div>
+        If you stand $2\text{ m}$ in front of a mirror, your image is $2\text{ m}$ <em>behind the mirror</em>. The total distance between <strong>you and your image</strong> is $2 + 2 = \mathbf{4\text{ metres}}$! Don't write $2\text{ m}$!
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 3: Pinhole camera makes shadows</div>
+        <strong>Wrong!</strong> A pinhole camera forms a true, colored, <strong>inverted real image</strong>, not a shadow! It captures the color and fine details of the tree, person, or building being viewed.
+      </div>
+
+      <h3>15 Lightning Revision Key Takeaways</h3>
+      <ol style="column-count: 2; column-gap: 2rem; margin-left: 1.5rem;">
+        <li>Light is a form of energy that travels at $3 \times 10^8\text{ m/s}$ in vacuum.</li>
+        <li>Rectilinear propagation: Light travels strictly along straight lines.</li>
+        <li>Luminous objects (Sun, stars, bulbs) emit their own light; non-luminous (Moon, mirrors) reflect light.</li>
+        <li>Sunlight takes about 8 minutes and 20 seconds to reach the Earth.</li>
+        <li>Opaque objects block light completely, creating dark shadows.</li>
+        <li>Three requirements for shadows: Light source, Opaque obstacle, and a Screen.</li>
+        <li>Shadow size increases when the obstacle moves closer to the light source.</li>
+        <li>Shadows are shortest at 12 noon when the Sun is directly overhead.</li>
+        <li>A high-flying bird casts no shadow because its umbra cone ends in mid-air.</li>
+        <li>Pinhole camera images are real, inverted (upside-down), colored, and diminished.</li>
+        <li>Gaps between tree leaves act as natural pinholes projecting circular images of the Sun.</li>
+        <li>Plane mirror reflection yields virtual, erect, identical-sized images at equal distance.</li>
+        <li>Lateral inversion swaps the left and right sides of mirror images.</li>
+        <li>Symmetric letters (A, H, I, M, O, T, U, V, W, X, Y) appear identical in plane mirrors.</li>
+        <li>Periscopes use 2 plane mirrors at 45&deg;; Kaleidoscopes use 3 mirrors at 60&deg;.</li>
+      </ol>
+
+      <!-- Checklist -->
+      <h3 style="margin-top: 2rem;">Interactive Student Self-Assessment</h3>
+      <div style="background: var(--light); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem;">
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can prove rectilinear propagation of light using the bent-pipe experiment.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I know the 3 indispensable conditions required to form a shadow.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can explain why pinhole camera images are inverted while shadows are silhouettes.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can list all 5 characteristics of images formed by a plane mirror.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can draw the ray paths in a submarine periscope with 45&deg; mirrors.</span>
+        </label>
+      </div>
+    </section>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" onclick="scrollToTop()" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      const btn = document.getElementById('backToTopBtn');
+      if (window.scrollY > 400) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Teacher Audio Summary (Web Speech API)
+    let isSpeaking = false;
+    let speechUtterance = null;
+
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('ttsBtn');
+      const icon = document.getElementById('ttsIcon');
+      const text = document.getElementById('ttsText');
+
+      if (!('speechSynthesis' in window)) {
+        alert('Sorry! Your browser does not support text-to-speech.');
+        return;
+      }
+
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        icon.className = 'fa-solid fa-play';
+        text.innerText = 'Play Audio';
+        btn.style.background = 'var(--primary)';
+      } else {
+        const scriptText = "Welcome to Sujit Classes Chapter Summary for Light: Shadows and Reflections. " +
+          "Light travels in straight lines, a principle called rectilinear propagation. " +
+          "Luminous objects like the Sun and fireflies generate their own light, while non-luminous objects like the Moon shine by reflection. " +
+          "When an opaque object blocks light rays, a dark shadow is cast on a screen. " +
+          "Shadows only show silhouettes and are shortest at noon when the Sun is overhead. " +
+          "A pinhole camera operates on rectilinear propagation to form a real, inverted, and coloured image on a screen. " +
+          "When light strikes a polished plane mirror, it reflects. " +
+          "The plane mirror image is virtual, erect, of identical size, located at an equal distance behind the mirror, and laterally inverted. " +
+          "Multiple reflections power fascinating instruments like the submarine periscope with two mirrors at 45 degrees and the kaleidoscope with three mirrors at 60 degrees. " +
+          "Explore the complete NCERT solutions and interactive quiz below to master your physics exam!";
+
+        speechUtterance = new SpeechSynthesisUtterance(scriptText);
+        speechUtterance.rate = 0.95;
+        speechUtterance.pitch = 1.0;
+
+        speechUtterance.onend = () => {
+          isSpeaking = false;
+          icon.className = 'fa-solid fa-play';
+          text.innerText = 'Play Audio';
+          btn.style.background = 'var(--primary)';
+        };
+
+        window.speechSynthesis.speak(speechUtterance);
+        isSpeaking = true;
+        icon.className = 'fa-solid fa-pause';
+        text.innerText = 'Pause Audio';
+        btn.style.background = '#dc2626';
+      }
+    }
+
+    // Interactive Quiz Engine
+    let quizScore = 0;
+    const answeredQuestions = new Set();
+
+    const explanations = {
+      q1: "Correct! The Moon does not produce light; it is a non-luminous rocky body that reflects sunlight towards Earth.",
+      q2: "Correct! If you stand 3 m in front of the mirror, your image is 3 m behind the mirror. Total distance = 3 + 3 = 6 metres!",
+      q3: "Correct! The letter M has vertical line symmetry, so its lateral inversion looks completely identical to itself.",
+      q4: "Correct! Light rays criss-cross through the pinhole, projecting a real, inverted, and coloured image on the screen.",
+      q5: "Correct! A periscope uses two plane mirrors inclined at 45 degrees to the tube axis, parallel to each other, causing two 90-degree reflections.",
+      q6: "Correct! A shadow is simply the absence of light blocked by an opaque obstacle; hence, all shadows are dark/black regardless of object or illumination color."
+    };
+
+    function checkQuiz(qId, selectedIdx, isCorrect) {
+      const qBox = document.getElementById(qId + '-box');
+      const buttons = qBox.querySelectorAll('.opt-btn');
+      const fb = document.getElementById(qId + '-fb');
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        buttons[selectedIdx].classList.add('correct');
+        fb.style.display = 'block';
+        fb.style.background = '#dcfce7';
+        fb.style.color = '#15803d';
+        fb.innerHTML = '<strong><i class=\"fa-solid fa-circle-check\"></i> Correct!</strong> ' + explanations[qId];
+        if (!answeredQuestions.has(qId)) {
+          quizScore++;
+        }
+      } else {
+        buttons[selectedIdx].classList.add('wrong');
+        fb.style.display = 'block';
+        fb.style.background = '#fee2e2';
+        fb.style.color = '#b91c1c';
+        fb.innerHTML = '<strong><i class=\"fa-solid fa-circle-xmark\"></i> Not quite.</strong> ' + explanations[qId];
+      }
+
+      answeredQuestions.add(qId);
+      document.getElementById('quizScoreText').innerText = quizScore + ' / 6 Correct';
+    }
+  </script>
+</body>
+</html>
