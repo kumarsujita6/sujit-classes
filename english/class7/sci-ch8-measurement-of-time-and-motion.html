@@ -1,0 +1,1606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 8 - Measurement of Time and Motion (Class 7 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-light: #eff6ff;
+      --primary-dark: #1d4ed8;
+      --secondary: #0d9488;
+      --secondary-light: #f0fdfa;
+      --accent: #f59e0b;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #2563eb, #0d9488, #f59e0b);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 50%, #bfdbfe 100%);
+      border-radius: 1.5rem;
+      padding: 3rem 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #93c5fd;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #ffffff;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.3rem;
+      line-height: 1.25;
+      color: #1e3a8a;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: #1e40af;
+      margin-bottom: 1.5rem;
+      max-width: 720px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      color: #1e3a8a;
+      border-top: 1px solid #bfdbfe;
+      padding-top: 1.25rem;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Audio Bar */
+    .audio-bar {
+      background: white;
+      border: 1px solid #bfdbfe;
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .audio-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .audio-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .audio-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--surface);
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--light);
+    }
+
+    .section-tag {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    /* Typography */
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      color: #1e293b;
+      margin: 1.75rem 0 0.75rem;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      color: #334155;
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 1rem; }
+    ul, ol { margin: 0 0 1.25rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+
+    /* Callouts */
+    .callout {
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+
+    .callout-def {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      color: #1e40af;
+    }
+
+    .callout-act {
+      background: #f0fdfa;
+      border-left: 4px solid #0d9488;
+      color: #115e59;
+    }
+
+    .callout-pyq {
+      background: #fefce8;
+      border-left: 4px solid #ca8a04;
+      color: #854d0e;
+    }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-left: 4px solid #9333ea;
+      color: #6b21a8;
+    }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: #f8fafc;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      color: #1e293b;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background-color: #fbfcfe; }
+
+    /* Collapsible Solutions */
+    .ans-box {
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      background: #ffffff;
+      transition: all 0.2s ease;
+    }
+
+    .ans-box summary {
+      padding: 1rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #f8fafc;
+      transition: background 0.2s;
+    }
+
+    .ans-box summary:hover {
+      background: #f1f5f9;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+      background: #ffffff;
+    }
+
+    .step-pill {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.375rem;
+      margin-right: 0.4rem;
+    }
+
+    /* Formula Box */
+    .formula-box {
+      background: #f0fdfa;
+      border: 2px solid #0d9488;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      text-align: center;
+    }
+
+    .formula-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #0f766e;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .formula-main {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #115e59;
+    }
+
+    /* Quiz Widget */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quiz-q {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .opt-btn {
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 0.6rem;
+      background: white;
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .opt-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+
+    .opt-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+
+    .quiz-feedback {
+      display: none;
+      padding: 0.85rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* Floating Back to Top */
+    #backToTopBtn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.2s ease;
+      z-index: 999;
+    }
+
+    #backToTopBtn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero { padding: 2rem 1.25rem; }
+      .section-card { padding: 1.5rem 1rem; }
+      .top-nav { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <!-- Sticky Top Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Deep Notes</a>
+      <a href="#sec3" class="nav-link">3. Term &amp; Units</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Quiz Engine</a>
+      <a href="#sec6" class="nav-link">6. Exam Readiness</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Hero Banner -->
+    <header class="hero">
+      <div class="hero-badge">
+        <i class="fa-solid fa-stopwatch-20"></i> Class 7 Science Curiosity • Chapter 8
+      </div>
+      <h1>Measurement of Time and Motion</h1>
+      <p class="hero-subtitle">
+        From ancient sundials and water clocks to Galileo's oscillating pendulum, modern quartz oscillations, speed mathematics, and linear motion kinematics!
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><i class="fa-solid fa-book-open"></i> NCERT NEP 2020 Code: gecu108</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-clock"></i> 35 Mins In-Depth Master Study</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-calculator"></i> Step-by-Step Numerical Calculations</div>
+      </div>
+    </header>
+
+    <!-- Teacher Audio Summary Widget -->
+    <div class="audio-bar">
+      <div class="audio-info">
+        <div class="audio-icon"><i class="fa-solid fa-headphones-simple"></i></div>
+        <div>
+          <strong style="font-size: 0.95rem; color: var(--dark);">Listen to Chapter Summary</strong>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Interactive 2-Minute Speech Synthesis Audio Lecture</p>
+        </div>
+      </div>
+      <button class="audio-btn" id="ttsBtn" onclick="toggleTeacherAudio()">
+        <i class="fa-solid fa-play" id="ttsIcon"></i> <span id="ttsText">Play Audio</span>
+      </button>
+    </div>
+
+    <!-- ==========================================
+         SECTION 1: VISUAL ARCHITECTURE & BLUEPRINT
+         ========================================== -->
+    <section class="section-card" id="sec1">
+      <div class="section-header">
+        <span class="section-tag">Section 1</span>
+        <h2 class="section-title">Visual Architecture & Mind Map</h2>
+      </div>
+      <p>
+        Physics connects the measurement of <strong>time</strong> with the quantitative description of <strong>motion</strong> through the unifying concept of <strong>speed</strong>. Explore the interconnected roadmap below.
+      </p>
+
+      <!-- Inline SVG Concept Mind Map -->
+      <div style="width: 100%; overflow-x: auto; background: #f8fafc; border: 1px solid var(--border); border-radius: 1rem; padding: 1.5rem; margin: 1.5rem 0;">
+        <svg viewBox="0 0 880 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="timeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2563eb"/>
+              <stop offset="100%" stop-color="#1d4ed8"/>
+            </linearGradient>
+            <linearGradient id="speedGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0d9488"/>
+              <stop offset="100%" stop-color="#0f766e"/>
+            </linearGradient>
+            <linearGradient id="motionGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <filter id="boxShadow" x="-10%" y="-10%" width="120%" height="120%">
+              <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+            </filter>
+          </defs>
+
+          <!-- Core Node: Measurement of Time and Motion -->
+          <rect x="290" y="20" width="300" height="60" rx="12" fill="url(#timeGrad)" filter="url(#boxShadow)"/>
+          <text x="440" y="47" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" text-anchor="middle">TIME &amp; MOTION MEASUREMENT</text>
+          <text x="440" y="67" fill="#bfdbfe" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">Class 7 Science Curiosity • Chapter 8</text>
+
+          <!-- Left Branch: Measurement of Time -->
+          <path d="M 330 80 L 150 150" stroke="#2563eb" stroke-width="2.5"/>
+          <rect x="40" y="150" width="220" height="90" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2" filter="url(#boxShadow)"/>
+          <text x="150" y="178" fill="#1e40af" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" text-anchor="middle">1. EVOLUTION OF TIMEKEEPING</text>
+          <text x="150" y="200" fill="#334155" font-size="11" text-anchor="middle">&bull; Natural Cycles (Day, Month, Year)</text>
+          <text x="150" y="216" fill="#334155" font-size="11" text-anchor="middle">&bull; Sundials (Gnomon shadow angle)</text>
+          <text x="150" y="232" fill="#334155" font-size="11" text-anchor="middle">&bull; Water Clocks &amp; Sand Hourglasses</text>
+
+          <!-- Center Branch: Simple Pendulum & Clocks -->
+          <path d="M 440 80 L 440 150" stroke="#0d9488" stroke-width="2.5"/>
+          <rect x="330" y="150" width="220" height="90" rx="10" fill="#f0fdfa" stroke="#0d9488" stroke-width="2" filter="url(#boxShadow)"/>
+          <text x="440" y="178" fill="#115e59" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" text-anchor="middle">2. THE SIMPLE PENDULUM</text>
+          <text x="440" y="200" fill="#334155" font-size="11" text-anchor="middle">&bull; Periodic Oscillations (Mean &amp; Extremes)</text>
+          <text x="440" y="216" fill="#334155" font-size="11" text-anchor="middle">&bull; Time Period: T = Total Time / Oscillations</text>
+          <text x="440" y="232" fill="#334155" font-size="11" text-anchor="middle">&bull; Depends on Length L, independent of mass</text>
+
+          <!-- Right Branch: Speed & Motion -->
+          <path d="M 550 80 L 730 150" stroke="#f59e0b" stroke-width="2.5"/>
+          <rect x="620" y="150" width="220" height="90" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="2" filter="url(#boxShadow)"/>
+          <text x="730" y="178" fill="#92400e" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" text-anchor="middle">3. SPEED &amp; TYPES OF MOTION</text>
+          <text x="730" y="200" fill="#334155" font-size="11" text-anchor="middle">&bull; Speed = Distance / Time (m/s &amp; km/h)</text>
+          <text x="730" y="216" fill="#334155" font-size="11" text-anchor="middle">&bull; Uniform Motion: Equal dist / equal time</text>
+          <text x="730" y="232" fill="#334155" font-size="11" text-anchor="middle">&bull; Non-Uniform Motion: Varying velocity</text>
+
+          <!-- Lower Details Flow -->
+          <!-- Lower Box 1 -->
+          <path d="M 150 240 L 150 290" stroke="#2563eb" stroke-width="1.5"/>
+          <rect x="35" y="290" width="230" height="150" rx="8" fill="#ffffff" stroke="#bfdbfe" stroke-width="1.5"/>
+          <text x="150" y="315" fill="#1d4ed8" font-size="12" font-weight="700" text-anchor="middle">Ancient Time Devices</text>
+          <text x="45" y="340" fill="#475569" font-size="11">&bull; <tspan font-weight="700">Sundial:</tspan> Relies on Sun's shadow</text>
+          <text x="45" y="358" fill="#475569" font-size="11">&bull; <tspan font-weight="700">Ghatika-Yantra:</tspan> Sinking water bowl</text>
+          <text x="45" y="376" fill="#475569" font-size="11">&bull; <tspan font-weight="700">Candle Clock:</tspan> Uniform combustion</text>
+          <text x="45" y="394" fill="#475569" font-size="11">&bull; <tspan font-weight="700">Limitation:</tspan> Cannot work in darkness</text>
+          <text x="45" y="412" fill="#475569" font-size="11">&bull; Unit of Time: Second (s), h, day, yr</text>
+
+          <!-- Lower Box 2: Pendulum Diagram -->
+          <path d="M 440 240 L 440 290" stroke="#0d9488" stroke-width="1.5"/>
+          <rect x="325" y="290" width="230" height="150" rx="8" fill="#ffffff" stroke="#99f6e4" stroke-width="1.5"/>
+          <text x="440" y="315" fill="#0f766e" font-size="12" font-weight="700" text-anchor="middle">Pendulum Mechanics</text>
+          <text x="335" y="340" fill="#475569" font-size="11">&bull; <tspan font-weight="700">Mean Position:</tspan> Rest point O</text>
+          <text x="335" y="358" fill="#475569" font-size="11">&bull; <tspan font-weight="700">Extreme Positions:</tspan> Max displacement A &amp; B</text>
+          <text x="335" y="376" fill="#475569" font-size="11">&bull; <tspan font-weight="700">1 Oscillation:</tspan> O &rarr; A &rarr; B &rarr; O (or A &rarr; B &rarr; A)</text>
+          <text x="335" y="394" fill="#475569" font-size="11">&bull; <tspan font-weight="700">Quartz Crystals:</tspan> High freq. stability</text>
+          <text x="335" y="412" fill="#475569" font-size="11">&bull; <tspan font-weight="700">Atomic Clocks:</tspan> Cesium-133 vibrations</text>
+
+          <!-- Lower Box 3: Mathematics of Motion -->
+          <path d="M 730 240 L 730 290" stroke="#f59e0b" stroke-width="1.5"/>
+          <rect x="615" y="290" width="230" height="150" rx="8" fill="#ffffff" stroke="#fde68a" stroke-width="1.5"/>
+          <text x="730" y="315" fill="#b45309" font-size="12" font-weight="700" text-anchor="middle">Speed Mathematics &amp; Units</text>
+          <text x="625" y="340" fill="#475569" font-size="11">&bull; <tspan font-weight="700">SI Unit:</tspan> metre per second (m/s)</text>
+          <text x="625" y="358" fill="#475569" font-size="11">&bull; <tspan font-weight="700">Vehicle Unit:</tspan> kilometre per hour (km/h)</text>
+          <text x="625" y="376" fill="#475569" font-size="11">&bull; <tspan font-weight="700">1 km/h = 5/18 m/s</tspan> (&times; 5/18 shortcut)</text>
+          <text x="625" y="394" fill="#475569" font-size="11">&bull; <tspan font-weight="700">Speedometer:</tspan> Instantaneous speed</text>
+          <text x="625" y="412" fill="#475569" font-size="11">&bull; <tspan font-weight="700">Odometer:</tspan> Total distance travelled</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: COMPREHENSIVE STUDY NOTES
+         ========================================== -->
+    <section class="section-card" id="sec2">
+      <div class="section-header">
+        <span class="section-tag">Section 2</span>
+        <h2 class="section-title">Comprehensive Line-by-Line Study Notes</h2>
+      </div>
+
+      <!-- Part 1: Evolution of Time Measurement -->
+      <h3>1. The Evolution of Time Measurement</h3>
+      <p>
+        How did our ancestors tell time before the advent of wristwatches, smartphone screens, or digital wall clocks? They relied on <strong>periodic events in nature</strong> — phenomena that repeat regularly at predictable, identical intervals.
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Natural Cycle</th>
+              <th>Astronomical Basis</th>
+              <th>Unit of Time Defined</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Solar Day</strong></td>
+              <td>Time interval between one sunrise and the very next sunrise (Earth's rotation on its axis).</td>
+              <td>1 Solar Day = 24 Hours = 1,440 Minutes = 86,400 Seconds.</td>
+            </tr>
+            <tr>
+              <td><strong>Lunar Month</strong></td>
+              <td>Time interval between one new moon and the next new moon (Moon's revolution around Earth).</td>
+              <td>Roughly 29.5 days (approx. 1 Month).</td>
+            </tr>
+            <tr>
+              <td><strong>Solar Year</strong></td>
+              <td>Time taken by Earth to complete one full revolution around the Sun (cycle of seasons).</td>
+              <td>365.25 Days = 1 Year.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Historical Man-Made Timekeeping Instruments</h4>
+      <ul>
+        <li><strong>Sundial (Chhaya-Yantra):</strong> Operates on the principle that the position and length of the shadow cast by an upright vertical rod (called a <em>gnomon</em>) changes progressively as the Sun moves across the sky from east to west.
+        <br><em>Masterwork:</em> The massive sundials at Jantar Mantar (built by Maharaja Sawai Jai Singh II in Jaipur, Delhi, Ujjain, Varanasi, and Mathura) can measure local solar time accurate to within two seconds!
+        <br><em>Major Drawback:</em> Sundials are completely useless on overcast/cloudy days and cannot indicate time after sunset.</li>
+        
+        <li><strong>Water Clocks (Clepsydra &amp; Ghatika-Yantra):</strong> Measured time by the steady, regulated flow of water.
+        <br>&bull; <em>Outflow type:</em> Water drips at a constant rate out of a graduated vessel through a pinhole.
+        <br>&bull; <em>Inflow / Sinking bowl type (Ghatika-Yantra):</em> Mentioned by ancient Indian mathematician-astronomer <strong>Aryabhata</strong> in <em>Aryabhatiya</em>. A lightweight copper bowl with a calibrated orifice in the bottom floats in a water basin; water slowly seeps inside until the bowl sinks, marking exactly one <em>Ghati</em> (24 minutes).</li>
+
+        <li><strong>Sandglass (Hourglass):</strong> Measures an exact preset time interval (e.g. 1 hour) by the steady gravitational trickle of fine sand from an upper glass bulb to a lower bulb through a narrow constricted neck.</li>
+
+        <li><strong>Candle Clock:</strong> A wax candle marked with numbered horizontal bands along its height. As the candle burns uniformly, the level of melting wax marks elapsed time.</li>
+      </ul>
+
+      <!-- Part 2: The Simple Pendulum -->
+      <h3>2. The Simple Pendulum &amp; The Birth of Modern Clocks</h3>
+      <p>
+        The breakthrough that led to modern accurate mechanical clocks came in 1583 when Italian polymath <strong>Galileo Galilei</strong> observed the swinging of a bronze chandelier suspended from the ceiling of Pisa Cathedral. Timing the swings with his own heartbeat, Galileo discovered that the time taken by the chandelier to complete one full swing remained virtually constant, regardless of whether the swing was wide or narrow.
+      </p>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-compass"></i> Definition: Simple Pendulum &amp; Associated Terms</div>
+        A <strong>Simple Pendulum</strong> consists of a small heavy metallic sphere (called the <strong>bob</strong>) suspended by a light, inextensible thread from a rigid, friction-free support.
+        <ul>
+          <li><strong>Mean Position (O):</strong> The central rest position of the bob when suspended vertically motionless.</li>
+          <li><strong>Extreme Positions (A &amp; B):</strong> The maximum displacement points reached by the swinging bob on either side of the mean position.</li>
+          <li><strong>Oscillation:</strong> One complete to-and-fro motion of the pendulum bob. For example, moving from the mean position $O 	o A 	o B 	o O$, or from extreme position $A 	o B 	o A$.</li>
+          <li><strong>Time Period ($T$):</strong> The precise time taken by the pendulum to complete exactly <strong>one full oscillation</strong>.</li>
+        </ul>
+      </div>
+
+      <!-- Pendulum SVG Diagram -->
+      <div style="text-align: center; margin: 1.5rem 0;">
+        <svg viewBox="0 0 400 300" width="360" height="270" xmlns="http://www.w3.org/2000/svg">
+          <!-- Rigid Support -->
+          <rect x="130" y="10" width="140" height="12" fill="#475569" rx="2"/>
+          <line x1="130" y1="22" x2="270" y2="22" stroke="#334155" stroke-width="2"/>
+          <circle cx="200" cy="22" r="4" fill="#0f172a"/>
+
+          <!-- Mean Position Thread & Bob -->
+          <line x1="200" y1="22" x2="200" y2="200" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4"/>
+          <circle cx="200" cy="200" r="16" fill="#cbd5e1" stroke="#64748b" stroke-width="2"/>
+          <text x="200" y="235" fill="#475569" font-size="12" font-weight="700" text-anchor="middle">O (Mean Position)</text>
+
+          <!-- Left Extreme A -->
+          <line x1="200" y1="22" x2="110" y2="185" stroke="#2563eb" stroke-width="2"/>
+          <circle cx="110" cy="185" r="16" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
+          <text x="80" y="190" fill="#1d4ed8" font-size="12" font-weight="700">A (Extreme)</text>
+
+          <!-- Right Extreme B -->
+          <line x1="200" y1="22" x2="290" y2="185" stroke="#2563eb" stroke-width="2"/>
+          <circle cx="290" cy="185" r="16" fill="#3b82f6" stroke="#1d4ed8" stroke-width="2"/>
+          <text x="325" y="190" fill="#1d4ed8" font-size="12" font-weight="700">B (Extreme)</text>
+
+          <!-- Oscillation Arc -->
+          <path d="M 110 185 Q 200 215, 290 185" stroke="#dc2626" stroke-width="2" fill="none" stroke-dasharray="5,3"/>
+          <path d="M 195 208 L 205 208" stroke="#dc2626" stroke-width="2"/>
+          <text x="200" y="265" fill="#dc2626" font-size="11" font-weight="700" text-anchor="middle">&larr; 1 Full Oscillation: A &rarr; B &rarr; A &rarr;</text>
+        </svg>
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">Mathematical Formula: Time Period of Pendulum</div>
+        <div class="formula-main">$$T = rac{	ext{Total Time Taken}}{	ext{Total Number of Oscillations}}$$</div>
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-stopwatch"></i> Activity 8.2: Measuring Time Period of a Simple Pendulum</div>
+        <strong>Procedure:</strong> Set up a pendulum with a thread of length $1	ext{ metre}$ ($100	ext{ cm}$). Pull the bob gently to one side (about 5-8 cm displacement) and release it smoothly without pushing.
+        <br>&bull; Use a stopwatch to measure the total time taken for <strong>20 complete oscillations</strong>.
+        <br>&bull; If 20 oscillations take $40.0	ext{ seconds}$, then:
+        $$	ext{Time Period } T = rac{40.0	ext{ s}}{20} = 2.0	ext{ s}$$
+        <br>&bull; Repeat the measurement 3 times to find the average time period, minimizing reaction time error.
+      </div>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-graduation-cap"></i> Teacher Exam Secret: What Affects the Time Period?</div>
+        <ul>
+          <li><strong>Length of the Pendulum ($L$):</strong> The time period depends directly on length. A longer pendulum swings more slowly and takes longer ($T \propto \sqrt{L}$). If you lengthen the string, $T$ increases!</li>
+          <li><strong>Mass of the Bob:</strong> Does <strong>NOT</strong> change the time period! Whether the bob is a 20g wooden sphere or a 200g brass sphere, the pendulum takes the exact same time to oscillate.</li>
+          <li><strong>Amplitude of Swing:</strong> For small angles of swing, amplitude has <strong>NO effect</strong> on the time period (Galileo's principle of isochronism).</li>
+        </ul>
+      </div>
+
+      <h4>Modern Timekeeping Technologies</h4>
+      <ul>
+        <li><strong>Pendulum Clocks:</strong> Designed by Dutch scientist <strong>Christiaan Huygens</strong> in 1656, utilizing the steady oscillation of a pendulum regulated by an escapement gear mechanism.</li>
+        <li><strong>Quartz Clocks and Watches:</strong> Contain a miniature tuning-fork-shaped quartz crystal. When connected to a tiny battery cell, the crystal vibrates at an extraordinarily steady frequency (precisely 32,768 cycles per second). These vibrations drive an electronic microchip, providing accuracy to within seconds per year!</li>
+        <li><strong>Atomic Clocks:</strong> Rely on the ultra-precise quantum resonance frequency of cesium-133 atoms ($9,192,631,770$ cycles per second). They lose or gain less than 1 second in 30 million years! Used in GPS satellites, ISRO NavIC constellation, and global telecommunications.</li>
+        <li><strong>Assistive Clocks:</strong>
+          <br>&bull; <em>Braille Watch:</em> Features raised tactile dots on the dial and sturdy mechanical hands that can be felt by visually challenged individuals.
+          <br>&bull; <em>Talking Watch:</em> Synthesizes and announces the current time in audio upon pressing a button.</li>
+      </ul>
+
+      <!-- Part 3: Speed and Motion -->
+      <h3>3. Slow or Fast: The Concept of Speed</h3>
+      <p>
+        In everyday observations, some objects move fast while others move sluggishly:
+        <br>&bull; A cheetah sprints at $100	ext{ km/h}$, while a snail crawls at barely $0.001	ext{ km/h}$.
+        <br>&bull; An aeroplane cruises at $800	ext{ km/h}$, while a bullock cart lumbers at $5	ext{ km/h}$.
+        <br>To mathematically compare which object is moving faster, we evaluate their <strong>speed</strong>.
+      </p>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-gauge-high"></i> Definition: Speed</div>
+        <strong>Speed</strong> is defined as the <strong>distance travelled by an object per unit of time</strong>. It quantifies how fast or slow an object covers ground.
+      </div>
+
+      <div class="formula-box">
+        <div class="formula-title">Fundamental Speed Equation</div>
+        <div class="formula-main">$$	ext{Speed } (v) = rac{	ext{Distance } (s)}{	ext{Time } (t)}$$</div>
+        <div style="font-size: 0.9rem; color: #047857; margin-top: 0.4rem;">
+          Rearranged forms: $\quad 	ext{Distance } (s) = 	ext{Speed } (v) 	imes 	ext{Time } (t) \quad \Big| \quad 	ext{Time } (t) = rac{	ext{Distance } (s)}{	ext{Speed } (v)}$
+        </div>
+      </div>
+
+      <h4>Units of Speed &amp; The Magic Conversion Factor</h4>
+      <ul>
+        <li><strong>SI Base Unit:</strong> Metre per second ($	ext{m/s}$ or $	ext{m s}^{-1}$).</li>
+        <li><strong>Vehicular / Practical Unit:</strong> Kilometre per hour ($	ext{km/h}$ or $	ext{km h}^{-1}$).</li>
+      </ul>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-bolt"></i> The $5/18$ Magic Shortcut (Master for Exams!)</div>
+        Since $1	ext{ kilometre} = 1000	ext{ metres}$ and $1	ext{ hour} = 60 	imes 60 = 3600	ext{ seconds}$:
+        $$1	ext{ km/h} = rac{1000	ext{ m}}{3600	ext{ s}} = rac{5}{18}	ext{ m/s}$$
+        <br>&bull; <strong>To convert $	ext{km/h} \longrightarrow 	ext{m/s}$ :</strong> Multiply by $\mathbf{rac{5}{18}}$.
+        <br><em>Example:</em> $72	ext{ km/h} = 72 	imes rac{5}{18} = 4 	imes 5 = \mathbf{20	ext{ m/s}}$.
+        <br><br>&bull; <strong>To convert $	ext{m/s} \longrightarrow 	ext{km/h}$ :</strong> Multiply by $\mathbf{rac{18}{5}}$ (or $	imes 3.6$).
+        <br><em>Example:</em> $25	ext{ m/s} = 25 	imes rac{18}{5} = 5 	imes 18 = \mathbf{90	ext{ km/h}}$.
+      </div>
+
+      <h4>Speedometer and Odometer</h4>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Instrument</th>
+              <th>What it Measures</th>
+              <th>Standard Display Unit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Speedometer</strong></td>
+              <td>Measures the <strong>instantaneous speed</strong> of the vehicle at that exact moment.</td>
+              <td>$	ext{km/h}$</td>
+            </tr>
+            <tr>
+              <td><strong>Odometer</strong></td>
+              <td>Measures the <strong>cumulative total distance</strong> travelled by the vehicle over its lifetime.</td>
+              <td>$	ext{km}$</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Part 4: Uniform and Non-Uniform Motion -->
+      <h3>4. Uniform vs Non-Uniform Linear Motion</h3>
+      <p>
+        When an object moves along a straight path, its velocity can either remain perfectly constant or fluctuate continuously.
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Uniform Motion</th>
+              <th>Non-Uniform Motion</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Definition</strong></td>
+              <td>An object travels along a straight line covering <strong>equal distances in equal intervals of time</strong>, no matter how small these intervals may be.</td>
+              <td>An object travels along a straight line covering <strong>unequal distances in equal intervals of time</strong> (speed changes).</td>
+            </tr>
+            <tr>
+              <td><strong>Speed</strong></td>
+              <td>Remains perfectly constant throughout the journey.</td>
+              <td>Varies from moment to moment (accelerates, decelerates, stops).</td>
+            </tr>
+            <tr>
+              <td><strong>Distance-Time Graph</strong></td>
+              <td>A perfectly straight oblique line sloping upward through the origin.</td>
+              <td>A curved, zig-zag, or stepped non-linear line.</td>
+            </tr>
+            <tr>
+              <td><strong>Real-World Frequency</strong></td>
+              <td>Extremely rare in daily life. (e.g. Light beam in space, satellite in circular orbit, high-speed train on a clear straight track at cruise speed).</td>
+              <td>Overwhelmingly common in daily life. (e.g. A city bus, a child running, an auto-rickshaw in traffic).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>Average Speed</h4>
+      <p>
+        Since almost all real-world motions are non-uniform, we define the overall motion by its <strong>Average Speed</strong>:
+      </p>
+      <div class="formula-box">
+        <div class="formula-title">Average Speed Formula</div>
+        <div class="formula-main">$$	ext{Average Speed} = rac{	ext{Total Distance Travelled}}{	ext{Total Time Taken}}$$</div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: HIGH-YIELD FACT & TERM BANK
+         ========================================== -->
+    <section class="section-card" id="sec3">
+      <div class="section-header">
+        <span class="section-tag">Section 3</span>
+        <h2 class="section-title">High-Yield Fact &amp; Scientific Term Bank</h2>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Scientific Term</th>
+              <th>Rigorous Definition</th>
+              <th>High-Yield Exam Context</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Periodic Motion</strong></td>
+              <td>Motion that repeats itself at regular, equal intervals of time.</td>
+              <td>Foundation for all clocks (pendulums, quartz, atomic vibrations).</td>
+            </tr>
+            <tr>
+              <td><strong>Simple Pendulum</strong></td>
+              <td>Heavy point-like bob suspended by a weightless string from rigid pivot.</td>
+              <td>Discovered by Galileo Galilei in 1583.</td>
+            </tr>
+            <tr>
+              <td><strong>Oscillation</strong></td>
+              <td>One complete to-and-fro cycle of a vibrating or swinging body.</td>
+              <td>Counted from mean to extremes or between successive crests.</td>
+            </tr>
+            <tr>
+              <td><strong>Time Period ($T$)</strong></td>
+              <td>Duration required to execute exactly one full oscillation ($T = 	ext{Time} / N$).</td>
+              <td>Independent of mass and amplitude; depends only on length $L$.</td>
+            </tr>
+            <tr>
+              <td><strong>Speed</strong></td>
+              <td>Ratio of distance covered to the time interval taken ($	ext{m/s}$ or $	ext{km/h}$).</td>
+              <td>Scalar quantity (possesses magnitude only, no direction).</td>
+            </tr>
+            <tr>
+              <td><strong>Uniform Motion</strong></td>
+              <td>Linear motion with constant speed covering equal distance in equal time.</td>
+              <td>Distance-time graph is a straight sloping line.</td>
+            </tr>
+            <tr>
+              <td><strong>Non-Uniform Motion</strong></td>
+              <td>Motion where speed fluctuates, covering unequal distances in equal times.</td>
+              <td>Governed by Average Speed = $	ext{Total Distance} / 	ext{Total Time}$.</td>
+            </tr>
+            <tr>
+              <td><strong>Ghatika-Yantra</strong></td>
+              <td>Ancient Indian sinking water bowl clock calibrated to 1 Ghati ($24	ext{ mins}$).</td>
+              <td>Documented by Aryabhata and Varahamihira.</td>
+            </tr>
+            <tr>
+              <td><strong>Quartz Crystal</strong></td>
+              <td>Piezoelectric crystal oscillating at precisely $32,768	ext{ Hz}$.</td>
+              <td>Core timekeeper in modern electronic wristwatches.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-lightbulb"></i> Speed Calculation Triangle Trick</div>
+        Visualize a triangle with $D$ on top and $S 	imes T$ at the bottom:
+        <br>&bull; Cover $D \implies D = S 	imes T$
+        <br>&bull; Cover $S \implies S = D / T$
+        <br>&bull; Cover $T \implies T = D / S$
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: 100% COMPLETE NCERT SOLUTIONS
+         ========================================== -->
+    <section class="section-card" id="sec4">
+      <div class="section-header">
+        <span class="section-tag">Section 4</span>
+        <h2 class="section-title">100% Complete NCERT Solutions (Let Us Enhance Our Learning)</h2>
+      </div>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Question 1:</strong> Calculate the speed of a car that travels 150 metres in 10 seconds. Express your answer in km/h.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Given Data</span></p>
+          <ul>
+            <li>Distance travelled ($s$) = $150	ext{ m}$</li>
+            <li>Time taken ($t$) = $10	ext{ s}$</li>
+          </ul>
+          <p><span class="step-pill">Step 1: Calculate Speed in m/s</span></p>
+          $$	ext{Speed } (v) = rac{	ext{Distance}}{	ext{Time}} = rac{150	ext{ m}}{10	ext{ s}} = 15	ext{ m/s}$$
+          <p><span class="step-pill">Step 2: Convert to km/h</span></p>
+          $$	ext{Speed in km/h} = 15 	imes rac{18}{5} = 3 	imes 18 = \mathbf{54	ext{ km/h}}$$
+          <p><strong>Final Answer:</strong> The speed of the car is <strong>$54	ext{ km/h}$</strong> (or $15	ext{ m/s}$).</p>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 2:</strong> A runner completes 400 metres in 50 seconds. Another runner completes the same distance in 45 seconds. Who has a greater speed and by how much?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Given Data</span> Distance for both runners = $400	ext{ m}$</p>
+          <ul>
+            <li>Runner 1: $t_1 = 50	ext{ s}$</li>
+            <li>Runner 2: $t_2 = 45	ext{ s}$</li>
+          </ul>
+          <p><span class="step-pill">Calculation of Speeds</span></p>
+          $$	ext{Speed of Runner 1 } (v_1) = rac{400	ext{ m}}{50	ext{ s}} = 8.0	ext{ m/s}$$
+          $$	ext{Speed of Runner 2 } (v_2) = rac{400	ext{ m}}{45	ext{ s}} = rac{80}{9}	ext{ m/s} pprox 8.89	ext{ m/s}$$
+          <p><span class="step-pill">Comparison & Difference</span></p>
+          <p>Since $8.89	ext{ m/s} > 8.0	ext{ m/s}$, <strong>Runner 2 has a greater speed</strong>.</p>
+          $$	ext{Difference} = 8.89 - 8.0 = \mathbf{0.89	ext{ m/s}} \quad \left(	ext{or } rac{8}{9}	ext{ m/s}ight)$$
+          <p><strong>Final Answer:</strong> Runner 2 has a greater speed by <strong>$0.89	ext{ m/s}$</strong> (approx $3.2	ext{ km/h}$).</p>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 3:</strong> A train travels at a speed of 25 m/s and covers a distance of 360 km. How much time does it take?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Given Data</span></p>
+          <ul>
+            <li>Speed ($v$) = $25	ext{ m/s}$</li>
+            <li>Distance ($s$) = $360	ext{ km} = 360 	imes 1000	ext{ m} = 360,000	ext{ m}$</li>
+          </ul>
+          <p><span class="step-pill">Method 1 (SI Units - seconds to hours)</span></p>
+          $$	ext{Time } (t) = rac{	ext{Distance}}{	ext{Speed}} = rac{360,000	ext{ m}}{25	ext{ m/s}} = 14,400	ext{ seconds}$$
+          $$	ext{Time in hours} = rac{14,400}{3600	ext{ s/h}} = \mathbf{4	ext{ hours}}$$
+
+          <p><span class="step-pill">Method 2 (Convert Speed to km/h first)</span></p>
+          $$	ext{Speed } (v) = 25 	imes rac{18}{5} = 5 	imes 18 = 90	ext{ km/h}$$
+          $$	ext{Time } (t) = rac{360	ext{ km}}{90	ext{ km/h}} = \mathbf{4	ext{ hours}}$$
+          <p><strong>Final Answer:</strong> The train takes exactly <strong>$4	ext{ hours}$</strong> (or $14,400	ext{ s}$).</p>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 4:</strong> A train travels 180 km in 3 h. Find its speed in (i) km/h, (ii) m/s. (iii) What distance will it travel in 4 h if it maintains the same speed throughout the journey?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Given Data</span> Distance ($s_1$) = $180	ext{ km}$, Time ($t_1$) = $3	ext{ h}$</p>
+          <p><strong>(i) Speed in km/h:</strong></p>
+          $$	ext{Speed } (v) = rac{	ext{Distance}}{	ext{Time}} = rac{180	ext{ km}}{3	ext{ h}} = \mathbf{60	ext{ km/h}}$$
+          <p><strong>(ii) Speed in m/s:</strong></p>
+          $$	ext{Speed in m/s} = 60 	imes rac{5}{18} = rac{300}{18} = rac{50}{3} pprox \mathbf{16.67	ext{ m/s}}$$
+          <p><strong>(iii) Distance travelled in 4 h at constant speed:</strong></p>
+          $$	ext{Distance } (s) = 	ext{Speed } (v) 	imes 	ext{Time } (t) = 60	ext{ km/h} 	imes 4	ext{ h} = \mathbf{240	ext{ km}}$$
+          <p><strong>Final Summary:</strong> (i) $60	ext{ km/h}$, (ii) $16.67	ext{ m/s}$, (iii) $240	ext{ km}$.</p>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 5:</strong> The fastest galloping horse can reach the speed of approximately 18 m/s. How does this compare to the speed of a train moving at 72 km/h?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Conversion to Common Unit</span></p>
+          <ul>
+            <li>Speed of galloping horse = $18	ext{ m/s}$</li>
+            <li>Speed of train = $72	ext{ km/h}$</li>
+          </ul>
+          <p>Converting the train's speed to $	ext{m/s}$:</p>
+          $$	ext{Train speed} = 72 	imes rac{5}{18} = 4 	imes 5 = \mathbf{20	ext{ m/s}}$$
+          <p>Alternatively, converting the horse's speed to $	ext{km/h}$:</p>
+          $$	ext{Horse speed} = 18 	imes rac{18}{5} = rac{324}{5} = \mathbf{64.8	ext{ km/h}}$$
+          <p><span class="step-pill">Comparison</span></p>
+          <p>Since $20	ext{ m/s} > 18	ext{ m/s}$ ($72	ext{ km/h} > 64.8	ext{ km/h}$):</p>
+          <p><strong>The train is moving faster than the galloping horse</strong> by a margin of <strong>$2	ext{ m/s}$</strong> (or $7.2	ext{ km/h}$).</p>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 6:</strong> Distinguish between uniform and non-uniform motion using the example of a car moving on a straight highway with no traffic and a car moving in city traffic.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Teacher's Distinction</span></p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Characteristic</th>
+                  <th>Car on Empty Highway (Uniform Motion)</th>
+                  <th>Car in City Traffic (Non-Uniform Motion)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Motion Type</strong></td>
+                  <td><strong>Uniform Motion:</strong> The car travels along a straight path covering equal distances in equal intervals of time.</td>
+                  <td><strong>Non-Uniform Motion:</strong> The car covers unequal distances in equal intervals of time.</td>
+                </tr>
+                <tr>
+                  <td><strong>Speed Behavior</strong></td>
+                  <td>The driver engages cruise control at a constant $80	ext{ km/h}$. The speedometer needle remains completely steady.</td>
+                  <td>The speed continuously fluctuates: accelerating on open stretches, braking at red lights, stopping for pedestrians, and idling in traffic jams.</td>
+                </tr>
+                <tr>
+                  <td><strong>Distance-Time Graph</strong></td>
+                  <td>Forms a perfectly straight sloping line passing through the origin.</td>
+                  <td>Forms an uneven, jagged, or curved non-linear plot.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 7:</strong> Data for an object covering distances in different intervals of time are given in the following table. If the object is in uniform motion, fill in the gaps in the table.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Given Data Table</span></p>
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>Time (s)</th>
+                <td>0</td>
+                <td>10</td>
+                <td>20</td>
+                <td>30</td>
+                <td><strong>? (Gap 2)</strong></td>
+                <td>50</td>
+                <td>70</td>
+              </tr>
+              <tr>
+                <th>Distance (m)</th>
+                <td>0</td>
+                <td>8</td>
+                <td><strong>? (Gap 1)</strong></td>
+                <td>24</td>
+                <td>32</td>
+                <td>40</td>
+                <td>56</td>
+              </tr>
+            </table>
+          </div>
+
+          <p><span class="step-pill">Step 1: Determine Constant Speed</span></p>
+          <p>Since the motion is specified as <strong>uniform motion</strong>, speed is constant across all intervals:</p>
+          $$	ext{Speed } (v) = rac{	ext{Distance}}{	ext{Time}} = rac{8	ext{ m}}{10	ext{ s}} = 0.8	ext{ m/s}$$
+          <p>(Check with other known points: At $t=30	ext{ s}$, $d = 0.8 	imes 30 = 24	ext{ m}$; At $t=50	ext{ s}$, $d = 0.8 	imes 50 = 40	ext{ m}$; At $t=70	ext{ s}$, $d = 0.8 	imes 70 = 56	ext{ m}$. All perfectly consistent!).</p>
+
+          <p><span class="step-pill">Step 2: Fill Gap 1 (Distance at t = 20 s)</span></p>
+          $$	ext{Distance} = 	ext{Speed} 	imes 	ext{Time} = 0.8	ext{ m/s} 	imes 20	ext{ s} = \mathbf{16	ext{ m}}$$
+
+          <p><span class="step-pill">Step 3: Fill Gap 2 (Time for Distance = 32 m)</span></p>
+          $$	ext{Time} = rac{	ext{Distance}}{	ext{Speed}} = rac{32	ext{ m}}{0.8	ext{ m/s}} = \mathbf{40	ext{ s}}$$
+
+          <p><strong>Completed Table:</strong></p>
+          <div class="table-container">
+            <table>
+              <tr>
+                <th>Time (s)</th>
+                <td>0</td><td>10</td><td>20</td><td>30</td><td style="color: #2563eb; font-weight: 700;">40</td><td>50</td><td>70</td>
+              </tr>
+              <tr>
+                <th>Distance (m)</th>
+                <td>0</td><td>8</td><td style="color: #2563eb; font-weight: 700;">16</td><td>24</td><td>32</td><td>40</td><td>56</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 8:</strong> A car covers 60 km in the first hour, 70 km in the second hour, and 50 km in the third hour. Is the motion uniform? Justify your answer. Find the average speed of the car.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Uniformity Evaluation</span></p>
+          <p><strong>No, the motion of the car is NOT uniform.</strong></p>
+          <p><em>Justification:</em> In equal time intervals of $1	ext{ hour}$, the car covers unequal distances: $60	ext{ km}$ in the 1st hour, $70	ext{ km}$ in the 2nd hour, and $50	ext{ km}$ in the 3rd hour. Since the distance covered per unit time changes, the speed is variable, which defines <strong>non-uniform motion</strong>.</p>
+
+          <p><span class="step-pill">Calculation of Average Speed</span></p>
+          $$	ext{Total Distance} = 60	ext{ km} + 70	ext{ km} + 50	ext{ km} = 180	ext{ km}$$
+          $$	ext{Total Time Taken} = 1	ext{ h} + 1	ext{ h} + 1	ext{ h} = 3	ext{ h}$$
+          $$	ext{Average Speed} = rac{	ext{Total Distance}}{	ext{Total Time}} = rac{180	ext{ km}}{3	ext{ h}} = \mathbf{60	ext{ km/h}}$$
+          <p><strong>Final Answer:</strong> The motion is non-uniform; average speed is <strong>$60	ext{ km/h}$</strong>.</p>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 9:</strong> Which type of motion is more common in daily life—uniform or non-uniform? Provide three examples from your experience to support your answer.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Core Verdict</span> <strong>Non-uniform motion is overwhelmingly more common in daily life.</strong> Perfectly uniform motion requires an object to travel along a completely straight path without encountering any friction, obstacles, or requiring changes in speed or direction — conditions rarely found in our everyday world.</p>
+          <p><span class="step-pill">Three Everyday Examples</span></p>
+          <ol>
+            <li><strong>A School Bus:</strong> A school bus starts from rest, accelerates on clear lanes, slows down over speed breakers, halts completely at bus stops to pick up students, and stops at traffic lights. Its speed is constantly changing.</li>
+            <li><strong>A Person Jogging in a Colony Park:</strong> A runner speeds up initially, slows down when tired, navigates around walkers and sharp bends, and walks during cooldown. Unequal distances are covered in equal minutes.</li>
+            <li><strong>A Passenger Train Journey:</strong> A train departs the station slowly from $0	ext{ km/h}$, gains momentum to cruise at $100	ext{ km/h}$, slows down while crossing switches, junctions, or bridges, and brakes to a complete halt at destination platforms.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 10:</strong> Data for the motion of an object are given in the table. State whether the speed of the object is uniform or non-uniform. Find the average speed.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Interval Distance Analysis</span></p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Time Interval (s)</th>
+                  <th>Duration $\Delta t$ (s)</th>
+                  <th>Distance Points $s$ (m)</th>
+                  <th>Distance Covered $\Delta s$ (m)</th>
+                  <th>Interval Speed (m/s)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>0 to 10</td><td>10</td><td>0 &rarr; 6</td><td>6</td><td>0.60</td></tr>
+                <tr><td>10 to 20</td><td>10</td><td>6 &rarr; 10</td><td>4</td><td>0.40</td></tr>
+                <tr><td>20 to 30</td><td>10</td><td>10 &rarr; 16</td><td>6</td><td>0.60</td></tr>
+                <tr><td>30 to 40</td><td>10</td><td>16 &rarr; 21</td><td>5</td><td>0.50</td></tr>
+                <tr><td>40 to 50</td><td>10</td><td>21 &rarr; 29</td><td>8</td><td>0.80</td></tr>
+                <tr><td>50 to 60</td><td>10</td><td>29 &rarr; 35</td><td>6</td><td>0.60</td></tr>
+                <tr><td>60 to 70</td><td>10</td><td>35 &rarr; 42</td><td>7</td><td>0.70</td></tr>
+                <tr><td>70 to 80</td><td>10</td><td>42 &rarr; 45</td><td>3</td><td>0.30</td></tr>
+                <tr><td>80 to 90</td><td>10</td><td>45 &rarr; 55</td><td>10</td><td>1.00</td></tr>
+                <tr><td>90 to 100</td><td>10</td><td>55 &rarr; 60</td><td>5</td><td>0.50</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p><span class="step-pill">Verdict on Uniformity</span></p>
+          <p>As evident from the table, in equal time intervals of $10	ext{ seconds}$, the distance covered fluctuates widely ($6	ext{ m}, 4	ext{ m}, 6	ext{ m}, 5	ext{ m}, 8	ext{ m}, 6	ext{ m}, 7	ext{ m}, 3	ext{ m}, 10	ext{ m}, 5	ext{ m}$). Therefore, the speed is <strong>NON-UNIFORM</strong>.</p>
+
+          <p><span class="step-pill">Average Speed Calculation</span></p>
+          $$	ext{Total Distance Covered} = 60	ext{ metres}$$
+          $$	ext{Total Time Taken} = 100	ext{ seconds}$$
+          $$	ext{Average Speed} = rac{	ext{Total Distance}}{	ext{Total Time}} = rac{60	ext{ m}}{100	ext{ s}} = \mathbf{0.6	ext{ m/s}}$$
+          <p><strong>Final Answer:</strong> Motion is <strong>Non-uniform</strong>; Average speed is <strong>$0.6	ext{ m/s}$</strong> (or $2.16	ext{ km/h}$).</p>
+        </div>
+      </details>
+
+      <!-- Q11 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 11:</strong> A vehicle moves along a straight line and covers a distance of 2 km. In the first 500 m, it moves with a speed of 10 m/s and in the next 500 m, it moves with a speed of 5 m/s. With what speed should it move the remaining distance so that the journey is complete in 200 s? What is the average speed of the vehicle for the entire journey?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Given Total Parameters</span></p>
+          <ul>
+            <li>Total Distance ($S$) = $2	ext{ km} = 2 	imes 1000	ext{ m} = 2000	ext{ m}$</li>
+            <li>Total Target Time ($T$) = $200	ext{ s}$</li>
+          </ul>
+
+          <p><span class="step-pill">Step 1: Time Taken in First Stage</span></p>
+          $$s_1 = 500	ext{ m}, \quad v_1 = 10	ext{ m/s}$$
+          $$t_1 = rac{s_1}{v_1} = rac{500	ext{ m}}{10	ext{ m/s}} = 50	ext{ s}$$
+
+          <p><span class="step-pill">Step 2: Time Taken in Second Stage</span></p>
+          $$s_2 = 500	ext{ m}, \quad v_2 = 5	ext{ m/s}$$
+          $$t_2 = rac{s_2}{v_2} = rac{500	ext{ m}}{5	ext{ m/s}} = 100	ext{ s}$$
+
+          <p><span class="step-pill">Step 3: Remaining Distance and Time for Third Stage</span></p>
+          $$	ext{Remaining Distance } (s_3) = S - (s_1 + s_2) = 2000 - (500 + 500) = 1000	ext{ m}$$
+          $$	ext{Time Elapsed so far} = t_1 + t_2 = 50	ext{ s} + 100	ext{ s} = 150	ext{ s}$$
+          $$	ext{Remaining Time Available } (t_3) = T - 150	ext{ s} = 200	ext{ s} - 150	ext{ s} = 50	ext{ s}$$
+
+          <p><span class="step-pill">Step 4: Required Speed for the Remaining Distance</span></p>
+          $$v_3 = rac{s_3}{t_3} = rac{1000	ext{ m}}{50	ext{ s}} = \mathbf{20	ext{ m/s}}$$
+          $$	ext{In km/h: } 20 	imes rac{18}{5} = 4 	imes 18 = \mathbf{72	ext{ km/h}}$$
+
+          <p><span class="step-pill">Step 5: Average Speed for Entire Journey</span></p>
+          $$	ext{Average Speed} = rac{	ext{Total Distance}}{	ext{Total Time}} = rac{2000	ext{ m}}{200	ext{ s}} = \mathbf{10	ext{ m/s}}$$
+          $$	ext{In km/h: } 10 	imes rac{18}{5} = 2 	imes 18 = \mathbf{36	ext{ km/h}}$$
+
+          <p><strong>Final Summary:</strong></p>
+          <ul>
+            <li>Required speed for remaining $1000	ext{ m}$ = <strong>$20	ext{ m/s}$</strong> ($72	ext{ km/h}$)</li>
+            <li>Average speed for the entire journey = <strong>$10	ext{ m/s}$</strong> ($36	ext{ km/h}$)</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: CBSE/BSE COMPETENCY BANK & QUIZ
+         ========================================== -->
+    <section class="section-card" id="sec5">
+      <div class="section-header">
+        <span class="section-tag">Section 5</span>
+        <h2 class="section-title">CBSE/BSE Competency Bank & Interactive Quiz Engine</h2>
+      </div>
+      <p>Test your calculation precision and conceptual agility with real-time feedback and scoring!</p>
+
+      <!-- Scoreboard -->
+      <div style="background: var(--light); border: 1.5px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-weight: 700; color: var(--dark);"><i class="fa-solid fa-trophy" style="color: var(--accent);"></i> Scoreboard:</span>
+        <span id="quizScoreText" style="font-weight: 800; color: var(--primary); font-size: 1.05rem;">0 / 6 Answered</span>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-card" id="q1-box">
+        <div class="quiz-q">1. If the length of a simple pendulum is quadrupled (increased to 4 times its original length), what happens to its time period?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q1', 0, false)">A) Remains exactly the same</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 1, true)">B) Doubles (becomes 2 times)</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 2, false)">C) Becomes 4 times</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 3, false)">D) Halves</button>
+        </div>
+        <div class="quiz-feedback" id="q1-fb"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-card" id="q2-box">
+        <div class="quiz-q">2. A Cheetah sprints at 90 km/h. How many metres does it cover in just 1 second?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q2', 0, false)">A) 90 metres</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 1, true)">B) 25 metres</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 2, false)">C) 50 metres</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 3, false)">D) 18 metres</button>
+        </div>
+        <div class="quiz-feedback" id="q2-fb"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-card" id="q3-box">
+        <div class="quiz-q">3. Which ancient timekeeping device relies on a floating perforated copper bowl that gradually sinks in water?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q3', 0, false)">A) Sundial (Chhaya-Yantra)</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 1, true)">B) Ghatika-Yantra (Clepsydra)</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 2, false)">C) Quartz Chronometer</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 3, false)">D) Hourglass</button>
+        </div>
+        <div class="quiz-feedback" id="q3-fb"></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-card" id="q4-box">
+        <div class="quiz-q">4. The distance-time graph of a vehicle moving with uniform motion is always:</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q4', 0, true)">A) A straight line with constant slope</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 1, false)">B) A parabola curving upwards</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 2, false)">C) A horizontal line parallel to the time axis</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 3, false)">D) A stepped zig-zag curve</button>
+        </div>
+        <div class="quiz-feedback" id="q4-fb"></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-card" id="q5-box">
+        <div class="quiz-q">5. If a pendulum bob made of aluminium (mass 30g) is replaced with a lead bob (mass 150g) of identical size and string length, the time period will:</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q5', 0, false)">A) Increase by 5 times</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 1, false)">B) Decrease significantly</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 2, true)">C) Remain completely unchanged</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 3, false)">D) Stop oscillating</button>
+        </div>
+        <div class="quiz-feedback" id="q5-fb"></div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-card" id="q6-box">
+        <div class="quiz-q">6. Which dashboard instrument indicates the total cumulative distance traversed by a motorcycle since its manufacture?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q6', 0, false)">A) Speedometer</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 1, true)">B) Odometer</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 2, false)">C) Tachometer</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 3, false)">D) Chronometer</button>
+        </div>
+        <div class="quiz-feedback" id="q6-fb"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: EXAM HALL READINESS
+         ========================================== -->
+    <section class="section-card" id="sec6">
+      <div class="section-header">
+        <span class="section-tag">Section 6</span>
+        <h2 class="section-title">Exam Hall Readiness: Traps &amp; Lightning Revision</h2>
+      </div>
+
+      <h3>Common Exam Pitfalls &amp; Mistakes</h3>
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 1: Multiplying by 18/5 instead of 5/18</div>
+        Remember: When converting from $	ext{km/h}$ (larger unit) to $	ext{m/s}$ (smaller unit), the numerical answer must be <em>smaller</em>! Hence multiply by the fraction less than 1 ($rac{5}{18}$). When converting from $	ext{m/s}$ to $	ext{km/h}$, multiply by $rac{18}{5}$!
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 2: Counting a half swing as a full oscillation</div>
+        Moving from extreme $A$ to extreme $B$ is only <strong>half an oscillation</strong>! A complete oscillation requires the bob to swing all the way back to $A$ ($A 	o B 	o A$).
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 3: Averaging speeds directly without considering time</div>
+        If a vehicle travels $500	ext{ m}$ at $10	ext{ m/s}$ and $500	ext{ m}$ at $5	ext{ m/s}$, the average speed is <strong>NOT</strong> $rac{10 + 5}{2} = 7.5	ext{ m/s}$! Because it spent twice as much time at $5	ext{ m/s}$ ($100	ext{ s}$ vs $50	ext{ s}$), the correct average speed is $rac{1000	ext{ m}}{150	ext{ s}} = 6.67	ext{ m/s}$. Always use: $	ext{Total Distance} / 	ext{Total Time}$!
+      </div>
+
+      <h3>15 Lightning Revision Key Takeaways</h3>
+      <ol style="column-count: 2; column-gap: 2rem; margin-left: 1.5rem;">
+        <li>Periodic events in nature form the baseline for human timekeeping.</li>
+        <li>1 Solar Day = 24 hours = 86,400 seconds.</li>
+        <li>Sundials track gnomon shadows; cannot work at night or on cloudy days.</li>
+        <li>Ghatika-Yantra is an ancient Indian sinking water bowl clock (1 Ghati = 24 min).</li>
+        <li>Galileo discovered the isochronous property of the pendulum in 1583.</li>
+        <li>Time period $T = 	ext{Total Time} / 	ext{Oscillations}$.</li>
+        <li>Pendulum time period depends only on length $L$, not mass or swing amplitude.</li>
+        <li>Modern wristwatches rely on quartz crystal oscillations at $32,768	ext{ Hz}$.</li>
+        <li>Atomic clocks use cesium-133 vibrations, losing &lt;1 second in 30 million years.</li>
+        <li>SI base unit of time is the second (s); SI unit of speed is metre per second (m/s).</li>
+        <li>To convert $	ext{km/h} 	o 	ext{m/s}$, multiply by $5/18$.</li>
+        <li>Speedometer displays instantaneous speed; Odometer logs cumulative distance.</li>
+        <li>Uniform motion covers equal distances in equal time intervals along a straight path.</li>
+        <li>Non-uniform motion covers unequal distances in equal time intervals.</li>
+        <li>Average Speed = Total Distance Travelled divided by Total Time Taken.</li>
+      </ol>
+
+      <!-- Student Checklist -->
+      <h3 style="margin-top: 2rem;">Interactive Student Self-Assessment</h3>
+      <div style="background: var(--light); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem;">
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I know how to calculate the time period of a pendulum from 20 oscillations.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can effortlessly convert between km/h and m/s using the 5/18 shortcut.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can distinguish between speedometer (instantaneous speed) and odometer (total distance).</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can solve multi-stage average speed word problems without algebraic errors.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I understand why changing the bob's mass does NOT alter the pendulum's time period.</span>
+        </label>
+      </div>
+    </section>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" onclick="scrollToTop()" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      const btn = document.getElementById('backToTopBtn');
+      if (window.scrollY > 400) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Teacher Audio Summary (Web Speech API)
+    let isSpeaking = false;
+    let speechUtterance = null;
+
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('ttsBtn');
+      const icon = document.getElementById('ttsIcon');
+      const text = document.getElementById('ttsText');
+
+      if (!('speechSynthesis' in window)) {
+        alert('Sorry! Your browser does not support text-to-speech.');
+        return;
+      }
+
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        icon.className = 'fa-solid fa-play';
+        text.innerText = 'Play Audio';
+        btn.style.background = 'var(--primary)';
+      } else {
+        const scriptText = "Welcome to Sujit Classes Chapter Summary for Measurement of Time and Motion. " +
+          "Human timekeeping began by observing natural cycles like the solar day, lunar month, and solar year. " +
+          "Ancient devices included sundials, water clocks like the Indian Ghatika-Yantra, and sandglasses. " +
+          "In 1583, Galileo discovered that a simple pendulum exhibits isochronism, where its time period remains constant regardless of swing width. " +
+          "The time period depends strictly on the length of the pendulum and is completely independent of the bob's mass. " +
+          "Modern clocks rely on quartz crystals vibrating 32,768 times per second, while atomic clocks use cesium atoms. " +
+          "Speed is defined as the distance covered per unit time. Its SI unit is metre per second, and vehicular unit is kilometre per hour. " +
+          "Remember the magic shortcut: multiply kilometre per hour by 5 over 18 to convert into metre per second. " +
+          "Finally, uniform motion covers equal distances in equal time intervals with constant speed, while non-uniform motion involves changing speeds, measured using average speed. " +
+          "Explore the numerical exercises and interactive quiz below to master this topic!";
+
+        speechUtterance = new SpeechSynthesisUtterance(scriptText);
+        speechUtterance.rate = 0.95;
+        speechUtterance.pitch = 1.0;
+
+        speechUtterance.onend = () => {
+          isSpeaking = false;
+          icon.className = 'fa-solid fa-play';
+          text.innerText = 'Play Audio';
+          btn.style.background = 'var(--primary)';
+        };
+
+        window.speechSynthesis.speak(speechUtterance);
+        isSpeaking = true;
+        icon.className = 'fa-solid fa-pause';
+        text.innerText = 'Pause Audio';
+        btn.style.background = '#dc2626';
+      }
+    }
+
+    // Interactive Quiz Engine
+    let quizScore = 0;
+    const answeredQuestions = new Set();
+
+    const explanations = {
+      q1: "Correct! The time period of a simple pendulum is proportional to the square root of its length. When length increases 4 times, square root of 4 is 2, so the time period doubles!",
+      q2: "Correct! To convert 90 km/h to m/s, multiply 90 by 5/18, which gives exactly 25 m/s. So it covers 25 metres in 1 second.",
+      q3: "Correct! The Ghatika-Yantra, described by Aryabhata, is a floating copper bowl with a small hole in its base that slowly sinks in water to measure 1 Ghati (24 minutes).",
+      q4: "Correct! In uniform motion, distance increases proportionally with time at a constant speed, producing a straight line graph.",
+      q5: "Correct! The time period of a pendulum depends only on its length and gravitational acceleration; it is completely independent of the bob's mass.",
+      q6: "Correct! The odometer logs total cumulative distance in kilometres, while the speedometer displays current speed in km/h."
+    };
+
+    function checkQuiz(qId, selectedIdx, isCorrect) {
+      const qBox = document.getElementById(qId + '-box');
+      const buttons = qBox.querySelectorAll('.opt-btn');
+      const fb = document.getElementById(qId + '-fb');
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        buttons[selectedIdx].classList.add('correct');
+        fb.style.display = 'block';
+        fb.style.background = '#dcfce7';
+        fb.style.color = '#15803d';
+        fb.innerHTML = '<strong><i class="fa-solid fa-circle-check"></i> Correct!</strong> ' + explanations[qId];
+        if (!answeredQuestions.has(qId)) {
+          quizScore++;
+        }
+      } else {
+        buttons[selectedIdx].classList.add('wrong');
+        fb.style.display = 'block';
+        fb.style.background = '#fee2e2';
+        fb.style.color = '#b91c1c';
+        fb.innerHTML = '<strong><i class="fa-solid fa-circle-xmark"></i> Not quite.</strong> ' + explanations[qId];
+      }
+
+      answeredQuestions.add(qId);
+      document.getElementById('quizScoreText').innerText = quizScore + ' / 6 Correct';
+    }
+  </script>
+</body>
+</html>
