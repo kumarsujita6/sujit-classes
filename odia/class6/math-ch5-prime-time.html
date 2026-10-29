@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୫: ପ୍ରାଇମ୍ ଟାଇମ୍: ମୌଳିକ ସଂଖ୍ୟା (Prime Time) &mdash; ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ ମାଷ୍ଟର ନୋଟ୍ସ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ (NEP ଗଣିତ ପ୍ରକାଶ) ଅଧ୍ୟାୟ ୫: ପ୍ରାଇମ୍ ଟାଇମ୍: ମୌଳିକ ସଂଖ୍ୟା (Prime Time) ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ନୋଟ୍ସ, ଗୁଣନୀୟକ, ଗୁଣିତକ, ଇରାଟୋସ୍ଥିନିସଙ୍କ ଛଣା, ଗ.ସା.ଗୁ., ଲ.ସା.ଗୁ., ୫-ସ୍ତରୀୟ NCERT ସମାଧାନ।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+      --primary-gradient: linear-gradient(90deg, #0284c7 0%, #38bdf8 50%, #10b981 100%);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.75;
+      font-size: 15.5px;
+      padding-bottom: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: var(--primary-gradient);
+      z-index: 999999;
+      transition: width 0.1s ease-out;
+      box-shadow: 0 1px 4px rgba(2, 132, 199, 0.3);
+    }
+
+    header.header {
+      background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 55%, #0d9488 100%);
+      color: #ffffff;
+      padding: 42px 24px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 12px 30px -8px rgba(2, 132, 199, 0.35);
+    }
+    header.header h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    header.header p {
+      font-size: 1.05rem;
+      opacity: 0.94;
+      max-width: 860px;
+      margin: 0 auto 16px;
+    }
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      transition: all 0.2s var(--ease-spring);
+    }
+    .nav-links a:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.84rem;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    .btn-audio {
+      background: #ffffff;
+      color: var(--primary-dark);
+      font-weight: 700;
+      border: 2px solid var(--primary-light);
+    }
+    .btn-audio:hover {
+      background: var(--primary-light);
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+    .nav-breadcrumb {
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .nav-breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-breadcrumb a:hover { text-decoration: underline; }
+
+    section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+    }
+    section h2 {
+      font-size: 1.55rem;
+      color: var(--primary-dark);
+      border-left: 5px solid var(--primary);
+      padding-left: 14px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section h3 {
+      font-size: 1.25rem;
+      color: #0f172a;
+      margin: 26px 0 14px;
+      font-weight: 700;
+      border-bottom: 2px dashed #f1f5f9;
+      padding-bottom: 6px;
+    }
+    section h4 {
+      font-size: 1.05rem;
+      color: #1e293b;
+      margin: 18px 0 10px;
+      font-weight: 700;
+    }
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 10px 0 18px 24px; }
+    li { margin-bottom: 8px; }
+
+    .math-formula {
+      font-family: 'JetBrains Mono', monospace;
+      background: #f1f5f9;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      color: #0369a1;
+    }
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 0.9em;
+      padding: 0 2px;
+    }
+    .frac sup {
+      border-bottom: 1.5px solid currentColor;
+      padding-bottom: 1px;
+      font-size: inherit;
+      line-height: 1;
+    }
+    .frac sub {
+      font-size: inherit;
+      line-height: 1;
+    }
+
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin: 12px 0 16px;
+    }
+    .step-line {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .step-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 140px;
+    }
+    .step-conclusion {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-weight: 600;
+      color: #166534;
+    }
+
+    .callout {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      border-left: 5px solid;
+    }
+    .callout-title {
+      font-weight: 800;
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .callout-def { background: #f0f9ff; border-left-color: #0284c7; color: #0c4a6e; }
+    .callout-act { background: #f0fdfa; border-left-color: #0d9488; color: #115e59; }
+    .callout-pyq { background: #fffbeb; border-left-color: #f59e0b; color: #78350f; }
+    .callout-hack { background: #f5f3ff; border-left-color: #7c3aed; color: #4c1d95; }
+    .callout-warn { background: #fff1f2; border-left-color: #e11d48; color: #881337; }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.94rem;
+      text-align: left;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border);
+      padding: 11px 14px;
+    }
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    .data-table tr:nth-child(even) { background-color: #f8fafc; }
+
+    details.ans-box {
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.25s var(--ease-spring);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    details.ans-box summary {
+      list-style: none;
+      padding: 1rem 1.35rem;
+      background: #f8fafc;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    details.ans-box summary::-webkit-details-marker { display: none; }
+    details.ans-box summary::after {
+      content: "▾";
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      transition: transform 0.3s var(--ease-spring);
+    }
+    details.ans-box[open] summary::after {
+      transform: rotate(180deg);
+    }
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.08);
+    }
+    details.ans-box[open] summary {
+      background: #f0f9ff;
+      color: var(--primary-dark);
+      border-bottom: 1px solid #bae6fd;
+    }
+    details.ans-box .ans-content {
+      padding: 1.35rem;
+      background: #ffffff;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .diagram-container {
+      margin: 24px auto;
+      text-align: center;
+      background: #ffffff;
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 18px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .quiz-question {
+      font-weight: 700;
+      font-size: 1.02rem;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .quiz-opt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      background: #ffffff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .quiz-opt-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateX(4px);
+    }
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700;
+    }
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+      font-weight: 600;
+    }
+    .quiz-feedback {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .quiz-feedback.correct-fb { background: #f0fdf4; border: 1px solid #86efac; color: #166534; }
+    .quiz-feedback.incorrect-fb { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+    .quiz-score-board {
+      background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+      border: 1.5px solid #a7f3d0;
+      border-radius: 12px;
+      padding: 14px 22px;
+      text-align: center;
+      margin: 18px 0;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #065f46;
+    }
+
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: all 0.3s var(--ease-spring);
+      z-index: 9999;
+    }
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-to-top-btn:hover {
+      background: var(--primary-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress-bar"></div>
+
+  <header class="header">
+    <div class="badge-bar">
+      <span class="badge">ଓଡ଼ିଆ ମାଧ୍ୟମ (BSE Odisha / NEP ସଂସ୍କରଣ)</span>
+      <span class="badge">ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ &bull; ଅଧ୍ୟାୟ ୫</span>
+      <span class="badge">ଗଣିତ ପ୍ରକାଶ (Ganita Prakash)</span>
+    </div>
+    <h1>ଅଧ୍ୟାୟ ୫: ପ୍ରାଇମ୍ ଟାଇମ୍: ମୌଳିକ ସଂଖ୍ୟା</h1>
+    <p style="font-size: 1.15rem; font-weight: 600; opacity: 0.95;">Prime Time &mdash; ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ଷ୍ଟଡି ନୋଟ୍ସ</p>
+    <p>ଗୁଣନୀୟକ, ଗୁଣିତକ, ମୌଳିକ ସଂଖ୍ୟା, ଇରାଟୋସ୍ଥିନିସଙ୍କ ଛଣା, ବିଭାଜ୍ୟତା ପରୀକ୍ଷା, ମୌଳିକ ଗୁଣନୀୟକୀକରଣ, ଗ.ସା.ଗୁ., ଲ.ସା.ଗୁ. ଓ NCERT ସମାଧାନ</p>
+    <div style="margin-top: 15px;">
+      <button class="btn btn-audio" onclick="toggleTeacherAudio()" id="teacherAudioBtn">
+        <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="top-bar">
+    <div class="nav-links">
+      <a href="#section1">୧. ମାନସିକ ମାନଚିତ୍ର</a>
+      <a href="#section2">୨. ବିସ୍ତୃତ ଧାରଣା</a>
+      <a href="#section3">୩. ସୂତ୍ର ଓ ନିୟମ</a>
+      <a href="#section4">୪. NCERT ସମାଧାନ</a>
+      <a href="#section5">୫. ପ୍ରଶ୍ନୋତ୍ତର ଓ କୁଇଜ୍</a>
+      <a href="#section6">୬. ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା</a>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn btn-primary" onclick="toggleAllAnswers(true)">➕ ସମସ୍ତ ଉତ୍ତର ଖୋଲନ୍ତୁ</button>
+      <button class="btn" onclick="toggleAllAnswers(false)">➖ ସମସ୍ତ ବନ୍ଦ କରନ୍ତୁ</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="nav-breadcrumb">
+      <a href="../../index.html">ପୋର୍ଟାଲ୍ ମୁଖ୍ୟପୃଷ୍ଠା</a> &raquo; 
+      <a href="../../index.html#odia-medium">ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ (Odia Medium)</a> &raquo; 
+      <span>ଅଧ୍ୟାୟ ୫: ପ୍ରାଇମ୍ ଟାଇମ୍ (Prime Time)</span>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section id="section1">
+      <h2>Section 1: ମାନସିକ ମାନଚିତ୍ର ଓ ଅଧ୍ୟାୟର ରୂପରେଖ (Visual Mind Map &amp; Blueprint)</h2>
+      <p>ସମସ୍ତ ସଂଖ୍ୟାମାନଙ୍କ ମଧ୍ୟରେ <strong>ମୌଳିକ ସଂଖ୍ୟା (Prime Numbers)</strong> ହେଉଛି ସଂଖ୍ୟା ଜଗତର 'ପରମାଣୁ' ବା ମୂଳ ଇଟା (Building Blocks)। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ଗୁଣନୀୟକ (Factors), ଗୁଣିତକ (Multiples), ଇରାଟୋସ୍ଥିନିସଙ୍କ ଛଣା (Sieve of Eratosthenes), ବିଭାଜ୍ୟତା ପରୀକ୍ଷା (Divisibility Rules), ଗରିଷ୍ଠ ସାଧାରଣ ଗୁଣନୀୟକ (HCF / ଗ.ସା.ଗୁ.) ଏବଂ ଲଘିଷ୍ଠ ସାଧାରଣ ଗୁଣିତକ (LCM / ଲ.ସା.ଗୁ.) ବିଷୟରେ ଗଭୀର ଭାବରେ ଅଧ୍ୟୟନ କରିବା।</p>
+
+      <div class="diagram-container">
+        <!-- SVG 1: Mind Map for Prime Time -->
+        <svg viewBox="0 0 900 440" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <!-- Central Hub -->
+          <rect x="350" y="180" width="200" height="70" rx="35" fill="#0284c7"/>
+          <text x="450" y="215" text-anchor="middle" fill="#ffffff" font-weight="800" font-size="16">ପ୍ରାଇମ୍ ଟାଇମ୍</text>
+          <text x="450" y="235" text-anchor="middle" fill="#e0f2fe" font-weight="600" font-size="12">PRIME TIME</text>
+
+          <!-- Branch 1: Factors & Multiples (Top-Left) -->
+          <line x1="360" y1="190" x2="200" y2="100" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="50" y="40" width="220" height="100" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.5"/>
+          <text x="160" y="68" text-anchor="middle" fill="#0369a1" font-weight="800" font-size="13.5">୧. ଗୁଣନୀୟକ ଓ ଗୁଣିତକ</text>
+          <text x="160" y="92" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଗୁଣନୀୟକ ସର୍ବଦା ସୀମିତ</text>
+          <text x="160" y="112" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଗୁଣିତକ ଅସୀମ ବିସ୍ତାରିତ</text>
+          <text x="160" y="130" text-anchor="middle" fill="#0284c7" font-weight="bold" font-size="11.5">ପରିପୂର୍ଣ୍ଣ ସଂଖ୍ୟା (୬, ୨୮)</text>
+
+          <!-- Branch 2: Prime & Composite (Top-Right) -->
+          <line x1="540" y1="190" x2="700" y2="100" stroke="#0d9488" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="630" y="40" width="220" height="100" rx="10" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+          <text x="740" y="68" text-anchor="middle" fill="#115e59" font-weight="800" font-size="13.5">୨. ମୌଳିକ ଓ ଯୌଗିକ</text>
+          <text x="740" y="92" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଠିକ୍ ୨ଟି ଗୁଣନୀୟକ (୧ ଓ ନିଜେ)</text>
+          <text x="740" y="112" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ୨ = ଏକମାତ୍ର ଯୁଗ୍ମ ମୌଳିକ</text>
+          <text x="740" y="130" text-anchor="middle" fill="#0d9488" font-weight="bold" font-size="11.5">୧ ରୁ ୧୦୦ ମଧ୍ୟରେ ୨୫ଟି</text>
+
+          <!-- Branch 3: Divisibility Tests (Bottom-Left) -->
+          <line x1="360" y1="240" x2="200" y2="330" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="50" y="290" width="220" height="110" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+          <text x="160" y="318" text-anchor="middle" fill="#b45309" font-weight="800" font-size="13.5">୩. ବିଭାଜ୍ୟତା ନିୟମାବଳୀ</text>
+          <text x="160" y="342" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ୨, ୩, ୪, ୫, ୬, ୮, ୯, ୧୦, ୧୧</text>
+          <text x="160" y="362" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ୩ ଓ ୯: ଅଙ୍କମାନଙ୍କ ଯୋଗଫଳ</text>
+          <text x="160" y="382" text-anchor="middle" fill="#b45309" font-weight="bold" font-size="11.5">୧୧: ବିକଳ୍ପ ସ୍ଥାନ ବିୟୋଗଫଳ</text>
+
+          <!-- Branch 4: HCF & LCM (Bottom-Right) -->
+          <line x1="540" y1="240" x2="700" y2="330" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="630" y="290" width="220" height="110" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+          <text x="740" y="318" text-anchor="middle" fill="#6d28d9" font-weight="800" font-size="13.5">୪. ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ.</text>
+          <text x="740" y="342" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଗ.ସା.ଗୁ. = ସାଧାରଣ ଗୁଣନୀୟକ</text>
+          <text x="740" y="362" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଲ.ସା.ଗୁ. = ସାଧାରଣ ଗୁଣିତକ</text>
+          <text x="740" y="382" text-anchor="middle" fill="#6d28d9" font-weight="bold" font-size="11.5">ଗୁଣନଫଳ = HCF &times; LCM</text>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୫.୧: ମୌଳିକ ସଂଖ୍ୟା, ବିଭାଜ୍ୟତା, ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ. ର ମାନସିକ ମାନଚିତ୍ର</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="section2">
+      <h2>Section 2: ବିସ୍ତୃତ ଧାରଣା ଓ ତତ୍ତ୍ୱ ବିଶ୍ଳେଷଣ (Line-by-Line Conceptual Notes)</h2>
+
+      <h3 class="topic-title">୨.୧ ଗୁଣନୀୟକ ଓ ଗୁଣିତକ କ'ଣ? (Factors and Multiples)</h3>
+      <p>ଗୋଟିଏ ସଂଖ୍ୟାକୁ ଯେଉଁ ସଂଖ୍ୟାମାନେ ସମ୍ପୂର୍ଣ୍ଣ ଭାବରେ (ବିନା ଭାଗଶେଷରେ) ବିଭାଜିତ କରନ୍ତି, ସେମାନଙ୍କୁ ଉକ୍ତ ସଂଖ୍ୟାର <strong>ଗୁଣନୀୟକ (Factors)</strong> କୁହାଯାଏ।</p>
+      <p>ଅନ୍ୟପକ୍ଷରେ, ଏକ ସଂଖ୍ୟା ସହିତ ଗଣନ ସଂଖ୍ୟାଗୁଡ଼ିକୁ ଗୁଣନ କଲେ ଯେଉଁ ଫଳ ମିଳେ, ସେଗୁଡ଼ିକ ହେଉଛି ତାର <strong>ଗୁଣିତକ (Multiples)</strong>।</p>
+
+      <div class="callout callout-def">
+        <div class="callout-title">📌 ଗୁଣନୀୟକ ଓ ଗୁଣିତକର ୫ଟି ସୁବର୍ଣ୍ଣ ନିୟମ</div>
+        <ul>
+          <li><strong>୧ ହେଉଛି ପ୍ରତ୍ୟେକ ସଂଖ୍ୟାର ଗୁଣନୀୟକ:</strong> ଏବଂ ଏହା ସବୁଠାରୁ କ୍ଷୁଦ୍ରତମ ଗୁଣନୀୟକ।</li>
+          <li><strong>ପ୍ରତ୍ୟେକ ସଂଖ୍ୟା ନିଜର ଏକ ଗୁଣନୀୟକ:</strong> ଏବଂ ଏହା ନିଜର ସବୁଠାରୁ ବୃହତ୍ତମ ଗୁଣନୀୟକ।</li>
+          <li><strong>ଗୁଣନୀୟକ ସଂଖ୍ୟା ସୀମିତ (Finite):</strong> କୌଣସି ସଂଖ୍ୟାର ଗୁଣନୀୟକ ତାର ନିଜ ମୂଲ୍ୟଠାରୁ କେବେବି ବଡ଼ ହୋଇପାରିବ ନାହିଁ।</li>
+          <li><strong>ଗୁଣିତକ ସଂଖ୍ୟା ଅସୀମ (Infinite):</strong> କୌଣସି ସଂଖ୍ୟାର କ୍ଷୁଦ୍ରତମ ଗୁଣିତକ ହେଉଛି ସେହି ସଂଖ୍ୟା ନିଜେ।</li>
+          <li><strong>ପରିପୂର୍ଣ୍ଣ ସଂଖ୍ୟା (Perfect Number):</strong> ଯଦି କୌଣସି ସଂଖ୍ୟାର ସମସ୍ତ ଗୁଣନୀୟକର ଯୋଗଫଳ ଉକ୍ତ ସଂଖ୍ୟାର ଦୁଇଗୁଣ (୨ &times; N) ହୁଏ, ତେବେ ତାହାକୁ ପରିପୂର୍ଣ୍ଣ ସଂଖ୍ୟା କୁହାଯାଏ। ଉଦାହରଣ: <strong>୬</strong> (୧+୨+୩+୬ = ୧୨ = ୨&times;୬) ଏବଂ <strong>୨୮</strong> (୧+୨+୪+୭+୧୪+୨୮ = ୫୬ = ୨&times;୨୮)।</li>
+        </ul>
+      </div>
+
+      <div class="diagram-container">
+        <!-- SVG 2: Venn Diagram of Common Multiples (The Idli-Vada game) -->
+        <svg viewBox="0 0 850 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <text x="425" y="26" text-anchor="middle" fill="#0f172a" font-weight="800" font-size="14">ଇଡ୍ଲି-ବରା ଖେଳ: ସାଧାରଣ ଗୁଣିତକର ଭେନ୍ ଚିତ୍ର (VENN DIAGRAM OF COMMON MULTIPLES)</text>
+
+          <!-- Circle 1: Multiples of 3 (Idli) -->
+          <circle cx="320" cy="150" r="105" fill="#e0f2fe" fill-opacity="0.6" stroke="#0284c7" stroke-width="2.5"/>
+          <text x="250" y="80" fill="#0369a1" font-weight="bold" font-size="13">୩ ର ଗୁଣିତକ (ଇଡ୍ଲି)</text>
+          <text x="250" y="130" fill="#334155" font-size="12">୩, ୬, ୯, ୧୨,</text>
+          <text x="250" y="155" fill="#334155" font-size="12">୧୮, ୨୧, ୨୪, ୨୭</text>
+
+          <!-- Circle 2: Multiples of 5 (Vada) -->
+          <circle cx="530" cy="150" r="105" fill="#fef3c7" fill-opacity="0.6" stroke="#f59e0b" stroke-width="2.5"/>
+          <text x="600" y="80" fill="#b45309" font-weight="bold" font-size="13">୫ ର ଗୁଣିତକ (ବରା)</text>
+          <text x="600" y="130" fill="#334155" font-size="12">୫, ୧୦, ୨୦,</text>
+          <text x="600" y="155" fill="#334155" font-size="12">୨୫, ୩୫, ୪୦</text>
+
+          <!-- Overlap: Multiples of 15 (Idli-Vada) -->
+          <text x="425" y="130" text-anchor="middle" fill="#166534" font-weight="800" font-size="14">୧୫, ୩୦,</text>
+          <text x="425" y="155" text-anchor="middle" fill="#166534" font-weight="800" font-size="14">୪୫, ୬୦...</text>
+          <text x="425" y="180" text-anchor="middle" fill="#166534" font-weight="bold" font-size="11">(ସାଧାରଣ ଗୁଣିତକ)</text>
+
+          <text x="425" y="270" text-anchor="middle" fill="#0f172a" font-weight="600" font-size="12">କ୍ଷୁଦ୍ରତମ ସାଧାରଣ ଗୁଣିତକ (LCM / ଲ.ସା.ଗୁ.) = ୧୫</text>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୫.୨: ୩ ଏବଂ ୫ ର ସାଧାରଣ ଗୁଣିତକର ଭେନ୍ ଚିତ୍ର (ଲ.ସା.ଗୁ. = ୧୫)</div>
+      </div>
+
+      <h3 class="topic-title">୨.୨ ମୌଳିକ ସଂଖ୍ୟା ଓ ଯୌଗିକ ସଂଖ୍ୟା (Prime and Composite Numbers)</h3>
+      <p>ସଂଖ୍ୟାମାନଙ୍କୁ ସେମାନଙ୍କ ଗୁଣନୀୟକ ସଂଖ୍ୟା ଆଧାରରେ ଦୁଇଟି ମୁଖ୍ୟ ଶ୍ରେଣୀରେ ବିଭକ୍ତ କରାଯାଏ:</p>
+      <ul>
+        <li><strong>ମୌଳିକ ସଂଖ୍ୟା (Prime Numbers):</strong> ଯେଉଁ ସଂଖ୍ୟାର <strong>ଠିକ୍ ଦୁଇଟି ଗୁଣନୀୟକ</strong> ଥାଏ (୧ ଏବଂ ସେହି ସଂଖ୍ୟା ନିଜେ), ତାହାକୁ ମୌଳିକ ସଂଖ୍ୟା କୁହାଯାଏ (ଯଥା: ୨, ୩, ୫, ୭, ୧୧, ୧୩, ୧୭, ୧୯, ୨୩, ୨୯...)।</li>
+        <li><strong>ଯୌଗିକ ସଂଖ୍ୟା (Composite Numbers):</strong> ଯେଉଁ ସଂଖ୍ୟାର ଦୁଇରୁ ଅଧିକ ଗୁଣନୀୟକ ଥାଏ, ତାହାକୁ ଯୌଗିକ ସଂଖ୍ୟା କୁହାଯାଏ (ଯଥା: ୪, ୬, ୮, ୯, ୧୦, ୧୨...)।</li>
+        <li><strong>ସତର୍କତା: ୧ ମୌଳିକ ନୁହେଁ କି ଯୌଗିକ ନୁହେଁ (୧ is neither prime nor composite)!</strong> କାରଣ ୧ ର ମାତ୍ର ଗୋଟିଏ ଗୁଣନୀୟକ (ନିଜେ ୧)।</li>
+        <li><strong>୨ ହେଉଛି ଏକମାତ୍ର ଯୁଗ୍ମ ମୌଳିକ ସଂଖ୍ୟା (The only even prime number):</strong> ଅନ୍ୟ ସମସ୍ତ ମୌଳିକ ସଂଖ୍ୟା ଅଯୁଗ୍ମ ଅଟନ୍ତି।</li>
+      </ul>
+
+      <div class="callout callout-act">
+        <div class="callout-title">🔍 ଯମଜ ମୌଳିକ ଓ ପରସ୍ପର ମୌଳିକ ସଂଖ୍ୟା (Twin &amp; Co-Prime Numbers)</div>
+        <p><strong>ଯମଜ ମୌଳିକ (Twin Primes):</strong> ଯେଉଁ ଦୁଇଟି ମୌଳିକ ସଂଖ୍ୟା ମଧ୍ୟରେ ଅନ୍ତର ଠିକ୍ <strong>୨</strong> ଥାଏ, ସେମାନଙ୍କୁ ଯମଜ ମୌଳିକ କୁହାଯାଏ। ଉଦାହରଣ: (୩, ୫), (୫, ୭), (୧୧, ୧୩), (୧୭, ୧୯), (୨୯, ୩୧), (୪୧, ୪୩), (୫୯, ୬୧), (୭୧, ୭୩)।</p>
+        <p><strong>ପରସ୍ପର ମୌଳିକ (Co-Prime Numbers):</strong> ଯଦି ଦୁଇଟି ସଂଖ୍ୟାର ସାଧାରଣ ଗୁଣନୀୟକ କେବଳ <strong>୧</strong> ହୁଏ (ଅର୍ଥାତ୍ HCF = ୧), ତେବେ ସେମାନଙ୍କୁ ପରସ୍ପର ମୌଳିକ କୁହାଯାଏ। ମନେରଖନ୍ତୁ: ପରସ୍ପର ମୌଳିକ ହେବା ପାଇଁ ସଂଖ୍ୟା ଦୁଇଟି ନିଜେ ମୌଳିକ ହେବା ଆବଶ୍ୟକ ନାହିଁ (ଯଥା: ୮ ଏବଂ ୯ ପରସ୍ପର ମୌଳିକ, ଯଦିଓ ୮ ଓ ୯ ଉଭୟ ଯୌଗିକ ସଂଖ୍ୟା!)।</p>
+      </div>
+
+      <div class="diagram-container">
+        <!-- SVG 3: Prime Factorisation Factor Tree for 360 -->
+        <svg viewBox="0 0 850 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <text x="425" y="24" text-anchor="middle" fill="#0f172a" font-weight="800" font-size="14">ମୌଳିକ ଗୁଣନୀୟକୀକରଣ ବୃକ୍ଷ (FACTOR TREE): ୩୬୦ = ୨&sup3; &times; ୩&sup2; &times; ୫</text>
+
+          <!-- Level 0: 360 -->
+          <rect x="385" y="40" width="80" height="32" rx="6" fill="#0284c7"/>
+          <text x="425" y="62" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="14">୩୬୦</text>
+
+          <!-- Branches from 360 to 2 and 180 -->
+          <line x1="405" y1="72" x2="280" y2="105" stroke="#64748b" stroke-width="2"/>
+          <line x1="445" y1="72" x2="570" y2="105" stroke="#64748b" stroke-width="2"/>
+
+          <!-- 2 (prime) -->
+          <circle cx="280" cy="115" r="18" fill="#16a34a"/>
+          <text x="280" y="120" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="13">୨ ★</text>
+
+          <!-- 180 -->
+          <rect x="535" y="100" width="70" height="30" rx="6" fill="#0284c7"/>
+          <text x="570" y="120" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="13">୧୮୦</text>
+
+          <!-- Branches from 180 to 2 and 90 -->
+          <line x1="550" y1="130" x2="480" y2="160" stroke="#64748b" stroke-width="2"/>
+          <line x1="590" y1="130" x2="660" y2="160" stroke="#64748b" stroke-width="2"/>
+
+          <!-- 2 (prime) -->
+          <circle cx="480" cy="170" r="18" fill="#16a34a"/>
+          <text x="480" y="175" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="13">୨ ★</text>
+
+          <!-- 90 -->
+          <rect x="630" y="155" width="60" height="30" rx="6" fill="#0284c7"/>
+          <text x="660" y="175" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="13">୯୦</text>
+
+          <!-- Branches from 90 to 2 and 45 -->
+          <line x1="645" y1="185" x2="580" y2="215" stroke="#64748b" stroke-width="2"/>
+          <line x1="675" y1="185" x2="740" y2="215" stroke="#64748b" stroke-width="2"/>
+
+          <!-- 2 (prime) -->
+          <circle cx="580" cy="225" r="18" fill="#16a34a"/>
+          <text x="580" y="230" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="13">୨ ★</text>
+
+          <!-- 45 -> 3 and 15 -> 3 and 5 -->
+          <circle cx="700" cy="225" r="18" fill="#16a34a"/>
+          <text x="700" y="230" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="13">୩ ★</text>
+
+          <circle cx="750" cy="225" r="18" fill="#16a34a"/>
+          <text x="750" y="230" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="13">୩ ★</text>
+
+          <circle cx="800" cy="225" r="18" fill="#16a34a"/>
+          <text x="800" y="230" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="13">୫ ★</text>
+
+          <text x="425" y="265" text-anchor="middle" fill="#065f46" font-weight="bold" font-size="13">ମୌଳିକ ଗୁଣନୀୟକଗୁଡ଼ିକ: ୨ &times; ୨ &times; ୨ &times; ୩ &times; ୩ &times; ୫ = ୩୬୦</text>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୫.୩: ସଂଖ୍ୟା ୩୬୦ ର ଗୁଣନୀୟକ ବୃକ୍ଷ (Factor Tree)</div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="section3">
+      <h2>Section 3: ତ୍ୱରିତ ପୁନରାବୃତ୍ତି ସୂତ୍ର ଓ ବିଭାଜ୍ୟତା ନିୟମ ଭଣ୍ଡାର (Divisibility &amp; Law Bank)</h2>
+      <p>ବିଭାଜ୍ୟତା ପରୀକ୍ଷା (Divisibility Rules) ର ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ସାରଣୀ:</p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ଭାଜକ</th>
+              <th>ବିଭାଜ୍ୟତା ନିୟମ (Divisibility Rule)</th>
+              <th>ଉଦାହରଣ</th>
+              <th>ଯାଞ୍ଚ ପଦ୍ଧତି</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>୨</strong></td>
+              <td>ଏକକ ସ୍ଥାନ ଅଙ୍କ ୦, ୨, ୪, ୬, ବା ୮ (ଯୁଗ୍ମ) ହୋଇଥିବ</td>
+              <td>୪୮୨, ୩୯୦</td>
+              <td>ଶେଷ ଅଙ୍କ ୨ ଏବଂ ୦ &rArr; ବିଭାଜ୍ୟ</td>
+            </tr>
+            <tr>
+              <td><strong>୩</strong></td>
+              <td>ସଂଖ୍ୟାର ସମସ୍ତ ଅଙ୍କର ଯୋଗଫଳ ୩ ଦ୍ୱାରା ବିଭାଜ୍ୟ ହୋଇଥିବ</td>
+              <td>୭୨୩</td>
+              <td>୭ + ୨ + ୩ = ୧୨ (୩ ଦ୍ୱାରା ବିଭାଜ୍ୟ) &rArr; ବିଭାଜ୍ୟ</td>
+            </tr>
+            <tr>
+              <td><strong>୪</strong></td>
+              <td>ଶେଷ ଦୁଇଟି ଅଙ୍କ (ଦଶକ ଓ ଏକକ) ଦ୍ୱାରା ଗଠିତ ସଂଖ୍ୟା ୪ ଦ୍ୱାରା ବିଭାଜ୍ୟ ହୋଇଥିବ</td>
+              <td>୧୫୨୮</td>
+              <td>ଶେଷ ଦୁଇ ଅଙ୍କ ୨୮ &divide; ୪ = ୭ &rArr; ବିଭାଜ୍ୟ</td>
+            </tr>
+            <tr>
+              <td><strong>୫</strong></td>
+              <td>ଏକକ ସ୍ଥାନ ଅଙ୍କ ୦ କିମ୍ବା ୫ ହୋଇଥିବ</td>
+              <td>୬୪୫, ୮୯୦</td>
+              <td>ଶେଷ ଅଙ୍କ ୫ ଓ ୦ &rArr; ବିଭାଜ୍ୟ</td>
+            </tr>
+            <tr>
+              <td><strong>୬</strong></td>
+              <td>ସଂଖ୍ୟାଟି ଉଭୟ ୨ ଏବଂ ୩ ଦ୍ୱାରା ଏକାସାଙ୍ଗରେ ବିଭାଜ୍ୟ ହୋଇଥିବ</td>
+              <td>୨୧୬</td>
+              <td>ଯୁଗ୍ମ (୨ ଦ୍ୱାରା) ଏବଂ ୨+୧+୬ = ୯ (୩ ଦ୍ୱାରା) &rArr; ବିଭାଜ୍ୟ</td>
+            </tr>
+            <tr>
+              <td><strong>୮</strong></td>
+              <td>ଶେଷ ତିନୋଟି ଅଙ୍କ ଦ୍ୱାରା ଗଠିତ ସଂଖ୍ୟା ୮ ଦ୍ୱାରା ବିଭାଜ୍ୟ ହୋଇଥିବ</td>
+              <td>୪୨୧୬</td>
+              <td>ଶେଷ ତିନି ଅଙ୍କ ୨୧୬ &divide; ୮ = ୨୭ &rArr; ବିଭାଜ୍ୟ</td>
+            </tr>
+            <tr>
+              <td><strong>୯</strong></td>
+              <td>ସମସ୍ତ ଅଙ୍କର ଯୋଗଫଳ ୯ ଦ୍ୱାରା ବିଭାଜ୍ୟ ହୋଇଥିବ</td>
+              <td>୮୪୬</td>
+              <td>୮ + ୪ + ୬ = ୧୮ (୯ ଦ୍ୱାରା ବିଭାଜ୍ୟ) &rArr; ବିଭାଜ୍ୟ</td>
+            </tr>
+            <tr>
+              <td><strong>୧୦</strong></td>
+              <td>ଏକକ ସ୍ଥାନ ଅଙ୍କ କେବଳ ୦ ହୋଇଥିବ</td>
+              <td>୩୫୦, ୧୨୦୦</td>
+              <td>ଶେଷ ଅଙ୍କ ୦ &rArr; ବିଭାଜ୍ୟ</td>
+            </tr>
+            <tr>
+              <td><strong>୧୧</strong></td>
+              <td>ଅଯୁଗ୍ମ ସ୍ଥାନର ଅଙ୍କ ଯୋଗଫଳ ଏବଂ ଯୁଗ୍ମ ସ୍ଥାନର ଅଙ୍କ ଯୋଗଫଳର ବିୟୋଗଫଳ ୦ କିମ୍ବା ୧୧ ର ଗୁଣିତକ ହୋଇଥିବ</td>
+              <td>୧୩୩୧</td>
+              <td>(୧+୩) &minus; (୩+୧) = ୪ &minus; ୪ = ୦ &rArr; ୧୧ ଦ୍ୱାରା ବିଭାଜ୍ୟ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="section4">
+      <h2>Section 4: ୧୦୦% ସମ୍ପୂର୍ଣ୍ଣ NCERT ପାଠ୍ୟପୁସ୍ତକ ସମାଧାନ (5-Step Topper Format)</h2>
+      <p>NEP ଗଣିତ ପ୍ରକାଶ ଅଧ୍ୟାୟ ୫ ର ସମସ୍ତ ଅଭ୍ୟାସ ପ୍ରଶ୍ନର ପଦକ୍ଷେପ-ୱାରୀ ଆଦର୍ଶ ସମାଧାନ:</p>
+
+      <!-- NCERT Q1 -->
+      <details class="ans-box" open>
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ଇଡ୍ଲି-ବରା ଖେଳ ଗଣନା (The Idli-Vada Multiples Game)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୧:</strong> ୧ ରୁ ୯୦ ପର୍ଯ୍ୟନ୍ତ ସଂଖ୍ୟା ନେଇ ଖେଳ ଖେଳାଗଲା: ୩ ର ଗୁଣିତକ ଆସିଲେ 'ଇଡ୍ଲି', ୫ ର ଗୁଣିତକ ଆସିଲେ 'ବରା', ଏବଂ ଉଭୟ ୩ ଓ ୫ ର ଗୁଣିତକ ଆସିଲେ 'ଇଡ୍ଲି-ବରା' କୁହାଯାଏ।<br>
+          (କ) ୧ ରୁ ୯୦ ମଧ୍ୟରେ କେତେ ଥର 'ଇଡ୍ଲି-ବରା' କୁହାଯିବ?<br>
+          (ଖ) ଏହି ସଂଖ୍ୟାଗୁଡ଼ିକ କାହାର ଗୁଣିତକ ଅଟନ୍ତି?</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ସମସ୍ୟା ବିଶ୍ଳେଷଣ):</span> 'ଇଡ୍ଲି-ବରା' ସେହି ସଂଖ୍ୟାଗୁଡ଼ିକ ପାଇଁ କୁହାଯିବ ଯେଉଁମାନେ ଉଭୟ ୩ ଏବଂ ୫ ଦ୍ୱାରା ବିଭାଜ୍ୟ।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଲ.ସା.ଗୁ. ନିର୍ଣ୍ଣୟ):</span> ୩ ଏବଂ ୫ ଉଭୟ ମୌଳିକ ସଂଖ୍ୟା। ତେଣୁ ସେମାନଙ୍କ ଲ.ସା.ଗୁ. (LCM) = ୩ &times; ୫ = <strong>୧୫</strong>। ଅତଏବ, ୧୫ ର ପ୍ରତ୍ୟେକ ଗୁଣିତକ ପାଇଁ 'ଇଡ୍ଲି-ବରା' କୁହାଯିବ।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ତାଲିକାଭୁକ୍ତ ଗଣନା):</span> ୧ ରୁ ୯୦ ମଧ୍ୟରେ ୧୫ ର ଗୁଣିତକ: ୧୫, ୩୦, ୪୫, ୬୦, ୭୫, ୯୦।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଗଣନା ସଂଖ୍ୟା):</span> ୯୦ &divide; ୧୫ = <strong>୬ ଥର</strong>।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) ମୋଟ ୬ ଥର 'ଇଡ୍ଲି-ବରା' କୁହାଯିବ &bull; (ଖ) ଏହି ସଂଖ୍ୟାଗୁଡ଼ିକ ୧୫ ର ଗୁଣିତକ ଅଟନ୍ତି।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Q2 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ୧ ରୁ ୧୦ ପର୍ଯ୍ୟନ୍ତ ସମସ୍ତ ସଂଖ୍ୟା ଦ୍ୱାରା ବିଭାଜ୍ୟ କ୍ଷୁଦ୍ରତମ ସଂଖ୍ୟା</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୨:</strong> ଏପରି ଏକ କ୍ଷୁଦ୍ରତମ ସଂଖ୍ୟା ନିର୍ଣ୍ଣୟ କରନ୍ତୁ ଯାହା ୧, ୨, ୩, ୪, ୫, ୬, ୭, ୮, ୯ ଏବଂ ୧୦ ସମସ୍ତ ସଂଖ୍ୟା ଦ୍ୱାରା ସମ୍ପୂର୍ଣ୍ଣ ବିଭାଜ୍ୟ ହେବ।</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ସମସ୍ୟା ସ୍ୱରୂପ):</span> ୧ ରୁ ୧୦ ପର୍ଯ୍ୟନ୍ତ ସମସ୍ତ ସଂଖ୍ୟା ଦ୍ୱାରା ବିଭାଜ୍ୟ କ୍ଷୁଦ୍ରତମ ସଂଖ୍ୟା ହେଉଛି ସେମାନଙ୍କର <strong>ଲଘିଷ୍ଠ ସାଧାରଣ ଗୁଣିତକ (LCM)</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ମୌଳିକ ଗୁଣନୀୟକୀକରଣ):</span><br>
+            ୧ = ୧, ୨ = ୨<sup>୧</sup>, ୩ = ୩<sup>୧</sup>, ୪ = ୨<sup>୨</sup>, ୫ = ୫<sup>୧</sup>,<br>
+            ୬ = ୨ &times; ୩, ୭ = ୭<sup>୧</sup>, ୮ = ୨<sup>୩</sup>, ୯ = ୩<sup>୨</sup>, ୧୦ = ୨ &times; ୫।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ସର୍ବୋଚ୍ଚ ଘାତ ଚୟନ):</span><br>
+            &bull; ୨ ର ସର୍ବୋଚ୍ଚ ଘାତ = ୨<sup>୩</sup> = ୮<br>
+            &bull; ୩ ର ସର୍ବୋଚ୍ଚ ଘାତ = ୩<sup>୨</sup> = ୯<br>
+            &bull; ୫ ର ସର୍ବୋଚ୍ଚ ଘାତ = ୫<sup>୧</sup> = ୫<br>
+            &bull; ୭ ର ସର୍ବୋଚ୍ଚ ଘାତ = ୭<sup>୧</sup> = ୭</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (LCM ଗୁଣନ):</span> LCM = ୨<sup>୩</sup> &times; ୩<sup>୨</sup> &times; ୫ &times; ୭ = ୮ &times; ୯ &times; ୫ &times; ୭ = ୭୨ &times; ୩୫ = <strong>୨୫୨୦</strong>।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: ୧ ରୁ ୧୦ ପର୍ଯ୍ୟନ୍ତ ସମସ୍ତ ସଂଖ୍ୟା ଦ୍ୱାରା ବିଭାଜ୍ୟ କ୍ଷୁଦ୍ରତମ ସଂଖ୍ୟାଟି ହେଉଛି <strong>୨୫୨୦</strong>।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Q3 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ୧ ରୁ ୧୦୦ ମଧ୍ୟରେ ଲଗାତାର ୭ଟି ଯୌଗିକ ସଂଖ୍ୟା</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୩:</strong> ୧ ରୁ ୧୦୦ ମଧ୍ୟରେ ଏପରି କ୍ରମିକ ୭ଟି ଯୌଗିକ ସଂଖ୍ୟା ଖୋଜି ବାହାର କରନ୍ତୁ ଯେପରି ସେମାନଙ୍କ ମଝିରେ କୌଣସି ମୌଳିକ ସଂଖ୍ୟା ନଥିବ।</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ଇରାଟୋସ୍ଥିନିସଙ୍କ ଛଣା ଅନୁସନ୍ଧାନ):</span> ୧ ରୁ ୧୦୦ ମଧ୍ୟରେ ଥିବା ମୌଳିକ ସଂଖ୍ୟା ତାଲିକା ଦେଖିଲେ ଜଣାପଡ଼େ ଯେ ୮୯ ପରେ ପରବର୍ତ୍ତୀ ମୌଳିକ ସଂଖ୍ୟାଟି ହେଉଛି ୯୭।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ମଧ୍ୟବର୍ତ୍ତୀ ସଂଖ୍ୟା ପରୀକ୍ଷା):</span> ୮୯ ଏବଂ ୯୭ ମଧ୍ୟରେ ଥିବା ୭ଟି ସଂଖ୍ୟା ହେଲା: <strong>୯୦, ୯୧, ୯୨, ୯୩, ୯୪, ୯୫, ୯୬</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ପ୍ରତ୍ୟେକର ଯୌଗିକ ପ୍ରମାଣ):</span><br>
+            &bull; ୯୦: ୨ ଦ୍ୱାରା ବିଭାଜ୍ୟ (ଯୁଗ୍ମ)<br>
+            &bull; ୯୧: ୭ &times; ୧୩ = ୯୧ (୭ ଓ ୧୩ ଦ୍ୱାରା ବିଭାଜ୍ୟ)<br>
+            &bull; ୯୨: ୨ ଦ୍ୱାରା ବିଭାଜ୍ୟ (ଯୁଗ୍ମ)<br>
+            &bull; ୯୩: ୩ &times; ୩୧ = ୯୩ (୩ ଦ୍ୱାରା ବିଭାଜ୍ୟ)<br>
+            &bull; ୯୪: ୨ ଦ୍ୱାରା ବିଭାଜ୍ୟ (ଯୁଗ୍ମ)<br>
+            &bull; ୯୫: ୫ ଦ୍ୱାରା ବିଭାଜ୍ୟ (ଶେଷ ଅଙ୍କ ୫)<br>
+            &bull; ୯୬: ୨ ଦ୍ୱାରା ବିଭାଜ୍ୟ (ଯୁଗ୍ମ)</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: ୭ଟି କ୍ରମିକ ଯୌଗିକ ସଂଖ୍ୟା ହେଲା: <strong>୯୦, ୯୧, ୯୨, ୯୩, ୯୪, ୯୫, ୯୬</strong>।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Q4 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ. ର ବାସ୍ତବ ଜୀବନ ସମସ୍ୟା (HCF &amp; LCM Applications)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୪:</strong> ଦୁଇଟି ତେଲ ଟାଙ୍କିରେ ଯଥାକ୍ରମେ ୮୫୦ ଲିଟର ଏବଂ ୬୮୦ ଲିଟର ପେଟ୍ରୋଲ ଅଛି। ଏପରି ଏକ ବୃହତ୍ତମ ପାତ୍ରର ଧାରଣ କ୍ଷମତା ନିର୍ଣ୍ଣୟ କରନ୍ତୁ ଯାହା ଉଭୟ ଟାଙ୍କିର ପେଟ୍ରୋଲକୁ ସଠିକ୍ ପୂର୍ଣ୍ଣ ସଂଖ୍ୟକ ଥର ମାପିପାରିବ।</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ସମସ୍ୟା ବିଶ୍ଳେଷଣ):</span> ସର୍ବାଧିକ ବା ବୃହତ୍ତମ ମାପ ନିର୍ଣ୍ଣୟ କରିବାକୁ ଥିବାରୁ ଏହା <strong>ଗରିଷ୍ଠ ସାଧାରଣ ଗୁଣନୀୟକ (HCF / ଗ.ସା.ଗୁ.)</strong> ସମସ୍ୟା ଅଟେ।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ମୌଳିକ ଗୁଣନୀୟକ ନିର୍ଣ୍ଣୟ):</span><br>
+            &bull; ୮୫୦ = ୨ &times; ୫<sup>୨</sup> &times; ୧୭ (୨ &times; ୨୫ &times; ୧୭ = ୮୫୦)<br>
+            &bull; ୬୮୦ = ୨<sup>୩</sup> &times; ୫ &times; ୧୭ (୮ &times; ୫ &times; ୧୭ = ୬୮୦)</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ସାଧାରଣ ମୌଳିକ ଗୁଣନୀୟକ ଚୟନ):</span> ସାଧାରଣ ଗୁଣନୀୟକ = ୨<sup>୧</sup> &times; ୫<sup>୧</sup> &times; ୧୭<sup>୧</sup>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (HCF ଗଣନା):</span> HCF = ୨ &times; ୫ &times; ୧୭ = ୧୦ &times; ୧୭ = <strong>୧୭୦ ଲିଟର</strong>।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: ସର୍ବାଧିକ କ୍ଷମତା ବିଶିଷ୍ଟ ପାତ୍ରଟି <strong>୧୭୦ ଲିଟର</strong> ର ହେବ (୮୫୦ &divide; ୧୭୦ = ୫ ଥର ଏବଂ ୬୮୦ &divide; ୧୭୦ = ୪ ଥର ମାପିବ)।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="section5">
+      <h2>Section 5: ପରୀକ୍ଷା ଉପଯୋଗୀ ପ୍ରଶ୍ନୋତ୍ତର ବ୍ୟାଙ୍କ ଓ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍ (Exam Question Bank &amp; Quiz Engine)</h2>
+      <p>ସମସ୍ତ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ପ୍ରଶ୍ନ ଏବଂ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍:</p>
+
+      <div class="quiz-score-board" id="quizScoreBoard">
+        🎯 ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍ ସ୍କୋର: <span id="currentScore">୦</span> / <span id="totalQuestions">୫</span> ସଠିକ୍
+      </div>
+
+      <!-- Part A: Interactive MCQs -->
+      <h3>ଭାଗ 'କ': ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନାବଳୀ (Interactive MCQs with Instant Feedback)</h3>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card" id="quiz-card-1">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୧: ୧ ରୁ ୧୦୦ ମଧ୍ୟରେ ସମୁଦାୟ କେତୋଟି ମୌଳିକ ସଂଖ୍ୟା (Prime Numbers) ଅଛି?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 0, false, 'ଭୁଲ! ୨୧ ନୁହେଁ।')">
+            <span>(A) ୨୧</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 1, true, 'ନିର୍ଭୁଲ! ଇରାଟୋସ୍ଥିନିସଙ୍କ ଛଣା ଅନୁସାରେ ୧ ରୁ ୧୦୦ ମଧ୍ୟରେ ଠିକ୍ ୨୫ଟି ମୌଳିକ ସଂଖ୍ୟା ଅଛି।')">
+            <span>(B) ୨୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 2, false, 'ଭୁଲ! ୨୮ ନୁହେଁ।')">
+            <span>(C) ୨୮</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 3, false, 'ଭୁଲ! ୩୦ ନୁହେଁ।')">
+            <span>(D) ୩୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-1-fb"></div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card" id="quiz-card-2">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୨: ଏକମାତ୍ର ଯୁଗ୍ମ ମୌଳିକ ସଂଖ୍ୟା (Even Prime Number) କେଉଁଟି?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 0, false, 'ଭୁଲ! ୦ ମୌଳିକ ନୁହେଁ।')">
+            <span>(A) ୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 1, false, 'ଭୁଲ! ୧ ମୌଳିକ କି ଯୌଗିକ ନୁହେଁ।')">
+            <span>(B) ୧</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 2, true, 'ସଠିକ୍ ଉତ୍ତର! ୨ ହେଉଛି ସମଗ୍ର ଗଣିତରେ ଏକମାତ୍ର ଯୁଗ୍ମ ମୌଳିକ ସଂଖ୍ୟା।')">
+            <span>(C) ୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 3, false, 'ଭୁଲ! ୪ ଏକ ଯୌଗିକ ସଂଖ୍ୟା।')">
+            <span>(D) ୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-2-fb"></div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card" id="quiz-card-3">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୩: ନିମ୍ନଲିଖିତ ସଂଖ୍ୟା ଯୋଡ଼ି ମଧ୍ୟରୁ କେଉଁଟି ଯମଜ ମୌଳିକ (Twin Primes) ଅଟନ୍ତି?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 0, false, 'ଭୁଲ! ୨ ଏବଂ ୩ ମଧ୍ୟରେ ଅନ୍ତର ୧।')">
+            <span>(A) (୨, ୩)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 1, true, 'ଚମତ୍କାର! ୫ ଏବଂ ୭ ଉଭୟ ମୌଳିକ ଏବଂ ସେମାନଙ୍କ ମଧ୍ୟରେ ଅନ୍ତର ୭ − ୫ = ୨।')">
+            <span>(B) (୫, ୭)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 2, false, 'ଭୁଲ! ୯ ଏକ ଯୌଗିକ ସଂଖ୍ୟା (୩ × ୩)।')">
+            <span>(C) (୭, ୯)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 3, false, 'ଭୁଲ! ୧୫ ଏକ ଯୌଗିକ ସଂଖ୍ୟା।')">
+            <span>(D) (୧୩, ୧୫)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-3-fb"></div>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="quiz-card" id="quiz-card-4">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୪: ଦୁଇଟି ସଂଖ୍ୟାର ଗ.ସା.ଗୁ. ୬ ଏବଂ ଲ.ସା.ଗୁ. ୩୬। ଯଦି ଗୋଟିଏ ସଂଖ୍ୟା ୧୨ ହୁଏ, ତେବେ ଅନ୍ୟ ସଂଖ୍ୟାଟି କେତେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 0, false, 'ଭୁଲ! ୧୬ ନୁହେଁ।')">
+            <span>(A) ୧୬</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 1, true, 'ନିର୍ଭୁଲ! ଅନ୍ୟ ସଂଖ୍ୟା = (HCF × LCM) ÷ ପ୍ରଥମ ସଂଖ୍ୟା = (୬ × ୩୬) ÷ ୧୨ = ୨୧୬ ÷ ୧୨ = ୧୮।')">
+            <span>(B) ୧୮</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 2, false, 'ଭୁଲ! ୨୪ ନୁହେଁ।')">
+            <span>(C) ୨୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 3, false, 'ଭୁଲ! ଗଣନା ଯାଞ୍ଚ କରନ୍ତୁ।')">
+            <span>(D) ୩୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-4-fb"></div>
+      </div>
+
+      <!-- Quiz 5 -->
+      <div class="quiz-card" id="quiz-card-5">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୫: ସଂଖ୍ୟା ୯୦୧୩୪ କେଉଁ ସଂଖ୍ୟା ଦ୍ୱାରା ନିଃଶେଷରେ ବିଭାଜ୍ୟ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 0, false, 'ଭୁଲ! ୯+୦+୧+୩+୪ = ୧୭ ଯାହା ୩ ଦ୍ୱାରା ବିଭାଜ୍ୟ ନୁହେଁ।')">
+            <span>(A) ୩</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 1, false, 'ଭୁଲ! ଶେଷ ଦୁଇ ଅଙ୍କ ୩୪, ଯାହା ୪ ଦ୍ୱାରା ବିଭାଜ୍ୟ ନୁହେଁ।')">
+            <span>(B) ୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 2, false, 'ଭୁଲ! ଶେଷ ଅଙ୍କ ୪, ୦ ବା ୫ ନୁହେଁ।')">
+            <span>(C) ୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 3, true, 'ସଠିକ୍! ଶେଷ ଅଙ୍କ ୪ (ଯୁଗ୍ମ), ତେଣୁ ଏହା ୨ ଦ୍ୱାରା ନିଃଶେଷରେ ବିଭାଜ୍ୟ।')">
+            <span>(D) ୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-5-fb"></div>
+      </div>
+
+      <!-- Part B: Subjective Questions -->
+      <h3 style="margin-top: 2rem;">ଭାଗ 'ଖ': ସଂକ୍ଷିପ୍ତ ଓ ଦୀର୍ଘ ଉତ୍ତରମୂଳକ ପରୀକ୍ଷା ପ୍ରଶ୍ନୋତ୍ତର (Subjective Question Bank)</h3>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୬ (୨ ମାର୍କ): ସଂଖ୍ୟା ୧ କାହିଁକି ମୌଳିକ କିମ୍ବା ଯୌଗିକ ସଂଖ୍ୟା ନୁହେଁ?</summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong></p>
+          <ol>
+            <li><strong>ମୌଳିକ ସଂଖ୍ୟାର ସଂଜ୍ଞା:</strong> ଏକ ସଂଖ୍ୟାର ଠିକ୍ <strong>ଦୁଇଟି ଭିନ୍ନ ଗୁଣନୀୟକ</strong> (୧ ଏବଂ ସେହି ସଂଖ୍ୟା ନିଜେ) ଥିବା ଆବଶ୍ୟକ। କିନ୍ତୁ ୧ ର ମାତ୍ର ଗୋଟିଏ ହିଁ ଗୁଣନୀୟକ ଅଛି। ତେଣୁ ୧ ମୌଳିକ ନୁହେଁ।</li>
+            <li><strong>ଯୌଗିକ ସଂଖ୍ୟାର ସଂଜ୍ଞା:</strong> ଏକ ସଂଖ୍ୟାର <strong>ଦୁଇରୁ ଅଧିକ ଗୁଣନୀୟକ</strong> ଥିବା ଆବଶ୍ୟକ। ୧ ର ଦୁଇରୁ ଅଧିକ ଗୁଣନୀୟକ ନାହିଁ। ତେଣୁ ୧ ଯୌଗିକ ମଧ୍ୟ ନୁହେଁ।</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୭ (୩ ମାର୍କ): ବିଭାଜ୍ୟତା ନିୟମ ପ୍ରୟୋଗ କରି ପରୀକ୍ଷା କର ଯେ ୭୧୩୮୯୬୫ ସଂଖ୍ୟାଟି ୧୧ ଦ୍ୱାରା ବିଭାଜ୍ୟ କି ନୁହେଁ?</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ସଂଖ୍ୟା):</span> ୭୧୩୮୯୬୫। ଡାହାଣ ପାର୍ଶ୍ୱରୁ ସ୍ଥାନ ଗଣନା: ଏକକ (୧ମ), ଦଶକ (୨ୟ)...</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଅଯୁଗ୍ମ ସ୍ଥାନର ଅଙ୍କ ଯୋଗଫଳ):</span> ୧ମ, ୩ୟ, ୫ମ, ୭ମ ସ୍ଥାନ: ୫ + ୯ + ୩ + ୭ = <strong>୨୪</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ଯୁଗ୍ମ ସ୍ଥାନର ଅଙ୍କ ଯୋଗଫଳ):</span> ୨ୟ, ୪ର୍ଥ, ୬ଷ୍ଠ ସ୍ଥାନ: ୬ + ୮ + ୧ = <strong>୧୫</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ପାର୍ଥକ୍ୟ ଗଣନା):</span> ବିୟୋଗଫଳ = ୨୪ &minus; ୧୫ = <strong>୯</strong>।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ସିଦ୍ଧାନ୍ତ: ଯେହେତୁ ପାର୍ଥକ୍ୟ ୯ (୦ କିମ୍ବା ୧୧ ର ଗୁଣିତକ ନୁହେଁ), ତେଣୁ ୭୧୩୮୯୬୫ ସଂଖ୍ୟାଟି <strong>୧୧ ଦ୍ୱାରା ବିଭାଜ୍ୟ ନୁହେଁ</strong>।</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୮ (୫ ମାର୍କ ଦକ୍ଷତା ଭିତ୍ତିକ): ତିନୋଟି ଟ୍ରାଫିକ୍ ଲାଇଟ୍ ଯଥାକ୍ରମେ ପ୍ରତି ୪୮ ସେକେଣ୍ଡ, ୭୨ ସେକେଣ୍ଡ ଏବଂ ୧୦୮ ସେକେଣ୍ଡ ବ୍ୟବଧାନରେ ପରିବର୍ତ୍ତିତ ହୁଅନ୍ତି। ଯଦି ସେମାନେ ପ୍ରାତଃ ୭:୦୦ ଟାରେ ଏକାସାଙ୍ଗରେ ବଦଳିଥିଲେ, ତେବେ ପୁନର୍ବାର କେଉଁ ସମୟରେ ଏକାସାଙ୍ଗରେ ବଦଳିବେ?</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ସମସ୍ୟା ପ୍ରକାର):</span> ପୁନର୍ବାର ଏକାଠି ଘଟିବାର ସର୍ବନିମ୍ନ ସମୟ ହେଉଛି ୪୮, ୭୨ ଏବଂ ୧୦୮ ର <strong>ଲ.ସା.ଗୁ. (LCM)</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ମୌଳିକ ଗୁଣନୀୟକୀକରଣ):</span><br>
+            &bull; ୪୮ = ୨<sup>୪</sup> &times; ୩<sup>୧</sup> (୧୬ &times; ୩)<br>
+            &bull; ୭୨ = ୨<sup>୩</sup> &times; ୩<sup>୨</sup> (୮ &times; ୯)<br>
+            &bull; ୧୦୮ = ୨<sup>୨</sup> &times; ୩<sup>୩</sup> (୪ &times; ୨୭)</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (LCM ଗଣନା):</span> LCM = ୨<sup>୪</sup> &times; ୩<sup>୩</sup> = ୧୬ &times; ୨୭ = <strong>୪୩୨ ସେକେଣ୍ଡ</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ସେକେଣ୍ଡକୁ ମିନିଟ୍ ରେ ରୂପାନ୍ତର):</span> ୪୩୨ &divide; ୬୦ = ୭ ମିନିଟ୍ ୧୨ ସେକେଣ୍ଡ (କାରଣ ୬୦ &times; ୭ = ୪୨୦ ସେକେଣ୍ଡ, ବଳକା ୧୨ ସେକେଣ୍ଡ)।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ସିଦ୍ଧାନ୍ତ: ୭ ମିନିଟ୍ ୧୨ ସେକେଣ୍ଡ ପରେ, ଅର୍ଥାତ୍ ଠିକ୍ <strong>ପ୍ରାତଃ ୭:୦୭:୧୨ ରେ</strong> ତିନୋଟିଯାକ ଟ୍ରାଫିକ୍ ଲାଇଟ୍ ପୁନର୍ବାର ଏକାସାଙ୍ଗରେ ପରିବର୍ତ୍ତିତ ହେବେ।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="section6">
+      <h2>Section 6: ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା ଓ ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ତଥ୍ୟ (Exam Hall Traps &amp; One-Liners)</h2>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">⚠️ ସାଧାରଣ ଭ୍ରାନ୍ତି ସତର୍କତା (Exam Hall Traps)</div>
+        <ul>
+          <li><strong>ଭୁଲ ୧:</strong> ୧ କୁ ମୌଳିକ ସଂଖ୍ୟା ତାଲିକାରେ ଅନ୍ତର୍ଭୁକ୍ତ କରିବା। ମନେରଖନ୍ତୁ: କ୍ଷୁଦ୍ରତମ ମୌଳିକ ସଂଖ୍ୟା ହେଉଛି <strong>୨</strong>, ୧ ନୁହେଁ!</li>
+          <li><strong>ଭୁଲ ୨:</strong> ସମସ୍ତ ଅଯୁଗ୍ମ ସଂଖ୍ୟା ମୌଳିକ ବୋଲି ଭାବିବା। ୯, ୧୫, ୨୧, ୨୫, ୨୭, ୩୩, ୩୫ ଇତ୍ୟାଦି ଅଯୁଗ୍ମ କିନ୍ତୁ ସେମାନେ ଯୌଗିକ ସଂଖ୍ୟା!</li>
+          <li><strong>ଭୁଲ ୩:</strong> ଗ.ସା.ଗୁ. (HCF) ଏବଂ ଲ.ସା.ଗୁ. (LCM) ଗୁଣନ ସୂତ୍ର କେବଳ <strong>ଦୁଇଟି ସଂଖ୍ୟା ପାଇଁ</strong> ପ୍ରଯୁଜ୍ୟ (a &times; b = HCF &times; LCM)। ଏହା ତିନୋଟି ସଂଖ୍ୟା ପାଇଁ କାର୍ଯ୍ୟ କରେ ନାହିଁ!</li>
+        </ul>
+      </div>
+
+      <h3 class="topic-title">📌 ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ଏକ-ପଦୀ ତଥ୍ୟ (15 Rapid Revision One-Liners)</h3>
+      <ol style="line-height: 2; margin-left: 1.5rem;">
+        <li>କୌଣସି ସଂଖ୍ୟାର ଗୁଣନୀୟକ ସଂଖ୍ୟା ସର୍ବଦା <strong>ସୀମିତ</strong> ଏବଂ ଗୁଣିତକ ସଂଖ୍ୟା <strong>ଅସୀମ</strong> ହୁଏ।</li>
+        <li><strong>୧</strong> ହେଉଛି ପ୍ରତ୍ୟେକ ସଂଖ୍ୟାର ସାଧାରଣ ଗୁଣନୀୟକ।</li>
+        <li>ଠିକ୍ ୨ଟି ଗୁଣନୀୟକ ଥିବା ସଂଖ୍ୟାକୁ <strong>ମୌଳିକ ସଂଖ୍ୟା (Prime Number)</strong> କୁହାଯାଏ।</li>
+        <li>୨ ରୁ ଅଧିକ ଗୁଣନୀୟକ ଥିବା ସଂଖ୍ୟାକୁ <strong>ଯୌଗିକ ସଂଖ୍ୟା (Composite Number)</strong> କୁହାଯାଏ।</li>
+        <li><strong>୧</strong> ନା ମୌଳିକ ନା ଯୌଗିକ ସଂଖ୍ୟା।</li>
+        <li><strong>୨</strong> ହେଉଛି ଏକମାତ୍ର ଯୁଗ୍ମ ମୌଳିକ ସଂଖ୍ୟା ଏବଂ ସର୍ବନିମ୍ନ ମୌଳିକ ସଂଖ୍ୟା।</li>
+        <li>୧ ରୁ ୧୦୦ ମଧ୍ୟରେ ସମୁଦାୟ <strong>୨୫ ଟି ମୌଳିକ ସଂଖ୍ୟା</strong> ରହିଛି।</li>
+        <li>୨ ଅନ୍ତର ଥିବା ଦୁଇଟି ମୌଳିକ ସଂଖ୍ୟାକୁ <strong>ଯମଜ ମୌଳିକ (Twin Primes)</strong> କୁହାଯାଏ।</li>
+        <li>ଯେଉଁ ଦୁଇଟି ସଂଖ୍ୟାର HCF ୧ ହୁଏ, ସେମାନଙ୍କୁ <strong>ପରସ୍ପର ମୌଳିକ (Co-prime)</strong> କୁହାଯାଏ।</li>
+        <li>ସମସ୍ତ ଗୁଣନୀୟକର ଯୋଗଫଳ ୨ &times; ସଂଖ୍ୟା ହେଲେ ତାହାକୁ <strong>ପରିପୂର୍ଣ୍ଣ ସଂଖ୍ୟା (Perfect Number)</strong> କୁହାଯାଏ (ଯଥା: ୬, ୨୮)।</li>
+        <li>ଅଙ୍କମାନଙ୍କ ଯୋଗଫଳ ୩ ଦ୍ୱାରା ବିଭାଜ୍ୟ ହେଲେ ସମ୍ପୂର୍ଣ୍ଣ ସଂଖ୍ୟାଟି <strong>୩ ଦ୍ୱାରା ବିଭାଜ୍ୟ</strong> ହୁଏ।</li>
+        <li>ଶେଷ ଦୁଇଟି ଅଙ୍କ ୪ ଦ୍ୱାରା ବିଭାଜ୍ୟ ହେଲେ ସଂଖ୍ୟାଟି <strong>୪ ଦ୍ୱାରା ବିଭାଜ୍ୟ</strong> ହୁଏ।</li>
+        <li>ଦୁଇଟି ସଂଖ୍ୟାର ଗୁଣନଫଳ ସର୍ବଦା ସେମାନଙ୍କ <strong>HCF &times; LCM</strong> ସହିତ ସମାନ।</li>
+        <li>୧ ରୁ ୧୦ ପର୍ଯ୍ୟନ୍ତ ସମସ୍ତ ସଂଖ୍ୟା ଦ୍ୱାରା ବିଭାଜ୍ୟ କ୍ଷୁଦ୍ରତମ ସଂଖ୍ୟା ହେଉଛି <strong>୨୫୨୦</strong>।</li>
+        <li>ପ୍ରାଚୀନ ଗ୍ରୀକ୍ ଗଣିତଜ୍ଞ ଇରାଟୋସ୍ଥିନିସଙ୍କ ଛଣା ପଦ୍ଧତି ମୌଳିକ ସଂଖ୍ୟା ଖୋଜିବା ପାଇଁ ବ୍ୟବହୃତ ହୁଏ।</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      const btn = document.getElementById('backToTopBtn');
+      if (winScroll > 350) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+
+    function toggleAllAnswers(openState) {
+      document.querySelectorAll('details.ans-box').forEach(el => {
+        el.open = openState;
+      });
+    }
+
+    let quizScore = 0;
+    const answeredQuizzes = new Set();
+
+    function checkQuiz(cardId, optionIndex, isCorrect, explanation) {
+      const card = document.getElementById(cardId);
+      const buttons = card.querySelectorAll('.quiz-opt-btn');
+      const fb = document.getElementById(cardId + '-fb');
+
+      if (answeredQuizzes.has(cardId)) return;
+      answeredQuizzes.add(cardId);
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        const ind = btn.querySelector('.quiz-opt-indicator');
+        if (idx === optionIndex) {
+          if (isCorrect) {
+            btn.classList.add('correct-opt');
+            ind.innerHTML = ' &check; (ସଠିକ୍)';
+          } else {
+            btn.classList.add('wrong-opt');
+            ind.innerHTML = ' &cross; (ଭୁଲ)';
+          }
+        }
+      });
+
+      if (!isCorrect) {
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct-opt');
+            btn.querySelector('.quiz-opt-indicator').innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          }
+        });
+      }
+
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.className = 'quiz-feedback correct-fb';
+        fb.innerHTML = '<strong>ଠିକ୍ ଉତ୍ତର! 🎉</strong> ' + explanation;
+        quizScore++;
+      } else {
+        fb.className = 'quiz-feedback incorrect-fb';
+        fb.innerHTML = '<strong>ଭୁଲ ଉତ୍ତର! ⚠️</strong> ' + explanation;
+      }
+
+      document.getElementById('currentScore').innerText = quizScore;
+    }
+
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Text-to-Speech ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+      } else {
+        const text = "ନମସ୍କାର ପିଲାମାନେ! ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତର ପଞ୍ଚମ ଅଧ୍ୟାୟ 'ପ୍ରାଇମ୍ ଟାଇମ୍: ମୌଳିକ ସଂଖ୍ୟା' କୁ ସ୍ୱାଗତ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ଗୁଣନୀୟକ, ଗୁଣିତକ, ମୌଳିକ ସଂଖ୍ୟା, ଯୌଗିକ ସଂଖ୍ୟା, ଗରିଷ୍ଠ ସାଧାରଣ ଗୁଣନୀୟକ ବା ଗ.ସା.ଗୁ. ଏବଂ ଲଘିଷ୍ଠ ସାଧାରଣ ଗୁଣିତକ ବା ଲ.ସା.ଗୁ. ବିଷୟରେ ପଢ଼ିଲେ। ମନେରଖନ୍ତୁ: ୧ ମୌଳିକ ନୁହେଁ କି ଯୌଗିକ ନୁହେଁ। ୨ ହେଉଛି ଏକମାତ୍ର ଯୁଗ୍ମ ମୌଳିକ ସଂଖ୍ୟା। ୧ ରୁ ୧୦୦ ମଧ୍ୟରେ ୨୫ଟି ମୌଳିକ ସଂଖ୍ୟା ଅଛି। ଦୁଇଟି ସଂଖ୍ୟାର ଗୁଣନଫଳ ସେମାନଙ୍କ ଗ.ସା.ଗୁ. ଏବଂ ଲ.ସା.ଗୁ. ର ଗୁଣନଫଳ ସହ ସମାନ। ନିୟମିତ ଅଭ୍ୟାସ କରନ୍ତୁ!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'or-IN';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>";
+      }
+    }
+  </script>
+</body>
+</html>
