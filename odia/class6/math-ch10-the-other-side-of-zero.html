@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୧୦: ଶୂନର ଅନ୍ୟ ପାର୍ଶ୍ୱ — ପୂର୍ଣ୍ଣସଂଖ୍ୟା (The Other Side of Zero) | ଶ୍ରେଣୀ ୬ ଗଣିତ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalinga:wght@400;700&family=Noto+Sans+Oriya:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-light: #e0f2fe;
+      --primary-dark: #0369a1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --success: #10b981;
+      --success-light: #d1fae5;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans Oriya', 'Kalinga', 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      padding-bottom: 60px;
+    }
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #0284c7, #38bdf8, #f59e0b);
+      width: 0%;
+      z-index: 1000;
+      transition: width 0.1s ease;
+    }
+    .header-hero {
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #38bdf8 100%);
+      color: white;
+      padding: 50px 20px 40px;
+      text-align: center;
+      position: relative;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 15px;
+    }
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      opacity: 0.95;
+    }
+    .audio-btn {
+      background: white;
+      color: var(--primary-dark);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all 0.2s ease;
+    }
+    .audio-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+    .sticky-nav {
+      position: sticky;
+      top: 5px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 10px 15px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .nav-btn {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover, .nav-btn.active {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+    .action-btn {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .section-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 35px;
+      margin-bottom: 35px;
+      border: 1px solid var(--border);
+    }
+    .sec-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 12px;
+      margin-bottom: 25px;
+    }
+    .sec-header h2 {
+      color: var(--primary-dark);
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .sec-badge {
+      background: var(--primary);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .callout-def {
+      background: #f0fdf4;
+      border-left: 5px solid var(--success);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 20px 0;
+    }
+    .callout-act {
+      background: #f0f9ff;
+      border-left: 5px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 20px 0;
+    }
+    .callout-hack {
+      background: #fefce8;
+      border-left: 5px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 20px 0;
+    }
+    .callout-warn {
+      background: #fef2f2;
+      border-left: 5px solid var(--danger);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 20px 0;
+    }
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .svg-container {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 15px;
+      margin: 25px 0;
+      text-align: center;
+      overflow-x: auto;
+    }
+    .svg-container svg {
+      max-width: 100%;
+      height: auto;
+    }
+    .svg-caption {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.98rem;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      text-align: left;
+    }
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+    .data-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      padding: 0 4px;
+      font-size: 0.9em;
+      line-height: 1;
+    }
+    .frac sup {
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+    }
+    .frac sub {
+      padding-top: 1px;
+    }
+    details.ans-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin: 18px 0;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+    details.ans-box[open] {
+      background: #ffffff;
+      border-color: #38bdf8;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+    }
+    details.ans-box summary {
+      padding: 14px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    details.ans-box summary::-webkit-details-marker {
+      display: none;
+    }
+    details.ans-box summary::after {
+      content: "➕ ସମାଧାନ ଦେଖନ୍ତୁ";
+      font-size: 0.85rem;
+      background: white;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    details.ans-box[open] summary::after {
+      content: "➖ ସମାଧାନ ଲୁଚାନ୍ତୁ";
+      background: var(--primary-light);
+    }
+    .ans-content {
+      padding: 20px;
+      line-height: 1.8;
+    }
+    .step-box {
+      margin-bottom: 12px;
+      padding-left: 14px;
+      border-left: 3px solid #38bdf8;
+    }
+    .step-title {
+      font-weight: 700;
+      color: #0369a1;
+      font-size: 0.95rem;
+    }
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .quiz-question {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 15px;
+      color: #1e293b;
+    }
+    .quiz-opts {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 640px) {
+      .quiz-opts { grid-template-columns: 1fr 1fr; }
+    }
+    .quiz-opt-btn {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 0.95rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .quiz-opt-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .quiz-opt-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+    .quiz-opt-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+    .quiz-feedback {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .one-liner-list {
+      list-style: none;
+      counter-reset: one-liner;
+    }
+    .one-liner-list li {
+      counter-increment: one-liner;
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: 12px;
+    }
+    .one-liner-list li::before {
+      content: counter(one-liner);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #backToTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      z-index: 99;
+      transition: all 0.3s;
+    }
+    #backToTopBtn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress-bar"></div>
+
+  <header class="header-hero">
+    <div class="hero-badge">NCERT ଗଣିତ ପ୍ରକାଶ • ଶ୍ରେଣୀ ୬ • ଅଧ୍ୟାୟ ୧୦</div>
+    <h1 class="hero-title">ଶୂନର ଅନ୍ୟ ପାର୍ଶ୍ୱ: ପୂର୍ଣ୍ଣସଂଖ୍ୟା<br><span style="font-size: 1.4rem; font-weight: 500;">(The Other Side of Zero: Integers)</span></h1>
+    <p class="hero-subtitle">ଋଣାତ୍ମକ ସଂଖ୍ୟା, ଲିଫ୍ଟ୍ ଓ ସଂଖ୍ୟାରେଖା ଗତିବିଧି, ଟୋକନ୍ ମଡେଲ୍, ଶୂନ ଯୋଡ଼ି ଏବଂ ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ଗାଣିତିକ ନିୟମ</p>
+    <button class="audio-btn" onclick="toggleTeacherAudio()">
+      <span id="audio-icon">🔊</span> <span id="audio-text">ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ</span>
+    </button>
+  </header>
+
+  <nav class="sticky-nav">
+    <a href="#sec-1" class="nav-btn active">୧. ମାଇଣ୍ଡ୍ ମ୍ୟାପ୍</a>
+    <a href="#sec-2" class="nav-btn">୨. ଧାରଣାଗତ ନୋଟ୍ସ</a>
+    <a href="#sec-3" class="nav-btn">୩. ସୂତ୍ର ଓ ନିୟମ ବ୍ୟାଙ୍କ</a>
+    <a href="#sec-4" class="nav-btn">୪. NCERT ସମାଧାନ</a>
+    <a href="#sec-5" class="nav-btn">୫. ପରୀକ୍ଷା ପ୍ରଶ୍ନୋତ୍ତର</a>
+    <a href="#sec-6" class="nav-btn">୬. ପରୀକ୍ଷା ହଲ୍ ଟ୍ରାପ୍</a>
+    <button class="action-btn" onclick="toggleAllAnswers(true)">ସବୁ ଖୋଲନ୍ତୁ</button>
+    <button class="action-btn" onclick="toggleAllAnswers(false)">ସବୁ ବନ୍ଦ କରନ୍ତୁ</button>
+  </nav>
+
+  <main class="container">
+
+    <!-- SECTION 1 -->
+    <section id="sec-1" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୧</span>
+        <h2>ଭିଜୁଆଲ୍ ମାଇଣ୍ଡ୍ ମ୍ୟାପ୍ ଓ ଅଧ୍ୟାୟ ସାରସଂକ୍ଷେପ (Visual Mind Map &amp; Blueprint)</h2>
+      </div>
+      <p>ଶୂନ (୦) ତଳକୁ ମଧ୍ୟ ଏକ ବିଶାଳ ସଂଖ୍ୟା ଜଗତ ରହିଛି, ଯାହାକୁ ଆମେ <strong>ଋଣାତ୍ମକ ସଂଖ୍ୟା (Negative Numbers)</strong> କହୁ। ଗଣନ ସଂଖ୍ୟା (ଧନାତ୍ମକ), ଶୂନ ଏବଂ ସେମାନଙ୍କର ଋଣାତ୍ମକ ରୂପ ମିଶି <strong>ପୂର୍ଣ୍ଣସଂଖ୍ୟା (Integers, ℤ)</strong> ଗଠନ କରନ୍ତି।</p>
+
+      <!-- SVG 1: Mind Map -->
+      <div class="svg-container">
+        <svg viewBox="0 0 880 440" xmlns="http://www.w3.org/2000/svg">
+          <rect width="880" height="440" fill="#f8fafc" rx="12"/>
+          <rect x="330" y="20" width="220" height="70" rx="10" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+          <text x="440" y="48" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">ପୂର୍ଣ୍ଣସଂଖ୍ୟା (INTEGERS)</text>
+          <text x="440" y="70" font-size="13" fill="#e0f2fe" text-anchor="middle">The Other Side of Zero (ℤ)</text>
+
+          <!-- Branch 1: Lift & Number Line -->
+          <line x1="330" y1="55" x2="160" y2="150" stroke="#0284c7" stroke-width="2.5"/>
+          <rect x="50" y="150" width="230" height="115" rx="8" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+          <text x="165" y="175" font-size="15" font-weight="bold" fill="#0369a1" text-anchor="middle">୧. ଲିଫ୍ଟ୍ ଓ ସଂଖ୍ୟାରେଖା</text>
+          <text x="65" y="200" font-size="12" fill="#334155">• ଭୂମି ମହଲା = ୦ (Reference Point)</text>
+          <text x="65" y="220" font-size="12" fill="#334155">• ଉପର ମହଲା = + ; ବେସମେଣ୍ଟ = −</text>
+          <text x="65" y="240" font-size="12" fill="#334155">• ଡାହାଣକୁ ଗଲେ ବଢ଼େ, ବାମକୁ କମେ</text>
+
+          <!-- Branch 2: Token Model & Zero Pairs -->
+          <line x1="440" y1="90" x2="440" y2="150" stroke="#0284c7" stroke-width="2.5"/>
+          <rect x="325" y="150" width="230" height="115" rx="8" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+          <text x="440" y="175" font-size="15" font-weight="bold" fill="#0369a1" text-anchor="middle">୨. ଟୋକନ୍ ଓ ଶୂନ ଯୋଡ଼ି</text>
+          <text x="340" y="200" font-size="12" fill="#334155">• ଧନାତ୍ମକ (+) ଓ ଋଣାତ୍ମକ (−) କଏନ୍</text>
+          <text x="340" y="220" font-size="12" fill="#334155">• ଶୂନ ଯୋଡ଼ି: (+୧) + (−୧) = ୦</text>
+          <text x="340" y="240" font-size="12" fill="#334155">• ବିୟୋଗ ପାଇଁ ଶୂନ ଯୋଡ଼ି ସାହାଯ୍ୟ</text>
+
+          <!-- Branch 3: Real World & Brahmagupta -->
+          <line x1="550" y1="55" x2="720" y2="150" stroke="#0284c7" stroke-width="2.5"/>
+          <rect x="600" y="150" width="230" height="115" rx="8" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+          <text x="715" y="175" font-size="15" font-weight="bold" fill="#0369a1" text-anchor="middle">୩. ବାସ୍ତବ ପ୍ରୟୋଗ ଓ ଇତିହାସ</text>
+          <text x="615" y="200" font-size="12" fill="#334155">• ବ୍ୟାଙ୍କ ଜମା (+) ଓ ଉଠାଣ/ଖର୍ଚ୍ଚ (−)</text>
+          <text x="615" y="220" font-size="12" fill="#334155">• ତାପମାତ୍ରା ଓ ସମୁଦ୍ର ପତ୍ତନ</text>
+          <text x="615" y="240" font-size="12" fill="#334155">• ବ୍ରହ୍ମଗୁପ୍ତ (୬୨୮ ଖ୍ରୀ.): ଧନ ଓ ଋଣ</text>
+
+          <!-- Bottom: Addition & Subtraction Rules -->
+          <line x1="440" y1="265" x2="440" y2="315" stroke="#0284c7" stroke-width="2.5"/>
+          <rect x="200" y="315" width="480" height="100" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+          <text x="440" y="342" font-size="15" font-weight="bold" fill="#b45309" text-anchor="middle">୪. ଗାଣିତିକ ଚିହ୍ନ ନିୟମ (Rules of Signs)</text>
+          <text x="220" y="368" font-size="12.5" fill="#78350f">• ସମାନ ଚିହ୍ନ: ଯୋଗ କରି ସାଧାରଣ ଚିହ୍ନ ଦିଅନ୍ତୁ: (−୩) + (−୫) = −୮</text>
+          <text x="220" y="392" font-size="12.5" fill="#78350f">• ବିପରୀତ ଚିହ୍ନ: ବଡ଼ରୁ ଛୋଟ ବିୟୋଗ କରି ବଡ଼ର ଚିହ୍ନ ଦିଅନ୍ତୁ: (+୭) + (−୯) = −୨</text>
+        </svg>
+        <div class="svg-caption">ଚିତ୍ର ୧୦.୧: ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଅଧ୍ୟାୟର ମୁଖ୍ୟ ବିଭାଗ ଓ ସଂକଳ୍ପ ସାରସଂକ୍ଷେପ</div>
+      </div>
+
+      <!-- SVG 2: Number Line Vector Movements -->
+      <div class="svg-container">
+        <svg viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="880" height="260" fill="#ffffff" rx="12" stroke="#e2e8f0" stroke-width="1.5"/>
+          <text x="440" y="30" font-size="16" font-weight="bold" fill="#0369a1" text-anchor="middle">ସଂଖ୍ୟାରେଖାରେ ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ଯୋଗ ଓ ବିୟୋଗ: (−୨) + (+୫) = +୩</text>
+
+          <!-- Main Number line axis -->
+          <line x1="50" y1="160" x2="830" y2="160" stroke="#0f172a" stroke-width="2.5"/>
+          <!-- Arrows at both ends -->
+          <polygon points="45,160 55,154 55,166" fill="#0f172a"/>
+          <polygon points="835,160 825,154 825,166" fill="#0f172a"/>
+
+          <!-- Ticks from -6 to +6 (13 marks, step ~ 60px, center at x=440 for 0) -->
+          <!-- x = 440 + n*55 -->
+          <!-- n=-6: 110, -5: 165, -4: 220, -3: 275, -2: 330, -1: 385, 0: 440, +1: 495, +2: 550, +3: 605, +4: 660, +5: 715, +6: 770 -->
+          <g font-size="12" font-family="monospace" text-anchor="middle">
+            <line x1="110" y1="152" x2="110" y2="168" stroke="#64748b" stroke-width="2"/>
+            <text x="110" y="190" fill="#ef4444">−୬</text>
+
+            <line x1="165" y1="152" x2="165" y2="168" stroke="#64748b" stroke-width="2"/>
+            <text x="165" y="190" fill="#ef4444">−୫</text>
+
+            <line x1="220" y1="152" x2="220" y2="168" stroke="#64748b" stroke-width="2"/>
+            <text x="220" y="190" fill="#ef4444">−୪</text>
+
+            <line x1="275" y1="152" x2="275" y2="168" stroke="#64748b" stroke-width="2"/>
+            <text x="275" y="190" fill="#ef4444">−୩</text>
+
+            <line x1="330" y1="150" x2="330" y2="170" stroke="#0284c7" stroke-width="3"/>
+            <text x="330" y="190" font-weight="bold" fill="#0369a1">−୨</text>
+
+            <line x1="385" y1="152" x2="385" y2="168" stroke="#64748b" stroke-width="2"/>
+            <text x="385" y="190" fill="#ef4444">−୧</text>
+
+            <!-- Zero -->
+            <line x1="440" y1="145" x2="440" y2="175" stroke="#0f172a" stroke-width="3.5"/>
+            <circle cx="440" cy="160" r="5" fill="#f59e0b"/>
+            <text x="440" y="192" font-size="14" font-weight="bold" fill="#0f172a">୦</text>
+
+            <line x1="495" y1="152" x2="495" y2="168" stroke="#64748b" stroke-width="2"/>
+            <text x="495" y="190" fill="#10b981">+୧</text>
+
+            <line x1="550" y1="152" x2="550" y2="168" stroke="#64748b" stroke-width="2"/>
+            <text x="550" y="190" fill="#10b981">+୨</text>
+
+            <line x1="605" y1="150" x2="605" y2="170" stroke="#0284c7" stroke-width="3"/>
+            <text x="605" y="190" font-weight="bold" fill="#0369a1">+୩</text>
+
+            <line x1="660" y1="152" x2="660" y2="168" stroke="#64748b" stroke-width="2"/>
+            <text x="660" y="190" fill="#10b981">+୪</text>
+
+            <line x1="715" y1="152" x2="715" y2="168" stroke="#64748b" stroke-width="2"/>
+            <text x="715" y="190" fill="#10b981">+୫</text>
+
+            <line x1="770" y1="152" x2="770" y2="168" stroke="#64748b" stroke-width="2"/>
+            <text x="770" y="190" fill="#10b981">+୬</text>
+          </g>
+
+          <!-- Vector jump 1: from 0 to -2 -->
+          <path d="M 440 145 Q 385 105 332 145" fill="none" stroke="#ef4444" stroke-width="2" stroke-dasharray="3"/>
+          <polygon points="332,145 340,137 342,148" fill="#ef4444"/>
+          <text x="385" y="100" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle">ବାମକୁ ୨ ଘର (−୨)</text>
+
+          <!-- Vector jump 2: from -2 jump +5 units right to +3 -->
+          <path d="M 330 135 Q 465 55 603 135" fill="none" stroke="#10b981" stroke-width="3"/>
+          <polygon points="603,135 595,127 593,138" fill="#10b981"/>
+          <text x="465" y="70" font-size="13" font-weight="bold" fill="#059669" text-anchor="middle">ଡାହାଣକୁ ୫ ଘର ଲମ୍ଫ (+୫)</text>
+          <circle cx="605" cy="160" r="6" fill="#0284c7"/>
+          <text x="605" y="225" font-size="13" font-weight="bold" fill="#0284c7" text-anchor="middle">ଶେଷ ସ୍ଥିତି = +୩</text>
+        </svg>
+        <div class="svg-caption">ଚିତ୍ର ୧୦.୨: ସଂଖ୍ୟାରେଖାରେ ଭେକ୍ଟର ଲମ୍ଫ (Vector Jumps) ମାଧ୍ୟମରେ ଯୋଗ ଓ ବିୟୋଗ ନିର୍ଣ୍ଣୟ</div>
+      </div>
+
+      <!-- SVG 3: Token Counter Model -->
+      <div class="svg-container">
+        <svg viewBox="0 0 880 230" xmlns="http://www.w3.org/2000/svg">
+          <rect width="880" height="230" fill="#ffffff" rx="12" stroke="#e2e8f0" stroke-width="1.5"/>
+          <text x="440" y="28" font-size="16" font-weight="bold" fill="#0369a1" text-anchor="middle">ଟୋକନ୍ ମଡେଲ୍: (+୪) + (−୩) = +୧ (ଶୂନ ଯୋଡ଼ି ବାତିଲ୍ ପ୍ରଣାଳୀ)</text>
+
+          <!-- Positive Tokens -->
+          <g transform="translate(100, 50)">
+            <text x="60" y="25" font-size="13" font-weight="bold" fill="#15803d">୪ଟି ଧନାତ୍ମକ ଟୋକନ୍ (+୪):</text>
+            <circle cx="40" cy="65" r="18" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+            <text x="40" y="71" font-size="16" font-weight="bold" fill="#15803d" text-anchor="middle">+</text>
+
+            <circle cx="90" cy="65" r="18" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+            <text x="90" y="71" font-size="16" font-weight="bold" fill="#15803d" text-anchor="middle">+</text>
+
+            <circle cx="140" cy="65" r="18" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+            <text x="140" y="71" font-size="16" font-weight="bold" fill="#15803d" text-anchor="middle">+</text>
+
+            <circle cx="190" cy="65" r="18" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+            <text x="190" y="71" font-size="16" font-weight="bold" fill="#15803d" text-anchor="middle">+</text>
+          </g>
+
+          <!-- Negative Tokens -->
+          <g transform="translate(100, 130)">
+            <text x="60" y="25" font-size="13" font-weight="bold" fill="#b91c1c">୩ଟି ଋଣାତ୍ମକ ଟୋକନ୍ (−୩):</text>
+            <circle cx="40" cy="65" r="18" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+            <text x="40" y="71" font-size="18" font-weight="bold" fill="#b91c1c" text-anchor="middle">−</text>
+
+            <circle cx="90" cy="65" r="18" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+            <text x="90" y="71" font-size="18" font-weight="bold" fill="#b91c1c" text-anchor="middle">−</text>
+
+            <circle cx="140" cy="65" r="18" fill="#fee2e2" stroke="#ef4444" stroke-width="2"/>
+            <text x="140" y="71" font-size="18" font-weight="bold" fill="#b91c1c" text-anchor="middle">−</text>
+          </g>
+
+          <!-- Pairing Box -->
+          <g transform="translate(420, 50)">
+            <rect width="400" height="150" rx="10" fill="#f8fafc" stroke="#38bdf8" stroke-width="2"/>
+            <text x="20" y="30" font-size="14" font-weight="bold" fill="#0369a1">ଶୂନ ଯୋଡ଼ି (Zero Pairs) ବାତିଲ୍:</text>
+            <text x="20" y="60" font-size="13" fill="#334155">• (+୧) ଏବଂ (−୧) ମିଶି ୧ଟି ଶୂନ ଯୋଡ଼ି ଗଠନ କରନ୍ତି।</text>
+            <text x="20" y="85" font-size="13" fill="#334155">• ଏଠାରେ ୩ଟି ଯୋଡ଼ି ପରସ୍ପରକୁ ବାତିଲ୍ (Cancel) କରନ୍ତି: ୩ × ୦ = ୦</text>
+            <text x="20" y="112" font-size="13" fill="#334155">• କେବଳ <strong>୧ଟି (+) ଟୋକନ୍</strong> ବଳକା ରହିଲା।</text>
+            <text x="20" y="138" font-size="15" font-weight="bold" fill="#15803d">ଫଳାଫଳ = (+୪) + (−୩) = +୧</text>
+          </g>
+        </svg>
+        <div class="svg-caption">ଚିତ୍ର ୧୦.୩: ଟୋକନ୍ ମଡେଲ୍ ଏବଂ ଶୂନ ଯୋଡ଼ି (Zero Pairs) ବାତିଲ୍ କୌଶଳ</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec-2" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୨</span>
+        <h2>ଧାରଣାଗତ ନୋଟ୍ସ ଓ ଗାଣିତିକ ସିଦ୍ଧାନ୍ତ (Conceptual Notes &amp; Integer Theorems)</h2>
+      </div>
+
+      <!-- 10.1 -->
+      <h3 style="color: var(--primary-dark); margin: 25px 0 10px;">୧୦.୧ ବେଲାଙ୍କ ଆନନ୍ଦ ଭବନ ଓ ସଂଖ୍ୟାରେଖା (Building of Fun &amp; Number Line)</h3>
+      <p>ସଂଖ୍ୟାକୁ ବୁଝିବା ପାଇଁ ଏକ ବହୁତଳ ପ୍ରାସାଦର ଲିଫ୍ଟ୍ (Elevator) ଏକ ଉତ୍କୃଷ୍ଟ ଉଦାହରଣ। ବେଲାଙ୍କ ଆନନ୍ଦ ଭବନରେ:</p>
+      <div class="callout-def">
+        <div class="callout-title">🏢 ଲିଫ୍ଟ୍ ମଡେଲ୍ ଓ ସନ୍ଦର୍ଭ ବିନ୍ଦୁ (Reference Point)</div>
+        <ul style="margin-left: 20px;">
+          <li><strong>ଭୂମି ମହଲା (Ground Floor):</strong> ଏହା ହେଉଛି ଆଧାର ବା ସନ୍ଦର୍ଭ ବିନ୍ଦୁ, ଯାହାକୁ <strong>ଶୂନ (୦)</strong> ଭାବେ ନିଆଯାଏ।</li>
+          <li><strong>ଉପର ମହଲାଗୁଡ଼ିକ (Floors Above Ground):</strong> ଭୂମିଠାରୁ ଉପରକୁ ଥିବା ମହଲାଗୁଡ଼ିକ <strong>ଧନାତ୍ମକ ସଂଖ୍ୟା (Positive Integers: +୧, +୨, +୩, ...)</strong>।</li>
+          <li><strong>ତଳ ମହଲା ବା ବେସମେଣ୍ଟ (Basement Levels):</strong> ଭୂମି ତଳକୁ ଥିବା ପାର୍କିଂ ବା ଗୋଦାମ ମହଲାଗୁଡ଼ିକ <strong>ଋଣାତ୍ମକ ସଂଖ୍ୟା (Negative Integers: −୧, −୨, −୩, ...)</strong>।</li>
+        </ul>
+      </div>
+
+      <div class="callout-hack">
+        <div class="callout-title">📏 ସଂଖ୍ୟାରେଖାର ସ୍ୱର୍ଣ୍ଣିମ ନିୟମ (Number Line Golden Rule)</div>
+        ସଂଖ୍ୟାରେଖାରେ ଯେକୌଣସି ସଂଖ୍ୟାର <strong>ଡାହାଣ ପାର୍ଶ୍ୱରେ ଥିବା ସଂଖ୍ୟା ସର୍ବଦା ବୃହତ୍ତର</strong> ଏବଂ <strong>ବାମ ପାର୍ଶ୍ୱରେ ଥିବା ସଂଖ୍ୟା କ୍ଷୁଦ୍ରତର</strong> ହୋଇଥାଏ।
+        <br>
+        ଉଦାହରଣ:
+        <ul style="margin: 6px 0 0 20px;">
+          <li>+୫ &gt; +୨ (କାରଣ +୫ ଡାହାଣରେ ଅଛି)</li>
+          <li>୦ &gt; −୩ (କାରଣ ୦ ସମସ୍ତ ଋଣାତ୍ମକ ସଂଖ୍ୟାର ଡାହାଣରେ ଥାଏ)</li>
+          <li><strong>−୨ &gt; −୭</strong> (ଅତ୍ୟନ୍ତ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ! −୨ ସଂଖ୍ୟାରେଖାରେ −୭ ର ଡାହାଣରେ ଥିବାରୁ −୨ ବଡ଼ ଏବଂ −୭ ଛୋଟ)।</li>
+        </ul>
+      </div>
+
+      <!-- 10.2 -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 10px;">୧୦.୨ ଟୋକନ୍ ମଡେଲ୍ ଓ ଶୂନ ଯୋଡ଼ି (The Token Model &amp; Zero Pairs)</h3>
+      <p>ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ଯୋଗ ଓ ବିୟୋଗକୁ ଅତି ସହଜରେ ବୁଝିବା ପାଇଁ ଟୋକନ୍ (କାଉଣ୍ଟର) ପଦ୍ଧତି ବ୍ୟବହାର କରାଯାଏ:</p>
+      <div class="callout-def">
+        <div class="callout-title">🟡 ଶୂନ ଯୋଡ଼ି ସିଦ୍ଧାନ୍ତ (The Zero Pair Concept)</div>
+        ଗୋଟିଏ ଧନାତ୍ମକ ଟୋକନ୍ (+୧) ଏବଂ ଗୋଟିଏ ଋଣାତ୍ମକ ଟୋକନ୍ (−୧) ପରସ୍ପରକୁ ପ୍ରଶମିତ (Neutralize) କରି ଶୂନ ମୂଲ୍ୟ ପ୍ରଦାନ କରନ୍ତି:
+        <div style="margin-top: 8px; font-weight: 700; color: #0369a1; font-size: 1.1rem;">
+          (+୧) + (−୧) = ୦ &nbsp;&nbsp;&nbsp; (ଶୂନ ଯୋଡ଼ି / Zero Pair)
+        </div>
+        ଆମେ ଯେକୌଣସି ସମୟରେ କୌଣସି ରାଶିରେ ଶୂନ ଯୋଡ଼ି ଯୋଗ କରିପାରିବା କିମ୍ବା କାଢ଼ି ନେଇପାରିବା, କାରଣ ଏହାର ମୂଲ୍ୟ ୦ ଅଟେ।
+      </div>
+
+      <div class="callout-act">
+        <div class="callout-title">💡 ଟୋକନ୍ ଦ୍ୱାରା ବିୟୋଗ କୌଶଳ (Subtraction via Zero Pairs)</div>
+        ଧରାଯାଉ ଆମକୁ <strong>(−୩) − (+୫)</strong> ସମାଧାନ କରିବାକୁ ହେବ:
+        <ol style="margin-left: 20px;">
+          <li>ପ୍ରଥମେ ୩ଟି (−) ଟୋକନ୍ ରଖନ୍ତୁ।</li>
+          <li>ଆମକୁ ୫ଟି (+) ଟୋକନ୍ ବାହାର କରିବାକୁ ହେବ, କିନ୍ତୁ ପାଖରେ କୌଣସି (+) ଟୋକନ୍ ନାହିଁ!</li>
+          <li>ତେଣୁ <strong>୫ଟି ଶୂନ ଯୋଡ଼ି [୫ଟି (+) ଓ ୫ଟି (−)]</strong> ଯୋଡ଼ନ୍ତୁ (ମୂଲ୍ୟ ବଦଳିବ ନାହିଁ)।</li>
+          <li>ଏବେ ସେଥିରୁ ୫ଟି (+) ଟୋକନ୍ ବାହାର କରି ନିଅନ୍ତୁ।</li>
+          <li>ବଳକା ରହିଲା: ମୂଳ ୩ଟି (−) ଏବଂ ନୂଆ ୫ଟି (−) = <strong>ମୋଟ ୮ଟି (−) ଟୋକନ୍</strong>।</li>
+          <li>ଅତଏବ: <strong>(−୩) − (+୫) = −୮</strong>।</li>
+        </ol>
+      </div>
+
+      <!-- 10.3 -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 10px;">୧୦.୩ ବାସ୍ତବ ଜୀବନରେ ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ପ୍ରୟୋଗ (Real-World Applications)</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>କ୍ଷେତ୍ର (Domain)</th>
+            <th>ଧନାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା (+)</th>
+            <th>ଶୂନ (୦ / Reference)</th>
+            <th>ଋଣାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା (−)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ବ୍ୟାଙ୍କିଙ୍ଗ୍ (Banking)</strong></td>
+            <td>ଟଙ୍କା ଜମା (Credit/Deposit)</td>
+            <td>ଶୂନ ବାଲାନ୍ସ (₹୦)</td>
+            <td>ଟଙ୍କା ଉଠାଣ / କରଜ (Debit/Overdraft)</td>
+          </tr>
+          <tr>
+            <td><strong>ତାପମାତ୍ରା (Temperature)</strong></td>
+            <td>ବରଫ ବିନ୍ଦୁଠାରୁ ଅଧିକ ଗରମ (+°C)</td>
+            <td>ଜଳର ବରଫ ବିନ୍ଦୁ (୦°C)</td>
+            <td>ବରଫ ବିନ୍ଦୁଠାରୁ କମ୍ ଥଣ୍ଡା (−°C)</td>
+          </tr>
+          <tr>
+            <td><strong>ଭୌଗୋଳିକ ଉଚ୍ଚତା (Elevation)</strong></td>
+            <td>ସମୁଦ୍ର ପତ୍ତନଠାରୁ ଉଚ୍ଚ ପର୍ବତ (+)</td>
+            <td>ସମୁଦ୍ର ପତ୍ତନ (Sea Level = ୦ m)</td>
+            <td>ସମୁଦ୍ର ତଳ ଗଭୀରତା (− m)</td>
+          </tr>
+          <tr>
+            <td><strong>ଐତିହାସିକ ସମୟ (Timeline)</strong></td>
+            <td>ଖ୍ରୀଷ୍ଟାବ୍ଦ (CE / AD)</td>
+            <td>ଯୀଶୁଙ୍କ ଜନ୍ମ ବର୍ଷ (୦)</td>
+            <td>ଖ୍ରୀଷ୍ଟପୂର୍ବ (BCE / BC)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 10.4 -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 10px;">୧୦.୪ ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ୬୨୮ ଖ୍ରୀଷ୍ଟାବ୍ଦର ଐତିହାସିକ ନିୟମ (Brahmagupta's 628 CE Treatises)</h3>
+      <p>ଭାରତର ପ୍ରଖ୍ୟାତ ପ୍ରାଚୀନ ଗଣିତଜ୍ଞ <strong>ବ୍ରହ୍ମଗୁପ୍ତ</strong> ତାଙ୍କର ପ୍ରସିଦ୍ଧ ଗ୍ରନ୍ଥ <em>ବ୍ରାହ୍ମସ୍ଫୁଟସିଦ୍ଧାନ୍ତ (Brahmasphutasiddhanta)</em> ରେ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଓ ଶୂନର ଗାଣିତିକ ନିୟମ ପ୍ରଥମେ ପ୍ରତିପାଦନ କରିଥିଲେ:</p>
+      <div class="callout-hack">
+        <div class="callout-title">📜 ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ପାରମ୍ପରିକ ପରିଭାଷା</div>
+        <ul>
+          <li><strong>ଧନ (Fortune / Positive):</strong> ଆପଣଙ୍କ ପାଖରେ ଥିବା ସମ୍ପତ୍ତି ବା ଲାଭ।</li>
+          <li><strong>ଋଣ (Debt / Negative):</strong> ଅନ୍ୟକୁ ଦେବାକୁ ଥିବା ଋଣ ବା କରଜ।</li>
+          <li><strong>ଖ (Cipher / Zero):</strong> କିଛି ନଥିବା ବା ନିରପେକ୍ଷ ଅବସ୍ଥା।</li>
+        </ul>
+        <div style="margin-top: 10px; background: white; padding: 12px; border-radius: 8px;">
+          <strong>ସୂତ୍ରାବଳୀ:</strong>
+          <br>
+          ୧. ଦୁଇଟି ଋଣର ଯୋଗଫଳ ଏକ ଋଣ ହୁଏ: <strong>(−a) + (−b) = −(a + b)</strong><br>
+          ୨. ଧନ ଓ ଋଣ ମଧ୍ୟରେ ଯୋଗ କଲେ ସେମାନଙ୍କର ଅନ୍ତର ବାହାରେ ଏବଂ ବୃହତ୍ତରର ପ୍ରକୃତି ରହେ।<br>
+          ୩. ସମାନ ଧନ ଓ ସମାନ ଋଣର ଯୋଗଫଳ ଶୂନ ହୁଏ: <strong>(+a) + (−a) = ୦</strong> (ଯୋଗାତ୍ମକ ବିଲୋମୀ / Additive Inverse)।
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec-3" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୩</span>
+        <h2>ଦ୍ରୁତ ପୁନରାବୃତ୍ତି ସୂତ୍ର ଓ ନିୟମ ବ୍ୟାଙ୍କ (Formula &amp; Law Bank)</h2>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin-bottom: 12px;">ସାରଣୀ ୧୦.୧: ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ଯୋଗ ଓ ବିୟୋଗ ନିୟମାବଳୀ</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ଗାଣିତିକ ପ୍ରକ୍ରିୟା</th>
+            <th>ଚିହ୍ନ ନିୟମ</th>
+            <th>କାର୍ଯ୍ୟ କୌଶଳ</th>
+            <th>ଉଦାହରଣ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ସମାନ ଚିହ୍ନର ଯୋଗ</strong></td>
+            <td>(+) + (+) = (+)<br>(−) + (−) = (−)</td>
+            <td>ସଂଖ୍ୟା ଦୁଇଟିକୁ ସାଧାରଣ ଭାବେ ଯୋଗ କରି ସାଧାରଣ ଚିହ୍ନ ଲଗାନ୍ତୁ।</td>
+            <td>(+୪) + (+୭) = +୧୧<br>(−୪) + (−୭) = −୧୧</td>
+          </tr>
+          <tr>
+            <td><strong>ବିପରୀତ ଚିହ୍ନର ଯୋଗ</strong></td>
+            <td>(+) + (−) = ?<br>(−) + (+) = ?</td>
+            <td>ବଡ଼ ପରମ ମାନରୁ ଛୋଟକୁ ବିୟୋଗ କରନ୍ତୁ ଏବଂ ବଡ଼ ସଂଖ୍ୟାର ଚିହ୍ନ ଦିଅନ୍ତୁ।</td>
+            <td>(+୯) + (−୪) = +୫<br>(−୯) + (+୪) = −୫</td>
+          </tr>
+          <tr>
+            <td><strong>ବିୟୋଗ ପ୍ରକ୍ରିୟା</strong></td>
+            <td>a − b = a + (−b)<br>a − (−b) = a + b</td>
+            <td>ବିୟୋଗକୁ ଯୋଗରେ ପରିଣତ କରି ବିୟୋଜ୍ୟର ଯୋଗାତ୍ମକ ବିଲୋମୀ ଯୋଗ କରନ୍ତୁ।</td>
+            <td>(+୫) − (+୮) = (+୫) + (−୮) = −୩<br>(+୫) − (−୮) = (+୫) + (+୮) = +୧୩</td>
+          </tr>
+          <tr>
+            <td><strong>ଯୋଗାତ୍ମକ ବିଲୋମୀ</strong></td>
+            <td>(+a) ର ବିଲୋମୀ = (−a)<br>(−a) ର ବିଲୋମୀ = (+a)</td>
+            <td>ଦୁଇଟି ସଂଖ୍ୟାର ଯୋଗଫଳ ୦ ହେଲେ ସେମାନେ ପରସ୍ପରର ଯୋଗାତ୍ମକ ବିଲୋମୀ।</td>
+            <td>(+୭) + (−୭) = ୦<br>୦ ର ବିଲୋମୀ = ୦</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec-4" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୪</span>
+        <h2>ସମସ୍ତ NCERT ପାଠ୍ୟପୁସ୍ତକ ପ୍ରଶ୍ନୋତ୍ତର (100% Complete NCERT Solutions)</h2>
+      </div>
+
+      <!-- Q1 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୧ (ବିଭାଗ ୧୦.୧): ବେଲାଙ୍କ ଆନନ୍ଦ ଭବନର ମହଲାଗୁଡ଼ିକ (ପୁସ୍ତକ ଦୋକାନ, କଳା କେନ୍ଦ୍ର, ଖାଦ୍ୟ କେନ୍ଦ୍ର, ସ୍ୱାଗତ କକ୍ଷ, ଖେଳନା ଦୋକାନ, ଭିଡିଓ ଗେମ୍ସ) କୁ ସଠିକ୍ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଦ୍ୱାରା ନାମିତ କରନ୍ତୁ।</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ସନ୍ଦର୍ଭ ବିନ୍ଦୁ ଚିହ୍ନଟ</span>
+              <p>ଭୂମି ମହଲା (Ground Floor) ରେ ସ୍ୱାଗତ କକ୍ଷ (Welcome Hall) ଅବସ୍ଥିତ, ଯାହାକୁ <strong>୦</strong> ଭାବେ ନିଆଯାଏ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ଉପର ମହଲା (ଧନାତ୍ମକ)</span>
+              <p>୧ମ ମହଲା = ଖେଳନା ଦୋକାନ (+୧)<br>
+                 ୨ୟ ମହଲା = ଭିଡିଓ ଗେମ୍ସ (+୨)<br>
+                 ୩ୟ ମହଲା = ଖାଦ୍ୟ କେନ୍ଦ୍ର (+୩)</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ତଳ ମହଲା / ବେସମେଣ୍ଟ (ଋଣାତ୍ମକ)</span>
+              <p>ତଳ ୧ମ ମହଲା = ପୁସ୍ତକ ଦୋକାନ (−୧)<br>
+                 ତଳ ୨ୟ ମହଲା = କଳା କେନ୍ଦ୍ର (−୨)</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୨ (ବିଭାଗ ୧୦.୧): (କ) ମୂଲ୍ୟ ନିର୍ଣ୍ଣୟ କରନ୍ତୁ: (+୧) + (−୧), ୦ + (−୨)। (ଖ) ଯୋଗାତ୍ମକ ବିଲୋମୀ (Additive Inverse) ଲେଖନ୍ତୁ: +୪, −୪, −୩, ୦, +୨, −୧।</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: (କ) ର ସମାଧାନ</span>
+              <p>(+୧) + (−୧) = <strong>୦</strong> (ଶୂନ ଯୋଡ଼ି)<br>
+                 ୦ + (−୨) = <strong>−୨</strong> (ଶୂନ ସହ ଯୋଗ କଲେ ସଂଖ୍ୟା ଅପରିବର୍ତ୍ତିତ ରହେ)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: (ଖ) ଯୋଗାତ୍ମକ ବିଲୋମୀ ତାଲିକା</span>
+              <p>• +୪ ର ଯୋଗାତ୍ମକ ବିଲୋମୀ = <strong>−୪</strong><br>
+                 • −୪ ର ଯୋଗାତ୍ମକ ବିଲୋମୀ = <strong>+୪</strong><br>
+                 • −୩ ର ଯୋଗାତ୍ମକ ବିଲୋମୀ = <strong>+୩</strong><br>
+                 • ୦ ର ଯୋଗାତ୍ମକ ବିଲୋମୀ = <strong>୦</strong> (ଶୂନର ବିଲୋମୀ ଶୂନ ନିଜେ)<br>
+                 • +୨ ର ଯୋଗାତ୍ମକ ବିଲୋମୀ = <strong>−୨</strong><br>
+                 • −୧ ର ଯୋଗାତ୍ମକ ବିଲୋମୀ = <strong>+୧</strong></p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୩ (ବିଭାଗ ୧୦.୧): ଲିଫ୍ଟ୍ ବଟନ୍ ଗତିବିଧି ଦ୍ୱାରା ଫଳାଫଳ ନିର୍ଣ୍ଣୟ କରନ୍ତୁ: (କ) (+୪) + (−୩) + (−୨) (ଖ) (−୧) + (+୨) + (−୩)</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: (କ) ର ସମାଧାନ</span>
+              <p>ପ୍ରଥମେ: (+୪) + (−୩) = +୧ (୪ ମହଲା ଉପରକୁ ଯାଇ ୩ ମହଲା ତଳକୁ ଓହ୍ଲାଇଲେ +୧ ରେ ପହଞ୍ଚିବା)।<br>
+                 ତା’ପରେ: (+୧) + (−୨) = <strong>−୧</strong> (୧ମ ମହଲାରୁ ଆଉ ୨ ମହଲା ତଳକୁ ଗଲେ ବେସମେଣ୍ଟ −୧ ରେ ପହଞ୍ଚିବା)।<br>
+                 ଅତଏବ ଉତ୍ତର = <strong>−୧</strong>।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: (ଖ) ର ସମାଧାନ</span>
+              <p>(−୧) + (+୨) = +୧<br>
+                 (+୧) + (−୩) = <strong>−୨</strong>।<br>
+                 ଅତଏବ ଉତ୍ତର = <strong>−୨</strong>।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୪ (ବିଭାଗ ୧୦.୨): ଟୋକନ୍ ମଡେଲ୍ ସାହାଯ୍ୟରେ ବିୟୋଗ କରନ୍ତୁ: (−୩) − (+୫)। ଏଥିପାଇଁ କେତୋଟି ଶୂନ ଯୋଡ଼ି ରଖିବାକୁ ପଡ଼ିବ ଏବଂ ଶେଷ ଫଳାଫଳ କ’ଣ ହେବ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ପ୍ରାରମ୍ଭିକ ଟୋକନ୍</span>
+              <p>ପାଖରେ ୩ଟି (−) ଟୋକନ୍ ଅଛି।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ଶୂନ ଯୋଡ଼ି ସଂଯୋଗ</span>
+              <p>+୫ ବିୟୋଗ କରିବା ପାଇଁ ଆମକୁ ୫ଟି (+) ଟୋକନ୍ ବାହାର କରିବା ଆବଶ୍ୟକ। ଯେହେତୁ ପାଖରେ କୌଣସି (+) ଟୋକନ୍ ନାହିଁ, ତେଣୁ ଠିକ୍ <strong>୫ଟି ଶୂନ ଯୋଡ଼ି</strong> (୫ଟି (+) ଓ ୫ଟି (−)) ରଖିବାକୁ ପଡ଼ିବ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ବିୟୋଗ ଓ ଶେଷ ଫଳ</span>
+              <p>୫ଟି (+) ଟୋକନ୍ କାଢ଼ି ନେବା ପରେ ବଳକା ରହିଲା: ୩ଟି (−) + ୫ଟି (−) = <strong>୮ଟି (−) ଟୋକନ୍</strong>।<br>
+                 ଅତଏବ: (−୩) − (+୫) = <strong>−୮</strong>।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୫ (ବିଭାଗ ୧୦.୨): ସିଧାସଳଖ ମାନ ନିର୍ଣ୍ଣୟ କରନ୍ତୁ: (କ) (+୩) − (+୮) (ଖ) (−୨) − (−୭) (ଗ) (+୩) − (+୧୫)</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: (କ) ର ସମାଧାନ</span>
+              <p>(+୩) − (+୮) = (+୩) + (−୮) = <strong>−୫</strong>।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: (ଖ) ର ସମାଧାନ</span>
+              <p>(−୨) − (−୭) = (−୨) + (+୭) = <strong>+୫</strong> (ଋଣ ବିୟୋଗ କଲେ ଧନ ଯୋଗ ହୁଏ)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: (ଗ) ର ସମାଧାନ</span>
+              <p>(+୩) − (+୧୫) = (+୩) + (−୧୫) = <strong>−୧୨</strong>।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q6 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୬ (ବିଭାଗ ୧୦.୩): ଆପଣ ₹୦ ବାଲାନ୍ସରୁ ଆରମ୍ଭ କଲେ। ଆପଣଙ୍କ ଖାତାରୁ କ୍ରମାଗତ ଭାବେ ₹୧, ₹୨, ₹୪, ₹୮, ₹୧୬, ₹୩୨, ₹୬୪, ₹୧୨୮ ଖର୍ଚ୍ଚ (Debit) ହେଲା ଏବଂ ଶେଷରେ ଏକକାଳୀନ ₹୨୫୬ ଜମା (Credit) ହେଲା। ଏବେ ଆପଣଙ୍କ ଖାତାର ବାଲାନ୍ସ କେତେ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ମୋଟ ଖର୍ଚ୍ଚ (Debits) ଗଣନା</span>
+              <p>ଖର୍ଚ୍ଚଗୁଡ଼ିକ ଋଣାତ୍ମକ (−) ଅଟନ୍ତି:<br>
+                 ୧ + ୨ + ୪ + ୮ + ୧୬ + ୩୨ + ୬୪ + ୧୨୮ = ₹୨୫୫।<br>
+                 ତେଣୁ ମୋଟ ଡେବିଟ୍ = <strong>−₹୨୫୫</strong>।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ଜମା (Credit)</span>
+              <p>ଜମା ରାଶି = <strong>+₹୨୫୬</strong>।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ଶେଷ ବାଲାନ୍ସ</span>
+              <p>ବାଲାନ୍ସ = (+୨୫୬) + (−୨୫୫) = <strong>+₹୧</strong>।<br>
+                 ଅତଏବ ଖାତାରେ ଠିକ୍ ₹୧ ବଳକା ରହିବ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q7 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୭ (ବିଭାଗ ୧୦.୩): ପୃଥିବୀର ସର୍ବୋଚ୍ଚ ସ୍ଥାନ (ମାଉଣ୍ଟ ଏଭରେଷ୍ଟ: ସମୁଦ୍ର ପତ୍ତନରୁ ୮୮୪୮ ମିଟର ଉଚ୍ଚ) ଏବଂ ସର୍ବନିମ୍ନ ସ୍ଥାନ (ମୃତ ସାଗର: ସମୁଦ୍ର ପତ୍ତନରୁ ୪୧୮ ମିଟର ତଳେ) କୁ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଦ୍ୱାରା ପ୍ରକାଶ କରନ୍ତୁ ଏବଂ ସେମାନଙ୍କ ମଧ୍ୟରେ ଉଚ୍ଚତାର ପାର୍ଥକ୍ୟ କେତେ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ପୂର୍ଣ୍ଣସଂଖ୍ୟା ରୂପ</span>
+              <p>ମାଉଣ୍ଟ ଏଭରେଷ୍ଟ = <strong>+୮୮୪୮ ମିଟର</strong><br>
+                 ମୃତ ସାଗର = <strong>−୪୧୮ ମିଟର</strong> (ସମୁଦ୍ର ପତ୍ତନ ତଳେ)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ପାର୍ଥକ୍ୟ ଗଣନା</span>
+              <p>ଉଚ୍ଚତାର ପାର୍ଥକ୍ୟ = (+୮୮୪୮) − (−୪୧୮)<br>
+                 = ୮୮୪୮ + ୪୧୮ = <strong>୯,୨୬୬ ମିଟର</strong>।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q8 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୮ (ବିଭାଗ ୧୦.୩): ଗୋଟିଏ ଶୀତଳ ପାହାଡ଼ିଆ ସହରରେ ଗୋଟିଏ ଦିନର ଚାରୋଟି ସମୟରେ ତାପମାତ୍ରା ରେକର୍ଡ କରାଗଲା: ୧୪°C (ଦିନ ୨:୦୦), ୮°C (ସକାଳ ୧୧:୦୦), −୨°C (ରାତି ୧୧:୦୦), −୪°C (ରାତି ୨:୦୦)। ସର୍ବାଧିକ ଓ ସର୍ବନିମ୍ନ ତାପମାତ୍ରା କେତେ ଏବଂ ସେମାନଙ୍କ ମଧ୍ୟରେ ପାର୍ଥକ୍ୟ କେତେ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ତାପମାତ୍ରା ଚିହ୍ନଟ</span>
+              <p>ସର୍ବାଧିକ ତାପମାତ୍ରା = <strong>+୧୪°C</strong> (ଦିନ ୨:୦୦ ରେ)<br>
+                 ସର୍ବନିମ୍ନ ତାପମାତ୍ରା = <strong>−୪°C</strong> (ରାତି ୨:୦୦ ରେ)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ପାର୍ଥକ୍ୟ ଗଣନା</span>
+              <p>ପାର୍ଥକ୍ୟ = (+୧୪) − (−୪) = ୧୪ + ୪ = <strong>୧୮°C</strong>।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q9 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୯ (ବିଭାଗ ୧୦.୪): ଉପଯୁକ୍ତ ଚିହ୍ନ (&gt;, &lt; ବା =) ବ୍ୟବହାର କରି ତୁଳନା କରନ୍ତୁ: (କ) −୮ ଏବଂ −୧୫ (ଖ) −୩୦ ଏବଂ −୨୩ (ଗ) −୪ ଏବଂ +୪</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: (କ) −୮ ଓ −୧୫</span>
+              <p>ସଂଖ୍ୟାରେଖାରେ −୮ ଡାହାଣ ପାର୍ଶ୍ୱରେ ଥାଏ ଏବଂ −୧୫ ବାମରେ ଥାଏ। ତେଣୁ: <strong>−୮ &gt; −୧୫</strong>।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: (ଖ) −୩୦ ଓ −୨୩</span>
+              <p>−୨୩ ଡାହାଣରେ ଥାଏ ଏବଂ −୩୦ ବହୁତ ବାମରେ ଥାଏ। ତେଣୁ: <strong>−୩୦ &lt; −୨୩</strong>।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: (ଗ) −୪ ଓ +୪</span>
+              <p>ଯେକୌଣସି ଧନାତ୍ମକ ସଂଖ୍ୟା ଋଣାତ୍ମକଠାରୁ ବଡ଼। ତେଣୁ: <strong>−୪ &lt; +୪</strong>।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q10 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୧୦ (ବିଭାଗ ୧୦.୪): (କ) ବର୍ତ୍ତମାନ ବର୍ଷ (୨୦୨୬) ରୁ ୧୫୦ ବର୍ଷ ପୂର୍ବେ କେଉଁ ବର୍ଷ ଥିଲା? (ଖ) ୬୮୦ BCE (ଖ୍ରୀଷ୍ଟପୂର୍ବ) ର ୩୨୦ ବର୍ଷ ପରର ବର୍ଷଟି କ’ଣ ହେବ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: (କ) ର ହିସାବ</span>
+              <p>୨୦୨୬ − ୧୫୦ = <strong>୧୮୭୬ CE (ଖ୍ରୀଷ୍ଟାବ୍ଦ)</strong>।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: (ଖ) ର ହିସାବ</span>
+              <p>୬୮୦ BCE = −୬୮୦।<br>
+                 ୩୨୦ ବର୍ଷ ପରେ = (−୬୮୦) + (+୩୨୦) = <strong>−୩୬୦</strong>।<br>
+                 ଅତଏବ ସେହି ବର୍ଷଟି ହେଉଛି <strong>୩୬୦ BCE (ଖ୍ରୀଷ୍ଟପୂର୍ବ)</strong>।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q11 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୧୧ (ବିଭାଗ ୧୦.୪): ନିମ୍ନଲିଖିତ ପୂର୍ଣ୍ଣସଂଖ୍ୟା କ୍ରମର ଶୂନ୍ୟସ୍ଥାନ ପୂରଣ କରନ୍ତୁ: (କ) −୪୦, −୩୪, −୨୮, −୨୨, _____, _____, _____ (ଖ) ୩, ୪, ୨, ୫, ୧, ୬, ୦, ୭, _____, _____</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: (କ) ର ସମାଧାନ</span>
+              <p>ପ୍ରତ୍ୟେକ ପଦରେ +୬ ଯୋଗ ହେଉଛି (−୪୦ + ୬ = −୩୪, ...):<br>
+                 −୨୨ + ୬ = <strong>−୧୬</strong><br>
+                 −୧୬ + ୬ = <strong>−୧୦</strong><br>
+                 −୧୦ + ୬ = <strong>−୪</strong><br>
+                 ଅତଏବ କ୍ରମଟି: −୪୦, −୩୪, −୨୮, −୨୨, <strong>−୧୬, −୧୦, −୪</strong>।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: (ଖ) ର ସମାଧାନ</span>
+              <p>ଏହା ଏକ ଦ୍ୱୈତ ଏକାନ୍ତର କ୍ରମ (Alternating Sequence):<br>
+                 ୧ମ ଧାରା (ବିଷମ ସ୍ଥାନ): ୩, ୨, ୧, ୦, <strong>−୧</strong> (−୧ କମୁଛି)<br>
+                 ୨ୟ ଧାରା (ସମ ସ୍ଥାନ): ୪, ୫, ୬, ୭, <strong>୮</strong> (+୧ ବଢ଼ୁଛି)<br>
+                 ଅତଏବ ପରବର୍ତ୍ତୀ ଦୁଇଟି ସଂଖ୍ୟା ହେଉଛି: <strong>−୧, ୮</strong>।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec-5" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୫</span>
+        <h2>ପରୀକ୍ଷା ଉପଯୋଗୀ ପ୍ରଶ୍ନୋତ୍ତର ବ୍ୟାଙ୍କ (Competency Question Bank)</h2>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin-bottom: 15px;">୫.୧ ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନୋତ୍ତର (Interactive MCQs with Trap Analysis)</h3>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="q1">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୧: ସଂଖ୍ୟାରେଖାରେ −୧୦ ଏବଂ −୩ ମଧ୍ୟରେ କେଉଁଟି ବୃହତ୍ତର?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 0, false, 'ଭୁଲ୍! ସଂଖ୍ୟାରେଖାରେ −୧୦ ବାମରେ ଥାଏ, ତେଣୁ ଏହା ଛୋଟ।')">−୧୦</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 1, true, 'ସଠିକ୍! −୩ ସଂଖ୍ୟାରେଖାରେ −୧୦ ର ଡାହାଣରେ ଥିବାରୁ −୩ ବୃହତ୍ତର (−୩ &gt; −୧୦)।')">−୩</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 2, false, 'ଭୁଲ୍! ସେମାନେ ସମାନ ନୁହଁନ୍ତି।')">ଉଭୟ ସମାନ</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 3, false, 'ଭୁଲ୍!')">କହିହେବ ନାହିଁ</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q1"></div>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="q2">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୨: (−୮) − (−୧୫) ର ସରଳୀକୃତ ମୂଲ୍ୟ କେତେ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 0, false, 'ଭୁଲ୍! −୮ − ୧୫ = −୨୩ ହୁଏ, କିନ୍ତୁ ଏଠାରେ −(−୧୫) = +୧୫।')">−୨୩</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 1, true, 'ସଠିକ୍! (−୮) − (−୧୫) = −୮ + ୧୫ = +୭।')">+୭</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 2, false, 'ଭୁଲ୍! ଚିହ୍ନ ଲକ୍ଷ୍ୟ କରନ୍ତୁ।')">−୭</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 3, false, 'ଭୁଲ୍!')">+୨୩</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q2"></div>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="q3">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୩: ଶୂନ (୦) ବିଷୟରେ ନିମ୍ନୋକ୍ତ ମଧ୍ୟରୁ କେଉଁ ଉକ୍ତିଟି ସତ୍ୟ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 0, false, 'ଭୁଲ୍! ଶୂନ ଧନାତ୍ମକ ନୁହେଁ।')">ଶୂନ ଏକ ଧନାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 1, false, 'ଭୁଲ୍! ଶୂନ ଋଣାତ୍ମକ ମଧ୍ୟ ନୁହେଁ।')">ଶୂନ ଏକ ଋଣାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 2, true, 'ସଠିକ୍! ଶୂନ ନା ଧନାତ୍ମକ ନା ଋଣାତ୍ମକ; ଏହା ଏକ ନିରପେକ୍ଷ ପୂର୍ଣ୍ଣସଂଖ୍ୟା (Neutral Integer)।')">ଶୂନ ନା ଧନାତ୍ମକ ନା ଋଣାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 3, false, 'ଭୁଲ୍! ଶୂନ ଏକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଅଟେ।')">ଶୂନ ଏକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ନୁହେଁ</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q3"></div>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="q4">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୪: ଏକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଏବଂ ଏହାର ଯୋଗାତ୍ମକ ବିଲୋମୀ (Additive Inverse) ର ଯୋଗଫଳ ସର୍ବଦା କେତେ ହୁଏ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 0, false, 'ଭୁଲ୍!')">୧</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 1, true, 'ସଠିକ୍! (+a) + (−a) = ୦ ସର୍ବଦା ସତ୍ୟ।')">୦</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 2, false, 'ଭୁଲ୍!')">−୧</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 3, false, 'ଭୁଲ୍!')">ସଂଖ୍ୟାର ଦୁଇଗୁଣ</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q4"></div>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="q5">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୫: ଖ୍ରୀଷ୍ଟପୂର୍ବ ୫୦୦ (500 BCE) ଏବଂ ଖ୍ରୀଷ୍ଟାବ୍ଦ ୫୦୦ (500 CE) ମଧ୍ୟରେ କେତେ ବର୍ଷର ବ୍ୟବଧାନ ରହିଛି?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 0, false, 'ଭୁଲ୍! ୫୦୦ − ୫୦୦ = ୦ ନୁହେଁ।')">୦ ବର୍ଷ</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 1, false, 'ଭୁଲ୍!')">୫୦୦ ବର୍ଷ</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 2, true, 'ସଠିକ୍! (+୫୦୦) − (−୫୦୦) = ୫୦୦ + ୫୦୦ = ୧୦୦୦ ବର୍ଷ।')">୧,୦୦୦ ବର୍ଷ</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 3, false, 'ଭୁଲ୍!')">୨,୫୦୦ ବର୍ଷ</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q5"></div>
+      </div>
+
+      <!-- 5.2 Assertion & Reasoning -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 15px;">୫.୨ ନିଶ୍ଚିତୋକ୍ତି ଓ ଯୁକ୍ତିମୂଳକ ପ୍ରଶ୍ନୋତ୍ତର (Assertion &amp; Reasoning)</h3>
+      <div class="step-box" style="margin-bottom: 20px;">
+        <p><strong>ପ୍ରଶ୍ନ ୧:</strong><br>
+           <strong>ନିଶ୍ଚିତୋକ୍ତି (A):</strong> ସଂଖ୍ୟାରେଖାରେ −୧ ହେଉଛି ବୃହତ୍ତମ ଋଣାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା।<br>
+           <strong>ଯୁକ୍ତି (R):</strong> ସମସ୍ତ ଋଣାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ମଧ୍ୟରେ −୧ ହିଁ ଶୂନର ସବୁଠାରୁ ନିକଟତମ ଏବଂ ସବୁଠାରୁ ଡାହାଣରେ ଅବସ୍ଥିତ।</p>
+        <p style="color: var(--success); font-weight: 700;">ଉତ୍ତର: (A) A ଏବଂ R ଉଭୟ ସତ୍ୟ ଏବଂ R ହେଉଛି A ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</p>
+      </div>
+
+      <div class="step-box" style="margin-bottom: 20px;">
+        <p><strong>ପ୍ରଶ୍ନ ୨:</strong><br>
+           <strong>ନିଶ୍ଚିତୋକ୍ତି (A):</strong> ଦୁଇଟି ଋଣାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ଯୋଗଫଳ ସର୍ବଦା ଏକ ଋଣାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ହୁଏ।<br>
+           <strong>ଯୁକ୍ତି (R):</strong> ଦୁଇଟି କରଜ (Debts) ମିଶିଲେ ମୋଟ କରଜର ପରିମାଣ ବୃଦ୍ଧି ପାଏ।</p>
+        <p style="color: var(--success); font-weight: 700;">ଉତ୍ତର: (A) A ଏବଂ R ଉଭୟ ସତ୍ୟ ଏବଂ R ହେଉଛି ସଠିକ୍ କାରଣ (ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ନିୟମ: ଋଣ + ଋଣ = ଋଣ)।</p>
+      </div>
+
+      <div class="step-box" style="margin-bottom: 20px;">
+        <p><strong>ପ୍ରଶ୍ନ ୩:</strong><br>
+           <strong>ନିଶ୍ଚିତୋକ୍ତି (A):</strong> (−୫) − (+୩) = −୨।<br>
+           <strong>ଯୁକ୍ତି (R):</strong> ଯେକୌଣସି ଧନାତ୍ମକ ସଂଖ୍ୟାକୁ ବିୟୋଗ କରିବା ଅର୍ଥ ତାର ଋଣାତ୍ମକ ରୂପକୁ ଯୋଗ କରିବା।</p>
+        <p style="color: var(--danger); font-weight: 700;">ଉତ୍ତର: (D) A ମିଥ୍ୟା କିନ୍ତୁ R ସତ୍ୟ। [କାରଣ (−୫) − (+୩) = (−୫) + (−୩) = −୮ ହେବ, −୨ ନୁହେଁ]!</p>
+      </div>
+
+      <div class="step-box" style="margin-bottom: 20px;">
+        <p><strong>ପ୍ରଶ୍ନ ୪:</strong><br>
+           <strong>ନିଶ୍ଚିତୋକ୍ତି (A):</strong> ୦ ର କୌଣସି ଚିହ୍ନ (+ ବା −) ନାହିଁ।<br>
+           <strong>ଯୁକ୍ତି (R):</strong> +୦ = −୦ = ୦।</p>
+        <p style="color: var(--success); font-weight: 700;">ଉତ୍ତର: (A) A ଏବଂ R ଉଭୟ ସତ୍ୟ ଏବଂ R ହେଉଛି ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</p>
+      </div>
+
+      <!-- 5.3 Short Answer Questions -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 15px;">୫.୩ ସଂକ୍ଷିପ୍ତ ଉତ୍ତରମୂଳକ ପ୍ରଶ୍ନୋତ୍ତର (Short Answer Questions — 2M / 3M)</h3>
+      <div class="step-box" style="margin-bottom: 15px;">
+        <strong>ପ୍ରଶ୍ନ ୧: ପୂର୍ଣ୍ଣସଂଖ୍ୟା (Integers) କାହାକୁ କୁହାଯାଏ? ଏହାର ସେଟ୍ କୁ କିପରି ଲେଖାଯାଏ?</strong>
+        <p><strong>ଉତ୍ତର:</strong> ସମସ୍ତ ଗଣନ ସଂଖ୍ୟା (୧, ୨, ୩...), ଶୂନ (୦) ଏବଂ ଗଣନ ସଂଖ୍ୟାମାନଙ୍କର ଋଣାତ୍ମକ ରୂପ (−୧, −୨, −୩...) କୁ ଏକତ୍ର କରି ଗଠିତ ସଂଖ୍ୟା ସମୂହକୁ ପୂର୍ଣ୍ଣସଂଖ୍ୟା କୁହାଯାଏ। ଏହାକୁ ℤ ପ୍ରତୀକ ଦ୍ୱାରା ପ୍ରକାଶ କରାଯାଏ:<br>
+           <strong>ℤ = {..., −୩, −୨, −୧, ୦, +୧, +୨, +୩, ...}</strong></p>
+      </div>
+      <div class="step-box" style="margin-bottom: 15px;">
+        <strong>ପ୍ରଶ୍ନ ୨: ସଂଖ୍ୟାରେଖା ବ୍ୟବହାର ନକରି ମାନ ନିର୍ଣ୍ଣୟ କରନ୍ତୁ: (−୨୫୦) + (+୧୫୦) + (−୫୦)।</strong>
+        <p><strong>ଉତ୍ତର:</strong> ପ୍ରଥମେ ସମାନ ଚିହ୍ନ ଥିବା ସଂଖ୍ୟା ଯୋଗ କରନ୍ତୁ:<br>
+           (−୨୫୦) + (−୫୦) = −୩୦୦<br>
+           ଏବେ: (−୩୦୦) + (+୧୫୦) = <strong>−୧୫୦</strong>।</p>
+      </div>
+      <div class="step-box" style="margin-bottom: 15px;">
+        <strong>ପ୍ରଶ୍ନ ୩: ଏକ ସବ୍ମେରିନ୍ (ବୁଡ଼ାଜାହାଜ) ସମୁଦ୍ର ପତ୍ତନରୁ ୮୦୦ ମିଟର ଗଭୀରରେ ଗତି କରୁଥିଲା। ଏହା ୨୫୦ ମିଟର ଉପରକୁ ଉଠିଲା। ବର୍ତ୍ତମାନ ଏହାର ସ୍ଥିତି କେତେ?</strong>
+        <p><strong>ଉତ୍ତର:</strong> ପ୍ରାରମ୍ଭିକ ସ୍ଥିତି = −୮୦୦ ମିଟର।<br>
+           ଉପରକୁ ଉଠିବା = +୨୫୦ ମିଟର।<br>
+           ବର୍ତ୍ତମାନର ସ୍ଥିତି = (−୮୦୦) + (+୨୫୦) = <strong>−୫୫୦ ମିଟର</strong> (ସମୁଦ୍ର ପତ୍ତନରୁ ୫୫୦ ମିଟର ଗଭୀରରେ)।</p>
+      </div>
+
+      <!-- 5.4 Competency Case Studies -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 15px;">୫.୪ ବ୍ୟବହାରିକ କେସ୍ ଷ୍ଟଡି (Real-World Case Studies)</h3>
+      <div class="callout-act">
+        <div class="callout-title">📋 କେସ୍ ଷ୍ଟଡି: ସିଆଚେନ୍ ଗ୍ଲେସିୟର୍ରେ ଭାରତୀୟ ସେନା ଶିବିର</div>
+        ଭାରତର ସିଆଚେନ୍ ଗ୍ଲେସିୟର୍ରେ ମୁତୟନ ଥିବା ବୀର ଯବାନମାନେ ପ୍ରତିକୂଳ ପାଗର ସମ୍ମୁଖୀନ ହୁଅନ୍ତି। ଗୋଟିଏ ଶୀତଦିନିଆ ସପ୍ତାହରେ ସେନା ଶିବିରର ତାପମାତ୍ରା ନିମ୍ନପ୍ରକାରେ ଲିପିବଦ୍ଧ ହୋଇଥିଲା:
+        ସୋମବାର: −୧୮°C, ମଙ୍ଗଳବାର: −୨୪°C, ବୁଧବାର: −୧୨°C, ଗୁରୁବାର: −୨୮°C, ଶୁକ୍ରବାର: −୧୫°C।
+        <ol style="margin: 10px 0 0 20px;">
+          <li><strong>ପ୍ରଶ୍ନ (କ):</strong> ସପ୍ତାହର କେଉଁ ଦିନ ସବୁଠାରୁ ଅଧିକ ଥଣ୍ଡା ଥିଲା ଏବଂ କେଉଁ ଦିନ ଅପେକ୍ଷାକୃତ କମ୍ ଥଣ୍ଡା ଥିଲା?</li>
+          <li><strong>ପ୍ରଶ୍ନ (ଖ):</strong> ସବୁଠାରୁ ଥଣ୍ଡା ଦିନ ଏବଂ କମ୍ ଥଣ୍ଡା ଦିନ ମଧ୍ୟରେ ତାପମାତ୍ରାର ପାର୍ଥକ୍ୟ କେତେ?</li>
+          <li><strong>ପ୍ରଶ୍ନ (ଗ):</strong> ଗୁରୁବାର ତୁଳନାରେ ଶୁକ୍ରବାର ତାପମାତ୍ରା କେତେ ଡିଗ୍ରୀ ବୃଦ୍ଧି ପାଇଲା?</li>
+        </ol>
+        <div style="margin-top: 10px; background: white; padding: 12px; border-radius: 8px;">
+          <strong>ସମାଧାନ:</strong><br>
+          (କ) ସବୁଠାରୁ ଛୋଟ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ହେଉଛି <strong>−୨୮°C (ଗୁରୁବାର)</strong>, ତେଣୁ ଏହି ଦିନ ସବୁଠାରୁ ଅଧିକ ଥଣ୍ଡା ଥିଲା। ସବୁଠାରୁ ବଡ଼ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ହେଉଛି <strong>−୧୨°C (ବୁଧବାର)</strong>, ତେଣୁ ଏହା ଅପେକ୍ଷାକୃତ କମ୍ ଥଣ୍ଡା ଥିଲା।<br>
+          (ଖ) ପାର୍ଥକ୍ୟ = (−୧୨) − (−୨୮) = −୧୨ + ୨୮ = <strong>୧୬°C</strong>।<br>
+          (ଗ) ବୃଦ୍ଧି = (−୧୫) − (−୨୮) = −୧୫ + ୨୮ = <strong>୧୩°C ବୃଦ୍ଧି</strong> ପାଇଲା।
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec-6" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୬</span>
+        <h2>ପରୀକ୍ଷା ହଲ୍ ଟ୍ରାପ୍ ଆଲର୍ଟ ଓ ୧୫ ଦ୍ରୁତ ୱାନ୍-ଲାଇନର୍ (Exam Traps &amp; One-Liners)</h2>
+      </div>
+
+      <div class="callout-warn">
+        <div class="callout-title">⚠️ ପରୀକ୍ଷା ହଲ୍ରେ ହେଉଥିବା ୫ଟି ସାଂଘାତିକ ଭୁଲ୍ (Top 5 Exam Hall Traps)</div>
+        <ol style="margin-left: 20px;">
+          <li><strong>ଟ୍ରାପ୍ ୧ (ଋଣାତ୍ମକ ସଂଖ୍ୟାର ତୁଳନା):</strong> ଛାତ୍ରମାନେ ଭାବନ୍ତି −୫୦ &gt; −୫ କାରଣ ୫୦ ବଡ଼। ଏହା ସମ୍ପୂର୍ଣ୍ଣ ଭୁଲ୍! ଋଣାତ୍ମକରେ ଯାହାର ପରମ ମାନ ବଡ଼, ତାହାର ପ୍ରକୃତ ମୂଲ୍ୟ ସେତେ କମ୍। <strong>−୫ &gt; −୫୦</strong>।</li>
+          <li><strong>ଟ୍ରାପ୍ ୨ (ଦୁଇଟି ବିୟୋଗ ଚିହ୍ନ ଭ୍ରାନ୍ତି):</strong> −(−b) = +b। ଯଥା: ୪ − (−୬) = ୪ + ୬ = ୧୦। ଅନେକ ଛାତ୍ର ଏହାକୁ ୪ − ୬ = −୨ ଲେଖିଦିଅନ୍ତି।</li>
+          <li><strong>ଟ୍ରାପ୍ ୩ (ଶୂନର ଚିହ୍ନ):</strong> ଶୂନ ଆଗରେ କେବେହେଲେ + କିମ୍ବା − ଚିହ୍ନ ଲଗାନ୍ତୁ ନାହିଁ। ଶୂନ ନିରପେକ୍ଷ (Neutral)।</li>
+          <li><strong>ଟ୍ରାପ୍ ୪ (ବିପରୀତ ଚିହ୍ନ ଯୋଗରେ ଭୁଲ୍ ଚିହ୍ନ):</strong> (−୯) + (+୪) = −୫। ଛାତ୍ରମାନେ ବିୟୋଗ କରି ୫ ଲେଖନ୍ତି କିନ୍ତୁ ବଡ଼ ସଂଖ୍ୟାର ଚିହ୍ନ (−) ଦେବାକୁ ଭୁଲିଯାଆନ୍ତି।</li>
+          <li><strong>ଟ୍ରାପ୍ ୫ (ସମୟ ରେଖା ବିୟୋଗ):</strong> BCE କୁ ଋଣାତ୍ମକ ଭାବେ ନନେଇ ସାଧାରଣ ବିୟୋଗ କଲେ ଐତିହାସିକ ବ୍ୟବଧାନ ଭୁଲ୍ ଆସେ।</li>
+        </ol>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin: 25px 0 15px;">🚀 ୧୫ ଦ୍ରୁତ ପରୀକ୍ଷା ୱାନ୍-ଲାଇନର୍ (15 Rapid Revision One-Liners)</h3>
+      <ol class="one-liner-list">
+        <li>ଗଣନ ସଂଖ୍ୟା, ଶୂନ ଏବଂ ସେମାନଙ୍କର ଋଣାତ୍ମକ ରୂପକୁ ଏକତ୍ର ପୂର୍ଣ୍ଣସଂଖ୍ୟା (ℤ) କୁହାଯାଏ।</li>
+        <li>ସଂଖ୍ୟାରେଖାରେ ଯେକୌଣସି ସଂଖ୍ୟାର ଡାହାଣ ପାର୍ଶ୍ୱସ୍ଥ ସଂଖ୍ୟା ସର୍ବଦା ବୃହତ୍ତର ହୋଇଥାଏ।</li>
+        <li>ଶୂନ (୦) ସମସ୍ତ ଋଣାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟାଠାରୁ ବଡ଼ ଏବଂ ସମସ୍ତ ଧନାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟାଠାରୁ ଛୋଟ।</li>
+        <li>−୧ ହେଉଛି ସର୍ବବୃହତ୍ ଋଣାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା।</li>
+        <li>କ୍ଷୁଦ୍ରତମ ଧନାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ହେଉଛି +୧।</li>
+        <li>ଶୂନ ନା ଧନାତ୍ମକ ନା ଋଣାତ୍ମକ; ଏହା ଏକ ନିରପେକ୍ଷ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଅଟେ।</li>
+        <li>ଗୋଟିଏ ଧନାତ୍ମକ (+୧) ଓ ଗୋଟିଏ ଋଣାତ୍ମକ (−୧) ମିଶି ଶୂନ ଯୋଡ଼ି (Zero Pair) ଗଠନ କରନ୍ତି।</li>
+        <li>ଯେକୌଣସି ପୂର୍ଣ୍ଣସଂଖ୍ୟା 'a' ର ଯୋଗାତ୍ମକ ବିଲୋମୀ ହେଉଛି '−a', ଯେପରିକି a + (−a) = ୦।</li>
+        <li>ଶୂନର ଯୋଗାତ୍ମକ ବିଲୋମୀ ଶୂନ ନିଜେ।</li>
+        <li>ଦୁଇଟି ଋଣାତ୍ମକ ସଂଖ୍ୟାକୁ ଯୋଗ କଲେ ଉତ୍ତର ସର୍ବଦା ଋଣାତ୍ମକ ହୁଏ: (−a) + (−b) = −(a + b)।</li>
+        <li>ଗୋଟିଏ ସଂଖ୍ୟାରୁ ଅନ୍ୟ ଏକ ସଂଖ୍ୟା ବିୟୋଗ କରିବା ଅର୍ଥ ଦ୍ୱିତୀୟ ସଂଖ୍ୟାର ଯୋଗାତ୍ମକ ବିଲୋମୀକୁ ପ୍ରଥମ ସଂଖ୍ୟା ସହ ଯୋଗ କରିବା।</li>
+        <li>ଋଣାତ୍ମକ ସଂଖ୍ୟାକୁ ବିୟୋଗ କଲେ ତାହା ଧନାତ୍ମକ ଯୋଗରେ ପରିଣତ ହୁଏ: a − (−b) = a + b।</li>
+        <li>ବ୍ୟାଙ୍କିଙ୍ଗ୍ରେ ଜମା ରାଶିକୁ (+) ଏବଂ ଖର୍ଚ୍ଚ/ଉଠାଣକୁ (−) ସଂଖ୍ୟା ଦ୍ୱାରା ଦର୍ଶାଯାଏ।</li>
+        <li>୬୨୮ ଖ୍ରୀଷ୍ଟାବ୍ଦରେ ଭାରତୀୟ ଗଣିତଜ୍ଞ ବ୍ରହ୍ମଗୁପ୍ତ ପ୍ରଥମେ ଧନ, ଋଣ ଓ ଖ (ଶୂନ) ର ଗାଣିତିକ ନିୟମ ରଚନା କରିଥିଲେ।</li>
+        <li>ସମୁଦ୍ର ପତ୍ତନକୁ '୦ ମିଟର' ଧରି ଉପରକୁ ଧନାତ୍ମକ ଏବଂ ତଳକୁ ଋଣାତ୍ମକ ଭାବେ ମପାଯାଏ।</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="ଉପରକୁ ଯାଆନ୍ତୁ">↑</button>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      // Back to top button
+      const btn = document.getElementById('backToTopBtn');
+      if (winScroll > 300) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+
+    // Expand/Collapse All
+    function toggleAllAnswers(open) {
+      document.querySelectorAll('details.ans-box').forEach(d => d.open = open);
+    }
+
+    // Interactive Quiz Engine
+    function checkQuiz(cardId, optIdx, isCorrect, feedbackText) {
+      const card = document.getElementById(cardId);
+      const btns = card.querySelectorAll('.quiz-opt-btn');
+      const fb = document.getElementById('fb-' + cardId);
+
+      btns.forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === optIdx) {
+          if (isCorrect) {
+            b.classList.add('correct');
+          } else {
+            b.classList.add('wrong');
+          }
+        }
+      });
+
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.style.background = '#dcfce7';
+        fb.style.color = '#15803d';
+        fb.innerHTML = '<strong>ଠିକ୍ ଉତ୍ତର!</strong> ' + feedbackText;
+      } else {
+        fb.style.background = '#fee2e2';
+        fb.style.color = '#b91c1c';
+        fb.innerHTML = '<strong>ଭୁଲ୍ ଉତ୍ତର!</strong> ' + feedbackText;
+      }
+    }
+
+    // Audio Speech Synthesis
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      if ('speechSynthesis' in window) {
+        if (isSpeaking) {
+          window.speechSynthesis.cancel();
+          isSpeaking = false;
+          document.getElementById('audio-text').textContent = 'ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ';
+          document.getElementById('audio-icon').textContent = '🔊';
+        } else {
+          const text = "ନମସ୍କାର ପିଲାମାନେ! ଆଜି ଆମେ ଶ୍ରେଣୀ ୬ ଗଣିତର ଦଶମ ଅଧ୍ୟାୟ 'ଶୂନର ଅନ୍ୟ ପାର୍ଶ୍ୱ: ପୂର୍ଣ୍ଣସଂଖ୍ୟା' ବିଷୟରେ ଆଲୋଚନା କରିବା। ଏହି ଅଧ୍ୟାୟରେ ଋଣାତ୍ମକ ସଂଖ୍ୟା, ସଂଖ୍ୟାରେଖା ଗତିବିଧି, ଟୋକନ୍ ମଡେଲ୍ ଏବଂ ଶୂନ ଯୋଡ଼ି ବିଷୟରେ ବୁଝାଯାଇଛି। ସଂଖ୍ୟାରେଖାରେ ଡାହାଣକୁ ଗଲେ ମୂଲ୍ୟ ବଢ଼େ ଏବଂ ବାମକୁ ଗଲେ କମେ। ମାଇନସ୍ ଏକ ହେଉଛି ସର୍ବବୃହତ୍ ଋଣାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା। ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ନିୟମ ଅନୁସାରେ ଧନ ଓ ଋଣର ସଠିକ୍ ଗାଣିତିକ ପ୍ରୟୋଗ ଶିଖନ୍ତୁ ଏବଂ ପରୀକ୍ଷାରେ ଉତ୍ତମ ନମ୍ବର ହାସଲ କରନ୍ତୁ!";
+          const utter = new SpeechSynthesisUtterance(text);
+          utter.lang = 'or-IN';
+          utter.rate = 0.95;
+          utter.onend = () => {
+            isSpeaking = false;
+            document.getElementById('audio-text').textContent = 'ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ';
+            document.getElementById('audio-icon').textContent = '🔊';
+          };
+          window.speechSynthesis.speak(utter);
+          isSpeaking = true;
+          document.getElementById('audio-text').textContent = 'ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ';
+          document.getElementById('audio-icon').textContent = '⏹️';
+        }
+      } else {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Speech Synthesis ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+      }
+    }
+  </script>
+</body>
+</html>
