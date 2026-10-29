@@ -1,0 +1,1788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 3 - Electricity: Circuits and their Components (Class 7 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --success: #10b981;
+      --success-light: #d1fae5;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #f59e0b, #10b981);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 50%, #f59e0b 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #0369a1;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0f9ff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Section Card */
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    /* Sub-section Headings */
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    /* Callout Boxes */
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease;
+    }
+
+    .callout-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-box .callout-text {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .callout-def {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+    .callout-def i { color: #2563eb; }
+
+    .callout-act {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .callout-act i { color: #059669; }
+
+    .callout-pyq {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-color: #a855f7;
+      color: #581c87;
+    }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+    .callout-warn i { color: #dc2626; }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+    .data-table tr:hover { background: #f1f5f9; }
+
+    /* Collapsible Details Answers */
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f0f9ff;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #bae6fd;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+
+    /* Diagrams Container */
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    /* General Cards */
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Quiz Engine */
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #f59e0b 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    /* Floating Back to Top Button */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      background: #0369a1;
+      transform: translateY(-3px) scale(1.08);
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Sticky Top Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Master Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Competency Bank</a>
+      <a href="#sec6" class="nav-link">6. Exam Traps</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-bolt"></i> Class 7 Science &bull; Chapter 3 (Curiosity NEP)
+    </div>
+    <h1 class="hero-title">Electricity: Circuits and their Components</h1>
+    <p class="hero-sub">
+      A Comprehensive Master Study Note on Electric Cells, Batteries in Series, Incandescent Bulbs vs LEDs, Closed vs Open Circuits, Standard Electrical Symbols, and Testing Conductors and Insulators!
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT Curiosity Grade 7</span>
+      <span><i class="fa-solid fa-clock"></i> 55 Mins Full Mastery</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Complete &amp; Unabridged</span>
+      <span><i class="fa-solid fa-brain"></i> Interactive Quiz &amp; Audio</span>
+    </div>
+    <button id="teacherAudioBtn" class="audio-btn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+
+    <!-- ==========================================
+         SECTION 1: VISUAL BLUEPRINT & MIND MAP
+         ========================================== -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
+        <h2>Visual Mind Map &amp; Circuit Blueprint</h2>
+        <p class="section-sub">A conceptual blueprint mapping energy sources, conductors, switches, and load components.</p>
+      </div>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-bolt-lightning"></i>
+        <div class="callout-text">
+          <strong>Teacher's Chapter Introduction:</strong> Have you ever wondered why a torch lights up the moment you slide its switch forward, and shuts off the instant you slide it back? How does electric current flow through silent copper wires, and why does an LED only glow when connected the right way round? In Chapter 3, we build our very own electrical circuits, learn to draw professional circuit diagrams, and discover how insulators protect us from electric shocks!
+        </div>
+      </div>
+
+      <!-- SVG 1: Chapter 3 Mind Map -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 860 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <defs>
+            <linearGradient id="gradPower" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7" />
+              <stop offset="100%" stop-color="#0369a1" />
+            </linearGradient>
+            <linearGradient id="gradLoad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b" />
+              <stop offset="100%" stop-color="#d97706" />
+            </linearGradient>
+            <linearGradient id="gradSwitch" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981" />
+              <stop offset="100%" stop-color="#059669" />
+            </linearGradient>
+            <linearGradient id="gradConductor" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8b5cf6" />
+              <stop offset="100%" stop-color="#6d28d9" />
+            </linearGradient>
+          </defs>
+
+          <rect width="860" height="480" fill="#f8fafc" rx="12" />
+
+          <!-- Connectors -->
+          <line x1="430" y1="240" x2="180" y2="110" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,4" />
+          <line x1="430" y1="240" x2="680" y2="110" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,4" />
+          <line x1="430" y1="240" x2="180" y2="370" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,4" />
+          <line x1="430" y1="240" x2="680" y2="370" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,4" />
+
+          <!-- Center Node -->
+          <g>
+            <circle cx="430" cy="240" r="75" fill="url(#gradPower)" filter="drop-shadow(0 8px 16px rgba(2, 132, 199, 0.35))" />
+            <text x="430" y="228" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="14">ELECTRIC</text>
+            <text x="430" y="246" text-anchor="middle" fill="#ffffff" font-weight="800" font-size="16">CIRCUITS &amp;</text>
+            <text x="430" y="264" text-anchor="middle" fill="#bae6fd" font-weight="600" font-size="12">COMPONENTS</text>
+          </g>
+
+          <!-- Branch 1: Energy Sources (Top-Left) -->
+          <g transform="translate(180, 110)">
+            <rect x="-130" y="-55" width="260" height="110" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(2, 132, 199, 0.15))" />
+            <rect x="-130" y="-55" width="260" height="28" rx="8" fill="url(#gradPower)" />
+            <text x="0" y="-36" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12">SOURCES OF ELECTRICITY</text>
+            <text x="-115" y="-6" fill="#334155" font-size="11" font-weight="600">&bull; Electric Cell (+ cap, - base)</text>
+            <text x="-115" y="14" fill="#334155" font-size="11" font-weight="600">&bull; Battery: Cells in series (+ to -)</text>
+            <text x="-115" y="34" fill="#334155" font-size="11" font-weight="600">&bull; Button, Li-ion &amp; Solar cells</text>
+          </g>
+
+          <!-- Branch 2: Loads / Lamps (Top-Right) -->
+          <g transform="translate(680, 110)">
+            <rect x="-130" y="-55" width="260" height="110" rx="10" fill="#ffffff" stroke="#f59e0b" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(245, 158, 11, 0.15))" />
+            <rect x="-130" y="-55" width="260" height="28" rx="8" fill="url(#gradLoad)" />
+            <text x="0" y="-36" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12">LAMPS &amp; LOADS</text>
+            <text x="-115" y="-6" fill="#334155" font-size="11" font-weight="600">&bull; Incandescent: Tungsten filament</text>
+            <text x="-115" y="14" fill="#334155" font-size="11" font-weight="600">&bull; LED: Longer leg (+), shorter leg (-)</text>
+            <text x="-115" y="34" fill="#334155" font-size="11" font-weight="600">&bull; LED conducts in one direction only</text>
+          </g>
+
+          <!-- Branch 3: Circuit Control & Diagrams (Bottom-Left) -->
+          <g transform="translate(180, 370)">
+            <rect x="-130" y="-55" width="260" height="110" rx="10" fill="#ffffff" stroke="#10b981" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(16, 185, 129, 0.15))" />
+            <rect x="-130" y="-55" width="260" height="28" rx="8" fill="url(#gradSwitch)" />
+            <text x="0" y="-36" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12">CIRCUIT &amp; SWITCHES</text>
+            <text x="-115" y="-6" fill="#334155" font-size="11" font-weight="600">&bull; Closed Circuit: Current flows (+ to -)</text>
+            <text x="-115" y="14" fill="#334155" font-size="11" font-weight="600">&bull; Open Circuit: Gap stops current</text>
+            <text x="-115" y="34" fill="#334155" font-size="11" font-weight="600">&bull; Standard Symbols &amp; Schematics</text>
+          </g>
+
+          <!-- Branch 4: Conductors vs Insulators (Bottom-Right) -->
+          <g transform="translate(680, 370)">
+            <rect x="-130" y="-55" width="260" height="110" rx="10" fill="#ffffff" stroke="#8b5cf6" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(139, 92, 246, 0.15))" />
+            <rect x="-130" y="-55" width="260" height="28" rx="8" fill="url(#gradConductor)" />
+            <text x="0" y="-36" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12">CONDUCTIVITY &amp; SAFETY</text>
+            <text x="-115" y="-6" fill="#334155" font-size="11" font-weight="600">&bull; Conductors: Metals, Graphite, Salt water</text>
+            <text x="-115" y="14" fill="#334155" font-size="11" font-weight="600">&bull; Insulators: Rubber, Plastic, Glass, Wood</text>
+            <text x="-115" y="34" fill="#334155" font-size="11" font-weight="600">&bull; Electrician tools &amp; rubber protection</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 3.1: Visual Mind Map &bull; Complete architecture of electric circuits and components.</p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: COMPREHENSIVE STUDY NOTES
+         ========================================== -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2 &bull; Comprehensive Line-by-Line Study Notes</span>
+        <h2>Exhaustive Concept Explanations</h2>
+        <p class="section-sub">Line-by-line detailed explanations crafted by caring science teachers.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-flashlight"></i> 1. Inside a Torchlight: How Everyday Portable Light Works</h3>
+      <p>
+        When you take apart a standard household torchlight, you find five essential parts working in harmony:
+      </p>
+      <ul style="margin: 0.5rem 0 0.8rem 1.6rem; line-height: 1.8;">
+        <li><strong>Cylindrical Electric Cells:</strong> Stored inside the plastic body to supply electrical energy.</li>
+        <li><strong>Lamp (Bulb or LED):</strong> Placed at the front in front of a curved shiny reflector.</li>
+        <li><strong>Reflector:</strong> A shiny parabolic metallic bowl that focuses light rays into a powerful, straight parallel beam.</li>
+        <li><strong>Slide Switch:</strong> A plastic slider with a metal strip beneath it that moves back and forth to complete or break the circuit.</li>
+        <li><strong>Metal Spring / Strip:</strong> Runs along the casing connecting the base of the battery to the switch.</li>
+      </ul>
+
+      <h3 class="topic-title"><i class="fa-solid fa-car-battery"></i> 2. The Electric Cell and the Battery</h3>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-battery-full"></i>
+        <div class="callout-text">
+          <strong>Key Definition &bull; Electric Cell:</strong><br>
+          An <strong>electric cell</strong> is a compact portable source of electrical energy. Inside the cell, <strong>chemical energy</strong> is converted into electrical energy. An electric cell has two distinct terminals:
+          <br>&bull; <strong>Positive Terminal (+):</strong> Marked by a protruding metal cap at the top.
+          <br>&bull; <strong>Negative Terminal (&ndash;):</strong> Marked by a flat metal (zinc) disc at the base.
+        </div>
+      </div>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-layer-group"></i>
+        <div class="callout-text">
+          <strong>Key Definition &bull; Battery:</strong><br>
+          A combination of <strong>two or more electric cells</strong> connected together in series is called a <strong>battery</strong>. In a standard battery, the <strong>positive terminal of one cell is connected to the negative terminal of the next cell</strong>. This adds up their voltages, giving a stronger electrical push (voltage) to operate appliances!
+        </div>
+      </div>
+
+      <!-- SVG 2: Cell, Bulb, and LED Anatomy -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 840 340" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <rect width="840" height="340" fill="#f8fafc" rx="12" stroke="#e2e8f0" stroke-width="1.5" />
+          <text x="420" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">ANATOMY OF CELL, INCANDESCENT BULB &amp; LED</text>
+
+          <!-- Diagram 1: Electric Cell -->
+          <g transform="translate(60, 60)">
+            <rect width="180" height="230" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+            <text x="90" y="24" text-anchor="middle" font-size="12" font-weight="700" fill="#0369a1">1. Electric Cell</text>
+            <!-- Metal Cap -->
+            <rect x="75" y="40" width="30" height="15" rx="3" fill="#94a3b8" stroke="#475569" />
+            <text x="90" y="52" text-anchor="middle" font-size="11" font-weight="800" fill="#0f172a">+</text>
+            <text x="125" y="52" font-size="10" font-weight="700" fill="#0369a1">Metal Cap (+)</text>
+            <!-- Body -->
+            <rect x="55" y="55" width="70" height="130" rx="4" fill="#0284c7" />
+            <text x="90" y="125" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="700">1.5V Cell</text>
+            <!-- Flat Base -->
+            <rect x="55" y="185" width="70" height="10" rx="2" fill="#64748b" />
+            <text x="90" y="194" text-anchor="middle" font-size="11" font-weight="800" fill="#ffffff">&ndash;</text>
+            <text x="135" y="194" font-size="10" font-weight="700" fill="#475569">Flat Base (&ndash;)</text>
+          </g>
+
+          <!-- Diagram 2: Incandescent Bulb -->
+          <g transform="translate(320, 60)">
+            <rect width="200" height="230" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+            <text x="100" y="24" text-anchor="middle" font-size="12" font-weight="700" fill="#d97706">2. Incandescent Bulb</text>
+            <!-- Glass Dome -->
+            <circle cx="100" cy="85" r="40" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" opacity="0.8" />
+            <!-- Filament -->
+            <path d="M 85 95 L 95 65 L 105 65 L 115 95" stroke="#b45309" stroke-width="2" fill="none" />
+            <circle cx="100" cy="65" r="4" fill="#ef4444" />
+            <text x="100" y="55" text-anchor="middle" font-size="9.5" font-weight="700" fill="#b45309">Tungsten Filament</text>
+            <!-- Two thick supporting wires -->
+            <line x1="85" y1="95" x2="85" y2="135" stroke="#64748b" stroke-width="2" />
+            <line x1="115" y1="95" x2="115" y2="155" stroke="#64748b" stroke-width="2" />
+            <!-- Metal Case & Tip -->
+            <rect x="80" y="130" width="40" height="35" fill="#94a3b8" />
+            <polygon points="85,165 115,165 100,180" fill="#334155" />
+            <text x="100" y="210" text-anchor="middle" font-size="10" font-weight="600" fill="#475569">Two Terminals: Metal Case &amp; Base Tip</text>
+          </g>
+
+          <!-- Diagram 3: LED -->
+          <g transform="translate(580, 60)">
+            <rect width="200" height="230" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5" />
+            <text x="100" y="24" text-anchor="middle" font-size="12" font-weight="700" fill="#15803d">3. Light Emitting Diode (LED)</text>
+            <!-- Epoxy Lens -->
+            <path d="M 80 100 C 80 50, 120 50, 120 100 Z" fill="#dcfce7" stroke="#10b981" stroke-width="2" />
+            <circle cx="100" cy="85" r="6" fill="#10b981" />
+            <!-- Anode (Long leg) -->
+            <line x1="90" y1="100" x2="90" y2="180" stroke="#059669" stroke-width="2.5" />
+            <text x="75" y="160" font-size="10.5" font-weight="800" fill="#047857">+</text>
+            <text x="35" y="175" font-size="9" font-weight="700" fill="#047857">Longer Lead (Anode)</text>
+            <!-- Cathode (Short leg) -->
+            <line x1="110" y1="100" x2="110" y2="155" stroke="#059669" stroke-width="2.5" />
+            <text x="120" y="150" font-size="11" font-weight="800" fill="#047857">&ndash;</text>
+            <text x="115" y="175" font-size="9" font-weight="700" fill="#047857">Shorter Lead</text>
+            <text x="100" y="210" text-anchor="middle" font-size="9.5" font-weight="600" fill="#15803d">Unidirectional Current Conduction!</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 3.2: Component Anatomy &bull; Electric Cell (+/-), Incandescent bulb with tungsten filament, and LED polarity.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-lightbulb"></i> 3. Incandescent Bulb vs. LED: A Technological Revolution</h3>
+      <p>
+        In recent years, traditional glass bulbs with thin coiled wires have been almost completely replaced by LEDs. Let us understand why:
+      </p>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Feature</th>
+              <th style="width: 37%;">Incandescent Torch Bulb</th>
+              <th style="width: 38%;">Light Emitting Diode (LED)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Light Producing Element</strong></td>
+              <td>A microscopic coiled wire called <strong>tungsten filament</strong> that glows red-hot.</td>
+              <td>A tiny semiconductor chip encapsulated inside an epoxy plastic lens.</td>
+            </tr>
+            <tr>
+              <td><strong>Polarity Sensitivity</strong></td>
+              <td><strong>No polarity:</strong> Glows regardless of which way the battery terminals are connected.</td>
+              <td><strong>Strict polarity:</strong> Glows ONLY when the longer leg (+) connects to (+) and shorter leg (&ndash;) connects to (&ndash;).</td>
+            </tr>
+            <tr>
+              <td><strong>Energy Efficiency</strong></td>
+              <td><strong>Low:</strong> Wastes 90% of electrical energy as unwanted heat; filament burns out easily.</td>
+              <td><strong>Extremely High:</strong> Converts almost all electrical energy directly into light without getting hot.</td>
+            </tr>
+            <tr>
+              <td><strong>Durability &amp; Lifespan</strong></td>
+              <td>Fragile glass bulb; if dropped, the delicate filament snaps easily.</td>
+              <td>Solid-state electronic device; highly rugged, shockproof, lasting tens of thousands of hours.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-route"></i> 4. What Is an Electrical Circuit? Closed vs. Open Loops</h3>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-circle-notch"></i>
+        <div class="callout-text">
+          <strong>Key Definition &bull; Electrical Circuit:</strong><br>
+          An <strong>electrical circuit</strong> is a continuous, unbroken conducting path between the two terminals of an electric cell through which electric current can flow.
+          <br>&bull; <strong>Closed Circuit:</strong> When there is no gap anywhere in the circuit, the loop is complete. Electric current flows, and the lamp glows!
+          <br>&bull; <strong>Open Circuit:</strong> If there is any break, loose wire, or open switch, the conducting path is broken. Current cannot jump across the gap, and the lamp stays unlit!
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+        <div class="callout-text">
+          <strong>Conventional Direction of Electric Current:</strong><br>
+          By international scientific convention, the direction of electric current in an external circuit is always taken to flow <strong>from the Positive (+) terminal to the Negative (&ndash;) terminal</strong> of the electric cell.
+        </div>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-diagram-project"></i> 5. Standard Electrical Symbols &amp; Circuit Diagrams</h3>
+      <p>
+        Drawing realistic pictures of torch cells, glass bulbs, and metal wires is slow and messy. Scientists and engineers around the world use universal <strong>electrical symbols</strong>:
+      </p>
+
+      <!-- SVG 3: Circuit Symbols Reference Table -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 840 380" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <rect width="840" height="380" fill="#f8fafc" rx="12" stroke="#e2e8f0" stroke-width="1.5" />
+          <text x="420" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#0369a1">UNIVERSAL ELECTRICAL CIRCUIT SYMBOLS</text>
+
+          <!-- Row 1: Electric Cell & Battery -->
+          <g transform="translate(40, 50)">
+            <rect width="360" height="70" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+            <text x="20" y="40" font-size="12" font-weight="700" fill="#0f172a">1. Electric Cell</text>
+            <!-- Symbol -->
+            <line x1="220" y1="35" x2="260" y2="35" stroke="#334155" stroke-width="2" />
+            <line x1="260" y1="15" x2="260" y2="55" stroke="#0284c7" stroke-width="2.5" />
+            <line x1="272" y1="23" x2="272" y2="47" stroke="#334155" stroke-width="5" />
+            <line x1="272" y1="35" x2="312" y2="35" stroke="#334155" stroke-width="2" />
+            <text x="256" y="12" font-size="11" font-weight="800" fill="#0284c7">+</text>
+            <text x="270" y="12" font-size="11" font-weight="800" fill="#334155">&ndash;</text>
+          </g>
+
+          <g transform="translate(440, 50)">
+            <rect width="360" height="70" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+            <text x="20" y="40" font-size="12" font-weight="700" fill="#0f172a">2. Battery (Two Cells)</text>
+            <!-- Symbol -->
+            <line x1="190" y1="35" x2="215" y2="35" stroke="#334155" stroke-width="2" />
+            <line x1="215" y1="15" x2="215" y2="55" stroke="#0284c7" stroke-width="2.5" />
+            <line x1="225" y1="23" x2="225" y2="47" stroke="#334155" stroke-width="5" />
+            <line x1="225" y1="35" x2="250" y2="35" stroke="#334155" stroke-width="2" stroke-dasharray="3,2" />
+            <line x1="250" y1="15" x2="250" y2="55" stroke="#0284c7" stroke-width="2.5" />
+            <line x1="260" y1="23" x2="260" y2="47" stroke="#334155" stroke-width="5" />
+            <line x1="260" y1="35" x2="295" y2="35" stroke="#334155" stroke-width="2" />
+          </g>
+
+          <!-- Row 2: Electric Bulb & LED -->
+          <g transform="translate(40, 135)">
+            <rect width="360" height="70" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+            <text x="20" y="40" font-size="12" font-weight="700" fill="#0f172a">3. Electric Bulb (Lamp)</text>
+            <!-- Symbol -->
+            <line x1="220" y1="35" x2="250" y2="35" stroke="#334155" stroke-width="2" />
+            <circle cx="265" cy="35" r="15" fill="none" stroke="#334155" stroke-width="2" />
+            <path d="M 257 35 Q 265 20 265 35 Q 265 20 273 35" fill="none" stroke="#f59e0b" stroke-width="2" />
+            <line x1="280" y1="35" x2="310" y2="35" stroke="#334155" stroke-width="2" />
+          </g>
+
+          <g transform="translate(440, 135)">
+            <rect width="360" height="70" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+            <text x="20" y="40" font-size="12" font-weight="700" fill="#0f172a">4. Light Emitting Diode (LED)</text>
+            <!-- Symbol -->
+            <line x1="210" y1="35" x2="245" y2="35" stroke="#334155" stroke-width="2" />
+            <polygon points="245,20 245,50 265,35" fill="#10b981" stroke="#059669" stroke-width="1.5" />
+            <line x1="265" y1="20" x2="265" y2="50" stroke="#059669" stroke-width="2.5" />
+            <line x1="265" y1="35" x2="300" y2="35" stroke="#334155" stroke-width="2" />
+            <!-- Light arrows -->
+            <line x1="250" y1="15" x2="262" y2="5" stroke="#f59e0b" stroke-width="1.5" />
+            <polygon points="262,5 257,5 262,10" fill="#f59e0b" />
+            <line x1="258" y1="20" x2="270" y2="10" stroke="#f59e0b" stroke-width="1.5" />
+            <polygon points="270,10 265,10 270,15" fill="#f59e0b" />
+          </g>
+
+          <!-- Row 3: Switch ON & Switch OFF -->
+          <g transform="translate(40, 220)">
+            <rect width="360" height="70" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+            <text x="20" y="40" font-size="12" font-weight="700" fill="#0f172a">5. Switch in 'ON' (Closed)</text>
+            <!-- Symbol -->
+            <line x1="210" y1="35" x2="240" y2="35" stroke="#334155" stroke-width="2" />
+            <circle cx="245" cy="35" r="4" fill="#10b981" />
+            <line x1="245" y1="35" x2="285" y2="35" stroke="#10b981" stroke-width="3" />
+            <circle cx="285" cy="35" r="4" fill="#10b981" />
+            <line x1="285" y1="35" x2="315" y2="35" stroke="#334155" stroke-width="2" />
+          </g>
+
+          <g transform="translate(440, 220)">
+            <rect width="360" height="70" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+            <text x="20" y="40" font-size="12" font-weight="700" fill="#0f172a">6. Switch in 'OFF' (Open)</text>
+            <!-- Symbol -->
+            <line x1="210" y1="35" x2="240" y2="35" stroke="#334155" stroke-width="2" />
+            <circle cx="245" cy="35" r="4" fill="#ef4444" />
+            <line x1="245" y1="35" x2="280" y2="15" stroke="#ef4444" stroke-width="3" />
+            <circle cx="285" cy="35" r="4" fill="#ef4444" />
+            <line x1="285" y1="35" x2="315" y2="35" stroke="#334155" stroke-width="2" />
+          </g>
+
+          <!-- Row 4: Connecting Wire -->
+          <g transform="translate(240, 305)">
+            <rect width="360" height="55" rx="8" fill="#ffffff" stroke="#cbd5e1" />
+            <text x="20" y="32" font-size="12" font-weight="700" fill="#0f172a">7. Connecting Wire</text>
+            <line x1="190" y1="28" x2="320" y2="28" stroke="#0284c7" stroke-width="3" />
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 3.3: Standard Electrical Schematic Symbols (CBSE / NCERT Standard).</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-plug-circle-check"></i> 6. Electrical Conductors vs. Insulators</h3>
+      <p>
+        Not all materials allow electricity to flow through them. We can test any material by inserting it into a gap in a simple circuit called a <strong>conduction tester</strong>:
+      </p>
+
+      <div class="card">
+        <h4 class="sub-topic"><i class="fa-solid fa-code-compare" style="color: #0284c7;"></i> Scientific Comparison Table</h4>
+        <div class="table-container">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th style="width: 20%;">Category</th>
+                <th style="width: 40%;">Scientific Definition</th>
+                <th style="width: 40%;">Everyday Examples &amp; Uses</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Electrical Conductors</strong></td>
+                <td>Materials that allow electric charges (electrons) to pass through them freely and easily with very low resistance.</td>
+                <td>
+                  <strong>Examples:</strong> Copper, aluminium, iron, brass, gold, silver, graphite (pencil lead), tap water with dissolved salts.<br>
+                  <strong>Uses:</strong> Electrical wiring, appliance plugs, switch contacts.
+                </td>
+              </tr>
+              <tr>
+                <td><strong>Electrical Insulators</strong></td>
+                <td>Materials that offer extremely high resistance and do NOT permit electric current to pass through them under normal conditions.</td>
+                <td>
+                  <strong>Examples:</strong> Rubber, plastic (PVC), dry wood, pure glass, ceramic, dry air, paper.<br>
+                  <strong>Uses:</strong> Plastic coating over wires, rubber gloves worn by electricians, handles of screwdrivers and pliers.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: FACT & SCIENTIFIC TERM BANK
+         ========================================== -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3 &bull; High-Yield Fact &amp; Term Bank</span>
+        <h2>Rapid Revision Fact &amp; Scientific Term Bank</h2>
+        <p class="section-sub">Must-know definitions, technical terms, and memory shortcuts for Chapter 3.</p>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Term</th>
+              <th style="width: 45%;">Scientific Concept</th>
+              <th style="width: 30%;">Exam Memory Key</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Filament</strong></td>
+              <td>A very thin coiled wire of tungsten inside an incandescent lamp that gets white-hot and emits light when current flows.</td>
+              <td>If filament breaks &rarr; open circuit &rarr; bulb is "fused".</td>
+            </tr>
+            <tr>
+              <td><strong>Anode &amp; Cathode (LED)</strong></td>
+              <td>The two terminals of an LED: Anode is the longer wire (+), Cathode is the shorter wire (&ndash;).</td>
+              <td>Longer lead MUST connect to (+) battery terminal to glow.</td>
+            </tr>
+            <tr>
+              <td><strong>Electric Switch</strong></td>
+              <td>A mechanical control device designed to deliberately open (break) or close (complete) an electric circuit.</td>
+              <td>Switch ON = Closed loop; Switch OFF = Open gap.</td>
+            </tr>
+            <tr>
+              <td><strong>Conduction Tester</strong></td>
+              <td>A simple circuit with a gap between two exposed wire leads used to test whether an unknown object is a conductor or insulator.</td>
+              <td>Bulb glows &rarr; Conductor; Bulb stays dark &rarr; Insulator.</td>
+            </tr>
+            <tr>
+              <td><strong>Conventional Current</strong></td>
+              <td>The historical standard convention that electric current moves from positive (+) to negative (&ndash;) in external circuit wires.</td>
+              <td>Always points away from long thin plate towards short thick plate.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <div class="callout-text">
+          <strong>Memory Hack &bull; The "P-L-E-D" Rule for LEDs:</strong><br>
+          Remember <strong>P-L-E-D</strong>:<br>
+          <strong>P</strong>ositive connects to <strong>L</strong>onger lead of <strong>E</strong>lectric <strong>D</strong>iode!
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: 100% COMPLETE NCERT SOLUTIONS
+         ========================================== -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4 &bull; 100% Complete NCERT Solutions</span>
+        <h2>Complete NCERT In-Text Activities &amp; Exercise Solutions</h2>
+        <p class="section-sub">Step-by-step teacher solutions for all 11 activities and all end-of-chapter questions.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-vial-circle-check"></i> In-Text Activity Solutions (Activities 3.1 to 3.11)</h3>
+
+      <!-- Activity 3.1 & 3.2 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Activity 3.1 &amp; 3.2:</strong> Exploring Torchlight &amp; Observing Electric Cell Terminals</span>
+          <span class="badge badge-green">Fully Solved</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Activity 3.1 Observations:</strong> A torchlight consists of an outer casing, 2 or 3 cylindrical cells arranged head-to-tail, an incandescent or LED bulb, a reflective cone, and a slider switch. Sliding the switch presses a metal strip against the bulb base, completing the circuit.</p>
+          <p><strong>Activity 3.2 Observations:</strong> On a standard 1.5 V cell, the metallic protruding cap is labelled with a '+' (positive terminal). The opposite flat circular metal bottom is labelled with a '&ndash;' (negative terminal). Chemical reactions inside provide the voltage.</p>
+        </div>
+      </details>
+
+      <!-- Activity 3.3: Battery in Series -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Activity 3.3:</strong> Making a Battery of Two and Four Cells</span>
+          <span class="badge badge-green">Fully Solved</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Procedure &amp; Rule:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li>To make a battery, place the positive terminal (+) of the first cell in contact with the negative terminal (&ndash;) of the second cell.</li>
+            <li>If two cells are placed side by side in a plastic holder, a metal strip at the back joins the (+) of one cell to the (&ndash;) of the adjoining cell.</li>
+            <li><em>Critical Warning:</em> If two positive terminals (+ to +) or two negative terminals (&ndash; to &ndash;) are connected facing each other, their voltages oppose and cancel each other, and NO current will flow!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Activity 3.7 & 3.10: LED Polarity & Circuit Diagrams -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Activity 3.7 &amp; 3.10:</strong> Testing LED Polarity and Drawing Circuit Diagrams</span>
+          <span class="badge badge-green">Fully Solved</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>LED Behaviour (Activity 3.7):</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li>When the longer lead is connected to (+) and the shorter lead to (&ndash;), the LED glows brightly.</li>
+            <li>When connections are reversed (longer lead to &ndash;, shorter to +), the LED <strong>does NOT glow</strong>!</li>
+            <li><em>Why?</em> An LED is a diode—a one-way electrical valve that only allows electric current to flow through it in one forward direction.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Activity 3.11: Identifying Conductors and Insulators (Table 3.3) -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Activity 3.11 &amp; Table 3.3:</strong> Conduction Tester Results for Various Everyday Objects</span>
+          <span class="badge badge-green">Fully Solved</span>
+        </summary>
+        <div class="ans-content">
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Object Tested</th>
+                  <th>Material Made Of</th>
+                  <th>Does Bulb Glow?</th>
+                  <th>Conductor or Insulator</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>1.</td><td>Iron nail</td><td>Metal (Iron)</td><td>Yes, glows brightly</td><td>Conductor</td></tr>
+                <tr><td>2.</td><td>Wooden ruler</td><td>Dry Wood</td><td>No, does not glow</td><td>Insulator</td></tr>
+                <tr><td>3.</td><td>Plastic eraser</td><td>Rubber / Synthetic plastic</td><td>No, does not glow</td><td>Insulator</td></tr>
+                <tr><td>4.</td><td>Pencil sharpened at both ends</td><td>Graphite core (Carbon)</td><td>Yes, glows!</td><td>Conductor</td></tr>
+                <tr><td>5.</td><td>Glass bangle piece</td><td>Glass</td><td>No, does not glow</td><td>Insulator</td></tr>
+                <tr><td>6.</td><td>Steel spoon</td><td>Stainless steel (Metal)</td><td>Yes, glows brightly</td><td>Conductor</td></tr>
+                <tr><td>7.</td><td>Copper wire piece</td><td>Copper (Metal)</td><td>Yes, glows brightly</td><td>Conductor</td></tr>
+                <tr><td>8.</td><td>Paper strip</td><td>Cellulose / Wood pulp</td><td>No, does not glow</td><td>Insulator</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <h3 class="topic-title" style="margin-top: 2rem;"><i class="fa-solid fa-clipboard-question"></i> End-of-Chapter Exercises (Questions 1 to 11)</h3>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Question 1:</strong> Choose the incorrect statement regarding an electric switch.</span>
+          <span class="badge badge-blue">Exercise Q1</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Options Given:</strong></p>
+          <p>(i) A switch is the source of electric current in a circuit.<br>
+          (ii) A switch helps to complete or break the circuit.<br>
+          (iii) When the switch is open, there is an air gap between its terminals.<br>
+          (iv) Switches are used in both DC battery circuits and household AC wiring.</p>
+          <p><strong>Correct Answer: Statement (i) is INCORRECT!</strong></p>
+          <p><em>Reason:</em> A switch is NOT a source of electric current. The <strong>electric cell or battery</strong> is the source of electrical energy. A switch merely acts as a mechanical gatekeeper that closes or opens the conducting path.</p>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 2:</strong> What is the purpose of using symbols for electrical components?</span>
+          <span class="badge badge-blue">Exercise Q2</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer (Point-Wise):</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li><strong>Simplicity and Speed:</strong> Drawing realistic pictures of complex cells, lamps, switches, and generators is tedious and time-consuming. Symbols allow anyone to sketch a circuit in seconds.</li>
+            <li><strong>Clarity:</strong> Schematic diagrams eliminate visual clutter, clearly revealing electrical connections without confusion.</li>
+            <li><strong>Universal International Language:</strong> Electrical symbols are standardised globally. An engineer or technician in India, Japan, Germany, or the USA can read the exact same circuit schematic without language barriers.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 3:</strong> In Fig. 3.17 (two lamps connected in series in a single loop), if the filament of one of the lamps is broken, will the other glow? Justify your answer.</span>
+          <span class="badge badge-blue">Exercise Q3</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer: NO, the other lamp will NOT glow.</strong></p>
+          <p><strong>Scientific Justification:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li>In a series circuit, all components are connected one after another in a <strong>single continuous loop</strong>. The same electric current must flow through both lamps to complete the circuit.</li>
+            <li>If the tungsten filament of one lamp breaks (it fuses), a physical gap is created inside that lamp.</li>
+            <li>This turns the entire setup into an <strong>open circuit</strong>. Because electric current cannot jump across the broken gap, current stops flowing through the entire loop. Therefore, the second lamp also goes off!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 4:</strong> A student forgot to remove the insulator plastic covering from the ends of connecting wires while assembling a circuit. Will the lamp glow?</span>
+          <span class="badge badge-blue">Exercise Q4</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer: NO, the lamp will NOT glow.</strong></p>
+          <p><strong>Scientific Reason:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li>The outer covering of electrical wires is made of PVC plastic or rubber, which is an <strong>electrical insulator</strong>.</li>
+            <li>Insulators have extremely high electrical resistance and do not allow electric charges to pass through them.</li>
+            <li>Unless the plastic coating is stripped off at both ends to expose the bare metallic copper wire, no electrical contact is established with the cell or bulb terminals, leaving the circuit <strong>open</strong>.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 5:</strong> Draw a circuit diagram for a simple torch using symbols for electric components.</span>
+          <span class="badge badge-blue">Exercise Q5</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Circuit Diagram Description:</strong></p>
+          <p>A simple torch circuit consists of:</p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li>A <strong>battery</strong> of two cells in series: <code>&ndash;[|  |&#x2502;]&ndash;</code></li>
+            <li>A <strong>switch</strong>: in closed position (ON) or open position (OFF).</li>
+            <li>A <strong>lamp symbol</strong>: a circle with a loop inside.</li>
+            <li>Straight connecting lines representing the internal metal strip and body casing.</li>
+          </ul>
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 1rem; border-radius: 8px; text-align: center; margin-top: 0.5rem;">
+            <code>[+ Cell 1 &ndash;][+ Cell 2 &ndash;] &mdash;&mdash; [ Switch (ON) ] &mdash;&mdash; (X Bulb) &mdash;&mdash; Back to [+]</code>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 6:</strong> In Fig. 3.18, analysing which lamp(s) will glow with combinations of switches S1 and S2.</span>
+          <span class="badge badge-blue">Exercise Q6</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Step-by-Step Analysis:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li><strong>Case (i): S2 is ON, S1 is OFF:</strong>
+              <br>&rarr; Only <strong>Lamp L2</strong> will glow. The branch containing L1 is open (S1 is OFF), but the branch with L2 and S2 forms a complete closed loop with the battery.
+            </li>
+            <li><strong>Case (ii): S2 is OFF, S1 is ON:</strong>
+              <br>&rarr; Only <strong>Lamp L1</strong> will glow. The branch containing L2 is open, while the branch with L1 forms a closed loop.
+            </li>
+            <li><strong>Case (iii): Both S1 and S2 are ON:</strong>
+              <br>&rarr; <strong>Both Lamp L1 and Lamp L2 will glow!</strong> Both parallel branches form independent closed circuits.
+            </li>
+            <li><strong>Case (iv): Both S1 and S2 are OFF:</strong>
+              <br>&rarr; <strong>Neither lamp will glow.</strong> Both conducting paths are completely broken.
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 7:</strong> Vidyut assembled a circuit, but even after closing the switch, the lamp does not glow. List possible reasons and how to troubleshoot.</span>
+          <span class="badge badge-blue">Exercise Q7</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Possible Faults &amp; Troubleshooting Guide:</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.85;">
+            <li><strong>Fused Bulb:</strong> The tungsten filament inside the lamp may be snapped. <em>Fix:</em> Inspect against light; replace with a fresh bulb.</li>
+            <li><strong>Discharged (Dead) Cell:</strong> The chemicals inside the cell are exhausted. <em>Fix:</em> Test the cell with a known working torch or voltmeter.</li>
+            <li><strong>Unstripped Connecting Wires:</strong> Plastic insulation was not peeled off at the wire tips. <em>Fix:</em> Strip 1 cm of insulation to expose bare copper wire.</li>
+            <li><strong>Loose Connections:</strong> Wires are loosely touching terminal screws without firm mechanical contact. <em>Fix:</em> Tighten screws and bind wire loops tightly.</li>
+            <li><strong>Oxidised (Rusted) Terminals:</strong> Rust on cell caps or clips acts as an insulator. <em>Fix:</em> Rub terminals with sandpaper to expose shiny metal.</li>
+            <li><strong>Reversed LED Polarity (if LED is used):</strong> Longer wire was mistakenly connected to (&ndash;) terminal. <em>Fix:</em> Reverse the orientation of the LED leads.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 8:</strong> In Fig. 3.20, in which case(s) will the lamp/LED NOT glow when the switch is closed?</span>
+          <span class="badge badge-blue">Exercise Q8</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Analysis of Cases:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li><strong>Case with Opposing Cells (+ to + or &ndash; to &ndash;):</strong> The lamp will NOT glow because identical polarities cancel the electrical drive.</li>
+            <li><strong>Case with Reversed LED:</strong> If the longer lead of the LED is connected to the (&ndash;) terminal, the LED will NOT glow because of unidirectional diode blocking.</li>
+            <li><strong>Case with Broken Circuit Wire:</strong> The lamp will NOT glow due to an open circuit.</li>
+            <li><strong>Normal Series Connection:</strong> Only the setup where cells are connected in series (+ to &ndash;) and LED leads are correctly polarised (+ to longer lead) will glow!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 9:</strong> Suppose the '+' and '&ndash;' markings on a battery have rubbed off. Suggest a foolproof method to identify the two terminals.</span>
+          <span class="badge badge-blue">Exercise Q9</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Foolproof Method Using an LED:</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li>Take an LED (whose longer leg is known to be the positive terminal and shorter leg is the negative terminal) and a safety resistor (or low-voltage setup).</li>
+            <li>Connect one battery terminal to the longer leg of the LED and the other battery terminal to the shorter leg.</li>
+            <li><strong>Result A:</strong> If the LED glows, then the battery terminal connected to the longer leg is the <strong>Positive (+) Terminal</strong>, and the terminal connected to the shorter leg is the <strong>Negative (&ndash;) Terminal</strong>!</li>
+            <li><strong>Result B:</strong> If the LED does not glow, reverse the connections. The terminal that now connects to the longer leg when it lights up is the Positive (+) terminal!</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 10:</strong> You are given six cells marked A to F. Design an activity to identify which are working and which are exhausted.</span>
+          <span class="badge badge-blue">Exercise Q10</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Experimental Protocol:</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li><strong>Items Required:</strong> A known working torch bulb (1.5 V) in a bulb holder, two connecting copper wires with stripped ends, and the six test cells (A, B, C, D, E, F).</li>
+            <li><strong>Procedure:</strong>
+              <br>&bull; Connect one wire from the base terminal of the bulb holder to the flat negative terminal of Cell A.
+              <br>&bull; Touch the second wire from the bulb holder to the positive metal cap of Cell A.
+              <br>&bull; Record whether the bulb glows and observe its brightness.
+              <br>&bull; Repeat the exact procedure for Cells B, C, D, E, and F one by one.
+            </li>
+            <li><strong>Inference:</strong>
+              <br>&rarr; Cells that make the bulb glow brightly are <strong>fully charged and working</strong>.
+              <br>&rarr; Cells that produce a very dim glow are <strong>partially discharged</strong>.
+              <br>&rarr; Cells that produce zero glow are <strong>completely dead / exhausted</strong>.
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q11 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 11:</strong> Tanya made a circuit with two cells in series to light an LED, but connected them improperly. Will it glow? How to correct the wiring?</span>
+          <span class="badge badge-blue">Exercise Q11</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <p>In Tanya's faulty diagram, either the cells were connected with like poles facing each other (+ to +), or the LED leads were reversed. In that condition, the LED will <strong>NOT glow</strong>.</p>
+          <p><strong>Correct Wiring Scheme:</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li>Connect the positive terminal (+) metal cap of Cell 1 to the circuit wire leading to the <strong>longer lead (+) of the LED</strong>.</li>
+            <li>Connect the negative terminal (&ndash;) flat base of Cell 1 directly to the <strong>positive terminal (+) metal cap of Cell 2</strong>.</li>
+            <li>Connect the negative terminal (&ndash;) flat base of Cell 2 through the switch to the <strong>shorter lead (&ndash;) of the LED</strong>.</li>
+            <li>Now the two 1.5 V cells provide 3.0 V in series, and current flows in the forward direction, lighting the LED brilliantly!</li>
+          </ol>
+        </div>
+      </details>
+
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: COMPETENCY BANK & INTERACTIVE QUIZ
+         ========================================== -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5 &bull; CBSE / BSE Competency Question Bank</span>
+        <h2>High-Order Thinking (HOTS) &amp; Interactive Quiz Engine</h2>
+        <p class="section-sub">Test your practical circuit knowledge with live interactive button feedback!</p>
+      </div>
+
+      <!-- Scoreboard Banner -->
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <span>🎯</span> Mastered: <span id="quizScoreCount">0</span> / 5 Questions
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Click an option to test your knowledge!
+        </div>
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qcard1">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q1. In the symbol for an electric cell, what do the longer thinner line and the shorter thicker line represent?
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'a')">
+            <span>(a) Longer line is Positive terminal (+); shorter thicker line is Negative terminal (&ndash;)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'a')">
+            <span>(b) Longer line is Negative terminal (&ndash;); shorter thicker line is Positive terminal (+)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'a')">
+            <span>(c) Both lines represent identical copper wire joints</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'a')">
+            <span>(d) Longer line represents an open switch; shorter line represents a closed switch</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong><br>
+            In international electrical schematics, the longer, thinner parallel vertical line always denotes the positive terminal (+), while the shorter, thicker vertical bar denotes the negative terminal (&ndash;).
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qcard2">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q2. Why is an LED preferred over a traditional incandescent torch bulb?
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+            <span>(a) LEDs consume 10 times more electricity and produce intense heat</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+            <span>(b) LEDs are highly energy-efficient, produce almost no wasted heat, and have a much longer lifespan</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+            <span>(c) Incandescent bulbs can only be operated with solar panels</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+            <span>(d) LEDs work even if the circuit has broken wires</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong><br>
+            Incandescent bulbs waste almost 90% of electrical energy as heat in making the tungsten filament glow. LEDs convert electrical energy directly into light with minimal heat loss and do not suffer from fragile filaments burning out.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qcard3">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q3. A student inserts a pencil sharpened at both ends into a conduction tester gap. The tester bulb glows! This proves that:
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+            <span>(a) The wood of the pencil is a good conductor</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+            <span>(b) Paint on the outside of the pencil carries electricity</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+            <span>(c) The pencil core is made of graphite, which is a non-metal that conducts electricity</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+            <span>(d) The battery generated high voltage that leaped through the air</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong><br>
+            Pencil 'lead' is actually a mixture of graphite (an allotrope of carbon) and clay. Graphite is one of the rare non-metals that possesses free delocalised electrons, allowing it to conduct electricity efficiently!
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qcard4">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q4. What is the conventional direction of electric current in an external circuit?
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')">
+            <span>(a) From the positive terminal (+) to the negative terminal (&ndash;) of the electric cell</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')">
+            <span>(b) From the negative terminal (&ndash;) to the positive terminal (+) of the electric cell</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')">
+            <span>(c) Current flows in both directions simultaneously inside the same wire</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')">
+            <span>(d) Current only flows when the switch is in the open position</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong><br>
+            By universal scientific convention established before electrons were discovered, electric current in an external circuit is always taken to flow from positive (+) to negative (&ndash;).
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qcard5">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q5. Why do electricians always wear thick rubber gloves while repairing household electrical switches?
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+            <span>(a) Rubber makes hands warm on cold winter days</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+            <span>(b) Rubber gives a stronger grip on metal tools</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+            <span>(c) Rubber attracts electric current away from the human body</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+            <span>(d) Rubber is an electrical insulator that prevents current from passing into the human body, preventing shocks</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d)</strong><br>
+            The human body contains water and electrolytes, making it an electrical conductor. Rubber is an excellent insulator. Wearing rubber gloves breaks any potential electrical circuit between the live mains wire and the ground, shielding the electrician from fatal electric shocks.
+          </div>
+        </details>
+      </div>
+
+      <!-- Assertion-Reason -->
+      <h3 class="topic-title" style="margin-top: 2rem;"><i class="fa-solid fa-scale-balanced"></i> Assertion &amp; Reason Drills</h3>
+      <div class="card">
+        <details class="ans-box">
+          <summary>
+            <span><strong>Drill 1:</strong> Assertion (A): In a torch, two cells must be placed such that the positive terminal of one touches the negative terminal of the other.<br>
+            Reason (R): Connecting cells in series (+ to &ndash;) combines their voltages to provide sufficient electrical push to light the lamp.</span>
+            <span class="badge badge-purple">Assertion-Reason</span>
+          </summary>
+          <div class="ans-content">
+            <strong>Answer: (a) Both A and R are true, and R is the correct explanation of A.</strong><br>
+            Connecting cells in series head-to-tail (+ to &ndash;) adds their individual 1.5 V potentials (1.5 V + 1.5 V = 3.0 V), supplying the required voltage for the torch bulb.
+          </div>
+        </details>
+
+        <details class="ans-box">
+          <summary>
+            <span><strong>Drill 2:</strong> Assertion (A): Pure distilled water is an excellent conductor of electricity.<br>
+            Reason (R): Water molecules are made of hydrogen and oxygen atoms.</span>
+            <span class="badge badge-purple">Assertion-Reason</span>
+          </summary>
+          <div class="ans-content">
+            <strong>Answer: (d) Assertion (A) is completely FALSE, but Reason (R) is true.</strong><br>
+            Pure distilled water does not contain free dissolved ions and is actually a poor conductor (insulator)! Tap water conducts electricity only because it contains dissolved mineral salts.
+          </div>
+        </details>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: EXAM TRAPS & REVISION CHECKLIST
+         ========================================== -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6 &bull; Exam Hall Readiness &amp; Quick Recap</span>
+        <h2>Exam Hall Traps &amp; 15 High-Yield Revision Points</h2>
+        <p class="section-sub">Bulletproof your preparation with common circuit diagram traps and a quick revision checklist.</p>
+      </div>
+
+      <!-- Common Traps -->
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Hall Trap #1 &bull; Reversing Battery Symbols in Schematics:</strong><br>
+          <em>Trap:</em> Drawing the thick bar as positive and the thin line as negative.<br>
+          <em>Correction:</em> Always remember: <strong>Long &amp; Thin = Positive (+)</strong>; <strong>Short &amp; Thick = Negative (&ndash;)</strong>!
+        </div>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Hall Trap #2 &bull; Forgetting That LEDs Have Strict Polarity:</strong><br>
+          <em>Trap:</em> Drawing an LED connected backwards and showing it glowing.<br>
+          <em>Correction:</em> Unlike incandescent bulbs, an LED will NEVER glow if the negative terminal of the battery is connected to its longer lead!
+        </div>
+      </div>
+
+      <!-- 15 Points -->
+      <h3 class="topic-title"><i class="fa-solid fa-list-check"></i> 15 Lightning Revision Points for Quick Exam Recap</h3>
+      <div class="card">
+        <ol style="margin-left: 1.5rem; line-height: 1.85; font-size: 0.93rem;">
+          <li><strong>Electric Cell:</strong> Converts chemical energy into electrical energy; has a (+) metal cap and (&ndash;) flat zinc base.</li>
+          <li><strong>Battery Definition:</strong> A combination of two or more cells arranged in series (+ connected to &ndash;).</li>
+          <li><strong>Incandescent Lamp:</strong> Produces light when electric current heats a thin tungsten filament until it glows white-hot.</li>
+          <li><strong>Fused Bulb:</strong> Occurs when the filament inside snaps, creating a permanent gap that opens the circuit.</li>
+          <li><strong>LED Structure:</strong> Light Emitting Diode with two leads: longer is positive (anode), shorter is negative (cathode).</li>
+          <li><strong>Unidirectional Conduction:</strong> LEDs permit current to flow in one forward direction only; reversed connection prevents lighting.</li>
+          <li><strong>Electric Switch:</strong> A control device that deliberately closes (completes) or opens (breaks) a conducting path.</li>
+          <li><strong>Closed Circuit:</strong> Unbroken loop from (+) terminal back to (&ndash;) terminal; current flows and devices operate.</li>
+          <li><strong>Open Circuit:</strong> Any break or gap stops current flow immediately throughout the entire loop.</li>
+          <li><strong>Conventional Current Direction:</strong> Flows from positive (+) terminal to negative (&ndash;) terminal in external circuit wires.</li>
+          <li><strong>Circuit Diagram:</strong> A schematic representation of an electrical network using standardised scientific symbols.</li>
+          <li><strong>Conductor:</strong> A substance allowing electric current to pass through freely (e.g., copper, aluminium, iron, graphite).</li>
+          <li><strong>Insulator:</strong> A substance that strongly resists electric current flow (e.g., rubber, plastic, wood, glass).</li>
+          <li><strong>Graphite Anomaly:</strong> Although carbon/graphite is a non-metal, its free valence electrons allow it to conduct electricity.</li>
+          <li><strong>Electrical Safety:</strong> Electricians use tools with plastic handles and wear rubber gloves because rubber insulates against lethal electric shocks.</li>
+        </ol>
+      </div>
+
+      <!-- Checklist -->
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-circle-check"></i>
+        <div class="callout-text">
+          <strong>Self-Assessment Exam Checklist:</strong><br>
+          &check; Can you draw the symbols for an electric cell, battery, bulb, LED, open switch, and closed switch?<br>
+          &check; Can you explain how to connect two cells correctly to form a battery?<br>
+          &check; Can you differentiate between an incandescent bulb and an LED?<br>
+          &check; Can you explain why a broken filament in a series circuit stops all lamps from glowing?<br>
+          &check; Can you design a simple conduction tester and classify 5 common materials?
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Portal Footer -->
+  <footer>
+    <p style="font-weight: 700; color: #f8fafc; font-size: 1.05rem; margin-bottom: 0.5rem;">
+      Sujit Classes &bull; Empowering Young Minds Across Odisha
+    </p>
+    <p style="font-size: 0.88rem; margin-bottom: 1rem;">
+      Aligned with NEP 2020 &amp; NCF-SE 2023 &bull; NCERT Curiosity Science Series
+    </p>
+    <p style="font-size: 0.82rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Back to Main Portal</a> &bull; 
+      <a href="#sec1">Top of Page</a>
+    </p>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    // 1. Reading Progress Bar & Back to Top Controller
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    // 2. Teacher Audio Reader (TTS)
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+      }
+    }
+
+    // 3. Interactive Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Brilliant! You mastered all electrical circuits and symbols!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great effort! Review the detailed answers to lock in full marks!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good practice! Check circuit diagrams and review the rules!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
