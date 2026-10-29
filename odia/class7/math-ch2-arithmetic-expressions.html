@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୨: ପାଟିଗାଣିତିକ ରାଶିମାଳା (Arithmetic Expressions) — ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୨: ପାଟିଗାଣିତିକ ରାଶିମାଳା (Arithmetic Expressions)। BODMAS ନିୟମ, ବନ୍ଧନୀର ବ୍ୟବହାର, ରାଶି ବୃକ୍ଷ, ବଣ୍ଟନ ନିୟମ, NCERT ସମାଧାନ ଓ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.8;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #0284c7 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      opacity: 0.95;
+    }
+
+    .audio-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #ffffff;
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      border: 2px solid var(--primary-light);
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-2px);
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1040px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-num {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      background: var(--primary-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-card h2 {
+      font-size: 1.6rem;
+      color: var(--dark);
+      font-weight: 800;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-top: 0.3rem;
+    }
+
+    .topic-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin: 1.8rem 0 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Callout Boxes */
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.2rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      line-height: 1.7;
+    }
+
+    .callout-box i {
+      font-size: 1.3rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-def { background: #f0fdf4; border-left: 5px solid #16a34a; color: #166534; }
+    .callout-def i { color: #16a34a; }
+
+    .callout-act { background: #f0f9ff; border-left: 5px solid #0284c7; color: #075985; }
+    .callout-act i { color: #0284c7; }
+
+    .callout-warn { background: #fef2f2; border-left: 5px solid #ef4444; color: #991b1b; }
+    .callout-warn i { color: #ef4444; }
+
+    .callout-hack { background: #fefce8; border-left: 5px solid #f59e0b; color: #854d0e; }
+    .callout-hack i { color: #f59e0b; }
+
+    .callout-pyq { background: #faf5ff; border-left: 5px solid #8b5cf6; color: #581c87; }
+    .callout-pyq i { color: #8b5cf6; }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.2rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      font-weight: 700;
+      padding: 0.85rem 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table tr:hover { background: #f8fafc; }
+
+    /* SVG Diagrams */
+    .diagram-wrapper {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Details / Solution Box */
+    details.ans-box {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: #f8fafc;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--dark);
+    }
+
+    details.ans-box summary::after {
+      content: '\f107';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      transition: transform 0.2s;
+    }
+
+    details.ans-box[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ans-content {
+      padding: 1.2rem;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .solution-box {
+      background: #f8fafc;
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.2rem;
+      margin: 0.8rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .step-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .step-label {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+
+    .step-ans {
+      background: #dcfce7;
+      color: #15803d;
+      font-weight: 700;
+      padding: 0.5rem 0.8rem;
+      border-radius: 6px;
+      margin-top: 0.6rem;
+      display: inline-block;
+    }
+
+    /* Quiz Styles */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-question {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .quiz-opt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 0.85rem 1.2rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-family: inherit;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+    }
+
+    .quiz-opt-btn:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+      font-weight: 700;
+    }
+
+    .quiz-feedback {
+      display: none;
+      margin-top: 0.8rem;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    .quiz-feedback.correct-fb {
+      background: #ecfdf5;
+      color: #065f46;
+      border-left: 4px solid #10b981;
+    }
+
+    .quiz-feedback.incorrect-fb {
+      background: #fff1f2;
+      color: #9f1239;
+      border-left: 4px solid #f43f5e;
+    }
+
+    .quiz-score-board {
+      background: linear-gradient(135deg, #312e81, #0284c7);
+      color: white;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 1.7rem; }
+      .section-card { padding: 1.4rem; }
+      .top-nav { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Top Sticky Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html#odia-medium" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> ସୁଜିତ୍ କ୍ଲାସେସ୍
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">ମାନସିକ ମାନଚିତ୍ର</a>
+      <a href="#sec2" class="nav-link">ମୁଖ୍ୟ ଧାରଣା</a>
+      <a href="#sec3" class="nav-link">କାର୍ଯ୍ୟକଳାପ ସମାଧାନ</a>
+      <a href="#sec4" class="nav-link">NCERT ପ୍ରଶ୍ନୋତ୍ତର</a>
+      <a href="#sec5" class="nav-link">ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍</a>
+      <a href="#sec6" class="nav-link">ପରୀକ୍ଷା ଟିପ୍ସ</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-book-open"></i> NEP ୨୦୨୦ ପାଠ୍ୟକ୍ରମ &bull; ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ (ଗଣିତ ପ୍ରକାଶ)
+    </div>
+    <h1 class="hero-title">ଅଧ୍ୟାୟ ୨: ପାଟିଗାଣିତିକ ରାଶିମାଳା<br><span style="font-size: 1.5rem; opacity: 0.9;">(Arithmetic Expressions)</span></h1>
+    <p class="hero-sub">
+      ରାଶିମାଳାର ଗଠନ, କ୍ରିୟା ସମ୍ପାଦନ କ୍ରମ (BODMAS), ବନ୍ଧନୀର ଯାଦୁକରୀ ଶକ୍ତି, ରାଶି ବୃକ୍ଷ ଏବଂ ବଣ୍ଟନ ନିୟମର ପୂର୍ଣ୍ଣାଙ୍ଗ ମାଷ୍ଟର ନୋଟ୍ସ।
+    </p>
+    <button class="audio-btn" id="teacherAudioBtn" onclick="toggleTeacherAudio()">
+      <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+
+    <div class="breadcrumb">
+      <a href="../../index.html#odia-medium">ମୂଳ ପୃଷ୍ଠା</a> &raquo; 
+      <a href="../../index.html#odia-medium">ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ</a> &raquo; 
+      <span>ଅଧ୍ୟାୟ ୨: ପାଟିଗାଣିତିକ ରାଶିମାଳା</span>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1</span>
+        <h2>ଅଧ୍ୟାୟର ରୂପରେଖ ଓ ମାନସିକ ମାନଚିତ୍ର (Visual Mind Map)</h2>
+        <p class="section-sub">ପାଟିଗାଣିତିକ ପ୍ରକ୍ରିୟା, ବନ୍ଧନୀ ଓ ବଣ୍ଟନ ନିୟମକୁ ଗୋଟିଏ ସମଗ୍ର ଚିତ୍ରରେ ବୁଝନ୍ତୁ।</p>
+      </div>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <strong>ଶିକ୍ଷକଙ୍କ ପ୍ରବେଶ ବାର୍ତ୍ତା:</strong> ଯେପରି ଭାଷାରେ ଅକ୍ଷରଗୁଡ଼ିକ ମିଶି ଶବ୍ଦ ଏବଂ ବାକ୍ୟ ଗଠନ କରନ୍ତି, ଠିକ୍ ସେହିପରି ଗଣିତରେ ସଂଖ୍ୟା ଏବଂ ପ୍ରକ୍ରିୟା ଚିହ୍ନ (+, &minus;, &times;, &divide;) ମିଳିତ ହୋଇ <strong>ପାଟିଗାଣିତିକ ରାଶିମାଳା (Arithmetic Expressions)</strong> ଗଠନ କରନ୍ତି। ଏକ ରାଶିମାଳା ଗୋଟିଏ ଗାଣିତିକ କାହାଣୀ କହିଥାଏ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ଶିଖିବା କ୍ରିୟା ସମ୍ପାଦନର ନିୟମ (BODMAS), ବନ୍ଧନୀର ଗୁରୁତ୍ୱ ଏବଂ ଦୈନନ୍ଦିନ ଖର୍ଚ୍ଚ ଓ ସଞ୍ଚୟକୁ କିପରି ରାଶିମାଳା ମାଧ୍ୟମରେ ପ୍ରକାଶ କରାଯାଏ!
+        </div>
+      </div>
+
+      <!-- SVG Mind Map -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 880 420" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="mathGradCenter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#312e81"/>
+              <stop offset="100%" stop-color="#0284c7"/>
+            </linearGradient>
+            <linearGradient id="mathNode1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#059669"/>
+              <stop offset="100%" stop-color="#10b981"/>
+            </linearGradient>
+            <linearGradient id="mathNode2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d97706"/>
+              <stop offset="100%" stop-color="#f59e0b"/>
+            </linearGradient>
+            <linearGradient id="mathNode3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="100%" stop-color="#a855f7"/>
+            </linearGradient>
+            <linearGradient id="mathNode4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0891b2"/>
+              <stop offset="100%" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Branch curves -->
+          <path d="M 440 210 C 280 210, 180 100, 140 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 280 210, 180 320, 140 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 100, 740 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 320, 740 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+
+          <!-- Center Node -->
+          <circle cx="440" cy="210" r="82" fill="url(#mathGradCenter)" filter="drop-shadow(0 4px 10px rgba(49,46,129,0.35))"/>
+          <text x="440" y="200" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle">ପାଟିଗାଣିତିକ</text>
+          <text x="440" y="222" fill="#e0f2fe" font-size="14" font-weight="bold" text-anchor="middle">ରାଶିମାଳା</text>
+          <text x="440" y="242" fill="#bae6fd" font-size="11" text-anchor="middle">ନିୟମ ଓ ସଂରଚନା</text>
+
+          <!-- Branch 1: Anatomy -->
+          <rect x="20" y="55" width="250" height="90" rx="14" fill="url(#mathNode1)" filter="drop-shadow(0 3px 8px rgba(5,150,105,0.25))"/>
+          <text x="145" y="85" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୧. ରାଶିମାଳାର ଗଠନ</text>
+          <text x="145" y="108" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; ସଂଖ୍ୟା (Operands) ଓ ପ୍ରକ୍ରିୟା ଚିହ୍ନ</text>
+          <text x="145" y="126" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; ରାଶିମାଳା ବନାମ ସମୀକରଣ</text>
+
+          <!-- Branch 2: Hierarchy of Operations -->
+          <rect x="20" y="275" width="250" height="90" rx="14" fill="url(#mathNode2)" filter="drop-shadow(0 3px 8px rgba(217,119,6,0.25))"/>
+          <text x="145" y="305" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୨. କ୍ରିୟା ସମ୍ପାଦନ କ୍ରମ</text>
+          <text x="145" y="328" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; ପ୍ରଥମେ ବନ୍ଧନୀ: (), {}, []</text>
+          <text x="145" y="346" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; ଗୁଣନ/ହରଣ ପରେ ଯୋଗ/ବିୟୋଗ</text>
+
+          <!-- Branch 3: Distributive Law -->
+          <rect x="615" y="55" width="250" height="90" rx="14" fill="url(#mathNode3)" filter="drop-shadow(0 3px 8px rgba(124,58,237,0.25))"/>
+          <text x="740" y="85" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୩. ବଣ୍ଟନ ନିୟମ</text>
+          <text x="740" y="108" fill="#ede9fe" font-size="12" text-anchor="middle">&bull; a &times; (b + c) = ab + ac</text>
+          <text x="740" y="126" fill="#ede9fe" font-size="12" text-anchor="middle">&bull; ଦ୍ରୁତ ମାନସାଙ୍କ (ଯଥା: ୯୭ &times; ୨୫)</text>
+
+          <!-- Branch 4: Real-World Modeling -->
+          <rect x="615" y="275" width="250" height="90" rx="14" fill="url(#mathNode4)" filter="drop-shadow(0 3px 8px rgba(8,145,178,0.25))"/>
+          <text x="740" y="305" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୪. ବ୍ୟବହାରିକ କାହାଣୀ ମଡେଲ୍</text>
+          <text x="740" y="328" fill="#cffafe" font-size="12" text-anchor="middle">&bull; ଶବ୍ଦରୁ ଗାଣିତିକ ରାଶିମାଳା ରୂପାନ୍ତର</text>
+          <text x="740" y="346" fill="#cffafe" font-size="12" text-anchor="middle">&bull; ବିନା ଗଣନାରେ ଗଠନ ତୁଳନା</text>
+        </svg>
+        <p class="diagram-caption">ଚିତ୍ର ୨.୧: ପାଟିଗାଣିତିକ ରାଶିମାଳାର ମୁଖ୍ୟ ସଂରଚନା ଓ ନିୟମାବଳୀ</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2</span>
+        <h2>ଗଭୀର ଧାରଣା ଓ ଶିକ୍ଷକଙ୍କ ସରଳ ବିଶ୍ଳେଷଣ (Core Concepts)</h2>
+        <p class="section-sub">ରାଶିମାଳା, ରାଶି ବୃକ୍ଷ, BODMAS କ୍ରମ ଓ ବଣ୍ଟନ ନିୟମର ପଦ୍ଧତିଗତ ଅଧ୍ୟୟନ।</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-shapes"></i> ୨.୧ ପାଟିଗାଣିତିକ ରାଶିମାଳା କ'ଣ? (What is an Arithmetic Expression?)</h3>
+      <p>ସଂଖ୍ୟାମାନଙ୍କୁ ବିଭିନ୍ନ ପ୍ରକ୍ରିୟା ଚିହ୍ନ (+, &minus;, &times;, &divide;) ଦ୍ୱାରା ସଂଯୋଗ କରି ଗଠନ କରାଯାଇଥିବା ଗାଣିତିକ ପଦାବଳୀକୁ <strong>ପାଟିଗାଣିତିକ ରାଶିମାଳା (Arithmetic Expression)</strong> କୁହାଯାଏ। ପ୍ରତ୍ୟେକ ରାଶିମାଳାର ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ <strong>ମାନ (Evaluated Value)</strong> ଥାଏ:</p>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+        <li>ରାଶିମାଳା: <code>୧୩ + ୨</code> &rArr; ମାନ: <strong>୧୫</strong></li>
+        <li>ରାଶିମାଳା: <code>୨୦ &minus; ୪</code> &rArr; ମାନ: <strong>୧୬</strong></li>
+        <li>ରାଶିମାଳା: <code>୧୨ &times; ୫</code> &rArr; ମାନ: <strong>୬୦</strong></li>
+        <li>ରାଶିମାଳା: <code>୧୮ &divide; ୩</code> &rArr; ମାନ: <strong>୬</strong></li>
+      </ul>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-scale-balanced"></i>
+        <div>
+          <strong>ରାଶିମାଳା ବନାମ ସମୀକରଣ (Expression vs. Equation):</strong><br>
+          &bull; <code>୧୩ + ୨</code> ହେଉଛି ଏକ <strong>ରାଶିମାଳା (Expression)</strong> — ଏଥିରେ କୌଣସି ସମାନ ଚିହ୍ନ (=) ନଥାଏ।<br>
+          &bull; <code>୧୩ + ୨ = ୧୫</code> ହେଉଛି ଏକ <strong>ସମୀକରଣ (Equation)</strong> — ଏହା ଦୁଇଟି ପାର୍ଶ୍ୱ ମଧ୍ୟରେ ସମାନତା ଦର୍ଶାଉଥିବା ପୂର୍ଣ୍ଣ ଗାଣିତିକ ବାକ୍ୟ।
+        </div>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-layer-group"></i> ୨.୨ କ୍ରିୟା ସମ୍ପାଦନ କ୍ରମ କାହିଁକି ଆବଶ୍ୟକ? (Why Order of Operations Matters)</h3>
+      <p>ଗୋଟିଏ ରାଶିମାଳାକୁ ଲକ୍ଷ୍ୟ କରନ୍ତୁ: <code>୫ + ୩ &times; ୨</code>। ଏହାର ମୂଲ୍ୟ କେତେ ହେବ?</p>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+        <li>ଯଦି ପ୍ରଥମେ ଯୋଗ କରିବା: (୫ + ୩) &times; ୨ = ୮ &times; ୨ = <strong>୧୬</strong>।</li>
+        <li>ଯଦି ପ୍ରଥମେ ଗୁଣନ କରିବା: ୫ + (୩ &times; ୨) = ୫ + ୬ = <strong>୧୧</strong>।</li>
+      </ul>
+      <p>ଗୋଟିଏ ପ୍ରଶ୍ନର ଦୁଇଟି ଭିନ୍ନ ଭିନ୍ନ ଉତ୍ତର ଆସିବା ଗଣିତରେ ଗ୍ରହଣୀୟ ନୁହେଁ। ଏହି ଦ୍ୱନ୍ଦ୍ୱକୁ ଦୂର କରିବା ପାଇଁ ସମଗ୍ର ବିଶ୍ୱର ଗଣିତଜ୍ଞମାନେ ଏକ ସର୍ବମାନ୍ୟ ନିୟମ ସ୍ଥିର କରିଛନ୍ତି, ଯାହାକୁ <strong>BODMAS</strong> ବା <strong>କ୍ରିୟା ପ୍ରାଥମିକତା କ୍ରମ</strong> କୁହାଯାଏ:</p>
+
+      <!-- SVG Pyramid for BODMAS -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 600 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Tier 1: Brackets -->
+          <polygon points="300,20 220,80 380,80" fill="#ef4444"/>
+          <text x="300" y="55" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">୧. ବନ୍ଧନୀ (Brackets): (), {}, []</text>
+
+          <!-- Tier 2: Multiplication & Division -->
+          <polygon points="220,85 380,85 460,150 140,150" fill="#3b82f6"/>
+          <text x="300" y="125" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">୨. ହରଣ ଓ ଗୁଣନ (&divide;, &times;) [ବାମରୁ ଡାହାଣକୁ]</text>
+
+          <!-- Tier 3: Addition & Subtraction -->
+          <polygon points="140,155 460,155 540,225 60,225" fill="#10b981"/>
+          <text x="300" y="195" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">୩. ଯୋଗ ଓ ବିୟୋଗ (+, &minus;) [ବାମରୁ ଡାହାଣକୁ]</text>
+        </svg>
+        <p class="diagram-caption">ଚିତ୍ର ୨.୨: କ୍ରିୟା ସମ୍ପାଦନ କ୍ରମର ପିରାମିଡ୍ (ଉପର ସ୍ତରର କାର୍ଯ୍ୟ ସର୍ବାଗ୍ରେ ହୁଏ)</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-code-fork"></i> ୨.୩ ରାଶି ବୃକ୍ଷ (Expression Trees)</h3>
+      <p>ରାଶି ବୃକ୍ଷ ଏକ ଚିତ୍ରାତ୍ମକ ବୃକ୍ଷ, ଯାହା ସ୍ପଷ୍ଟ ଭାବେ ଦର୍ଶାଏ କେଉଁ କ୍ରିୟା ପ୍ରଥମେ ସମ୍ପାଦିତ ହେବ। ସଂଖ୍ୟାଗୁଡ଼ିକ ହେଉଛନ୍ତି ପତ୍ର (Leaves) ଏବଂ ପ୍ରକ୍ରିୟା ଚିହ୍ନଗୁଡ଼ିକ ହେଉଛନ୍ତି ଶାଖା (Branches):</p>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 500 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Tree for: 5 + (3 * 2) -->
+          <circle cx="250" cy="40" r="22" fill="#0284c7"/>
+          <text x="250" y="47" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">+</text>
+
+          <line x1="235" y1="58" x2="150" y2="120" stroke="#64748b" stroke-width="2"/>
+          <line x1="265" y1="58" x2="350" y2="120" stroke="#64748b" stroke-width="2"/>
+
+          <!-- Left leaf: 5 -->
+          <circle cx="150" cy="135" r="22" fill="#10b981"/>
+          <text x="150" y="142" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">୫</text>
+
+          <!-- Right branch: * -->
+          <circle cx="350" cy="135" r="22" fill="#7c3aed"/>
+          <text x="350" y="142" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">&times;</text>
+
+          <line x1="335" y1="150" x2="290" y2="185" stroke="#64748b" stroke-width="2"/>
+          <line x1="365" y1="150" x2="410" y2="185" stroke="#64748b" stroke-width="2"/>
+
+          <circle cx="285" cy="188" r="16" fill="#f59e0b"/>
+          <text x="285" y="193" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">୩</text>
+
+          <circle cx="415" cy="188" r="16" fill="#f59e0b"/>
+          <text x="415" y="193" font-size="13" font-weight="bold" fill="#ffffff" text-anchor="middle">୨</text>
+        </svg>
+        <p class="diagram-caption">ଚିତ୍ର ୨.୩: ୫ + ୩ &times; ୨ = ୧୧ ପାଇଁ ରାଶି ବୃକ୍ଷ। ତଳ ଶାଖାର ଗୁଣନ (୩ &times; ୨ = ୬) ପ୍ରଥମେ ସମ୍ପାଦିତ ହୁଏ।</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-arrows-split-up-and-left"></i> ୨.୪ ବଣ୍ଟନ ନିୟମ (The Distributive Law)</h3>
+      <p>ଗୁଣନ ପ୍ରକ୍ରିୟା ଯୋଗ ଓ ବିୟୋଗ ଉପରେ ବଣ୍ଟିତ ହୋଇଥାଏ:</p>
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <div>
+          &bull; <strong>ଯୋଗ ଉପରେ ଗୁଣନର ବଣ୍ଟନ ନିୟମ:</strong> a &times; (b + c) = a &times; b + a &times; c<br>
+          &bull; <strong>ବିୟୋଗ ଉପରେ ଗୁଣନର ବଣ୍ଟନ ନିୟମ:</strong> a &times; (b &minus; c) = a &times; b &minus; a &times; c<br><br>
+          <strong>ଦ୍ରୁତ ମାନସାଙ୍କ ପ୍ରୟୋଗ:</strong><br>
+          &bull; <strong>୯୭ &times; ୨୫:</strong> (୧୦୦ &minus; ୩) &times; ୨୫ = ୧୦୦ &times; ୨୫ &minus; ୩ &times; ୨୫ = ୨୫୦୦ &minus; ୭୫ = <strong>୨,୪୨୫</strong>।<br>
+          &bull; <strong>୧୦୪ &times; ୨୫:</strong> (୧୦୦ + ୪) &times; ୨୫ = ୧୦୦ &times; ୨୫ + ୪ &times; ୨୫ = ୨୫୦୦ + ୧୦୦ = <strong>୨,୬୦୦</strong>।
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3</span>
+        <h2>ପାଠ୍ୟପୁସ୍ତକ ଅନ୍ତର୍ଗତ କାର୍ଯ୍ୟକଳାପର ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ (In-Text Activities)</h2>
+        <p class="section-sub">ସମସ୍ତ ଶ୍ରେଣୀ କାର୍ଯ୍ୟ, ଶୂନ୍ୟସ୍ଥାନ ପୂରଣ ଓ କୌତୁକିଆ ସମସ୍ୟାର ସମାଧାନ।</p>
+      </div>
+
+      <h4 style="color: var(--primary-dark); font-weight: 700; margin-bottom: 0.8rem;">କାର୍ଯ୍ୟକଳାପ ୧: ଶୂନ୍ୟସ୍ଥାନ ପୂରଣ କରି ରାଶିମାଳା ସମାନ କର (ପୃଷ୍ଠା ୨)</h4>
+      <div class="solution-box">
+        <div class="step-item"><strong>(କ) ୧୩ + ୪ = ____ + ୬</strong><br>
+        ବାମ ପାର୍ଶ୍ୱ = ୧୭। ଡାହାଣ ପାର୍ଶ୍ୱ = x + ୬ &rArr; x = ୧୭ &minus; ୬ = <strong>୧୧</strong>। &check; ୧୩ + ୪ = <strong>୧୧</strong> + ୬।</div>
+
+        <div class="step-item"><strong>(ଖ) ୨୨ + ____ = ୬ &times; ୫</strong><br>
+        ଡାହାଣ ପାର୍ଶ୍ୱ = ୩୦। ବାମ ପାର୍ଶ୍ୱ = ୨୨ + x &rArr; x = ୩୦ &minus; ୨୨ = <strong>୮</strong>। &check; ୨୨ + <strong>୮</strong> = ୬ &times; ୫।</div>
+
+        <div class="step-item"><strong>(ଗ) ୮ &times; ____ = ୬୪ &divide; ୨</strong><br>
+        ଡାହାଣ ପାର୍ଶ୍ୱ = ୩୨। ବାମ ପାର୍ଶ୍ୱ = ୮ &times; x &rArr; x = ୩୨ &divide; ୮ = <strong>୪</strong>। &check; ୮ &times; <strong>୪</strong> = ୬୪ &divide; ୨।</div>
+
+        <div class="step-item"><strong>(ଘ) ୩୪ &minus; ____ = ୨୫</strong><br>
+        ୩୪ &minus; x = ୨୫ &rArr; x = ୩୪ &minus; ୨୫ = <strong>୯</strong>। &check; ୩୪ &minus; <strong>୯</strong> = ୨୫।</div>
+      </div>
+
+      <h4 style="color: var(--primary-dark); font-weight: 700; margin: 1.5rem 0 0.8rem;">କାର୍ଯ୍ୟକଳାପ ୨: ଉର୍ଦ୍ଧ୍ୱକ୍ରମରେ ସଜାଅ (Ascending Order - ପୃଷ୍ଠା ୨)</h4>
+      <div class="solution-box">
+        <p><strong>ପ୍ରଦତ୍ତ ରାଶିମାଳା:</strong> (କ) ୬୭ &minus; ୧୯, (ଖ) ୬୭ &minus; ୨୦, (ଗ) ୩୫ + ୨୫, (ଘ) ୫ &times; ୧୧, (ଙ) ୧୨୦ &divide; ୩।</p>
+        <div class="step-item"><span class="step-label">ପ୍ରତ୍ୟେକର ମାନ ନିର୍ଣ୍ଣୟ:</span><br>
+        &bull; ୬୭ &minus; ୧୯ = ୪୮<br>
+        &bull; ୬୭ &minus; ୨୦ = ୪୭<br>
+        &bull; ୩୫ + ୨୫ = ୬୦<br>
+        &bull; ୫ &times; ୧୧ = ୫୫<br>
+        &bull; ୧୨୦ &divide; ୩ = ୪୦</div>
+        <div class="step-ans">&check; ଉର୍ଦ୍ଧ୍ୱକ୍ରମ: <strong>୧୨୦ &divide; ୩ (୪୦) &lt; ୬୭ &minus; ୨୦ (୪୭) &lt; ୬୭ &minus; ୧୯ (୪୮) &lt; ୫ &times; ୧୧ (୫୫) &lt; ୩୫ + ୨୫ (୬୦)</strong>।</div>
+      </div>
+
+      <h4 style="color: var(--primary-dark); font-weight: 700; margin: 1.5rem 0 0.8rem;">କାର୍ଯ୍ୟକଳାପ ୩: ଜଣାଶୁଣା ଶାମୁକା ସମସ୍ୟା (The Snail Problem - ପୃଷ୍ଠା ୨୦)</h4>
+      <div class="solution-box">
+        <p><strong>ପ୍ରଶ୍ନ:</strong> ଗୋଟିଏ ଶାମୁକା ୧୦ ସେମି ଉଚ୍ଚ ଏକ ଖୁଣ୍ଟ ଉପରକୁ ଚଢୁଛି। ଦିନବେଳା ସେ ୩ ସେମି ଉପରକୁ ଚଢ଼େ, କିନ୍ତୁ ରାତିରେ ଶୋଇବା ବେଳେ ୨ ସେମି ତଳକୁ ଖସିଯାଏ। ଖୁଣ୍ଟର ଶୀର୍ଷରେ ପହଞ୍ଚିବା ପାଇଁ ଶାମୁକାଟିକୁ କେତେ ଦିନ ଲାଗିବ?</p>
+        <div class="step-item"><span class="step-label">ଶିକ୍ଷକଙ୍କ ସତର୍କତା:</span> ହଠାତ୍ '୧୦ ଦିନ' କହିବେ ନାହିଁ! ପ୍ରତିଦିନର ଗତିବିଧିକୁ କ୍ରମାନ୍ୱୟରେ ଦେଖନ୍ତୁ:<br>
+        &bull; <strong>ଦିନ ୧:</strong> ଦିନରେ ୩ ସେମି, ରାତିରେ ଖସି ୧ ସେମିରେ ପହଞ୍ଚେ।<br>
+        &bull; <strong>ଦିନ ୨:</strong> ୧ ରୁ ଆରମ୍ଭ, ଦିନରେ ୪ ସେମି, ରାତିରେ ଖସି ୨ ସେମି।<br>
+        &bull; <strong>ଦିନ ୩:</strong> ୨ ରୁ ଆରମ୍ଭ, ଦିନରେ ୫ ସେମି, ରାତିରେ ଖସି ୩ ସେମି।<br>
+        &bull; <strong>ଦିନ ୪:</strong> ୩ ରୁ ଆରମ୍ଭ, ଦିନରେ ୬ ସେମି, ରାତିରେ ଖସି ୪ ସେମି।<br>
+        &bull; <strong>ଦିନ ୫:</strong> ୪ ରୁ ଆରମ୍ଭ, ଦିନରେ ୭ ସେମି, ରାତିରେ ଖସି ୫ ସେମି।<br>
+        &bull; <strong>ଦିନ ୬:</strong> ୫ ରୁ ଆରମ୍ଭ, ଦିନରେ ୮ ସେମି, ରାତିରେ ଖସି ୬ ସେମି।<br>
+        &bull; <strong>ଦିନ ୭:</strong> ୬ ରୁ ଆରମ୍ଭ, ଦିନରେ ୯ ସେମି, ରାତିରେ ଖସି ୭ ସେମି।<br>
+        &bull; <strong>ଦିନ ୮ (ଦିବା ଭାଗ):</strong> ୭ ସେମି ରୁ ଆରମ୍ଭ କରି ଦିନରେ ୩ ସେମି ଚଢ଼ିଲା &rArr; <strong>୭ + ୩ = ୧୦ ସେମି! ସେ ଶୀର୍ଷରେ ପହଞ୍ଚିଗଲା!</strong> ଶୀର୍ଷରେ ପହଞ୍ଚିସାରିବା ପରେ ସେ ଆଉ ତଳକୁ ଖସିବାର ପ୍ରଶ୍ନ ଉଠୁନାହିଁ!</div>
+        <div class="step-ans">&check; ଉତ୍ତର: ଶାମୁକାଟି <strong>୮ମ ଦିନରେ</strong> ଖୁଣ୍ଟର ଶୀର୍ଷରେ ପହଞ୍ଚିବ!</div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4</span>
+        <h2>୧୦୦% ସମ୍ପୂର୍ଣ୍ଣ NCERT ଅଭ୍ୟାସ ପ୍ରଶ୍ନାବଳୀ ସମାଧାନ (Figure it Out)</h2>
+        <p class="section-sub">ପାଠ୍ୟପୁସ୍ତକ ଅନୁଶୀଳନୀର ସମସ୍ତ ଗାଣିତିକ ପ୍ରଶ୍ନର ପୂର୍ଣ୍ଣ ସମାଧାନ।</p>
+      </div>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>ପ୍ରଶ୍ନ ୧: ବିନା ଗଣନାରେ ରାଶିମାଳାର ତୁଳନା କର (&lsquo;&lt;&rsquo;, &lsquo;&gt;&rsquo; ବା &lsquo;=&rsquo;) (ପୃଷ୍ଠା ୧୯)</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-item"><strong>(କ) (୮ &minus; ୩) &times; ୨୯ _____ (୩ &minus; ୮) &times; ୨୯:</strong><br>
+            ଯୁକ୍ତି: (୮ &minus; ୩) = +୫ (ଧନାତ୍ମକ), କିନ୍ତୁ (୩ &minus; ୮) = &minus;୫ (ଋଣାତ୍ମକ)। ଧନାତ୍ମକ ସଂଖ୍ୟା ଗୁଣନଫଳ ସର୍ବଦା ଋଣାତ୍ମକ ଠାରୁ ବଡ଼।<br>
+            &rArr; <strong>(୮ &minus; ୩) &times; ୨୯ &gt; (୩ &minus; ୮) &times; ୨୯</strong>।</div>
+
+            <div class="step-item"><strong>(ଖ) ୧୫ + ୯ &times; ୧୮ _____ (୧୫ + ୯) &times; ୧୮:</strong><br>
+            ଯୁକ୍ତି: ବାମ ପାର୍ଶ୍ୱରେ କେବଳ ୯ ସହିତ ୧୮ ଗୁଣନ ହୋଇ ୧୫ ଯୋଗ ହେଉଛି। ଡାହାଣ ପାର୍ଶ୍ୱରେ ବଣ୍ଟନ ନିୟମ ଅନୁସାରେ ୧୫ &times; ୧୮ + ୯ &times; ୧୮ ଅଛି। ତେଣୁ ଡାହାଣ ପାର୍ଶ୍ୱ ସ୍ପଷ୍ଟ ଭାବେ ବଡ଼।<br>
+            &rArr; <strong>୧୫ + ୯ &times; ୧୮ &lt; (୧୫ + ୯) &times; ୧୮</strong>।</div>
+
+            <div class="step-item"><strong>(ଗ) ୨୩ &times; (୧୭ &minus; ୯) _____ ୨୩ &times; ୧୭ + ୨୩ &times; ୯:</strong><br>
+            ଯୁକ୍ତି: ବାମ ପାର୍ଶ୍ୱ = ୨୩ &times; ୮। ଡାହାଣ ପାର୍ଶ୍ୱ = ୨୩ &times; (୧୭ + ୯) = ୨୩ &times; ୨୬।<br>
+            &rArr; <strong>୨୩ &times; (୧୭ &minus; ୯) &lt; ୨୩ &times; ୧୭ + ୨୩ &times; ୯</strong>।</div>
+
+            <div class="step-item"><strong>(ଘ) (୩୪ &minus; ୨୮) &times; ୪୨ _____ ୩୪ &times; ୪୨ &minus; ୨୮ &times; ୪୨:</strong><br>
+            ଯୁକ୍ତି: ଏହା ବିୟୋଗ ଉପରେ ଗୁଣନର ପ୍ରତ୍ୟକ୍ଷ ବଣ୍ଟନ ନିୟମ। ଉଭୟ ପାର୍ଶ୍ୱ ସମ୍ପୂର୍ଣ୍ଣ ସମାନ!<br>
+            &rArr; <strong>(୩୪ &minus; ୨୮) &times; ୪୨ = ୩୪ &times; ୪୨ &minus; ୨୮ &times; ୪୨</strong>।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>ପ୍ରଶ୍ନ ୨: ମେଲଭିନଙ୍କ ଗଳ୍ପ ପଢ଼ିବା ସମସ୍ୟା (ପୃଷ୍ଠା ୨୦)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ:</strong> ମେଲଭିନ୍ ମଙ୍ଗଳବାର ଏବଂ ଶନିବାର ବ୍ୟତୀତ ପ୍ରତ୍ୟେକ ଦିନ ୨ ପୃଷ୍ଠାର ଗୋଟିଏ ଗଳ୍ପ ପଢ଼ନ୍ତି। ୮ ସପ୍ତାହରେ ସେ ସମୁଦାୟ କେତୋଟି ଗଳ୍ପ ପଢ଼ି ଶେଷ କରିବେ?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">ପଦକ୍ଷେପ ୧:</span> ସପ୍ତାହକୁ ୭ ଦିନ। ମଙ୍ଗଳବାର ଓ ଶନିବାର (୨ ଦିନ) ସେ ପଢ଼ନ୍ତି ନାହିଁ।</div>
+            <div class="step-item"><span class="step-label">ପଦକ୍ଷେପ ୨:</span> ସପ୍ତାହରେ ପଢ଼ିବା ଦିନ ସଂଖ୍ୟା = ୭ &minus; ୨ = <strong>୫ ଦିନ</strong>।</div>
+            <div class="step-item"><span class="step-label">ପଦକ୍ଷେପ ୩:</span> ପ୍ରତି ପଢ଼ିବା ଦିନ ୧ ଟି ଗଳ୍ପ, ଅର୍ଥାତ୍ ସପ୍ତାହରେ ୫ ଟି ଗଳ୍ପ।</div>
+            <div class="step-item"><span class="step-label">ପଦକ୍ଷେପ ୪:</span> ୮ ସପ୍ତାହରେ ମୋଟ ଗଳ୍ପ = ୮ &times; (୭ &minus; ୨) &times; ୧ = ୮ &times; ୫ = <strong>୪୦ ଟି ଗଳ୍ପ</strong>।</div>
+            <div class="step-ans">&check; ଉତ୍ତର: ମେଲଭିନ୍ ୮ ସପ୍ତାହରେ <strong>୪୦ ଟି ଗଳ୍ପ</strong> ପଢ଼ିବେ। (ରାଶିମାଳା: <code>୮ &times; (୭ &minus; ୨)</code>)।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>ପ୍ରଶ୍ନ ୩: ବିନୁଙ୍କ ବାର୍ଷିକ ସଞ୍ଚୟ ଗଣନା (ପୃଷ୍ଠା ୨୦)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ:</strong> ବିନୁ ମାସିକ ₹୨୦,୦୦୦ ରୋଜଗାର କରନ୍ତି। ପ୍ରତି ମାସରେ ସେ ଘରଭଡ଼ା ବାବଦରେ ₹୫,୦୦୦, ଖାଦ୍ୟ ବାବଦରେ ₹୫,୦୦୦ ଏବଂ ଅନ୍ୟାନ୍ୟ ଖର୍ଚ୍ଚ ବାବଦରେ ₹୨,୦୦୦ ଖର୍ଚ୍ଚ କରନ୍ତି। ଗୋଟିଏ ବର୍ଷ ଶେଷରେ ବିନୁ କେତେ ଟଙ୍କା ସଞ୍ଚୟ କରିବେ?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">ମାସିକ ଆୟ:</span> ₹୨୦,୦୦୦</div>
+            <div class="step-item"><span class="step-label">ମାସିକ ମୋଟ ଖର୍ଚ୍ଚ:</span> ₹୫,୦୦୦ + ₹୫,୦୦୦ + ₹୨,୦୦୦ = ₹୧୨,୦୦୦</div>
+            <div class="step-item"><span class="step-label">ମାସିକ ସଞ୍ଚୟ:</span> ₹୨୦,୦୦୦ &minus; ₹୧୨,୦୦୦ = ₹୮,୦୦୦</div>
+            <div class="step-item"><span class="step-label">ବାର୍ଷିକ ସଞ୍ଚୟ (୧୨ ମାସ):</span> ୧୨ &times; [୨୦,୦୦୦ &minus; (୫,୦୦୦ + ୫,୦୦୦ + ୨,୦୦୦)] = ୧୨ &times; ୮,୦୦୦ = <strong>₹୯୬,୦୦୦</strong>।</div>
+            <div class="step-ans">&check; ଉତ୍ତର: ବିନୁ ବର୍ଷ ଶେଷରେ <strong>₹୯୬,୦୦୦</strong> ସଞ୍ଚୟ କରିବେ।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5</span>
+        <h2>ଇଣ୍ଟରାକ୍ଟିଭ୍ ପରୀକ୍ଷା ପ୍ରଶ୍ନୋତ୍ତର ବ୍ୟାଙ୍କ ଓ କୁଇଜ୍ (Interactive Quiz Engine)</h2>
+        <p class="section-sub">ସଠିକ୍ ଉତ୍ତର ବାଛି ତୁରନ୍ତ ଫଳାଫଳ ଓ ବ୍ୟାଖ୍ୟା ଦେଖନ୍ତୁ!</p>
+      </div>
+
+      <div class="quiz-score-board" id="scoreBoard">
+        <span>🎯 ଆପଣଙ୍କ ସ୍କୋର: <span id="quizScore">୦</span> / ୫ ସଠିକ୍</span>
+        <span id="quizBadge" style="font-size: 0.9rem; opacity: 0.9;">ସମସ୍ତ ପ୍ରଶ୍ନର ଉତ୍ତର ଦିଅନ୍ତୁ!</span>
+      </div>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card" id="q1">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୧: ୧୮ &minus; ୩ &times; ୪ + ୨ ରାଶିମାଳାର ମାନ କେତେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 0, false, 'ଭୁଲ! ବାମରୁ ଡାହାଣକୁ ବିନା ନିୟମରେ ଗଲେ ୬୨ ଆସେ, ଯାହା ଭୁଲ।')">
+            <span>(A) ୬୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 1, true, 'ନିର୍ଭୁଲ! ପ୍ରଥମେ ଗୁଣନ: ୩ &times; ୪ = ୧୨। ତା’ପରେ ୧୮ &minus; ୧୨ = ୬ ଏବଂ ୬ + ୨ = ୮।')">
+            <span>(B) ୮</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 2, false, 'ଭୁଲ! ପୁନର୍ବାର ଯାଞ୍ଚ କରନ୍ତୁ।')">
+            <span>(C) ୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 3, false, 'ଭୁଲ! ୧୨ ନୁହେଁ।')">
+            <span>(D) ୧୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="q1-fb"></div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card" id="q2">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୨: ୨୫ &times; ୧୦୪ କୁ (୨୫ &times; ୧୦୦) + (୨୫ &times; ୪) ଭାବେ ଲେଖିବା କେଉଁ ଗାଣିତିକ ନିୟମ ଅଟେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 0, false, 'ଭୁଲ! କ୍ରମବିନିମୟ ନିୟମ ହେଉଛି a &times; b = b &times; a।')">
+            <span>(A) କ୍ରମବିନିମୟ ନିୟମ (Commutative Property)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 1, false, 'ଭୁଲ! ସହଯୋଗୀ ନିୟମ ହେଉଛି a &times; (b &times; c) = (a &times; b) &times; c।')">
+            <span>(B) ସହଯୋଗୀ ନିୟମ (Associative Property)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 2, true, 'ଏକଦମ୍ ସଠିକ୍! ଏହା ହେଉଛି ଯୋଗ ଉପରେ ଗୁଣନର ବଣ୍ଟନ ନିୟମ (Distributive Property)।')">
+            <span>(C) ବଣ୍ଟନ ନିୟମ (Distributive Property)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 3, false, 'ଭୁଲ! ସମ୍ବୃତି ନିୟମ ନୁହେଁ।')">
+            <span>(D) ସମ୍ବୃତି ନିୟମ (Closure Property)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="q2-fb"></div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card" id="q3">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୩: ସରଳ କର: [୩୦ &minus; {୧୨ &minus; (୮ &minus; ୩)}]</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 0, true, 'ଚମତ୍କାର! ପ୍ରଥମେ (୮&minus;୩) = ୫। ପରେ {୧୨&minus;୫} = ୭। ଶେଷରେ ୩୦&minus;୭ = ୨୩।')">
+            <span>(A) ୨୩</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 1, false, 'ଭୁଲ! ବନ୍ଧନୀ ଫିଟାଇବାର କ୍ରମ ଯାଞ୍ଚ କରନ୍ତୁ।')">
+            <span>(B) ୨୧</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 2, false, 'ଭୁଲ! ୧୫ ନୁହେଁ।')">
+            <span>(C) ୧୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 3, false, 'ଭୁଲ! ୨୭ ନୁହେଁ।')">
+            <span>(D) ୨୭</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="q3-fb"></div>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="quiz-card" id="q4">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୪: "୮ ଏବଂ ୩ ର ଗୁଣନଫଳରୁ ୫ ବିୟୋଗ" — ଏହି କଥନର ସଠିକ୍ ଗାଣିତିକ ରାଶିମାଳା କ'ଣ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 0, false, 'ଭୁଲ! ଏହାର ଅର୍ଥ ୫ ରୁ ୮ &times; ୩ ବିୟୋଗ।')">
+            <span>(A) ୫ &minus; ୮ &times; ୩</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 1, false, 'ଭୁଲ! ଏଠାରେ ୩ ରୁ ୫ ବିୟୋଗ ହୋଇଛି।')">
+            <span>(B) ୮ &times; (୩ &minus; ୫)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 2, false, 'ଭୁଲ! ୮ ରୁ ୫ ବିୟୋଗ ନୁହେଁ।')">
+            <span>(C) (୮ &minus; ୫) &times; ୩</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 3, true, 'ସଠିକ୍ ଉତ୍ତର! ୮ ଓ ୩ ର ଗୁଣନଫଳ (୮ &times; ୩) ରୁ ୫ ବିୟୋଗ ଅର୍ଥାତ୍ ୮ &times; ୩ &minus; ୫।')">
+            <span>(D) ୮ &times; ୩ &minus; ୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="q4-fb"></div>
+      </div>
+
+      <!-- Quiz 5 -->
+      <div class="quiz-card" id="q5">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୫: ରାଶିମାଳା ୧୦ &minus; ୨ &times; ୩ ରେ କାହିଁକି ପ୍ରଥମେ ଗୁଣନ କରାଯାଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 0, false, 'ଭୁଲ! ଗୁଣନ ସଂଖ୍ୟାଟି ଡାହାଣ ପାଖରେ ଥିଲେ ବି କାରଣ ତାହା ନୁହେଁ।')">
+            <span>(A) କାରଣ ଗୁଣନ ଡାହାଣ ପାଖରେ ଅଛି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 1, true, 'ଏକଦମ୍ ସଠିକ୍! BODMAS ନିୟମ ଅନୁସାରେ ଗୁଣନର ପ୍ରାଥମିକତା ବିୟୋଗ ଅପେକ୍ଷା ଅଧିକ।')">
+            <span>(B) BODMAS କ୍ରମରେ ଗୁଣନର ପ୍ରାଥମିକତା ବିୟୋଗ ଠାରୁ ଉଚ୍ଚ</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 2, false, 'ଭୁଲ! ଉତ୍ତର ଋଣାତ୍ମକ ହେବାର ଏଥିରେ କୌଣସି ଭୂମିକା ନାହିଁ।')">
+            <span>(C) କାରଣ ୧୦ ରୁ ବିୟୋଗ କଲେ ଉତ୍ତର ଋଣାତ୍ମକ ହୁଏ</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 3, false, 'ଭୁଲ! ଯେକୌଣସି କ୍ରମରେ କରିହେବ ନାହିଁ।')">
+            <span>(D) କୌଣସି ବି କ୍ରମରେ କଲେ ଉତ୍ତର ସମାନ ଆସେ</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="q5-fb"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6</span>
+        <h2>ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା ଓ ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ତଥ୍ୟ (Exam Traps &amp; One-Liners)</h2>
+        <p class="section-sub">ପରୀକ୍ଷାରେ ଭୁଲରୁ ବଞ୍ଚିବା ପାଇଁ ଶିକ୍ଷକଙ୍କ ପରାମର୍ଶ ଓ ଦ୍ରୁତ ପୁନରାବୃତ୍ତି ସୂତ୍ର।</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>ପରୀକ୍ଷାରେ ଏହି ସାଧାରଣ ଭୁଲ କେବେ କରିବେ ନାହିଁ:</strong><br>
+          &bull; <strong>ବାମରୁ ଡାହାଣକୁ ଅନ୍ଧ ଭାବେ ଗଣନା:</strong> ୨୦ &minus; ୫ &times; ୨ ରେ ପ୍ରଥମେ (୨୦ &minus; ୫ = ୧୫) କରି ୧୫ &times; ୨ = ୩୦ କରିଦେବା ସବୁଠାରୁ ବଡ଼ ଭୁଲ! ପ୍ରଥମେ ୫ &times; ୨ = ୧୦, ତା'ପରେ ୨୦ &minus; ୧୦ = ୧୦ ହେବ।<br>
+          &bull; <strong>ବନ୍ଧନୀର ଭିତରୁ ବାହାରକୁ ନଫିଟାଇବା:</strong> ବନ୍ଧନୀ ଥିଲେ ସର୍ବଦା ସବା ଭିତରେ ଥିବା ଚନ୍ଦ୍ରବନ୍ଧନୀ (), ତା'ପରେ କୁଟିଳ ବନ୍ଧନୀ {}, ଏବଂ ଶେଷରେ ବର୍ଗବନ୍ଧନୀ [] ସମାଧାନ କରିବା ଉଚିତ।<br>
+          &bull; <strong>ହରଣ ଓ ଗୁଣନ ସମକକ୍ଷ ପ୍ରାଥମିକତା:</strong> ଯେତେବେଳେ ରାଶିମାଳାରେ ହରଣ ଓ ଗୁଣନ ଉଭୟ ଥାଏ, ସେତେବେଳେ ବାମରୁ ଡାହାଣ କ୍ରମରେ ଯିବାକୁ ହୁଏ। (ଯଥା: ୨୪ &divide; ୪ &times; ୨ = ୬ &times; ୨ = ୧୨)।
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-star"></i>
+        <div>
+          <strong>୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ଏକ-ପଦୀ ତଥ୍ୟ (15 Rapid Fire Facts):</strong>
+          <ol style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 2;">
+            <li>ପାଟିଗାଣିତିକ ରାଶିମାଳାରେ କୌଣସି <strong>ସମାନ ଚିହ୍ନ (=)</strong> ନଥାଏ।</li>
+            <li>ସମୀକରଣ ହେଉଛି ଦୁଇଟି ରାଶିମାଳା ମଧ୍ୟରେ ସମାନତା ପ୍ରକାଶ କରୁଥିବା ବାକ୍ୟ।</li>
+            <li>BODMAS ର ଅର୍ଥ: <strong>B</strong>rackets, <strong>O</strong>f, <strong>D</strong>ivision, <strong>M</strong>ultiplication, <strong>A</strong>ddition, <strong>S</strong>ubtraction।</li>
+            <li>ସର୍ବପ୍ରଥମ ପ୍ରାଥମିକତା <strong>ବନ୍ଧନୀ (Brackets)</strong> କୁ ଦିଆଯାଏ।</li>
+            <li>ବନ୍ଧନୀ ସମାଧାନ କ୍ରମ: <strong>ରେଖାବନ୍ଧନୀ &rarr; ଚନ୍ଦ୍ରବନ୍ଧନୀ () &rarr; କୁଟିଳ ବନ୍ଧନୀ {} &rarr; ବର୍ଗବନ୍ଧନୀ []</strong>।</li>
+            <li>ହରଣ (&divide;) ଏବଂ ଗୁଣନ (&times;) ଯୋଗ (+) ଓ ବିୟୋଗ (&minus;) ଠାରୁ ଉଚ୍ଚ ପ୍ରାଥମିକତା ପାଆନ୍ତି।</li>
+            <li>ଯଦି କେବଳ ଗୁଣନ ଓ ହରଣ ଥାଏ, ତେବେ <strong>ବାମରୁ ଡାହାଣ କ୍ରମ</strong> ଅନୁସରଣ କରାଯାଏ।</li>
+            <li>ଯଦି କେବଳ ଯୋଗ ଓ ବିୟୋଗ ଥାଏ, ତେବେ ମଧ୍ୟ <strong>ବାମରୁ ଡାହାଣ କ୍ରମ</strong> ଅନୁସରଣ କରାଯାଏ।</li>
+            <li>ଯୋଗ ଉପରେ ଗୁଣନର ବଣ୍ଟନ ନିୟମ: <strong>a &times; (b + c) = ab + ac</strong>।</li>
+            <li>ବିୟୋଗ ଉପରେ ଗୁଣନର ବଣ୍ଟନ ନିୟମ: <strong>a &times; (b &minus; c) = ab &minus; ac</strong>।</li>
+            <li>୯୯ &times; ୩୫ କୁ ମାନସାଙ୍କରେ (୧୦୦ &minus; ୧) &times; ୩୫ = ୩୫୦୦ &minus; ୩୫ = ୩୪୬୫ ଭାବେ ସହଜରେ କରାଯାଇପାରେ।</li>
+            <li>ରାଶି ବୃକ୍ଷରେ ପ୍ରକ୍ରିୟା ଚିହ୍ନଗୁଡ଼ିକ <strong>ଶାଖା ବିନ୍ଦୁ</strong> ଏବଂ ସଂଖ୍ୟାଗୁଡ଼ିକ <strong>ପତ୍ର</strong> ଭାବେ ରହନ୍ତି।</li>
+            <li>ରାଶି ବୃକ୍ଷର ସବା ତଳ ଶାଖାର କାର୍ଯ୍ୟ ସର୍ବପ୍ରଥମେ ସମ୍ପାଦିତ ହୁଏ।</li>
+            <li>ଦୈନନ୍ଦିନ ଆୟ, ବ୍ୟୟ ଓ ସଞ୍ଚୟର ହିସାବକୁ ବନ୍ଧନୀଯୁକ୍ତ ରାଶିମାଳା ଦ୍ୱାରା ପ୍ରକାଶ କରାଯାଏ।</li>
+            <li>ଶାମୁକା ସମସ୍ୟାରେ ଶେଷ ଦିନର ଉପରକୁ ଚଢ଼ିବା ପରେ ଖସିବା ହିସାବ ହୁଏ ନାହିଁ।</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // 2. Interactive Quiz Engine
+    let quizScore = 0;
+    const answeredQuizzes = new Set();
+
+    function checkQuiz(cardId, optionIndex, isCorrect, explanation) {
+      const card = document.getElementById(cardId);
+      const buttons = card.querySelectorAll('.quiz-opt-btn');
+      const fb = document.getElementById(cardId + '-fb');
+
+      if (answeredQuizzes.has(cardId)) return;
+      answeredQuizzes.add(cardId);
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        const ind = btn.querySelector('.quiz-opt-indicator');
+        if (idx === optionIndex) {
+          if (isCorrect) {
+            btn.classList.add('correct-opt');
+            ind.innerHTML = ' &check; (ସଠିକ୍)';
+          } else {
+            btn.classList.add('wrong-opt');
+            ind.innerHTML = ' &cross; (ଭୁଲ)';
+          }
+        }
+      });
+
+      if (!isCorrect) {
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct-opt');
+            btn.querySelector('.quiz-opt-indicator').innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          }
+        });
+      }
+
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.className = 'quiz-feedback correct-fb';
+        fb.innerHTML = '<strong>ଠିକ୍ ଉତ୍ତର! 🎉</strong> ' + explanation;
+        quizScore++;
+      } else {
+        fb.className = 'quiz-feedback incorrect-fb';
+        fb.innerHTML = '<strong>ଭୁଲ ଉତ୍ତର! ⚠️</strong> ' + explanation;
+      }
+
+      document.getElementById('quizScore').innerText = quizScore;
+      if (quizScore === 5) {
+        document.getElementById('quizBadge').innerText = "ଚମତ୍କାର! ଆପଣ ସମସ୍ତ ଉତ୍ତର ସଠିକ୍ ଦେଇଛନ୍ତି! 🏆";
+      }
+    }
+
+    // 3. Teacher Audio Reader (Text-to-Speech)
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Text-to-Speech ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+      } else {
+        const text = "ନମସ୍କାର ପିଲାମାନେ! ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତର ଦ୍ୱିତୀୟ ଅଧ୍ୟାୟ 'ପାଟିଗାଣିତିକ ରାଶିମାଳା' କୁ ସ୍ୱାଗତ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ଶିଖିଲେ ଯେ ସଂଖ୍ୟା ଓ ପ୍ରକ୍ରିୟା ଚିହ୍ନ ମିଶି ରାଶିମାଳା ଗଠନ କରନ୍ତି। ଗଣିତରେ ସର୍ବଦା BODMAS ନିୟମ ଅନୁସରଣ କରାଯାଏ। ଅର୍ଥାତ୍ ପ୍ରଥମେ ବନ୍ଧନୀର କାର୍ଯ୍ୟ, ତା'ପରେ ହରଣ ଓ ଗୁଣନ, ଏବଂ ଶେଷରେ ଯୋଗ ଓ ବିୟୋଗ। ବଣ୍ଟନ ନିୟମ ସାହାଯ୍ୟରେ ବଡ଼ ବଡ଼ ଗୁଣନକୁ ମୁହେଁ ମୁହେଁ ମାନସାଙ୍କ ଦ୍ୱାରା ସହଜରେ କରିହୁଏ। ଏହି ନିୟମଗୁଡ଼ିକୁ ମନେରଖି ନିୟମିତ ଅଭ୍ୟାସ କରନ୍ତୁ!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'or-IN';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>";
+      }
+    }
+  </script>
+</body>
+</html>
