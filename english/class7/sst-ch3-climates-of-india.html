@@ -1,0 +1,1565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 3 - Climates of India (Class 7 Social Science)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #f59e0b);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #065f46 0%, #0284c7 50%, #0369a1 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #047857;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      background: #f8fafc;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-number {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    .topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 1.8rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+      font-size: 1.02rem;
+      color: #334155;
+    }
+
+    /* Pastel Callouts */
+    .callout {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid;
+    }
+
+    .callout-def {
+      background-color: #f0f9ff;
+      border-left-color: #0284c7;
+      color: #0c4a6e;
+    }
+
+    .callout-act {
+      background-color: #f0fdf4;
+      border-left-color: #16a34a;
+      color: #14532d;
+    }
+
+    .callout-pyq {
+      background-color: #fffbeb;
+      border-left-color: #f59e0b;
+      color: #78350f;
+    }
+
+    .callout-hack {
+      background-color: #faf5ff;
+      border-left-color: #a855f7;
+      color: #581c87;
+    }
+
+    .callout-warn {
+      background-color: #fef2f2;
+      border-left-color: #ef4444;
+      color: #7f1d1d;
+    }
+
+    .callout-head {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #f8fafc;
+      color: var(--dark);
+      font-weight: 700;
+      padding: 0.9rem 1.1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.9rem 1.1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) { background-color: #fafbfd; }
+
+    /* Collapsible Question Cards */
+    details.ans-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin: 1.15rem 0;
+      padding: 0;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: #0284c7;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+    }
+
+    details.ans-box summary {
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      font-size: 1.02rem;
+      cursor: pointer;
+      background: #f8fafc;
+      color: var(--dark);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    details.ans-box summary::-webkit-details-marker { display: none; }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: #0369a1;
+    }
+
+    details.ans-box summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+      transition: transform 0.2s ease;
+    }
+
+    details.ans-box[open] summary::after {
+      content: '−';
+      transform: rotate(180deg);
+    }
+
+    .ans-content {
+      padding: 1.25rem 1.4rem;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      color: #334155;
+    }
+
+    /* SVG Diagrams */
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Quiz Engine */
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #047857 0%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    /* Back to Top */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .term-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.15rem;
+      margin: 1.5rem 0;
+    }
+
+    .term-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.15rem;
+      border-top: 4px solid var(--primary);
+    }
+
+    .term-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .term-def {
+      font-size: 0.92rem;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    footer a { color: #38bdf8; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Sticky Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">Overview & Mind Map</a>
+      <a href="#sec2" class="nav-link">Concept Notes</a>
+      <a href="#sec3" class="nav-link">Term Bank</a>
+      <a href="#sec4" class="nav-link">NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">Interactive Quiz</a>
+      <a href="#sec6" class="nav-link">Revision & Traps</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-sun-plant-wilt"></i> Class 7 Social Science &bull; Exploring Society: India & Beyond
+    </div>
+    <h1 class="hero-title">Chapter 3: Climates of India</h1>
+    <p class="hero-sub">
+      From tropical heat to Himalayan snows: understanding the six seasons (Ritus), the South-West and North-East Monsoons, harvest festivals, natural disasters, and global climate change.
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-regular fa-clock"></i> Reading Time: 32 mins</span>
+      <span><i class="fa-solid fa-book-open"></i> Full NCERT Solutions</span>
+      <span><i class="fa-solid fa-cloud-showers-heavy"></i> Monsoon Mechanics</span>
+    </div>
+    <button class="audio-btn" id="teacherAudioBtn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL MIND MAP & OVERVIEW -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <div class="section-number">01</div>
+        <h2 class="section-title">Visual Mind Map &amp; Chapter Overview</h2>
+      </div>
+
+      <p>
+        While <em>weather</em> can change from one hour to the next, <strong>climate</strong> represents the long-term personality of the atmosphere—the average weather pattern recorded over a span of <strong>30 to 35 years</strong>!
+      </p>
+      <p>
+        India is internationally classified as having a <strong>Tropical Monsoon Climate</strong>. Yet, within our borders, you can find the frozen alpine tundra of Ladakh, the scorching arid dunes of Jaisalmer, the drenching rainforests of Meghalaya, and the balmy, breeze-swept coconut shores of Kerala. Let us explore the natural forces that orchestrate this wonderful climate tapestry.
+      </p>
+
+      <!-- SVG Mind Map: Factors Controlling India's Climate -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 900 450" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="cGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+            <linearGradient id="gLat" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f87171"/>
+              <stop offset="100%" stop-color="#dc2626"/>
+            </linearGradient>
+            <linearGradient id="gAlt" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8"/>
+              <stop offset="100%" stop-color="#0284c7"/>
+            </linearGradient>
+            <linearGradient id="gSea" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#2dd4bf"/>
+              <stop offset="100%" stop-color="#0d9488"/>
+            </linearGradient>
+            <linearGradient id="gRel" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fbbf24"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <linearGradient id="gMon" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#a78bfa"/>
+              <stop offset="100%" stop-color="#7c3aed"/>
+            </linearGradient>
+            <filter id="fShadow" x="-5%" y="-5%" width="110%" height="110%">
+              <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.12"/>
+            </filter>
+          </defs>
+
+          <!-- Connecting Lines -->
+          <line x1="450" y1="225" x2="180" y2="85" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="225" x2="720" y2="85" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="225" x2="160" y2="350" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="225" x2="450" y2="385" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="225" x2="740" y2="350" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+
+          <!-- Center Node -->
+          <g filter="url(#fShadow)">
+            <rect x="330" y="180" width="240" height="90" rx="20" fill="url(#cGrad)" />
+            <text x="450" y="220" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="18" fill="#ffffff" text-anchor="middle">CLIMATES OF</text>
+            <text x="450" y="245" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="16" fill="#e0f2fe" text-anchor="middle">INDIA</text>
+          </g>
+
+          <!-- Factor 1: Latitude -->
+          <g filter="url(#fShadow)">
+            <rect x="60" y="40" width="240" height="90" rx="14" fill="url(#gLat)" />
+            <text x="180" y="73" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">🌐 1. Latitude</text>
+            <text x="180" y="95" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Tropic of Cancer divides India</text>
+            <text x="180" y="113" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#fef2f2" text-anchor="middle">Tropical South vs Subtropical North</text>
+          </g>
+
+          <!-- Factor 2: Altitude -->
+          <g filter="url(#fShadow)">
+            <rect x="600" y="40" width="240" height="90" rx="14" fill="url(#gAlt)" />
+            <text x="720" y="73" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">🏔️ 2. Altitude</text>
+            <text x="720" y="95" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Temperature drops with height</text>
+            <text x="720" y="113" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#e0f2fe" text-anchor="middle">Ooty vs Coimbatore (Normal Lapse Rate)</text>
+          </g>
+
+          <!-- Factor 3: Ocean Proximity -->
+          <g filter="url(#fShadow)">
+            <rect x="40" y="305" width="240" height="90" rx="14" fill="url(#gSea)" />
+            <text x="160" y="338" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">🌊 3. Sea Proximity</text>
+            <text x="160" y="360" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Water heats &amp; cools slowly</text>
+            <text x="160" y="378" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#ccfbf1" text-anchor="middle">Equable Coasts vs Extreme Inland</text>
+          </g>
+
+          <!-- Factor 4: Relief & Mountain Barriers -->
+          <g filter="url(#fShadow)">
+            <rect x="330" y="340" width="240" height="90" rx="14" fill="url(#gRel)" />
+            <text x="450" y="373" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">⛰️ 4. Relief &amp; Barriers</text>
+            <text x="450" y="395" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Himalayas block Siberian chill</text>
+            <text x="450" y="413" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#fef3c7" text-anchor="middle">Western Ghats orographic rain</text>
+          </g>
+
+          <!-- Factor 5: Monsoon Winds -->
+          <g filter="url(#fShadow)">
+            <rect x="620" y="305" width="240" height="90" rx="14" fill="url(#gMon)" />
+            <text x="740" y="338" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">🌧️ 5. Monsoon Winds</text>
+            <text x="740" y="360" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Seasonal wind reversal</text>
+            <text x="740" y="378" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#ede9fe" text-anchor="middle">South-West &amp; North-East Monsoons</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 3.1: The Five Crucial Factors that Determine India's Climatic Diversity.</p>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-head"><i class="fa-solid fa-bullseye"></i> The Big Questions of Chapter 3</div>
+        <p>1. <strong>What makes India's climate so incredibly diverse?</strong> (The interplay of latitude, mountain walls, elevation, ocean breezes, and seasonal monsoon reversals).</p>
+        <p>2. <strong>How does the monsoon rhythm govern our agriculture, culture, and festivals?</strong> (Over 70% of Indian farms depend on monsoon rain, inspiring harvest celebrations from Baisakhi to Pongal and Nuakhai).</p>
+        <p>3. <strong>How is global climate change impacting India?</strong> (Rising temperatures, shrinking glaciers, unpredictable droughts, and intensified coastal cyclones).</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EXHAUSTIVE CONCEPT EXPLANATIONS -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <div class="section-number">02</div>
+        <h2 class="section-title">Exhaustive Concept Explanations</h2>
+      </div>
+
+      <!-- 2.1 Weather, Seasons, and Climate -->
+      <h3 class="topic-title"><i class="fa-solid fa-calendar-days"></i> 1. Weather, Seasons, and Climate: Key Distinctions</h3>
+      <p>Young students often use the words <em>weather</em> and <em>climate</em> interchangeably, but they mean completely different things:</p>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Time Scale</th>
+              <th>Area Covered</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Weather</strong></td>
+              <td>Short-term: Hour-to-hour or day-to-day. Highly variable.</td>
+              <td>Small, local area (e.g., a city or town).</td>
+              <td>"It is 32°C and drizzling in Bhubaneswar this afternoon."</td>
+            </tr>
+            <tr>
+              <td><strong>Seasons (Ritus)</strong></td>
+              <td>Medium-term: Predictable 2 to 3 month cycles repeating every year.</td>
+              <td>Broad regional or national scale.</td>
+              <td>Summer (Grishma), Monsoon (Varsha), Winter (Shishira).</td>
+            </tr>
+            <tr>
+              <td><strong>Climate</strong></td>
+              <td>Long-term: Statistical average of weather over <strong>30 to 35+ years</strong>.</td>
+              <td>Vast geographical territory or subcontinent.</td>
+              <td>"India has a Tropical Monsoon Climate with hot summers and wet monsoons."</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Traditional 6 Ritus -->
+      <div class="callout callout-hack">
+        <div class="callout-head"><i class="fa-solid fa-leaf"></i> India's Traditional Six Seasons (Shad Ritu)</div>
+        <p>In Indian classical tradition, the year is divided into six distinct two-month seasons (<em>Ritus</em>):</p>
+        <ol>
+          <li><strong>Vasanta (Spring):</strong> March–April (Chaitra–Vaishakha) — pleasant flowers bloom, celebrated with Holi.</li>
+          <li><strong>Grishma (Summer):</strong> May–June (Jyeshtha–Ashadha) — hot days, mango season.</li>
+          <li><strong>Varsha (Monsoon):</strong> July–August (Shravana–Bhadrapada) — rain clouds fill rivers and quench parched fields.</li>
+          <li><strong>Sharad (Autumn):</strong> September–October (Ashvina–Kartika) — clear blue skies, festive season (Durga Puja, Diwali).</li>
+          <li><strong>Hemanta (Pre-Winter):</strong> November–December (Margashirsha–Pausha) — crisp, cool mornings.</li>
+          <li><strong>Shishira (Winter):</strong> January–February (Magha–Phalguna) — chilly winter winds, harvest festivals (Makar Sankranti).</li>
+        </ol>
+      </div>
+
+      <!-- 2.2 The 5 Factors Determining India's Climate -->
+      <h3 class="topic-title"><i class="fa-solid fa-sliders"></i> 2. The Five Key Factors Determining India's Climate</h3>
+
+      <h4>(a) Latitude: The Tropic of Cancer</h4>
+      <p>
+        The <strong>Tropic of Cancer (23°30' N)</strong> passes through the middle of eight Indian states (Gujarat, Rajasthan, MP, Chhattisgarh, Jharkhand, West Bengal, Tripura, Mizoram).
+      </p>
+      <ul>
+        <li>The region <strong>south of the Tropic of Cancer</strong> lies in the <em>Tropical Zone</em>. Here, the sun is high overhead all year, resulting in warm or hot temperatures throughout the year with no real winter (e.g., Chennai, Bengaluru, Kochi).</li>
+        <li>The region <strong>north of the Tropic of Cancer</strong> lies in the <em>Subtropical Zone</em>. It experiences severe seasonal extremes—very hot summers (up to 48°C) and freezing cold winters (down to 2°C in Delhi or Punjab).</li>
+      </ul>
+
+      <h4>(b) Altitude (Height Above Sea Level)</h4>
+      <p>
+        As you go higher up in the atmosphere, air pressure and density decrease. The thinner air cannot trap heat effectively. On average, temperature drops by about <strong>6.5°C for every 1,000 metres of ascent</strong> (known scientifically as the <strong>Normal Lapse Rate</strong>).
+      </p>
+      <div class="callout callout-act">
+        <div class="callout-head"><i class="fa-solid fa-scale-balanced"></i> Why Ooty is Cold while Coimbatore is Hot!</div>
+        <p>
+          Look at the map of Tamil Nadu: <strong>Udhagamandalam (Ooty)</strong> and <strong>Coimbatore</strong> are situated at almost the exact same latitude, just 80 km apart! 
+        </p>
+        <p>
+          Yet, on a hot May afternoon, Coimbatore swelters at <strong>34°C</strong>, while Ooty is a chilly and refreshing <strong>16°C</strong>. Why? Because Coimbatore sits in the low plains at 410 metres, whereas Ooty is perched high up in the Nilgiri Hills at <strong>2,240 metres</strong> above sea level!
+        </p>
+      </div>
+
+      <h4>(c) Proximity to the Ocean (Continentality)</h4>
+      <p>
+        Land and water heat up and cool down at completely different rates!
+      </p>
+      <ul>
+        <li><strong>Land heats up quickly and cools down quickly.</strong></li>
+        <li><strong>Water heats up very slowly and cools down very slowly.</strong></li>
+        <li><strong>Equable / Maritime Climate:</strong> Coastal cities like <em>Mumbai, Chennai, Panaji, and Puri</em> enjoy the moderating influence of the ocean. Daytime sea breezes and nighttime land breezes keep temperature fluctuations small. In Mumbai, the summer temperature is around 33°C and winter temperature is around 25°C—a difference of only 8°C!</li>
+        <li><strong>Extreme / Continental Climate:</strong> Interior cities located far from the sea (like <em>Delhi, Jaipur, and Amritsar</em>) receive no moderating ocean breeze. In Delhi, summer temperatures soar past 45°C while winter nights plunge down to 3°C—a staggering temperature range of over 42°C!</li>
+      </ul>
+
+      <h4>(d) Relief &amp; Mountain Barriers</h4>
+      <p>
+        India's mighty mountain ranges act as colossal climate barriers:
+      </p>
+      <ol>
+        <li><strong>The Himalayas:</strong> Shield India from the bone-chilling, sub-zero winds blowing across Siberia and Central Asia in winter. Without them, north India would be a frozen desert. They also trap the moisture-rich summer monsoon winds, forcing them to release abundant rain over our plains.</li>
+        <li><strong>The Western Ghats:</strong> Stand directly across the path of Arabian Sea monsoon winds. The moist air is forced to rise up the western slopes, cooling and condensing into torrential <strong>orographic rainfall</strong> (over 300 cm in coastal Karnataka, Goa, Kerala). By the time the winds cross over the crest onto the Deccan Plateau (e.g., Pune, Solapur), they have lost their moisture, creating a semi-arid <strong>rain-shadow area</strong>!</li>
+      </ol>
+
+      <!-- 2.3 The Monsoon Mechanism -->
+      <h3 class="topic-title"><i class="fa-solid fa-cloud-showers-heavy"></i> 3. The Indian Monsoon: Lifeblood of the Nation</h3>
+      <p>
+        The word <em>Monsoon</em> comes from the Arabic word <strong>Mawsim</strong>, which literally means "season". It describes a complete seasonal reversal of wind directions between summer and winter.
+      </p>
+
+      <!-- SVG Diagram: Summer SW vs Winter NE Monsoon -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 850 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="swGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#38bdf8"/>
+            </linearGradient>
+            <linearGradient id="neGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Left Half: Summer SW Monsoon -->
+          <rect x="20" y="20" width="390" height="320" rx="14" fill="#f0f9ff" stroke="#bae6fd" stroke-width="2"/>
+          <text x="215" y="55" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="16" fill="#0369a1" text-anchor="middle">☀️ Summer Monsoon (June – Sept)</text>
+          <text x="215" y="80" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="13" fill="#0284c7" text-anchor="middle">South-West Monsoon (Sea ➔ Land)</text>
+
+          <!-- Wind Arrows moving SW to NE -->
+          <path d="M 60 280 Q 140 220 220 140" stroke="url(#swGrad)" stroke-width="5" fill="none" marker-end="url(#arrowSW)"/>
+          <polygon points="220,140 205,148 215,160" fill="#0284c7"/>
+
+          <path d="M 120 300 Q 200 240 280 160" stroke="url(#swGrad)" stroke-width="5" fill="none"/>
+          <polygon points="280,160 265,168 275,180" fill="#0284c7"/>
+
+          <text x="215" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#0f172a" text-anchor="middle">Intense Low Pressure over NW Plains</text>
+          <text x="215" y="255" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#0369a1" text-anchor="middle">Moist winds from Arabian Sea &amp; Bay of Bengal</text>
+          <text x="215" y="280" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#15803d" text-anchor="middle">Brings 75% of India's annual rain!</text>
+
+          <!-- Right Half: Winter NE Monsoon -->
+          <rect x="440" y="20" width="390" height="320" rx="14" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+          <text x="635" y="55" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="16" fill="#b45309" text-anchor="middle">❄️ Winter Monsoon (Oct – Nov)</text>
+          <text x="635" y="80" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="13" fill="#d97706" text-anchor="middle">North-East / Retreating (Land ➔ Sea)</text>
+
+          <!-- Wind Arrows moving NE to SW -->
+          <path d="M 750 120 Q 670 190 590 260" stroke="url(#neGrad)" stroke-width="5" fill="none"/>
+          <polygon points="590,260 605,252 595,240" fill="#d97706"/>
+
+          <path d="M 700 100 Q 620 170 540 240" stroke="url(#neGrad)" stroke-width="5" fill="none"/>
+          <polygon points="540,240 555,232 545,220" fill="#d97706"/>
+
+          <text x="635" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#0f172a" text-anchor="middle">High Pressure over cold Northern Land</text>
+          <text x="635" y="255" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#b45309" text-anchor="middle">Dry winds blow towards Bay of Bengal</text>
+          <text x="635" y="280" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#15803d" text-anchor="middle">Brings winter rain to Tamil Nadu coast!</text>
+        </svg>
+        <p class="diagram-caption">Figure 3.2: Comparison of South-West Summer Monsoon vs North-East Winter Retreating Monsoon.</p>
+      </div>
+
+      <p><strong>Two Main Branches of the South-West Monsoon:</strong></p>
+      <ol>
+        <li><strong>Arabian Sea Branch:</strong> Hits the Kerala coast around <strong>June 1</strong>. It slams into the Western Ghats, dumping torrential rain on the coast, before traveling across the Deccan plateau and Gujarat into Rajasthan.</li>
+        <li><strong>Bay of Bengal Branch:</strong> Moves north-eastwards towards the coast of Myanmar and Bengal. It strikes the Khasi Hills of Meghalaya (causing the highest rainfall on Earth at <em>Mawsynram</em> and <em>Cherrapunji</em>) and is deflected westwards along the Ganga valley, watering Kolkata, Patna, Varanasi, and Delhi.</li>
+      </ol>
+
+      <!-- 2.4 Farming and Harvest Festivals -->
+      <h3 class="topic-title"><i class="fa-solid fa-wheat-awn-circle-exclamation"></i> 4. Weather, Farming, and India's Harvest Festivals</h3>
+      <p>
+        Because over 70% of Indian farmers depend on rain for their crops, our entire calendar of festivals mirrors the rhythm of the seasons:
+      </p>
+      <ul>
+        <li><strong>Makar Sankranti / Pongal / Magh Bihu:</strong> Celebrated in mid-January when the Sun enters the northern zodiac (<em>Uttarayana</em>). Farmers harvest their winter crops (sugarcane, rice, sesame) and cook festive sweets.</li>
+        <li><strong>Baisakhi (Punjab &amp; Haryana):</strong> Celebrated in April marking the harvesting of the golden winter wheat (Rabi) crop.</li>
+        <li><strong>Onam (Kerala):</strong> Celebrated in August–September to welcome King Mahabali and celebrate the bountiful monsoon harvest of paddy.</li>
+        <li><strong>Nuakhai (Odisha):</strong> Celebrated in August–September (the day after Ganesh Chaturthi) to welcome the new season's rice crop (<em>Nua</em> means new, <em>Khai</em> means food). Families offer the first grains to Goddess Samaleswari.</li>
+      </ul>
+
+      <!-- 2.5 Climatic Disasters -->
+      <h3 class="topic-title"><i class="fa-solid fa-triangle-exclamation"></i> 5. Natural Disasters Linked to Climate</h3>
+      <p>When weather systems reach extreme limits, they can cause devastating disasters:</p>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Disaster</th>
+              <th>Causes</th>
+              <th>Key Impacts</th>
+              <th>Safety &amp; Mitigation Measures</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tropical Cyclones</strong></td>
+              <td>Intense low-pressure systems forming over warm sea water (>27°C) in Bay of Bengal &amp; Arabian Sea, generating destructive spiral winds (>120 km/h).</td>
+              <td>Massive tidal storm surges drown coastal villages, uproot trees, snap power lines, and destroy crops.</td>
+              <td>Construction of cyclone shelters, mangrove belt preservation, early Doppler radar warnings, timely mass evacuation.</td>
+            </tr>
+            <tr>
+              <td><strong>Floods</strong></td>
+              <td>Incessant torrential monsoon downpours, silted riverbeds, or sudden Glacial Lake Outburst Floods (GLOF) in mountain valleys.</td>
+              <td>Submergence of homes, loss of livestock, waterborne disease epidemics (cholera), contamination of drinking wells.</td>
+              <td>Embankments, desilting of rivers, rainwater harvesting dams, preserving wetlands, not constructing on natural floodplains.</td>
+            </tr>
+            <tr>
+              <td><strong>Landslides</strong></td>
+              <td>Heavy rain saturating unstable mountain soil and rocks on steep slopes, worsened by deforestation and unscientific road cutting.</td>
+              <td>Blocked national highways, buried mountain villages, crushed vehicles, disrupted communications.</td>
+              <td>Afforestation with deep-rooted trees, building retaining walls, installing early warning sensors, avoiding slope cutting.</td>
+            </tr>
+            <tr>
+              <td><strong>Droughts</strong></td>
+              <td>Prolonged failure or delayed arrival of the summer monsoon rains over consecutive years.</td>
+              <td>Depleted groundwater tables, dried wells, crop withering, shortage of fodder for cattle, farmer distress.</td>
+              <td>Check dams, drip and sprinkler irrigation, rooftop rainwater harvesting (Tankas), cultivating drought-resistant millets (Bajra, Jowar).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 2.6 Climate Change -->
+      <h3 class="topic-title"><i class="fa-solid fa-earth-americas"></i> 6. Global Climate Change: The Greenhouse Dilemma</h3>
+      <p>
+        The natural <strong>Greenhouse Effect</strong> is essential for life: trace gases like carbon dioxide (CO2), water vapour, and methane act like a warm blanket, trapping outgoing infrared heat radiated by the Earth. Without this natural blanket, Earth's average temperature would be a freezing −18°C!
+      </p>
+      <p>
+        However, since the Industrial Revolution, humans have burned trillions of tonnes of fossil fuels (coal in power plants, petrol and diesel in vehicles) and chopped down ancient forests.
+      </p>
+      <ul>
+        <li>This has pumped billions of extra tonnes of CO2 into the atmosphere, making the heat blanket thicker and thicker.</li>
+        <li>The result is <strong>Global Warming</strong>—our entire planet is heating up at an unnatural, dangerous speed!</li>
+      </ul>
+
+      <div class="callout callout-warn">
+        <div class="callout-head"><i class="fa-solid fa-temperature-arrow-up"></i> Real Consequences Already Visible in India</div>
+        <p>
+          In early 2025 and 2026, temperatures across central and northern India reached 1°C to 3°C above normal. Winters are becoming shorter and milder, causing wheat plants to mature prematurely with smaller grains. Himalayan glaciers (which feed the Ganga and Indus) are retreating rapidly, increasing the danger of flash floods followed by summer water shortages!
+        </p>
+      </div>
+
+      <p><strong>What Can We Do? (Mitigation &amp; Adaptation):</strong></p>
+      <ol>
+        <li><strong>Renewable Energy:</strong> Shifting to solar panels and wind energy instead of burning dirty coal.</li>
+        <li><strong>Mass Afforestation:</strong> Planting native trees that naturally absorb atmospheric CO2 through photosynthesis.</li>
+        <li><strong>Mission LiFE (Lifestyle for Environment):</strong> India's global initiative encouraging citizens to save electricity, turn off running taps, walk or bicycle short distances, and eliminate single-use plastics.</li>
+      </ol>
+    </section>
+
+    <!-- SECTION 3: RAPID REVISION FACT & TECHNICAL TERM BANK -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <div class="section-number">03</div>
+        <h2 class="section-title">Rapid Revision Fact &amp; Technical Term Bank</h2>
+      </div>
+
+      <div class="term-grid">
+        <div class="term-card">
+          <div class="term-title">1. Climate</div>
+          <div class="term-def">The composite statistical average of weather patterns and atmospheric conditions recorded over a prolonged period of 30 to 35+ years.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">2. Normal Lapse Rate</div>
+          <div class="term-def">The steady decrease in air temperature with increasing altitude, averaging a drop of about 6.5°C per 1,000 metres of elevation.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">3. Continentality</div>
+          <div class="term-def">The climatic condition experienced by inland areas located far from oceans, characterised by extreme summer heat and severe winter cold.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">4. Monsoon</div>
+          <div class="term-def">Derived from Arabic <em>Mawsim</em> (season); a seasonal wind system that reverses its direction completely between summer and winter.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">5. Orographic Rainfall</div>
+          <div class="term-def">Precipitation produced when moisture-laden winds are forced to rise over a mountain barrier, cooling and condensing on the windward side.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">6. Rain Shadow Area</div>
+          <div class="term-def">A dry, sheltered region on the leeward (opposite) side of a mountain range that receives very little rain because winds have already shed their moisture.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">7. Tropical Cyclone</div>
+          <div class="term-def">A ferocious low-pressure storm system with spiraling gale-force winds and heavy rain that forms over warm tropical oceans.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">8. Glacial Burst (GLOF)</div>
+          <div class="term-def">A catastrophic flash flood occurring when a natural dam holding back a high-altitude glacial lake suddenly breaches and empties.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">9. Greenhouse Gases</div>
+          <div class="term-def">Atmospheric gases such as carbon dioxide, water vapour, and methane that trap outgoing terrestrial infrared heat, warming the planet.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">10. Climate Mitigation</div>
+          <div class="term-def">Deliberate actions taken to reduce or prevent the emission of greenhouse gases, such as transitioning to solar power and planting forests.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: COMPLETE NCERT IN-TEXT ACTIVITIES & EXERCISE SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <div class="section-number">04</div>
+        <h2 class="section-title">Complete NCERT In-Text Activities &amp; Exercise Solutions</h2>
+      </div>
+
+      <!-- In-Text Activity 1 -->
+      <details class="ans-box">
+        <summary>In-Text Activity (Page 7): Udhagamandalam (Ooty) and Coimbatore are at almost the same latitude. Why are their temperatures so different?</summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul>
+            <li><strong>Role of Altitude (Elevation):</strong> Although both cities share roughly the same latitude (approx. 11° N), <strong>Coimbatore</strong> is situated in the plains at an altitude of about <strong>410 metres</strong>, while <strong>Ooty</strong> is perched high in the Nilgiri Hills at <strong>2,240 metres</strong> above sea level.</li>
+            <li><strong>Normal Lapse Rate:</strong> For every 1,000 metres of height, temperature falls by roughly 6.5°C. With an altitude difference of about 1,830 metres, Ooty is naturally around 12°C to 15°C cooler than Coimbatore!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Exercise 1: Matching -->
+      <details class="ans-box">
+        <summary>Exercise Q1: Match the climatic factors with their effects.</summary>
+        <div class="ans-content">
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Column A (Climatic Factor)</th>
+                  <th>Column B (Climatic Effect)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>(1) <strong>Latitude</strong></td>
+                  <td>(b) <strong>Creates different climates in the north and south</strong></td>
+                </tr>
+                <tr>
+                  <td>(2) <strong>Altitude</strong></td>
+                  <td>(c) <strong>Keeps higher places cooler</strong></td>
+                </tr>
+                <tr>
+                  <td>(3) <strong>Proximity to the ocean</strong></td>
+                  <td>(d) <strong>Moderates the temperature</strong></td>
+                </tr>
+                <tr>
+                  <td>(4) <strong>Monsoon winds</strong></td>
+                  <td>(a) <strong>Brings wet air to India during summer</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Exercise 2: Short Answer Questions -->
+      <details class="ans-box">
+        <summary>Exercise Q2 (a): What is the difference between weather and climate?</summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul>
+            <li><strong>Weather:</strong> Refers to the short-term, day-to-day state of the atmosphere (such as temperature, rain, or humidity) over a small local area. It can change rapidly from morning to evening.</li>
+            <li><strong>Climate:</strong> Refers to the long-term average of weather patterns recorded over a large region over at least <strong>30 to 35 years</strong>. It represents the permanent climatic character of a country.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Exercise Q2 (b): Why do places near the ocean have milder temperatures than places far away from it?</summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul>
+            <li>Water has a high specific heat capacity—it heats up much more slowly and cools down much more slowly than dry land.</li>
+            <li>During hot summer days, cool air from the sea blows onto the land as a <strong>sea breeze</strong>, preventing coastal cities from becoming burning hot.</li>
+            <li>During cold winter nights, warm air from the sea moves towards the land, keeping it pleasantly mild. This moderating effect gives coastal regions an <strong>equable maritime climate</strong>.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Exercise Q2 (c): What role do monsoon winds play in affecting India's climate?</summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ol>
+            <li><strong>Brings Major Annual Rainfall:</strong> The South-West Monsoon delivers more than <strong>75% of India's total yearly rainfall</strong> between June and September, filling our rivers, lakes, and reservoirs.</li>
+            <li><strong>Agricultural Backbone:</strong> It dictates the entire cropping calendar (Kharif crops like rice, maize, cotton, and pulses).</li>
+            <li><strong>Temperature Relief:</strong> The arrival of monsoon showers cools down scorching summer heat across the country.</li>
+            <li><strong>Winter Rain for South-East:</strong> The Retreating North-East Monsoon provides critical winter rainfall to the coast of Tamil Nadu and Andhra Pradesh.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Exercise Q2 (d): Why is Chennai warm or hot throughout the year, while Leh is cold?</summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul>
+            <li><strong>Latitude:</strong> Chennai is located near the southern tip of India at <strong>13° N</strong> (close to the equator in the Tropical Zone), where solar rays strike directly throughout the year. Leh is located far north at <strong>34° N</strong> in the Subtropical Zone, where sun rays strike at an oblique, weaker angle.</li>
+            <li><strong>Altitude:</strong> Chennai is at <strong>sea level (6 metres)</strong>, wrapped in warm, humid coastal air. Leh is situated at a staggering altitude of over <strong>3,500 metres</strong> in the Ladakh plateau, where thin alpine air loses heat rapidly.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Exercise 3: City Climates Analysis -->
+      <details class="ans-box">
+        <summary>Exercise Q3: Identify the climate for these cities — Leh, Chennai, Delhi, Panaji, and Jaipur. Explain the factors responsible.</summary>
+        <div class="ans-content">
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>City</th>
+                  <th>Location &amp; Terrain</th>
+                  <th>Type of Climate</th>
+                  <th>Key Factors Responsible</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Leh</strong></td>
+                  <td>High mountain plateau in Ladakh</td>
+                  <td>Cold Desert Climate (Sub-zero winters, very low rain)</td>
+                  <td>High altitude (3,500m) and rain-shadow barrier of the Great Himalayas blocking monsoon clouds.</td>
+                </tr>
+                <tr>
+                  <td><strong>Chennai</strong></td>
+                  <td>East Coast along Bay of Bengal</td>
+                  <td>Tropical Maritime Climate (Warm &amp; humid year-round)</td>
+                  <td>Low latitude near the equator and oceanic proximity moderating temperatures. Wet winters from NE monsoon.</td>
+                </tr>
+                <tr>
+                  <td><strong>Delhi</strong></td>
+                  <td>Interior Northern Plains</td>
+                  <td>Extreme Continental Climate (Blazing summers, chilly winters)</td>
+                  <td>Far away from the sea (continentality) + subtropical latitude with seasonal wind changes.</td>
+                </tr>
+                <tr>
+                  <td><strong>Panaji</strong></td>
+                  <td>West Coast of Goa along Arabian Sea</td>
+                  <td>Humid Tropical Coastal Climate</td>
+                  <td>Oceanic proximity moderates temperature; direct exposure to Arabian Sea monsoon branch brings heavy rain (>250 cm).</td>
+                </tr>
+                <tr>
+                  <td><strong>Jaipur</strong></td>
+                  <td>Semi-arid eastern edge of Thar Desert</td>
+                  <td>Hot Semi-Arid / Steppe Climate</td>
+                  <td>Dry continental winds, high summer temperatures, and low rainfall due to Aravallis running parallel to monsoon winds.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Exercise 4: Monsoon Cycle Map Instructions -->
+      <details class="ans-box">
+        <summary>Exercise Q4: Draw the monsoon cycle in summers and winters on a map of India.</summary>
+        <div class="ans-content">
+          <p><strong>Instructions for Class Drawing / Project:</strong></p>
+          <ul>
+            <li><strong>Summer Monsoon (June–September):</strong>
+              <br>1. Draw thick blue arrows pointing from the <strong>South-West (Arabian Sea and Indian Ocean) towards North-East (Indian mainland)</strong>.
+              <br>2. Label the two branches: <em>Arabian Sea Branch</em> hitting Kerala and Maharashtra, and <em>Bay of Bengal Branch</em> curving towards Assam and the Ganga Valley.
+              <br>3. Mark an intense <strong>"Low Pressure (L)"</strong> zone over Rajasthan and Punjab.
+            </li>
+            <li><strong>Winter Monsoon (October–November):</strong>
+              <br>1. Draw orange arrows pointing from the <strong>North-East (cold landmass) towards South-West (Bay of Bengal)</strong>.
+              <br>2. Show winds picking up moisture over the Bay of Bengal and curving towards the Tamil Nadu coast (Coromandel Coast).
+              <br>3. Mark <strong>"High Pressure (H)"</strong> over north-western India and <strong>"Low Pressure (L)"</strong> over the southern seas.
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Exercise 5: Harvest Festivals -->
+      <details class="ans-box">
+        <summary>Exercise Q5: Festive connections between farming, weather, and seasons in India.</summary>
+        <div class="ans-content">
+          <p><strong>Festivals Linked to Farming and Seasons:</strong></p>
+          <ol>
+            <li><strong>Makar Sankranti / Pongal / Magh Bihu (January):</strong> Marks the northward journey of the Sun (Uttarayana) and the harvest of sugarcane, sesame, and winter rice.</li>
+            <li><strong>Baisakhi (April):</strong> Celebrated in Punjab as the golden wheat (Rabi crop) is reaped under the warm spring sun.</li>
+            <li><strong>Onam (August–September):</strong> Celebrated in Kerala welcoming King Mahabali after the plentiful paddy harvest following the heavy South-West Monsoon.</li>
+            <li><strong>Nuakhai (August–September in Odisha):</strong> The agrarian festival celebrating the consumption of newly harvested autumn rice, thanking Mother Earth.</li>
+            <li><strong>Wangala (November in Meghalaya):</strong> The "100 Drums Festival" of the Garo tribe celebrating the post-monsoon harvest before winter.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Exercise 6: Farmer Diary Entry -->
+      <details class="ans-box">
+        <summary>Exercise Q6: Diary Entry of an Indian farmer preparing for the rainy season.</summary>
+        <div class="ans-content">
+          <div style="background: #f8fafc; border-left: 4px solid #16a34a; padding: 1.2rem; border-radius: 8px;">
+            <p><strong>Date: 28th May | Village: Pipili, Odisha</strong></p>
+            <p><em>"The scorching summer sun has baked our fields rock hard, and the pond is nearly dry. But yesterday, the radio broadcast an IMD bulletin saying the South-West Monsoon will hit the Kerala coast in four days! Hope fills our village once more.</em></p>
+            <p><em>This week, father and I have been working tirelessly. We repaired the wooden plough and serviced our diesel water pump. We cleaned the farm irrigation channels (bunds) so rainwater flows evenly without washing away precious topsoil. Today, we purchased high-yielding paddy seeds from the agricultural cooperative store. We have readied the nursery beds. As soon as the first fresh raindrops soak the dry mud and release that sweet petrichor smell, we will begin sowing! May Lord Jagannath bless us with a bountiful harvest this year."</em></p>
+          </div>
+        </div>
+      </details>
+
+      <!-- Exercise 7: Natural Disaster Essay -->
+      <details class="ans-box">
+        <summary>Exercise Q7: Short essay on a Natural Disaster (Cyclones): Causes, impacts, and mitigation actions.</summary>
+        <div class="ans-content">
+          <p><strong>Essay: Tropical Cyclones on India's Coast</strong></p>
+          <p><strong>1. Causes:</strong> Tropical cyclones form over warm sea surfaces (temperatures above 27°C) in the Bay of Bengal and Arabian Sea during pre-monsoon (April–May) and post-monsoon (October–November) periods. Low atmospheric pressure pulls in warm, moist air that spirals upwards at tremendous speeds due to the Coriolis effect, creating a giant vortex with winds exceeding 150 km/h.</p>
+          <p><strong>2. Impacts:</strong> Cyclones trigger destructive storm surges (giant walls of seawater crashing onto the shore), flattening thatch huts, uprooting ancient banyan trees, breaking electrical poles, contaminating freshwater ponds with salt, and ruining standing paddy crops.</p>
+          <p><strong>3. Action Plan to Reduce Impacts:</strong></p>
+          <ul>
+            <li><strong>Individual Level:</strong> Keep emergency battery radios, torches, and dry food handy; avoid going near beaches; strictly heed evacuation warnings.</li>
+            <li><strong>Community Level:</strong> Manage community cyclone shelters; conduct mock rescue drills; protect mangrove belts along estuaries (e.g., Bhitarkanika in Odisha) that act as natural wave breakers.</li>
+            <li><strong>Government Level:</strong> Track storms using INSAT satellites and Doppler weather radars; send automated SMS alerts; construct pucca disaster shelters; preposition NDRF and ODRAF rescue teams.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: HIGH-ORDER THINKING (HOTS) & INTERACTIVE QUIZ ENGINE -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <div class="section-number">05</div>
+        <h2 class="section-title">HOTS &amp; Interactive Quiz Engine</h2>
+      </div>
+
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <i class="fa-solid fa-trophy"></i> Your Score: <span id="quizScoreCount">0</span> / 5
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Click an option to test your climate mastery!
+        </div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-card" id="qcard1">
+        <p><strong>Q1. Why does coastal Mumbai have mild winter temperatures around 25°C, while inland Delhi freezes near 3°C?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(a) Delhi has more trees than Mumbai</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(b) Mumbai is at a much higher altitude than Delhi</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(c) The moderating influence of the Arabian Sea (maritime climate) prevents Mumbai from getting too cold or hot</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(d) Delhi is protected by the Aravallis from all ocean winds</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> Ocean water warms and cools very slowly, creating sea breezes that moderate Mumbai's temperatures (maritime climate). Delhi is far inland (continentality) with extreme temperature swings.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-card" id="qcard2">
+        <p><strong>Q2. What causes heavy winter rains along the Coromandel Coast of Tamil Nadu between October and November?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(a) The South-West Monsoon entering through Gujarat</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(b) The Retreating / North-East Monsoon picking up moisture over the Bay of Bengal</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(c) Melting glaciers from the Western Ghats</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(d) Westerly jet streams crossing the Himalayas</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> In winter, dry winds blowing from the northeast landmass cross over the Bay of Bengal, absorb moisture, and strike the Tamil Nadu coast, bringing vital winter rainfall.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-card" id="qcard3">
+        <p><strong>Q3. Which scientific principle explains why hill stations like Ooty (2,240 m) are cooler than low-lying Coimbatore (410 m)?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(a) Normal Lapse Rate (temperature decreases by ~6.5°C per 1,000m rise in altitude)</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(b) Law of Gravitational Pull</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(c) The Greenhouse Effect</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(d) Coriolis Deflection</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong> Air pressure and density drop with elevation, making higher mountain air less capable of retaining heat (Normal Lapse Rate).
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-card" id="qcard4">
+        <p><strong>Q4. What is the traditional agrarian harvest festival celebrated in western Odisha to welcome the new season's rice crop?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(a) Baisakhi</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(b) Pongal</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(c) Lohri</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(d) Nuakhai</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d)</strong> <em>Nuakhai</em> ('Nua' = new, 'Khai' = eat) is the premier harvest festival of western Odisha, celebrated by offering the first grains of autumn rice to Goddess Samaleswari.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-card" id="qcard5">
+        <p><strong>Q5. How does excessive burning of fossil fuels (coal, petrol, gas) cause global warming?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(a) It destroys oxygen atoms, making the sky fall down</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(b) It releases massive amounts of CO2 and greenhouse gases that trap extra outgoing infrared heat in the atmosphere</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(c) It physically pushes Earth closer to the Sun</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(d) It causes clouds to freeze into ice permanently</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> Burning fossil fuels thickens the atmospheric blanket of greenhouse gases (CO2, methane), trapping heat radiated from Earth and causing rapid global warming.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM HALL TRAPS & 15 HIGH-YIELD REVISION POINTS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <div class="section-number">06</div>
+        <h2 class="section-title">Exam Hall Traps &amp; 15 High-Yield Revision Points</h2>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-head"><i class="fa-solid fa-triangle-exclamation"></i> Common Exam Hall Traps to Avoid!</div>
+        <ul>
+          <li><strong>Trap 1: Chennai Winter vs North India Winter:</strong> In North India, summer brings rain and winter is dry. In <em>Tamil Nadu / Coromandel Coast</em>, winter is the <strong>rainiest season</strong> due to the North-East Retreating Monsoon!</li>
+          <li><strong>Trap 2: Natural vs Enhanced Greenhouse Effect:</strong> Do not write that the greenhouse effect is bad! The <em>natural</em> greenhouse effect keeps Earth comfortably warm for living beings. It is the <em>man-made excess</em> greenhouse gases that trigger harmful global warming.</li>
+          <li><strong>Trap 3: Western Ghats Rain Shadow:</strong> The <em>western slope</em> of the Western Ghats gets over 300 cm of rain, but the <em>eastern/leeward slope</em> (the Deccan Plateau) is a dry rain-shadow zone!</li>
+          <li><strong>Trap 4: Tropical vs Subtropical India:</strong> The dividing line is the <strong>Tropic of Cancer (23.5° N)</strong>, NOT the Equator!</li>
+        </ul>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-bolt"></i> 15 High-Yield Revision Points</h3>
+      <ol style="padding-left: 1.5rem; line-height: 1.9;">
+        <li><strong>Climate Definition:</strong> The 30 to 35-year statistical average of weather patterns in a region.</li>
+        <li><strong>India's Climate Classification:</strong> Officially classified as <em>Tropical Monsoon Climate</em>.</li>
+        <li><strong>Six Indian Ritus:</strong> Vasanta (Spring), Grishma (Summer), Varsha (Monsoon), Sharad (Autumn), Hemanta (Pre-winter), Shishira (Winter).</li>
+        <li><strong>Tropic of Cancer:</strong> Divides India into a warm tropical southern half and a seasonal subtropical northern half.</li>
+        <li><strong>Normal Lapse Rate:</strong> Temperature drops ~6.5°C per 1,000 m ascent, making high-altitude hill stations pleasantly cool.</li>
+        <li><strong>Maritime vs Continental:</strong> Oceans moderate coastal temperatures; interior continental regions experience extreme temperature swings.</li>
+        <li><strong>Himalayan Climate Shield:</strong> Blocks freezing Siberian winter winds and traps summer monsoon moisture.</li>
+        <li><strong>Western Ghats Orographic Rain:</strong> Moist Arabian Sea winds rise up western slopes, dropping over 300 cm of rain.</li>
+        <li><strong>Monsoon Meaning:</strong> Derived from Arabic <em>Mawsim</em> (seasonal wind reversal).</li>
+        <li><strong>South-West Monsoon:</strong> Advances from Kerala on June 1, bringing over 75% of India's annual rain.</li>
+        <li><strong>Retreating Monsoon:</strong> North-East winds blowing from land to sea that bring winter downpours to coastal Tamil Nadu.</li>
+        <li><strong>Harvest Festivals:</strong> Makar Sankranti, Pongal, Baisakhi, Onam, and Nuakhai celebrate seasonal farm yields.</li>
+        <li><strong>Cyclones:</strong> Low-pressure sea storms with winds >120 km/h and devastating coastal surges.</li>
+        <li><strong>Greenhouse Gases:</strong> CO2 and methane trap infrared heat; burning coal and oil triggers dangerous global warming.</li>
+        <li><strong>Mission LiFE:</strong> India's global community movement promoting environment-friendly daily habits to combat climate change.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; color: #f8fafc;">
+      Sujit Classes &bull; Conceptual Middle School Portal
+    </p>
+    <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+      Empowering young minds across Odisha and India with crystal-clear NCERT foundations.
+    </p>
+    <p style="font-size: 0.85rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Portal Home</a> &bull; 
+      <a href="#sec1">Top of Notes</a>
+    </p>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    // 1. Reading Progress Bar & Back to Top Controller
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    // 2. Teacher Audio Reader (TTS)
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+      }
+    }
+
+    // 3. Interactive Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) {
+        details.style.display = 'block';
+        details.open = true;
+      }
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Outstanding! Perfect 5/5 score on Climates of India!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! You have mastered Indian climate and monsoons!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good effort! Review the explanations above to strengthen your concepts!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
