@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୭: ପ୍ରକୃତିରେ ତାପ ସଞ୍ଚାଳନ (Heat Transfer in Nature) | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ସପ୍ତମ ଶ୍ରେଣୀ ବିଜ୍ଞାନ ଅଧ୍ୟାୟ ୭: ପ୍ରକୃତିରେ ତାପ ସଞ୍ଚାଳନ। ପରିବହନ, ପରିଚଳନ, ବିକିରଣ, ସମୁଦ୍ର ବାୟୁ ଓ ସ୍ଥଳ ବାୟୁ, ଥର୍ମୋସ୍ ଫ୍ଲାସ୍କ, NCERT ସମାଧାନ ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.85;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ef4444, #f59e0b, #0284c7);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.4rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 0.7rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #1e293b 0%, #b91c1c 50%, #0369a1 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.25rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    h3.topic-title {
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-left: 4px solid var(--primary);
+      padding-left: 0.75rem;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 1rem; font-size: 1.02rem; }
+
+    ul, ol {
+      margin: 0.75rem 0 1.25rem 1.5rem;
+    }
+
+    li { margin-bottom: 0.5rem; }
+
+    .callout {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid;
+    }
+
+    .callout-def {
+      background: #ecfdf5;
+      border-color: #10b981;
+      color: #065f46;
+    }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e40af;
+    }
+
+    .callout-hack {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #92400e;
+    }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #991b1b;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.98rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #fafafa; }
+
+    details.ans-box {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box summary {
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      cursor: pointer;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.98rem;
+      line-height: 1.85;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quiz-question {
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .quiz-opt-btn {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-family: inherit;
+      color: var(--text);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      border-color: var(--secondary);
+      background: #f0f9ff;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #ecfdf5 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700 !important;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fef2f2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+      font-weight: 600 !important;
+    }
+
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+
+    .audio-btn {
+      background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+      color: #ffffff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 14px auto;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .audio-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(5, 150, 105, 0.45);
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> ସୁଜିତ୍ କ୍ଲାସେସ୍ (Sujit Classes)
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">୧. ମାନଚିତ୍ର</a>
+      <a href="#sec2" class="nav-link">୨. ମାଷ୍ଟର ନୋଟ୍ସ</a>
+      <a href="#sec3" class="nav-link">୩. ପରିଭାଷା</a>
+      <a href="#sec4" class="nav-link">୪. NCERT ସମାଧାନ</a>
+      <a href="#sec5" class="nav-link">୫. ପ୍ରଶ୍ନ ବ୍ୟାଙ୍କ ଓ କୁଇଜ୍</a>
+      <a href="#sec6" class="nav-link">୬. ରିଭିଜନ୍</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-temperature-arrow-up"></i> ସପ୍ତମ ଶ୍ରେଣୀ ବିଜ୍ଞାନ &bull; ଅଧ୍ୟାୟ ୭ (କୌତୂହଳ - Curiosity)
+    </div>
+    <h1 class="hero-title">ଅଧ୍ୟାୟ ୭: ପ୍ରକୃତିରେ ତାପ ସଞ୍ଚାଳନ<br><span style="font-size: 1.55rem; opacity: 0.95;">(Heat Transfer in Nature)</span></h1>
+    <p class="hero-sub">
+      ଉଚ୍ଚ ତାପମାତ୍ରାରୁ ନିମ୍ନ ତାପମାତ୍ରା ଆଡ଼କୁ ଶକ୍ତିର ପ୍ରବାହ &mdash; କଠିନରେ ପରିବହନ, ତରଳ ଓ ବାୟୁରେ ପରିଚଳନ (ସମୁଦ୍ର ବାୟୁ ଓ ସ୍ଥଳ ବାୟୁ), ଶୂନ୍ୟସ୍ଥାନରେ ବିକିରଣ, ଥର୍ମୋସ୍ ଫ୍ଲାସ୍କ ଏବଂ ବିଶ୍ୱ ଜଳଚକ୍ର।
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT / BSE Odisha: କୌତୂହଳ</span>
+      <span><i class="fa-solid fa-sun"></i> ବିଷୟବସ୍ତୁ: ତାପ ଓ ଶକ୍ତି ସଞ୍ଚାଳନ</span>
+      <span><i class="fa-solid fa-check-double"></i> ୧୦୦% ସମାଧାନ ହୋଇଥିବା କାର୍ଯ୍ୟକଳାପ ଓ ପ୍ରଶ୍ନୋତ୍ତର</span>
+    </div>
+    <div>
+      <button class="audio-btn" id="teacherAudioBtn" onclick="toggleTeacherAudio()">
+        <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL MIND MAP & BLUEPRINT -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୧</span>
+        <h2>ଦୃଶ୍ୟ ମାନସିକ ମାନଚିତ୍ର ଓ ଅଧ୍ୟାୟ ଖସଡ଼ା (Visual Mind Map & Blueprint)</h2>
+        <p class="section-sub">ତାପ ସଞ୍ଚାଳନର ୩ଟି ମୁଖ୍ୟ ପଦ୍ଧତି ଓ ପ୍ରାକୃତିକ ପ୍ରୟୋଗ</p>
+      </div>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 920 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="c7bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fff1f2"/>
+              <stop offset="100%" stop-color="#eff6ff"/>
+            </linearGradient>
+            <linearGradient id="c7core" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#dc2626"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+          </defs>
+
+          <rect x="10" y="10" width="900" height="500" rx="16" fill="url(#c7bg)" stroke="#cbd5e1" stroke-width="2"/>
+
+          <path d="M 460 260 L 180 130" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="6,4"/>
+          <path d="M 460 260 L 740 130" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="6,4"/>
+          <path d="M 460 260 L 180 390" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="6,4"/>
+          <path d="M 460 260 L 740 390" stroke="#10b981" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+          <!-- Center Node -->
+          <g>
+            <circle cx="460" cy="260" r="80" fill="url(#c7core)" stroke="#ffffff" stroke-width="4"/>
+            <text x="460" y="245" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="15">ତାପ ସଞ୍ଚାଳନ</text>
+            <text x="460" y="268" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="15">(Heat Transfer)</text>
+            <text x="460" y="290" text-anchor="middle" fill="#fee2e2" font-family="'Space Grotesk', sans-serif" font-size="11">ଉଚ୍ଚ ତାପ &rarr; ନିମ୍ନ ତାପ</text>
+          </g>
+
+          <!-- Branch 1: Conduction (Top-Left) -->
+          <g>
+            <rect x="50" y="60" width="260" height="135" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+            <rect x="50" y="60" width="260" height="32" rx="12" fill="#f59e0b"/>
+            <text x="180" y="82" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="13">୧. ପରିବହନ (Conduction)</text>
+            <text x="65" y="110" fill="#78350f" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; କଠିନ ପଦାର୍ଥରେ ତାପ ସଞ୍ଚାଳନ</text>
+            <text x="65" y="130" fill="#78350f" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; କଣିକାମାନଙ୍କ କମ୍ପନ ଦ୍ୱାରା ତାପ ଗତି କରେ</text>
+            <text x="65" y="150" fill="#78350f" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; କଣିକା ନିଜ ସ୍ଥାନ ଛାଡ଼ନ୍ତି ନାହିଁ</text>
+            <text x="65" y="170" fill="#b45309" font-family="'Noto Sans Oriya', sans-serif" font-size="11" font-weight="600">&bull; ଉଦାହରଣ: ଚାମଚ ତାତିବା, ଧାତୁ ବାସନ</text>
+          </g>
+
+          <!-- Branch 2: Convection (Top-Right) -->
+          <g>
+            <rect x="610" y="60" width="260" height="135" rx="12" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+            <rect x="610" y="60" width="260" height="32" rx="12" fill="#0284c7"/>
+            <text x="740" y="82" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="13">୨. ପରିଚଳନ (Convection)</text>
+            <text x="625" y="110" fill="#0c4a6e" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ତରଳ ଓ ଗ୍ୟାସୀୟ ପଦାର୍ଥରେ ସଞ୍ଚାଳନ</text>
+            <text x="625" y="130" fill="#0c4a6e" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; କଣିକା ନିଜେ ତାପ ନେଇ ଉପରକୁ ଉଠନ୍ତି</text>
+            <text x="625" y="150" fill="#0c4a6e" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ଥଣ୍ଡା କଣିକା ତଳକୁ ଆସି ସ୍ରୋତ ସୃଷ୍ଟି କରନ୍ତି</text>
+            <text x="625" y="170" fill="#0369a1" font-family="'Noto Sans Oriya', sans-serif" font-size="11" font-weight="600">&bull; ସମୁଦ୍ର ବାୟୁ ଓ ସ୍ଥଳ ବାୟୁ</text>
+          </g>
+
+          <!-- Branch 3: Radiation (Bottom-Left) -->
+          <g>
+            <rect x="50" y="325" width="260" height="140" rx="12" fill="#ffffff" stroke="#dc2626" stroke-width="2"/>
+            <rect x="50" y="325" width="260" height="32" rx="12" fill="#dc2626"/>
+            <text x="180" y="347" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="13">୩. ବିକିରଣ (Radiation)</text>
+            <text x="65" y="375" fill="#991b1b" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; କୌଣସି ଭୌତିକ ମାଧ୍ୟମ ଆବଶ୍ୟକ ନାହିଁ</text>
+            <text x="65" y="395" fill="#991b1b" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ଶୂନ୍ୟସ୍ଥାନ (Vacuum) ଦେଇ ସଞ୍ଚାଳନ</text>
+            <text x="65" y="415" fill="#991b1b" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ସୂର୍ଯ୍ୟଙ୍କଠାରୁ ପୃଥିବୀକୁ ତାପ ଆସିବା</text>
+            <text x="65" y="435" fill="#b91c1c" font-family="'Noto Sans Oriya', sans-serif" font-size="11" font-weight="600">&bull; କଳା ରଙ୍ଗ ତାପ ଶୋଷେ, ଧଳା ପ୍ରତିଫଳେ</text>
+          </g>
+
+          <!-- Branch 4: Flask & Nature (Bottom-Right) -->
+          <g>
+            <rect x="610" y="325" width="260" height="140" rx="12" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+            <rect x="610" y="325" width="260" height="32" rx="12" fill="#10b981"/>
+            <text x="740" y="347" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="13">୪. ଥର୍ମୋସ୍ ଫ୍ଲାସ୍କ ଓ ଜଳଚକ୍ର</text>
+            <text x="625" y="375" fill="#065f46" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ଦୁଇ କାନ୍ଥ ମଧ୍ୟରେ ଶୂନ୍ୟସ୍ଥାନ (Vacuum)</text>
+            <text x="625" y="395" fill="#065f46" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ପରିବହନ, ପରିଚଳନ ଓ ବିକିରଣ ରୋକେ</text>
+            <text x="625" y="415" fill="#065f46" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ସୂର୍ଯ୍ୟଙ୍କ ତାପରେ ବାଷ୍ପୀଭବନ ଓ ମେଘ ସୃଷ୍ଟି</text>
+            <text x="625" y="435" fill="#047857" font-family="'Noto Sans Oriya', sans-serif" font-size="11" font-weight="600">&bull; ପ୍ରକୃତିର ସନ୍ତୁଳନ ରକ୍ଷା</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EXHAUSTIVE CONCEPT EXPLANATIONS -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୨</span>
+        <h2>ସମ୍ପୂର୍ଣ୍ଣ ଧାରଣା ସ୍ପଷ୍ଟୀକରଣ (Exhaustive Concept Explanations)</h2>
+        <p class="section-sub">ତାପ ସଞ୍ଚାଳନର ନିୟମ ଓ ପ୍ରାକୃତିକ ଘଟଣାବଳୀ</p>
+      </div>
+
+      <!-- Topic 1: Heat & Direction -->
+      <h3 class="topic-title"><i class="fa-solid fa-temperature-full"></i> ୧. ତାପ କ'ଣ ଏବଂ ଏହାର ପ୍ରବାହ ନିୟମ?</h3>
+      <p>
+        ତାପ ହେଉଛି ଏକ ପ୍ରକାରର ଶକ୍ତି। ଯେତେବେଳେ ଆମେ ଏକ ଗରମ ଚାହା କପ୍ରେ ଧାତବ ଚାମଚ ରଖୁ, କିଛି ସମୟ ପରେ ଚାମଚର ବାହାର ମୁଣ୍ଡଟି ମଧ୍ୟ ଗରମ ହୋଇଯାଏ। <strong>ତାପ ସର୍ବଦା ଅଧିକ ତାପମାତ୍ରା ବିଶିଷ୍ଟ ବସ୍ତୁରୁ କମ୍ ତାପମାତ୍ରା ବିଶିଷ୍ଟ ବସ୍ତୁ ଆଡ଼କୁ ପ୍ରବାହିତ ହୁଏ।</strong> ଯେତେବେଳେ ଦୁଇଟି ବସ୍ତୁର ତାପମାତ୍ରା ସମାନ ହୋଇଯାଏ, ସେତେବେଳେ ତାପ ସଞ୍ଚାଳନ ବନ୍ଦ ହୋଇଯାଏ (ତାପୀୟ ସନ୍ତୁଳନ / Thermal Equilibrium)।
+      </p>
+
+      <!-- Topic 2: Conduction -->
+      <h3 class="topic-title"><i class="fa-solid fa-fire-flame-curved"></i> ୨. ପରିବହନ (Conduction): କଠିନ ପଦାର୍ଥରେ ତାପ ସଞ୍ଚାଳନ</h3>
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-atom"></i> ସଂଜ୍ଞା: ପରିବହନ (Conduction)</div>
+        <p>ଯେଉଁ ପଦ୍ଧତିରେ ପଦାର୍ଥର କଣିକାମାନେ <strong>ନିଜ ସ୍ଥାନ ପରିବର୍ତ୍ତନ ନକରି</strong>, କେବଳ ପରସ୍ପର ସହ ଧକ୍କା ହୋଇ ଓ କମ୍ପିତ ହୋଇ ଗରମ ମୁଣ୍ଡରୁ ଥଣ୍ଡା ମୁଣ୍ଡକୁ ତାପ ସଞ୍ଚାର କରନ୍ତି, ତାହାକୁ <strong>ପରିବହନ (Conduction)</strong> କୁହାଯାଏ। କଠିନ ପଦାର୍ଥ (ଧାତୁ) ରେ ତାପ ଏହି ପଦ୍ଧତିରେ ଗତି କରେ।</p>
+      </div>
+
+      <!-- Topic 3: Convection -->
+      <h3 class="topic-title"><i class="fa-solid fa-water"></i> ୩. ପରିଚଳନ (Convection): ତରଳ ଓ ଗ୍ୟାସୀୟ ପଦାର୍ଥରେ ତାପ ସଞ୍ଚାଳନ</h3>
+      <p>
+        ପାଣି ଗରମ କରିବା ସମୟରେ, ପାତ୍ରର ତଳେ ଥିବା ପାଣି ପ୍ରଥମେ ଗରମ ହୋଇ ହାଲୁକା ହୋଇ ଉପରକୁ ଉଠିଯାଏ। ଉପରର ଥଣ୍ଡା ଓ ଭାରୀ ପାଣି ତଳକୁ ଖସି ଆସି ତାତିବା ଆରମ୍ଭ କରେ। ଏହି ପ୍ରକ୍ରିୟା ବାରମ୍ବାର ଚାଲି ଏକ <strong>ଚକ୍ରାକାର ପରିଚଳନ ସ୍ରୋତ (Convection Currents)</strong> ସୃଷ୍ଟି କରେ।
+      </p>
+
+      <!-- Sea breeze & Land breeze diagram -->
+      <h3 class="topic-title"><i class="fa-solid fa-wind"></i> ୪. ପ୍ରକୃତିର ବିଶାଳ ପରିଚଳନ ଇଞ୍ଜିନ୍: ସମୁଦ୍ର ବାୟୁ ଓ ସ୍ଥଳ ବାୟୁ</h3>
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="860" height="320" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+          <text x="440" y="35" text-anchor="middle" fill="#0f172a" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="15">ସମୁଦ୍ର ବାୟୁ (ଦିନବେଳା) ଏବଂ ସ୍ଥଳ ବାୟୁ (ରାତିବେଳା) ର ପରିଚଳନ ଚକ୍ର</text>
+
+          <!-- Day: Sea Breeze -->
+          <g transform="translate(40, 50)">
+            <rect x="0" y="10" width="370" height="240" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
+            <text x="185" y="35" text-anchor="middle" fill="#0369a1" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="14">ଦିନବେଳା: ସମୁଦ୍ର ବାୟୁ (Sea Breeze)</text>
+            <rect x="20" y="160" width="150" height="70" fill="#fde68a" rx="6"/>
+            <text x="95" y="195" text-anchor="middle" fill="#78350f" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="12">ତତଲା ସ୍ଥଳଭାଗ</text>
+            <text x="95" y="215" text-anchor="middle" fill="#92400e" font-family="'Noto Sans Oriya', sans-serif" font-size="10">(ଶୀଘ୍ର ଗରମ ହୁଏ)</text>
+
+            <rect x="200" y="160" width="150" height="70" fill="#bfdbfe" rx="6"/>
+            <text x="275" y="195" text-anchor="middle" fill="#1e40af" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="12">ଥଣ୍ଡା ସମୁଦ୍ର</text>
+            <text x="275" y="215" text-anchor="middle" fill="#1d4ed8" font-family="'Noto Sans Oriya', sans-serif" font-size="10">(ଧୀରେ ଗରମ ହୁଏ)</text>
+
+            <!-- Arrows -->
+            <path d="M 95 150 L 95 80" stroke="#ef4444" stroke-width="3" stroke-dasharray="4,2"/>
+            <text x="135" y="100" fill="#b91c1c" font-family="'Noto Sans Oriya', sans-serif" font-size="10">ଗରମ ବାୟୁ ଉପରକୁ ଉଠେ</text>
+            <path d="M 230 140 L 140 140" stroke="#0284c7" stroke-width="4"/>
+            <text x="185" y="130" text-anchor="middle" fill="#0284c7" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="12">&larr; ଥଣ୍ଡା ସମୁଦ୍ର ବାୟୁ ଆସେ</text>
+          </g>
+
+          <!-- Night: Land Breeze -->
+          <g transform="translate(470, 50)">
+            <rect x="0" y="10" width="370" height="240" rx="10" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+            <text x="185" y="35" text-anchor="middle" fill="#334155" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="14">ରାତିବେଳା: ସ୍ଥଳ ବାୟୁ (Land Breeze)</text>
+            <rect x="20" y="160" width="150" height="70" fill="#cbd5e1" rx="6"/>
+            <text x="95" y="195" text-anchor="middle" fill="#334155" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="12">ଶୀତଳ ସ୍ଥଳଭାଗ</text>
+            <text x="95" y="215" text-anchor="middle" fill="#475569" font-family="'Noto Sans Oriya', sans-serif" font-size="10">(ଶୀଘ୍ର ଥଣ୍ଡା ହୋଇଯାଏ)</text>
+
+            <rect x="200" y="160" width="150" height="70" fill="#93c5fd" rx="6"/>
+            <text x="275" y="195" text-anchor="middle" fill="#1e3a8a" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="12">ଉଷୁମ ସମୁଦ୍ର</text>
+            <text x="275" y="215" text-anchor="middle" fill="#1e40af" font-family="'Noto Sans Oriya', sans-serif" font-size="10">(ଧୀରେ ଥଣ୍ଡା ହୁଏ)</text>
+
+            <!-- Arrows -->
+            <path d="M 275 150 L 275 80" stroke="#ef4444" stroke-width="3" stroke-dasharray="4,2"/>
+            <text x="230" y="100" fill="#b91c1c" font-family="'Noto Sans Oriya', sans-serif" font-size="10">ଗରମ ବାୟୁ ଉପରକୁ ଉଠେ</text>
+            <path d="M 140 140 L 230 140" stroke="#475569" stroke-width="4"/>
+            <text x="185" y="130" text-anchor="middle" fill="#334155" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="12">ସ୍ଥଳ ବାୟୁ ସମୁଦ୍ର ଆଡ଼କୁ ବହେ &rarr;</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Topic 5: Radiation -->
+      <h3 class="topic-title"><i class="fa-solid fa-sun"></i> ୫. ବିକିରଣ (Radiation): ଶୂନ୍ୟସ୍ଥାନ ଦେଇ ତାପ ପ୍ରବାହ</h3>
+      <p>
+        ପୃଥିବୀ ଏବଂ ସୂର୍ଯ୍ୟଙ୍କ ମଧ୍ୟରେ ଅଧିକାଂଶ ସ୍ଥାନ ସମ୍ପୂର୍ଣ୍ଣ ଶୂନ୍ୟ (Vacuum), ଯେଉଁଠାରେ ବାୟୁ ମଧ୍ୟ ନାହିଁ। ତଥାପି ସୂର୍ଯ୍ୟଙ୍କ ପ୍ରଚଣ୍ଡ ତାପ ପୃଥିବୀ ପୃଷ୍ଠରେ ପହଞ୍ଚିଥାଏ। ଏହା କିପରି ସମ୍ଭବ? ଏହା <strong>ବିକିରଣ (Radiation)</strong> ପଦ୍ଧତିରେ ଘଟେ।
+      </p>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-atom"></i> ସଂଜ୍ଞା: ବିକିରଣ (Radiation)</div>
+        <p>ଯେଉଁ ପଦ୍ଧତିରେ ତାପ କୌଣସି <strong>ଭୌତିକ ମାଧ୍ୟମ (କଠିନ, ତରଳ ବା ବାୟୁ) ବିନା ତରଙ୍ଗ ଆକାରରେ</strong> ସଞ୍ଚାରିତ ହୁଏ, ତାହାକୁ ବିକିରଣ କୁହାଯାଏ। ନିଆଁ କିମ୍ବା ହିଟର୍ ପାଖରେ ବସିଲେ ଆମକୁ ଯେଉଁ ଉଷୁମ ଅନୁଭୂତ ହୁଏ, ତାହା ମଧ୍ୟ ବିକିରଣ ପଦ୍ଧତିରେ ଆସିଥାଏ।</p>
+      </div>
+
+      <!-- Topic 6: Thermos Flask -->
+      <h3 class="topic-title"><i class="fa-solid fa-mug-hot"></i> ୬. ଥର୍ମୋସ୍ ଫ୍ଲାସ୍କ (Thermos Flask) ର ବୈଜ୍ଞାନିକ କାର୍ଯ୍ୟପଦ୍ଧତି</h3>
+      <p>
+        ଥର୍ମୋସ୍ ଫ୍ଲାସ୍କରେ ରଖାଯାଇଥିବା ଗରମ ଚାହା ବହୁତ ସମୟ ଗରମ ରହେ ଏବଂ ଥଣ୍ଡା ପାଣି ଥଣ୍ଡା ରହେ। କାରଣ ଏହା ତିନୋଟିଯାକ ତାପ ସଞ୍ଚାଳନକୁ ରୋକିଦିଏ:
+      </p>
+      <ul>
+        <li><strong>ଶୂନ୍ୟସ୍ଥାନ (Vacuum):</strong> ଭିତର ଓ ବାହାର କାନ୍ଥ ମଧ୍ୟରୁ ବାୟୁ ବାହାର କରି ଶୂନ୍ୟସ୍ଥାନ କରାଯାଇଥାଏ, ଯାହା <strong>ପରିବହନ ଓ ପରିଚଳନ</strong> କୁ ସମ୍ପୂର୍ଣ୍ଣ ରୋକିଦିଏ।</li>
+        <li><strong>ଚକ୍ଚକ୍ ରୂପେଲୀ ଆସ୍ତରଣ (Silvered Walls):</strong> କାନ୍ଥର ଚମକଦାର ପୃଷ୍ଠ <strong>ବିକିରଣ</strong> ତାପକୁ ଭିତରକୁ ପୁଣି ପ୍ରତିଫଳିତ କରି ଫେରାଇଦିଏ।</li>
+        <li><strong>କର୍କ୍ ବା ପ୍ଲାଷ୍ଟିକ୍ ଠିପି:</strong> ଏହା ଏକ ଅନ୍ତରକ ହୋଇଥିବାରୁ ଉପର ମୁହଁରୁ ତାପ ନଷ୍ଟ ହେବାକୁ ଦିଏ ନାହିଁ।</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3: SCIENTIFIC TERM BANK -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୩</span>
+        <h2>ମୁଖ୍ୟ ବୈଜ୍ଞାନିକ ଶବ୍ଦାବଳୀ ଓ ପରିଭାଷା (Scientific Term Bank)</h2>
+        <p class="section-sub">ତାପ ସଞ୍ଚାଳନ ସମ୍ପର୍କିତ ବୈଜ୍ଞାନିକ ଶବ୍ଦକୋଷ</p>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">ଓଡ଼ିଆ ଶବ୍ଦ (Odia Term)</th>
+              <th style="width: 25%;">ଇଂରାଜୀ ଶବ୍ଦ (English Term)</th>
+              <th style="width: 50%;">ଛାତ୍ର-ଅନୁକୂଳ ପରିଭାଷା (Simple Explanation)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ପରିବହନ</strong></td>
+              <td>Conduction</td>
+              <td>କଠିନ ବସ୍ତୁରେ କଣିକା ନିଜ ସ୍ଥାନ ନଛାଡ଼ି କମ୍ପନ ଦ୍ୱାରା ତାପ ସଞ୍ଚାର କରିବା ପ୍ରକ୍ରିୟା।</td>
+            </tr>
+            <tr>
+              <td><strong>ପରିଚଳନ</strong></td>
+              <td>Convection</td>
+              <td>ତରଳ ଓ ଗ୍ୟାସ୍ରେ କଣିକାଗୁଡ଼ିକର ପ୍ରତ୍ୟକ୍ଷ ଗତି ଦ୍ୱାରା ତାପ ସଞ୍ଚାରିତ ହେବା ପଦ୍ଧତି।</td>
+            </tr>
+            <tr>
+              <td><strong>ବିକିରଣ</strong></td>
+              <td>Radiation</td>
+              <td>ବିନା କୌଣସି ପଦାର୍ଥୀୟ ମାଧ୍ୟମରେ ତରଙ୍ଗ ଆକାରରେ ଶୂନ୍ୟସ୍ଥାନ ଦେଇ ତାପ ସଞ୍ଚାର।</td>
+            </tr>
+            <tr>
+              <td><strong>ସମୁଦ୍ର ବାୟୁ</strong></td>
+              <td>Sea Breeze</td>
+              <td>ଦିନବେଳା ସମୁଦ୍ର ପଟରୁ ଥଣ୍ଡା ପବନ ସ୍ଥଳଭାଗ ଆଡ଼କୁ ବହିବା।</td>
+            </tr>
+            <tr>
+              <td><strong>ସ୍ଥଳ ବାୟୁ</strong></td>
+              <td>Land Breeze</td>
+              <td>ରାତିବେଳା ସ୍ଥଳଭାଗ ପଟରୁ ଥଣ୍ଡା ପବନ ସମୁଦ୍ର ଆଡ଼କୁ ବହିବା।</td>
+            </tr>
+            <tr>
+              <td><strong>ତାପୀୟ ସୁପରିବାହୀ</strong></td>
+              <td>Thermal Conductor</td>
+              <td>ଯେଉଁ ପଦାର୍ଥ ମଧ୍ୟ ଦେଇ ତାପ ଦ୍ରୁତ ଗତି କରିପାରେ (ଯଥା: ତମ୍ବା, ଆଲୁମିନିୟମ୍)।</td>
+            </tr>
+            <tr>
+              <td><strong>ତାପରୋଧୀ / କୁପରିବାହୀ</strong></td>
+              <td>Thermal Insulator</td>
+              <td>ଯାହା ନିଜ ମଧ୍ୟ ଦେଇ ତାପକୁ ସହଜରେ ଗତି କରିବାକୁ ଦିଏ ନାହିଁ (ଯଥା: କାଠ, ପ୍ଲାଷ୍ଟିକ୍, ପଶମ)।</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4: COMPLETE NCERT SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୪</span>
+        <h2>ପାଠ୍ୟପୁସ୍ତକ କାର୍ଯ୍ୟକଳାପ ଓ ପ୍ରଶ୍ନୋତ୍ତର ସମାଧାନ (NCERT Solutions)</h2>
+        <p class="section-sub">ସମସ୍ତ ଅଭ୍ୟାସ ପ୍ରଶ୍ନର ପଏଣ୍ଟ୍-ୱାଇଜ୍ ସମାଧାନ</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>
+          <span>ପ୍ରଶ୍ନ ୧: ତାପ ସଞ୍ଚାଳନର ତିନୋଟି ପଦ୍ଧତି (ପରିବହନ, ପରିଚଳନ ଓ ବିକିରଣ) ମଧ୍ୟରେ ତୁଳନା କର।</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <table style="width: 100%;">
+            <tr>
+              <th>ବୈଶିଷ୍ଟ୍ୟ</th>
+              <th>ପରିବହନ (Conduction)</th>
+              <th>ପରିଚଳନ (Convection)</th>
+              <th>ବିକିରଣ (Radiation)</th>
+            </tr>
+            <tr>
+              <td><strong>ମାଧ୍ୟମର ପ୍ରକାର</strong></td>
+              <td>ମୁଖ୍ୟତଃ କଠିନ ପଦାର୍ଥ।</td>
+              <td>ତରଳ ଓ ଗ୍ୟାସୀୟ ପଦାର୍ଥ।</td>
+              <td>କୌଣସି ମାଧ୍ୟମ ଦରକାର ନାହିଁ (ଶୂନ୍ୟସ୍ଥାନ)।</td>
+            </tr>
+            <tr>
+              <td><strong>କଣିକାର ଗତି</strong></td>
+              <td>କଣିକା ନିଜ ସ୍ଥାନ ଛାଡ଼ନ୍ତି ନାହିଁ।</td>
+              <td>କଣିକା ନିଜେ ଗରମ ହୋଇ ଉପରକୁ ଉଠନ୍ତି।</td>
+              <td>କଣିକା ନଥାଇ ତରଙ୍ଗ ଆକାରରେ ଗତି କରେ।</td>
+            </tr>
+            <tr>
+              <td><strong>ଉଦାହରଣ</strong></td>
+              <td>ଗରମ ଡାଲିରେ ଷ୍ଟିଲ୍ ଚାମଚ ତାତିବା।</td>
+              <td>ସମୁଦ୍ର ବାୟୁ ଓ ପାଣି ଫୁଟିବା।</td>
+              <td>ସୂର୍ଯ୍ୟ କିରଣରୁ ପୃଥିବୀ ତାତିବା।</td>
+            </tr>
+          </table>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>ପ୍ରଶ୍ନ ୨: ଗ୍ରୀଷ୍ମଦିନେ ଆମେ ହାଲୁକା ବା ଧଳା ରଙ୍ଗର ପୋଷାକ ଏବଂ ଶୀତଦିନେ ଗାଢ଼ ରଙ୍ଗର ପୋଷାକ ପିନ୍ଧିବା ପସନ୍ଦ କରୁ କାହିଁକି?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong></p>
+          <ul>
+            <li><strong>ଗ୍ରୀଷ୍ମଦିନେ:</strong> ଧଳା ଓ ହାଲୁକା ରଙ୍ଗର ପୋଷାକ ସୂର୍ଯ୍ୟଙ୍କ ବିକିରଣ ତାପର ଅଧିକାଂଶ ଭାଗକୁ <strong>ପ୍ରତିଫଳିତ (Reflect)</strong> କରି ଫେରାଇ ଦିଏ ଏବଂ ଖୁବ୍ କମ୍ ତାପ ଶୋଷଣ କରେ। ତେଣୁ ଶରୀର ଥଣ୍ଡା ଓ ଆରାମଦାୟକ ରହେ।</li>
+            <li><strong>ଶୀତଦିନେ:</strong> କଳା ଓ ଗାଢ଼ ରଙ୍ଗର ପୋଷାକ ସୂର୍ଯ୍ୟଙ୍କ ତାପକୁ ଅଧିକ <strong>ଶୋଷଣ (Absorb)</strong> କରି ଶରୀରକୁ ଉଷୁମ ରଖେ।</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>ପ୍ରଶ୍ନ ୩: ଶୀତଦିନେ ଗୋଟିଏ ମୋଟା କମ୍ବଳ ଅପେକ୍ଷା ଦୁଇଟି ପତଳା କମ୍ବଳ ଏକାଠି ଘୋଡ଼ାଇ ହେଲେ ଅଧିକ ଉଷୁମ ଲାଗେ କାହିଁକି?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong> ଦୁଇଟି ପତଳା କମ୍ବଳ ମଝିରେ <strong>ବାୟୁର ଏକ ପତଳା ସ୍ତର (Air Layer)</strong> ଫସି ରହିଥାଏ। ବାୟୁ ହେଉଛି ତାପର ଏକ <strong>ଉତ୍କୃଷ୍ଟ କୁପରିବାହୀ (Insulator)</strong>। ଏହି ବାୟୁ ସ୍ତର ଶରୀରର ତାପକୁ ବାହାରକୁ ଯିବାକୁ ଦିଏ ନାହିଁ ଏବଂ ବାହାର ଥଣ୍ଡାକୁ ଭିତରକୁ ଆସିବାକୁ ଦିଏ ନାହିଁ। ତେଣୁ ଦୁଇଟି ପତଳା କମ୍ବଳ ଗୋଟିଏ ମୋଟା କମ୍ବଳଠାରୁ ଅଧିକ ଉଷୁମ ପ୍ରଦାନ କରେ।</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: HOTS & INTERACTIVE QUIZ ENGINE -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୫</span>
+        <h2>ଉଚ୍ଚସ୍ତରୀୟ ଚିନ୍ତନ ଦକ୍ଷତା (HOTS) ଓ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍</h2>
+        <p class="section-sub">ସ୍ୱ-ମୂଲ୍ୟାୟନ ପରୀକ୍ଷା</p>
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-brain"></i> HOTS ବିଚାର ପ୍ରଶ୍ନ</div>
+        <p><strong>ପ୍ରଶ୍ନ:</strong> ଘରର ଭେଣ୍ଟିଲେଟର୍ (ବାୟୁ ଚଳାଚଳ ଝରକା) ସର୍ବଦା କାନ୍ଥର ଉପର ଭାଗରେ ଛାତ ପାଖରେ କାହିଁକି ତିଆରି କରାଯାଏ, ତଳେ କାହିଁକି ନୁହେଁ?</p>
+        <p><strong>ଉତ୍ତର:</strong> ଘର ଭିତରେ ମଣିଷର ନିଃଶ୍ୱାସ-ପ୍ରଶ୍ୱାସ ଓ କାର୍ଯ୍ୟକଳାପ ଯୋଗୁଁ ବାୟୁ ଗରମ ହୋଇଯାଏ। ପରିଚଳନ ନିୟମ ଅନୁସାରେ <strong>ଗରମ ବାୟୁ ହାଲୁକା ହୋଇ ଉପରକୁ ଉଠିଯାଏ</strong>। ଯଦି ଭେଣ୍ଟିଲେଟର୍ ଉପରେ ଥିବ, ତେବେ ଏହି ଅପରିଷ୍କାର ଗରମ ବାୟୁ ସହଜରେ ବାହାରକୁ ଚାଲିଯିବ ଏବଂ ତଳ ଝରକା ଦେଇ ଥଣ୍ଡା ତାଜା ବାୟୁ ଘର ଭିତରକୁ ପ୍ରବେଶ କରିବ।</p>
+      </div>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card" id="q7card1">
+        <div class="quiz-question">୧. କଠିନ ପଦାର୍ଥରେ ତାପ ସଞ୍ଚାଳନ ମୁଖ୍ୟତଃ କେଉଁ ପଦ୍ଧତିରେ ହୁଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card1', 0, true)">
+            <span>(A) ପରିବହନ (Conduction)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card1', 1, false)">
+            <span>(B) ପରିଚଳନ (Convection)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card1', 2, false)">
+            <span>(C) ବିକିରଣ (Radiation)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card1', 3, false)">
+            <span>(D) ବାଷ୍ପୀଭବନ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card" id="q7card2">
+        <div class="quiz-question">୨. ସମୁଦ୍ର ବାୟୁ (Sea breeze) କେଉଁ ସମୟରେ ପ୍ରବାହିତ ହୁଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card2', 0, true)">
+            <span>(A) କେବଳ ଦିନବେଳା (Daytime)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card2', 1, false)">
+            <span>(B) କେବଳ ରାତିବେଳା (Nighttime)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card2', 2, false)">
+            <span>(C) କେବଳ ବର୍ଷାଦିନେ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card2', 3, false)">
+            <span>(D) ମଧ୍ୟରାତ୍ରିରେ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card" id="q7card3">
+        <div class="quiz-question">୩. ସୂର୍ଯ୍ୟଙ୍କଠାରୁ ପୃଥିବୀ ପୃଷ୍ଠକୁ ତାପ କେଉଁ ପଦ୍ଧତିରେ ପହଞ୍ଚେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card3', 0, false)">
+            <span>(A) ପରିବହନ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card3', 1, false)">
+            <span>(B) ପରିଚଳନ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card3', 2, true)">
+            <span>(C) ବିକିରଣ (Radiation)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card3', 3, false)">
+            <span>(D) ଚୁମ୍ବକୀୟ ପ୍ରବାହ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="quiz-card" id="q7card4">
+        <div class="quiz-question">୪. ଥର୍ମୋସ୍ ଫ୍ଲାସ୍କର ଦୁଇ କାନ୍ଥ ମଧ୍ୟରେ କ'ଣ ଥାଏ ଯାହା ପରିବହନ ଓ ପରିଚଳନ ରୋକେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card4', 0, false)">
+            <span>(A) ତେଲ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card4', 1, true)">
+            <span>(B) ଶୂନ୍ୟସ୍ଥାନ (Vacuum)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card4', 2, false)">
+            <span>(C) ବରଫ ପାଣି</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q7card4', 3, false)">
+            <span>(D) କାର୍ବନ୍ ପାଉଡର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM HALL TRAPS & 15 REVISION POINTS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୬</span>
+        <h2>ପରୀକ୍ଷା ହଲ୍ ସାଧାରଣ ଭୁଲ୍ ଚେତାବନୀ ଓ ୧୫ଟି ମୁଖ୍ୟ ରିଭିଜନ୍ ପଏଣ୍ଟ୍</h2>
+        <p class="section-sub">୫ ମିନିଟ୍ ଦ୍ରୁତ ପୁନରାବୃତ୍ତି</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> ୩ଟି ପରୀକ୍ଷା ହଲ୍ ଭୁଲ୍:</div>
+        <ul>
+          <li><strong>ଭୁଲ୍ ୧:</strong> ସମୁଦ୍ର ବାୟୁ ଓ ସ୍ଥଳ ବାୟୁର ସମୟ ଭୁଲିବା: ମନେରଖନ୍ତୁ: <strong>ସମୁଦ୍ର ବାୟୁ = ଦିନବେଳା</strong> (ସମୁଦ୍ରରୁ ସ୍ଥଳ), <strong>ସ୍ଥଳ ବାୟୁ = ରାତିବେଳା</strong> (ସ୍ଥଳରୁ ସମୁଦ୍ର)!</li>
+          <li><strong>ଭୁଲ୍ ୨:</strong> ଶୂନ୍ୟସ୍ଥାନରେ ପରିଚଳନ ହୁଏ ବୋଲି ଭାବିବା। ଶୂନ୍ୟସ୍ଥାନରେ କୌଣସି କଣିକା ନଥିବାରୁ କେବଳ <strong>ବିକିରଣ</strong> ହିଁ କାର୍ଯ୍ୟ କରେ!</li>
+          <li><strong>ଭୁଲ୍ ୩:</strong> ତାପ କମ୍ ତାପମାତ୍ରାରୁ ଅଧିକକୁ ଯାଏ ବୋଲି ଭାବିବା। ତାପ ସର୍ବଦା <strong>ଅଧିକରୁ କମ୍ ତାପମାତ୍ରା</strong> ଆଡ଼କୁ ସ୍ୱତଃ ପ୍ରବାହିତ ହୁଏ।</li>
+        </ul>
+      </div>
+
+      <h4>୧୫ଟି ବିଜୁଳି ବେଗରେ ପୁନରାବୃତ୍ତି ସୂତ୍ର (15 Lightning Revision Points):</h4>
+      <ol style="line-height: 2; margin-left: 1.5rem;">
+        <li>ତାପ ସର୍ବଦା <strong>ଉଚ୍ଚ ତାପମାତ୍ରାରୁ ନିମ୍ନ ତାପମାତ୍ରା</strong> ଆଡ଼କୁ ପ୍ରବାହିତ ହୁଏ।</li>
+        <li>କଠିନ ବସ୍ତୁରେ ତାପ ସଞ୍ଚାଳନକୁ <strong>ପରିବହନ (Conduction)</strong> କୁହାଯାଏ।</li>
+        <li>ପରିବହନରେ ପଦାର୍ଥର କଣିକାମାନେ ନିଜ ସ୍ଥାନ ଛାଡ଼ନ୍ତି ନାହିଁ।</li>
+        <li>ଧାତୁଗୁଡ଼ିକ ତାପର <strong>ଉତ୍ତମ ସୁପରିବାହୀ</strong>।</li>
+        <li>କାଠ, ପ୍ଲାଷ୍ଟିକ୍ ଓ ରବର ତାପର <strong>କୁପରିବାହୀ (Insulators)</strong>।</li>
+        <li>ତରଳ ଓ ଗ୍ୟାସ୍ରେ ତାପ ସଞ୍ଚାଳନକୁ <strong>ପରିଚଳନ (Convection)</strong> କୁହାଯାଏ।</li>
+        <li>ଗରମ ତରଳ ବା ବାୟୁ ହାଲୁକା ହୋଇ <strong>ଉପରକୁ ଉଠିଯାଏ</strong>।</li>
+        <li>ଦିନବେଳା ସମୁଦ୍ରରୁ ସ୍ଥଳଭାଗ ଆଡ଼କୁ ବହୁଥିବା ଥଣ୍ଡା ପବନକୁ <strong>ସମୁଦ୍ର ବାୟୁ (Sea breeze)</strong> କୁହାଯାଏ।</li>
+        <li>ରାତିରେ ସ୍ଥଳଭାଗରୁ ସମୁଦ୍ର ଆଡ଼କୁ ବହୁଥିବା ପବନକୁ <strong>ସ୍ଥଳ ବାୟୁ (Land breeze)</strong> କୁହାଯାଏ।</li>
+        <li>ବିନା କୌଣସି ମାଧ୍ୟମରେ ତରଙ୍ଗ ଆକାରରେ ତାପ ପ୍ରବାହକୁ <strong>ବିକିରଣ (Radiation)</strong> କୁହାଯାଏ।</li>
+        <li>ସୂର୍ଯ୍ୟଙ୍କ ତାପ ପୃଥିବୀରେ <strong>ବିକିରଣ ପଦ୍ଧତି</strong> ରେ ପହଞ୍ଚେ।</li>
+        <li><strong>କଳା ଓ ଗାଢ଼ ରଙ୍ଗ</strong> ତାପ ଅଧିକ ଶୋଷଣ କରେ।</li>
+        <li><strong>ଧଳା ଓ ହାଲୁକା ରଙ୍ଗ</strong> ତାପକୁ ପ୍ରତିଫଳିତ କରେ।</li>
+        <li><strong>ଥର୍ମୋସ୍ ଫ୍ଲାସ୍କ</strong> ପରିବହନ, ପରିଚଳନ ଓ ବିକିରଣ &mdash; ତିନୋଟିଯାକ ତାପ ସଞ୍ଚାଳନକୁ ରୋକିଦିଏ।</li>
+        <li>ବାୟୁମଣ୍ଡଳରେ ପରିଚଳନ ସ୍ରୋତ ଏବଂ ସୂର୍ଯ୍ୟଙ୍କ ତାପ ଯୋଗୁଁ ପୃଥିବୀରେ <strong>ଜଳଚକ୍ର (Water Cycle)</strong> ସମ୍ଭବ ହୁଏ।</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+    });
+
+    function checkQuiz(cardId, optionIndex, isCorrect) {
+      const card = document.getElementById(cardId);
+      const buttons = card.querySelectorAll('.quiz-opt-btn');
+      
+      buttons.forEach((btn, idx) => {
+        btn.classList.add('evaluated');
+        btn.disabled = true;
+        const ind = btn.querySelector('.quiz-opt-indicator');
+        if (idx === optionIndex) {
+          if (isCorrect) {
+            btn.classList.add('correct-opt');
+            ind.innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          } else {
+            btn.classList.add('wrong-opt');
+            ind.innerHTML = ' &cross; (ଭୁଲ୍ ଉତ୍ତର)';
+          }
+        }
+      });
+
+      if (!isCorrect) {
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct-opt');
+            btn.querySelector('.quiz-opt-indicator').innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          }
+        });
+      }
+    }
+
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Text-to-Speech ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+      } else {
+        const text = "ନମସ୍କାର ପିଲାମାନେ! ସପ୍ତମ ଶ୍ରେଣୀ ବିଜ୍ଞାନର ସପ୍ତମ ଅଧ୍ୟାୟ 'ପ୍ରକୃତିରେ ତାପ ସଞ୍ଚାଳନ' କୁ ସ୍ୱାଗତ। ତାପ ସର୍ବଦା ଉଚ୍ଚ ତାପମାତ୍ରାରୁ ନିମ୍ନ ତାପମାତ୍ରା ଆଡ଼କୁ ଗତି କରେ। କଠିନରେ ପରିବହନ, ତରଳ ଓ ଗ୍ୟାସରେ ପରିଚଳନ ଏବଂ ଶୂନ୍ୟସ୍ଥାନରେ ବିକିରଣ ପଦ୍ଧତିରେ ତାପ ସଞ୍ଚାରିତ ହୁଏ। ଦିନବେଳା ସମୁଦ୍ର ବାୟୁ ଏବଂ ରାତିବେଳା ସ୍ଥଳ ବାୟୁ ପ୍ରବାହିତ ହୁଏ। ଥର୍ମୋସ୍ ଫ୍ଲାସ୍କ ଏହି ତିନୋଟିଯାକ ପଦ୍ଧତିକୁ ରୋକି ପାନୀୟକୁ ଉଷୁମ ରଖେ। ଧନ୍ୟବାଦ!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'or-IN';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>";
+      }
+    }
+  </script>
+</body>
+</html>
