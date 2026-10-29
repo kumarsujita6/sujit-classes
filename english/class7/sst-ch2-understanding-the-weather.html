@@ -1,0 +1,1430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 2 - Understanding the Weather (Class 7 Social Science)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #3b82f6);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #0d9488 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #0369a1;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      background: #f8fafc;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-number {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    .topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 1.8rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+      font-size: 1.02rem;
+      color: #334155;
+    }
+
+    /* Pastel Callouts */
+    .callout {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid;
+    }
+
+    .callout-def {
+      background-color: #f0f9ff;
+      border-left-color: #0284c7;
+      color: #0c4a6e;
+    }
+
+    .callout-act {
+      background-color: #f0fdf4;
+      border-left-color: #16a34a;
+      color: #14532d;
+    }
+
+    .callout-pyq {
+      background-color: #fffbeb;
+      border-left-color: #f59e0b;
+      color: #78350f;
+    }
+
+    .callout-hack {
+      background-color: #faf5ff;
+      border-left-color: #a855f7;
+      color: #581c87;
+    }
+
+    .callout-warn {
+      background-color: #fef2f2;
+      border-left-color: #ef4444;
+      color: #7f1d1d;
+    }
+
+    .callout-head {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #f8fafc;
+      color: var(--dark);
+      font-weight: 700;
+      padding: 0.9rem 1.1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.9rem 1.1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) { background-color: #fafbfd; }
+
+    /* Collapsible Question Cards */
+    details.ans-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin: 1.15rem 0;
+      padding: 0;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: #0284c7;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+    }
+
+    details.ans-box summary {
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      font-size: 1.02rem;
+      cursor: pointer;
+      background: #f8fafc;
+      color: var(--dark);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    details.ans-box summary::-webkit-details-marker { display: none; }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: #0369a1;
+    }
+
+    details.ans-box summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+      transition: transform 0.2s ease;
+    }
+
+    details.ans-box[open] summary::after {
+      content: '−';
+      transform: rotate(180deg);
+    }
+
+    .ans-content {
+      padding: 1.25rem 1.4rem;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      color: #334155;
+    }
+
+    /* SVG Diagrams */
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Quiz Engine */
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #0369a1 0%, #0d9488 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    /* Back to Top */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .term-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.15rem;
+      margin: 1.5rem 0;
+    }
+
+    .term-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.15rem;
+      border-top: 4px solid var(--primary);
+    }
+
+    .term-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.35rem;
+    }
+
+    .term-def {
+      font-size: 0.92rem;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    footer a { color: #38bdf8; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Sticky Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">Overview & Mind Map</a>
+      <a href="#sec2" class="nav-link">Concept Notes</a>
+      <a href="#sec3" class="nav-link">Term Bank</a>
+      <a href="#sec4" class="nav-link">NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">Interactive Quiz</a>
+      <a href="#sec6" class="nav-link">Revision & Traps</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-cloud-sun-rain"></i> Class 7 Social Science &bull; Exploring Society: India & Beyond
+    </div>
+    <h1 class="hero-title">Chapter 2: Understanding the Weather</h1>
+    <p class="hero-sub">
+      Atmospheric science made simple: decoding temperature, humidity, rainfall, wind systems, atmospheric pressure, and the science of weather forecasting.
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-regular fa-clock"></i> Reading Time: 28 mins</span>
+      <span><i class="fa-solid fa-book-open"></i> Full NCERT Solutions</span>
+      <span><i class="fa-solid fa-microscope"></i> Meteorological Instruments</span>
+    </div>
+    <button class="audio-btn" id="teacherAudioBtn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL MIND MAP & OVERVIEW -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <div class="section-number">01</div>
+        <h2 class="section-title">Visual Mind Map &amp; Chapter Overview</h2>
+      </div>
+
+      <p>
+        Have you ever woken up on a chilly winter morning shivering and looking for a woollen sweater, only to find yourself sweating under a hot afternoon sun just a few hours later? Or have you planned an outdoor cricket match with your friends, only to have sudden grey storm clouds ruin your game?
+      </p>
+      <p>
+        These rapid, hour-to-hour and day-to-day changes in the air around us are what we call <strong>weather</strong>. In this chapter, we discover the five primary elements that create weather, the scientific instruments used to measure them, and why modern weather forecasting saves thousands of lives every year.
+      </p>
+
+      <!-- SVG Mind Map: The 5 Weather Elements & Instruments -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 900 460" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+            <linearGradient id="cTemp" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f87171"/>
+              <stop offset="100%" stop-color="#dc2626"/>
+            </linearGradient>
+            <linearGradient id="cRain" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8"/>
+              <stop offset="100%" stop-color="#0284c7"/>
+            </linearGradient>
+            <linearGradient id="cPress" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fbbf24"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <linearGradient id="cWind" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#34d399"/>
+              <stop offset="100%" stop-color="#059669"/>
+            </linearGradient>
+            <linearGradient id="cHumid" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#a78bfa"/>
+              <stop offset="100%" stop-color="#7c3aed"/>
+            </linearGradient>
+            <filter id="boxShadow" x="-5%" y="-5%" width="110%" height="110%">
+              <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.12"/>
+            </filter>
+          </defs>
+
+          <!-- Connecting Spokes -->
+          <line x1="450" y1="230" x2="190" y2="90" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="230" x2="710" y2="90" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="230" x2="160" y2="350" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="230" x2="450" y2="380" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="230" x2="740" y2="350" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+
+          <!-- Center Node: Weather -->
+          <g filter="url(#boxShadow)">
+            <rect x="330" y="185" width="240" height="90" rx="20" fill="url(#centerGrad)" />
+            <text x="450" y="225" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="18" fill="#ffffff" text-anchor="middle">WEATHER</text>
+            <text x="450" y="250" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" fill="#e0f2fe" text-anchor="middle">Day-to-day atmospheric state</text>
+          </g>
+
+          <!-- Node 1: Temperature -->
+          <g filter="url(#boxShadow)">
+            <rect x="70" y="45" width="240" height="90" rx="14" fill="url(#cTemp)" />
+            <text x="190" y="78" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">🌡️ Temperature</text>
+            <text x="190" y="100" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">How hot or cold the air is</text>
+            <text x="190" y="118" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#fef2f2" text-anchor="middle">Max-Min Thermometer (°C)</text>
+          </g>
+
+          <!-- Node 2: Precipitation -->
+          <g filter="url(#boxShadow)">
+            <rect x="590" y="45" width="240" height="90" rx="14" fill="url(#cRain)" />
+            <text x="710" y="78" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">🌧️ Precipitation</text>
+            <text x="710" y="100" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Rain, Snow, Hail, Drizzle</text>
+            <text x="710" y="118" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#e0f2fe" text-anchor="middle">Standard Rain Gauge (mm)</text>
+          </g>
+
+          <!-- Node 3: Atmospheric Pressure -->
+          <g filter="url(#boxShadow)">
+            <rect x="40" y="305" width="240" height="90" rx="14" fill="url(#cPress)" />
+            <text x="160" y="338" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">⚖️ Atmospheric Pressure</text>
+            <text x="160" y="360" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Weight of air column</text>
+            <text x="160" y="378" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#fef3c7" text-anchor="middle">Barometer (mb / hPa)</text>
+          </g>
+
+          <!-- Node 4: Wind Speed & Direction -->
+          <g filter="url(#boxShadow)">
+            <rect x="330" y="335" width="240" height="90" rx="14" fill="url(#cWind)" />
+            <text x="450" y="368" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">💨 Wind (Speed &amp; Dir)</text>
+            <text x="450" y="390" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">High pressure to Low pressure</text>
+            <text x="450" y="408" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#dcfce7" text-anchor="middle">Anemometer &amp; Wind Vane</text>
+          </g>
+
+          <!-- Node 5: Humidity -->
+          <g filter="url(#boxShadow)">
+            <rect x="620" y="305" width="240" height="90" rx="14" fill="url(#cHumid)" />
+            <text x="740" y="338" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">💧 Humidity</text>
+            <text x="740" y="360" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Water vapour content in air</text>
+            <text x="740" y="378" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#ede9fe" text-anchor="middle">Hygrometer (Wet &amp; Dry Bulb) (%)</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 2.1: The Five Primary Elements of Weather and their Measuring Instruments.</p>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-head"><i class="fa-solid fa-bullseye"></i> The Big Questions of Chapter 2</div>
+        <p>1. <strong>How can we measure and describe the weather accurately?</strong> (Using specialised meteorological tools for temperature, pressure, wind, rainfall, and moisture).</p>
+        <p>2. <strong>Why is it vital to forecast the weather?</strong> (To safeguard farmers, guide airline pilots and fishermen, and evacuate citizens before deadly cyclones or heatwaves strike).</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EXHAUSTIVE CONCEPT EXPLANATIONS -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <div class="section-number">02</div>
+        <h2 class="section-title">Exhaustive Concept Explanations</h2>
+      </div>
+
+      <!-- 2.1 Weather and Troposphere -->
+      <h3 class="topic-title"><i class="fa-solid fa-smog"></i> 1. What is Weather? The Troposphere Theatre</h3>
+      <p>
+        <strong>Weather</strong> is defined as the state or condition of the atmosphere at a specific location over a short period of time (such as an hour, a day, or a week). It is dynamic and can change within minutes.
+      </p>
+      <p>
+        All human beings live at the bottom of an ocean of air called the atmosphere. The lowest layer of this atmosphere is the <strong>Troposphere</strong> (extending from ground level up to roughly 8 km at the poles and 18 km at the equator). 
+      </p>
+      <ul>
+        <li>Over <strong>75% of the total mass of the atmosphere</strong> and almost <strong>99% of all its water vapour</strong> is packed inside the troposphere.</li>
+        <li>Therefore, practically all the clouds, rain, snow, hail, lightning, and winds that make up our daily weather happen exclusively inside this lowest layer!</li>
+      </ul>
+
+      <!-- 2.2 Temperature -->
+      <h3 class="topic-title"><i class="fa-solid fa-temperature-three-quarters"></i> 2. Temperature: The Warmth of Our World</h3>
+      <p>
+        <strong>Temperature</strong> is the measure of how hot or cold the <em>ambient</em> (surrounding) air is. It depends directly on solar radiation (insolation) arriving from the Sun.
+      </p>
+      <ul>
+        <li><strong>Unit:</strong> Measured in degrees Celsius (°C) in India (and in degrees Fahrenheit, °F, in some countries).</li>
+        <li><strong>Maximum-Minimum Thermometer:</strong> The highest temperature of the day usually occurs in the early afternoon (between 2:00 PM and 4:00 PM) after the ground has soaked in hours of sunlight. The lowest temperature occurs in the early morning just before sunrise. A special U-shaped instrument called a <strong>Maximum-Minimum Thermometer (Six's Thermometer)</strong> contains small metal indices that record both values automatically.</li>
+        <li><strong>Diurnal Range of Temperature:</strong> The mathematical difference between the day's maximum temperature and minimum temperature:
+          <br><em>Diurnal Range = Maximum Temperature − Minimum Temperature</em>.
+        </li>
+      </ul>
+
+      <div class="callout callout-hack">
+        <div class="callout-head"><i class="fa-solid fa-temperature-arrow-up"></i> Ambient Temperature vs Human Body Temperature</div>
+        <p>
+          Never confuse ambient air temperature with your body temperature! 
+          Normal human body temperature is around <strong>37°C (98.6°F)</strong>. If the ambient outdoor air temperature reaches 37°C on a summer afternoon, you feel scorching hot because your body struggles to shed its metabolic heat into the warm air!
+        </p>
+      </div>
+
+      <!-- 2.3 Precipitation & Rain Gauge -->
+      <h3 class="topic-title"><i class="fa-solid fa-cloud-showers-water"></i> 3. Precipitation &amp; The Rain Gauge</h3>
+      <p>
+        When water evaporates from rivers, lakes, and oceans, it rises into the cool upper troposphere and condenses into tiny water droplets or ice crystals, forming clouds. When these droplets grow too heavy to float in the air, gravity pulls them down to Earth as <strong>precipitation</strong>.
+      </p>
+      <p>
+        Precipitation takes many forms: <em>rain, drizzle, snowfall, sleet (frozen rain), and hailstones (hard balls of layered ice)</em>.
+      </p>
+
+      <!-- SVG Diagram: Rain Gauge Construction -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 650 300" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="metalCyl" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#cbd5e1"/>
+              <stop offset="50%" stop-color="#f8fafc"/>
+              <stop offset="100%" stop-color="#94a3b8"/>
+            </linearGradient>
+            <linearGradient id="waterGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8"/>
+              <stop offset="100%" stop-color="#0284c7"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Outer Housing Base -->
+          <rect x="180" y="100" width="160" height="170" rx="8" fill="url(#metalCyl)" stroke="#64748b" stroke-width="2"/>
+          
+          <!-- Funnel on Top -->
+          <polygon points="170,40 350,40 260,110" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
+          <rect x="250" y="110" width="20" height="40" fill="#64748b"/>
+
+          <!-- Inner Measuring Cylinder -->
+          <rect x="235" y="145" width="50" height="115" rx="4" fill="#ffffff" stroke="#0284c7" stroke-width="1.5"/>
+          <rect x="235" y="195" width="50" height="65" fill="url(#waterGrad)"/>
+
+          <!-- Calibration ticks -->
+          <line x1="235" y1="160" x2="245" y2="160" stroke="#0284c7" stroke-width="1.5"/>
+          <line x1="235" y1="180" x2="245" y2="180" stroke="#0284c7" stroke-width="1.5"/>
+          <line x1="235" y1="200" x2="245" y2="200" stroke="#0284c7" stroke-width="1.5"/>
+          <line x1="235" y1="220" x2="245" y2="220" stroke="#0284c7" stroke-width="1.5"/>
+          <line x1="235" y1="240" x2="245" y2="240" stroke="#0284c7" stroke-width="1.5"/>
+
+          <!-- Rain drops falling into funnel -->
+          <line x1="210" y1="15" x2="215" y2="30" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+          <line x1="260" y1="10" x2="265" y2="25" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+          <line x1="310" y1="15" x2="315" y2="30" stroke="#0284c7" stroke-width="2" stroke-linecap="round"/>
+
+          <!-- Labels -->
+          <text x="375" y="55" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13" fill="#0f172a">Collector Funnel (Sharp Rim)</text>
+          <text x="375" y="70" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#64748b">Catches falling rain drops</text>
+
+          <text x="375" y="130" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13" fill="#0f172a">Outer Metal Cylinder</text>
+          <text x="375" y="145" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#64748b">Shields from wind &amp; evaporation</text>
+
+          <text x="375" y="210" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13" fill="#0284c7">Graduated Measuring Jar</text>
+          <text x="375" y="225" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#64748b">Reads rainfall directly in millimetres (mm)</text>
+
+          <!-- Ground Line -->
+          <line x1="80" y1="270" x2="450" y2="270" stroke="#334155" stroke-width="4"/>
+          <text x="260" y="292" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Mounted 30 cm above ground level</text>
+        </svg>
+        <p class="diagram-caption">Figure 2.2: Cross-sectional diagram of a Standard Symons Rain Gauge.</p>
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-head"><i class="fa-solid fa-flask"></i> Rules for Setting Up a Class Rain Gauge</div>
+        <p>To measure true rainfall accurately, scientists follow strict site rules:</p>
+        <ol>
+          <li><strong>Open Ground:</strong> It must be placed in a wide open space, far away from trees, roof overhangs, or walls that could block raindrops or drip extra water into the funnel.</li>
+          <li><strong>Raised Platform (approx. 30 cm):</strong> The rim of the funnel is kept about 30 cm above ground level so rainwater splashing off the mud or grass does not bounce into the jar.</li>
+          <li><strong>Firm &amp; Level:</strong> The gauge must sit perfectly vertical on a level concrete base so it does not tilt in heavy wind.</li>
+        </ol>
+      </div>
+
+      <!-- 2.4 Atmospheric Pressure & Altitude -->
+      <h3 class="topic-title"><i class="fa-solid fa-gauge-high"></i> 4. Atmospheric Pressure: The Weight of Air</h3>
+      <p>
+        Did you know that air has weight? Although air seems invisible and weightless, a 1-square-metre column of air reaching from sea level all the way to outer space weighs approximately <strong>10 tonnes</strong>!
+      </p>
+      <p>
+        <strong>Atmospheric Pressure</strong> is the force exerted by this weight of air pressing down on a unit area of Earth's surface.
+      </p>
+      <ul>
+        <li><strong>Instrument:</strong> Measured using a <strong>Barometer</strong> (mercury barometer or dial-based aneroid barometer).</li>
+        <li><strong>Unit:</strong> Expressed in <strong>millibars (mb)</strong> or <strong>hectopascals (hPa)</strong>. Standard sea-level pressure is about <strong>1013.25 mb</strong>.</li>
+        <li><strong>Why Does Pressure Drop with Altitude?</strong> As you climb higher up a mountain, there is less air above you. The air molecules are spread out, meaning air density and air pressure drop sharply. At the summit of Mount Everest, air pressure is only one-third of sea level! That is why mountaineers and tourists landing in Leh (Ladakh) feel breathless and must rest for 48 hours to acclimatise.</li>
+      </ul>
+
+      <!-- 2.5 Wind Systems: Speed and Direction -->
+      <h3 class="topic-title"><i class="fa-solid fa-wind"></i> 5. Wind: Air on the Move</h3>
+      <p>
+        Air never stays still when there is a pressure difference. <strong>Wind is simply the movement of air from areas of high pressure to areas of low pressure.</strong>
+      </p>
+      <p>
+        To understand wind, meteorologists measure two fundamental properties:
+      </p>
+      <ol>
+        <li><strong>Wind Direction:</strong> The direction <em>from which</em> the wind blows. It is measured using a <strong>Wind Vane</strong> (an arrow that swivels on a vertical spindle) or a <strong>Wind Sock</strong> (a conical fabric tube seen at airports to tell pilots runway wind direction).
+          <br><em>Important Rule:</em> If a wind blows from the east towards the west, it is called an <strong>Easterly wind</strong>!
+        </li>
+        <li><strong>Wind Speed:</strong> How fast the air is travelling. It is measured using an <strong>Anemometer</strong>, which has three or four hemispherical cups that rotate around a vertical shaft. Stronger winds spin the cups faster, generating an electronic reading in <strong>kilometres per hour (km/h)</strong> or <strong>knots</strong>.</li>
+      </ol>
+
+      <div class="callout callout-warn">
+        <div class="callout-head"><i class="fa-solid fa-fire"></i> North India's Summer Scorcher: The Loo</div>
+        <p>
+          In the months of May and June, a powerful, dry, and scorching local wind blows across the Northern Plains from the Thar Desert. Known as the <strong>Loo</strong>, its temperatures frequently reach 45°C to 48°C. Direct exposure can cause severe dehydration and deadly heatstroke!
+        </p>
+      </div>
+
+      <!-- 2.6 Humidity & Relative Humidity -->
+      <h3 class="topic-title"><i class="fa-solid fa-droplet"></i> 6. Humidity: Moisture in the Air</h3>
+      <p>
+        <strong>Humidity</strong> refers to the concentration of invisible water vapour present in the atmosphere.
+      </p>
+      <ul>
+        <li><strong>Relative Humidity (RH):</strong> The percentage of water vapour actually present in the air compared to the maximum amount the air could hold at that specific temperature.
+          <br><em>RH = (Actual Water Vapour / Maximum Capacity) × 100%</em>.
+        </li>
+        <li><strong>Warm Air Holds More Water:</strong> Warm air expands and can hold vastly more water vapour than cold air. When humid warm air cools down, it reaches 100% saturation (the <strong>dew point</strong>), forcing excess vapour to condense into dew, fog, or clouds.</li>
+        <li><strong>Why Do Humid Days Feel So Sticky?</strong> On a dry day in Jaipur, your sweat evaporates in seconds, cooling your skin down comfortably. But on a humid monsoon day in Mumbai or Cuttack with 85% humidity, the air is already saturated with water vapour. Your sweat cannot evaporate, leaving your clothes soaked and your body feeling uncomfortably hot and sticky!</li>
+        <li><strong>Instrument:</strong> Measured using a <strong>Hygrometer</strong> (often a Psychrometer with two thermometers: a dry bulb measuring ambient air temperature, and a wet bulb wrapped in a damp muslin wick).</li>
+      </ul>
+
+      <!-- 2.7 Weather Stations & IMD -->
+      <h3 class="topic-title"><i class="fa-solid fa-satellite-dish"></i> 7. Weather Stations &amp; The India Meteorological Department</h3>
+      <p>
+        To collect round-the-clock data, meteorological agencies establish <strong>Weather Stations</strong> across the country.
+      </p>
+      <ul>
+        <li><strong>Stevenson Screen:</strong> A standard white-painted wooden box with louvered (slatted) sides mounted on four legs 1.25 metres above the ground. The white colour reflects solar heat, and the slats allow free air circulation while keeping the thermometers inside protected from direct sunlight, rain, and wind blasts.</li>
+        <li><strong>Automatic Weather Stations (AWS):</strong> Solar-powered robotic towers equipped with electronic sensors that automatically record temperature, pressure, wind, and rain, transmitting data via satellite every 15 minutes. In 2023, India's NDMA installed an AWS beside a high glacial lake in Sikkim at 4,800 metres to detect sudden glacial lake outburst floods (GLOF)!</li>
+        <li><strong>India Meteorological Department (IMD):</strong> Founded in 1875, IMD is India's premier national weather agency. Its ancient Sanskrit motto is <em>"Adityat Jayate Vrishti"</em> (meaning: <em>"From the Sun arises rain"</em>).</li>
+      </ul>
+
+      <div class="callout callout-def">
+        <div class="callout-head"><i class="fa-solid fa-shield-virus"></i> Why Weather Forecasting Saves Lives</div>
+        <p>1. <strong>Farmers:</strong> Helps them know when to sow seeds, spray fertilizers, or harvest ripe crops before hailstorms ruin them.</p>
+        <p>2. <strong>Fishermen &amp; Ships:</strong> Provides early warnings about rough seas, gale-force winds, and approaching cyclones so boats do not venture out.</p>
+        <p>3. <strong>Aviation:</strong> Aircraft pilots rely on wind speed, turbulence, visibility, and thunderstorm reports to take off and land safely.</p>
+        <p>4. <strong>Disaster Preparedness:</strong> Supercyclones in the Bay of Bengal can be tracked days in advance by radar and satellite, enabling district administrations to safely evacuate hundreds of thousands of coastal villagers.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3: RAPID REVISION FACT & TECHNICAL TERM BANK -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <div class="section-number">03</div>
+        <h2 class="section-title">Rapid Revision Fact &amp; Technical Term Bank</h2>
+      </div>
+
+      <div class="term-grid">
+        <div class="term-card">
+          <div class="term-title">1. Weather</div>
+          <div class="term-def">The day-to-day atmospheric conditions of a specific place at a specific time regarding temperature, humidity, rainfall, wind, and pressure.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">2. Troposphere</div>
+          <div class="term-def">The lowest layer of Earth's atmosphere (0–18 km) containing 75% of atmospheric mass and 99% of moisture, where all weather phenomena occur.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">3. Diurnal Range</div>
+          <div class="term-def">The difference between the maximum temperature and the minimum temperature recorded during a single 24-hour day.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">4. Precipitation</div>
+          <div class="term-def">Any form of liquid or solid water particles that condense in the atmosphere and fall to the ground (rain, snow, sleet, hail).</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">5. Rain Gauge</div>
+          <div class="term-def">A meteorological instrument consisting of a sharp-rimmed funnel and graduated inner cylinder used to measure precipitation in millimetres.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">6. Barometer</div>
+          <div class="term-def">An instrument designed to measure atmospheric pressure in millibars (mb) or hectopascals (hPa).</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">7. Anemometer</div>
+          <div class="term-def">An instrument with rotating cups used to measure the velocity (speed) of the wind in km/h or knots.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">8. Relative Humidity</div>
+          <div class="term-def">The ratio of the amount of water vapour present in the air to the maximum amount the air can hold at that temperature, given as a percentage (%).</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">9. Hygrometer</div>
+          <div class="term-def">An instrument (such as a wet-and-dry bulb psychrometer) used to measure the humidity or moisture content of air.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">10. Stevenson Screen</div>
+          <div class="term-def">A white-painted, louvered wooden shelter that houses delicate meteorological thermometers, shielding them from direct sun while allowing free air flow.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: COMPLETE NCERT IN-TEXT ACTIVITIES & EXERCISE SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <div class="section-number">04</div>
+        <h2 class="section-title">Complete NCERT In-Text Activities &amp; Exercise Solutions</h2>
+      </div>
+
+      <!-- In-Text Activity 1 -->
+      <details class="ans-box">
+        <summary>In-Text Activity (Page 4): Talk to elders in your neighbourhood and ask them how they predict weather without instruments.</summary>
+        <div class="ans-content">
+          <p><strong>Traditional Weather Signs Observed by Elders:</strong></p>
+          <ul>
+            <li><strong>Ants Carrying Eggs:</strong> When black ants are seen moving their eggs to higher, dry ground in large lines, villagers know that heavy rain is coming within hours.</li>
+            <li><strong>Halo around Moon/Sun:</strong> A hazy circle or halo around the moon indicates high cirrus clouds containing ice crystals, which often heralds an approaching storm.</li>
+            <li><strong>Frogs Croaking Loudly:</strong> Frogs croak intensely when humidity rises before the first monsoon shower because moist air keeps their permeable skin damp.</li>
+            <li><strong>Dragonflies Flying Low:</strong> Rising air humidity makes small insects' wings heavy with moisture, forcing them and the dragonflies chasing them to fly close to the ground.</li>
+            <li><strong>Traditional Sayings:</strong> In Hindi: <em>"Titli ude aakash, to barsat ki aas"</em> (butterflies flying low means rain is near); In Odia: <em>"Bhadrava megha, nishthe barsha"</em> (dense dark thunderheads mean certain downpours).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- In-Text Activity 2 -->
+      <details class="ans-box">
+        <summary>In-Text Activity (Page 7): Chart of Temperatures of a city in MP — Maximum 42°C, Minimum 24°C. Calculate the range.</summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul>
+            <li><strong>Maximum Temperature Recorded:</strong> 42°C</li>
+            <li><strong>Minimum Temperature Recorded:</strong> 24°C</li>
+            <li><strong>Calculation of Diurnal Range:</strong>
+              <br>Range = Maximum Temperature − Minimum Temperature
+              <br>Range = 42°C − 24°C = <strong>18°C</strong>.
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- In-Text Activity 3 -->
+      <details class="ans-box">
+        <summary>In-Text Activity (Page 15): Study the IMD Map of 19 May 2024. Which states had heatwave warnings and what were the causes for warnings in Tripura and Lakshadweep?</summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul>
+            <li><strong>Heatwave Warnings:</strong> States in northwestern and central India—including Rajasthan, Punjab, Haryana, Delhi, Uttar Pradesh, and Madhya Pradesh—showed red and orange heatwave alerts as temperatures soared above 45°C under hot dry winds.</li>
+            <li><strong>Cause for Warning in Tripura:</strong> Severe pre-monsoon heavy thunderstorms, lightning, and squally winds caused by moisture-laden Bay of Bengal winds meeting hot continental air.</li>
+            <li><strong>Cause for Warning in Lakshadweep:</strong> High squally winds, rough sea conditions, and early pre-monsoon rain bands in the Arabian Sea, advising fishermen not to venture into deep sea.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Exercise 1: Matching -->
+      <details class="ans-box">
+        <summary>Exercise Q1: Match the instrument with the weather element it measures.</summary>
+        <div class="ans-content">
+          <p><strong>Correct Matches:</strong></p>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Instrument Used</th>
+                  <th>Element of Weather Measured</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>(1) <strong>Hygrometer</strong></td>
+                  <td>(d) <strong>Humidity</strong> (moisture in the air)</td>
+                </tr>
+                <tr>
+                  <td>(2) <strong>Anemometer</strong></td>
+                  <td>(c) <strong>Wind direction and speed</strong> (specifically speed; wind vane measures direction)</td>
+                </tr>
+                <tr>
+                  <td>(3) <strong>Barometer</strong></td>
+                  <td>(b) <strong>Atmospheric pressure</strong></td>
+                </tr>
+                <tr>
+                  <td>(4) <strong>Thermometer</strong></td>
+                  <td>(e) <strong>Temperature</strong></td>
+                </tr>
+                <tr>
+                  <td>(5) <strong>Rain gauge</strong></td>
+                  <td>(a) <strong>Precipitation</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Exercise 2: Advice to Jyotsna -->
+      <details class="ans-box">
+        <summary>Exercise Q2: Jyotsna is deciding what clothes to pack for Mumbai in June. Forecast: 29°C and 84% humidity. What would be your advice to her?</summary>
+        <div class="ans-content">
+          <p><strong>Teacher's Advice to Jyotsna:</strong></p>
+          <ol>
+            <li><strong>Light, Breathable Cotton Clothes:</strong> Although 29°C sounds moderate, an 84% relative humidity means the air is almost completely saturated with water vapour. Sweat will evaporate very slowly, causing heavy perspiration. Pure, loose-fitting cotton or linen clothes will absorb sweat and allow air to circulate.</li>
+            <li><strong>Strictly Avoid Synthetic Fabrics:</strong> She should avoid tight polyester, nylon, or silk clothes because they trap heat and sweat against the skin, causing severe itching and prickly heat rash.</li>
+            <li><strong>Rain Protection Essentials:</strong> June is the start of the heavy South-West Monsoon in Mumbai! She must carry a sturdy umbrella, a lightweight waterproof raincoat, and quick-drying waterproof footwear (like rubber sandals).</li>
+            <li><strong>Hydration:</strong> Carry a reusable water bottle and oral rehydration drinks because the heavy sweating can cause loss of electrolytes.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Exercise 3: Setting Up Rain Gauge Site -->
+      <details class="ans-box">
+        <summary>Exercise Q3: Setting up a rain gauge. Options: (1) Vegetable garden, (2) Terrace, (3) Open ground with elevated platform, (4) Compound wall, (5) Verandah. Finalise the site and give reasons.</summary>
+        <div class="ans-content">
+          <p><strong>Final Choice:</strong> <strong>Option 3 — Open ground with an elevated platform.</strong></p>
+          <p><strong>Scientific Reasons for Our Decision:</strong></p>
+          <ul>
+            <li><strong>Zero Obstruction:</strong> An open ground ensures that no tall trees, building walls, or utility poles block raindrops from falling straight into the funnel rim during windy rain.</li>
+            <li><strong>Elevated Platform (30 cm high):</strong> Placing the gauge on a 30 cm raised masonry platform prevents rainwater that hits the muddy ground from splashing back into the funnel, which would give a false, exaggerated rainfall reading.</li>
+            <li><strong>Why other options were rejected:</strong>
+              <ul>
+                <li><em>Vegetable garden:</em> Plant leaves and garden bushes might overhang or grow over the funnel.</li>
+                <li><em>Terrace:</em> Strong swirling rooftop wind currents distort raindrop trajectories, leading to inaccurate readings.</li>
+                <li><em>Compound wall:</em> High risk of wind turbulence and the gauge falling or getting knocked over.</li>
+                <li><em>Verandah:</em> The roof of the verandah would block most of the falling rain entirely!</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Exercise 4: Weather Report Script for J&K -->
+      <details class="ans-box">
+        <summary>Exercise Q4: Using the IMD Jammu & Kashmir data chart for 01-02-2024, write a short news broadcast script to report the weather conditions.</summary>
+        <div class="ans-content">
+          <p><strong>Radio / TV Weather Broadcast Script:</strong></p>
+          <div style="background: #f8fafc; border-left: 4px solid #0284c7; padding: 1rem 1.25rem; font-style: italic; border-radius: 8px;">
+            <p><strong>[News Anchor]:</strong> "A very good evening to all our listeners. Here is the special evening weather bulletin for Jammu and Kashmir from the India Meteorological Department for Thursday, 1st February 2024.</p>
+            <p>Winter continues to grip the valley in an intense cold spell with widespread rain and snowfall recorded across all major tourist and mountain stations.</p>
+            <p><strong>Gulmarg</strong> remained frozen below zero today, recording a maximum temperature of −2.6°C and a bone-chilling minimum of −7.6°C, accompanied by heavy snowfall of 35 centimetres and relative humidity peaking at 100%.</p>
+            <p>In <strong>Pahalgam</strong>, the mercury touched a daytime high of just 1.1°C with a night low of −4.1°C and 23 cm of fresh snow accumulation.</p>
+            <p>The summer capital, <strong>Srinagar</strong>, witnessed daytime temperatures of 6.5°C—about 2.4 degrees below normal—with 13.4 mm of rain and 2.4 cm of snowfall. Relative humidity in the city stood high at 89%.</p>
+            <p>Heavy precipitation was also reported from <strong>Qazigund</strong> and <strong>Kukernag</strong>, with snow depths reaching 22 cm and 30 cm respectively.</p>
+            <p><strong>Advisory:</strong> Motorists travelling on the Srinagar-Jammu National Highway are advised to exercise extreme caution due to slippery roads and low visibility. Stay warm, drive safely, and tune in again tomorrow morning!"</p>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: HIGH-ORDER THINKING (HOTS) & INTERACTIVE QUIZ ENGINE -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <div class="section-number">05</div>
+        <h2 class="section-title">HOTS &amp; Interactive Quiz Engine</h2>
+      </div>
+
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <i class="fa-solid fa-trophy"></i> Your Score: <span id="quizScoreCount">0</span> / 5
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Select an option below to test your weather science skills!
+        </div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-card" id="qcard1">
+        <p><strong>Q1. In which atmospheric layer do almost all clouds, rain, snow, and weather phenomena take place?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'a')">
+          <span>(a) Troposphere</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'a')">
+          <span>(b) Stratosphere</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'a')">
+          <span>(c) Mesosphere</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'a')">
+          <span>(d) Thermosphere</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong> The troposphere (the lowest layer, 0–18 km) holds 75% of atmospheric mass and almost all water vapour, making it the active engine for all clouds and weather.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-card" id="qcard2">
+        <p><strong>Q2. If a wind is blowing from the south-west towards the north-east, what is this wind scientifically called?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(a) North-easterly wind</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(b) South-westerly wind</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(c) Easterly wind</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(d) Northerly wind</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> In meteorology, wind is always named after the direction <em>from which it originates</em>! A wind blowing from the south-west is a South-westerly wind (e.g., India's South-West Monsoon).
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-card" id="qcard3">
+        <p><strong>Q3. Why is the Stevenson Screen painted bright white with slatted (louvered) wooden sides?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(a) To attract birds away from the delicate thermometers</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(b) To absorb solar heat and keep the thermometers warm</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(c) White reflects sunlight, while the slats allow free air circulation without direct sunlight hitting thermometers</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(d) To make it look like a regular classroom blackboard</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> Thermometers must measure true shade ambient air temperature. White paint prevents the shelter from heating up, while louvered slats allow outdoor air to circulate freely.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-card" id="qcard4">
+        <p><strong>Q4. Why does atmospheric pressure decrease as we climb higher up into the mountains?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')">
+          <span>(a) There is less air above us, and the air molecules are spread out (lower air density)</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')">
+          <span>(b) Gravity disappears completely in the mountains</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')">
+          <span>(c) Cold mountain rocks push the air away into outer space</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')">
+          <span>(d) Trees on the mountains absorb all atmospheric pressure</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong> Air pressure is the weight of the air column above. At high elevations, the column of air above is shorter and less dense, so the pressure is much lower.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-card" id="qcard5">
+        <p><strong>Q5. What is the motto of the India Meteorological Department (IMD), established in 1875?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+          <span>(a) Satyameva Jayate</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+          <span>(b) Vasudhaiva Kutumbakam</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+          <span>(c) Dharmo Rakshati Rakshitah</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+          <span>(d) Adityat Jayate Vrishti (From the Sun arises rain)</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d)</strong> From Manusmriti, <em>"Adityat Jayate Vrishti"</em> emphasizes the scientific truth that solar heat drives evaporation and creates all rain!
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM HALL TRAPS & 15 HIGH-YIELD REVISION POINTS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <div class="section-number">06</div>
+        <h2 class="section-title">Exam Hall Traps &amp; 15 High-Yield Revision Points</h2>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-head"><i class="fa-solid fa-triangle-exclamation"></i> Common Exam Hall Traps to Avoid!</div>
+        <ul>
+          <li><strong>Trap 1: Confusing Weather with Climate:</strong> <em>Weather</em> is the atmospheric condition of a day or week. <em>Climate</em> is the average weather pattern calculated over at least 30 to 35 years!</li>
+          <li><strong>Trap 2: Wind Naming Confusion:</strong> Always remember: wind is named after where it <strong>comes from</strong>, NOT where it is going! A wind blowing from the North is a <em>Northerly</em> wind.</li>
+          <li><strong>Trap 3: Humidity vs Temperature:</strong> 85% humidity does not mean the temperature is 85°C! Relative humidity is a percentage of saturation. A coastal city can be 28°C and have 90% humidity.</li>
+          <li><strong>Trap 4: Rain Gauge Location:</strong> Never place a rain gauge next to a building wall or under a tree—overhangs drip extra water and walls block rain, giving totally incorrect measurements.</li>
+        </ul>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-bolt"></i> 15 High-Yield Revision Points</h3>
+      <ol style="padding-left: 1.5rem; line-height: 1.9;">
+        <li><strong>Weather Definition:</strong> Short-term atmospheric condition of a specific place at a specific moment.</li>
+        <li><strong>Troposphere:</strong> Lowest 0–18 km layer where 99% of atmospheric water vapour exists and all weather happens.</li>
+        <li><strong>Five Weather Elements:</strong> Temperature, Atmospheric Pressure, Wind, Humidity, and Precipitation.</li>
+        <li><strong>Diurnal Temperature Range:</strong> Maximum daily temperature minus Minimum daily temperature.</li>
+        <li><strong>Precipitation Types:</strong> Rain, drizzle, snow, sleet, and hailstones.</li>
+        <li><strong>Rain Gauge Standard:</strong> Funnel with sharp rim, graduated cylinder reading in mm, elevated 30 cm in open ground.</li>
+        <li><strong>Atmospheric Pressure:</strong> Force of the air column pressing down on Earth's surface (normal sea level = 1013.25 mb).</li>
+        <li><strong>Barometer:</strong> Measures atmospheric pressure; pressure drops rapidly with increasing elevation.</li>
+        <li><strong>High Altitude Breathlessness:</strong> Lower air density at high mountain altitudes causes reduced oxygen intake.</li>
+        <li><strong>Wind Cause:</strong> Movement of air from regions of high atmospheric pressure to low atmospheric pressure.</li>
+        <li><strong>Wind Vane vs Anemometer:</strong> Wind vane measures direction; Anemometer (rotating cups) measures velocity in km/h.</li>
+        <li><strong>The Loo:</strong> Hot, dry, scorching summer wind blowing across North India during May and June.</li>
+        <li><strong>Relative Humidity (RH):</strong> Actual water vapour present as a percentage of maximum water vapour air can hold at that temperature.</li>
+        <li><strong>Stevenson Screen:</strong> Louvered white wooden shelter elevated 1.25 m to protect thermometers from direct radiation while permitting airflow.</li>
+        <li><strong>IMD Foundation:</strong> Established in 1875 with the motto <em>"Adityat Jayate Vrishti"</em> (From the Sun arises rain).</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; color: #f8fafc;">
+      Sujit Classes &bull; Conceptual Middle School Portal
+    </p>
+    <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+      Empowering young minds across Odisha and India with crystal-clear NCERT foundations.
+    </p>
+    <p style="font-size: 0.85rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Portal Home</a> &bull; 
+      <a href="#sec1">Top of Notes</a>
+    </p>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    // 1. Reading Progress Bar & Back to Top Controller
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    // 2. Teacher Audio Reader (TTS)
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+      }
+    }
+
+    // 3. Interactive Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) {
+        details.style.display = 'block';
+        details.open = true;
+      }
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Brilliant! Perfect 5/5 on Understanding the Weather!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! You have a solid grasp of atmospheric science!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good effort! Check the explanations above to master each concept!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
