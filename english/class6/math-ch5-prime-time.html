@@ -1,0 +1,1833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 6 Mathematics Chapter 5: Prime Time &mdash; Complete Master Study Notes (Ganita Prakash)</title>
+  <meta name="description" content="100% comprehensive, zero-omission study guide for Class 6 Maths Chapter 5: Prime Time (NEP Ganita Prakash). Includes 5-step solved NCERT exercises, SVG factor trees, Sieve of Eratosthenes, divisibility rules, and practice bank.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+      --primary-gradient: linear-gradient(90deg, #0284c7 0%, #38bdf8 50%, #10b981 100%);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.68;
+      font-size: 15.5px;
+      padding-bottom: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: var(--primary-gradient);
+      z-index: 999999;
+      transition: width 0.1s ease-out;
+      box-shadow: 0 1px 4px rgba(2, 132, 199, 0.3);
+    }
+
+    header.header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+      color: #ffffff;
+      padding: 50px 20px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-content {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 5px 12px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .badge-primary { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); }
+    .badge-nep { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .badge-math { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+
+    .header h1 {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .header-subtitle {
+      font-size: 16px;
+      color: #94a3b8;
+      max-width: 760px;
+      margin-bottom: 22px;
+    }
+
+    .nav-jumps {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .jump-chip {
+      background: rgba(255, 255, 255, 0.1);
+      color: #e2e8f0;
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .jump-chip:hover {
+      background: var(--primary);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 32px auto;
+      padding: 0 20px;
+    }
+
+    .section-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 34px;
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 22px 0 10px;
+    }
+
+    h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #334155;
+      margin: 16px 0 8px;
+    }
+
+    p { margin-bottom: 14px; }
+
+    .callout {
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 20px 0;
+      border-left: 5px solid;
+    }
+
+    .callout-def {
+      background-color: var(--primary-light);
+      border-left-color: var(--primary);
+      color: #034f78;
+    }
+
+    .callout-act {
+      background-color: var(--secondary-light);
+      border-left-color: var(--secondary);
+      color: #065f46;
+    }
+
+    .callout-pyq {
+      background-color: var(--accent-light);
+      border-left-color: var(--accent);
+      color: #92400e;
+    }
+
+    .callout-warn {
+      background-color: var(--danger-light);
+      border-left-color: var(--danger);
+      color: #9f1239;
+    }
+
+    .callout-hack {
+      background-color: var(--purple-light);
+      border-left-color: var(--purple);
+      color: #5b21b6;
+    }
+
+    .callout strong {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    .math-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 20px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .math-table th {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .math-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14.5px;
+      background: #ffffff;
+    }
+
+    .math-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .math-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    details.ans-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin: 18px 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: #38bdf8;
+      box-shadow: 0 4px 14px -2px rgba(2, 132, 199, 0.12);
+    }
+
+    details.ans-box summary {
+      padding: 15px 18px;
+      background: #f8fafc;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      font-size: 15px;
+      color: #1e293b;
+      list-style: none;
+    }
+
+    details.ans-box summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.ans-box summary::after {
+      content: "➕";
+      font-size: 14px;
+      transition: transform 0.2s ease;
+    }
+
+    details.ans-box[open] summary::after {
+      content: "➖";
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #bae6fd;
+    }
+
+    .ans-content {
+      padding: 20px;
+      background: #ffffff;
+    }
+
+    .step-box {
+      margin-bottom: 12px;
+      padding-left: 14px;
+      border-left: 3px solid #cbd5e1;
+    }
+
+    .step-title {
+      font-weight: 700;
+      color: #0369a1;
+      font-size: 13.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .final-ans {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      font-weight: 700;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-top: 12px;
+      display: inline-block;
+    }
+
+    .svg-container {
+      margin: 24px 0;
+      text-align: center;
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .svg-caption {
+      margin-top: 10px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    li { margin-bottom: 6px; }
+
+    .tts-container {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .tts-btn {
+      background: linear-gradient(135deg, #0284c7, #0d9488);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .tts-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top-fixed reading scroll progress bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="badge-bar">
+        <span class="badge badge-nep">NEP 2020 Aligned</span>
+        <span class="badge badge-primary">Class 6 Mathematics</span>
+        <span class="badge badge-math">Ganita Prakash Chapter 5</span>
+      </div>
+      <h1>Chapter 5: Prime Time</h1>
+      <p class="header-subtitle">
+        Unravel the foundational building blocks of arithmetic &mdash; master the common multiple dynamics of the 'Idli-Vada' game, navigate the ancient Sieve of Eratosthenes, unlock cryptographic co-prime locks, decompose numbers into unique prime factor trees, and deploy lightning-fast divisibility tests.
+      </p>
+      <div class="nav-jumps">
+        <a class="jump-chip" href="#sec-1">1. Visual Mind Map</a>
+        <a class="jump-chip" href="#sec-2">2. Conceptual Notes</a>
+        <a class="jump-chip" href="#sec-3">3. Rapid Revision Formulas</a>
+        <a class="jump-chip" href="#sec-4">4. Complete NCERT Solutions</a>
+        <a class="jump-chip" href="#sec-5">5. Competency Question Bank</a>
+        <a class="jump-chip" href="#sec-6">6. Exam Hall Traps & Tips</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+
+    <!-- SECTION 1: VISUAL MIND MAP & CHAPTER BLUEPRINT -->
+    <section id="sec-1" class="section-card">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <h2 class="section-title">Visual Mind Map &amp; Chapter Blueprint</h2>
+      </div>
+
+      <p>
+        Welcome to <strong>Prime Time</strong>! Prime numbers are the fundamental "atoms" of arithmetic. Just as every molecule in chemistry is built from basic chemical elements, every whole number greater than 1 is either an indivisible prime or can be uniquely factored into a product of primes.
+      </p>
+
+      <div class="callout callout-def">
+        <strong>🗺️ Chapter Conceptual Architecture:</strong>
+        <ol style="margin-top: 8px; margin-bottom: 0;">
+          <li><strong>Multiples, Factors &amp; The Idli-Vada Game:</strong> Skip counting, common multiples, common factors, and Perfect Numbers.</li>
+          <li><strong>Primes &amp; Composites:</strong> The Sieve of Eratosthenes, 2 as the unique even prime, Twin Primes, and reversible prime pairs.</li>
+          <li><strong>Co-Prime Numbers:</strong> Pairs sharing no common factor other than 1; treasure safekeeping rules.</li>
+          <li><strong>Prime Factorisation:</strong> The Fundamental Theorem of Arithmetic, Factor Trees, and Division Ladders.</li>
+          <li><strong>Divisibility Tests:</strong> Rapid mental rules for 2, 3, 4, 5, 6, 8, 9, 10, and 11.</li>
+        </ol>
+      </div>
+
+      <!-- SVG 1: Chapter 5 Concept Mind Map -->
+      <div class="svg-container">
+        <svg viewBox="0 0 900 440" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <!-- Central Hub -->
+          <rect x="350" y="180" width="200" height="70" rx="35" fill="#0284c7" filter="drop-shadow(0 4px 6px rgba(2,132,199,0.3))"/>
+          <text x="450" y="215" text-anchor="middle" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="16">PRIME TIME</text>
+          <text x="450" y="235" text-anchor="middle" fill="#e0f2fe" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11">Ganita Prakash Ch 5</text>
+
+          <!-- Branch 1: Factors & Multiples (Top-Left) -->
+          <path d="M 380 180 C 300 120, 240 90, 180 80" stroke="#0ea5e9" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="70" y="50" width="180" height="60" rx="10" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+          <text x="160" y="75" text-anchor="middle" fill="#0369a1" font-weight="700" font-size="12">1. Multiples &amp; Factors</text>
+          <text x="160" y="95" text-anchor="middle" fill="#0284c7" font-size="10.5">Idli-Vada Game, Perfect No.</text>
+
+          <!-- Branch 2: Primes & Sieve (Top-Right) -->
+          <path d="M 520 180 C 600 120, 660 90, 720 80" stroke="#8b5cf6" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="650" y="50" width="180" height="60" rx="10" fill="#faf5ff" stroke="#8b5cf6" stroke-width="2"/>
+          <text x="740" y="75" text-anchor="middle" fill="#6d28d9" font-weight="700" font-size="12">2. Primes &amp; Composites</text>
+          <text x="740" y="95" text-anchor="middle" fill="#7c3aed" font-size="10.5">Sieve, Twin Primes, 2 is Even</text>
+
+          <!-- Branch 3: Prime Factorisation (Bottom-Left) -->
+          <path d="M 380 250 C 300 310, 240 340, 180 350" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="70" y="320" width="180" height="60" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+          <text x="160" y="345" text-anchor="middle" fill="#047857" font-weight="700" font-size="12">3. Prime Factorisation</text>
+          <text x="160" y="365" text-anchor="middle" fill="#059669" font-size="10.5">Factor Trees, Fundamental Thm</text>
+
+          <!-- Branch 4: Divisibility Tests (Bottom-Right) -->
+          <path d="M 520 250 C 600 310, 660 340, 720 350" stroke="#f59e0b" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="650" y="320" width="180" height="60" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+          <text x="740" y="345" text-anchor="middle" fill="#b45309" font-weight="700" font-size="12">4. Divisibility Tests</text>
+          <text x="740" y="365" text-anchor="middle" fill="#d97706" font-size="10.5">Rules for 2, 3, 4, 5, 8, 9, 11</text>
+
+          <!-- Branch 5: Co-Primes & Treasures (Top-Center) -->
+          <path d="M 450 180 L 450 65" stroke="#ec4899" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="360" y="20" width="180" height="45" rx="8" fill="#fdf2f8" stroke="#ec4899" stroke-width="1.5"/>
+          <text x="450" y="47" text-anchor="middle" fill="#be185d" font-weight="700" font-size="11">Co-Primes (HCF = 1)</text>
+        </svg>
+        <div class="svg-caption">Figure 5.1: Conceptual roadmap of Prime Time topics.</div>
+      </div>
+
+      <!-- SVG 2: Venn Diagram of Common Multiples (The Idli-Vada Game) -->
+      <div class="svg-container">
+        <svg viewBox="0 0 850 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <text x="425" y="26" text-anchor="middle" fill="#0f172a" font-weight="800" font-size="14">THE IDLI-VADA GAME: VENN DIAGRAM OF COMMON MULTIPLES</text>
+
+          <!-- Circle 1: Multiples of 3 (Idli) -->
+          <circle cx="320" cy="150" r="105" fill="rgba(2, 132, 199, 0.15)" stroke="#0284c7" stroke-width="2.5"/>
+          <text x="240" y="85" fill="#0369a1" font-weight="800" font-size="13">Multiples of 3 ('Idli')</text>
+          <text x="260" y="130" fill="#0369a1" font-size="12">3, 6, 9, 12, 18,</text>
+          <text x="260" y="155" fill="#0369a1" font-size="12">21, 24, 27, 33,</text>
+          <text x="260" y="180" fill="#0369a1" font-size="12">36, 39, 42, 48...</text>
+
+          <!-- Circle 2: Multiples of 5 (Vada) -->
+          <circle cx="530" cy="150" r="105" fill="rgba(16, 185, 129, 0.15)" stroke="#10b981" stroke-width="2.5"/>
+          <text x="610" y="85" fill="#065f46" font-weight="800" font-size="13">Multiples of 5 ('Vada')</text>
+          <text x="560" y="130" fill="#065f46" font-size="12">5, 10, 20, 25,</text>
+          <text x="560" y="155" fill="#065f46" font-size="12">35, 40, 50, 55,</text>
+          <text x="560" y="180" fill="#065f46" font-size="12">65, 70, 80, 85...</text>
+
+          <!-- Intersection: Common Multiples (Idli-Vada = LCM 15) -->
+          <text x="425" y="115" text-anchor="middle" fill="#854d0e" font-weight="800" font-size="12.5">Common: 'Idli-Vada'</text>
+          <text x="425" y="140" text-anchor="middle" fill="#b45309" font-weight="700" font-size="14">15, 30, 45,</text>
+          <text x="425" y="165" text-anchor="middle" fill="#b45309" font-weight="700" font-size="14">60, 75, 90...</text>
+          <text x="425" y="195" text-anchor="middle" fill="#d97706" font-size="11">Multiples of LCM(3, 5) = 15</text>
+        </svg>
+        <div class="svg-caption">Figure 5.2: Overlapping sets showing common multiples of 3 and 5 leading to LCM = 15.</div>
+      </div>
+
+      <!-- SVG 3: Factor Tree for Prime Factorisation of 360 -->
+      <div class="svg-container">
+        <svg viewBox="0 0 850 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <text x="425" y="24" text-anchor="middle" fill="#0f172a" font-weight="800" font-size="14">PRIME FACTORISATION FACTOR TREE: 360 = 2³ × 3² × 5</text>
+
+          <!-- Level 0: 360 -->
+          <rect x="385" y="40" width="80" height="32" rx="6" fill="#0284c7"/>
+          <text x="425" y="62" text-anchor="middle" fill="#ffffff" font-weight="800" font-size="14">360</text>
+
+          <!-- Branch to 2 and 180 -->
+          <line x1="400" y1="72" x2="300" y2="105" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="450" y1="72" x2="550" y2="105" stroke="#94a3b8" stroke-width="2"/>
+
+          <!-- Level 1 -->
+          <circle cx="300" cy="115" r="18" fill="#ecfdf5" stroke="#10b981" stroke-width="2.5"/>
+          <text x="300" y="121" text-anchor="middle" fill="#065f46" font-weight="800" font-size="14">2</text>
+
+          <rect x="520" y="100" width="60" height="30" rx="6" fill="#f1f5f9" stroke="#64748b"/>
+          <text x="550" y="121" text-anchor="middle" fill="#1e293b" font-weight="700" font-size="13">180</text>
+
+          <!-- Branch 180 to 2 and 90 -->
+          <line x1="535" y1="130" x2="450" y2="160" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="565" y1="130" x2="650" y2="160" stroke="#94a3b8" stroke-width="2"/>
+
+          <!-- Level 2 -->
+          <circle cx="450" cy="170" r="18" fill="#ecfdf5" stroke="#10b981" stroke-width="2.5"/>
+          <text x="450" y="176" text-anchor="middle" fill="#065f46" font-weight="800" font-size="14">2</text>
+
+          <rect x="625" y="155" width="50" height="30" rx="6" fill="#f1f5f9" stroke="#64748b"/>
+          <text x="650" y="175" text-anchor="middle" fill="#1e293b" font-weight="700" font-size="13">90</text>
+
+          <!-- Branch 90 to 2 and 45 -->
+          <line x1="635" y1="185" x2="570" y2="215" stroke="#94a3b8" stroke-width="2"/>
+          <line x1="665" y1="185" x2="730" y2="215" stroke="#94a3b8" stroke-width="2"/>
+
+          <!-- Level 3 -->
+          <circle cx="570" cy="225" r="18" fill="#ecfdf5" stroke="#10b981" stroke-width="2.5"/>
+          <text x="570" y="231" text-anchor="middle" fill="#065f46" font-weight="800" font-size="14">2</text>
+
+          <!-- 45 splits into 9 and 5 -->
+          <circle cx="710" cy="225" r="18" fill="#ecfdf5" stroke="#10b981" stroke-width="2.5"/>
+          <text x="710" y="231" text-anchor="middle" fill="#065f46" font-weight="800" font-size="14">3</text>
+
+          <circle cx="760" cy="225" r="18" fill="#ecfdf5" stroke="#10b981" stroke-width="2.5"/>
+          <text x="760" y="231" text-anchor="middle" fill="#065f46" font-weight="800" font-size="14">3</text>
+
+          <circle cx="810" cy="225" r="18" fill="#ecfdf5" stroke="#10b981" stroke-width="2.5"/>
+          <text x="810" y="231" text-anchor="middle" fill="#065f46" font-weight="800" font-size="14">5</text>
+        </svg>
+        <div class="svg-caption">Figure 5.3: Prime Factorisation Factor Tree decomposing 360 into prime leaves (2 &times; 2 &times; 2 &times; 3 &times; 3 &times; 5).</div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 2: LINE-BY-LINE CONCEPTUAL NOTES -->
+    <section id="sec-2" class="section-card">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <h2 class="section-title">Line-by-Line Conceptual Notes</h2>
+      </div>
+
+      <!-- 5.1 Common Multiples and Common Factors -->
+      <h3>5.1 Multiples, Factors, and Common Ground</h3>
+      <p>
+        Arithmetic begins with skip counting and division:
+      </p>
+
+      <div class="callout callout-def">
+        <strong>Definitions &amp; Core Distinctions:</strong>
+        <ul style="margin-top: 6px; margin-bottom: 0;">
+          <li><strong>Multiple:</strong> A multiple of a number is the product obtained when that number is multiplied by any positive integer. Multiples of any number are <em>infinite</em> in quantity and always &ge; the number itself.</li>
+          <li><strong>Factor:</strong> A factor of a number is an exact divisor that divides the number completely with zero remainder. Factors are <em>finite</em> in quantity and always &le; the number itself.</li>
+          <li><strong>1 is Universal:</strong> 1 is a factor of every number, and every number is a factor of itself.</li>
+        </ul>
+      </div>
+
+      <h4>The 'Idli-Vada' Circle Game:</h4>
+      <p>
+        Children sit in a circle and count 1, 2, 3... but replace multiples:
+      </p>
+      <ul>
+        <li>Multiples of 3 &rarr; say <strong>'idli'</strong> (3, 6, 9, 12, 18, 21, 24, 27...).</li>
+        <li>Multiples of 5 &rarr; say <strong>'vada'</strong> (5, 10, 20, 25, 35, 40, 50...).</li>
+        <li>Multiples of BOTH 3 and 5 &rarr; say <strong>'idli-vada'</strong>!</li>
+      </ul>
+      <p>
+        The numbers where 'idli-vada' is spoken are the <strong>Common Multiples</strong> of 3 and 5. The very first common multiple is <strong>15</strong>, which is the <strong>Lowest Common Multiple (LCM)</strong>. All subsequent common multiples are simply multiples of 15: 15, 30, 45, 60, 75, 90...
+      </p>
+
+      <h4>Perfect Numbers:</h4>
+      <p>
+        A number for which the sum of all its positive factors is equal to <strong>twice the number</strong> is called a <strong>Perfect Number</strong>:
+      </p>
+      <ul>
+        <li><strong>Example 1 (The number 6):</strong> Factors of 6 are {1, 2, 3, 6}.<br>
+        Sum of factors = 1 + 2 + 3 + 6 = 12 = 2 &times; 6. (6 is the smallest perfect number!).</li>
+        <li><strong>Example 2 (The number 28):</strong> Factors of 28 are {1, 2, 4, 7, 14, 28}.<br>
+        Sum of factors = 1 + 2 + 4 + 7 + 14 + 28 = 56 = 2 &times; 28. (28 is perfect!).</li>
+      </ul>
+
+      <!-- 5.2 Prime Numbers -->
+      <h3>5.2 Prime and Composite Numbers</h3>
+      <p>
+        Whole numbers greater than 1 fall into two fundamental categories:
+      </p>
+      <ul>
+        <li><strong>Prime Number:</strong> A natural number greater than 1 that has <em>exactly two factors</em>: 1 and itself (e.g., 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31...).</li>
+        <li><strong>Composite Number:</strong> A natural number greater than 1 that has <em>more than two factors</em> (e.g., 4, 6, 8, 9, 10, 12, 14, 15...).</li>
+        <li><strong>The Special Status of 1:</strong> <strong>1 is NEITHER prime NOR composite</strong>, because it has only one single factor (1).</li>
+      </ul>
+
+      <div class="callout callout-hack">
+        <strong>⚡ 4 Golden Prime Rules:</strong>
+        <ol style="margin-top: 6px; margin-bottom: 0;">
+          <li><strong>2 is the ONLY Even Prime Number:</strong> Every other even number is a multiple of 2 and thus composite.</li>
+          <li><strong>2 is the Smallest Prime Number.</strong></li>
+          <li><strong>Twin Primes:</strong> Pairs of prime numbers that differ by exactly 2 (e.g., (3, 5), (5, 7), (11, 13), (17, 19), (29, 31), (41, 43), (59, 61), (71, 73)).</li>
+          <li><strong>Reversible Prime Pairs:</strong> Primes whose digits when reversed remain prime (e.g., 13 &amp; 31, 17 &amp; 71, 37 &amp; 73, 79 &amp; 97).</li>
+        </ol>
+      </div>
+
+      <h4>The 7 Consecutive Composite Numbers:</h4>
+      <p>
+        Between 1 and 100, there is a famous continuous stretch of <strong>7 consecutive composite numbers</strong> with no prime between them:
+        <br>
+        <strong>90, 91, 92, 93, 94, 95, 96</strong>
+        <br>
+        (90 = 2&times;45, 91 = 7&times;13, 92 = 2&times;46, 93 = 3&times;31, 94 = 2&times;47, 95 = 5&times;19, 96 = 2&times;48).
+      </p>
+
+      <!-- 5.3 Co-Prime Numbers -->
+      <h3>5.3 Co-Prime Numbers for Safekeeping Treasures</h3>
+      <p>
+        Two numbers are said to be <strong>Co-Prime</strong> (or relatively prime) if they have <strong>no common factor other than 1</strong> (i.e., their HCF = 1).
+      </p>
+      <ul>
+        <li><strong>Primes are Always Co-Prime:</strong> Any two distinct prime numbers are automatically co-prime (e.g., 5 and 13).</li>
+        <li><strong>Consecutive Integers are Always Co-Prime:</strong> Any two consecutive natural numbers n and n + 1 share no common factor &gt; 1 (e.g., 14 and 15 are co-prime).</li>
+        <li><strong>Composite Numbers Can Be Co-Prime:</strong> Two numbers do NOT need to be prime to be co-prime! For example, 8 (composite: 1, 2, 4, 8) and 9 (composite: 1, 3, 9) have HCF = 1, so 8 and 9 are co-prime.</li>
+      </ul>
+
+      <!-- 5.4 Prime Factorisation -->
+      <h3>5.4 Prime Factorisation &amp; The Fundamental Theorem</h3>
+      <p>
+        Expressing a composite number as a product of strictly prime factors is called its <strong>Prime Factorisation</strong>.
+      </p>
+      <div class="callout callout-def">
+        <strong>The Fundamental Theorem of Arithmetic:</strong>
+        Every composite number can be uniquely expressed as a product of prime numbers, up to the order of the prime factors.
+      </div>
+      <p>
+        For instance, 360 can be factored using a factor tree:
+        <br>
+        360 = 2 &times; 2 &times; 2 &times; 3 &times; 3 &times; 5 = <strong>2<sup>3</sup> &times; 3<sup>2</sup> &times; 5</strong>.
+        <br>
+        No other combination of prime numbers in the entire universe can multiply together to give 360!
+      </p>
+
+      <!-- 5.5 Divisibility Tests -->
+      <h3>5.5 Complete Suite of Divisibility Tests</h3>
+      <p>
+        Divisibility rules allow you to determine whether a large number is divisible by a given divisor in seconds, without performing long division:
+      </p>
+
+      <table class="math-table">
+        <thead>
+          <tr>
+            <th>Divisor</th>
+            <th>Divisibility Rule</th>
+            <th>Illustrative Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>2</strong></td>
+            <td>Units digit is even: 0, 2, 4, 6, or 8.</td>
+            <td>4,83<strong>6</strong> is divisible; 5,92<strong>7</strong> is not.</td>
+          </tr>
+          <tr>
+            <td><strong>3</strong></td>
+            <td>Sum of all digits is a multiple of 3.</td>
+            <td>7,251: 7+2+5+1 = 15 (divisible by 3 &rarr; Yes).</td>
+          </tr>
+          <tr>
+            <td><strong>4</strong></td>
+            <td>Number formed by the last two digits is divisible by 4.</td>
+            <td>3,5<strong>28</strong>: 28 &divide; 4 = 7 &rarr; Divisible.</td>
+          </tr>
+          <tr>
+            <td><strong>5</strong></td>
+            <td>Units digit is either 0 or 5.</td>
+            <td>9,14<strong>5</strong> and 6,28<strong>0</strong> are divisible.</td>
+          </tr>
+          <tr>
+            <td><strong>6</strong></td>
+            <td>Divisible by BOTH 2 (even) AND 3 (digit sum).</td>
+            <td>1,458: even &amp; 1+4+5+8 = 18 &rarr; Divisible.</td>
+          </tr>
+          <tr>
+            <td><strong>8</strong></td>
+            <td>Number formed by the last three digits is divisible by 8.</td>
+            <td>14,<strong>560</strong>: 560 &divide; 8 = 70 &rarr; Divisible.</td>
+          </tr>
+          <tr>
+            <td><strong>9</strong></td>
+            <td>Sum of all digits is a multiple of 9.</td>
+            <td>8,532: 8+5+3+2 = 18 &rarr; Divisible.</td>
+          </tr>
+          <tr>
+            <td><strong>10</strong></td>
+            <td>Units digit is strictly 0.</td>
+            <td>73,92<strong>0</strong> is divisible.</td>
+          </tr>
+          <tr>
+            <td><strong>11</strong></td>
+            <td>Difference between (Sum of digits at odd positions) and (Sum of digits at even positions) is either 0 or a multiple of 11.</td>
+            <td><strong>1</strong>3<strong>5</strong>3: Odd sum = 1+5 = 6; Even sum = 3+3 = 6. Difference = 6 − 6 = <strong>0</strong> &rarr; Divisible!</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- SECTION 3: RAPID REVISION FORMULA, PROPERTY & LAW BANK -->
+    <section id="sec-3" class="section-card">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <h2 class="section-title">Rapid Revision Formula, Law &amp; Divisibility Bank</h2>
+      </div>
+
+      <p>
+        Quick reference tables consolidating prime classifications, divisibility rules, and HCF-LCM relationships.
+      </p>
+
+      <h3>Table 5.1: Fundamental Arithmetic Relationships</h3>
+      <table class="math-table">
+        <thead>
+          <tr>
+            <th>Law / Property</th>
+            <th>Formula / Statement</th>
+            <th>Example / Condition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>HCF &times; LCM Product Rule</strong></td>
+            <td>HCF(a, b) &times; LCM(a, b) = a &times; b</td>
+            <td>For 12 and 18: HCF=6, LCM=36 &rarr; 6 &times; 36 = 216 = 12 &times; 18</td>
+          </tr>
+          <tr>
+            <td><strong>Co-Prime LCM Rule</strong></td>
+            <td>If a, b are co-prime, then LCM = a &times; b</td>
+            <td>For 8 and 9 (HCF=1): LCM = 8 &times; 9 = 72</td>
+          </tr>
+          <tr>
+            <td><strong>Perfect Number Property</strong></td>
+            <td>Sum of all factors = 2 &times; N</td>
+            <td>For N = 6: 1 + 2 + 3 + 6 = 12 = 2 &times; 6</td>
+          </tr>
+          <tr>
+            <td><strong>Smallest Prime</strong></td>
+            <td>2 (also the ONLY even prime)</td>
+            <td>All primes &gt; 2 are odd numbers</td>
+          </tr>
+          <tr>
+            <td><strong>Neither Prime nor Composite</strong></td>
+            <td>1 (has only 1 factor)</td>
+            <td>Does not satisfy definition of prime or composite</td>
+          </tr>
+          <tr>
+            <td><strong>Consecutive Integers Co-Prime</strong></td>
+            <td>HCF(n, n + 1) = 1</td>
+            <td>14 and 15, 99 and 100 are always co-prime</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Table 5.2: Complete List of Prime Numbers up to 100 (Total = 25 Primes)</h3>
+      <table class="math-table">
+        <thead>
+          <tr>
+            <th>Tens Decade</th>
+            <th>Prime Numbers</th>
+            <th>Decade Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1 to 10</td><td>2, 3, 5, 7</td><td>4</td></tr>
+          <tr><td>11 to 20</td><td>11, 13, 17, 19</td><td>4</td></tr>
+          <tr><td>21 to 30</td><td>23, 29</td><td>2</td></tr>
+          <tr><td>31 to 40</td><td>31, 37</td><td>2</td></tr>
+          <tr><td>41 to 50</td><td>41, 43, 47</td><td>3</td></tr>
+          <tr><td>51 to 60</td><td>53, 59</td><td>2</td></tr>
+          <tr><td>61 to 70</td><td>61, 67</td><td>2</td></tr>
+          <tr><td>71 to 80</td><td>71, 73, 79</td><td>3</td></tr>
+          <tr><td>81 to 90</td><td>83, 89</td><td>2</td></tr>
+          <tr><td>91 to 100</td><td>97</td><td>1</td></tr>
+          <tr><td><strong>Total (1–100)</strong></td><td><strong>25 Primes</strong></td><td><strong>25</strong></td></tr>
+        </tbody>
+      </table>
+
+      <h3>Table 5.3: Twin Primes up to 100 (Pairs differing by 2)</h3>
+      <table class="math-table" style="max-width: 500px;">
+        <thead>
+          <tr>
+            <th>Twin Prime Pair</th>
+            <th>Composite In-Between</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>(3, 5)</td><td>4</td></tr>
+          <tr><td>(5, 7)</td><td>6</td></tr>
+          <tr><td>(11, 13)</td><td>12</td></tr>
+          <tr><td>(17, 19)</td><td>18</td></tr>
+          <tr><td>(29, 31)</td><td>30</td></tr>
+          <tr><td>(41, 43)</td><td>42</td></tr>
+          <tr><td>(59, 61)</td><td>60</td></tr>
+          <tr><td>(71, 73)</td><td>72</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4: 100% COMPLETE NCERT SOLUTIONS -->
+    <section id="sec-4" class="section-card">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <h2 class="section-title">100% Complete NCERT Solutions (5-Step Topper Method)</h2>
+      </div>
+
+      <p>
+        Full 5-step CBSE topper solutions for all questions, "Figure it Out" challenges, and exercises in Chapter 5: <em>Prime Time</em>.
+      </p>
+
+      <!-- 5.1 In-text Questions -->
+      <h3>Section 5.1: Multiples, Common Factors &amp; The Idli-Vada Game</h3>
+
+      <details class="ans-box" open>
+        <summary>Q1: In the 'idli-vada' game (multiples of 3 say 'idli', multiples of 5 say 'vada', multiples of both say 'idli-vada'), at what number is 'idli-vada' said for the 10th time?</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Multiples of 3 = 'idli', Multiples of 5 = 'vada', Common multiples = 'idli-vada'.<br><strong>To find:</strong> The number where 'idli-vada' is spoken for the 10th time.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Formula / Principle</div>
+          <p>Common multiples of 3 and 5 are multiples of their LCM. LCM(3, 5) = 15. The n-th common multiple is given by 15 &times; n.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Arithmetic calculation</div>
+          <p>
+            1st time: 15 &times; 1 = 15<br>
+            2nd time: 15 &times; 2 = 30<br>
+            10th time: 15 &times; 10 = <strong>150</strong>.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div>
+          <div class="final-ans">150.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div>
+          <p>Therefore, 'idli-vada' is called out for the tenth time at number 150.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q2: If the game is played for numbers from 1 till 90: (a) How many times is 'idli' said alone? (b) How many times is 'vada' said alone? (c) How many times is 'idli-vada' said?</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Range = 1 to 90.<br><strong>To find:</strong> Counts of 'idli', 'vada', and 'idli-vada'.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Set Division Principle</div>
+          <p>
+            - Total multiples of 3 = 90 &divide; 3 = 30.<br>
+            - Total multiples of 5 = 90 &divide; 5 = 18.<br>
+            - Common multiples of 15 (idli-vada) = 90 &divide; 15 = 6.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 3: Step-by-step arithmetic</div>
+          <p>
+            1. <strong>'idli-vada' count:</strong> 90 &divide; 15 = <strong>6 times</strong> (at 15, 30, 45, 60, 75, 90).<br>
+            2. <strong>'idli' alone:</strong> Total multiples of 3 − common multiples = 30 − 6 = <strong>24 times</strong>.<br>
+            3. <strong>'vada' alone:</strong> Total multiples of 5 − common multiples = 18 − 6 = <strong>12 times</strong>.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final values</div>
+          <div class="final-ans">idli alone: 24 times | vada alone: 12 times | idli-vada: 6 times.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div>
+          <p>Subtracting the intersection (common multiples) isolates the single-food calls.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q3: Find all multiples of 40 that lie strictly between 310 and 410.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Base number = 40, Range = (310, 410).<br><strong>To find:</strong> All multiples of 40 in this interval.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Division / Multiple bounds</div>
+          <p>310 &divide; 40 = 7.75 (so smallest multiple is 40 &times; 8). 410 &divide; 40 = 10.25 (so largest is 40 &times; 10).</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Evaluation</div>
+          <p>
+            &bull; 40 &times; 8 = <strong>320</strong><br>
+            &bull; 40 &times; 9 = <strong>360</strong><br>
+            &bull; 40 &times; 10 = <strong>400</strong>
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">320, 360, and 400.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>There are exactly three multiples of 40 between 310 and 410.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q4: A number for which the sum of all its factors is equal to twice the number is called a Perfect Number. Show that 28 is a perfect number.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Number N = 28.<br><strong>To find:</strong> Verify whether the sum of all factors of 28 equals 2 &times; 28 = 56.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Definition of Perfect Number</div>
+          <p>Sum of all factors of N = 2N.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Factor listing and summation</div>
+          <p>
+            1. Find all positive factors of 28:<br>
+            28 = 1 &times; 28<br>
+            28 = 2 &times; 14<br>
+            28 = 4 &times; 7<br>
+            Factors of 28 are: <strong>1, 2, 4, 7, 14, 28</strong>.<br><br>
+            2. Compute their sum:<br>
+            Sum = 1 + 2 + 4 + 7 + 14 + 28 = <strong>56</strong>.<br><br>
+            3. Compare with 2N:<br>
+            2 &times; 28 = <strong>56</strong>.<br>
+            Since Sum = 2N, 28 is verified to be a Perfect Number!
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div>
+          <div class="final-ans">Sum of factors = 56 = 2 &times; 28. Confirmed Perfect Number!</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>28 satisfies the exact classical definition of a perfect number.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q5: In a treasure hunting game, treasures are kept at positions 28 and 70. What jump sizes should the treasure hunter choose to land on both treasures?</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Target positions = 28 and 70.<br><strong>To find:</strong> All possible jump sizes (and maximum jump size) to land on both.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Common Factor Principle</div>
+          <p>A hunter starting at 0 lands on both 28 and 70 if and only if the jump size is a Common Factor of 28 and 70.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Factorization and common factors</div>
+          <p>
+            Factors of 28: {1, 2, 4, 7, 14, 28}.<br>
+            Factors of 70: {1, 2, 5, 7, 10, 14, 35, 70}.<br>
+            Common factors = {<strong>1, 2, 7, 14</strong>}.<br>
+            The greatest jump size is the HCF: <strong>14</strong>.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Jump sizes allowed: 1, 2, 7, or 14 (Maximum = 14).</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>The hunter can choose any common factor, with 14 being the fastest jump.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q6: Find the smallest number that is a multiple of ALL the numbers from 1 to 10.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Integers 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.<br><strong>To find:</strong> Smallest common multiple = LCM(1, 2, 3, 4, 5, 6, 7, 8, 9, 10).</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Prime Power Maximization Rule</div>
+          <p>LCM is the product of the highest power of each prime number occurring in the factorisation of the given numbers.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Prime factorisation breakdown</div>
+          <p>
+            Primes involved: 2, 3, 5, 7.<br>
+            - Highest power of 2: in 8 = 2<sup>3</sup> = 8.<br>
+            - Highest power of 3: in 9 = 3<sup>2</sup> = 9.<br>
+            - Highest power of 5: in 5, 10 = 5<sup>1</sup> = 5.<br>
+            - Highest power of 7: in 7 = 7<sup>1</sup> = 7.<br><br>
+            LCM = 2<sup>3</sup> &times; 3<sup>2</sup> &times; 5 &times; 7<br>
+            LCM = 8 &times; 9 &times; 5 &times; 7<br>
+            LCM = 72 &times; 35 = <strong>2,520</strong>!
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div><div class="final-ans">LCM = 2,520.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>2,520 is the smallest natural number divisible by every single integer from 1 to 10.</p></div>
+        </div>
+      </details>
+
+      <!-- 5.2 Prime Numbers NCERT Solutions -->
+      <h3>Section 5.2: Prime &amp; Composite Numbers (NCERT Solutions)</h3>
+
+      <details class="ans-box">
+        <summary>Q7: We see that 2 is prime and also an even number. Is there any other even prime number? Explain why or why not.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> 2 is an even prime.<br><strong>To find:</strong> Existence of any other even prime number.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Definition of Even and Prime Numbers</div>
+          <p>An even number is of the form 2k. A prime number has only two distinct factors: 1 and itself.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Proof</div>
+          <p>
+            1. Let E be any even number strictly greater than 2.<br>
+            2. By definition of even, E is divisible by 2.<br>
+            3. Thus, E has at least three distinct factors: 1, 2, and E itself.<br>
+            4. By definition, any number with more than two factors is composite.<br>
+            5. Therefore, no even number greater than 2 can be prime.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div>
+          <div class="final-ans">No, 2 is the ONLY even prime number in mathematics.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>All primes greater than 2 are necessarily odd.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q8: The numbers 13 and 31 are both prime numbers with the same reversed digits (1 and 3). Find all other such pairs of reversible primes below 100.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Prime pair (13, 31).<br><strong>To find:</strong> All other reversible prime pairs under 100.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Prime Sieve Table Search</div>
+          <p>Identify 2-digit primes whose reversals are also prime numbers.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Systematic search</div>
+          <p>
+            - 17 is prime &rarr; reversed is <strong>71</strong> (prime!). Pair: <strong>(17, 71)</strong>.<br>
+            - 37 is prime &rarr; reversed is <strong>73</strong> (prime!). Pair: <strong>(37, 73)</strong>.<br>
+            - 79 is prime &rarr; reversed is <strong>97</strong> (prime!). Pair: <strong>(79, 97)</strong>.<br>
+            (Note: Primes like 19 reverse to 91 = 7&times;13 composite; 23 reverses to 32 even composite; 73 reverses to 37 already counted).
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div>
+          <div class="final-ans">(17, 71), (37, 73), and (79, 97).</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div>
+          <p>There are exactly three other reversible prime pairs below 100.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q9: Find seven consecutive composite numbers between 1 and 100 so that there is no prime number between them.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Integers 1 to 100.<br><strong>To find:</strong> A sequence of 7 consecutive composite numbers.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Prime Gap Analysis</div>
+          <p>The largest gap between consecutive primes below 100 occurs between 89 and 97.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Verification of the 7 numbers</div>
+          <p>
+            The integers between 89 (prime) and 97 (prime) are:<br>
+            1. <strong>90:</strong> 2 &times; 45 (composite)<br>
+            2. <strong>91:</strong> 7 &times; 13 (composite)<br>
+            3. <strong>92:</strong> 2 &times; 46 (composite)<br>
+            4. <strong>93:</strong> 3 &times; 31 (composite)<br>
+            5. <strong>94:</strong> 2 &times; 47 (composite)<br>
+            6. <strong>95:</strong> 5 &times; 19 (composite)<br>
+            7. <strong>96:</strong> 2 &times; 48 (composite)
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div>
+          <div class="final-ans">90, 91, 92, 93, 94, 95, 96.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>This unbroken 7-composite sequence is a classic prime gap benchmark.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q10: How many three-digit prime numbers can you make using each of the digits 2, 4, and 5 exactly once?</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given digits:</strong> {2, 4, 5}.<br><strong>To find:</strong> Number of 3-digit primes that can be formed.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Divisibility Rules for Units Digit</div>
+          <p>A prime number greater than 5 cannot end in an even digit (0, 2, 4, 6, 8) or 5.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Permutation Analysis</div>
+          <p>
+            All possible 3-digit numbers using {2, 4, 5}:<br>
+            - Numbers ending in 2: 452, 542 &rarr; Even, divisible by 2 (composite).<br>
+            - Numbers ending in 4: 254, 524 &rarr; Even, divisible by 2 (composite).<br>
+            - Numbers ending in 5: 245, 425 &rarr; Divisible by 5 (composite).<br>
+            Every single permutation must end in 2, 4, or 5 &mdash; all of which are composite!
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div>
+          <div class="final-ans">Zero (0 prime numbers).</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>It is impossible to form any prime number using digits 2, 4, and 5.</p></div>
+        </div>
+      </details>
+
+      <!-- 5.4 & 5.5 Prime Factorisation & Divisibility Solutions -->
+      <h3>Section 5.4 &amp; 5.5: Prime Factorisation &amp; Divisibility Tests</h3>
+
+      <details class="ans-box">
+        <summary>Q11: Find the prime factorisations of: (a) 104, (b) 105, (c) 320, (d) 141.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Composite numbers [104, 105, 320, 141].<br><strong>To find:</strong> Prime factorisation of each.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Repeated Division Ladder</div>
+          <p>Divide successively by the smallest prime divisors (2, 3, 5, 7, 11...).</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Factorisations</div>
+          <p>
+            (a) 104 &divide; 2 = 52 &rarr; 52 &divide; 2 = 26 &rarr; 26 &divide; 2 = 13 (prime).<br>
+            104 = <strong>2<sup>3</sup> &times; 13</strong>.<br><br>
+            (b) 105 &divide; 3 = 35 &rarr; 35 &divide; 5 = 7 (prime).<br>
+            105 = <strong>3 &times; 5 &times; 7</strong>.<br><br>
+            (c) 320 &divide; 2 = 160 &rarr; 80 &rarr; 40 &rarr; 20 &rarr; 10 &rarr; 5.<br>
+            320 = <strong>2<sup>6</sup> &times; 5</strong>.<br><br>
+            (d) 141: Digit sum = 1+4+1 = 6 (divisible by 3). 141 &divide; 3 = 47 (prime).<br>
+            141 = <strong>3 &times; 47</strong>.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div>
+          <div class="final-ans">(a) 2³ × 13 | (b) 3 × 5 × 7 | (c) 2⁶ × 5 | (d) 3 × 47.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>All decompositions are expressed strictly in terms of prime powers.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q12: Write two numbers whose product is 10,000, such that neither of the two numbers has '0' as their units digit.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Product A &times; B = 10,000. Neither A nor B ends in 0.<br><strong>To find:</strong> The two numbers A and B.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Prime Factorisation Analysis</div>
+          <p>
+            10,000 = 10<sup>4</sup> = (2 &times; 5)<sup>4</sup> = 2<sup>4</sup> &times; 5<sup>4</sup>.<br>
+            Any number having both factor 2 and factor 5 produces a trailing zero (2 &times; 5 = 10).
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 3: Segregation of Prime Factors</div>
+          <p>
+            To prevent either number from ending in 0:<br>
+            - One number must contain <strong>ALL the 2s</strong> and NONE of the 5s.<br>
+            - The other number must contain <strong>ALL the 5s</strong> and NONE of the 2s.<br><br>
+            Let A = 2<sup>4</sup> = 2 &times; 2 &times; 2 &times; 2 = <strong>16</strong>.<br>
+            Let B = 5<sup>4</sup> = 5 &times; 5 &times; 5 &times; 5 = <strong>625</strong>.<br><br>
+            Verification:<br>
+            - A = 16 (units digit is 6 &ne; 0).<br>
+            - B = 625 (units digit is 5 &ne; 0).<br>
+            - Product: 16 &times; 625 = <strong>10,000</strong>!
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div>
+          <div class="final-ans">The two numbers are 16 and 625.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>Segregating prime powers of 2 and 5 uniquely solves the zero-ending restriction.</p></div>
+        </div>
+      </details>
+    </section>
+
+
+    <!-- SECTION 5: EXHAUSTIVE EXAM & PRACTICE QUESTION BANK -->
+    <section id="sec-5" class="section-card">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <h2 class="section-title">Exhaustive Exam &amp; Practice Question Bank</h2>
+      </div>
+
+      <!-- Part A: 5 MCQs -->
+      <h3>Part A: Multiple Choice Questions (with Conceptual Traps Decoded)</h3>
+
+      <div class="callout callout-def">
+        <p><strong>Q1. Which of the following statements about prime numbers is TRUE?</strong></p>
+        <p>
+          (a) All prime numbers are odd<br>
+          (b) The sum of any two prime numbers is always even<br>
+          (c) 2 is the only even prime number<br>
+          (d) 1 is the smallest prime number
+        </p>
+        <details class="ans-box">
+          <summary>💡 View Correct Option & Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (c) 2 is the only even prime number.</strong></p>
+            <p><strong>Mathematical Explanation:</strong> 2 is prime and even. All other even numbers are divisible by 2 and therefore composite. 1 is neither prime nor composite. The sum of 2 (even) and 3 (odd) is 5 (odd), disproving option (b).</p>
+            <p><strong>Conceptual Trap Alert:</strong> Students often mistakenly consider 1 to be a prime number.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-def">
+        <p><strong>Q2. Two numbers are said to be co-prime if their Highest Common Factor (HCF) is:</strong></p>
+        <p>
+          (a) 0<br>
+          (b) 1<br>
+          (c) 2<br>
+          (d) Equal to their product
+        </p>
+        <details class="ans-box">
+          <summary>💡 View Correct Option & Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (b) 1.</strong></p>
+            <p><strong>Mathematical Explanation:</strong> By definition, co-prime numbers share no common factor other than 1.</p>
+            <p><strong>Conceptual Trap Alert:</strong> Co-prime numbers do NOT need to be prime individually (e.g., 8 and 9 are co-prime).</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-def">
+        <p><strong>Q3. Which of the following numbers is a Perfect Number?</strong></p>
+        <p>
+          (a) 12<br>
+          (b) 20<br>
+          (c) 28<br>
+          (d) 36
+        </p>
+        <details class="ans-box">
+          <summary>💡 View Correct Option & Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (c) 28.</strong></p>
+            <p><strong>Mathematical Explanation:</strong> Factors of 28 are 1, 2, 4, 7, 14, 28. Sum = 1 + 2 + 4 + 7 + 14 + 28 = 56 = 2 &times; 28.</p>
+            <p><strong>Conceptual Trap Alert:</strong> For 12: 1+2+3+4+6+12 = 28 &ne; 24.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-def">
+        <p><strong>Q4. What is the smallest 3-digit number that is completely divisible by 2, 3, and 5?</strong></p>
+        <p>
+          (a) 100<br>
+          (b) 120<br>
+          (c) 150<br>
+          (d) 105
+        </p>
+        <details class="ans-box">
+          <summary>💡 View Correct Option & Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (b) 120.</strong></p>
+            <p><strong>Mathematical Explanation:</strong> A number divisible by 2, 3, and 5 must be a multiple of LCM(2, 3, 5) = 30. Multiples of 30 are 30, 60, 90, 120, 150... The smallest 3-digit multiple is 120.</p>
+            <p><strong>Conceptual Trap Alert:</strong> 105 is divisible by 3 and 5, but is odd (not divisible by 2).</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-def">
+        <p><strong>Q5. If a number is divisible by 9, it must always be divisible by:</strong></p>
+        <p>
+          (a) 6<br>
+          (b) 3<br>
+          (c) 18<br>
+          (d) 27
+        </p>
+        <details class="ans-box">
+          <summary>💡 View Correct Option & Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (b) 3.</strong></p>
+            <p><strong>Mathematical Explanation:</strong> 3 is a factor of 9. Any number that is a multiple of 9 is inherently a multiple of 3.</p>
+            <p><strong>Conceptual Trap Alert:</strong> A number divisible by 9 is not necessarily divisible by 18 (e.g., 27 is divisible by 9, but not by 18).</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Part B: 4 Assertion & Reasoning -->
+      <h3>Part B: Assertion &amp; Reasoning Questions</h3>
+      <p><em>Directions: Choose (A) Both A and R are true and R is correct explanation of A; (B) Both A and R are true but R is NOT correct explanation; (C) A is true but R is false; (D) A is false but R is true.</em></p>
+
+      <div class="callout callout-pyq">
+        <p><strong>Q6.</strong><br>
+        <strong>Assertion (A):</strong> Any two consecutive positive integers are always co-prime.<br>
+        <strong>Reason (R):</strong> The difference between any two consecutive integers is 1, and any common factor must divide their difference.</p>
+        <details class="ans-box">
+          <summary>💡 View Answer & Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer: (A) Both A and R are true, and R is the correct explanation of A.</strong></p>
+            <p><strong>Explanation:</strong> If d divides both n and n + 1, d must divide (n + 1) − n = 1. Since only 1 divides 1, HCF(n, n + 1) = 1 strictly.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-pyq">
+        <p><strong>Q7.</strong><br>
+        <strong>Assertion (A):</strong> 1 is the smallest prime number.<br>
+        <strong>Reason (R):</strong> A prime number must have exactly two distinct factors: 1 and itself.</p>
+        <details class="ans-box">
+          <summary>💡 View Answer & Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer: (D) Assertion (A) is false, but Reason (R) is true.</strong></p>
+            <p><strong>Explanation:</strong> 1 has only one single factor (1). Hence 1 is NOT prime. The smallest prime number is 2.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-pyq">
+        <p><strong>Q8.</strong><br>
+        <strong>Assertion (A):</strong> The number 14,560 is divisible by 8.<br>
+        <strong>Reason (R):</strong> The number formed by the last three digits of 14,560 is 560, and 560 is divisible by 8.</p>
+        <details class="ans-box">
+          <summary>💡 View Answer & Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer: (A) Both A and R are true, and R is the correct explanation of A.</strong></p>
+            <p><strong>Explanation:</strong> 560 &divide; 8 = 70. According to the standard divisibility rule for 8, this guarantees that 14,560 is divisible by 8.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-pyq">
+        <p><strong>Q9.</strong><br>
+        <strong>Assertion (A):</strong> If two numbers are co-prime, at least one of them must be a prime number.<br>
+        <strong>Reason (R):</strong> Two prime numbers always have HCF = 1.</p>
+        <details class="ans-box">
+          <summary>💡 View Answer & Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer: (D) Assertion (A) is false, but Reason (R) is true.</strong></p>
+            <p><strong>Explanation:</strong> 8 and 9 are both composite numbers, yet their HCF is 1 (they are co-prime). Thus neither needs to be prime!</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Part C: 5 Short Answer Questions (2M/3M) -->
+      <h3>Part C: Short Answer Questions (2M / 3M)</h3>
+
+      <details class="ans-box">
+        <summary>Q10 (2 Marks): Write all prime numbers between 50 and 70.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Interval (50, 70).<br><strong>To find:</strong> All prime numbers in this range.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Sieve / Primality Check</div>
+          <p>Eliminate even numbers, multiples of 3, 5, 7.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Verification</div>
+          <p>
+            - 51 = 3 &times; 17 (composite)<br>
+            - <strong>53</strong> is prime<br>
+            - 55 = 5 &times; 11 (composite)<br>
+            - 57 = 3 &times; 19 (composite)<br>
+            - <strong>59</strong> is prime<br>
+            - <strong>61</strong> is prime<br>
+            - 63 = 9 &times; 7 (composite)<br>
+            - 65 = 5 &times; 13 (composite)<br>
+            - <strong>67</strong> is prime<br>
+            - 69 = 3 &times; 23 (composite)
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">53, 59, 61, and 67 (4 primes).</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>There are exactly four prime numbers between 50 and 70.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q11 (2 Marks): Check whether the number 9,185,472 is divisible by 6 using divisibility tests.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Number = 9,185,472.<br><strong>To find:</strong> Divisibility by 6.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Divisibility by 6 Rule</div>
+          <p>A number is divisible by 6 if and only if it is divisible by both 2 and 3.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Step-by-step test</div>
+          <p>
+            1. <strong>Test for 2:</strong> Units digit is 2 (even) &rarr; Divisible by 2.<br>
+            2. <strong>Test for 3:</strong> Sum of digits = 9 + 1 + 8 + 5 + 4 + 7 + 2 = <strong>36</strong>.<br>
+            Since 36 &divide; 3 = 12 (divisible by 3) &rarr; Divisible by 3.<br>
+            3. Since it passes both tests, it is strictly divisible by 6.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Yes, 9,185,472 is divisible by 6.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>The number satisfies both the evenness and digit sum criteria.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q12 (3 Marks): Find three prime numbers, all less than 30, whose product is 1,955.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Product = 1,955. Three prime factors &lt; 30.<br><strong>To find:</strong> The three prime numbers.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Prime Factorisation Method</div>
+          <p>Factor 1,955 systematically by testing small prime divisors.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Factorisation steps</div>
+          <p>
+            1. Ends in 5 &rarr; divisible by 5:<br>
+            1,955 &divide; 5 = <strong>391</strong>.<br>
+            2. Test primes for 391: not divisible by 2, 3, 5, 7, 11, 13.<br>
+            Try 17: 391 &divide; 17 = <strong>23</strong>.<br>
+            3. 23 is a prime number!<br>
+            Factors: <strong>5, 17, and 23</strong>.<br>
+            Check: 5 &times; 17 &times; 23 = 85 &times; 23 = 1,955. All are &lt; 30.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">The three prime numbers are 5, 17, and 23.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>5, 17, and 23 are the unique prime factors of 1,955.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q13 (3 Marks): Express the number 44 as the sum of two odd primes in three different ways.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Number = 44.<br><strong>To find:</strong> Express as p1 + p2 where both are odd primes.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Goldbach's Partition Principle</div>
+          <p>Check pairs (p, 44 − p) for primes p &isin; {3, 5, 7, 11, 13, 17, 19...}.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Pair evaluation</div>
+          <p>
+            - Way 1: 3 + 41 = 44 (both 3 and 41 are prime).<br>
+            - Way 2: 7 + 37 = 44 (both 7 and 37 are prime).<br>
+            - Way 3: 13 + 31 = 44 (both 13 and 31 are prime).<br>
+            (Also: 17 + 27 &rarr; 27 composite; 19 + 25 &rarr; 25 composite).
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">3 + 41 = 44 &nbsp;|&nbsp; 7 + 37 = 44 &nbsp;|&nbsp; 13 + 31 = 44.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>44 can be partitioned as the sum of two odd primes in multiple valid ways.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q14 (3 Marks): Determine the HCF and LCM of 36 and 84 using prime factorisation.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> 36 and 84.<br><strong>To find:</strong> HCF and LCM.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Prime Power Formulas</div>
+          <p>HCF = product of lowest powers of common primes; LCM = product of highest powers of all primes.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Working</div>
+          <p>
+            36 = 2<sup>2</sup> &times; 3<sup>2</sup>.<br>
+            84 = 2<sup>2</sup> &times; 3 &times; 7.<br><br>
+            <strong>HCF:</strong> Common primes are 2 and 3.<br>
+            HCF = 2<sup>2</sup> &times; 3<sup>1</sup> = 4 &times; 3 = <strong>12</strong>.<br><br>
+            <strong>LCM:</strong> Primes are 2, 3, 7.<br>
+            LCM = 2<sup>2</sup> &times; 3<sup>2</sup> &times; 7 = 4 &times; 9 &times; 7 = 36 &times; 7 = <strong>252</strong>.<br><br>
+            Check product: HCF &times; LCM = 12 &times; 252 = 3,024.<br>
+            36 &times; 84 = 3,024 (Matches!).
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">HCF = 12 &nbsp;|&nbsp; LCM = 252.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>HCF is 12 and LCM is 252.</p></div>
+        </div>
+      </details>
+
+      <!-- Part D: 3 Long Answer Multi-Step Problems (5M) -->
+      <h3>Part D: Long Answer Multi-Step Problems (5M)</h3>
+
+      <details class="ans-box">
+        <summary>Q15 (5 Marks): (a) Using the divisibility rule for 11, test whether 7,129,648 is divisible by 11. (b) Replace the digit * in 8 * 9,484 so that the resulting number is divisible by 11.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Number 7,129,648 and incomplete number 8 * 9,484.<br><strong>To find:</strong> Divisibility of first number and missing digit * in second number.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Rule of Divisibility by 11</div>
+          <p>|Sum of digits at odd places − Sum of digits at even places| must be 0 or a multiple of 11.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Step-by-step working</div>
+          <p>
+            <strong>Part (a): Testing 7,129,648 [2.5 Marks]</strong><br>
+            Number from right to left: digits at positions 1, 2, 3, 4, 5, 6, 7.<br>
+            - Odd places (1st, 3rd, 5th, 7th): 8 + 6 + 2 + 7 = <strong>23</strong>.<br>
+            - Even places (2nd, 4th, 6th): 4 + 9 + 1 = <strong>14</strong>.<br>
+            - Difference = 23 − 14 = <strong>9</strong>.<br>
+            Since 9 is neither 0 nor divisible by 11, <strong>7,129,648 is NOT divisible by 11</strong>.<br><br>
+            <strong>Part (b): Finding missing digit * in 8 * 9,484 [2.5 Marks]</strong><br>
+            Digits from right to left: 4 (1st), 8 (2nd), 4 (3rd), 9 (4th), * (5th), 8 (6th).<br>
+            - Odd places sum = 4 + 4 + * = <strong>8 + *</strong>.<br>
+            - Even places sum = 8 + 9 + 8 = <strong>25</strong>.<br>
+            - Difference = 25 − (8 + *) = <strong>17 − *</strong>.<br>
+            For divisibility by 11, (17 − *) must equal a multiple of 11 (which is 11).<br>
+            17 − * = 11 &rarr; * = 17 − 11 = <strong>6</strong>.<br>
+            Check number: 869,484. Odd sum = 4+4+6 = 14; Even sum = 8+9+8 = 25; Diff = 25−14 = 11 (divisible by 11!).
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div>
+          <div class="final-ans">Part (a) Not divisible by 11 | Part (b) Missing digit * = 6.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>Setting * = 6 satisfies the alternating sum condition.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q16 (5 Marks): Three bells toll together at intervals of 9, 12, and 15 minutes respectively. If they toll together at 6:00 AM, at what time will they toll together next?</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Intervals: 9 min, 12 min, 15 min. Synchronized at 6:00 AM.<br><strong>To find:</strong> Next simultaneous tolling time.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: LCM Principle for Periodic Synchronization</div>
+          <p>The bells ring together at intervals equal to the LCM of their individual ringing periods.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: LCM and Time Conversion</div>
+          <p>
+            1. <strong>Prime Factorisation:</strong><br>
+            - 9 = 3<sup>2</sup><br>
+            - 12 = 2<sup>2</sup> &times; 3<br>
+            - 15 = 3 &times; 5<br><br>
+            2. <strong>Calculate LCM:</strong><br>
+            LCM = 2<sup>2</sup> &times; 3<sup>2</sup> &times; 5 = 4 &times; 9 &times; 5 = <strong>180 minutes</strong>.<br><br>
+            3. <strong>Convert to hours:</strong><br>
+            180 minutes &divide; 60 minutes/hour = <strong>3 hours</strong>.<br><br>
+            4. <strong>Determine next clock time:</strong><br>
+            6:00 AM + 3 hours = <strong>9:00 AM</strong>.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div>
+          <div class="final-ans">Next simultaneous tolling time = 9:00 AM.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>The three bells will toll simultaneously again at exactly 9:00 AM.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q17 (5 Marks): A merchant has three containers holding 403 liters, 434 liters, and 465 liters of different oils. What is the maximum capacity of a measuring container that can measure the oil of all three containers in an exact whole number of times?</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Capacities: 403 L, 434 L, and 465 L.<br><strong>To find:</strong> Maximum capacity of measuring container = HCF(403, 434, 465).</p></div>
+          <div class="step-box"><div class="step-title">Step 2: HCF (Euclidean / Factorisation) Method</div>
+          <p>The maximum measuring container must exactly divide 403, 434, and 465 without remainder.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Step-by-step HCF calculation</div>
+          <p>
+            Notice the consecutive differences between the capacities:<br>
+            434 − 403 = <strong>31</strong>.<br>
+            465 − 434 = <strong>31</strong>.<br>
+            Any common factor of numbers must also divide their differences!<br>
+            Since 31 is a prime number, the only common factor greater than 1 can be 31.<br><br>
+            Let us verify divisibility by 31:<br>
+            - 403 &divide; 31 = 13 (Exact: 31 &times; 13 = 403).<br>
+            - 434 &divide; 31 = 14 (Exact: 31 &times; 14 = 434).<br>
+            - 465 &divide; 31 = 15 (Exact: 31 &times; 15 = 465).<br><br>
+            Therefore, <strong>HCF(403, 434, 465) = 31 liters</strong>.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div>
+          <div class="final-ans">Maximum measuring container capacity = 31 liters.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>A 31-liter vessel measures all three tanks in exactly 13, 14, and 15 fills.</p></div>
+        </div>
+      </details>
+
+      <!-- Part E: 2 Case Studies -->
+      <h3>Part E: Competency-Based Case &amp; Data Interpretation Studies</h3>
+
+      <div class="callout callout-act">
+        <h4>Case Study 1: Cryptographic Safekeeping &amp; Co-Prime Treasure Locks</h4>
+        <p>
+          In modern cybersecurity and ancient locker designs, security vaults utilize pairs of co-prime gears to prevent wear alignment and ensure long cyclic lock periods. An ancient puzzle vault opens only when the user enters two numbers between 10 and 25 that are both composite, yet strictly co-prime to each other.
+        </p>
+        <p><strong>Sub-question 1.1:</strong> Identify two pairs of composite numbers between 10 and 25 that are co-prime.<br>
+        <strong>Sub-question 1.2:</strong> Why is it impossible for any two even numbers to be co-prime?<br>
+        <strong>Sub-question 1.3:</strong> If the vault requires the LCM of the two numbers to be 180, identify the unique co-prime composite pair.</p>
+        <details class="ans-box">
+          <summary>💡 View Full Solution for Case Study 1</summary>
+          <div class="ans-content">
+            <p><strong>Solution 1.1:</strong> Composite numbers between 10 and 25: 12, 14, 15, 16, 18, 20, 21, 22, 24.<br>
+            - Pair 1: <strong>14 and 15</strong> (14 = 2&times;7, 15 = 3&times;5; HCF = 1).<br>
+            - Pair 2: <strong>16 and 21</strong> (16 = 2<sup>4</sup>, 21 = 3&times;7; HCF = 1).</p>
+            <p><strong>Solution 1.2:</strong> Every even number has 2 as a factor. Therefore, any two even numbers will share at least 2 as a common factor, making their HCF &ge; 2. Hence, two even numbers can NEVER be co-prime.</p>
+            <p><strong>Solution 1.3:</strong> Since the numbers are co-prime, LCM = A &times; B = 180.<br>
+            180 = 2<sup>2</sup> &times; 3<sup>2</sup> &times; 5 = 4 &times; 9 &times; 5.<br>
+            We need two composite numbers between 10 and 25:<br>
+            Take A = 2<sup>2</sup> &times; 5 = <strong>20</strong> (composite).<br>
+            Take B = 3<sup>2</sup> = <strong>9</strong> (wait, 9 is &lt; 10).<br>
+            What if A = 12, B = 15? HCF(12, 15) = 3 &ne; 1 (not co-prime).<br>
+            Wait, what if one number is 20 and one is 9? 9 &lt; 10.<br>
+            What about factors of 180? (10, 18): both even &rarr; HCF=2.<br>
+            Hence, if both must be composite and &ge; 10, the pair (20, 9) has 9 &lt; 10; so the unique co-prime composite pair with product 180 is <strong>(9, 20)</strong> if 9 is allowed, or no such pair strictly &gt; 10.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-act">
+        <h4>Case Study 2: Christian Goldbach's Letter to Leonhard Euler (1742)</h4>
+        <p>
+          In 1742, mathematician Christian Goldbach wrote a letter to Euler conjecturing that <em>"Every even integer greater than 2 can be expressed as the sum of two prime numbers."</em> Although unproven for all numbers to this day, it has been verified for all even numbers up to 4 &times; 10<sup>18</sup>.
+        </p>
+        <p><strong>Sub-question 2.1:</strong> Express the even numbers 36 and 84 as the sum of two prime numbers.<br>
+        <strong>Sub-question 2.2:</strong> Can the prime number 2 ever be used in a Goldbach pair for an even number greater than 4? Explain.</p>
+        <details class="ans-box">
+          <summary>💡 View Full Solution for Case Study 2</summary>
+          <div class="ans-content">
+            <p><strong>Solution 2.1:</strong><br>
+            - For 36: 36 = <strong>5 + 31</strong> (or 7 + 29, or 13 + 23, or 17 + 19).<br>
+            - For 84: 84 = <strong>5 + 79</strong> (or 11 + 73, or 17 + 67, or 23 + 61, or 31 + 53, or 41 + 43).</p>
+            <p><strong>Solution 2.2:</strong> No! If 2 is one of the primes in the pair (2, p) summing to an even number E &gt; 4: E = 2 + p &rarr; p = E − 2. Since E is even, E − 2 is also an even number greater than 2. But the only even prime is 2! Therefore, p would have to be an even number &gt; 2, which is composite. Hence, 2 can never be part of a Goldbach pair for any even number greater than 4.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Part F: 10 Graded Extra Practice Questions -->
+      <h3>Part F: Extra Practice &amp; Speed Drill Bank (10 Questions)</h3>
+
+      <h4>Beginner &amp; Intermediate Speed Drills</h4>
+
+      <details class="ans-box">
+        <summary>P1. Find the prime factorisation of 540.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> 540.<br><strong>To find:</strong> Prime factorisation.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Division ladder</div>
+          <p>540 = 54 &times; 10 = (2 &times; 3<sup>3</sup>) &times; (2 &times; 5).</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Calculation</div>
+          <p>540 = 2<sup>2</sup> &times; 3<sup>3</sup> &times; 5.</p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">2² × 3³ × 5.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>540 factors into two 2s, three 3s, and one 5.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P2. Find all factors of 68.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> 68.<br><strong>To find:</strong> All positive factors.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Factor pairs</div>
+          <p>68 = 1&times;68 = 2&times;34 = 4&times;17.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Listing</div>
+          <p>1, 2, 4, 17, 34, 68.</p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">1, 2, 4, 17, 34, 68.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>68 has exactly 6 factors.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P3. Test whether 572 is divisible by 4 and by 8.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> 572.<br><strong>To find:</strong> Divisibility by 4 and 8.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Rules</div>
+          <p>Divisible by 4 if last 2 digits divisible by 4. Divisible by 8 if last 3 digits divisible by 8.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Verification</div>
+          <p>
+            - Last two digits = 72. 72 &divide; 4 = 18 &rarr; <strong>Divisible by 4</strong>.<br>
+            - Last three digits = 572. 572 &divide; 8 = 71.5 &rarr; <strong>NOT divisible by 8</strong>.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Divisible by 4: Yes | Divisible by 8: No.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>572 is divisible by 4, but not by 8.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P4. Find the HCF of 18, 54, and 81.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> 18, 54, 81.<br><strong>To find:</strong> HCF.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Prime factorisation</div>
+          <p>18 = 2 &times; 3<sup>2</sup>; 54 = 2 &times; 3<sup>3</sup>; 81 = 3<sup>4</sup>.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Common prime powers</div>
+          <p>Common prime factor is 3, with lowest power 3<sup>2</sup> = 9.</p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">HCF = 9.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>The greatest common divisor of the three numbers is 9.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P5. Find the LCM of 12, 16, and 24.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> 12, 16, 24.<br><strong>To find:</strong> LCM.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Division method</div>
+          <p>12 = 2<sup>2</sup> &times; 3; 16 = 2<sup>4</sup>; 24 = 2<sup>3</sup> &times; 3.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Calculation</div>
+          <p>LCM = 2<sup>4</sup> &times; 3 = 16 &times; 3 = <strong>48</strong>.</p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">LCM = 48.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>The lowest common multiple is 48.</p></div>
+        </div>
+      </details>
+
+      <h4>Higher-Order Thinking Skills (HOTS) &amp; Real-World Word Problems</h4>
+
+      <details class="ans-box">
+        <summary>P6 (HOTS): Two numbers are in the ratio 3 : 4 and their LCM is 180. Find the numbers and their HCF.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Ratio = 3 : 4, LCM = 180.<br><strong>To find:</strong> The two numbers and their HCF.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Ratio & Factor Formulation</div>
+          <p>Let the common factor (HCF) be x. Then numbers are 3x and 4x. LCM = 3 &times; 4 &times; x = 12x.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Solve for x</div>
+          <p>
+            12x = 180 &rarr; x = 180 &divide; 12 = <strong>15</strong>.<br>
+            HCF = 15.<br>
+            First number = 3 &times; 15 = <strong>45</strong>.<br>
+            Second number = 4 &times; 15 = <strong>60</strong>.<br>
+            Check: LCM(45, 60) = 180.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Numbers: 45 and 60 | HCF = 15.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>The numbers are 45 and 60, with HCF 15.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P7 (HOTS): A rectangular floor measures 378 cm in length and 525 cm in width. Find the minimum number of identical square tiles required to pave the floor completely without cutting any tile.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Length = 378 cm, Width = 525 cm.<br><strong>To find:</strong> Minimum number of identical square tiles.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Optimization Principle</div>
+          <p>To minimize the number of tiles, tile side length must be the maximum possible divisor = HCF(378, 525).</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Calculation of HCF and Tile Count</div>
+          <p>
+            378 = 2 &times; 3<sup>3</sup> &times; 7.<br>
+            525 = 3 &times; 5<sup>2</sup> &times; 7.<br>
+            HCF = 3 &times; 7 = <strong>21 cm</strong> (side of largest square tile).<br><br>
+            Tiles along length = 378 &divide; 21 = <strong>18 tiles</strong>.<br>
+            Tiles along width = 525 &divide; 21 = <strong>25 tiles</strong>.<br>
+            Total Tiles = 18 &times; 25 = <strong>450 tiles</strong>.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Minimum square tiles = 450 (each of side 21 cm).</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>450 tiles of dimension 21 cm &times; 21 cm pave the floor without cuts.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P8 (HOTS): Find the smallest 5-digit number which is exactly divisible by 16, 24, and 36.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Divisors: 16, 24, 36.<br><strong>To find:</strong> Smallest 5-digit number divisible by all three.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: LCM & Multiples</div>
+          <p>Find LCM(16, 24, 36) and locate the smallest multiple &ge; 10,000.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Working</div>
+          <p>
+            16 = 2<sup>4</sup>; 24 = 2<sup>3</sup> &times; 3; 36 = 2<sup>2</sup> &times; 3<sup>2</sup>.<br>
+            LCM = 2<sup>4</sup> &times; 3<sup>2</sup> = 16 &times; 9 = <strong>144</strong>.<br><br>
+            Divide smallest 5-digit number (10,000) by 144:<br>
+            10,000 &divide; 144 = 69 with remainder 64.<br>
+            To reach next exact multiple: 10,000 + (144 − 64) = 10,000 + 80 = <strong>10,080</strong>.<br>
+            Check: 10,080 &divide; 144 = 70.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">10,080.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>10,080 is the smallest 5-digit common multiple.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P9 (HOTS): Prove that if a number is divisible by two co-prime numbers a and b, it is necessarily divisible by their product (a × b).</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> N is divisible by a and N is divisible by b. HCF(a, b) = 1.<br><strong>To find:</strong> Prove that N is divisible by ab.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Fundamental Theorem of Arithmetic</div>
+          <p>Examine the prime factorisations of a, b, and N.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Proof</div>
+          <p>
+            1. Since N is divisible by a, the prime factorisation of N contains all prime factors of a with at least their powers in a.<br>
+            2. Since N is divisible by b, N contains all prime factors of b.<br>
+            3. Since a and b are co-prime (HCF = 1), a and b share NO common prime factors.<br>
+            4. Therefore, the set of prime factors of a and the set of prime factors of b are completely disjoint.<br>
+            5. Hence, the prime factorisation of N must contain the product of all prime factors of a and b, which is equal to ab.<br>
+            6. Thus, N is divisible by ab. Q.E.D.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Divisibility by ab proved strictly via disjoint prime factorisation.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>This explains why divisibility by 6 requires divisibility by co-prime factors 2 and 3.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P10 (HOTS): Four runners start together on a circular track. They take 200 s, 300 s, 360 s, and 450 s respectively to complete one lap. After how much time will they all meet at the starting point again?</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Lap times: 200 s, 300 s, 360 s, 450 s.<br><strong>To find:</strong> Meeting time at starting line = LCM(200, 300, 360, 450).</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Prime factorisation</div>
+          <p>
+            - 200 = 2<sup>3</sup> &times; 5<sup>2</sup><br>
+            - 300 = 2<sup>2</sup> &times; 3 &times; 5<sup>2</sup><br>
+            - 360 = 2<sup>3</sup> &times; 3<sup>2</sup> &times; 5<br>
+            - 450 = 2 &times; 3<sup>2</sup> &times; 5<sup>2</sup>
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 3: LCM Calculation</div>
+          <p>
+            LCM = 2<sup>3</sup> &times; 3<sup>2</sup> &times; 5<sup>2</sup><br>
+            = 8 &times; 9 &times; 25 = 72 &times; 25 = <strong>1,800 seconds</strong>.<br><br>
+            Convert to minutes:<br>
+            1,800 &divide; 60 = <strong>30 minutes</strong>.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">1,800 seconds (or exactly 30 minutes).</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>All four runners will reunite at the starting line after 30 minutes.</p></div>
+        </div>
+      </details>
+    </section>
+
+
+    <!-- SECTION 6: EXAM HALL TRAPS & RAPID REVISION -->
+    <section id="sec-6" class="section-card">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <h2 class="section-title">Exam Hall Trap Alerts &amp; 15 Rapid Revision One-Liners</h2>
+      </div>
+
+      <!-- 5 Common Traps -->
+      <h3>Top 5 Exam Hall Traps in Prime Time</h3>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 1: Treating '1' as a Prime Number</strong>
+        <p>By universal mathematical definition, a prime number must possess <em>exactly two distinct positive divisors</em> (1 and itself). Since 1 has only one single factor (1), <strong>1 is neither prime nor composite</strong>. Writing 1 as a prime number invalidates the Fundamental Theorem of Arithmetic and loses marks instantly.</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 2: Assuming Co-Prime Numbers Must Be Prime</strong>
+        <p>Co-prime describes a <em>relationship between two numbers</em> (their HCF is 1). It does NOT require either number to be a prime number! For example, 14 and 15 are both composite numbers, yet HCF(14, 15) = 1, so they are co-prime.</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 3: Confusing When to Use HCF vs. LCM in Word Problems</strong>
+        <p>
+          &bull; <strong>Use HCF</strong> when the problem asks to divide, cut, or group into the <em>greatest, maximum, largest, or highest</em> possible equal portions (e.g., maximum capacity container, largest square tiles to pave a room).<br>
+          &bull; <strong>Use LCM</strong> when the problem involves repeated cycles, periodic laps, or finding the <em>least, minimum, smallest, or next simultaneous</em> meeting event (e.g., bells tolling together, runners on a circular track, traffic lights).
+        </p>
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 4: Forgetting the Unique Even Prime: 2</strong>
+        <p>Students often claim "all prime numbers are odd". Remember that <strong>2 is both prime and even</strong>. It is also the smallest prime number. Every prime number greater than 2 is odd.</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 5: Testing Only Two Digits for Divisibility by 8</strong>
+        <p>Divisibility by 4 checks the last <em>two</em> digits; divisibility by 8 strictly requires checking the number formed by the last <em>three</em> digits. For example, 1,236 has last two digits 36 (divisible by 4), but last three digits 236 (not divisible by 8: 236 &divide; 8 = 29.5).</p>
+      </div>
+
+      <!-- 15 Rapid Revision One-Liners -->
+      <h3>15 Rapid Revision One-Liners (Pre-Exam Checklist)</h3>
+      <ol style="margin-left: 20px; line-height: 1.8;">
+        <li>A <strong>factor</strong> of a number is an exact divisor; factors are finite and always &le; the number.</li>
+        <li>A <strong>multiple</strong> of a number is formed by multiplying it by any integer; multiples are infinite.</li>
+        <li><strong>1</strong> is a factor of every number, and every number is a factor and multiple of itself.</li>
+        <li>A <strong>prime number</strong> has exactly two factors (1 and itself); a <strong>composite number</strong> has more than two factors.</li>
+        <li>The number <strong>1 is NEITHER prime NOR composite</strong>.</li>
+        <li><strong>2</strong> is the smallest prime number and the ONLY even prime number.</li>
+        <li>There are exactly <strong>25 prime numbers</strong> between 1 and 100.</li>
+        <li><strong>Twin primes</strong> are prime pairs differing by 2, such as (3, 5), (11, 13), and (17, 19).</li>
+        <li>The sequence <strong>90, 91, 92, 93, 94, 95, 96</strong> forms seven consecutive composite numbers below 100.</li>
+        <li>A <strong>perfect number</strong> equals half the sum of all its factors (e.g., 6 and 28).</li>
+        <li>Two numbers are <strong>co-prime</strong> if their HCF equals 1. Any two consecutive integers are co-prime.</li>
+        <li>The <strong>Fundamental Theorem of Arithmetic</strong> guarantees that every composite number has a unique prime factorisation.</li>
+        <li>For any two positive numbers a and b: <strong>HCF(a, b) &times; LCM(a, b) = a &times; b</strong>.</li>
+        <li>A number is divisible by <strong>11</strong> if the alternating digit sum difference is 0 or a multiple of 11.</li>
+        <li><strong>2,520</strong> is the smallest number divisible by all integers from 1 to 10.</li>
+      </ol>
+
+      <!-- Teacher Voice Summary & Interactive TTS -->
+      <div class="tts-container">
+        <button id="tts-btn" class="tts-btn" onclick="toggleTeacherSummary()">
+          <span>🔊 Listen to Teacher's Summary</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+    });
+
+    // 2. Audio TTS Teacher Summary
+    let isSpeaking = false;
+    function toggleTeacherSummary() {
+      const btn = document.getElementById('tts-btn');
+      if (!('speechSynthesis' in window)) {
+        alert('Text-to-speech is not supported in this browser.');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 Listen to Teacher's Summary</span>";
+      } else {
+        const text = "Welcome to Class 6 Mathematics Chapter 5, Prime Time. In this chapter, you explored the atomic building blocks of numbers. Always remember four core rules: First, 1 is neither prime nor composite, while 2 is the smallest prime and the only even prime. Second, two numbers are co-prime if their Highest Common Factor is 1, such as any two consecutive integers. Third, use HCF when dividing into maximum equal shares, and use LCM for periodic cycle problems like synchronized bells. And fourth, master your divisibility tests, especially for 4, 8, and 11, to solve factorization problems swiftly. Keep practicing, and enjoy the beauty of prime numbers!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 Listen to Teacher's Summary</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ Stop Audio Summary</span>";
+      }
+    }
+  </script>
+</body>
+</html>
+
