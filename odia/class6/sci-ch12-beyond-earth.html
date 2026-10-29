@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ଅଧ୍ୟାୟ ୧୨: ପୃଥିବୀ ବାହାରେ | Class 6 Science (କୌତୂହଳ)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;600;700&family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4338ca;
+            --primary-light: #6366f1;
+            --primary-dark: #312e81;
+            --secondary: #0284c7;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            --bg-light: #f8fafc;
+            --surface: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+            --radius: 12px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Oriya', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.8;
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        .progress-bar-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.05); z-index: 1000;
+        }
+        .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.1s; }
+        .hero {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #0369a1 100%);
+            color: #ffffff;
+            padding: 3.5rem 1.5rem 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 { font-family: 'Outfit', 'Noto Sans Oriya', sans-serif; font-size: 2.3rem; margin-bottom: 0.8rem; font-weight: 700; }
+        .hero p { font-size: 1.15rem; opacity: 0.95; max-width: 800px; margin: 0 auto 1.2rem; }
+        .hero-badges { display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+        .badge { background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); padding: 0.35rem 0.9rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .audio-btn {
+            background: #ffffff; color: var(--primary-dark); border: none; padding: 0.6rem 1.4rem; border-radius: 25px;
+            font-size: 0.95rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: all 0.2s; margin-top: 0.5rem;
+        }
+        .audio-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); background: #e0e7ff; }
+        .nav-tabs {
+            position: sticky; top: 5px; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
+            display: flex; justify-content: center; gap: 0.5rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03); overflow-x: auto;
+        }
+        .nav-tabs a {
+            color: var(--text-muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 0.4rem 0.8rem;
+            border-radius: 8px; transition: all 0.2s; white-space: nowrap;
+        }
+        .nav-tabs a:hover { color: var(--primary); background: #e0e7ff; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem; }
+        .section-card {
+            background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border);
+            box-shadow: var(--shadow); padding: 2.2rem; margin-bottom: 2.5rem;
+        }
+        .section-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.8rem; }
+        .section-header h2 { font-family: 'Outfit', 'Noto Sans Oriya', sans-serif; font-size: 1.6rem; color: var(--primary-dark); }
+        .section-icon { font-size: 1.8rem; }
+        h3 { font-size: 1.25rem; color: #1e293b; margin: 1.8rem 0 0.8rem; border-left: 4px solid var(--primary); padding-left: 0.6rem; }
+        h4 { font-size: 1.05rem; color: #334155; margin: 1.2rem 0 0.5rem; }
+        p { margin-bottom: 1rem; color: #334155; }
+        ul, ol { margin-left: 1.5rem; margin-bottom: 1.2rem; color: #334155; }
+        li { margin-bottom: 0.4rem; }
+        .callout-def { background: #eef2ff; border-left: 4px solid #6366f1; padding: 1.2rem; border-radius: 8px; margin: 1.2rem 0; }
+        .callout-act { background: #f0f9ff; border-left: 4px solid #0284c7; padding: 1.2rem; border-radius: 8px; margin: 1.2rem 0; }
+        .callout-warn { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin: 1.2rem 0; }
+        .callout-pyq { background: #faf5ff; border-left: 4px solid #a855f7; padding: 1.2rem; border-radius: 8px; margin: 1.2rem 0; }
+        .callout-title { font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
+        .custom-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 8px; overflow: hidden; }
+        .custom-table th { background: #312e81; color: white; text-align: left; padding: 0.8rem 1rem; font-weight: 600; font-size: 0.95rem; }
+        .custom-table td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.92rem; vertical-align: top; }
+        .custom-table tr:nth-child(even) { background: #f8fafc; }
+        .custom-table tr:hover { background: #f5f3ff; }
+        details.ans-box {
+            background: #ffffff; border: 1px solid #cbd5e1; border-radius: 10px; margin-bottom: 1.2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); overflow: hidden; transition: border-color 0.2s;
+        }
+        details.ans-box[open] { border-color: var(--primary); }
+        details.ans-box summary {
+            font-weight: 600; padding: 1rem 1.2rem; cursor: pointer; background: #f8fafc; display: flex;
+            align-items: center; justify-content: space-between; user-select: none; transition: background 0.2s;
+        }
+        details.ans-box summary:hover { background: #f1f5f9; color: var(--primary); }
+        details.ans-box .content { padding: 1.2rem; border-top: 1px solid #e2e8f0; background: #ffffff; }
+        .tag { font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 12px; text-transform: uppercase; margin-right: 0.5rem; }
+        .tag-ncert { background: #e0e7ff; color: #3730a3; }
+        .tag-exam { background: #fce7f3; color: #9d174d; }
+        .tag-think { background: #fef3c7; color: #b45309; }
+        .svg-container { text-align: center; margin: 2rem 0; overflow-x: auto; padding: 1rem; background: #ffffff; border-radius: 12px; border: 1px solid var(--border); }
+        .quiz-option {
+            display: block; padding: 0.8rem 1rem; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.5rem;
+            cursor: pointer; transition: all 0.2s; font-size: 0.95rem;
+        }
+        .quiz-option:hover { background: #eef2ff; border-color: var(--primary); }
+        .quiz-option.correct { background: #dcfce7 !important; border-color: #16a34a !important; font-weight: 600; color: #166534; }
+        .quiz-option.incorrect { background: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b; }
+        .quiz-feedback { margin-top: 0.6rem; font-weight: 600; font-size: 0.9rem; }
+        .footer { text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+    <div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+
+    <header class="hero">
+        <div class="hero-badges">
+            <span class="badge">Class 6 Science (କୌତୂହଳ)</span>
+            <span class="badge">BSE Odisha / NCERT NEP ସିଲାବସ୍</span>
+            <span class="badge">100% ସମ୍ପୂର୍ଣ୍ଣ ଓଡ଼ିଆ ଅଧ୍ୟୟନ ନୋଟ୍ସ</span>
+        </div>
+        <h1>ଅଧ୍ୟାୟ ୧୨: ପୃଥିବୀ ବାହାରେ</h1>
+        <p>Beyond Earth &bull; ନକ୍ଷତ୍ର, ନକ୍ଷତ୍ରମଣ୍ଡଳ, ସପ୍ତର୍ଷି ମଣ୍ଡଳ, ଧ୍ରୁବତାରା, ସୌରମଣ୍ଡଳ (୮ଟି ଗ୍ରହ), ଆକାଶଗଙ୍ଗା ଓ ମହାକାଶ ଅନୁସନ୍ଧାନ</p>
+        <button class="audio-btn" onclick="speakOdiaSummary()">
+            <span>&#128266;</span> ଓଡ଼ିଆ ଅଡିଓ ସାରାଂଶ ଶୁଣନ୍ତୁ
+        </button>
+    </header>
+
+    <nav class="nav-tabs">
+        <a href="#blueprint">&#128506;&#65039; ମାଇଣ୍ଡ ମ୍ୟାପ୍</a>
+        <a href="#concepts">&#128214; ବିଷୟବସ୍ତୁ ନୋଟ୍ସ</a>
+        <a href="#definitions">&#9889; ସଂଜ୍ଞା ଓ ସାରଣୀ</a>
+        <a href="#solutions">&#128221; ପାଠ୍ୟପୁସ୍ତକ ସମାଧାନ</a>
+        <a href="#competency">&#128175; ପରୀକ୍ଷା ପ୍ରଶ୍ନ ବ୍ୟାଙ୍କ</a>
+        <a href="#mistakes">&#128680; ସାଧାରଣ ଭୁଲ୍ ଓ ରିଭିଜନ୍</a>
+    </nav>
+
+    <main class="container">
+        <!-- Section 1 -->
+        <section class="section-card" id="blueprint">
+            <div class="section-header">
+                <span class="section-icon">&#128506;&#65039;</span>
+                <h2>ବିଭାଗ ୧: ଭିଜୁଆଲ୍ ବ୍ଲୁପ୍ରିଣ୍ଟ ଓ ସୌରମଣ୍ଡଳ ମାଇଣ୍ଡ ମ୍ୟାପ୍</h2>
+            </div>
+            <p>ଆମ ପୃଥିବୀର ବାୟୁମଣ୍ଡଳ ବାହାରେ ରହିଛି ଅସୀମ ମହାକାଶ। ଏହି ଅଧ୍ୟାୟରେ ଆମ ସୌରମଣ୍ଡଳର ୮ଟି ଗ୍ରହର କ୍ରମ, ସପ୍ତର୍ଷି ମଣ୍ଡଳ ସାହାଯ୍ୟରେ ଧ୍ରୁବତାରା ନିର୍ଣ୍ଣୟ, କାଳପୁରୁଷ ନକ୍ଷତ୍ରମଣ୍ଡଳ, ଆକାଶଗଙ୍ଗା ଛାୟାପଥ ଏବଂ ଭାରତର ଗୌରବମୟ ମହାକାଶ ମିଶନ (ଚନ୍ଦ୍ରୟାନ ଓ ମଙ୍ଗଳଯାନ) ସମ୍ପର୍କରେ ଆଲୋଚନା କରାଯାଇଛି।</p>
+            
+            <div class="svg-container">
+                <svg viewBox="0 0 960 400" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="5" y="5" width="950" height="390" rx="15" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+                    <text x="480" y="35" fill="#f8fafc" font-size="18" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">ଆମ ସୌରମଣ୍ଡଳ (Our Solar System) &bull; ସୂର୍ଯ୍ୟ ଓ ୮ଟି ଗ୍ରହ</text>
+
+                    <!-- The Sun -->
+                    <circle cx="60" cy="200" r="45" fill="#f59e0b" filter="drop-shadow(0 0 15px #f59e0b)"/>
+                    <text x="60" y="205" fill="#ffffff" font-size="13" font-weight="bold" text-anchor="middle">ସୂର୍ଯ୍ୟ (Sun)</text>
+
+                    <!-- Inner Terrestrial Planets -->
+                    <!-- Mercury -->
+                    <circle cx="150" cy="200" r="10" fill="#94a3b8"/>
+                    <text x="150" y="235" fill="#cbd5e1" font-size="11" text-anchor="middle">ବୁଧ (Mercury)</text>
+
+                    <!-- Venus -->
+                    <circle cx="215" cy="200" r="16" fill="#fde047"/>
+                    <text x="215" y="240" fill="#cbd5e1" font-size="11" text-anchor="middle">ଶୁକ୍ର (Venus)</text>
+
+                    <!-- Earth -->
+                    <circle cx="285" cy="200" r="17" fill="#38bdf8"/>
+                    <text x="285" y="240" fill="#38bdf8" font-size="11" font-weight="bold" text-anchor="middle">ପୃଥିବୀ (Earth)</text>
+                    <circle cx="308" cy="188" r="4" fill="#e2e8f0"/> <!-- Moon -->
+
+                    <!-- Mars -->
+                    <circle cx="360" cy="200" r="13" fill="#ef4444"/>
+                    <text x="360" y="235" fill="#cbd5e1" font-size="11" text-anchor="middle">ମଙ୍ଗଳ (Mars)</text>
+
+                    <!-- Asteroid Belt -->
+                    <line x1="405" y1="90" x2="405" y2="310" stroke="#64748b" stroke-width="3" stroke-dasharray="4,4"/>
+                    <text x="405" y="80" fill="#94a3b8" font-size="11" text-anchor="middle">ଗ୍ରହାଣୁ ପଟି (Asteroid Belt)</text>
+
+                    <!-- Outer Gaseous Giants -->
+                    <!-- Jupiter -->
+                    <circle cx="475" cy="200" r="34" fill="#d97706"/>
+                    <text x="475" y="260" fill="#cbd5e1" font-size="12" font-weight="bold" text-anchor="middle">ବୃହସ୍ପତି (Jupiter)</text>
+
+                    <!-- Saturn -->
+                    <ellipse cx="585" cy="200" rx="35" ry="12" fill="none" stroke="#e2e8f0" stroke-width="3"/>
+                    <circle cx="585" cy="200" r="28" fill="#eab308"/>
+                    <text x="585" y="260" fill="#cbd5e1" font-size="12" font-weight="bold" text-anchor="middle">ଶନି (Saturn)</text>
+
+                    <!-- Uranus -->
+                    <circle cx="690" cy="200" r="20" fill="#2dd4bf"/>
+                    <text x="690" y="245" fill="#cbd5e1" font-size="11" text-anchor="middle">ୟୁରାନସ୍ (Uranus)</text>
+
+                    <!-- Neptune -->
+                    <circle cx="780" cy="200" r="19" fill="#3b82f6"/>
+                    <text x="780" y="245" fill="#cbd5e1" font-size="11" text-anchor="middle">ନେପଚ୍ୟୁନ୍ (Neptune)</text>
+
+                    <!-- Info Boxes below -->
+                    <rect x="130" y="300" width="250" height="70" rx="8" fill="#1e293b" stroke="#38bdf8"/>
+                    <text x="255" y="325" fill="#38bdf8" font-size="12" font-weight="bold" text-anchor="middle">ଅନ୍ତଃସ୍ଥଳୀୟ ପାର୍ଥିବ ଗ୍ରହ (Inner Rocky)</text>
+                    <text x="255" y="348" fill="#cbd5e1" font-size="11" text-anchor="middle">ବୁଧ, ଶୁକ୍ର, ପୃଥିବୀ, ମଙ୍ଗଳ (କଠିନ ଶିଳାଯୁକ୍ତ)</text>
+
+                    <rect x="440" y="300" width="370" height="70" rx="8" fill="#1e293b" stroke="#f59e0b"/>
+                    <text x="625" y="325" fill="#f59e0b" font-size="12" font-weight="bold" text-anchor="middle">ବହିଃସ୍ଥଳୀୟ ଗ୍ୟାସ୍ ଓ ହିମ ଦାନବ (Outer Giants)</text>
+                    <text x="625" y="348" fill="#cbd5e1" font-size="11" text-anchor="middle">ବୃହସ୍ପତି, ଶନି (ଗ୍ୟାସ୍) &bull; ୟୁରାନସ୍, ନେପଚ୍ୟୁନ୍ (ବରଫ/ହିମ)</text>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="section-card" id="concepts">
+            <div class="section-header">
+                <span class="section-icon">&#128214;</span>
+                <h2>ବିଭାଗ ୨: ବିସ୍ତୃତ ପାଠ୍ୟକ୍ରମ ଆଧାରିତ ଧାରଣା ନୋଟ୍ସ</h2>
+            </div>
+
+            <h3>୧୨.୧ ନକ୍ଷତ୍ର ଓ ନକ୍ଷତ୍ରମଣ୍ଡଳ (Stars and Constellations)</h3>
+            <p>ରାତିର ନିର୍ମଳ ଆକାଶରେ ଚିକ୍ଚିକ୍ କରୁଥିବା ଆଲୋକ ବିନ୍ଦୁଗୁଡ଼ିକ ହେଉଛନ୍ତି <strong>ନକ୍ଷତ୍ର (Stars)</strong>। ସେମାନେ ପ୍ରଚଣ୍ଡ ଉତ୍ତପ୍ତ ଗ୍ୟାସର ବିଶାଳ ପିଣ୍ଡ ଏବଂ ନିଜସ୍ୱ ଆଲୋକ ଓ ଉତ୍ତାପ ବିକିରଣ କରନ୍ତି।</p>
+            <ul>
+                <li><strong>ସୂର୍ଯ୍ୟ ହେଉଛନ୍ତି ଆମର ନିକଟତମ ନକ୍ଷତ୍ର:</strong> ସୂର୍ଯ୍ୟ ପୃଥିବୀର ଏତେ ନିକଟରେ ଥିବାରୁ ଏହା ଅନ୍ୟ ନକ୍ଷତ୍ରମାନଙ୍କ ତୁଳନାରେ ଏତେ ବଡ଼ ଓ ଉଜ୍ଜ୍ୱଳ ଦେଖାଯାଏ। ଦିନବେଳା ସୂର୍ଯ୍ୟଙ୍କ ପ୍ରଖର ଆଲୋକ ଯୋଗୁଁ ଆମେ ଅନ୍ୟ ତାରାମାନଙ୍କୁ ଦେଖିପାରୁ ନାହିଁ।</li>
+                <li><strong>ନକ୍ଷତ୍ରମଣ୍ଡଳ (Constellations):</strong> ଆକାଶରେ ନକ୍ଷତ୍ରମାନଙ୍କର କେତେକ ଗୋଷ୍ଠୀ ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ପରିଚିତ ଆକୃତି (ଜନ୍ତୁ, ବ୍ୟକ୍ତି ବା ପାତ୍ର) ଗଠନ କରନ୍ତି। ଏହି କାଳ୍ପନିକ ଢାଞ୍ଚାଗୁଡ଼ିକୁ ନକ୍ଷତ୍ରମଣ୍ଡଳ କୁହାଯାଏ।</li>
+            </ul>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 880 340" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="860" height="320" rx="12" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+                    <text x="440" y="40" fill="#38bdf8" font-size="17" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">ସପ୍ତର୍ଷି ମଣ୍ଡଳ ଦ୍ୱାରା ଧ୍ରୁବତାରା ନିର୍ଣ୍ଣୟ (Locating the Pole Star)</text>
+
+                    <!-- Saptarshi / Big Dipper -->
+                    <!-- 7 Stars -->
+                    <!-- Bowl -->
+                    <circle cx="150" cy="180" r="5" fill="#f8fafc"/>
+                    <text x="140" y="170" fill="#cbd5e1" font-size="11">ମରୀଚି</text>
+
+                    <circle cx="210" cy="200" r="5" fill="#f8fafc"/>
+                    <text x="210" y="190" fill="#cbd5e1" font-size="11">ବଶିଷ୍ଠ</text>
+
+                    <circle cx="270" cy="190" r="5" fill="#f8fafc"/>
+                    <text x="270" y="180" fill="#cbd5e1" font-size="11">ଅଙ୍ଗିରା</text>
+
+                    <circle cx="330" cy="220" r="5" fill="#f8fafc"/>
+                    <text x="325" y="240" fill="#cbd5e1" font-size="11">ଅତ୍ରି</text>
+
+                    <circle cx="340" cy="270" r="5" fill="#f8fafc"/>
+                    <text x="320" y="285" fill="#cbd5e1" font-size="11">ପୁଲସ୍ତ୍ୟ</text>
+
+                    <!-- Pointer stars -->
+                    <circle cx="410" cy="270" r="6" fill="#fde047"/>
+                    <text x="410" y="295" fill="#fde047" font-size="12" font-weight="bold">ପୁଲହ</text>
+
+                    <circle cx="410" cy="210" r="6" fill="#fde047"/>
+                    <text x="410" y="195" fill="#fde047" font-size="12" font-weight="bold">କ୍ରତୁ</text>
+
+                    <!-- Dipper connecting lines -->
+                    <polyline points="150,180 210,200 270,190 330,220 340,270 410,270 410,210 330,220" fill="none" stroke="#60a5fa" stroke-width="2"/>
+
+                    <!-- Pointer line extended north -->
+                    <line x1="410" y1="270" x2="410" y2="90" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,5"/>
+                    <polygon points="410,80 405,92 415,92" fill="#f59e0b"/>
+
+                    <!-- Pole Star (Polaris) -->
+                    <circle cx="410" cy="75" r="8" fill="#ffffff" filter="drop-shadow(0 0 8px #ffffff)"/>
+                    <text x="440" y="75" fill="#ffffff" font-size="15" font-weight="bold">ଧ୍ରୁବତାରା (Pole Star / ଉତ୍ତର ଦିଗ)</text>
+                    <text x="440" y="95" fill="#94a3b8" font-size="12">ପୃଥିବୀର ଘୂର୍ଣ୍ଣନ ଅକ୍ଷ ଉପରେ ଥିବାରୁ ଏହା ସର୍ବଦା ସ୍ଥିର ରହେ।</text>
+
+                    <!-- Little dipper hint -->
+                    <text x="250" y="310" fill="#38bdf8" font-size="12" text-anchor="middle">ସପ୍ତର୍ଷି ମଣ୍ଡଳ (Ursa Major / Big Dipper) &mdash; ପ୍ରଶ୍ନ ଚିହ୍ନ ବା କରଚୁଲି ସଦୃଶ</text>
+                </svg>
+            </div>
+
+            <div class="callout-def">
+                <div class="callout-title">&#127775; ଦୁଇଟି ପ୍ରମୁଖ ନକ୍ଷତ୍ରମଣ୍ଡଳ ଓ ସେମାନଙ୍କ ଗୁରୁତ୍ୱ</div>
+                <ol>
+                    <li><strong>ସପ୍ତର୍ଷି ମଣ୍ଡଳ (Ursa Major / Saptarshi / Big Dipper):</strong> ଏଥିରେ ୭ଟି ଉଜ୍ଜ୍ୱଳ ତାରା ଥାଆନ୍ତି, ଯାହା ଏକ ବଡ଼ ଚାମଚ ବା ପ୍ରଶ୍ନବାଚୀ ଚିହ୍ନ (?) ପରି ଦେଖାଯାଏ। ଏହାର ଶେଷ ଦୁଇଟି ତାରା (କ୍ରତୁ ଓ ପୁଲହ) ଙ୍କୁ <strong>ସୂଚକ ତାରା (Pointers)</strong> କୁହାଯାଏ। ଏମାନଙ୍କୁ ସଂଯୋଗ କରି ଏକ କାଳ୍ପନିକ ସରଳରେଖା ଉତ୍ତର ଆଡ଼କୁ ଟାଣିଲେ ତାହା ସିଧା <strong>ଧ୍ରୁବତାରା (Pole Star)</strong> କୁ ସୂଚିତ କରେ।</li>
+                    <li><strong>କାଳପୁରୁଷ (Orion / ଶିକାରୀ):</strong> ଶୀତଦିନ ରାତିରେ ଦେଖାଯାଉଥିବା ଏହି ନକ୍ଷତ୍ରମଣ୍ଡଳ ଏକ ଶିକାରୀ ପରି ଦେଖାଯାଏ। ଏହାର ମଝିରେ ୩ଟି ତାରା ଏକ ଧାଡ଼ିରେ ରହି ଶିକାରୀର ପଟି (Belt) ଗଠନ କରନ୍ତି। ଏହି ତିନୋଟି ତାରାକୁ ପୂର୍ବ ଆଡ଼କୁ ସରଳରେଖାରେ ବଢ଼ାଇଲେ ଆକାଶର ସବୁଠାରୁ ଉଜ୍ଜ୍ୱଳତମ ନକ୍ଷତ୍ର <strong>ଲୁବ୍ଧକ (Sirius)</strong> ଦେଖାଯାଏ।</li>
+                </ol>
+            </div>
+
+            <h3>୧୨.୨ ଆଲୋକ ପ୍ରଦୂଷଣ ଓ ହାନ୍ଲେ ଡାର୍କ ସ୍କାଏ ରିଜର୍ଭ (Light Pollution & Hanle)</h3>
+            <p>ସହରର ଅତ୍ୟଧିକ କୃତ୍ରିମ ଆଲୋକ (ଷ୍ଟ୍ରିଟ୍ ଲାଇଟ୍, ବିଜ୍ଞାପନ ବୋର୍ଡ଼) ଆକାଶକୁ ଆଲୋକିତ କରିଦିଏ, ଯାହାକୁ <strong>ଆଲୋକ ପ୍ରଦୂଷଣ (Light Pollution)</strong> କୁହାଯାଏ। ଏଥିପାଇଁ ସହରରୁ ରାତିରେ ତାରାମାନେ ସ୍ପଷ୍ଟ ଦେଖାଯାଆନ୍ତି ନାହିଁ।</p>
+            <div class="callout-act">
+                <div class="callout-title">&#127969; ଲଦାଖର ହାନ୍ଲେ (Hanle Dark Sky Reserve) କାହିଁକି ସ୍ୱତନ୍ତ୍ର?</div>
+                <p>ଭାରତର ଲଦାଖସ୍ଥିତ <strong>ହାନ୍ଲେ (Hanle)</strong> ସମୁଦ୍ର ପତ୍ତନରୁ ପ୍ରାୟ ୪,୫୦୦ ମିଟର ଉଚ୍ଚରେ ଅବସ୍ଥିତ। ଏଠାରେ ବାୟୁ ଅତ୍ୟନ୍ତ ପତଳା, ବର୍ଷା ବହୁତ କମ୍ ହୁଏ ଏବଂ ବର୍ଷର ପ୍ରାୟ ୨୫୦ ରୁ ଅଧିକ ଦିନ ଆକାଶ ସମ୍ପୂର୍ଣ୍ଣ ମେଘମୁକ୍ତ ଓ ନିର୍ମଳ ଥାଏ। ଏଠାରେ କୌଣସି ଆଲୋକ ପ୍ରଦୂଷଣ ନଥିବାରୁ ଭାରତ ସରକାର ଏଠାରେ <strong>ଭାରତୀୟ ଜ୍ୟୋତିର୍ବିଜ୍ଞାନ ପର୍ଯ୍ୟବେକ୍ଷଣାଗାର (Indian Astronomical Observatory)</strong> ଏବଂ ଦେଶର ପ୍ରଥମ "ଡାର୍କ ସ୍କାଏ ରିଜର୍ଭ" ପ୍ରତିଷ୍ଠା କରିଛନ୍ତି।</p>
+            </div>
+
+            <h3>୧୨.୩ ଆମ ସୌରମଣ୍ଡଳ (Our Solar System)</h3>
+            <p>ସୂର୍ଯ୍ୟ ଏବଂ ତାଙ୍କ ଚାରିପାଖରେ ନିର୍ଦ୍ଦିଷ୍ଟ କକ୍ଷପଥରେ ଘୂରୁଥିବା ୮ଟି ଗ୍ରହ, ସେମାନଙ୍କ ଉପଗ୍ରହ, ଗ୍ରହାଣୁ (Asteroids) ଏବଂ ଧୂମକେତୁ (Comets) ଙ୍କୁ ନେଇ ସୌରମଣ୍ଡଳ ଗଠିତ।</p>
+            <ul>
+                <li><strong>ଅନ୍ତଃସ୍ଥଳୀୟ ଗ୍ରହ (Inner Planets):</strong> ବୁଧ (Mercury), ଶୁକ୍ର (Venus), ପୃଥିବୀ (Earth), ଏବଂ ମଙ୍ଗଳ (Mars)। ଏମାନେ ସୂର୍ଯ୍ୟଙ୍କ ନିକଟବର୍ତ୍ତୀ ଏବଂ କଠିନ ପଥର ଓ ଧାତୁରେ ଗଠିତ।</li>
+                <li><strong>ଗ୍ରହାଣୁ ପଟି (Asteroid Belt):</strong> ମଙ୍ଗଳ ଓ ବୃହସ୍ପତି କକ୍ଷପଥ ମଝିରେ ଅସଂଖ୍ୟ ପଥର ଖଣ୍ଡ ଭ୍ରମଣ କରୁଛନ୍ତି।</li>
+                <li><strong>ବହିଃସ୍ଥଳୀୟ ଗ୍ରହ (Outer Planets):</strong> ବୃହସ୍ପତି (Jupiter - ସର୍ବବୃହତ୍ତମ ଗ୍ରହ), ଶନି (Saturn - ସୁନ୍ଦର ବଳୟଯୁକ୍ତ ଗ୍ରହ), ୟୁରାନସ୍ (Uranus) ଏବଂ ନେପଚ୍ୟୁନ୍ (Neptune)। ଏମାନେ ବିଶାଳ ଆକାରର ଏବଂ ମୁଖ୍ୟତଃ ଗ୍ୟାସ୍ ଓ ବରଫରେ ନିର୍ମିତ।</li>
+            </ul>
+
+            <div class="callout-warn">
+                <div class="callout-title">&#9888;&#65039; ପ୍ଲୁଟୋ (Pluto) କାହିଁକି ଗ୍ରହ ନୁହେଁ?</div>
+                <p>୨୦୦୬ ମସିହାରେ ଆନ୍ତର୍ଜାତୀୟ ଜ୍ୟୋତିର୍ବିଜ୍ଞାନ ସଂଘ (IAU) ର ନୂତନ ନିୟମ ଅନୁସାରେ ଏକ ଗ୍ରହ ନିଜ କକ୍ଷପଥର ଆଖପାଖ ଅଞ୍ଚଳକୁ ଅନ୍ୟ ବସ୍ତୁମୁକ୍ତ ରଖିବା ଆବଶ୍ୟକ। ପ୍ଲୁଟୋ ଏହି ସର୍ତ୍ତ ପୂରଣ କରୁନଥିବାରୁ ଏହାକୁ ଗ୍ରହ ତାଲିକାରୁ ବାଦ୍ ଦେଇ ଏକ <strong>ବାମନ ଗ୍ରହ (Dwarf Planet)</strong> ଭାବେ ବର୍ଗୀକୃତ କରାଯାଇଛି।</p>
+            </div>
+
+            <h3>୧୨.୪ ଆକାଶଗଙ୍ଗା ଓ ମହାକାଶ ଗବେଷଣା (Milky Way & Space Exploration)</h3>
+            <p>କୋଟି କୋଟି ନକ୍ଷତ୍ର, ଧୂଳି ଓ ଗ୍ୟାସର ବିଶାଳ ଘୂର୍ଣ୍ଣାୟମାନ ପରିବାରକୁ <strong>ଛାୟାପଥ (Galaxy)</strong> କୁହାଯାଏ। ଆମ ସୌରମଣ୍ଡଳ ଯେଉଁ ଛାୟାପଥର ଅଂଶବିଶେଷ, ତାହାକୁ <strong>ଆକାଶଗଙ୍ଗା (Milky Way)</strong> କୁହାଯାଏ।</p>
+            <p><strong>ଭାରତର ମହାକାଶ ସଫଳତା (ISRO Achievements):</strong></p>
+            <ul>
+                <li><strong>ଚନ୍ଦ୍ରୟାନ-୩ (Chandrayaan-3):</strong> ୨୩ ଅଗଷ୍ଟ ୨୦୨୩ ରେ ଭାରତ ବିଶ୍ୱର ପ୍ରଥମ ଦେଶ ଭାବେ ଚନ୍ଦ୍ରର ଦକ୍ଷିଣ ମେରୁ (South Pole) ରେ ସଫଳତାର ସହ ସଫ୍ଟ ଲ୍ୟାଣ୍ଡିଂ କରି ଇତିହାସ ସୃଷ୍ଟି କଲା।</li>
+                <li><strong>ମଙ୍ଗଳଯାନ (MOM):</strong> ଭାରତ ପ୍ରଥମ ପ୍ରୟାସରେ ହିଁ ମଙ୍ଗଳ ଗ୍ରହର କକ୍ଷପଥରେ ଉପଗ୍ରହ ସ୍ଥାପନ କରି ବିଶ୍ୱକୁ ଚମକାଇ ଦେଇଥିଲା।</li>
+                <li><strong>ଆଦିତ୍ୟ-ଏଲ୍ ୧ (Aditya-L1):</strong> ସୂର୍ଯ୍ୟଙ୍କୁ ଅନୁଧ୍ୟାନ କରିବା ପାଇଁ ଭାରତର ପ୍ରଥମ ମହାକାଶ ମିଶନ।</li>
+            </ul>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="section-card" id="definitions">
+            <div class="section-header">
+                <span class="section-icon">&#9889;</span>
+                <h2>ବିଭାଗ ୩: ମୁଖ୍ୟ ସଂଜ୍ଞା ଓ ସୌରମଣ୍ଡଳ ତଥ୍ୟ ସାରଣୀ</h2>
+            </div>
+
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>ଗ୍ରହର ନାମ</th>
+                        <th>ସୂର୍ଯ୍ୟଙ୍କଠାରୁ କ୍ରମ</th>
+                        <th>ବିଶେଷ ପରିଚୟ ଓ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ତଥ୍ୟ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td><strong>ବୁଧ (Mercury)</strong></td><td>୧ମ (ନିକଟତମ)</td><td>କ୍ଷୁଦ୍ରତମ ଗ୍ରହ, କୌଣସି ବାୟୁମଣ୍ଡଳ ନାହିଁ, କୌଣସି ଉପଗ୍ରହ ନାହିଁ।</td></tr>
+                    <tr><td><strong>ଶୁକ୍ର (Venus)</strong></td><td>୨ୟ</td><td>ସୌରମଣ୍ଡଳର ଉତ୍ତପ୍ତତମ ଗ୍ରହ, ଉଜ୍ଜ୍ୱଳତମ ଗ୍ରହ (ପାହାନ୍ତି ତାରା / ସନ୍ଧ୍ୟା ତାରା)।</td></tr>
+                    <tr><td><strong>ପୃଥିବୀ (Earth)</strong></td><td>୩ୟ</td><td>ଏକମାତ୍ର ଜୀବନ୍ତ ଗ୍ରହ (ନୀଳ ଗ୍ରହ), ଗୋଟିଏ ପ୍ରାକୃତିକ ଉପଗ୍ରହ (ଚନ୍ଦ୍ର)।</td></tr>
+                    <tr><td><strong>ମଙ୍ଗଳ (Mars)</strong></td><td>୪ର୍ଥ</td><td>ଲାଲ୍ ଗ୍ରହ (Red Planet - ଲୌହ ଅକ୍ସାଇଡ୍ ଯୋଗୁଁ), ୨ଟି ଉପଗ୍ରହ (ଫୋବୋସ୍ ଓ ଡିମୋସ୍)।</td></tr>
+                    <tr><td><strong>ବୃହସ୍ପତି (Jupiter)</strong></td><td>୫ମ</td><td>ସର୍ବବୃହତ୍ତମ ଗ୍ରହ, ପ୍ରଚଣ୍ଡ ଝଡ଼ର 'Great Red Spot' ବିଶିଷ୍ଟ।</td></tr>
+                    <tr><td><strong>ଶନି (Saturn)</strong></td><td>୬ଷ୍ଠ</td><td>ଦ୍ୱିତୀୟ ବୃହତ୍ତମ ଗ୍ରହ, ବରଫ ଓ ପଥର କଣିକାରେ ଗଠିତ ଆକର୍ଷଣୀୟ ବଳୟ (Rings)।</td></tr>
+                    <tr><td><strong>ୟୁରାନସ୍ (Uranus)</strong></td><td>୭ମ</td><td>ଶୀତଳତମ ବରଫ ଦାନବ, ପୂର୍ବରୁ ପଶ୍ଚିମ ଆଡ଼କୁ ଓଲଟା ଘୂରେ।</td></tr>
+                    <tr><td><strong>ନେପଚ୍ୟୁନ୍ (Neptune)</strong></td><td>୮ମ (ଦୂରତମ)</td><td>ସୂର୍ଯ୍ୟଙ୍କଠାରୁ ଦୂରତମ ନୀଳ ରଙ୍ଗର ଗ୍ରହ, ପ୍ରବଳ ଝଡ଼ ଓ ବରଫାବୃତ।</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="section-card" id="solutions">
+            <div class="section-header">
+                <span class="section-icon">&#128221;</span>
+                <h2>ବିଭାଗ ୪: ୧୦୦% ସମାଧାନ ପାଠ୍ୟପୁସ୍ତକ ଅଭ୍ୟାସ ପ୍ରଶ୍ନୋତ୍ତର (Q1 - Q12)</h2>
+            </div>
+
+            <!-- Q1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୧</span> ସ୍ତମ୍ଭ ମେଳନ କର: ସ୍ତମ୍ଭ 'କ' ସହିତ ସ୍ତମ୍ଭ 'ଖ'।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ସଠିକ୍ ସ୍ତମ୍ଭ ମେଳନ:</p>
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>ସ୍ତମ୍ଭ 'କ'</th>
+                                <th>ସ୍ତମ୍ଭ 'ଖ'</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>(i) ଧ୍ରୁବତାରା (Pole Star)</td><td>ଉତ୍ତର ଦିଗ ନିରୂପଣ କରେ (ସ୍ଥିର ରହେ)</td></tr>
+                            <tr><td>(ii) ଲୁବ୍ଧକ (Sirius)</td><td>ରାତ୍ରି ଆକାଶର ସବୁଠାରୁ ଉଜ୍ଜ୍ୱଳତମ ନକ୍ଷତ୍ର</td></tr>
+                            <tr><td>(iii) ବୃହସ୍ପତି (Jupiter)</td><td>ସୌରମଣ୍ଡଳର ସର୍ବବୃହତ୍ତମ ଗ୍ରହ</td></tr>
+                            <tr><td>(iv) ଶୁକ୍ର (Venus)</td><td>ଉତ୍ତପ୍ତତମ ଗ୍ରହ (ସନ୍ଧ୍ୟା ତାରା)</td></tr>
+                            <tr><td>(v) ସପ୍ତର୍ଷି ମଣ୍ଡଳ</td><td>୭ଟି ତାରାର ବିଶିଷ୍ଟ ପ୍ରଶ୍ନ ଚିହ୍ନ ଆକୃତିର ନକ୍ଷତ୍ରମଣ୍ଡଳ</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+
+            <!-- Q2 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୨</span> (i) ପାଠ୍ୟପୁସ୍ତକର ପ୍ରହେଳିକା (Riddle) ର ସମାଧାନ କର। (ii) ନିଜେ ଦୁଇଟି ନୂତନ ପ୍ରହେଳିକା ରଚନା କର।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>(i) ପାଠ୍ୟପୁସ୍ତକ ପ୍ରହେଳିକା ସମାଧାନ:</strong> "ମୁଁ ଆକାଶରେ ଉତ୍ତର ଦିଗରେ ସ୍ଥିର ରହେ, ପ୍ରାଚୀନ କାଳରୁ ନାବିକମାନଙ୍କୁ ବାଟ କଢ଼ାଏ &mdash; ମୁଁ କିଏ?" &rarr; <strong>ଉତ୍ତର: ଧ୍ରୁବତାରା (Pole Star / Polaris)</strong>।</p>
+                    <p><strong>(ii) ନୂତନ ପ୍ରହେଳିକା ୧:</strong> "ମୁଁ ଦ୍ୱିତୀୟ ବୃହତ୍ତମ ଗ୍ରହ, ମୋ ଚାରିପାଖରେ ସୁନ୍ଦର ବରଫ ବଳୟ ସଜ୍ଜିତ &mdash; ମୋ ନାମ କଣ?" &rarr; <strong>ଉତ୍ତର: ଶନି (Saturn)</strong>।</p>
+                    <p><strong>ନୂତନ ପ୍ରହେଳିକା ୨:</strong> "ମୁଁ ନାଲି ରଙ୍ଗରେ ଚମକେ, ପୃଥିବୀର ପଡ଼ୋଶୀ ଭାବେ ଜଣାଶୁଣା, ମୋ ନିକଟକୁ ଚାଲିଛି ମଙ୍ଗଳଯାନ &mdash; ମୁଁ କିଏ?" &rarr; <strong>ଉତ୍ତର: ମଙ୍ଗଳ ଗ୍ରହ (Mars)</strong>।</p>
+                </div>
+            </details>
+
+            <!-- Q3 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୩</span> ନିମ୍ନଲିଖିତ ମଧ୍ୟରୁ କେଉଁଟି ଆମ ସୌରମଣ୍ଡଳର ସଦସ୍ୟ <u>ନୁହେଁ</u>? (i) ଲୁବ୍ଧକ (Sirius) (ii) ଧୂମକେତୁ (iii) ଗ୍ରହାଣୁ (iv) ପ୍ଲୁଟୋ</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>(i) ଲୁବ୍ଧକ (Sirius)</strong></p>
+                    <p><strong>କାରଣ:</strong> ଲୁବ୍ଧକ ହେଉଛି ଆମ ସୌରମଣ୍ଡଳ ବାହାରେ ଥିବା ଏକ ସ୍ୱତନ୍ତ୍ର ନକ୍ଷତ୍ର (ପ୍ରାୟ ୮.୬ ଆଲୋକବର୍ଷ ଦୂରରେ)। ଧୂମକେତୁ, ଗ୍ରହାଣୁ ଏବଂ ପ୍ଲୁଟୋ (ବାମନ ଗ୍ରହ) ସମସ୍ତେ ସୂର୍ଯ୍ୟଙ୍କ ଚାରିପାଖରେ ପରିକ୍ରମଣ କରୁଥିବାରୁ ସେମାନେ ସୌରମଣ୍ଡଳର ସଦସ୍ୟ।</p>
+                </div>
+            </details>
+
+            <!-- Q4 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୪</span> ନିମ୍ନଲିଖିତ ମଧ୍ୟରୁ କେଉଁଟି ସୂର୍ଯ୍ୟଙ୍କର ଏକ ଗ୍ରହ <u>ନୁହେଁ</u>? (i) ବୃହସ୍ପତି (ii) ପ୍ଲୁଟୋ (iii) ନେପଚ୍ୟୁନ୍ (iv) ଶନି</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>(ii) ପ୍ଲୁଟୋ (Pluto)</strong></p>
+                    <p><strong>କାରଣ:</strong> ୨୦୦୬ ମସିହାରୁ ଆନ୍ତର୍ଜାତୀୟ ଜ୍ୟୋତିର୍ବିଜ୍ଞାନ ସଂଘ (IAU) ଦ୍ୱାରା ପ୍ଲୁଟୋକୁ ଗ୍ରହ ମାନ୍ୟତାରୁ ବାଦ୍ ଦିଆଯାଇ ଏକ 'ବାମନ ଗ୍ରହ' (Dwarf Planet) ଭାବେ ଘୋଷଣା କରାଯାଇଛି।</p>
+                </div>
+            </details>
+
+            <!-- Q5 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୫</span> ଧ୍ରୁବତାରା ଏବଂ ଲୁବ୍ଧକ ମଧ୍ୟରୁ କେଉଁଟି ଅଧିକ ଉଜ୍ଜ୍ୱଳ ନକ୍ଷତ୍ର?</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> <strong>ଲୁବ୍ଧକ (Sirius)</strong> ହେଉଛି ଧ୍ରୁବତାରାଠାରୁ ବହୁତ ଅଧିକ ଉଜ୍ଜ୍ୱଳ ନକ୍ଷତ୍ର।</p>
+                    <p><strong>ବ୍ୟାଖ୍ୟା:</strong> ରାତ୍ରି ଆକାଶରେ ଦେଖାଯାଉଥିବା ସମସ୍ତ ନକ୍ଷତ୍ରମାନଙ୍କ ମଧ୍ୟରେ ଲୁବ୍ଧକ (Sirius) ହେଉଛି ସବୁଠାରୁ ଉଜ୍ଜ୍ୱଳତମ ନକ୍ଷତ୍ର (Brightest star)। ଅନେକ ଲୋକ ଭାବନ୍ତି ଧ୍ରୁବତାରା ସବୁଠାରୁ ଉଜ୍ଜ୍ୱଳ, କିନ୍ତୁ ଏହା ଭୁଲ୍। ଧ୍ରୁବତାରା ଏକ ମଧ୍ୟମ ଉଜ୍ଜ୍ୱଳତାର ତାରା, ଏହାର ମୁଖ୍ୟ ବିଶେଷତ୍ୱ ହେଉଛି ଏହା ସର୍ବଦା ଉତ୍ତର ଦିଗରେ ସ୍ଥିର ରହିଥାଏ।</p>
+                </div>
+            </details>
+
+            <!-- Q6 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୬</span> ସୌରମଣ୍ଡଳର ୮ଟି ଗ୍ରହର ସୂର୍ଯ୍ୟଙ୍କଠାରୁ ଦୂରତା ଅନୁସାରେ ସଠିକ୍ କ୍ରମ ଲେଖ।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ସୂର୍ଯ୍ୟଙ୍କଠାରୁ ଦୂରତା ଅନୁସାରେ ସଠିକ୍ କ୍ରମ:</strong></p>
+                    <ol>
+                        <li><strong>ବୁଧ (Mercury)</strong> &mdash; ସୂର୍ଯ୍ୟଙ୍କ ନିକଟତମ</li>
+                        <li><strong>ଶୁକ୍ର (Venus)</strong></li>
+                        <li><strong>ପୃଥିବୀ (Earth)</strong></li>
+                        <li><strong>ମଙ୍ଗଳ (Mars)</strong></li>
+                        <li><strong>ବୃହସ୍ପତି (Jupiter)</strong></li>
+                        <li><strong>ଶନି (Saturn)</strong></li>
+                        <li><strong>ୟୁରାନସ୍ (Uranus)</strong></li>
+                        <li><strong>ନେପଚ୍ୟୁନ୍ (Neptune)</strong> &mdash; ସୂର୍ଯ୍ୟଙ୍କଠାରୁ ଦୂରତମ</li>
+                    </ol>
+                    <p><em>ମନେରଖିବାର ସହଜ ଉପାୟ: <strong>M</strong>y <strong>V</strong>ery <strong>E</strong>ducated <strong>M</strong>other <strong>J</strong>ust <strong>S</strong>erved <strong>U</strong>s <strong>N</strong>oodles.</em></p>
+                </div>
+            </details>
+
+            <!-- Q7 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୭</span> ରାତ୍ରି ଆକାଶରେ ସପ୍ତର୍ଷି ମଣ୍ଡଳ ଏବଂ ଧ୍ରୁବତାରା କିପରି ଚିହ୍ନଟ କରାଯାଏ? ବର୍ଣ୍ଣନା କର।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ପଦ୍ଧତି:</strong></p>
+                    <ol>
+                        <li>ଗ୍ରୀଷ୍ମ ଋତୁରେ ରାତିର ପ୍ରଥମ ପ୍ରହରରେ ଉତ୍ତର ଆକାଶକୁ ଚାହିଁଲେ ୭ଟି ଉଜ୍ଜ୍ୱଳ ତାରାର ଏକ ଗୋଷ୍ଠୀ ଦେଖାଯାଏ, ଯାହା ଏକ ବଡ଼ ଚାମଚ ବା ପ୍ରଶ୍ନ ଚିହ୍ନ ପରି ଦେଖାଯାଏ। ଏହାକୁ <strong>ସପ୍ତର୍ଷି ମଣ୍ଡଳ (Big Dipper)</strong> କୁହାଯାଏ।</li>
+                        <li>ଏହି ଚାମଚର ଅଗ୍ରଭାଗରେ ଥିବା ଦୁଇଟି ତାରା (କ୍ରତୁ ଓ ପୁଲହ) ଙ୍କୁ ସୂଚକ ତାରା (Pointers) କୁହାଯାଏ।</li>
+                        <li>ଏହି ଦୁଇଟି ତାରା ମଧ୍ୟଦେଇ ଉତ୍ତର ଦିଗକୁ ଏକ କାଳ୍ପନିକ ସରଳରେଖା ଟାଣି ସେହି ଦିଗରେ ଦୃଷ୍ଟି ନିକ୍ଷେପ କଲେ, ଏକ ମଧ୍ୟମ ଉଜ୍ଜ୍ୱଳ ତାରା ଦେଖାଯାଏ ଯାହା ନିଜ ସ୍ଥାନରୁ କଦାପି ଘୁଞ୍ଚେ ନାହିଁ। ଏହା ହିଁ ହେଉଛି <strong>ଧ୍ରୁବତାରା (Pole Star)</strong>।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- Q8 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୮</span> କାଳପୁରୁଷ (Orion) ନକ୍ଷତ୍ରମଣ୍ଡଳ ସାହାଯ୍ୟରେ ଲୁବ୍ଧକ (Sirius) କିପରି ଖୋଜିବ?</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ପଦ୍ଧତି:</strong></p>
+                    <ol>
+                        <li>ଶୀତଦିନ ରାତିରେ ଦକ୍ଷିଣ-ପୂର୍ବ ଆକାଶରେ ଜଣେ ଧନୁର୍ଦ୍ଧର ଶିକାରୀ ପରି ଦିଶୁଥିବା <strong>କାଳପୁରୁଷ (Orion)</strong> କୁ ଚିହ୍ନଟ କର।</li>
+                        <li>ଏହାର କେନ୍ଦ୍ରଭାଗରେ ଥିବା ୩ଟି ଉଜ୍ଜ୍ୱଳ ତାରା (ଶିକାରୀର ପଟି / Orion's Belt) କୁ ଲକ୍ଷ୍ୟ କର।</li>
+                        <li>ଏହି ତିନୋଟି ତାରାକୁ ଯୋଗ କରି ପୂର୍ବ ଦିଗ ଆଡ଼କୁ ଏକ ସିଧା କାଳ୍ପନିକ ରେଖା କଳ୍ପନା କର।</li>
+                        <li>ଏହି ରେଖାଟି ସିଧାସଳଖ ଆକାଶର ସବୁଠାରୁ ଚିକ୍ମିକ୍ କରୁଥିବା ଉଜ୍ଜ୍ୱଳତମ ନକ୍ଷତ୍ର ନିକଟରେ ପହଞ୍ଚିବ। ଏହା ହିଁ ହେଉଛି <strong>ଲୁବ୍ଧକ (Sirius)</strong>।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- Q9 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୯</span> ଦିନବେଳା ଆମେ ଆକାଶରେ ତାରାମାନଙ୍କୁ କାହିଁକି ଦେଖିପାରୁ ନାହିଁ?</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ତାରାମାନେ ଦିନବେଳା ମଧ୍ୟ ଆକାଶରେ ଉପସ୍ଥିତ ଥାଆନ୍ତି, ସେମାନେ କୁଆଡ଼େ ଯାଆନ୍ତି ନାହିଁ। କିନ୍ତୁ ଆମର ନିକଟତମ ନକ୍ଷତ୍ର <strong>ସୂର୍ଯ୍ୟଙ୍କର ପ୍ରଖର ତେଜ ଓ ଆଲୋକ</strong> ବାୟୁମଣ୍ଡଳରେ ବିଚ୍ଛୁରିତ ହୋଇ ସମଗ୍ର ଆକାଶକୁ ଉଜ୍ଜ୍ୱଳ କରିଦିଏ। ଏହି ପ୍ରଚଣ୍ଡ ଆଲୋକ ଆଗରେ ଦୂରଦୂରାନ୍ତରେ ଥିବା ନକ୍ଷତ୍ରମାନଙ୍କର କ୍ଷୀଣ ଆଲୋକ ଆମ ଆଖିକୁ ଦେଖାଯାଏ ନାହିଁ। ସୂର୍ଯ୍ୟାସ୍ତ ପରେ ଯେତେବେଳେ ସୂର୍ଯ୍ୟାଲୋକ ଲିଭିଯାଏ, ସେତେବେଳେ ତାରାମାନେ ପୁନର୍ବାର ଆକାଶରେ ଦୃଶ୍ୟମାନ ହୁଅନ୍ତି।</p>
+                </div>
+            </details>
+
+            <!-- Q10 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୧୦</span> ଏକ ନିର୍ମଳ ରାତିରେ ସପ୍ତର୍ଷି ମଣ୍ଡଳକୁ ୨-୩ ଘଣ୍ଟା ବ୍ୟବଧାନରେ ଦେଖିଲେ ଏହା କାହିଁକି ଗତି କଲା ପରି ଦେଖାଯାଏ? ଧ୍ରୁବତାରା କାହିଁକି ସ୍ଥିର ରହେ?</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ପର୍ଯ୍ୟବେକ୍ଷଣ:</strong> ୨-୩ ଘଣ୍ଟା ବ୍ୟବଧାନରେ ଦେଖିଲେ ସପ୍ତର୍ଷି ମଣ୍ଡଳ ପୂର୍ବରୁ ପଶ୍ଚିମ ଦିଗକୁ ଧ୍ରୁବତାରା ଚାରିପାଖରେ ଘୂରୁଥିବା ପରି ପ୍ରତୀତ ହୁଏ। କିନ୍ତୁ ଧ୍ରୁବତାରା ସର୍ବଦା ନିଜ ସ୍ଥାନରେ ସ୍ଥିର ଥାଏ।</p>
+                    <p><strong>ବୈଜ୍ଞାନିକ କାରଣ:</strong></p>
+                    <ul>
+                        <li>ପୃଥିବୀ ନିଜ ଅକ୍ଷ ଚାରିପାଖରେ <strong>ପଶ୍ଚିମରୁ ପୂର୍ବକୁ</strong> ଘୂର୍ଣ୍ଣନ କରୁଥିବାରୁ ଆକାଶର ସମସ୍ତ ନକ୍ଷତ୍ର ପୂର୍ବରୁ ପଶ୍ଚିମକୁ ଗତି କରୁଥିବା ପରି ଦେଖାଯାଆନ୍ତି।</li>
+                        <li>କିନ୍ତୁ <strong>ଧ୍ରୁବତାରା (Pole Star)</strong> ଠିକ୍ ପୃଥିବୀର ଉତ୍ତର ଭୌଗୋଳିକ ଘୂର୍ଣ୍ଣନ ଅକ୍ଷ (Axis of rotation) ର ସିଧା ଉପରେ ଅବସ୍ଥିତ। ଯେପରି ଏକ ଘୂର୍ଣ୍ଣାୟମାନ କୁମ୍ଭାର ଚକର କେନ୍ଦ୍ର ବିନ୍ଦୁଟି ଘୂରେ ନାହିଁ, ସେହିପରି ଅକ୍ଷ ଉପରେ ଥିବା ଧ୍ରୁବତାରା ପୃଥିବୀରୁ ଦେଖିଲେ ସର୍ବଦା ସ୍ଥିର ଦେଖାଯାଏ।</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Q11 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୧୧</span> ରାତ୍ରିର ନିର୍ମଳ ଆକାଶକୁ ନେଇ ଏକ କ୍ଷୁଦ୍ର କବିତା ବା କାହାଣୀ ଲେଖ।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଓଡ଼ିଆ କ୍ଷୁଦ୍ର କବିତା: "ନୀଳ ଆକାଶର ତାରା"</strong></p>
+                    <p><em>ସଞ୍ଜ ନଇଁଲେ କଳା ଚାଦରେ, ଜଳେ କୋଟିଏ ଦୀପ,<br>
+                    ସପ୍ତର୍ଷିଙ୍କ ହାତେ ଶୋଭେ, ରୂପା ଚାମଚ ଟିପ।<br>
+                    ଉତ୍ତର ଦିଗେ ଧ୍ରୁବତାରାଟି, ଦିଶଇ କେଡ଼େ ସ୍ଥିର,<br>
+                    ବାଟୋଇ ମନେ ଭରିଦିଏ ସିଏ, ଅପୂର୍ବ ସାହସ ଧୀର।<br>
+                    ଆମେ ଯିବୁ ସିନା ମହାକାଶକୁ, ଚଢ଼ି ବିଜ୍ଞାନ ରଥେ,<br>
+                    ଚନ୍ଦ୍ର-ମଙ୍ଗଳେ ଲେଖିବୁ ନାମ, ବିକଶିତ ଭାରତ ପଥେ।</em></p>
+                </div>
+            </details>
+
+            <!-- Q12 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-think">ଅଧିକ ଶିଖିବା ପ୍ରକଳ୍ପ</span> ସୌରମଣ୍ଡଳର ଓଡ଼ିଆ/ଭାରତୀୟ ପାରମ୍ପରିକ ନାମ ଓ ବାର (Days of the Week)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p>ଆମ ସପ୍ତାହର ୭ଟି ବାରର ନାମ ପ୍ରାଚୀନ ଭାରତୀୟ ଜ୍ୟୋତିର୍ବିଜ୍ଞାନ ଅନୁସାରେ ସୌରମଣ୍ଡଳର ଗ୍ରହ ଓ ସୂର୍ଯ୍ୟ-ଚନ୍ଦ୍ରଙ୍କ ନାମରୁ ଆସିଛି:</p>
+                    <ul>
+                        <li><strong>ରବିବାର (Sunday):</strong> ରବି (ସୂର୍ଯ୍ୟ - Sun)</li>
+                        <li><strong>ସୋମବାର (Monday):</strong> ସୋମ (ଚନ୍ଦ୍ର - Moon)</li>
+                        <li><strong>ମଙ୍ଗଳବାର (Tuesday):</strong> ମଙ୍ଗଳ (Mars)</li>
+                        <li><strong>ବୁଧବାର (Wednesday):</strong> ବୁଧ (Mercury)</li>
+                        <li><strong>ଗୁରୁବାର (Thursday):</strong> ବୃହସ୍ପତି / ଗୁରୁ (Jupiter)</li>
+                        <li><strong>ଶୁକ୍ରବାର (Friday):</strong> ଶୁକ୍ର (Venus)</li>
+                        <li><strong>ଶନିବାର (Saturday):</strong> ଶନି (Saturn)</li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="section-card" id="competency">
+            <div class="section-header">
+                <span class="section-icon">&#128175;</span>
+                <h2>ବିଭାଗ ୫: ପରୀକ୍ଷା ପ୍ରଶ୍ନ ବ୍ୟାଙ୍କ ଓ ସିବିଏସଇ ଦକ୍ଷତା ପ୍ରଶ୍ନ</h2>
+            </div>
+
+            <h3>ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନ (MCQs)</h3>
+
+            <!-- MCQ 1 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୧:</strong> ସୌରମଣ୍ଡଳର ସର୍ବବୃହତ୍ତମ ଗ୍ରହ କିଏ?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଶନି ଦ୍ୱିତୀୟ ବୃହତ୍ତମ ଗ୍ରହ।')">(A) ଶନି (Saturn)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! ବୃହସ୍ପତି (Jupiter) ହେଉଛି ସୌରମଣ୍ଡଳର ସର୍ବବୃହତ୍ତମ ଗ୍ରହ।')">(B) ବୃହସ୍ପତି (Jupiter)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ପୃଥିବୀ ପଞ୍ଚମ ବୃହତ୍ତମ ଗ୍ରହ।')">(C) ପୃଥିବୀ (Earth)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ନେପଚ୍ୟୁନ୍ ଚତୁର୍ଥ ବୃହତ୍ତମ ଗ୍ରହ।')">(D) ନେପଚ୍ୟୁନ୍ (Neptune)</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <!-- MCQ 2 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୨:</strong> ଗ୍ରହାଣୁ ପଟି (Asteroid Belt) କେଉଁ ଦୁଇଟି ଗ୍ରହର କକ୍ଷପଥ ମଧ୍ୟରେ ଅବସ୍ଥିତ?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ପୃଥିବୀ ଓ ମଙ୍ଗଳ ମଧ୍ୟରେ ନାହିଁ।')">(A) ପୃଥିବୀ ଓ ମଙ୍ଗଳ</div>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! ମଙ୍ଗଳ ଓ ବୃହସ୍ପତିଙ୍କ କକ୍ଷପଥ ମଧ୍ୟରେ ଗ୍ରହାଣୁ ପଟି ଅବସ୍ଥିତ।')">(B) ମଙ୍ଗଳ ଓ ବୃହସ୍ପତି</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ବୃହସ୍ପତି ଓ ଶନି ମଧ୍ୟରେ ନାହିଁ।')">(C) ବୃହସ୍ପତି ଓ ଶନି</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଶୁକ୍ର ଓ ପୃଥିବୀ ମଧ୍ୟରେ ନାହିଁ।')">(D) ଶୁକ୍ର ଓ ପୃଥିବୀ</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <!-- MCQ 3 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୩:</strong> ଧ୍ରୁବତାରା ଆକାଶରେ କେଉଁ ଦିଗକୁ ନିର୍ଦ୍ଦେଶ କରେ?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! ଧ୍ରୁବତାରା ସର୍ବଦା ଉତ୍ତର ଦିଗକୁ ନିର୍ଦ୍ଦେଶ କରେ।')">(A) ଉତ୍ତର ଦିଗ (North)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଦକ୍ଷିଣ ଦିଗ ନୁହେଁ।')">(B) ଦକ୍ଷିଣ ଦିଗ (South)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ପୂର୍ବ ଦିଗ ନୁହେଁ।')">(C) ପୂର୍ବ ଦିଗ (East)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ପଶ୍ଚିମ ଦିଗ ନୁହେଁ।')">(D) ପଶ୍ଚିମ ଦିଗ (West)</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <!-- MCQ 4 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୪:</strong> ୨୩ ଅଗଷ୍ଟ ୨୦୨୩ ରେ ଭାରତର କେଉଁ ମିଶନ୍ ଚନ୍ଦ୍ରର ଦକ୍ଷିଣ ମେରୁରେ ସଫ୍ଟ ଲ୍ୟାଣ୍ଡିଂ କରିଥିଲା?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଚନ୍ଦ୍ରୟାନ-୧ ୨୦୦୮ ରେ ଯାଇଥିଲା।')">(A) ଚନ୍ଦ୍ରୟାନ-୧</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଚନ୍ଦ୍ରୟାନ-୨ ର ଲ୍ୟାଣ୍ଡର୍ କ୍ରାସ୍ ହୋଇଥିଲା।')">(B) ଚନ୍ଦ୍ରୟାନ-୨</div>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! ଚନ୍ଦ୍ରୟାନ-୩ ବିଶ୍ୱ ଇତିହାସରେ ପ୍ରଥମ ଥର ଚନ୍ଦ୍ରର ଦକ୍ଷିଣ ମେରୁରେ ସଫଳ ଅବତରଣ କଲା।')">(C) ଚନ୍ଦ୍ରୟାନ-୩</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ମଙ୍ଗଳଯାନ ମଙ୍ଗଳ ଗ୍ରହ ପାଇଁ ଥିଲା।')">(D) ମଙ୍ଗଳଯାନ</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <!-- MCQ 5 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୫:</strong> ସୌରମଣ୍ଡଳର ସବୁଠାରୁ ଉତ୍ତପ୍ତ ଗ୍ରହ କିଏ?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ବୁଧ ନିକଟତମ ହେଲେ ମଧ୍ୟ ବାୟୁମଣ୍ଡଳ ନଥିବାରୁ ସବୁଠୁ ଉତ୍ତପ୍ତ ନୁହେଁ।')">(A) ବୁଧ (Mercury)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! ଶୁକ୍ର (Venus) ର ଘଞ୍ଚ CO2 ବାୟୁମଣ୍ଡଳ ପ୍ରଚଣ୍ଡ ସବୁଜଗୃହ ପ୍ରଭାବ ସୃଷ୍ଟି କରି ଏହାକୁ ଉତ୍ତପ୍ତତମ ଗ୍ରହ କରାଏ।')">(B) ଶୁକ୍ର (Venus)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ମଙ୍ଗଳ ଏକ ଶୀତଳ ଗ୍ରହ।')">(C) ମଙ୍ଗଳ (Mars)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ବୃହସ୍ପତି ଏକ ଗ୍ୟାସୀୟ ଶୀତଳ ଗ୍ରହ।')">(D) ବୃହସ୍ପତି (Jupiter)</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <h3>ଯୁକ୍ତି ଓ କାରଣ ପ୍ରଶ୍ନ (Assertion & Reasoning)</h3>
+
+            <!-- AR 1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">A&amp;R ୧</span> ଧ୍ରୁବତାରାର ସ୍ଥିରତା</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଯୁକ୍ତି (A):</strong> ଧ୍ରୁବତାରା ଆକାଶରେ ନିଜ ସ୍ଥାନରୁ କଦାପି ଘୁଞ୍ଚିଲା ପରି ଦେଖାଯାଏ ନାହିଁ।<br>
+                    <strong>କାରଣ (R):</strong> ଧ୍ରୁବତାରା ପୃଥିବୀର ଭୌଗୋଳିକ ଘୂର୍ଣ୍ଣନ ଅକ୍ଷର ସିଧାସଳଖ ଉପରିଭାଗରେ ଅବସ୍ଥିତ।</p>
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>ଉଭୟ (A) ଏବଂ (R) ସତ୍ୟ ଏବଂ (R) ହେଉଛି (A) ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</strong></p>
+                </div>
+            </details>
+
+            <!-- AR 2 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">A&amp;R ୨</span> ଶୁକ୍ର ବୁଧଠାରୁ ଅଧିକ ଉତ୍ତପ୍ତ</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଯୁକ୍ତି (A):</strong> ଶୁକ୍ର ଗ୍ରହ ବୁଧ ଗ୍ରହ ତୁଳନାରେ ସୂର୍ଯ୍ୟଙ୍କଠାରୁ ଅଧିକ ଦୂରରେ ଥିଲେ ମଧ୍ୟ ଏହା ସୌରମଣ୍ଡଳର ଉତ୍ତପ୍ତତମ ଗ୍ରହ।<br>
+                    <strong>କାରଣ (R):</strong> ଶୁକ୍ର ଗ୍ରହର ବାୟୁମଣ୍ଡଳରେ ୯୬% ରୁ ଅଧିକ କାର୍ବନ ଡାଇଅକ୍ସାଇଡ୍ ଥିବାରୁ ପ୍ରଚଣ୍ଡ ସବୁଜଗୃହ ପ୍ରଭାବ ସୃଷ୍ଟି ହୁଏ।</p>
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>ଉଭୟ (A) ଏବଂ (R) ସତ୍ୟ ଏବଂ (R) ହେଉଛି (A) ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</strong></p>
+                </div>
+            </details>
+
+            <!-- AR 3 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">A&amp;R ୩</span> ହାନ୍ଲେ ପର୍ଯ୍ୟବେକ୍ଷଣାଗାରର ସ୍ଥାନ ଚୟନ</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଯୁକ୍ତି (A):</strong> ମହାକାଶ ଗବେଷଣା ପାଇଁ ଲଦାଖର ହାନ୍ଲେ ସ୍ଥାନକୁ ଉପଯୁକ୍ତ ବିବେଚନା କରାଯାଇଛି।<br>
+                    <strong>କାରଣ (R):</strong> ହାନ୍ଲେରେ ଉଚ୍ଚ ଆଲୋକ ପ୍ରଦୂଷଣ ଏବଂ ପ୍ରବଳ ବର୍ଷା ହୁଏ।</p>
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>(A) ସତ୍ୟ କିନ୍ତୁ (R) ମିଥ୍ୟା।</strong> (ହାନ୍ଲେରେ ଶୂନ ଆଲୋକ ପ୍ରଦୂଷଣ ଓ ଶୁଷ୍କ ମେଘମୁକ୍ତ ପାଗ ଥାଏ)।</p>
+                </div>
+            </details>
+
+            <!-- AR 4 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">A&amp;R ୪</span> ଦିନରେ ତାରା ଅଦୃଶ୍ୟ ରହିବା</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଯୁକ୍ତି (A):</strong> ସକାଳ ହେବା ମାତ୍ରେ ଆକାଶରୁ ତାରାମାନେ ଉଭାନ ହୋଇଯାଆନ୍ତି।<br>
+                    <strong>କାରଣ (R):</strong> ସୂର୍ଯ୍ୟଙ୍କ ପ୍ରଖର ଆଲୋକ ଆଗରେ ତାରାମାନଙ୍କ ମାନ୍ଦା ଆଲୋକ ଆଖିକୁ ଦେଖାଯାଏ ନାହିଁ।</p>
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>ଉଭୟ (A) ଏବଂ (R) ସତ୍ୟ ଏବଂ (R) ହେଉଛି (A) ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</strong></p>
+                </div>
+            </details>
+
+            <h3>କ୍ଷୁଦ୍ର ଉତ୍ତରମୂଳକ ପ୍ରଶ୍ନ (୨ ଓ ୩ ମାର୍କ)</h3>
+
+            <!-- SA 1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୧</span> ନକ୍ଷତ୍ରମଣ୍ଡଳ (Constellation) କାହାକୁ କୁହାଯାଏ? ଦୁଇଟି ଉଦାହରଣ ଦିଅ। (୨ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ସଂଜ୍ଞା:</strong> ଆକାଶରେ ନକ୍ଷତ୍ରମାନଙ୍କର ଏକ ଗୋଷ୍ଠୀ ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ପରିଚିତ କାଳ୍ପନିକ ଆକୃତି ଗଠନ କଲେ ତାହାକୁ <strong>ନକ୍ଷତ୍ରମଣ୍ଡଳ</strong> କୁହାଯାଏ।<br>
+                    <strong>ଉଦାହରଣ:</strong> ସପ୍ତର୍ଷି ମଣ୍ଡଳ (Ursa Major) ଏବଂ କାଳପୁରୁଷ (Orion)।</p>
+                </div>
+            </details>
+
+            <!-- SA 2 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୨</span> ଆଲୋକ ପ୍ରଦୂଷଣ (Light Pollution) କଣ ଏବଂ ଏହା ଜ୍ୟୋତିର୍ବିଜ୍ଞାନୀମାନଙ୍କୁ କିପରି ଅସୁବିଧାରେ ପକାଏ? (୨ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ସହରର ଅତ୍ୟଧିକ କୃତ୍ରିମ ବୈଦ୍ୟୁତିକ ଆଲୋକ ଯୋଗୁଁ ରାତ୍ରି ଆକାଶ ଅସ୍ୱାଭାବିକ ଭାବେ ଉଜ୍ଜ୍ୱଳିତ ହେବାକୁ <strong>ଆଲୋକ ପ୍ରଦୂଷଣ</strong> କୁହାଯାଏ। ଏହି ଆଲୋକ ଆକାଶର କ୍ଷୀଣ ତାରା, ଛାୟାପଥ ଓ ଧୂମକେତୁମାନଙ୍କୁ ଲୁଚାଇ ଦିଏ, ଯାହା ଫଳରେ ଜ୍ୟୋତିର୍ବିଜ୍ଞାନୀମାନେ ଟେଲିସ୍କୋପ୍ ସାହାଯ୍ୟରେ ମହାକାଶର ଗବେଷଣା କରିପାରନ୍ତି ନାହିଁ।</p>
+                </div>
+            </details>
+
+            <!-- SA 3 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୩</span> ଅନ୍ତଃସ୍ଥଳୀୟ ଗ୍ରହ ଓ ବହିଃସ୍ଥଳୀୟ ଗ୍ରହ ମଧ୍ୟରେ ୨ଟି ପାର୍ଥକ୍ୟ ଲେଖ। (୨ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>ଅନ୍ତଃସ୍ଥଳୀୟ ଗ୍ରହ (Inner Planets)</th>
+                                <th>ବହିଃସ୍ଥଳୀୟ ଗ୍ରହ (Outer Planets)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ସୂର୍ଯ୍ୟଙ୍କ ନିକଟରେ ଅବସ୍ଥିତ (ବୁଧ, ଶୁକ୍ର, ପୃଥିବୀ, ମଙ୍ଗଳ)।</td>
+                                <td>ସୂର୍ଯ୍ୟଙ୍କଠାରୁ ବହୁତ ଦୂରରେ ଅବସ୍ଥିତ (ବୃହସ୍ପତି, ଶନି, ୟୁରାନସ୍, ନେପଚ୍ୟୁନ୍)।</td>
+                            </tr>
+                            <tr>
+                                <td>ଆକାରରେ ଛୋଟ ଏବଂ କଠିନ ପଥର ଓ ଧାତୁରେ ନିର୍ମିତ।</td>
+                                <td>ଆକାରରେ ବିଶାଳ ଏବଂ ମୁଖ୍ୟତଃ ଗ୍ୟାସ୍ ଓ ବରଫରେ ନିର୍ମିତ।</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+
+            <!-- SA 4 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୪</span> ଧୂମକେତୁ (Comets) କଣ? ଏହାର ଲାଞ୍ଜ କାହିଁକି ସୂର୍ଯ୍ୟଙ୍କ ବିପରୀତ ଦିଗରେ ଥାଏ? (୩ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଧୂମକେତୁ:</strong> ଧୂମକେତୁ ହେଉଛି ଧୂଳିକଣା, ବରଫ ଓ ଜମାଟ ବନ୍ଧା ଗ୍ୟାସ୍ରେ ନିର୍ମିତ ଆକାଶୀୟ ପିଣ୍ଡ, ଯାହା ସୂର୍ଯ୍ୟଙ୍କ ଚାରିପାଖରେ ଏକ ଦୀର୍ଘବୃତ୍ତାକାର କକ୍ଷପଥରେ ଘୂରିଥାଏ।</p>
+                    <p><strong>ଲାଞ୍ଜର ଦିଗ:</strong> ଯେତେବେଳେ ଧୂମକେତୁ ସୂର୍ଯ୍ୟଙ୍କ ନିକଟବର୍ତ୍ତୀ ହୁଏ, ସୂର୍ଯ୍ୟଙ୍କ ଉତ୍ତାପ ଯୋଗୁଁ ଏହାର ବରଫ ବାଷ୍ପୀଭୂତ ହୋଇ ଲକ୍ଷ ଲକ୍ଷ କିଲୋମିଟର ଲମ୍ବା ଉଜ୍ଜ୍ୱଳ ଲାଞ୍ଜ ସୃଷ୍ଟି କରେ। ସୌର ବାତ୍ୟା (Solar wind) ଏହି ଗ୍ୟାସ୍ ଓ ଧୂଳିକୁ ସୂର୍ଯ୍ୟଙ୍କ ବିପରୀତ ଦିଗକୁ ଠେଲି ଦେଉଥିବାରୁ ଏହାର ଲାଞ୍ଜ ସର୍ବଦା <strong>ସୂର୍ଯ୍ୟଙ୍କ ବିପରୀତ ଦିଗକୁ</strong> ମୁହଁ କରିଥାଏ।</p>
+                </div>
+            </details>
+
+            <!-- SA 5 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୫</span> ଚନ୍ଦ୍ରୟାନ-୩ ମିଶନ୍ର ଐତିହାସିକ ଗୁରୁତ୍ୱ କଣ ଥିଲା? (୨ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong></p>
+                    <ol>
+                        <li>ଭାରତ ବିଶ୍ୱର ପ୍ରଥମ ଦେଶ ଭାବେ <strong>ଚନ୍ଦ୍ରର ଦୁର୍ଗମ ଦକ୍ଷିଣ ମେରୁ (Lunar South Pole)</strong> ରେ ସଫଳତାର ସହ ସଫ୍ଟ ଲ୍ୟାଣ୍ଡିଂ କଲା।</li>
+                        <li>ଏହାର ରୋଭର 'ପ୍ରଜ୍ଞାନ' ଚନ୍ଦ୍ରପୃଷ୍ଠର ମାଟିରେ ସଲଫର (ଗନ୍ଧକ), ଲୁହା, କ୍ୟାଲସିୟମ୍ ଇତ୍ୟାଦି ଖଣିଜର ଉପସ୍ଥିତି ପ୍ରମାଣିତ କଲା।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <h3>ଦୀର୍ଘ ଉତ୍ତରମୂଳକ ପ୍ରଶ୍ନ (୫ ମାର୍କ)</h3>
+
+            <!-- LA 1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">LA ୧</span> ଆମ ସୌରମଣ୍ଡଳର ଏକ ବିସ୍ତୃତ ବିବରଣୀ ପ୍ରଦାନ କର ଏବଂ ପୃଥିବୀରେ ଜୀବନ ସମ୍ଭବ ହେବାର ୪ଟି କାରଣ ଲେଖ। (୫ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ସୌରମଣ୍ଡଳର ପରିଚୟ:</strong> ଆମ ସୌରମଣ୍ଡଳ ସୂର୍ଯ୍ୟ (କେନ୍ଦ୍ରୀୟ ନକ୍ଷତ୍ର), ୮ଟି ଗ୍ରହ, ସେମାନଙ୍କ ଉପଗ୍ରହ (ଯଥା: ଚନ୍ଦ୍ର), ଗ୍ରହାଣୁ ପଟି, ଧୂମକେତୁ ଓ ଉଲ୍କାପିଣ୍ଡଙ୍କୁ ନେଇ ଗଠିତ।</p>
+                    <p><strong>ପୃଥିବୀରେ ଜୀବନ ସମ୍ଭବ ହେବାର ୪ଟି ପ୍ରମୁଖ କାରଣ:</strong></p>
+                    <ol>
+                        <li><strong>ଅନୁକୂଳ ଦୂରତା ଓ ତାପମାତ୍ରା (Goldilocks Zone):</strong> ପୃଥିବୀ ସୂର୍ଯ୍ୟଙ୍କଠାରୁ ନା ଅତ୍ୟଧିକ ନିକଟରେ (ଯେପରି ବୁଧ ବା ଶୁକ୍ର) ନା ଅତ୍ୟଧିକ ଦୂରରେ (ଯେପରି ନେପଚ୍ୟୁନ୍) ଅବସ୍ଥିତ। ତେଣୁ ଏଠାରେ ଜୀବନ ଧାରଣ ପାଇଁ ଆଦର୍ଶ ହାରାହାରି ତାପମାତ୍ରା (୧୫°C) ରହିଛି।</li>
+                        <li><strong>ତରଳ ଜଳର ଉପସ୍ଥିତି:</strong> ପୃଥିବୀ ହେଉଛି ଏକମାତ୍ର ଗ୍ରହ ଯେଉଁଠାରେ ପ୍ରଚୁର ପରିମାଣରେ ତରଳ ଜଳ ଉପଲବ୍ଧ, ଯାହା ଜୀବକୋଷର ମୂଳ ଆଧାର।</li>
+                        <li><strong>ଜୀବନରକ୍ଷାକାରୀ ବାୟୁମଣ୍ଡଳ:</strong> ବାୟୁମଣ୍ଡଳରେ ଶ୍ୱସନ ପାଇଁ ୨୧% ଅମ୍ଳଜାନ ରହିଛି ଏବଂ କ୍ଷତିକାରକ ଅଲ୍ଟ୍ରାଭାୟୋଲେଟ୍ (UV) ବିକିରଣକୁ ରୋକିବା ପାଇଁ <strong>ଓଜୋନ୍ ସ୍ତର (Ozone Layer)</strong> ସୁରକ୍ଷା କବଚ ଭାବେ କାର୍ଯ୍ୟ କରେ।</li>
+                        <li><strong>ଚୁମ୍ବକୀୟ କ୍ଷେତ୍ର:</strong> ପୃଥିବୀର ଅଭ୍ୟନ୍ତରୀଣ ତରଳ ଲୁହା କୋର୍ ଯୋଗୁଁ ଏକ ଶକ୍ତିଶାଳୀ ଚୁମ୍ବକୀୟ କ୍ଷେତ୍ର ସୃଷ୍ଟି ହୁଏ, ଯାହା ସୂର୍ଯ୍ୟଙ୍କ କ୍ଷତିକାରକ ସୌର ବାତ୍ୟା ଓ ବିକିରଣରୁ ଜୀବଜଗତକୁ ରକ୍ଷା କରେ।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <h3>ଦକ୍ଷତା ଆଧାରିତ କେସ୍ ଷ୍ଟଡି (Competency Case Studies)</h3>
+
+            <!-- Case 1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">କେସ୍ ଷ୍ଟଡି ୧</span> ଲଦାଖର ହାନ୍ଲେ ଓ ଆଲୋକ ପ୍ରଦୂଷଣ ବିହୀନ ଗଗନ ପର୍ଯ୍ୟବେକ୍ଷଣ</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ପ୍ରସଙ୍ଗ:</strong> ପ୍ରିୟା ଦିଲ୍ଲୀରେ ରହେ। ସେ ରାତିରେ ଆକାଶକୁ ଚାହିଁଲେ ମାତ୍ର ୧୦-୧୨ଟି ତାରା ଦେଖିପାରେ। କିନ୍ତୁ ଯେତେବେଳେ ସେ ଲଦାଖର ହାନ୍ଲେ ଗ୍ରାମକୁ ବୁଲିଗଲା, ସେ ରାତିରେ ଆକାଶକୁ ଦେଖି ଆଶ୍ଚର୍ଯ୍ୟ ହୋଇଗଲା! ହଜାର ହଜାର ଚମକୁଥିବା ତାରା, ଆକାଶଗଙ୍ଗାର ରୂପେଲୀ ଧାର ଏବଂ ସ୍ପଷ୍ଟ ନକ୍ଷତ୍ରମଣ୍ଡଳ ଖାଲି ଆଖିରେ ଦେଖାଯାଉଥିଲା। ସେଠାରେ ବାୟୁ ଅତି ସ୍ୱଚ୍ଛ ଥିଲା ଏବଂ କୌଣସି ଷ୍ଟ୍ରିଟ୍ ଲାଇଟ୍ ବା କାର୍ଖାନାର ଆଲୋକ ନଥିଲା।</p>
+                    <p><strong>ପ୍ରଶ୍ନ ଓ ଉତ୍ତର:</strong></p>
+                    <ol>
+                        <li><em>ଦିଲ୍ଲୀରେ କାହିଁକି କମ୍ ତାରା ଦେଖାଯାଉଥିଲା?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ସହରର ଅତ୍ୟଧିକ କୃତ୍ରିମ ଆଲୋକ ଓ ଧୂଆଁ ଯୋଗୁଁ ସୃଷ୍ଟି ହୋଇଥିବା <strong>ଆଲୋକ ପ୍ରଦୂଷଣ (Light Pollution)</strong> ଯୋଗୁଁ।</li>
+                        <li><em>ହାନ୍ଲେ ସ୍ଥାନଟି ଜ୍ୟୋତିର୍ବିଜ୍ଞାନୀଙ୍କ ପାଇଁ କାହିଁକି ସ୍ୱର୍ଗ ସଦୃଶ?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ଏହା ଅତ୍ୟନ୍ତ ଉଚ୍ଚତାରେ ଅବସ୍ଥିତ, ବର୍ଷସାରା ମେଘମୁକ୍ତ ନିର୍ମଳ ଆକାଶ ରହେ ଏବଂ ଆଲୋକ ପ୍ରଦୂଷଣ ସମ୍ପୂର୍ଣ୍ଣ ଶୂନ ଥାଏ।</li>
+                        <li><em>ହାନ୍ଲେରେ ସ୍ଥାପିତ ଭାରତର ପର୍ଯ୍ୟବେକ୍ଷଣାଗାରର ନାମ କଣ?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ଭାରତୀୟ ଜ୍ୟୋତିର୍ବିଜ୍ଞାନ ପର୍ଯ୍ୟବେକ୍ଷଣାଗାର (Indian Astronomical Observatory - IAO)।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- Case 2 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">କେସ୍ ଷ୍ଟଡି ୨</span> ଚନ୍ଦ୍ରୟାନ-୩: ବିକ୍ରମ ଲ୍ୟାଣ୍ଡର ଓ ପ୍ରଜ୍ଞାନ ରୋଭରର ବିଜୟ ଗାଥା</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ପ୍ରସଙ୍ଗ:</strong> ୨୩ ଅଗଷ୍ଟ ୨୦୨୩ ସନ୍ଧ୍ୟା ୬ଟା ୪ ମିନିଟ୍ରେ ଭାରତୀୟ ମହାକାଶ ଗବେଷଣା ସଂସ୍ଥା (ISRO) ର ଚନ୍ଦ୍ରୟାନ-୩ ର 'ବିକ୍ରମ' ଲ୍ୟାଣ୍ଡର ଚନ୍ଦ୍ରର ଦକ୍ଷିଣ ମେରୁରେ ସଫଳତାର ସହ ପାଦ ଥାପିଲା। ଏହାପରେ ବିକ୍ରମର ପେଟ ଭିତରୁ ୬ ଚକିଆ 'ପ୍ରଜ୍ଞାନ' ରୋଭର ବାହାରି ଚନ୍ଦ୍ରପୃଷ୍ଠରେ ଗଡ଼ିଲା ଏବଂ ଅଶୋକ ସ୍ତମ୍ଭ ଓ ଇସ୍ରୋର ପ୍ରତୀକ ଚନ୍ଦ୍ର ମାଟିରେ ଅଙ୍କନ କଲା। ଏହି ଐତିହାସିକ ଦିବସକୁ ଭାରତ ସରକାର 'ଜାତୀୟ ମହାକାଶ ଦିବସ' (National Space Day) ଭାବେ ଘୋଷଣା କଲେ।</p>
+                    <p><strong>ପ୍ରଶ୍ନ ଓ ଉତ୍ତର:</strong></p>
+                    <ol>
+                        <li><em>ଚନ୍ଦ୍ରୟାନ-୩ ର ଲ୍ୟାଣ୍ଡର ଓ ରୋଭରର ନାମ କଣ ଥିଲା?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ଲ୍ୟାଣ୍ଡରର ନାମ <strong>ବିକ୍ରମ (Vikram)</strong> ଏବଂ ରୋଭରର ନାମ <strong>ପ୍ରଜ୍ଞାନ (Pragyan)</strong>।</li>
+                        <li><em>ପ୍ରତିବର୍ଷ କେଉଁ ତାରିଖକୁ 'ଜାତୀୟ ମହାକାଶ ଦିବସ' ଭାବେ ପାଳନ କରାଯାଏ?</em><br>
+                        <strong>ଉତ୍ତର:</strong> <strong>୨୩ ଅଗଷ୍ଟ</strong>।</li>
+                        <li><em>ଚନ୍ଦ୍ରର ଦକ୍ଷିଣ ମେରୁ କାହିଁକି ବୈଜ୍ଞାନିକମାନଙ୍କ ପାଇଁ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ଏଠାକାର ଗଭୀର ଖାଲଗୁଡ଼ିକରେ କୋଟି କୋଟି ବର୍ଷ ଧରି ସୂର୍ଯ୍ୟାଲୋକ ପଡ଼ିନଥିବାରୁ ସେଠାରେ ଜମାଟ ବନ୍ଧା ବରଫ (Water ice) ରହିବାର ସମ୍ଭାବନା ରହିଛି, ଯାହା ଭବିଷ୍ୟତ ମାନବ ଅଭିଯାନ ପାଇଁ ଅତ୍ୟନ୍ତ ଉପଯୋଗୀ।</li>
+                    </ol>
+                </div>
+            </details>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="section-card" id="mistakes">
+            <div class="section-header">
+                <span class="section-icon">&#128680;</span>
+                <h2>ବିଭାଗ ୬: ପରୀକ୍ଷା ହଲ୍ର ସାଧାରଣ ଭୁଲ୍ ଓ ୧୫ଟି ଦ୍ରୁତ ରିଭିଜନ୍ ପଏଣ୍ଟ</h2>
+            </div>
+
+            <div class="callout-warn">
+                <div class="callout-title">&#9888;&#65039; ପରୀକ୍ଷାରେ ଛାତ୍ରଛାତ୍ରୀ କରୁଥିବା ୫ଟି ବଡ଼ ଭୁଲ୍ (Exam Traps)</div>
+                <ol>
+                    <li><strong>ଧ୍ରୁବତାରାକୁ ଆକାଶର ସବୁଠାରୁ ଉଜ୍ଜ୍ୱଳତମ ତାରା ଭାବିବା:</strong> ଧ୍ରୁବତାରା କେବଳ ସ୍ଥିର ରହେ। ସବୁଠାରୁ ଉଜ୍ଜ୍ୱଳତମ ନକ୍ଷତ୍ର ହେଉଛି <strong>ଲୁବ୍ଧକ (Sirius)</strong>।</li>
+                    <li><strong>ବୁଧକୁ ଉତ୍ତପ୍ତତମ ଗ୍ରହ ଲେଖିବା:</strong> ବୁଧ ସୂର୍ଯ୍ୟଙ୍କ ନିକଟତମ ହେଲେ ମଧ୍ୟ ସବୁଠାରୁ ଉତ୍ତପ୍ତ ଗ୍ରହ ହେଉଛି <strong>ଶୁକ୍ର (Venus)</strong> କାରଣ ଏହାର ବାୟୁମଣ୍ଡଳରେ ୯୬% CO<sub>2</sub> ରହିଛି।</li>
+                    <li><strong>ପ୍ଲୁଟୋକୁ ଏବେ ବି ଗ୍ରହ ବୋଲି ଗଣନା କରିବା:</strong> ପ୍ଲୁଟୋ ୨୦୦୬ ମସିହାରୁ ଏକ ବାମନ ଗ୍ରହ (Dwarf planet)। ସୌରମଣ୍ଡଳରେ ଏବେ ମାତ୍ର <strong>୮ଟି ଗ୍ରହ</strong> ଅଛନ୍ତି।</li>
+                    <li><strong>ପୃଥିବୀର ଘୂର୍ଣ୍ଣନ ଦିଗ ଭୁଲ୍ ଲେଖିବା:</strong> ପୃଥିବୀ <strong>ପଶ୍ଚିମରୁ ପୂର୍ବକୁ</strong> ଘୂରେ, ତେଣୁ ସୂର୍ଯ୍ୟ ଓ ତାରାମାନେ ପୂର୍ବରୁ ପଶ୍ଚିମକୁ ଗତି କଲା ପରି ଦେଖାଯାଆନ୍ତି।</li>
+                    <li><strong>ତାରା ଓ ଗ୍ରହ ମଧ୍ୟରେ ପାର୍ଥକ୍ୟ ଭୁଲିଯିବା:</strong> ନକ୍ଷତ୍ରଙ୍କର ନିଜସ୍ୱ ଆଲୋକ ଥାଏ ଏବଂ ସେମାନେ ମିଞ୍ଜିମିଞ୍ଜି କରନ୍ତି। ଗ୍ରହମାନଙ୍କର ନିଜସ୍ୱ ଆଲୋକ ନଥାଏ, ସେମାନେ ସୂର୍ଯ୍ୟାଲୋକ ପ୍ରତିଫଳିତ କରି ସ୍ଥିର ଭାବେ ଆଲୋକିତ ହୁଅନ୍ତି।</li>
+                </ol>
+            </div>
+
+            <h3>&#128640; ୧୫ଟି ଅଲ୍ଟ୍ରା-କ୍ଲିକ୍ ରିଭିଜନ୍ ୱାନ୍-ଲାଇନର୍</h3>
+            <ul>
+                <li>୧. ସୂର୍ଯ୍ୟ ହେଉଛନ୍ତି ପୃଥିବୀର ନିକଟତମ ନକ୍ଷତ୍ର।</li>
+                <li>୨. ନକ୍ଷତ୍ରମାନେ ନିଜସ୍ୱ ଆଲୋକ ଓ ଉତ୍ତାପ ପ୍ରଦାନ କରୁଥିବା ଉତ୍ତପ୍ତ ଗ୍ୟାସର ବିଶାଳ ପିଣ୍ଡ।</li>
+                <li>୩. ନକ୍ଷତ୍ରମାନଙ୍କର ପରିଚିତ କାଳ୍ପନିକ ଗୋଷ୍ଠୀକୁ ନକ୍ଷତ୍ରମଣ୍ଡଳ (Constellation) କୁହାଯାଏ।</li>
+                <li>୪. ସପ୍ତର୍ଷି ମଣ୍ଡଳ (Ursa Major) ର ୭ଟି ପ୍ରମୁଖ ତାରା ପ୍ରଶ୍ନ ଚିହ୍ନ ଆକୃତି ଗଠନ କରନ୍ତି।</li>
+                <li>୫. ସପ୍ତର୍ଷି ମଣ୍ଡଳର ଦୁଇଟି ସୂଚକ ତାରା (କ୍ରତୁ ଓ ପୁଲହ) ଧ୍ରୁବତାରାକୁ ଦର୍ଶାନ୍ତି।</li>
+                <li>୬. ଧ୍ରୁବତାରା (Pole Star) ସର୍ବଦା ଉତ୍ତର ଦିଗରେ ସ୍ଥିର ରହିଥାଏ।</li>
+                <li>୭. ରାତ୍ରି ଆକାଶର ସବୁଠାରୁ ଉଜ୍ଜ୍ୱଳତମ ନକ୍ଷତ୍ର ହେଉଛି ଲୁବ୍ଧକ (Sirius)।</li>
+                <li>୮. ସୌରମଣ୍ଡଳରେ ୮ଟି ଗ୍ରହ ଅଛନ୍ତି: ବୁଧ, ଶୁକ୍ର, ପୃଥିବୀ, ମଙ୍ଗଳ, ବୃହସ୍ପତି, ଶନି, ୟୁରାନସ୍ ଏବଂ ନେପଚ୍ୟୁନ୍।</li>
+                <li>୯. ସୌରମଣ୍ଡଳର ସର୍ବବୃହତ୍ତମ ଗ୍ରହ ହେଉଛି ବୃହସ୍ପତି ଏବଂ କ୍ଷୁଦ୍ରତମ ଗ୍ରହ ହେଉଛି ବୁଧ।</li>
+                <li>୧୦. ଶୁକ୍ର (Venus) ହେଉଛି ସୌରମଣ୍ଡଳର ସବୁଠାରୁ ଉତ୍ତପ୍ତ ଓ ଉଜ୍ଜ୍ୱଳ ଗ୍ରହ।</li>
+                <li>୧୧. ଶନି ଗ୍ରହ ଚାରିପାଖରେ ବରଫ ଓ ପଥର କଣିକାର ସୁନ୍ଦର ବଳୟ ରହିଛି।</li>
+                <li>୧୨. ମଙ୍ଗଳ ଓ ବୃହସ୍ପତି କକ୍ଷପଥ ମଝିରେ ଗ୍ରହାଣୁ ପଟି (Asteroid Belt) ଅବସ୍ଥିତ।</li>
+                <li>୧୩. ଆମ ସୌରମଣ୍ଡଳ ଆକାଶଗଙ୍ଗା (Milky Way) ନାମକ ଛାୟାପଥର ଅଂଶବିଶେଷ।</li>
+                <li>୧୪. ଲଦାଖର ହାନ୍ଲେ ହେଉଛି ଭାରତର ପ୍ରଥମ ଅନ୍ଧକାର ଆକାଶ ସଂରକ୍ଷଣ କ୍ଷେତ୍ର (Dark Sky Reserve)।</li>
+                <li>୧୫. ୨୩ ଅଗଷ୍ଟ ୨୦୨୩ ରେ ଭାରତର ଚନ୍ଦ୍ରୟାନ-୩ ଚନ୍ଦ୍ରର ଦକ୍ଷିଣ ମେରୁରେ ସଫଳ ଅବତରଣ କରି ଇତିହାସ ସୃଷ୍ଟି କଲା।</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 ସୁଜିତ କ୍ଲାସେସ୍ | Class 6 Science (କୌତୂହଳ) Odia Medium Master Notes</p>
+        <p>BSE Odisha &amp; NCERT Pattern &bull; All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
+        function speakOdiaSummary() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const text = "ଅଧ୍ୟାୟ ବାର: ପୃଥିବୀ ବାହାରେ। ଆମ ସୌରମଣ୍ଡଳରେ ଆଠଟି ଗ୍ରହ ଅଛନ୍ତି। ସୂର୍ଯ୍ୟଙ୍କ ନିକଟତମ ଗ୍ରହ ବୁଧ ଏବଂ ଦୂରତମ ନେପଚ୍ୟୁନ୍। ଧ୍ରୁବତାରା ସର୍ବଦା ଉତ୍ତର ଦିଗରେ ସ୍ଥିର ରହେ। ସପ୍ତର୍ଷି ମଣ୍ଡଳ ଓ କାଳପୁରୁଷ ହେଉଛନ୍ତି ପ୍ରମୁଖ ନକ୍ଷତ୍ରମଣ୍ଡଳ। ଭାରତର ଚନ୍ଦ୍ରୟାନ ତିନି ଚନ୍ଦ୍ରର ଦକ୍ଷିଣ ମେରୁରେ ସଫଳ ଅବତରଣ କରି ବିଶ୍ୱରେ ଇତିହାସ ରଚିଛି।";
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'or-IN';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("ଆପଣଙ୍କ ବ୍ରାଉଜରରେ ସ୍ପିଚ୍ ସିନ୍ଥେସିସ୍ ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।");
+            }
+        }
+
+        function checkMCQ(elem, isCorrect, explanation) {
+            const parent = elem.parentElement;
+            const options = parent.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+            const feedback = parent.querySelector('.quiz-feedback');
+            if (isCorrect) {
+                elem.classList.add('correct');
+                feedback.innerHTML = '<span style="color: #4338ca;">&#10004; ' + explanation + '</span>';
+            } else {
+                elem.classList.add('incorrect');
+                feedback.innerHTML = '<span style="color: #ef4444;">&#10008; ' + explanation + '</span>';
+            }
+        }
+    </script>
+</body>
+</html>

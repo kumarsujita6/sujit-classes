@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ଅଧ୍ୟାୟ ୧୦: ଜୀବମାନଙ୍କ ବୈଶିଷ୍ଟ୍ୟ ଅନୁସନ୍ଧାନ | Class 6 Science (କୌତୂହଳ)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;600;700&family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #15803d;
+            --primary-light: #22c55e;
+            --primary-dark: #166534;
+            --secondary: #0d9488;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            --bg-light: #f8fafc;
+            --surface: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+            --radius: 12px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Oriya', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.8;
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        .progress-bar-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.05); z-index: 1000;
+        }
+        .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.1s; }
+        .hero {
+            background: linear-gradient(135deg, #14532d 0%, #15803d 50%, #0d9488 100%);
+            color: #ffffff;
+            padding: 3.5rem 1.5rem 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 { font-family: 'Outfit', 'Noto Sans Oriya', sans-serif; font-size: 2.3rem; margin-bottom: 0.8rem; font-weight: 700; }
+        .hero p { font-size: 1.15rem; opacity: 0.95; max-width: 800px; margin: 0 auto 1.2rem; }
+        .hero-badges { display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+        .badge { background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); padding: 0.35rem 0.9rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .audio-btn {
+            background: #ffffff; color: var(--primary-dark); border: none; padding: 0.6rem 1.4rem; border-radius: 25px;
+            font-size: 0.95rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: all 0.2s; margin-top: 0.5rem;
+        }
+        .audio-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); background: #f0fdf4; }
+        .nav-tabs {
+            position: sticky; top: 5px; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
+            display: flex; justify-content: center; gap: 0.5rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03); overflow-x: auto;
+        }
+        .nav-tabs a {
+            color: var(--text-muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 0.4rem 0.8rem;
+            border-radius: 8px; transition: all 0.2s; white-space: nowrap;
+        }
+        .nav-tabs a:hover { color: var(--primary); background: #dcfce7; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem; }
+        .section-card {
+            background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border);
+            box-shadow: var(--shadow); padding: 2.2rem; margin-bottom: 2.5rem;
+        }
+        .section-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.8rem; }
+        .section-header h2 { font-family: 'Outfit', 'Noto Sans Oriya', sans-serif; font-size: 1.6rem; color: var(--primary-dark); }
+        .section-icon { font-size: 1.8rem; }
+        h3 { font-size: 1.25rem; color: #1e293b; margin: 1.8rem 0 0.8rem; border-left: 4px solid var(--primary); padding-left: 0.6rem; }
+        h4 { font-size: 1.05rem; color: #334155; margin: 1.2rem 0 0.5rem; }
+        p { margin-bottom: 1rem; color: #334155; }
+        ul, ol { margin-left: 1.5rem; margin-bottom: 1.2rem; color: #334155; }
+        li { margin-bottom: 0.4rem; }
+        .callout-def { background: #f0fdf4; border-left: 4px solid #16a34a; padding: 1.2rem; border-radius: 8px; margin: 1.2rem 0; }
+        .callout-act { background: #eff6ff; border-left: 4px solid #3b82f6; padding: 1.2rem; border-radius: 8px; margin: 1.2rem 0; }
+        .callout-warn { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin: 1.2rem 0; }
+        .callout-pyq { background: #faf5ff; border-left: 4px solid #a855f7; padding: 1.2rem; border-radius: 8px; margin: 1.2rem 0; }
+        .callout-title { font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
+        .custom-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 8px; overflow: hidden; }
+        .custom-table th { background: #166534; color: white; text-align: left; padding: 0.8rem 1rem; font-weight: 600; font-size: 0.95rem; }
+        .custom-table td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.92rem; vertical-align: top; }
+        .custom-table tr:nth-child(even) { background: #f8fafc; }
+        .custom-table tr:hover { background: #f0fdf4; }
+        details.ans-box {
+            background: #ffffff; border: 1px solid #cbd5e1; border-radius: 10px; margin-bottom: 1.2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); overflow: hidden; transition: border-color 0.2s;
+        }
+        details.ans-box[open] { border-color: var(--primary); }
+        details.ans-box summary {
+            font-weight: 600; padding: 1rem 1.2rem; cursor: pointer; background: #f8fafc; display: flex;
+            align-items: center; justify-content: space-between; user-select: none; transition: background 0.2s;
+        }
+        details.ans-box summary:hover { background: #f1f5f9; color: var(--primary); }
+        details.ans-box .content { padding: 1.2rem; border-top: 1px solid #e2e8f0; background: #ffffff; }
+        .tag { font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 12px; text-transform: uppercase; margin-right: 0.5rem; }
+        .tag-ncert { background: #dcfce7; color: #15803d; }
+        .tag-exam { background: #e0e7ff; color: #4338ca; }
+        .tag-think { background: #fef3c7; color: #b45309; }
+        .svg-container { text-align: center; margin: 2rem 0; overflow-x: auto; padding: 1rem; background: #ffffff; border-radius: 12px; border: 1px solid var(--border); }
+        .quiz-option {
+            display: block; padding: 0.8rem 1rem; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.5rem;
+            cursor: pointer; transition: all 0.2s; font-size: 0.95rem;
+        }
+        .quiz-option:hover { background: #f0fdf4; border-color: var(--primary); }
+        .quiz-option.correct { background: #dcfce7 !important; border-color: #16a34a !important; font-weight: 600; color: #166534; }
+        .quiz-option.incorrect { background: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b; }
+        .quiz-feedback { margin-top: 0.6rem; font-weight: 600; font-size: 0.9rem; }
+        .footer { text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+    <div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+
+    <header class="hero">
+        <div class="hero-badges">
+            <span class="badge">Class 6 Science (କୌତୂହଳ)</span>
+            <span class="badge">BSE Odisha / NCERT NEP ସିଲାବସ୍</span>
+            <span class="badge">100% ସମ୍ପୂର୍ଣ୍ଣ ଓଡ଼ିଆ ଅଧ୍ୟୟନ ନୋଟ୍ସ</span>
+        </div>
+        <h1>ଅଧ୍ୟାୟ ୧୦: ଜୀବମାନଙ୍କ ବୈଶିଷ୍ଟ୍ୟ ଅନୁସନ୍ଧାନ</h1>
+        <p>Living Creatures: Exploring their Characteristics &bull; ବୃଦ୍ଧି, ଶ୍ୱସନ, ରେଚନ, ଉଦ୍ଦୀପନା ପ୍ରତି ପ୍ରତିକ୍ରିୟା, ମଞ୍ଜି ଗଜାହେବା, ଭୂ-ଅନୁବର୍ତ୍ତନ ଓ ରୂପାନ୍ତରଣ</p>
+        <button class="audio-btn" onclick="speakOdiaSummary()">
+            <span>&#128266;</span> ଓଡ଼ିଆ ଅଡିଓ ସାରାଂଶ ଶୁଣନ୍ତୁ
+        </button>
+    </header>
+
+    <nav class="nav-tabs">
+        <a href="#blueprint">&#128506;&#65039; ମାଇଣ୍ଡ ମ୍ୟାପ୍</a>
+        <a href="#concepts">&#128214; ବିଷୟବସ୍ତୁ ନୋଟ୍ସ</a>
+        <a href="#definitions">&#9889; ସଂଜ୍ଞା ଓ ସୂତ୍ର</a>
+        <a href="#solutions">&#128221; ପାଠ୍ୟପୁସ୍ତକ ପ୍ରଶ୍ନୋତ୍ତର</a>
+        <a href="#competency">&#128175; ପରୀକ୍ଷା ପ୍ରଶ୍ନ ବ୍ୟାଙ୍କ</a>
+        <a href="#mistakes">&#128680; ସାଧାରଣ ଭୁଲ୍ ଓ ରିଭିଜନ୍</a>
+    </nav>
+
+    <main class="container">
+        <!-- Section 1 -->
+        <section class="section-card" id="blueprint">
+            <div class="section-header">
+                <span class="section-icon">&#128506;&#65039;</span>
+                <h2>ବିଭାଗ ୧: ଭିଜୁଆଲ୍ ବ୍ଲୁପ୍ରିଣ୍ଟ ଓ କନସେପ୍ଟ ମାଇଣ୍ଡ ମ୍ୟାପ୍</h2>
+            </div>
+            <p>ଏହି ଅଧ୍ୟାୟରେ ଜୀବମାନଙ୍କର ମୌଳିକ ଲକ୍ଷଣ, ମଞ୍ଜି ଗଜାହେବା ପାଇଁ ଅନୁକୂଳ ପରିବେଶ, ଉଦ୍ଭିଦର ବିଭିନ୍ନ ଦିଗୀୟ ଚଳନ (ଭୂ-ଅନୁବର୍ତ୍ତନ ଓ ଆଲୋକ-ଅନୁବର୍ତ୍ତନ) ଏବଂ ପ୍ରାଣୀମାନଙ୍କ ରୂପାନ୍ତରଣ ପ୍ରକ୍ରିୟା ସମ୍ବନ୍ଧରେ ବିସ୍ତୃତ ଆଲୋଚନା କରାଯାଇଛି।</p>
+            
+            <div class="svg-container">
+                <svg viewBox="0 0 920 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="900" height="460" rx="15" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+                    <rect x="300" y="25" width="320" height="55" rx="10" fill="#166534" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.15))"/>
+                    <text x="460" y="50" fill="#ffffff" font-size="18" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">ଜୀବ ଓ ସେମାନଙ୍କ ବୈଶିଷ୍ଟ୍ୟ</text>
+                    <text x="460" y="70" fill="#bbf7d0" font-size="12" text-anchor="middle">Living Creatures &bull; ବୈଶିଷ୍ଟ୍ୟ, ଗଜାହେବା ଓ ଜୀବନଚକ୍ର</text>
+
+                    <!-- Branch 1 -->
+                    <rect x="40" y="110" width="260" height="330" rx="10" fill="#ffffff" stroke="#22c55e" stroke-width="2"/>
+                    <rect x="40" y="110" width="260" height="40" rx="10" fill="#dcfce7"/>
+                    <text x="170" y="135" fill="#15803d" font-size="15" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">୧. ଜୀବମାନଙ୍କ ମୁଖ୍ୟ ଲକ୍ଷଣ</text>
+                    <text x="55" y="175" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ପୋଷଣ (Nutrition):</strong> ଶକ୍ତି ପାଇଁ ଖାଦ୍ୟ</text>
+                    <text x="55" y="205" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ଶ୍ୱସନ (Respiration):</strong> ଶକ୍ତି ନିର୍ଗମନ</text>
+                    <text x="55" y="235" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ବୃଦ୍ଧି (Growth):</strong> ଆକାର ଓ ଓଜନ ବୃଦ୍ଧି</text>
+                    <text x="55" y="265" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ରେଚନ (Excretion):</strong> ବର୍ଜ୍ୟ ବସ୍ତୁ ନିଷ୍କାସନ</text>
+                    <text x="55" y="295" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ଉଦ୍ଦୀପନା ପ୍ରତି ପ୍ରତିକ୍ରିୟା:</strong> ସ୍ପର୍ଶ, ଆଲୋକ</text>
+                    <text x="55" y="325" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ପ୍ରଜନନ (Reproduction):</strong> ବଂଶବୃଦ୍ଧି</text>
+                    <text x="55" y="365" fill="#475569" font-size="12" font-family="Noto Sans Oriya, sans-serif">କାଠ ଗଣ୍ଡି (Wooden log) ଏକଦା ଜୀବନ୍ତ</text>
+                    <text x="55" y="385" fill="#475569" font-size="12" font-family="Noto Sans Oriya, sans-serif">ଥିଲା, କିନ୍ତୁ ବର୍ତ୍ତମାନ ଏହା ନିର୍ଜୀବ।</text>
+
+                    <!-- Branch 2 -->
+                    <rect x="330" y="110" width="260" height="330" rx="10" fill="#ffffff" stroke="#0ea5e9" stroke-width="2"/>
+                    <rect x="330" y="110" width="260" height="40" rx="10" fill="#e0f2fe"/>
+                    <text x="460" y="135" fill="#0369a1" font-size="15" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">୨. ମଞ୍ଜି ଗଜା ଓ ଉଦ୍ଭିଦ ଚଳନ</text>
+                    <text x="345" y="175" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ସୁପ୍ତାବସ୍ଥା (Dormancy):</strong> ନିଷ୍କ୍ରିୟ ଅବସ୍ଥା</text>
+                    <text x="345" y="205" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ଗଜା ହେବାର ୩ ସର୍ତ୍ତ:</strong></text>
+                    <text x="360" y="230" fill="#0369a1" font-size="12" font-family="Noto Sans Oriya, sans-serif">୧. ପର୍ଯ୍ୟାପ୍ତ ଜଳ (Moisture)</text>
+                    <text x="360" y="250" fill="#0369a1" font-size="12" font-family="Noto Sans Oriya, sans-serif">୨. ବାୟୁ / ଅମ୍ଳଜାନ (Air/Oxygen)</text>
+                    <text x="360" y="270" fill="#0369a1" font-size="12" font-family="Noto Sans Oriya, sans-serif">୩. ଅନୁକୂଳ ଉଷ୍ମତା (Warmth)</text>
+                    <text x="345" y="305" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ଭୂ-ଅନୁବର୍ତ୍ତନ (Geotropism):</strong></text>
+                    <text x="360" y="330" fill="#475569" font-size="12">ଚେର ତଳକୁ (+) | କାଣ୍ଡ ଉପରକୁ (-)</text>
+                    <text x="345" y="365" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ଆଲୋକ-ଅନୁବର୍ତ୍ତନ (Phototropism):</strong></text>
+                    <text x="360" y="388" fill="#475569" font-size="12">କାଣ୍ଡ ଆଲୋକ ଆଡ଼କୁ ବଙ୍କେଇ ଯାଏ</text>
+
+                    <!-- Branch 3 -->
+                    <rect x="620" y="110" width="260" height="330" rx="10" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+                    <rect x="620" y="110" width="260" height="40" rx="10" fill="#fef3c7"/>
+                    <text x="750" y="135" fill="#b45309" font-size="15" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">୩. ରୂପାନ୍ତରଣ ଓ ଜୀବନ ଚକ୍ର</text>
+                    <text x="635" y="175" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ରୂପାନ୍ତରଣ (Metamorphosis):</strong></text>
+                    <text x="650" y="200" fill="#475569" font-size="12">ଶାରୀରିକ ଗଠନର ନାଟକୀୟ ପରିବର୍ତ୍ତନ</text>
+                    <text x="635" y="230" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ବେଙ୍ଗର ଜୀବନ ଚକ୍ର:</strong></text>
+                    <text x="650" y="255" fill="#b45309" font-size="12">ଡିମ୍ବ &rarr; ବେଙ୍ଗଫୁଲା (ଗାଲିସି/ଲାଞ୍ଜ)</text>
+                    <text x="650" y="275" fill="#b45309" font-size="12">&rarr; କାଶୀ ବେଙ୍ଗ &rarr; ପୂର୍ଣ୍ଣାଙ୍ଗ ବେଙ୍ଗ</text>
+                    <text x="635" y="310" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ମଶାର ଜୀବନ ଚକ୍ର:</strong></text>
+                    <text x="650" y="335" fill="#b45309" font-size="12">ଡିମ୍ବ &rarr; ଲାର୍ଭା (ରିଗଲର)</text>
+                    <text x="650" y="355" fill="#b45309" font-size="12">&rarr; ପ୍ୟୁପା (ଟମ୍ବଲର) &rarr; ମଶା</text>
+                    <text x="635" y="390" fill="#475569" font-size="12">&bull; ଅଣ୍ଡାଜ (Oviparous) ଓ ଜରାୟୁଜ</text>
+
+                    <!-- Connecting Lines -->
+                    <line x1="380" y1="80" x2="170" y2="110" stroke="#166534" stroke-width="2" stroke-dasharray="4"/>
+                    <line x1="460" y1="80" x2="460" y2="110" stroke="#166534" stroke-width="2"/>
+                    <line x1="540" y1="80" x2="750" y2="110" stroke="#166534" stroke-width="2" stroke-dasharray="4"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="section-card" id="concepts">
+            <div class="section-header">
+                <span class="section-icon">&#128214;</span>
+                <h2>ବିଭାଗ ୨: ବିସ୍ତୃତ ପାଠ୍ୟକ୍ରମ ଆଧାରିତ ଧାରଣା ନୋଟ୍ସ</h2>
+            </div>
+
+            <h3>୧୦.୧ ଜୀବ ଓ ନିର୍ଜୀବ ମଧ୍ୟରେ କଣ ପାର୍ଥକ୍ୟ ରହିଛି?</h3>
+            <p>ଆମ ଚାରିପାଖରେ ଅସଂଖ୍ୟ ବସ୍ତୁ ଓ ପ୍ରାଣୀ ଦେଖିବାକୁ ମିଳନ୍ତି। ବୈଜ୍ଞାନିକ ଦୃଷ୍ଟିକୋଣରୁ କୌଣସି ବସ୍ତୁକୁ 'ଜୀବନ୍ତ' କହିବା ପାଇଁ ତାହା ମଧ୍ୟରେ କେତେକ ମୌଳିକ ଜୈବିକ ପ୍ରକ୍ରିୟା ଏକାସାଙ୍ଗରେ ଚାଲୁ ରହିବା ଆବଶ୍ୟକ:</p>
+
+            <div class="callout-def">
+                <div class="callout-title">&#127807; ଜୀବମାନଙ୍କର ୬ଟି ପ୍ରମୁଖ ବୈଶିଷ୍ଟ୍ୟ (Key Characteristics of Living Beings)</div>
+                <ol>
+                    <li><strong>ପୋଷଣ (Nutrition):</strong> ସମସ୍ତ ଜୀବ ବୃଦ୍ଧି, ଶରୀର ମରାମତି ଏବଂ ଦୈନନ୍ଦିନ କାର୍ଯ୍ୟ କରିବା ପାଇଁ ଶକ୍ତି ଆବଶ୍ୟକ କରନ୍ତି, ଯାହା ଖାଦ୍ୟରୁ ମିଳିଥାଏ। ସବୁଜ ଉଦ୍ଭିଦ ଆଲୋକଶ୍ଳେଷଣ ପ୍ରକ୍ରିୟାରେ ନିଜ ଖାଦ୍ୟ ନିଜେ ତିଆରି କରନ୍ତି (ସ୍ୱଭୋଜୀ), ଯେତେବେଳେ ପ୍ରାଣୀମାନେ ଉଦ୍ଭିଦ ବା ଅନ୍ୟ ପ୍ରାଣୀଙ୍କ ଉପରେ ନିର୍ଭର କରନ୍ତି (ପରଭୋଜୀ)।</li>
+                    <li><strong>ଶ୍ୱସନ (Respiration):</strong> ଖାଦ୍ୟରୁ ଶକ୍ତି ମୁକ୍ତ କରିବାର ପ୍ରକ୍ରିୟାକୁ ଶ୍ୱସନ କୁହାଯାଏ। ଏଥିରେ ଜୀବ ବାୟୁମଣ୍ଡଳରୁ ଅମ୍ଳଜାନ (O<sub>2</sub>) ଗ୍ରହଣ କରେ ଏବଂ କାର୍ବନ ଡାଇଅକ୍ସାଇଡ୍ (CO<sub>2</sub>) ତ୍ୟାଗ କରେ। <em>ମନେରଖନ୍ତୁ: ପ୍ରଶ୍ୱାସ-ନିଶ୍ୱାସ (Breathing) ହେଉଛି କେବଳ ଗ୍ୟାସ୍ ଆଦାନପ୍ରଦାନର ଭୌତିକ ପ୍ରକ୍ରିୟା, କିନ୍ତୁ ଶ୍ୱସନ ହେଉଛି କୋଷୀୟ ସ୍ତରରେ ଶକ୍ତି ଉତ୍ପାଦନର ରାସାୟନିକ ପ୍ରକ୍ରିୟା।</em></li>
+                    <li><strong>ବୃଦ୍ଧି (Growth):</strong> ସମସ୍ତ ଜୀବ ସମୟକ୍ରମେ ଆକାର, ଆୟତନ ଏବଂ ଓଜନରେ ବୃଦ୍ଧି ପାଆନ୍ତି। ଏହି ବୃଦ୍ଧି ଅପ୍ରତ୍ୟାବର୍ତ୍ତୀ (Irreversible) ଅଟେ। ଉଦ୍ଭିଦ ଜୀବନସାରା ବୃଦ୍ଧି ପାଉଥିବା ବେଳେ ପ୍ରାଣୀମାନଙ୍କର ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ବୟସ ପର୍ଯ୍ୟନ୍ତ ବୃଦ୍ଧି ଘଟେ।</li>
+                    <li><strong>ରେଚନ (Excretion):</strong> ଶରୀରରେ ଚାଲିଥିବା ବିଭିନ୍ନ ଜୈବିକ ରାସାୟନିକ କ୍ରିୟା (Metabolic activities) ଯୋଗୁଁ ଅନେକ ବିଷାକ୍ତ ଓ ଅଦରକାରୀ ବର୍ଜ୍ୟବସ୍ତୁ ସୃଷ୍ଟି ହୁଏ। ସେଗୁଡ଼ିକୁ ଶରୀରରୁ ବାହାର କରିଦେବା ପ୍ରକ୍ରିୟାକୁ ରେଚନ କୁହାଯାଏ (ଯଥା: ପରିସ୍ରା, ଝାଳ, ନିଶ୍ୱାସରେ ନିର୍ଗତ CO<sub>2</sub>, ଉଦ୍ଭିଦରେ ଅଠା, ଝୁଣା ବା ଶୁଖିଲା ପତ୍ର ଝଡ଼ିବା)।</li>
+                    <li><strong>ଉଦ୍ଦୀପନା ପ୍ରତି ପ୍ରତିକ୍ରିୟା (Response to Stimuli):</strong> ଆମ ପରିବେଶରେ ଘଟୁଥିବା ପରିବର୍ତ୍ତନ (ଯେପରିକି ଆଲୋକ, ତାପ, ସ୍ପର୍ଶ, ଶବ୍ଦ, ସୁଗନ୍ଧ) ଯାହା ଆମ ଶରୀରରେ ପ୍ରତିକ୍ରିୟା ସୃଷ୍ଟି କରେ, ତାହାକୁ ଉଦ୍ଦୀପନା କୁହାଯାଏ। ଉଦାହରଣ: ଗୋଡ଼ରେ କଣ୍ଟା ଫୁଟିଲେ ହଠାତ୍ ଗୋଡ଼ ଟେକିନେବା, ଅନ୍ଧାରରୁ ଆଲୋକକୁ ଆସିଲେ ଆଖି ବୁଜିହୋଇଯିବା, ଲାଜକୁଳୀ ଲତାକୁ ଛୁଇଁଲେ ତାହାର ପତ୍ର ବୁଜିହୋଇଯିବା।</li>
+                    <li><strong>ପ୍ରଜନନ (Reproduction):</strong> ଜୀବ ନିଜ ବଂଶ ରକ୍ଷା କରିବା ପାଇଁ ନିଜ ସଦୃଶ ନୂତନ ସନ୍ତାନ ସୃଷ୍ଟି କରିବା ପ୍ରକ୍ରିୟାକୁ ପ୍ରଜନନ କୁହାଯାଏ। କେତେକ ପ୍ରାଣୀ ଅଣ୍ଡା ଦିଅନ୍ତି (ଅଣ୍ଡାଜ / Oviparous - ଯଥା: ଚଢ଼େଇ, ସାପ, ବେଙ୍ଗ) ଏବଂ କେତେକ ସିଧାସଳଖ ଛୁଆ ଜନ୍ମ କରନ୍ତି (ଜରାୟୁଜ / Viviparous - ଯଥା: ମଣିଷ, ଗାଈ, କୁକୁର)। ଉଦ୍ଭିଦ ମଞ୍ଜି କିମ୍ବା ଡାଳ କଲମୀ ଦ୍ୱାରା ବଂଶବୃଦ୍ଧି କରନ୍ତି।</li>
+                </ol>
+            </div>
+
+            <div class="callout-warn">
+                <div class="callout-title">&#129300; ଚିନ୍ତନ ପ୍ରଶ୍ନ: କାଠ ଗଣ୍ଡି (Wooden Log) ଜୀବ ନା ନିର୍ଜୀବ?</div>
+                <p>ଚରଣ କହେ ଏହା ନିର୍ଜୀବ କାରଣ ଏହା ବୃଦ୍ଧି ପାଏ ନାହିଁ ବା ଶ୍ୱାସକ୍ରିୟା କରେ ନାହିଁ। ଚାରୁ କହେ ଏହା ଜୀବନ୍ତ କାରଣ ଏହା ଏକ ଗଛର ଅଂଶ ଥିଲା। ବାସ୍ତବରେ <strong>ଚରଣ ଠିକ୍!</strong> ଗଛରେ ଥିବା ସମୟରେ ତାହା ଜୀବନ୍ତ ଥିଲା, କିନ୍ତୁ କାଟି ଅଲଗା କରିବା ପରେ ଏହାର କୋଷଗୁଡ଼ିକ ମୃତ୍ୟୁବରଣ କରିସାରିଛନ୍ତି। ବର୍ତ୍ତମାନ ଏଥିରେ ପୋଷଣ, ଶ୍ୱସନ, ରେଚନ ବା ପ୍ରଜନନ କିଛି ବି ଚାଲୁନାହିଁ। ତେଣୁ କାଠ ଗଣ୍ଡି ବର୍ତ୍ତମାନ ଏକ <strong>ନିର୍ଜୀବ (Non-living)</strong> ବସ୍ତୁ।</p>
+            </div>
+
+            <h3>୧୦.୨ ମଞ୍ଜି ଗଜାହେବା ପାଇଁ ଆବଶ୍ୟକୀୟ ସର୍ତ୍ତ (Seed Germination Conditions)</h3>
+            <p>ଏକ ଶୁଖିଲା ମୁଗ ବା ଚଣା ମଞ୍ଜି ଦୋକାନରେ ମାସ ମାସ ଧରି ବସ୍ତାରେ ରହିଲେ ମଧ୍ୟ ସେମିତି ରହିଥାଏ। ଏହାର ଅର୍ଥ ମଞ୍ଜିଟି ମୃତ ନୁହେଁ, ବରଂ ତାହା <strong>ସୁପ୍ତାବସ୍ଥା (Dormancy)</strong> ରେ ରହିଛି। ଅନୁକୂଳ ପରିବେଶ ପାଇଲେ ମଞ୍ଜିରୁ ନୂତନ ଅଙ୍କୁରୋଦ୍ଗମ ହୁଏ।</p>
+
+            <div class="callout-act">
+                <div class="callout-title">&#128300; ପରୀକ୍ଷଣ: ମଞ୍ଜି ଗଜାହେବାର ୩ଟି ଅପରିହାର୍ଯ୍ୟ ସର୍ତ୍ତ</div>
+                <p>୪ଟି ପାତ୍ରରେ ମୁଗ ମଞ୍ଜି ନେଇ ନିମ୍ନଲିଖିତ ପରୀକ୍ଷା କରାଗଲା:</p>
+                <ul>
+                    <li><strong>ପାତ୍ର କ (କେବଳ ଶୁଖିଲା ମଞ୍ଜି):</strong> ପାଣି ଦିଆଗଲା ନାହିଁ &rarr; ମଞ୍ଜି ଗଜା ହେଲା ନାହିଁ। <em>(ସିଦ୍ଧାନ୍ତ: ଜଳ ଏକାନ୍ତ ଆବଶ୍ୟକ)</em></li>
+                    <li><strong>ପାତ୍ର ଖ (ସମ୍ପୂର୍ଣ୍ଣ ପାଣିରେ ବୁଡ଼ି ରହିଥିବା ମଞ୍ଜି):</strong> ପାଣି ଉପରେ ତେଲ ଢାଳି ଦିଆଗଲା ଯାହାଦ୍ୱାରା ବାୟୁ ପ୍ରବେଶ କରିପାରିବ ନାହିଁ &rarr; ମଞ୍ଜି ଗଜା ହେଲା ନାହିଁ କିମ୍ବା ପଚିଗଲା। <em>(ସିଦ୍ଧାନ୍ତ: ବାୟୁ / ଅମ୍ଳଜାନ ଏକାନ୍ତ ଆବଶ୍ୟକ)</em></li>
+                    <li><strong>ପାତ୍ର ଗ (ଓଦା କପଡ଼ାରେ ଗୁଡ଼ା ହୋଇ ଫ୍ରିଜ୍ ଭିତରେ ରଖାଗଲା):</strong> ଜଳ ଓ ବାୟୁ ଥିଲା କିନ୍ତୁ ଅତ୍ୟଧିକ ଥଣ୍ଡା ଥିଲା &rarr; ମଞ୍ଜି ଗଜା ହେଲା ନାହିଁ। <em>(ସିଦ୍ଧାନ୍ତ: ଅନୁକୂଳ ଉଷ୍ମତା/ତାପମାତ୍ରା ଆବଶ୍ୟକ)</em></li>
+                    <li><strong>ପାତ୍ର ଘ (ଓଦା କପଡ଼ାରେ ଗୁଡ଼ାଇ ସାଧାରଣ ଘରୋଇ ତାପମାତ୍ରାରେ ରଖାଗଲା):</strong> ଏଠାରେ ଜଳ, ବାୟୁ ଏବଂ ଅନୁକୂଳ ଉଷ୍ମତା ତିନୋଟିଯାକ ଉପଲବ୍ଧ ଥିଲା &rarr; ସୁନ୍ଦର ଧଳା ଅଙ୍କୁର (Sprouts) ବାହାରିଲା!</li>
+                </ul>
+            </div>
+
+            <p><strong>ଶସ୍ୟ ସଂରକ୍ଷଣରେ ଏହି ତଥ୍ୟର ପ୍ରୟୋଗ:</strong> ଆମେ ଯଦି ଡାଲି ଓ ଶସ୍ୟକୁ ଭଲ ଭାବରେ ଖରାରେ ଶୁଖାଇ, ଆର୍ଦ୍ରତାମୁକ୍ତ ଏବଂ ବାୟୁନିରୋଧୀ ପାତ୍ରରେ ରଖିବା, ତେବେ ସେଗୁଡ଼ିକ ଗଜା ହେବେ ନାହିଁ କିମ୍ବା ପୋକ/କବକ ଲାଗି ନଷ୍ଟ ହେବେ ନାହିଁ।</p>
+
+            <h3>୧୦.୩ ଉଦ୍ଭିଦର ବୃଦ୍ଧି ଏବଂ ଦିଗୀୟ ଚଳନ (Tropisms in Plants)</h3>
+            <p>ପ୍ରାଣୀମାନଙ୍କ ପରି ଉଦ୍ଭିଦ ଗୋଟିଏ ସ୍ଥାନରୁ ଅନ୍ୟ ସ୍ଥାନକୁ ଚାଲିପାରନ୍ତି ନାହିଁ ସତ, କିନ୍ତୁ ସେମାନଙ୍କ ଶରୀରର ଅଙ୍ଗଗୁଡ଼ିକ ପରିବେଶର ଉଦ୍ଦୀପନା ପ୍ରତି ଦିଗୀୟ ବୃଦ୍ଧି ଓ ଚଳନ ପ୍ରଦର୍ଶନ କରନ୍ତି।</p>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 850 400" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="830" height="380" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+                    <text x="425" y="40" fill="#166534" font-size="18" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">ଉଦ୍ଭିଦର ଦିଗୀୟ ଚଳନ: ଭୂ-ଅନୁବର୍ତ୍ତନ ଓ ଆଲୋକ-ଅନୁବର୍ତ୍ତନ</text>
+
+                    <!-- Left: Geotropism -->
+                    <g transform="translate(50, 70)">
+                        <rect x="0" y="0" width="340" height="280" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+                        <text x="170" y="30" fill="#0f172a" font-size="15" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">କ. ଭୂ-ଅନୁବର୍ତ୍ତନ (Geotropism)</text>
+                        <!-- Tilted pot -->
+                        <polygon points="60,160 120,160 110,210 70,210" fill="#d97706" stroke="#b45309" stroke-width="2"/>
+                        <rect x="55" y="150" width="70" height="12" rx="3" fill="#b45309"/>
+                        <!-- Plant horizontal then bending -->
+                        <!-- Root bending down -->
+                        <path d="M 65 180 Q 40 180 30 240" fill="none" stroke="#854d0e" stroke-width="4" stroke-linecap="round"/>
+                        <text x="20" y="260" fill="#854d0e" font-size="12" font-weight="bold">ଚେର ତଳକୁ ବଙ୍କେଇ ଯାଏ</text>
+                        <text x="20" y="275" fill="#64748b" font-size="11">(ଅନୁକୂଳ ଭୂ-ଅନୁବର୍ତ୍ତନ)</text>
+                        <!-- Stem bending up -->
+                        <path d="M 115 180 Q 180 180 200 110" fill="none" stroke="#16a34a" stroke-width="4" stroke-linecap="round"/>
+                        <circle cx="200" cy="105" r="8" fill="#22c55e"/>
+                        <text x="170" y="90" fill="#166534" font-size="12" font-weight="bold">କାଣ୍ଡ ଉପରକୁ ଉଠିଯାଏ</text>
+                        <text x="170" y="105" fill="#64748b" font-size="11">(ପ୍ରତିକୂଳ ଭୂ-ଅନୁବର୍ତ୍ତନ)</text>
+                        <text x="170" y="225" fill="#334155" font-size="12" text-anchor="middle">କୁଣ୍ଡକୁ ଭୂସମାନ୍ତର ରଖିଲେ ମଧ୍ୟ</text>
+                        <text x="170" y="245" fill="#334155" font-size="12" text-anchor="middle">ମାଧ୍ୟାକର୍ଷଣ ଯୋଗୁଁ ଚେର ତଳକୁ ଓ କାଣ୍ଡ ଉପରକୁ ବଢ଼େ।</text>
+                    </g>
+
+                    <!-- Right: Phototropism -->
+                    <g transform="translate(440, 70)">
+                        <rect x="0" y="0" width="360" height="280" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5"/>
+                        <text x="180" y="30" fill="#0f172a" font-size="15" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">ଖ. ଆଲୋକ-ଅନୁବର୍ତ୍ତନ (Phototropism)</text>
+                        <!-- Dark box with window -->
+                        <rect x="40" y="60" width="280" height="160" fill="#334155" rx="5"/>
+                        <rect x="290" y="110" width="30" height="40" fill="#fef08a" stroke="#f59e0b" stroke-width="2"/>
+                        <text x="305" y="170" fill="#b45309" font-size="11" font-weight="bold" text-anchor="middle">ଝରକା</text>
+                        <!-- Sun light rays -->
+                        <line x1="340" y1="100" x2="305" y2="125" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3"/>
+                        <line x1="340" y1="130" x2="305" y2="130" stroke="#f59e0b" stroke-width="2" stroke-dasharray="3"/>
+                        <!-- Pot inside box -->
+                        <rect x="90" y="160" width="40" height="40" fill="#d97706" rx="3"/>
+                        <!-- Stem curving towards window -->
+                        <path d="M 110 160 Q 130 110 280 125" fill="none" stroke="#4ade80" stroke-width="4" stroke-linecap="round"/>
+                        <circle cx="285" cy="125" r="7" fill="#86efac"/>
+                        <text x="180" y="245" fill="#334155" font-size="12" text-anchor="middle" font-weight="bold">କାଣ୍ଡ ଆଲୋକ ଆଡ଼କୁ ବଙ୍କେଇ ଯାଏ</text>
+                        <text x="180" y="265" fill="#64748b" font-size="11" text-anchor="middle">(ଅନୁକୂଳ ଆଲୋକ-ଅନୁବର୍ତ୍ତନ / Positive Phototropism)</text>
+                    </g>
+                </svg>
+            </div>
+
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>ଚଳନର ପ୍ରକାର</th>
+                        <th>ଉଦ୍ଦୀପନା</th>
+                        <th>କାଣ୍ଡର ପ୍ରତିକ୍ରିୟା</th>
+                        <th>ଚେରର ପ୍ରତିକ୍ରିୟା</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ଭୂ-ଅନୁବର୍ତ୍ତନ (Geotropism)</strong></td>
+                        <td>ପୃଥିବୀର ମାଧ୍ୟାକର୍ଷଣ ବଳ (Gravity)</td>
+                        <td>ପ୍ରତିକୂଳ (ଉପର ଦିଗକୁ ବୃଦ୍ଧି)</td>
+                        <td>ଅନୁକୂଳ (ତଳ ମାଟି ଆଡ଼କୁ ବୃଦ୍ଧି)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ଆଲୋକ-ଅନୁବର୍ତ୍ତନ (Phototropism)</strong></td>
+                        <td>ସୂର୍ଯ୍ୟାଲୋକ (Light)</td>
+                        <td>ଅନୁକୂଳ (ଆଲୋକ ଆଡ଼କୁ ବଙ୍କେଇବା)</td>
+                        <td>ପ୍ରତିକୂଳ (ଆଲୋକର ବିପରୀତ ଦିଗକୁ)</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>୧୦.୪ ରୂପାନ୍ତରଣ ଏବଂ ପ୍ରାଣୀମାନଙ୍କ ଜୀବନ ଚକ୍ର (Metamorphosis)</h3>
+            <p>କେତେକ ପ୍ରାଣୀଙ୍କ କ୍ଷେତ୍ରରେ ଶାବକ ବା ଲାର୍ଭାଟି ପୂର୍ଣ୍ଣାଙ୍ଗ ଅବସ୍ଥାଠାରୁ ସମ୍ପୂର୍ଣ୍ଣ ଭିନ୍ନ ଦେଖାଯାଏ। ଡିମ୍ବରୁ ଜନ୍ମ ନେବା ପରେ ବିଭିନ୍ନ ପର୍ଯ୍ୟାୟ ଦେଇ ଶରୀରରେ ଘଟୁଥିବା ଏହି ନାଟକୀୟ ରୂପ ପରିବର୍ତ୍ତନକୁ <strong>ରୂପାନ୍ତରଣ (Metamorphosis)</strong> କୁହାଯାଏ।</p>
+
+            <h4>୧. ବେଙ୍ଗର ଜୀବନ ଚକ୍ର (Life Cycle of Frog):</h4>
+            <ul>
+                <li><strong>ଡିମ୍ବ (Eggs):</strong> ମାଈ ବେଙ୍ଗ ପାଣିରେ ଜେଲି ସଦୃଶ ଗୁଚ୍ଛ ଆକାରରେ ଅଣ୍ଡା ଦିଏ।</li>
+                <li><strong>ବେଙ୍ଗଫୁଲା (Tadpole):</strong> ଅଣ୍ଡାରୁ ବାହାରୁଥିବା ଏହି ଅବସ୍ଥାଟି ମାଛ ପରି ଦେଖାଯାଏ। ଏହାର ଲାଞ୍ଜ ଥାଏ, ଗୋଡ଼ ନଥାଏ, ଗାଲିସି (Gills) ଦ୍ୱାରା ପାଣି ଭିତରେ ଶ୍ୱାସକ୍ରିୟା କରେ ଏବଂ ଶୈବାଳ ଖାଇ ବଞ୍ଚେ (ଶାକାହାରୀ)।</li>
+                <li><strong>କାଶୀ ବେଙ୍ଗ (Froglet):</strong> ଧୀରେ ଧୀରେ ପଛ ଗୋଡ଼ ଓ ଆଗ ଗୋଡ଼ ଉଠେ, ଲାଞ୍ଜ କ୍ରମଶଃ ଛୋଟ ହୋଇ ଶରୀରରେ ମିଶିଯାଏ, ଏବଂ ଫୁସଫୁସ ବିକଶିତ ହୁଏ।</li>
+                <li><strong>ପୂର୍ଣ୍ଣାଙ୍ଗ ବେଙ୍ଗ (Adult Frog):</strong> ଲାଞ୍ଜ ସମ୍ପୂର୍ଣ୍ଣ ଅଦୃଶ୍ୟ ହୋଇଯାଏ। ଶକ୍ତ ପଛଗୋଡ଼ ସାହାଯ୍ୟରେ ଡେଇଁପାରେ ଓ ପହଁରିପାରେ। ଫୁସଫୁସ ଓ ଓଦାଳିଆ ଚମଡ଼ା ଦ୍ୱାରା ଶ୍ୱାସକ୍ରିୟା କରେ। ଏହା ଏକ ମାଂସାହାରୀ ପ୍ରାଣୀ।</li>
+            </ul>
+
+            <h4>୨. ମଶାର ଜୀବନ ଚକ୍ର (Life Cycle of Mosquito):</h4>
+            <ul>
+                <li><strong>ଡିମ୍ବ (Eggs):</strong> ସ୍ଥିର ଜଳ ପୃଷ୍ଠରେ ମାଈ ମଶା ଏକାଠି ଅନେକ ଅଣ୍ଡା ଦିଏ।</li>
+                <li><strong>ଲାର୍ଭା / ରିଗଲର (Wriggler):</strong> ଅଣ୍ଡାରୁ ଫୁଟି ବାହାରି ପାଣିରେ କୀଟ ପରି ଛଟପଟ ହୋଇ ପହଁରେ। ଏହାର ଶରୀରର ପଛପଟେ ଏକ ଶ୍ୱାସନଳୀ (Respiratory Siphon) ଥାଏ, ଯାହାକୁ ପାଣି ଉପରକୁ ବାହାର କରି ବାୟୁମଣ୍ଡଳରୁ ଅମ୍ଳଜାନ ଗ୍ରହଣ କରେ।</li>
+                <li><strong>ପ୍ୟୁପା / ଟମ୍ବଲର (Tumbler):</strong> କମା (,) ଚିହ୍ନ ପରି ଆକାର। ଏହା ଖାଦ୍ୟ ଖାଏ ନାହିଁ କିନ୍ତୁ ପାଣିରେ ବହୁତ ଚଞ୍ଚଳ ଭାବେ ଗତି କରେ।</li>
+                <li><strong>ପୂର୍ଣ୍ଣାଙ୍ଗ ମଶା (Adult Mosquito):</strong> ପ୍ୟୁପାର ଚର୍ମ ଫାଟି ଡେଣାଯୁକ୍ତ ପୂର୍ଣ୍ଣାଙ୍ଗ ମଶା ବାହାରି ଉଡ଼ିଯାଏ।</li>
+            </ul>
+
+            <div class="callout-pyq">
+                <div class="callout-title">&#9888;&#65039; ମଶା ନିୟନ୍ତ୍ରଣର ବୈଜ୍ଞାନିକ ଉପାୟ: କିରୋସିନି ତେଲ କାହିଁକି ସିଞ୍ଚନ କରାଯାଏ?</div>
+                <p>ସ୍ଥିର ପାଣି ଉପରେ କିରୋସିନି ବା ତେଲ ଢାଳିଲେ ପାଣି ପୃଷ୍ଠରେ ଏକ ପତଳା ସ୍ତର ସୃଷ୍ଟି ହୁଏ। ଫଳରେ ମଶାର ଲାର୍ଭା (Wriggler) ତାର ଶ୍ୱାସନଳୀ (Siphon) କୁ ପବନ ସଂସ୍ପର୍ଶରେ ଆଣିପାରେ ନାହିଁ ଏବଂ ଶ୍ୱାସରୁଦ୍ଧ ହୋଇ ମରିଯାଏ।</p>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="section-card" id="definitions">
+            <div class="section-header">
+                <span class="section-icon">&#9889;</span>
+                <h2>ବିଭାଗ ୩: ମୁଖ୍ୟ ସଂଜ୍ଞା, ନିୟମ ଓ ସାରଣୀ ବ୍ୟାଙ୍କ</h2>
+            </div>
+
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>ବୈଜ୍ଞାନିକ ପାରିଭାଷିକ ଶବ୍ଦ</th>
+                        <th>ଇଂରାଜୀ ଶବ୍ଦ</th>
+                        <th>ସଂଜ୍ଞା ଓ ମୁଖ୍ୟ ବୈଶିଷ୍ଟ୍ୟ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ଶ୍ୱସନ</strong></td>
+                        <td>Respiration</td>
+                        <td>ଖାଦ୍ୟ (ଗ୍ଲୁକୋଜ୍) ରୁ ଅମ୍ଳଜାନ ସାହାଯ୍ୟରେ ଶକ୍ତି ମୁକ୍ତ ହେବାର ଜୈବ ରାସାୟନିକ ପ୍ରକ୍ରିୟା।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ରେଚନ</strong></td>
+                        <td>Excretion</td>
+                        <td>ଶରୀରରେ ସୃଷ୍ଟି ହେଉଥିବା ବିଷାକ୍ତ ଯବକ୍ଷାରଜାନ ବର୍ଜ୍ୟବସ୍ତୁକୁ ବାହାର କରିବାର ପ୍ରକ୍ରିୟା।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ଉଦ୍ଦୀପନା</strong></td>
+                        <td>Stimulus</td>
+                        <td>ପରିବେଶରେ ଘଟୁଥିବା ଯେକୌଣସି ପରିବର୍ତ୍ତନ ଯାହା ଜୀବ ଶରୀରରେ ପ୍ରତିକ୍ରିୟା ସୃଷ୍ଟି କରେ।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ସୁପ୍ତାବସ୍ଥା</strong></td>
+                        <td>Seed Dormancy</td>
+                        <td>ଅନୁକୂଳ ପରିବେଶ ନପାଇବା ପର୍ଯ୍ୟନ୍ତ ମଞ୍ଜିର ନିଷ୍କ୍ରିୟ ଅବସ୍ଥାରେ ରହିବା, ଯେଉଁଥିରେ ଅତି ଧୀର ଶ୍ୱସନ ଚାଲେ।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ଭୂ-ଅନୁବର୍ତ୍ତନ</strong></td>
+                        <td>Geotropism</td>
+                        <td>ମାଧ୍ୟାକର୍ଷଣ ବଳ ପ୍ରତି ଉଦ୍ଭିଦ ଅଙ୍ଗର ଦିଗୀୟ ବୃଦ୍ଧି (ଚେରର ଅନୁକୂଳ, କାଣ୍ଡର ପ୍ରତିକୂଳ)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ଆଲୋକ-ଅନୁବର୍ତ୍ତନ</strong></td>
+                        <td>Phototropism</td>
+                        <td>ଆଲୋକର ଦିଗ ପ୍ରତି ଉଦ୍ଭିଦ କାଣ୍ଡର ବଙ୍କେଇ ବୃଦ୍ଧି ପାଇବା।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ରୂପାନ୍ତରଣ</strong></td>
+                        <td>Metamorphosis</td>
+                        <td>ଲାର୍ଭା ଅବସ୍ଥାରୁ ପୂର୍ଣ୍ଣାଙ୍ଗ ଅବସ୍ଥାକୁ ଯିବା ସମୟରେ ପ୍ରାଣୀ ଶରୀରରେ ଘଟୁଥିବା ଗଠନଗତ ପରିବର୍ତ୍ତନ।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ଅଣ୍ଡାଜ ବନାମ ଜରାୟୁଜ</strong></td>
+                        <td>Oviparous vs Viviparous</td>
+                        <td>ଅଣ୍ଡା ଦେଉଥିବା ପ୍ରାଣୀ (ଅଣ୍ଡାଜ) ବନାମ ସିଧାସଳଖ ଛୁଆ ଜନ୍ମ କରୁଥିବା ପ୍ରାଣୀ (ଜରାୟୁଜ)।</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="section-card" id="solutions">
+            <div class="section-header">
+                <span class="section-icon">&#128221;</span>
+                <h2>ବିଭାଗ ୪: ୧୦୦% ସମାଧାନ ପାଠ୍ୟପୁସ୍ତକ ଅଭ୍ୟାସ ପ୍ରଶ୍ନୋତ୍ତର</h2>
+            </div>
+
+            <!-- Ex 1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ଅଭ୍ୟାସ ୧</span> ଉଦ୍ଭିଦ ଓ ପ୍ରାଣୀମାନଙ୍କ ଜୀବନ ଚକ୍ର ମଧ୍ୟରେ ଥିବା ସାଦୃଶ୍ୟ ଓ ପାର୍ଥକ୍ୟ ତାଲିକାଭୁକ୍ତ କର।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ସାଦୃଶ୍ୟ (Similarities):</strong></p>
+                    <ol>
+                        <li>ଉଭୟଙ୍କ ଜୀବନ ଏକ କ୍ଷୁଦ୍ର ଏକକରୁ ଆରମ୍ଭ ହୁଏ (ଉଦ୍ଭିଦ ମଞ୍ଜିରୁ ଏବଂ ପ୍ରାଣୀ ଅଣ୍ଡା ବା ଭ୍ରୂଣରୁ)।</li>
+                        <li>ଉଭୟେ ବୃଦ୍ଧି ପାଆନ୍ତି, ପୋଷଣ ଆବଶ୍ୟକ କରନ୍ତି, ଶ୍ୱସନ କରନ୍ତି ଏବଂ ପ୍ରଜନନ କରି ନିଜ ବଂଶ ରକ୍ଷା କରନ୍ତି।</li>
+                        <li>ଉଭୟଙ୍କର ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ଜୀବନକାଳ ଥାଏ ଏବଂ ଶେଷରେ ମୃତ୍ୟୁ ଘଟେ।</li>
+                    </ol>
+                    <p><strong>ପାର୍ଥକ୍ୟ (Differences):</strong></p>
+                    <ul>
+                        <li><strong>ଚଳନ:</strong> ପ୍ରାଣୀମାନେ ଖାଦ୍ୟ ଓ ଆଶ୍ରୟ ପାଇଁ ସ୍ଥାନାନ୍ତରିତ ହୋଇପାରନ୍ତି, କିନ୍ତୁ ଉଦ୍ଭିଦ ଗୋଟିଏ ସ୍ଥାନରେ ସ୍ଥିର ରହି କେବଳ ଅଙ୍ଗୀୟ ଦିଗୀୟ ଚଳନ ଦେଖାନ୍ତି।</li>
+                        <li><strong>ବୃଦ୍ଧି:</strong> ଉଦ୍ଭିଦ ଜୀବନସାରା ନିର୍ଦ୍ଦିଷ୍ଟ ଅଗ୍ରଭାଗରେ ବୃଦ୍ଧି ପାଏ, କିନ୍ତୁ ପ୍ରାଣୀମାନଙ୍କ ବୃଦ୍ଧି ସମଗ୍ର ଶରୀରରେ ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ବୟସ ପର୍ଯ୍ୟନ୍ତ ସୀମିତ ଥାଏ।</li>
+                        <li><strong>ରୂପାନ୍ତରଣ:</strong> ଅନେକ ପ୍ରାଣୀଙ୍କଠାରେ (ଯଥା: ବେଙ୍ଗ, ମଶା) ରୂପାନ୍ତରଣ ଦେଖାଯାଏ, ଯାହା ଉଦ୍ଭିଦରେ ନଥାଏ।</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Ex 2 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ଅଭ୍ୟାସ ୨</span> ଜୀବ ବନାମ ନିର୍ଜୀବର ଲକ୍ଷଣ ସାରଣୀ ପୂରଣ କର (ବୃଦ୍ଧି ଓ ଶ୍ୱସନ)।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ପ୍ରଦତ୍ତ ସାରଣୀର ପୂର୍ଣ୍ଣ ଉତ୍ତର:</strong></p>
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>ବସ୍ତୁ / ଜୀବ</th>
+                                <th>ବୃଦ୍ଧି ପାଏ କି? (ହଁ / ନା)</th>
+                                <th>ଶ୍ୱସନ କରେ କି? (ହଁ / ନା)</th>
+                                <th>ଶ୍ରେଣୀବିଭାଗ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>ଆମ୍ବ ଗଛ</td><td>ହଁ (ଅପ୍ରତ୍ୟାବର୍ତ୍ତୀ)</td><td>ହଁ (ଅମ୍ଳଜାନ ଗ୍ରହଣ କରେ)</td><td>ଜୀବନ୍ତ (Living)</td></tr>
+                            <tr><td>ମଣିଷ</td><td>ହଁ</td><td>ହଁ</td><td>ଜୀବନ୍ତ (Living)</td></tr>
+                            <tr><td>କାର୍ / ଗାଡ଼ି</td><td>ନା (ବାହ୍ୟ ଯୋଡ଼ା ନହେଲେ)</td><td>ନା (ଇନ୍ଧନ ଜଳିବା ଯାନ୍ତ୍ରିକ)</td><td>ନିର୍ଜୀବ (Non-living)</td></tr>
+                            <tr><td>ବାଲି କୁଦ (Sand dune)</td><td>ହଁ (ବାହ୍ୟ ବାଲି ଜମା ହୋଇ)</td><td>ନା</td><td>ନିର୍ଜୀବ (Non-living)</td></tr>
+                            <tr><td>ମୁଗ ମଞ୍ଜି (ଶୁଖିଲା)</td><td>ନା (ସୁପ୍ତାବସ୍ଥାରେ)</td><td>ହଁ (ଅତି ଧୀର ଶ୍ୱସନ)</td><td>ଜୀବନ୍ତ (ସୁପ୍ତ ଜୀବ)</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+
+            <!-- Ex 3 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ଅଭ୍ୟାସ ୩</span> ମଞ୍ଜି ଗଜାହେବାର ସର୍ତ୍ତ ସମ୍ବନ୍ଧୀୟ ଜ୍ଞାନକୁ ଆମେ ଶସ୍ୟ ଓ ଡାଲି ସଂରକ୍ଷଣରେ କିପରି ଉପଯୋଗ କରିପାରିବା?</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ମଞ୍ଜି ଗଜାହେବା ପାଇଁ ମୁଖ୍ୟତଃ <strong>ଆର୍ଦ୍ରତା (ଜଳ)</strong>, <strong>ଅମ୍ଳଜାନ (ବାୟୁ)</strong> ଏବଂ <strong>ଉପଯୁକ୍ତ ଉଷ୍ମତା</strong> ଆବଶ୍ୟକ। ଯଦି ଆମେ ଏହି ତିନୋଟି କାରକ ମଧ୍ୟରୁ ଯେକୌଣସି ଗୋଟିକୁ ଅନୁପସ୍ଥିତ କରିଦେବା, ତେବେ ମଞ୍ଜି ଗଜା ହୋଇପାରିବ ନାହିଁ।</p>
+                    <ol>
+                        <li><strong>ସମ୍ପୂର୍ଣ୍ଣ ଶୁଖାଇବା:</strong> ଅମଳ ପରେ ଧାନ, ଗହମ ଓ ଡାଲିକୁ ଭଲ ଭାବରେ ଖରାରେ ଶୁଖାଯାଏ ଯାହାଦ୍ୱାରା ଆର୍ଦ୍ରତା ଦୂର ହୁଏ ଏବଂ ମଞ୍ଜି ଗଜା ହୋଇପାରେ ନାହିଁ କି କବକ ଲାଗେ ନାହିଁ।</li>
+                        <li><strong>ବାୟୁନିରୋଧୀ ପାତ୍ର (Airtight Containers):</strong> ଧାତବ କିମ୍ବା ପ୍ଲାଷ୍ଟିକ୍ ଡ୍ରମରେ ବାୟୁନିରୋଧୀ କରି ରଖିଲେ ବାୟୁରୁ ଆର୍ଦ୍ରତା ଓ ଅମ୍ଳଜାନ ପ୍ରବେଶ କରିପାରେ ନାହିଁ।</li>
+                        <li><strong>ଶୀତଳ ଭଣ୍ଡାର (Cold Storage):</strong> ନିମ୍ନ ତାପମାତ୍ରାରେ ମଞ୍ଜିର ଏନଜାଇମ୍ ନିଷ୍କ୍ରିୟ ରହୁଥିବାରୁ ଏହା ଗଜା ନହୋଇ ବହୁତ ଦିନ ସତେଜ ରହେ।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- Ex 4 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ଅଭ୍ୟାସ ୪</span> ବେଙ୍ଗଫୁଲା (Tadpole) ଅବସ୍ଥାରେ ଲାଞ୍ଜ ରହିବାର ଲାଭ କଣ ଏବଂ ପୂର୍ଣ୍ଣାଙ୍ଗ ବେଙ୍ଗରେ ଏହା କାହିଁକି ଅଦୃଶ୍ୟ ହୋଇଯାଏ?</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong></p>
+                    <ul>
+                        <li><strong>ବେଙ୍ଗଫୁଲା ଅବସ୍ଥାରେ ଲାଞ୍ଜର ଲାଭ:</strong> ବେଙ୍ଗଫୁଲା ସମ୍ପୂର୍ଣ୍ଣ ଭାବରେ ଜଳଚର। ଏହାର କୌଣସି ଗୋଡ଼ ନଥାଏ। ମାଛ ପରି ପାଣି ଭିତରେ ଚଞ୍ଚଳ ଭାବରେ ପହଁରିବା ଏବଂ ଶତ୍ରୁ କବଳରୁ ରକ୍ଷା ପାଇବା ପାଇଁ ଏହାର ଲାଞ୍ଜ ଏକମାତ୍ର ଚଳନ ଅଙ୍ଗ ଭାବେ କାର୍ଯ୍ୟ କରେ।</li>
+                        <li><strong>ପୂର୍ଣ୍ଣାଙ୍ଗ ବେଙ୍ଗରେ ଲାଞ୍ଜ କାହିଁକି ଅଦୃଶ୍ୟ ହୁଏ:</strong> ପୂର୍ଣ୍ଣାଙ୍ଗ ବେଙ୍ଗ ଉଭୟ ଡଙ୍ଗର/ସ୍ଥଳଭାଗ ଓ ଜଳରେ ବାସ କରେ (ଉଭୟଚର)। ଏହାର ଶକ୍ତିଶାଳୀ ପଛ ଗୋଡ଼ (Hind limbs) ବିକଶିତ ହୁଏ, ଯାହା ଡେଇଁବା ଏବଂ ପାଣିରେ ପହଁରିବା ପାଇଁ ବ୍ୟବହୃତ ହୁଏ। ସ୍ଥଳଭାଗରେ ଗତି କରିବା ସମୟରେ ଲାଞ୍ଜଟି ବାଧା ସୃଷ୍ଟି କରିଥାନ୍ତା। ତେଣୁ ରୂପାନ୍ତରଣ ସମୟରେ ଲାଞ୍ଜର ପୋଷକ ତତ୍ତ୍ୱ ଶରୀର ଭିତରେ ପୁନଃଶୋଷିତ ହୋଇ ଲାଞ୍ଜ ସମ୍ପୂର୍ଣ୍ଣ ବିଲୁପ୍ତ ହୋଇଯାଏ।</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Ex 5 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ଅଭ୍ୟାସ ୫</span> କାଠ ଗଣ୍ଡି ସମ୍ପର୍କରେ ଚରଣ (ନିର୍ଜୀବ) ଏବଂ ଚାରୁ (ଜୀବନ୍ତ) ଙ୍କ ମଧ୍ୟରେ ତର୍କ &mdash; କିଏ ଠିକ୍ ଏବଂ କାହିଁକି?</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ଏହି ତର୍କରେ <strong>ଚରଣ ସମ୍ପୂର୍ଣ୍ଣ ଠିକ୍!</strong></p>
+                    <p><strong>କାରଣ:</strong> ଚାରୁ ଯୁକ୍ତି କରୁଛି ଯେ ଏହା ଗଛର ଅଂଶ ଥିଲା, ତେଣୁ ଜୀବନ୍ତ। କିନ୍ତୁ ଏକ ବସ୍ତୁକୁ 'ଜୀବନ୍ତ' କହିବା ପାଇଁ ତାହା ବର୍ତ୍ତମାନର ସମୟରେ ଜୀବନର ସମସ୍ତ ମୌଳିକ ଲକ୍ଷଣ ପ୍ରଦର୍ଶନ କରିବା ଆବଶ୍ୟକ। ଯେତେବେଳେ କାଠ ଗଣ୍ଡିକୁ ଗଛରୁ କାଟି ଅଲଗା କରାଗଲା, ଏହାର କୋଷଗୁଡ଼ିକ ନଷ୍ଟ ହୋଇଗଲା। ବର୍ତ୍ତମାନ ଏଥିରେ ନା ଶ୍ୱସନ ହେଉଛି, ନା ପୋଷଣ, ନା ବୃଦ୍ଧି, ନା ରେଚନ, ନା ଉଦ୍ଦୀପନା ପ୍ରତି ପ୍ରତିକ୍ରିୟା। ତେଣୁ ଏହା ଅତୀତରେ ଏକ ଜୀବନ୍ତ ଗଛର ଅଂଶ ଥିଲେ ମଧ୍ୟ ବର୍ତ୍ତମାନ ଏକ <strong>ନିର୍ଜୀବ (Non-living)</strong> ବସ୍ତୁ।</p>
+                </div>
+            </details>
+
+            <!-- Ex 6 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ଅଭ୍ୟାସ ୬</span> ମଶା ଏବଂ ବେଙ୍ଗର ଜୀବନ ଚକ୍ର ମଧ୍ୟରେ ଥିବା ସାଦୃଶ୍ୟ ଏବଂ ପାର୍ଥକ୍ୟ ଲେଖ।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ସାଦୃଶ୍ୟ (Similarities):</strong></p>
+                    <ol>
+                        <li>ଉଭୟେ ଅଣ୍ଡାଜ (Oviparous) ଏବଂ ନିଜର ଅଣ୍ଡା ଜଳରେ ଦିଅନ୍ତି।</li>
+                        <li>ଉଭୟଙ୍କ କ୍ଷେତ୍ରରେ <strong>ରୂପାନ୍ତରଣ (Metamorphosis)</strong> ଦେଖାଯାଏ, ଯେଉଁଥିରେ ପ୍ରାରମ୍ଭିକ ଲାର୍ଭା ପୂର୍ଣ୍ଣାଙ୍ଗଠାରୁ ସମ୍ପୂର୍ଣ୍ଣ ଭିନ୍ନ ହୋଇଥାଏ।</li>
+                        <li>ଉଭୟଙ୍କର ପ୍ରାରମ୍ଭିକ ଅବସ୍ଥା (ବେଙ୍ଗଫୁଲା ଓ ମଶାର ଲାର୍ଭା) ଜଳ ଭିତରେ ବାସ କରନ୍ତି।</li>
+                    </ol>
+                    <p><strong>ପାର୍ଥକ୍ୟ (Differences):</strong></p>
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>ବୈଶିଷ୍ଟ୍ୟ</th>
+                                <th>ମଶା (Mosquito)</th>
+                                <th>ବେଙ୍ଗ (Frog)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>ଶ୍ରେଣୀ</td><td>କୀଟ (Insect - ଅମେରୁଦଣ୍ଡୀ)</td><td>ଉଭୟଚର (Amphibian - ମେରୁଦଣ୍ଡୀ)</td></tr>
+                            <tr><td>ଜୀବନ ଚକ୍ରର ପର୍ଯ୍ୟାୟ</td><td>୪ଟି ପର୍ଯ୍ୟାୟ (ଡିମ୍ବ &rarr; ଲାର୍ଭା &rarr; ପ୍ୟୁପା &rarr; ପୂର୍ଣ୍ଣାଙ୍ଗ)</td><td>୩ଟି ମୁଖ୍ୟ ପର୍ଯ୍ୟାୟ (ଡିମ୍ବ &rarr; ବେଙ୍ଗଫୁଲା &rarr; ପୂର୍ଣ୍ଣାଙ୍ଗ)</td></tr>
+                            <tr><td>ପ୍ୟୁପା ଅବସ୍ଥା</td><td>ଉପସ୍ଥିତ (ଟମ୍ବଲର)</td><td>ଅନୁପସ୍ଥିତ</td></tr>
+                            <tr><td>ଲାର୍ଭାର ଶ୍ୱସନ</td><td>ଶ୍ୱାସନଳୀ (Siphon) ଦ୍ୱାରା ବାୟୁରୁ ସିଧାସଳଖ O<sub>2</sub></td><td>ଗାଲିସି (Gills) ଦ୍ୱାରା ପାଣିରେ ଦ୍ରବୀଭୂତ O<sub>2</sub></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+
+            <!-- Ex 7 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ଅଭ୍ୟାସ ୭</span> ଏକ କୁଣ୍ଡ ଲଗା ଉଦ୍ଭିଦକୁ ଭୂମି ଉପରେ ଭୂସମାନ୍ତର (Horizontal) ଭାବେ ରଖାଗଲା। ଏକ ସପ୍ତାହ ପରେ ଏହାର କାଣ୍ଡ ଓ ଚେରର ବୃଦ୍ଧି କିପରି ହେବ?</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ଏକ ସପ୍ତାହ ପରେ ନିମ୍ନଲିଖିତ ପରିବର୍ତ୍ତନ ଲକ୍ଷ୍ୟ କରାଯିବ:</p>
+                    <ul>
+                        <li><strong>କାଣ୍ଡର ଅଗ୍ରଭାଗ:</strong> ଭୂସମାନ୍ତର ଅବସ୍ଥାରୁ ଉପର ଆଡ଼କୁ (ଆକାଶ ଆଡ଼କୁ) ବଙ୍କେଇ ବଢ଼ିବ। ଏହାକୁ <strong>ପ୍ରତିକୂଳ ଭୂ-ଅନୁବର୍ତ୍ତନ (Negative Geotropism)</strong> କୁହାଯାଏ।</li>
+                        <li><strong>ଚେରର ଅଗ୍ରଭାଗ:</strong> ମାଟି ଭିତରକୁ ତଳ ଆଡ଼କୁ ବଙ୍କେଇ ବଢ଼ିବ। ଏହାକୁ <strong>ଅନୁକୂଳ ଭୂ-ଅନୁବର୍ତ୍ତନ (Positive Geotropism)</strong> କୁହାଯାଏ।</li>
+                    </ul>
+                    <p><strong>ବୈଜ୍ଞାନିକ କାରଣ:</strong> ପୃଥିବୀର ମାଧ୍ୟାକର୍ଷଣ ବଳ ଉଦ୍ଭିଦ ହରମୋନ୍ (ଅକ୍ସିନ୍) କୁ ପ୍ରଭାବିତ କରେ, ଯାହା ଫଳରେ କୁଣ୍ଡ ଯେଉଁ କୋଣରେ ଥାଉ ନା କାହିଁକି, ଚେର ସର୍ବଦା ମାଧ୍ୟାକର୍ଷଣ ଆଡ଼କୁ (ତଳକୁ) ଏବଂ କାଣ୍ଡ ସର୍ବଦା ମାଧ୍ୟାକର୍ଷଣର ବିପରୀତ ଦିଗକୁ (ଉପରକୁ) ବୃଦ୍ଧି ପାଏ।</p>
+                </div>
+            </details>
+
+            <!-- Ex 8 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ଅଭ୍ୟାସ ୮</span> ତାରା ଓ ବିଜୟଙ୍କ କଳା ବାକ୍ସ ପରୀକ୍ଷା (ଗୋଟିଏ କଣା ଥିବା ବାକ୍ସ) &mdash; କାଣ୍ଡ କାହିଁକି କଣା ଆଡ଼କୁ ବଙ୍କେଇ ଗଲା?</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong></p>
+                    <p>ତାରା ଓ ବିଜୟ ଏକ କୁଣ୍ଡ ଲଗା ଛୋଟ ଗଛକୁ ଏକ କଳା ବାକ୍ସ ଭିତରେ ରଖିଲେ ଯାହାର ଗୋଟିଏ ପାର୍ଶ୍ୱରେ ଛୋଟ କଣା ଥିଲା ଏବଂ ସେହି କଣା ବାଟେ ସୂର୍ଯ୍ୟାଲୋକ ପ୍ରବେଶ କରୁଥିଲା। କିଛି ଦିନ ପରେ ଗଛର କାଣ୍ଡଟି ସିଧା ନ ବଢ଼ି କଣା ଆଡ଼କୁ ବଙ୍କେଇ ବୃଦ୍ଧି ପାଇଲା।</p>
+                    <p><strong>ସିଦ୍ଧାନ୍ତ:</strong> ଏହା <strong>ଅନୁକୂଳ ଆଲୋକ-ଅନୁବର୍ତ୍ତନ (Positive Phototropism)</strong> କୁ ପ୍ରମାଣିତ କରେ। ଉଦ୍ଭିଦ କାଣ୍ଡର ଛାଇ ଅଂଶରେ ଅକ୍ସିନ୍ ହରମୋନ୍ ଅଧିକ ଜମା ହୋଇ ସେହି ପାର୍ଶ୍ୱର କୋଷଗୁଡ଼ିକୁ ଦ୍ରୁତ ବୃଦ୍ଧି କରାଏ, ଫଳରେ କାଣ୍ଡଟି ଆଲୋକ ଥିବା ଦିଗ ଆଡ଼କୁ ବଙ୍କେଇ ଯାଏ। ଏହା ଉଦ୍ଭିଦକୁ ଆଲୋକଶ୍ଳେଷଣ ପାଇଁ ସର୍ବାଧିକ ଆଲୋକ ଗ୍ରହଣ କରିବାରେ ସାହାଯ୍ୟ କରେ।</p>
+                </div>
+            </details>
+
+            <!-- Ex 9 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ଅଭ୍ୟାସ ୯</span> ମଞ୍ଜି ଗଜାହେବା ଉପରେ ତାପମାତ୍ରାର ପ୍ରଭାବ ଅଛି କି ନାହିଁ ତାହା ଯାଞ୍ଚ କରିବା ପାଇଁ ଏକ ପରୀକ୍ଷା ପ୍ରସ୍ତୁତ କର।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉଦ୍ଦେଶ୍ୟ:</strong> ମଞ୍ଜି ଗଜାହେବା ଉପରେ ତାପମାତ୍ରାର ପ୍ରଭାବ ପରୀକ୍ଷା କରିବା।</p>
+                    <p><strong>ଆବଶ୍ୟକ ଉପକରଣ:</strong> ୨୦ଟି ଭଲ ମୁଗ ମଞ୍ଜି, ଦୁଇଟି ପେଟ୍ରି ଡିସ୍ (ପାତ୍ର), ଓଦା ତୁଳା, ଫ୍ରିଜ୍।</p>
+                    <p><strong>କାର୍ଯ୍ୟପଦ୍ଧତି:</strong></p>
+                    <ol>
+                        <li>ଦୁଇଟି ପାତ୍ର (ପାତ୍ର 'କ' ଏବଂ ପାତ୍ର 'ଖ') ରେ ସମାନ ପରିମାଣର ଓଦା ତୁଳା ରଖି ପ୍ରତ୍ୟେକରେ ୧୦ଟି ଲେଖାଏଁ ମୁଗ ମଞ୍ଜି ରଖ।</li>
+                        <li>ଉଭୟ ପାତ୍ରକୁ ବାୟୁ ଏବଂ ପର୍ଯ୍ୟାପ୍ତ ଆର୍ଦ୍ରତା ଦିଆଗଲା।</li>
+                        <li>ପାତ୍ର 'କ' କୁ ସାଧାରଣ ଘରୋଇ ତାପମାତ୍ରା (ପ୍ରାୟ ୨୫°C ରୁ ୩୦°C) ରେ ରଖ।</li>
+                        <li>ପାତ୍ର 'ଖ' କୁ ଫ୍ରିଜ୍ ଭିତରେ (୪°C ରୁ ୫°C) ରଖ।</li>
+                        <li>୩-୪ ଦିନ ପର୍ଯ୍ୟନ୍ତ ନିୟମିତ ଭାବେ ତୁଳାକୁ ଓଦା ରଖି ପର୍ଯ୍ୟବେକ୍ଷଣ କର।</li>
+                    </ol>
+                    <p><strong>ପର୍ଯ୍ୟବେକ୍ଷଣ:</strong> ପାତ୍ର 'କ' ରେ ଥିବା ମଞ୍ଜିଗୁଡ଼ିକରୁ ସୁନ୍ଦର ଧଳା ଅଙ୍କୁର ବାହାରି ଗଜା ହୋଇଗଲା। କିନ୍ତୁ ପାତ୍ର 'ଖ' (ଫ୍ରିଜ୍ ଭିତରେ ଥିବା) ରେ ମଞ୍ଜିଗୁଡ଼ିକ ଗଜା ହେଲା ନାହିଁ।</p>
+                    <p><strong>ସିଦ୍ଧାନ୍ତ:</strong> ମଞ୍ଜି ଗଜାହେବା ପାଇଁ ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ଅନୁକୂଳ ଉଷ୍ମତା ବା ତାପମାତ୍ରା ଅପରିହାର୍ଯ୍ୟ। ଅତ୍ୟଧିକ ଥଣ୍ଡାରେ ମଞ୍ଜିର ଏନଜାଇମ୍ କାର୍ଯ୍ୟକ୍ଷମ ହୋଇପାରନ୍ତି ନାହିଁ।</p>
+                </div>
+            </details>
+
+            <!-- Learning Further -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-think">ଅଧିକ ଶିଖିବା</span> ମଞ୍ଜି ବିନା ଉଦ୍ଭିଦ କିପରି ବଂଶବୃଦ୍ଧି କରନ୍ତି? (ଅଙ୍ଗୀୟ ଜନନ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ଅନେକ ଉଦ୍ଭିଦ ମଞ୍ଜି ବିନା ନିଜ ଶରୀରର ବିଭିନ୍ନ ଅଙ୍ଗ ସାହାଯ୍ୟରେ ବଂଶବୃଦ୍ଧି କରନ୍ତି। ଏହାକୁ <strong>ଅଙ୍ଗୀୟ ଜନନ (Vegetative Propagation)</strong> କୁହାଯାଏ:</p>
+                    <ul>
+                        <li><strong>କାଣ୍ଡ ଦ୍ୱାରା:</strong> ଗୋଲାପ ଓ ଆଖୁ (ଡାଳ କଲମୀ), ଆଳୁ (ଆଖି ବା କଢ଼), ଅଦା (ଅନ୍ତର୍ଭୌମ କାଣ୍ଡ)।</li>
+                        <li><strong>ଚେର ଦ୍ୱାରା:</strong> କନ୍ଦମୂଳ (Sweet potato) ଓ ଡାଲିଆ।</li>
+                        <li><strong>ପତ୍ର ଦ୍ୱାରା:</strong> ଅମରପୋଇ (Bryophyllum) - ପତ୍ରର ଧାରରେ ଥିବା କାଖରୁ ନୂତନ ଛୋଟ ଗଛ ସୃଷ୍ଟି ହୁଏ।</li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="section-card" id="competency">
+            <div class="section-header">
+                <span class="section-icon">&#128175;</span>
+                <h2>ବିଭାଗ ୫: ପରୀକ୍ଷା ପ୍ରଶ୍ନ ବ୍ୟାଙ୍କ ଓ ସିବିଏସଇ ଦକ୍ଷତା ପ୍ରଶ୍ନ</h2>
+            </div>
+
+            <h3>ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନ (MCQs)</h3>
+
+            <!-- MCQ 1 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୧:</strong> ମଞ୍ଜି ଗଜାହେବା ପାଇଁ ନିମ୍ନଲିଖିତ ମଧ୍ୟରୁ କେଉଁଟି ପ୍ରାଥମିକ ଭାବରେ ଅପରିହାର୍ଯ୍ୟ <u>ନୁହେଁ</u>?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଜଳ ବିନା ଏନଜାଇମ୍ ସକ୍ରିୟ ହୋଇପାରିବେ ନାହିଁ।')">(A) ପର୍ଯ୍ୟାପ୍ତ ଜଳ (Water)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଶ୍ୱସନ ପାଇଁ ଅମ୍ଳଜାନ ଏକାନ୍ତ ଆବଶ୍ୟକ।')">(B) ବାୟୁ / ଅମ୍ଳଜାନ (Air)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! ପ୍ରାରମ୍ଭିକ ଗଜାହେବା ସମୟରେ ମଞ୍ଜି ମାଟି ତଳେ ଥାଏ ଏବଂ ନିଜ ସଞ୍ଚିତ ଖାଦ୍ୟ ବ୍ୟବହାର କରେ, ତେଣୁ ସୂର୍ଯ୍ୟାଲୋକ ବିନା ବି ଗଜା ହୋଇପାରେ।')">(C) ସିଧାସଳଖ ସୂର୍ଯ୍ୟାଲୋକ (Direct Sunlight)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ନିମ୍ନ ତାପମାତ୍ରାରେ ମଞ୍ଜି ଗଜା ହୁଏ ନାହିଁ।')">(D) ଅନୁକୂଳ ଉଷ୍ମତା (Warmth)</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <!-- MCQ 2 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୨:</strong> ମଶାର ଲାର୍ଭା (Wriggler) କିପରି ଶ୍ୱାସକ୍ରିୟା କରେ?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ମଶାର ଲାର୍ଭାର ଗାଲିସି ନଥାଏ।')">(A) ମାଛ ପରି ଗାଲିସି ଦ୍ୱାରା</div>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! ଶରୀରର ପଛଭାଗରେ ଥିବା ଶ୍ୱାସନଳୀ (Respiratory Siphon) କୁ ପାଣି ଉପରକୁ ବାହାର କରି ବାୟୁମଣ୍ଡଳୀୟ ଅମ୍ଳଜାନ ଗ୍ରହଣ କରେ।')">(B) ପଛରେ ଥିବା ଶ୍ୱାସନଳୀ (Siphon Tube) ଦ୍ୱାରା ବାୟୁରୁ</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଏହାର ଫୁସଫୁସ ନଥାଏ।')">(C) ଫୁସଫୁସ ଦ୍ୱାରା</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଚର୍ମ ଦ୍ୱାରା ପର୍ଯ୍ୟାପ୍ତ ଅମ୍ଳଜାନ ମିଳେ ନାହିଁ।')">(D) କେବଳ ଚର୍ମ ଦ୍ୱାରା ଦ୍ରବୀଭୂତ ଅମ୍ଳଜାନ ଗ୍ରହଣ କରି</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <!-- MCQ 3 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୩:</strong> ଉଦ୍ଭିଦ କାଣ୍ଡର ଆଲୋକ ଆଡ଼କୁ ବଙ୍କେଇ ଯିବାକୁ କଣ କୁହାଯାଏ?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! ଆଲୋକ ପ୍ରତି ଦିଗୀୟ ବୃଦ୍ଧିକୁ ଫୋଟୋଟ୍ରପିଜିମ୍ କୁହାଯାଏ।')">(A) ଅନୁକୂଳ ଆଲୋକ-ଅନୁବର୍ତ୍ତନ (Positive Phototropism)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଏହା ମାଧ୍ୟାକର୍ଷଣ ସହ ଜଡ଼ିତ।')">(B) ଅନୁକୂଳ ଭୂ-ଅନୁବର୍ତ୍ତନ (Positive Geotropism)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଏହା ଜଳ ଆଡ଼କୁ ଚେରର ଚଳନ।')">(C) ଜଳ-ଅନୁବର୍ତ୍ତନ (Hydrotropism)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଏହା ସ୍ପର୍ଶ ପ୍ରତି ପ୍ରତିକ୍ରିୟା।')">(D) ଥିଗମୋଟ୍ରପିଜିମ୍ (Thigmotropism)</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <!-- MCQ 4 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୪:</strong> ବେଙ୍ଗର ଜୀବନ ଚକ୍ରରେ କେଉଁ ଅବସ୍ଥାଟି ସମ୍ପୂର୍ଣ୍ଣ ଶାକାହାରୀ ଏବଂ ଗାଲିସି ଦ୍ୱାରା ଶ୍ୱାସକ୍ରିୟା କରେ?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! ବେଙ୍ଗଫୁଲା (Tadpole) ଶୈବାଳ ଖାଏ ଏବଂ ଗାଲିସି ଦ୍ୱାରା ଶ୍ୱାସକ୍ରିୟା କରେ।')">(A) ବେଙ୍ଗଫୁଲା (Tadpole)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ପୂର୍ଣ୍ଣାଙ୍ଗ ବେଙ୍ଗ କୀଟପତଙ୍ଗ ଖାଏ (ମାଂସାହାରୀ)।')">(B) ପୂର୍ଣ୍ଣାଙ୍ଗ ବେଙ୍ଗ (Adult Frog)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଏଥିରେ ଫୁସଫୁସ ବିକାଶ ଆରମ୍ଭ ହୋଇସାରିଥାଏ।')">(C) କାଶୀ ବେଙ୍ଗ (Froglet)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଅଣ୍ଡା କୌଣସି ଖାଦ୍ୟ ଖାଏ ନାହିଁ।')">(D) ଡିମ୍ବ (Egg)</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <!-- MCQ 5 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୫:</strong> ନିମ୍ନଲିଖିତ ମଧ୍ୟରୁ କେଉଁଟି ଏକ ଅଣ୍ଡାଜ (Oviparous) ପ୍ରାଣୀ ନୁହେଁ?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଚଢ଼େଇ ଅଣ୍ଡା ଦିଅନ୍ତି।')">(A) ପାରା</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ସାପ ଅଣ୍ଡା ଦିଏ।')">(B) ସାପ</div>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! ବାଦୁଡ଼ି ଏକ ସ୍ତନ୍ୟପାୟୀ ପ୍ରାଣୀ ଯିଏ ସିଧାସଳଖ ଛୁଆ ଜନ୍ମ କରେ (ଜରାୟୁଜ)।')">(C) ବାଦୁଡ଼ି (Bat)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ବେଙ୍ଗ ପାଣିରେ ଅଣ୍ଡା ଦିଏ।')">(D) ବେଙ୍ଗ</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <h3>ଯୁକ୍ତି ଓ କାରଣ ପ୍ରଶ୍ନ (Assertion & Reasoning)</h3>
+
+            <!-- AR 1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">A&amp;R ୧</span> ସୁପ୍ତ ମଞ୍ଜିରେ ଶ୍ୱସନ କ୍ରିୟା</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଯୁକ୍ତି (A):</strong> ବସ୍ତାରେ ବନ୍ଦ ଥିବା ଶୁଖିଲା ଗହମ ମଞ୍ଜି ଭିତରେ ହାତ ପୂରାଇଲେ ଉଷୁମ ଅନୁଭୂତ ହୁଏ।<br>
+                    <strong>କାରଣ (R):</strong> ସୁପ୍ତାବସ୍ଥାରେ ମଧ୍ୟ ମଞ୍ଜିଗୁଡ଼ିକ ଅତି ଧୀର ଗତିରେ ଶ୍ୱସନ କରନ୍ତି ଏବଂ ଶ୍ୱସନ ପ୍ରକ୍ରିୟାରେ ତାପ ଶକ୍ତି ନିର୍ଗତ ହୁଏ।</p>
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>ଉଭୟ (A) ଏବଂ (R) ସତ୍ୟ ଏବଂ (R) ହେଉଛି (A) ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</strong><br>
+                    ମଞ୍ଜି ସୁପ୍ତ ଥିଲେ ମଧ୍ୟ ସମ୍ପୂର୍ଣ୍ଣ ମୃତ ନୁହେଁ। ଏହା ଅଳ୍ପ ପରିମାଣରେ ଅମ୍ଳଜାନ ଗ୍ରହଣ କରି ଶ୍ୱସନ ଜାରି ରଖିଥାଏ, ଯାହାଦ୍ୱାରା ବସ୍ତା ଭିତରର ତାପମାତ୍ରା ସାମାନ୍ୟ ବୃଦ୍ଧି ପାଏ।</p>
+                </div>
+            </details>
+
+            <!-- AR 2 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">A&amp;R ୨</span> ସମ୍ପୂର୍ଣ୍ଣ ପାଣିରେ ବୁଡ଼ି ରହିଥିବା ମଞ୍ଜି</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଯୁକ୍ତି (A):</strong> ଏକ ପାତ୍ରରେ ସମ୍ପୂର୍ଣ୍ଣ ପାଣି ଭର୍ତ୍ତି କରି ମଞ୍ଜି ବୁଡ଼ାଇ ରଖିଲେ ତାହା ଗଜା ହୋଇପାରେ ନାହିଁ।<br>
+                    <strong>କାରଣ (R):</strong> ପାଣି ଭିତରେ ସମ୍ପୂର୍ଣ୍ଣ ବୁଡ଼ି ରହିବା ଯୋଗୁଁ ମଞ୍ଜିକୁ ଶ୍ୱସନ ପାଇଁ ଆବଶ୍ୟକୀୟ ବାୟୁମଣ୍ଡଳୀୟ ଅମ୍ଳଜାନ ମିଳିପାରେ ନାହିଁ।</p>
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>ଉଭୟ (A) ଏବଂ (R) ସତ୍ୟ ଏବଂ (R) ହେଉଛି (A) ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</strong></p>
+                </div>
+            </details>
+
+            <!-- AR 3 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">A&amp;R ୩</span> ସୂର୍ଯ୍ୟମୁଖୀ ଫୁଲର ଆଲୋକ-ଅନୁବର୍ତ୍ତନ</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଯୁକ୍ତି (A):</strong> ସୂର୍ଯ୍ୟମୁଖୀ ଫୁଲ ସୂର୍ଯ୍ୟଙ୍କ ଗତି ସହିତ ପୂର୍ବରୁ ପଶ୍ଚିମ ଦିଗକୁ ମୁହଁ ଘୁରାଏ।<br>
+                    <strong>କାରଣ (R):</strong> ଏହା ଉଦ୍ଭିଦର ଏକ ଅପ୍ରତ୍ୟାବର୍ତ୍ତୀ ବୃଦ୍ଧିଜନିତ ଚଳନ।</p>
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>(A) ସତ୍ୟ କିନ୍ତୁ (R) ମିଥ୍ୟା।</strong><br>
+                    ସୂର୍ଯ୍ୟମୁଖୀର ଦୈନନ୍ଦିନ ମୁହଁ ଘୁରାଇବା ହେଉଛି ଆଲୋକ ପ୍ରତି ଏକ ପ୍ରତିକ୍ରିୟା (Solar tracking), କିନ୍ତୁ ଏହା କାଣ୍ଡର ସ୍ଥାୟୀ ବୃଦ୍ଧି ନୁହେଁ।</p>
+                </div>
+            </details>
+
+            <!-- AR 4 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">A&amp;R ୪</span> ବେଙ୍ଗର ରୂପାନ୍ତରଣ ଓ ଲାଞ୍ଜ ବିଲୋପ</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଯୁକ୍ତି (A):</strong> ପୂର୍ଣ୍ଣାଙ୍ଗ ବେଙ୍ଗରେ ଲାଞ୍ଜ ଝଡ଼ି ପଡ଼ିଯାଏ।<br>
+                    <strong>କାରଣ (R):</strong> ରୂପାନ୍ତରଣ ସମୟରେ ଲାଞ୍ଜର ତନ୍ତୁଗୁଡ଼ିକ ବିଭାଜିତ ହୋଇ ଶରୀର ଭିତରେ ପୁନଃଶୋଷିତ ହୋଇଯାଏ।</p>
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>(A) ମିଥ୍ୟା କିନ୍ତୁ (R) ସତ୍ୟ।</strong><br>
+                    ଲାଞ୍ଜଟି ବାହାରକୁ ଛିଣ୍ଡି ବା ଝଡ଼ି ପଡ଼େ ନାହିଁ, ବରଂ ତାହା ଶରୀର ଭିତରେ ଧୀରେ ଧୀରେ ଲୀନ (absorbed) ହୋଇଯାଏ।</p>
+                </div>
+            </details>
+
+            <h3>କ୍ଷୁଦ୍ର ଉତ୍ତରମୂଳକ ପ୍ରଶ୍ନ (୨ ଓ ୩ ମାର୍କ)</h3>
+
+            <!-- SA 1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୧</span> ଉଦ୍ଦୀପନା କଣ? ଉଦ୍ଭିଦରେ ଉଦ୍ଦୀପନା ପ୍ରତି ପ୍ରତିକ୍ରିୟାର ଦୁଇଟି ଉଦାହରଣ ଦିଅ। (୩ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ସଂଜ୍ଞା (୧ ମାର୍କ):</strong> ପରିବେଶରେ ଘଟୁଥିବା ଯେକୌଣସି ପରିବର୍ତ୍ତନ ଯାହା ଜୀବ ଶରୀରରେ ପ୍ରତିକ୍ରିୟା ସୃଷ୍ଟି କରେ, ତାହାକୁ <strong>ଉଦ୍ଦୀପନା (Stimulus)</strong> କୁହାଯାଏ।</p>
+                    <p><strong>ଉଦାହରଣ (୨ ମାର୍କ):</strong></p>
+                    <ol>
+                        <li><strong>ଲାଜକୁଳୀ ଲତା (Touch-me-not):</strong> ପତ୍ରକୁ ହାତରେ ଛୁଇଁଦେବା ମାତ୍ରେ ସ୍ପର୍ଶ ଉଦ୍ଦୀପନା ଯୋଗୁଁ ଏହାର ପତ୍ରଗୁଡ଼ିକ ତତକ୍ଷଣାତ୍ ବୁଜିହୋଇ ନଇଁପଡ଼େ।</li>
+                        <li><strong>କାଣ୍ଡର ଆଲୋକ ଆଡ଼କୁ ବଙ୍କେଇବା:</strong> ସୂର୍ଯ୍ୟାଲୋକ ଉଦ୍ଦୀପନା ଦ୍ୱାରା ପ୍ରଭାବିତ ହୋଇ ଅନ୍ଧାର ଘରେ ଥିବା ଉଦ୍ଭିଦର କାଣ୍ଡ ଝରକା ବାଟେ ଆଲୋକ ଆଡ଼କୁ ବଢ଼ିଥାଏ।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- SA 2 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୨</span> ପ୍ରଶ୍ୱାସ-ନିଶ୍ୱାସ (Breathing) ଏବଂ ଶ୍ୱସନ (Respiration) ମଧ୍ୟରେ ୨ଟି ପାର୍ଥକ୍ୟ ଲେଖ। (୨ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>ପ୍ରଶ୍ୱାସ-ନିଶ୍ୱାସ (Breathing)</th>
+                                <th>ଶ୍ୱସନ (Respiration)</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>ଏହା ଏକ ଭୌତିକ ପ୍ରକ୍ରିୟା ଯେଉଁଥିରେ ବାୟୁ ଗ୍ରହଣ ଓ ତ୍ୟାଗ କରାଯାଏ।</td>
+                                <td>ଏହା ଏକ ଜୈବ ରାସାୟନିକ ପ୍ରକ୍ରିୟା ଯେଉଁଥିରେ କୋଷ ଭିତରେ ଖାଦ୍ୟ ଜାରିତ ହୋଇ ଶକ୍ତି ଉତ୍ପନ୍ନ ହୁଏ।</td>
+                            </tr>
+                            <tr>
+                                <td>ଏହା ଶ୍ୱାସ ଅଙ୍ଗ (ଯଥା: ଫୁସଫୁସ, ଗାଲିସି) ରେ ସଂଘଟିତ ହୁଏ।</td>
+                                <td>ଏହା ଶରୀରର ପ୍ରତ୍ୟେକ ଜୀବନ୍ତ କୋଷ (ମାଇଟୋକଣ୍ଡ୍ରିଆ) ଭିତରେ ଘଟିଥାଏ।</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+
+            <!-- SA 3 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୩</span> ମଶାର ଲାର୍ଭା (Wriggler) ଏବଂ ପ୍ୟୁପା (Tumbler) ମଧ୍ୟରେ ପାର୍ଥକ୍ୟ ଦର୍ଶାଅ। (୨ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <ul>
+                        <li><strong>ଲାର୍ଭା (Wriggler):</strong> ଏହା ଲମ୍ବା କୀଟ ସଦୃଶ, ସକ୍ରିୟ ଭାବେ ଶୈବାଳ ଓ ଜୈବ ପଦାର୍ଥ ଖାଏ, ଏବଂ ପଛରେ ଥିବା ସାଇଫନ୍ ଟ୍ୟୁବ୍ ଦ୍ୱାରା ଶ୍ୱାସନଳୀ ଚଳାଏ।</li>
+                        <li><strong>ପ୍ୟୁପା (Tumbler):</strong> ଏହା କମା (,) ଚିହ୍ନ ସଦୃଶ, କୌଣସି ଖାଦ୍ୟ ଖାଏ ନାହିଁ, ଏବଂ ଏହାର ମୁଣ୍ଡ ପାଖରେ ଥିବା ଦୁଇଟି ଶ୍ୱାସନଳୀ (Breathing trumpets) ଦ୍ୱାରା ବାୟୁ ଗ୍ରହଣ କରେ। ଏହା ଭିତରେ ମଶାର ଅଙ୍ଗ ବିକଶିତ ହୁଏ।</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- SA 4 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୪</span> ମଞ୍ଜିକୁ ଓଲଟା କରି ମାଟିରେ ପୋତିଲେ ମଧ୍ୟ ଚେର ସର୍ବଦା ତଳକୁ କାହିଁକି ବଢ଼େ? (୨ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ଚେରର ଅଗ୍ରଭାଗରେ ମାଧ୍ୟାକର୍ଷଣ ବଳକୁ ଅନୁଭବ କରିବା ପାଇଁ ସ୍ୱତନ୍ତ୍ର କୋଷ ଥାଆନ୍ତି। ମଞ୍ଜିକୁ ଯେଉଁ ଦିଗରେ ବି ପୋତାଯାଉ ନା କାହିଁକି, ଉଦ୍ଭିଦର ଚେର ସର୍ବଦା <strong>ଅନୁକୂଳ ଭୂ-ଅନୁବର୍ତ୍ତନ (Positive Geotropism)</strong> ପ୍ରଦର୍ଶନ କରି ପୃଥିବୀର କେନ୍ଦ୍ର ଆଡ଼କୁ (ତଳକୁ) ବଙ୍କେଇ ବୃଦ୍ଧି ପାଏ। ଏହା ଚେରକୁ ମାଟି ଭିତରୁ ଜଳ ଓ ଖଣିଜ ଲବଣ ସଂଗ୍ରହ କରିବାରେ ଏବଂ ଗଛକୁ ମାଟିରେ ଦୃଢ଼ ଭାବରେ ଧରି ରଖିବାରେ ସାହାଯ୍ୟ କରେ।</p>
+                </div>
+            </details>
+
+            <!-- SA 5 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୫</span> ଜୀବ ଶରୀର ପାଇଁ ରେଚନ କାହିଁକି ଅପରିହାର୍ଯ୍ୟ? ଦୁଇଟି କାରଣ ଦର୍ଶାଅ। (୨ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <ol>
+                        <li><strong>ବିଷାକ୍ତତା ଦୂରୀକରଣ:</strong> କୋଷୀୟ କ୍ରିୟା ଫଳରେ ୟୁରିଆ, ୟୁରିକ୍ ଏସିଡ୍ ଏବଂ ଅତ୍ୟଧିକ ଲବଣ ପରି ବିଷାକ୍ତ ବର୍ଜ୍ୟବସ୍ତୁ ସୃଷ୍ଟି ହୁଏ। ଏଗୁଡ଼ିକ ଶରୀରରେ ଜମା ହେଲେ କୋଷ ନଷ୍ଟ ହୋଇ ଜୀବର ମୃତ୍ୟୁ ଘଟିପାରେ।</li>
+                        <li><strong>ଜଳ ଓ ଲବଣର ଭାରସାମ୍ୟ (Osmoregulation):</strong> ରେଚନ ପ୍ରକ୍ରିୟା ଶରୀରରେ ଜଳ, ରକ୍ତ ଏବଂ ଖଣିଜ ଲବଣର ଉପଯୁକ୍ତ ସାନ୍ଦ୍ରତା ବଜାୟ ରଖିବାରେ ସାହାଯ୍ୟ କରେ।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <h3>ଦୀର୍ଘ ଉତ୍ତରମୂଳକ ପ୍ରଶ୍ନ (୫ ମାର୍କ)</h3>
+
+            <!-- LA 1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">LA ୧</span> ବେଙ୍ଗର ସମ୍ପୂର୍ଣ୍ଣ ଜୀବନ ଚକ୍ରକୁ ବିଭିନ୍ନ ପର୍ଯ୍ୟାୟ ଆଧାରରେ ବର୍ଣ୍ଣନା କର ଏବଂ ରୂପାନ୍ତରଣର ଗୁରୁତ୍ୱ ବୁଝାଅ। (୫ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ମାର୍କିଂ ବିଭାଜନ:</strong> ଡିମ୍ବ ପର୍ଯ୍ୟାୟ (୧M) + ବେଙ୍ଗଫୁଲା ପର୍ଯ୍ୟାୟ (୧.୫M) + କାଶୀ ବେଙ୍ଗ ଓ ପୂର୍ଣ୍ଣାଙ୍ଗ (୧.୫M) + ରୂପାନ୍ତରଣ ମହତ୍ତ୍ୱ (୧M)</p>
+                    <p><strong>ବର୍ଣ୍ଣନା:</strong> ବେଙ୍ଗର ଜୀବନ ଚକ୍ର ମୁଖ୍ୟତଃ ଚାରୋଟି ପର୍ଯ୍ୟାୟ ଦେଇ ଗତି କରେ:</p>
+                    <ol>
+                        <li><strong>ଡିମ୍ବ (Egg Stage):</strong> ବର୍ଷା ଋତୁରେ ମାଈ ବେଙ୍ଗ ପୋଖରୀ ବା ସ୍ଥିର ଜଳାଶୟରେ ଶହ ଶହ ଅଣ୍ଡା ଦିଏ। ଏହି ଅଣ୍ଡାଗୁଡ଼ିକ ଏକ ଜେଲି ସଦୃଶ ସ୍ତର ଦ୍ୱାରା ଏକତ୍ର ଲାଗି ରହି ଭାସନ୍ତି, ଯାହା ସେମାନଙ୍କୁ ଶତ୍ରୁ ଓ ଶୁଖିଯିବାରୁ ରକ୍ଷା କରେ।</li>
+                        <li><strong>ବେଙ୍ଗଫୁଲା (Tadpole Stage):</strong> କିଛି ଦିନ ପରେ ଅଣ୍ଡାରୁ ବେଙ୍ଗଫୁଲା ବାହାରେ। ଏହା ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ ମାଛ ସଦୃଶ। ଏହାର ଲାଞ୍ଜ ଥାଏ, ଗୋଡ଼ ନଥାଏ। ଏହା ପାଣିରେ ଥିବା ବାହ୍ୟ ଗାଲିସି (External gills) ଦ୍ୱାରା ଦ୍ରବୀଭୂତ ଅମ୍ଳଜାନ ଗ୍ରହଣ କରେ ଏବଂ ଶୈବାଳ ଖାଇ ବଞ୍ଚେ।</li>
+                        <li><strong>କାଶୀ ବେଙ୍ଗ (Froglet):</strong> ଧୀରେ ଧୀରେ ବେଙ୍ଗଫୁଲାର ପଛ ଗୋଡ଼ ପ୍ରଥମେ ଓ ପରେ ଆଗ ଗୋଡ଼ ବାହାରେ। ଗାଲିସି ବନ୍ଦ ହୋଇ ଶରୀର ଭିତରେ ଫୁସଫୁସ ବିକଶିତ ହୁଏ। ଲାଞ୍ଜଟି କ୍ରମଶଃ ଛୋଟ ହୋଇ ଶରୀରରେ ଶୋଷିତ ହୁଏ।</li>
+                        <li><strong>ପୂର୍ଣ୍ଣାଙ୍ଗ ବେଙ୍ଗ (Adult Frog):</strong> ଲାଞ୍ଜ ସମ୍ପୂର୍ଣ୍ଣ ଲୋପ ପାଏ। ଶକ୍ତ ମାଂସପେଶୀଯୁକ୍ତ ଗୋଡ଼ ସାହାଯ୍ୟରେ ସ୍ଥଳଭାଗରେ ଡେଇଁପାରେ। ଏହା ଜଳରେ ଥିବାବେଳେ ଓଦାଳିଆ ଚମଡ଼ା ଦ୍ୱାରା ଏବଂ ସ୍ଥଳରେ ଥିବାବେଳେ ଫୁସଫୁସ ଦ୍ୱାରା ଶ୍ୱାସକ୍ରିୟା କରେ।</li>
+                    </ol>
+                    <p><strong>ରୂପାନ୍ତରଣର ଗୁରୁତ୍ୱ:</strong> ରୂପାନ୍ତରଣ ଯୋଗୁଁ ଗୋଟିଏ ଜୀବ ନିଜ ଜୀବନର ଭିନ୍ନ ଭିନ୍ନ ସମୟରେ ପୃଥକ ପରିବେଶ (ଜଳଚର ଓ ସ୍ଥଳଚର) ଏବଂ ଭିନ୍ନ ଖାଦ୍ୟ (ଶୈବାଳ ଓ କୀଟ) ଉପଯୋଗ କରେ, ଯାହା ଫଳରେ ଛୁଆ ଓ ପୂର୍ଣ୍ଣାଙ୍ଗ ମଧ୍ୟରେ ଖାଦ୍ୟ ଓ ବାସସ୍ଥାନ ପାଇଁ କୌଣସି ପ୍ରତିଯୋଗିତା ହୁଏ ନାହିଁ।</p>
+                </div>
+            </details>
+
+            <h3>ଦକ୍ଷତା ଆଧାରିତ କେସ୍ ଷ୍ଟଡି (Competency Case Studies)</h3>
+
+            <!-- Case 1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">କେସ୍ ଷ୍ଟଡି ୧</span> ରମେଶଙ୍କ ଚଣା ମଞ୍ଜି ପରୀକ୍ଷା ଓ ତଥ୍ୟ ବିଶ୍ଳେଷଣ</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ପ୍ରସଙ୍ଗ:</strong> ରମେଶ ୩୦ଟି ସୁସ୍ଥ ଚଣା ମଞ୍ଜି ନେଇ ତିନୋଟି ପୃଥକ ପାତ୍ର (A, B, C) ରେ ୧୦ଟି ଲେଖାଏଁ ମଞ୍ଜି ରଖିଲେ:</p>
+                    <ul>
+                        <li><strong>ପାତ୍ର A:</strong> ଓଦା କପା ତୁଳା ଉପରେ ଖୋଲା ଝରକା ନିକଟରେ (୨୮°C)।</li>
+                        <li><strong>ପାତ୍ର B:</strong> ଫୁଟା ହୋଇ ଥଣ୍ଡା କରାଯାଇଥିବା ପାଣିରେ ସମ୍ପୂର୍ଣ୍ଣ ବୁଡ଼ାଇ ଉପରେ ତେଲ ସ୍ତର ଦେଇ ବନ୍ଦ କରାଗଲା (୨୮°C)।</li>
+                        <li><strong>ପାତ୍ର C:</strong> ସମ୍ପୂର୍ଣ୍ଣ ଶୁଖିଲା ପାତ୍ରରେ ଖୋଲା ଝରକା ନିକଟରେ (୨୮°C)।</li>
+                    </ul>
+                    <p>୫ ଦିନ ପରେ ରମେଶ ଦେଖିଲେ ଯେ କେବଳ ପାତ୍ର A ର ସମସ୍ତ ମଞ୍ଜି ଗଜା ହୋଇଛି, ପାତ୍ର B ର ମଞ୍ଜି ଫୁଲି ପଚିଯାଇଛି ଏବଂ ପାତ୍ର C ର ମଞ୍ଜି ଅପରିବର୍ତ୍ତିତ ରହିଛି।</p>
+                    <p><strong>ପ୍ରଶ୍ନ ଓ ଉତ୍ତର:</strong></p>
+                    <ol>
+                        <li><em>ପାତ୍ର B ରେ ଉପରେ ତେଲ ସ୍ତର କାହିଁକି ଦିଆଯାଇଥିଲା?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ବାୟୁମଣ୍ଡଳରୁ ଅମ୍ଳଜାନ ଗ୍ୟାସ୍ ଯେପରି ପାଣିରେ ଦ୍ରବୀଭୂତ ହୋଇ ମଞ୍ଜି ନିକଟକୁ ନ ପହଞ୍ଚିପାରିବ, ସେଥିପାଇଁ ତେଲ ସ୍ତର ଦିଆଯାଇଥିଲା।</li>
+                        <li><em>ପାତ୍ର B ର ମଞ୍ଜି କାହିଁକି ଗଜା ହେଲା ନାହିଁ?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ମଞ୍ଜିକୁ ପାଣି ମିଳିଥିଲେ ମଧ୍ୟ ଶ୍ୱସନ କରିବା ପାଇଁ ଆବଶ୍ୟକୀୟ ଅମ୍ଳଜାନ (ବାୟୁ) ମିଳିଲା ନାହିଁ।</li>
+                        <li><em>ପାତ୍ର A ଏବଂ C ର ଫଳାଫଳରୁ କେଉଁ ସିଦ୍ଧାନ୍ତ ମିଳିଲା?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ଶୁଖିଲା ମଞ୍ଜି (C) ଗଜା ନହେବା ଏବଂ ଓଦା ତୁଳାରେ ଥିବା ମଞ୍ଜି (A) ଗଜା ହେବାରୁ ପ୍ରମାଣିତ ହେଲା ଯେ ଜଳ ଅଭାବରେ ସୁପ୍ତାବସ୍ଥା ଭାଙ୍ଗେ ନାହିଁ; ତେଣୁ ଗଜାହେବା ପାଇଁ ଜଳ ଅପରିହାର୍ଯ୍ୟ।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- Case 2 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">କେସ୍ ଷ୍ଟଡି ୨</span> ଗାଁ ପୋଖରୀ ନିକଟରେ ମଶା ବଂଶବୃଦ୍ଧି ଓ ସ୍ୱାସ୍ଥ୍ୟ ସଚେତନତା</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ପ୍ରସଙ୍ଗ:</strong> ଗ୍ରୀଷ୍ମ ଋତୁ ପରେ ଗାଁରେ ଏକ ଛୋଟ ଗାଡ଼ିଆରେ ଅଳିଆ ପାଣି ଜମି ରହିଲା। ଗ୍ରାମବାସୀ ଦେଖିଲେ ଯେ ପାଣି ଉପରିଭାଗରେ ଅସଂଖ୍ୟ ଛୋଟ କୀଟ ଛଟପଟ ହୋଇ ପହଁରୁଛନ୍ତି। କିଛି ଦିନ ମଧ୍ୟରେ ଗାଁରେ ମଶା ସଂଖ୍ୟା ଭୟଙ୍କର ଭାବେ ବଢ଼ିଗଲା ଏବଂ ଡେଙ୍ଗୁ ଓ ମ୍ୟାଲେରିଆ ରୋଗୀଙ୍କ ସଂଖ୍ୟା ବୃଦ୍ଧି ପାଇଲା। ସ୍ୱାସ୍ଥ୍ୟକର୍ମୀ ଆସି ଗାଡ଼ିଆ ପାଣିରେ କିରୋସିନି ତେଲ ସିଞ୍ଚନ କଲେ ଏବଂ ଗାମ୍ବୁସିଆ (Gambusia) ନାମକ ଛୋଟ ମାଛ ଛାଡ଼ିଲେ।</p>
+                    <p><strong>ପ୍ରଶ୍ନ ଓ ଉତ୍ତର:</strong></p>
+                    <ol>
+                        <li><em>ପାଣିରେ ଛଟପଟ ହେଉଥିବା କୀଟଗୁଡ଼ିକ ମଶାର ଜୀବନ ଚକ୍ରର କେଉଁ ଅବସ୍ଥା ଥିଲା?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ସେଗୁଡ଼ିକ ମଶାର ଲାର୍ଭା (Wriggler) ଏବଂ ପ୍ୟୁପା (Tumbler) ଅବସ୍ଥା ଥିଲା।</li>
+                        <li><em>ପାଣି ଉପରେ କିରୋସିନି ତେଲ ଢାଳିବା ଦ୍ୱାରା ମଶା ବଂଶ କିପରି ଧ୍ୱଂସ ହୁଏ?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ତେଲ ସ୍ତର ଯୋଗୁଁ ଲାର୍ଭାର ଶ୍ୱାସନଳୀ (Siphon) ବାୟୁରୁ ଅମ୍ଳଜାନ ପାଇପାରେ ନାହିଁ, ଫଳରେ ସେମାନେ ଶ୍ୱାସରୁଦ୍ଧ ହୋଇ ମୃତ୍ୟୁବରଣ କରନ୍ତି।</li>
+                        <li><em>ଗାମ୍ବୁସିଆ ମାଛ କିପରି ଜୈବିକ ନିୟନ୍ତ୍ରଣ (Biological Control) କରେ?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ଗାମ୍ବୁସିଆ ମାଛ ମଶାର ଲାର୍ଭା ଓ ପ୍ୟୁପାଙ୍କୁ ଖାଦ୍ୟ ରୂପେ ଗ୍ରହଣ କରି ପ୍ରାକୃତିକ ଉପାୟରେ ସେମାନଙ୍କ ସଂଖ୍ୟା ହ୍ରାସ କରେ।</li>
+                    </ol>
+                </div>
+            </details>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="section-card" id="mistakes">
+            <div class="section-header">
+                <span class="section-icon">&#128680;</span>
+                <h2>ବିଭାଗ ୬: ପରୀକ୍ଷା ହଲ୍ର ସାଧାରଣ ଭୁଲ୍ ଓ ୧୫ଟି ଦ୍ରୁତ ରିଭିଜନ୍ ପଏଣ୍ଟ</h2>
+            </div>
+
+            <div class="callout-warn">
+                <div class="callout-title">&#9888;&#65039; ପରୀକ୍ଷାରେ ଛାତ୍ରଛାତ୍ରୀ କରୁଥିବା ୫ଟି ବଡ଼ ଭୁଲ୍ (Exam Traps)</div>
+                <ol>
+                    <li><strong>ଶ୍ୱସନ ଓ ପ୍ରଶ୍ୱାସ-ନିଶ୍ୱାସକୁ ସମାନ ଭାବିବା:</strong> ଅନେକ ଭାବନ୍ତି ଉଭୟ ଏକା। ବାସ୍ତବରେ ପ୍ରଶ୍ୱାସ-ନିଶ୍ୱାସ କେବଳ ଗ୍ୟାସ ଆଦାନପ୍ରଦାନ କରେ, କିନ୍ତୁ ଶ୍ୱସନ କୋଷ ଭିତରେ ଶକ୍ତି ଉତ୍ପନ୍ନ କରେ।</li>
+                    <li><strong>ମଞ୍ଜି ଗଜାହେବା ପାଇଁ ଆଲୋକ ଆବଶ୍ୟକ ବୋଲି ଭାବିବା:</strong> ପ୍ରାଥମିକ ଗଜାହେବା ପାଇଁ କେବଳ ଜଳ, ବାୟୁ ଓ ଉଷ୍ମତା ଦରକାର। ସୂର୍ଯ୍ୟାଲୋକ ପତ୍ର ବାହାରିବା ପରେ ଆଲୋକଶ୍ଳେଷଣ ପାଇଁ ଦରକାର ହୁଏ।</li>
+                    <li><strong>କାଠ ଗଣ୍ଡିକୁ ଜୀବନ୍ତ ଲେଖିବା:</strong> କାଠ ଗଣ୍ଡି ଗଛର ଅଂଶ ଥିଲା ସତ, କିନ୍ତୁ କାଟିବା ପରେ ଏହା ନିର୍ଜୀବ।</li>
+                    <li><strong>ବେଙ୍ଗର ଲାଞ୍ଜ ଝଡ଼ିଯାଏ ବୋଲି ଲେଖିବା:</strong> ଲାଞ୍ଜ ଝଡ଼ିପଡ଼େ ନାହିଁ, ବରଂ ଶରୀର ଭିତରେ ପୁନଃଶୋଷିତ ହୁଏ।</li>
+                    <li><strong>ଭୂ-ଅନୁବର୍ତ୍ତନରେ କାଣ୍ଡ ଓ ଚେରର ଦିଗ ଓଲଟପାଲଟ କରିବା:</strong> ଚେର ହେଉଛି ଅନୁକୂଳ (ତଳକୁ) ଏବଂ କାଣ୍ଡ ହେଉଛି ପ୍ରତିକୂଳ (ଉପରକୁ)।</li>
+                </ol>
+            </div>
+
+            <h3>&#128640; ୧୫ଟି ଅଲ୍ଟ୍ରା-କ୍ଲିକ୍ ରିଭିଜନ୍ ୱାନ୍-ଲାଇନର୍</h3>
+            <ul>
+                <li>୧. ଜୀବମାନଙ୍କ ମୁଖ୍ୟ ଲକ୍ଷଣ ହେଲା: ପୋଷଣ, ଶ୍ୱସନ, ବୃଦ୍ଧି, ରେଚନ, ଉଦ୍ଦୀପନା ପ୍ରତି ପ୍ରତିକ୍ରିୟା ଏବଂ ପ୍ରଜନନ।</li>
+                <li>୨. କୋଷୀୟ ସ୍ତରରେ ଖାଦ୍ୟ ଜାରିତ ହୋଇ ଶକ୍ତି ମୁକ୍ତ ହେବାକୁ ଶ୍ୱସନ (Respiration) କୁହାଯାଏ।</li>
+                <li>୩. ଜୀବମାନଙ୍କ ବୃଦ୍ଧି ଅପ୍ରତ୍ୟାବର୍ତ୍ତୀ (Irreversible) ଅଟେ।</li>
+                <li>୪. ଶରୀରରୁ କ୍ଷତିକାରକ ଯବକ୍ଷାରଜାନ ବର୍ଜ୍ୟ ବାହାର କରିବା ପ୍ରକ୍ରିୟାକୁ ରେଚନ କୁହାଯାଏ।</li>
+                <li>୫. ବାହ୍ୟ ପରିବେଶର ପରିବର୍ତ୍ତନ ଯାହା ପ୍ରତିକ୍ରିୟା ସୃଷ୍ଟି କରେ ତାହାକୁ ଉଦ୍ଦୀପନା (Stimulus) କୁହାଯାଏ।</li>
+                <li>୬. ଲାଜକୁଳୀ ଲତାର ପତ୍ର ସ୍ପର୍ଶ ଉଦ୍ଦୀପନା ପ୍ରତି ତତକ୍ଷଣାତ୍ ପ୍ରତିକ୍ରିୟା ପ୍ରଦର୍ଶନ କରେ।</li>
+                <li>୭. ମଞ୍ଜି ଗଜାହେବା ପାଇଁ ୩ଟି ସର୍ତ୍ତ ଆବଶ୍ୟକ: ପର୍ଯ୍ୟାପ୍ତ ଜଳ, ବାୟୁ (ଅମ୍ଳଜାନ) ଏବଂ ଅନୁକୂଳ ଉଷ୍ମତା।</li>
+                <li>୮. ସୁପ୍ତାବସ୍ଥାରେ ଥିବା ଶୁଖିଲା ମଞ୍ଜି ଅତି ଧୀର ଗତିରେ ଶ୍ୱସନ କରେ।</li>
+                <li>୯. ମାଧ୍ୟାକର୍ଷଣ ବଳ ପ୍ରତି ଉଦ୍ଭିଦର ଚେର ଅନୁକୂଳ ଭୂ-ଅନୁବର୍ତ୍ତନ ଏବଂ କାଣ୍ଡ ପ୍ରତିକୂଳ ଭୂ-ଅନୁବର୍ତ୍ତନ ଦେଖାଏ।</li>
+                <li>୧୦. ଆଲୋକ ଆଡ଼କୁ କାଣ୍ଡର ବଙ୍କେଇ ବୃଦ୍ଧି ପାଇବାକୁ ଅନୁକୂଳ ଆଲୋକ-ଅନୁବର୍ତ୍ତନ (Positive Phototropism) କୁହାଯାଏ।</li>
+                <li>୧୧. ଲାର୍ଭାରୁ ପୂର୍ଣ୍ଣାଙ୍ଗ ପ୍ରାଣୀ ହେବା ମଧ୍ୟରେ ଶରୀରର ନାଟକୀୟ ରୂପ ପରିବର୍ତ୍ତନକୁ ରୂପାନ୍ତରଣ (Metamorphosis) କୁହାଯାଏ।</li>
+                <li>୧୨. ବେଙ୍ଗଫୁଲା (Tadpole) ମାଛ ପରି ଗାଲିସି ଦ୍ୱାରା ଶ୍ୱାସକ୍ରିୟା କରେ ଏବଂ ଏହା ଶାକାହାରୀ ଅଟେ।</li>
+                <li>୧୩. ପୂର୍ଣ୍ଣାଙ୍ଗ ବେଙ୍ଗ ଫୁସଫୁସ ଏବଂ ଓଦାଳିଆ ଚମଡ଼ା ଦ୍ୱାରା ଶ୍ୱାସକ୍ରିୟା କରେ।</li>
+                <li>୧୪. ମଶାର ଲାର୍ଭାକୁ ରିଗଲର (Wriggler) ଏବଂ ପ୍ୟୁପାକୁ ଟମ୍ବଲର (Tumbler) କୁହାଯାଏ।</li>
+                <li>୧୫. ଅଣ୍ଡା ଦେଉଥିବା ପ୍ରାଣୀଙ୍କୁ ଅଣ୍ଡାଜ (Oviparous) ଏବଂ ସିଧାସଳଖ ଛୁଆ ଜନ୍ମ କରୁଥିବା ପ୍ରାଣୀଙ୍କୁ ଜରାୟୁଜ (Viviparous) କୁହାଯାଏ।</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 ସୁଜିତ କ୍ଲାସେସ୍ | Class 6 Science (କୌତୂହଳ) Odia Medium Master Notes</p>
+        <p>BSE Odisha &amp; NCERT Pattern &bull; All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
+        function speakOdiaSummary() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const text = "ଅଧ୍ୟାୟ ଦଶ: ଜୀବମାନଙ୍କ ବୈଶିଷ୍ଟ୍ୟ ଅନୁସନ୍ଧାନ। ଜୀବମାନଙ୍କର ଛଅଟି ମୁଖ୍ୟ ଲକ୍ଷଣ ହେଲା: ପୋଷଣ, ଶ୍ୱସନ, ବୃଦ୍ଧି, ରେଚନ, ଉଦ୍ଦୀପନା ପ୍ରତି ପ୍ରତିକ୍ରିୟା ଏବଂ ପ୍ରଜନନ। ମଞ୍ଜି ଗଜାହେବା ପାଇଁ ଜଳ, ବାୟୁ ଏବଂ ଅନୁକୂଳ ଉଷ୍ମତା ଆବଶ୍ୟକ। ଉଦ୍ଭିଦର ଚେର ଭୂ-ଅନୁବର୍ତ୍ତନ ଏବଂ କାଣ୍ଡ ଆଲୋକ-ଅନୁବର୍ତ୍ତନ ଦର୍ଶାଏ। ବେଙ୍ଗ ଓ ମଶାଙ୍କ ଜୀବନଚକ୍ରରେ ରୂପାନ୍ତରଣ ଦେଖାଯାଏ।";
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'or-IN';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("ଆପଣଙ୍କ ବ୍ରାଉଜରରେ ସ୍ପିଚ୍ ସିନ୍ଥେସିସ୍ ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।");
+            }
+        }
+
+        function checkMCQ(elem, isCorrect, explanation) {
+            const parent = elem.parentElement;
+            const options = parent.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+            const feedback = parent.querySelector('.quiz-feedback');
+            if (isCorrect) {
+                elem.classList.add('correct');
+                feedback.innerHTML = '<span style="color: #16a34a;">&#10004; ' + explanation + '</span>';
+            } else {
+                elem.classList.add('incorrect');
+                feedback.innerHTML = '<span style="color: #ef4444;">&#10008; ' + explanation + '</span>';
+            }
+        }
+    </script>
+</body>
+</html>

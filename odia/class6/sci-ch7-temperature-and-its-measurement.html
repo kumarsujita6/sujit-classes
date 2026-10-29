@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୭: ତାପମାତ୍ରା ଓ ଏହାର ମାପ (Temperature &amp; Measurement) &mdash; କୌତୂହଳ (Curiosity) | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ଷଷ୍ଠ ଶ୍ରେଣୀ ବିଜ୍ଞାନ ଅଧ୍ୟାୟ ୭: ତାପମାତ୍ରା ଓ ଏହାର ମାପ (Curiosity - କୌତୂହଳ) ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ନୋଟ୍ସ, ଡାକ୍ତରୀ ବନାମ ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର, କିଙ୍କ୍, ଲଘୁତମ ମାପ, NCERT ସମାଧାନ ଓ ପ୍ରଶ୍ନ ବ୍ୟାଙ୍କ।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.8;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #059669, #0284c7, #f59e0b);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.75rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      color: var(--primary);
+      background-color: var(--primary-light);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #e0f2fe 0%, #fee2e2 100%);
+      padding: 3rem 1.5rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #ef4444;
+      color: white;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .hero p {
+      color: var(--text-muted);
+      max-width: 750px;
+      margin: 0 auto 1.5rem;
+      font-size: 1.05rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary { background-color: var(--primary); color: white; }
+    .btn-primary:hover { background-color: var(--primary-dark); }
+    .btn-secondary { background-color: white; color: var(--text); border: 1px solid var(--border); }
+    .btn-secondary:hover { background-color: var(--light); }
+
+    .container {
+      max-width: 950px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-card h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 0.75rem;
+    }
+
+    .topic-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #0369a1;
+      margin: 1.5rem 0 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    p, li { margin-bottom: 0.75rem; }
+    ul, ol { padding-left: 1.5rem; margin-bottom: 1rem; }
+
+    .callout {
+      border-left: 4px solid;
+      padding: 1rem 1.25rem;
+      border-radius: 0 8px 8px 0;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+    }
+    .callout-def { border-color: var(--primary); background-color: #ecfdf5; }
+    .callout-act { border-color: var(--secondary); background-color: #f0f9ff; }
+    .callout-pyq { border-color: var(--accent); background-color: #fffbeb; }
+    .callout-hack { border-color: #8b5cf6; background-color: #f5f3ff; }
+    .callout-warn { border-color: #ef4444; background-color: #fef2f2; }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .callout-def .callout-title { color: #065f46; }
+    .callout-act .callout-title { color: #0369a1; }
+    .callout-pyq .callout-title { color: #b45309; }
+    .callout-hack .callout-title { color: #6d28d9; }
+    .callout-warn .callout-title { color: #b91c1c; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+    th {
+      background-color: #f1f5f9;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    tr:nth-child(even) { background-color: #f8fafc; }
+
+    details.ans-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin: 1rem 0;
+      padding: 0.5rem;
+      transition: all 0.2s ease;
+    }
+    details.ans-box[open] {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-sm);
+    }
+    details.ans-box summary {
+      font-weight: 600;
+      color: var(--primary-dark);
+      cursor: pointer;
+      padding: 0.5rem 0.75rem;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    details.ans-box summary:hover { color: var(--primary); }
+    details.ans-box .ans-content {
+      padding: 1rem 0.75rem 0.5rem;
+      border-top: 1px dashed var(--border);
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .quiz-card {
+      background: #fdfdfe;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+    }
+    .quiz-question {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+    .quiz-options { display: grid; gap: 0.5rem; }
+    .quiz-btn {
+      text-align: left;
+      padding: 0.6rem 1rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 0.92rem;
+      cursor: pointer;
+      font-family: inherit;
+      transition: all 0.2s;
+    }
+    .quiz-btn:hover { background: #e2e8f0; }
+    .quiz-btn.correct { background: #d1fae5 !important; border-color: #10b981 !important; color: #065f46 !important; font-weight: 600; }
+    .quiz-btn.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b !important; }
+    .quiz-feedback {
+      margin-top: 0.75rem;
+      font-size: 0.9rem;
+      display: none;
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+    }
+
+    .svg-container {
+      width: 100%;
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 1rem;
+      border: 1px solid var(--border);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      background: white;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress-bar"></div>
+
+  <!-- Top Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> ସୁଜିତ୍ କ୍ଲାସେସ୍
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">ମାନଚିତ୍ର</a>
+      <a href="#sec2" class="nav-link">ସମ୍ପୂର୍ଣ୍ଣ ବିବରଣୀ</a>
+      <a href="#sec3" class="nav-link">ତଥ୍ୟ ଓ ସାରଣୀ</a>
+      <a href="#sec4" class="nav-link">NCERT ସମାଧାନ</a>
+      <a href="#sec5" class="nav-link">ପ୍ରଶ୍ନ ବ୍ୟାଙ୍କ</a>
+      <a href="#sec6" class="nav-link">ପରୀକ୍ଷା ଟିପ୍ସ</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero">
+    <span class="hero-badge"><i class="fa-solid fa-temperature-high"></i> BSE ଓଡ଼ିଶା / NCERT ଶ୍ରେଣୀ ୬ ବିଜ୍ଞାନ</span>
+    <h1>ଅଧ୍ୟାୟ ୭: ତାପମାତ୍ରା ଓ ଏହାର ମାପ<br><span style="font-size: 1.4rem; font-weight: 600; color: #0284c7;">(Temperature and Its Measurement &mdash; Curiosity / କୌତୂହଳ)</span></h1>
+    <p>ସ୍ପର୍ଶ ଅନୁଭୂତିର ଅବିଶ୍ୱସନୀୟତା, ତାପମାତ୍ରାର ସଂଜ୍ଞା, ସେଲସିୟସ୍ ଓ ଫାରେନହାଇଟ୍ ସ୍କେଲ୍, ଡାକ୍ତରୀ ବନାମ ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର, କିଙ୍କ୍ ର ଗୁରୁତ୍ୱ ଏବଂ ଲଘୁତମ ମାପ।</p>
+    <div class="hero-actions">
+      <button class="btn btn-primary" onclick="speakSummary()"><i class="fa-solid fa-volume-high"></i> ଓଡ଼ିଆ ଅଡିଓ ସାରାଂଶ ଶୁଣନ୍ତୁ</button>
+      <a href="#sec4" class="btn btn-secondary"><i class="fa-solid fa-book-open"></i> NCERT ପ୍ରଶ୍ନୋତ୍ତରକୁ ଯାଆନ୍ତୁ</a>
+    </div>
+  </header>
+
+  <div class="container">
+
+    <!-- SECTION 1: VISUAL MIND MAP & BLUEPRINT -->
+    <section id="sec1" class="section-card">
+      <h2><i class="fa-solid fa-sitemap"></i> ବିଭାଗ ୧: ସଂକଳ୍ପନା ମାନଚିତ୍ର ଓ ରୂପରେଖ (Visual Blueprint)</h2>
+      <p>ତାପମାତ୍ରା ସ୍କେଲ୍ ଏବଂ ଡାକ୍ତରୀ ବନାମ ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର ମଧ୍ୟରେ ଥିବା ଗଠନଗତ ପାର୍ଥକ୍ୟ ବୁଝିବା ପାଇଁ ନିମ୍ନ ଚିତ୍ର ଦୁଇଟି ଅନୁଧ୍ୟାନ କରନ୍ତୁ:</p>
+
+      <!-- SVG 1: Temperature Scales & Benchmarks -->
+      <div class="svg-container">
+        <svg viewBox="0 0 850 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#f8fafc; border-radius:8px;">
+          <rect x="20" y="15" width="810" height="45" rx="8" fill="#1e293b"/>
+          <text x="425" y="44" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="bold" font-family="'Noto Sans Oriya', sans-serif">ତାପମାତ୍ରା ସ୍କେଲ୍ର ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ମାନଦଣ୍ଡ (Temperature Benchmarks)</text>
+
+          <!-- Freezing Point -->
+          <rect x="50" y="80" width="220" height="200" rx="8" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+          <rect x="50" y="80" width="220" height="35" rx="8" fill="#e0f2fe"/>
+          <text x="160" y="103" text-anchor="middle" fill="#0369a1" font-weight="bold" font-size="14" font-family="'Noto Sans Oriya', sans-serif">ଜଳର ହିମାଙ୍କ (Freezing)</text>
+          <text x="160" y="150" text-anchor="middle" fill="#0284c7" font-weight="bold" font-size="28">୦ °C</text>
+          <text x="160" y="180" text-anchor="middle" fill="#64748b" font-weight="bold" font-size="16">୩୨ °F</text>
+          <text x="160" y="220" text-anchor="middle" fill="#1e293b" font-size="12" font-family="'Noto Sans Oriya', sans-serif">ଏହି ତାପମାତ୍ରାରେ</text>
+          <text x="160" y="240" text-anchor="middle" fill="#0369a1" font-weight="bold" font-size="12" font-family="'Noto Sans Oriya', sans-serif">ପାଣି ବରଫ ପାଲଟେ।</text>
+
+          <!-- Normal Body Temp -->
+          <rect x="315" y="80" width="220" height="200" rx="8" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+          <rect x="315" y="80" width="220" height="35" rx="8" fill="#ecfdf5"/>
+          <text x="425" y="103" text-anchor="middle" fill="#065f46" font-weight="bold" font-size="14" font-family="'Noto Sans Oriya', sans-serif">ମାନବ ଶରୀର ସ୍ୱାଭାବିକ</text>
+          <text x="425" y="150" text-anchor="middle" fill="#059669" font-weight="bold" font-size="28">୩୭ °C &#9733;</text>
+          <text x="425" y="180" text-anchor="middle" fill="#64748b" font-weight="bold" font-size="16">୯୮.୬ °F</text>
+          <text x="425" y="220" text-anchor="middle" fill="#1e293b" font-size="12" font-family="'Noto Sans Oriya', sans-serif">ସୁସ୍ଥ ବ୍ୟକ୍ତିର</text>
+          <text x="425" y="240" text-anchor="middle" fill="#059669" font-weight="bold" font-size="12" font-family="'Noto Sans Oriya', sans-serif">ସ୍ୱାଭାବିକ ତାପମାତ୍ରା।</text>
+
+          <!-- Boiling Point -->
+          <rect x="580" y="80" width="220" height="200" rx="8" fill="#ffffff" stroke="#ef4444" stroke-width="2"/>
+          <rect x="580" y="80" width="220" height="35" rx="8" fill="#fee2e2"/>
+          <text x="690" y="103" text-anchor="middle" fill="#b91c1c" font-weight="bold" font-size="14" font-family="'Noto Sans Oriya', sans-serif">ଜଳର ସ୍ଫୁଟନାଙ୍କ (Boiling)</text>
+          <text x="690" y="150" text-anchor="middle" fill="#dc2626" font-weight="bold" font-size="28">୧୦୦ °C</text>
+          <text x="690" y="180" text-anchor="middle" fill="#64748b" font-weight="bold" font-size="16">୨୧୨ °F</text>
+          <text x="690" y="220" text-anchor="middle" fill="#1e293b" font-size="12" font-family="'Noto Sans Oriya', sans-serif">ଏହି ତାପମାତ୍ରାରେ</text>
+          <text x="690" y="240" text-anchor="middle" fill="#b91c1c" font-weight="bold" font-size="12" font-family="'Noto Sans Oriya', sans-serif">ପାଣି ଫୁଟି ବାଷ୍ପ ହୁଏ।</text>
+        </svg>
+      </div>
+
+      <!-- SVG 2: Clinical vs Laboratory Thermometer Structure -->
+      <div class="svg-container">
+        <svg viewBox="0 0 850 400" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:8px;">
+          <rect x="20" y="15" width="810" height="45" rx="8" fill="#0284c7"/>
+          <text x="425" y="44" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="bold" font-family="'Noto Sans Oriya', sans-serif">ଡାକ୍ତରୀ ବନାମ ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର ଗଠନ (Clinical vs Laboratory)</text>
+
+          <!-- Clinical Thermometer Diagram -->
+          <rect x="40" y="80" width="770" height="130" rx="8" fill="#ffffff" stroke="#ef4444" stroke-width="2"/>
+          <text x="60" y="105" fill="#b91c1c" font-weight="bold" font-size="15" font-family="'Noto Sans Oriya', sans-serif">A. ଡାକ୍ତରୀ ଥର୍ମୋମିଟର (Clinical Thermometer) &mdash; ପରିସର: ୩୫ °C ରୁ ୪୨ °C</text>
+          
+          <ellipse cx="100" cy="150" rx="20" ry="14" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
+          <text x="100" y="185" text-anchor="middle" fill="#475569" font-size="11">ପାରଦ ବଲ୍ବ</text>
+
+          <path d="M 120 150 Q 130 140 140 150 Q 150 160 160 150 L 760 150" fill="none" stroke="#ef4444" stroke-width="5"/>
+          <text x="145" y="125" text-anchor="middle" fill="#dc2626" font-weight="bold" font-size="12" font-family="'Noto Sans Oriya', sans-serif">&#9888;&#65039; କିଙ୍କ୍ (Kink): ପାରଦ ଖସିବା ରୋକେ!</text>
+
+          <circle cx="350" cy="150" r="6" fill="#16a34a"/>
+          <text x="350" y="185" text-anchor="middle" fill="#16a34a" font-weight="bold" font-size="13">୩୭ °C &#9733;</text>
+          <text x="350" y="200" text-anchor="middle" fill="#16a34a" font-size="10">(ସ୍ୱାଭାବିକ ଶରୀର ତାପମାତ୍ରା)</text>
+
+          <text x="200" y="155" text-anchor="middle" fill="#1e293b" font-size="12">35</text>
+          <text x="500" y="155" text-anchor="middle" fill="#1e293b" font-size="12">39</text>
+          <text x="740" y="155" text-anchor="middle" fill="#1e293b" font-size="12">42 °C</text>
+
+          <!-- Laboratory Thermometer Diagram -->
+          <rect x="40" y="230" width="770" height="130" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+          <text x="60" y="255" fill="#0369a1" font-weight="bold" font-size="15" font-family="'Noto Sans Oriya', sans-serif">B. ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର (Laboratory Thermometer) &mdash; ପରିସର: &minus;୧୦ °C ରୁ ୧୧୦ °C</text>
+          
+          <ellipse cx="100" cy="300" rx="20" ry="14" fill="#94a3b8" stroke="#475569" stroke-width="2"/>
+          <text x="100" y="335" text-anchor="middle" fill="#475569" font-size="11">ପାରଦ ବଲ୍ବ</text>
+
+          <line x1="120" y1="300" x2="760" y2="300" stroke="#0284c7" stroke-width="5"/>
+          <text x="350" y="280" text-anchor="middle" fill="#0369a1" font-weight="bold" font-size="12" font-family="'Noto Sans Oriya', sans-serif">ସିଧା ନଳୀ &mdash; କୌଣସି କିଙ୍କ୍ ନଥାଏ (No Kink)</text>
+
+          <text x="140" y="305" text-anchor="middle" fill="#1e293b" font-size="11">&minus;10</text>
+          <text x="240" y="305" text-anchor="middle" fill="#1e293b" font-size="11">0</text>
+          <text x="440" y="305" text-anchor="middle" fill="#1e293b" font-size="11">50</text>
+          <text x="740" y="305" text-anchor="middle" fill="#1e293b" font-size="11">110 °C</text>
+          <text x="425" y="345" text-anchor="middle" fill="#b91c1c" font-size="11" font-family="'Noto Sans Oriya', sans-serif">&#9888;&#65039; ତରଳ ପଦାର୍ଥ ଭିତରେ ବୁଡ଼ି ରହିଥିବା ଅବସ୍ଥାରେ ହିଁ ପାଠ୍ୟାଙ୍କ ପଢ଼ିବାକୁ ହୁଏ!</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EXHAUSTIVE CONCEPT EXPLANATIONS -->
+    <section id="sec2" class="section-card">
+      <h2><i class="fa-solid fa-temperature-arrow-up"></i> ବିଭାଗ ୨: ପୁଙ୍ଖାନୁପୁଙ୍ଖ ସଂକଳ୍ପନା ବିବରଣୀ (Core Thermodynamics)</h2>
+
+      <h3 class="topic-title"><i class="fa-solid fa-hand-dots"></i> ୧. ସ୍ପର୍ଶ ଅନୁଭୂତି କାହିଁକି ଅବିଶ୍ୱସନୀୟ? (Fallacy of Touch)</h3>
+      <p>ତିନୋଟି ପାତ୍ର ନିଅନ୍ତୁ: ପାତ୍ର A (ବରଫ ଥଣ୍ଡା ପାଣି), ପାତ୍ର B (ଗରମ ଉଷୁମ ପାଣି), ଏବଂ ପାତ୍ର C (କୋଠରୀ ତାପମାତ୍ରାର ସାଧାରଣ ପାଣି)।</p>
+      <ul>
+        <li>ବାମ ହାତକୁ ପାତ୍ର A ରେ ଏବଂ ଡାହାଣ ହାତକୁ ପାତ୍ର B ରେ ୨ ମିନିଟ୍ ବୁଡ଼ାଇ ରଖନ୍ତୁ।</li>
+        <li>ତା’ପରେ ଉଭୟ ହାତକୁ ଏକାସଙ୍ଗରେ ପାତ୍ର C (ସାଧାରଣ ପାଣି) ରେ ବୁଡ଼ାନ୍ତୁ।</li>
+        <li><strong>ଅନୁଭୂତି:</strong> ବାମ ହାତକୁ ସେହି ସାଧାରଣ ପାଣିଟି <em>ଉଷୁମ (ଗରମ)</em> ଲାଗିବ, କିନ୍ତୁ ଡାହାଣ ହାତକୁ ସେହି ଏକା ପାଣିଟି <em>ଥଣ୍ଡା</em> ଲାଗିବ!</li>
+      </ul>
+      <p><strong>ବୈଜ୍ଞାନିକ ସିଦ୍ଧାନ୍ତ:</strong> ଆମ ସ୍ପର୍ଶ ଇନ୍ଦ୍ରିୟ ତାପମାତ୍ରାର ଏକ ଆପେକ୍ଷିକ ଅନୁଭୂତି ଦିଏ, ସଠିକ୍ ପରିମାଣ ନୁହେଁ। ତେଣୁ ତାପମାତ୍ରା ମାପ ପାଇଁ ସ୍ପର୍ଶ ଉପରେ କଦାପି ନିର୍ଭର କରାଯାଇପାରିବ ନାହିଁ।</p>
+
+      <h3 class="topic-title"><i class="fa-solid fa-temperature-half"></i> ୨. ତାପମାତ୍ରା କ’ଣ? (What is Temperature?)</h3>
+      <p>କୌଣସି ବସ୍ତୁ କେତେ ଗରମ ବା କେତେ ଥଣ୍ଡା ତାର ନିର୍ଭୁଲ ମାପକୁ <strong>ତାପମାତ୍ରା (Temperature)</strong> କୁହାଯାଏ। ଏହାକୁ ମାପିବା ପାଇଁ ବ୍ୟବହୃତ ଯନ୍ତ୍ରକୁ <strong>ଥର୍ମୋମିଟର (Thermometer)</strong> କୁହାଯାଏ।</p>
+      <ul>
+        <li><strong>SI ଏକକ:</strong> କେଲଭିନ୍ (Kelvin &mdash; K)।</li>
+        <li><strong>ବ୍ୟବହାର୍ଯ୍ୟ ସ୍କେଲ୍:</strong> ଡିଗ୍ରୀ ସେଲସିୟସ୍ (°C) ଏବଂ ଡିଗ୍ରୀ ଫାରେନହାଇଟ୍ (°F)।</li>
+        <li><strong>ସୁସ୍ଥ ମଣିଷ ଶରୀରର ସ୍ୱାଭାବିକ ତାପମାତ୍ରା:</strong> <strong>୩୭ °C ବା ୯୮.୬ °F</strong>।</li>
+      </ul>
+
+      <h3 class="topic-title"><i class="fa-solid fa-stethoscope"></i> ୩. ଡାକ୍ତରୀ ଥର୍ମୋମିଟର (Clinical Thermometer)</h3>
+      <p>ମାନବ ଶରୀରର ତାପମାତ୍ରା (ଜ୍ୱର) ମାପିବା ପାଇଁ ଏହି ଥର୍ମୋମିଟର ତିଆରି ହୋଇଛି:</p>
+      <ul>
+        <li><strong>ପରିସର (Range):</strong> <strong>୩୫ °C ରୁ ୪୨ °C (ବା ୯୪ °F ରୁ ୧୦୮ °F)</strong>। କାରଣ ଜୀବନ୍ତ ମଣିଷ ଶରୀରର ତାପମାତ୍ରା କେବେହେଲେ ୩୫ °C ରୁ କମେ ନାହିଁ କିମ୍ବା ୪୨ °C ରୁ ବଢ଼େ ନାହିଁ।</li>
+        <li><strong>କିଙ୍କ୍ (Kink) ର ଚମତ୍କାରୀ କାର୍ଯ୍ୟ:</strong> ବଲ୍ବ ଠିକ୍ ଉପରେ ଏକ ବଙ୍କା ସଂକୀର୍ଣ୍ଣ ଅଂଶ ଥାଏ ଯାହାକୁ <em>କିଙ୍କ୍</em> କୁହାଯାଏ। ରୋଗୀର ଜିଭ ତଳୁ ଥର୍ମୋମିଟର ବାହାରକୁ ଆଣିବା କ୍ଷଣି ବାହାର ଥଣ୍ଡା ବାୟୁ ସଂସ୍ପର୍ଶରେ ପାରଦ ସ୍ତମ୍ଭ ଯେପରି ଆପେ ଆପେ ବଲ୍ବକୁ ଖସି ନଯାଏ, ସେଥିପାଇଁ କିଙ୍କ୍ ତାହାକୁ ଅଟକାଇ ରଖେ। ଏହାଦ୍ୱାରା ଡାକ୍ତର ସହଜରେ ଓ ସଠିକ୍ ଭାବେ ପାଠ୍ୟାଙ୍କ ପଢ଼ିପାରନ୍ତି।</li>
+        <li><strong>ବ୍ୟବହାର ପୂର୍ବରୁ ଝାଙ୍କିବା (Jerk):</strong> ପରବର୍ତ୍ତୀ ମାପ ପୂର୍ବରୁ ଥର୍ମୋମିଟରକୁ ହାତରେ ୨-୩ ଥର ଝାଙ୍କି ଦିଆଯାଏ ଯାହାଫଳରେ ପାରଦ କିଙ୍କ୍ ଦେଇ ୩୫ °C ତଳକୁ ଖସିଆସେ।</li>
+      </ul>
+
+      <h3 class="topic-title"><i class="fa-solid fa-vial"></i> ୪. ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର (Laboratory Thermometer)</h3>
+      <p>ବିଜ୍ଞାନାଗାରରେ ରାସାୟନିକ ପଦାର୍ଥ, ଉତ୍ତପ୍ତ ଜଳ ଇତ୍ୟାଦିର ତାପମାତ୍ରା ମାପିବା ପାଇଁ ଏହା ବ୍ୟବହୃତ ହୁଏ:</p>
+      <ul>
+        <li><strong>ପରିସର:</strong> <strong>&minus;୧୦ °C ରୁ ୧୧୦ °C</strong>।</li>
+        <li><strong>କିଙ୍କ୍ ଅନୁପସ୍ଥିତ:</strong> ଏଥିରେ କୌଣସି କିଙ୍କ୍ ନଥାଏ। ତେଣୁ ଏହାକୁ ତରଳ ପଦାର୍ଥରୁ ବାହାରକୁ ଆଣିବା ମାତ୍ରେ ପାରଦ ତୁରନ୍ତ ତଳକୁ ଖସିଯାଏ। ଏଣୁ ଏହାର ପାଠ୍ୟାଙ୍କ ସର୍ବଦା <em>ତରଳ ପଦାର୍ଥ ଭିତରେ ବୁଡ଼ି ରହିଥିବା ଅବସ୍ଥାରେ ହିଁ</em> ପଢ଼ିବାକୁ ହୁଏ।</li>
+        <li><strong>ଡାକ୍ତରୀ କାର୍ଯ୍ୟରେ କାହିଁକି ବ୍ୟବହାର କରାଯାଏ ନାହିଁ?</strong> କାରଣ ଏଥିରେ କିଙ୍କ୍ ନଥିବାରୁ ପାଟିରୁ ବାହାର କରିବା ମାତ୍ରେ ପାରଦ ସ୍ତମ୍ଭ ଖସିଯିବ ଏବଂ ଶରୀରର ସଠିକ୍ ତାପମାତ୍ରା ଜଣାପଡ଼ିବ ନାହିଁ।</li>
+      </ul>
+
+      <h3 class="topic-title"><i class="fa-solid fa-calculator"></i> ୫. ଥର୍ମୋମିଟରର ଲଘୁତମ ମାପ (Least Count Calculation)</h3>
+      <p>ସ୍କେଲ୍ରେ ସର୍ବନିମ୍ନ କେତେ ତାପମାତ୍ରା ସଠିକ୍ ଭାବେ ମପାଯାଇପାରିବ ତାହାକୁ <strong>ଲଘୁତମ ମାପ (Least Count)</strong> କୁହାଯାଏ:</p>
+      <div class="callout callout-def">
+        <p><strong>ସୂତ୍ର:</strong> ଲଘୁତମ ମାପ = ଦୁଇଟି ମୁଖ୍ୟ ଦାଗ ମଧ୍ୟରେ ତାପମାତ୍ରା ପାର୍ଥକ୍ୟ &divide; ସେମାନଙ୍କ ମଧ୍ୟରେ ଥିବା କ୍ଷୁଦ୍ର ବିଭାଗ ସଂଖ୍ୟା<br>
+        <em>ଉଦାହରଣ:</em> ଯଦି ୦ °C ଏବଂ ୧୦ °C ମଧ୍ୟରେ ୧୦ଟି ଘର ଥାଏ, ତେବେ ଲଘୁତମ ମାପ = (୧୦ &minus; ୦) / ୧୦ = <strong>୧ °C</strong>।<br>
+        ଯଦି ୧ °C ମଧ୍ୟରେ ୫ଟି ଛୋଟ ଘର ଥାଏ, ତେବେ ଲଘୁତମ ମାପ = ୧ / ୫ = <strong>୦.୨ °C</strong>।</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3: RAPID REVISION FACT BANK -->
+    <section id="sec3" class="section-card">
+      <h2><i class="fa-solid fa-table-list"></i> ବିଭାଗ ୩: ତ୍ୱରିତ ପୁନରାବୃତ୍ତି ସାରଣୀ ଓ ବୈଜ୍ଞାନିକ ଶବ୍ଦାବଳୀ</h2>
+
+      <h3 style="color: var(--primary-dark); margin: 1.5rem 0 1rem;">୧୦ଟି ସୁବର୍ଣ୍ଣ ବୈଜ୍ଞାନିକ ତଥ୍ୟ (Golden Science Facts):</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ବିଷୟ (Topic)</th>
+            <th>ବୈଜ୍ଞାନିକ ତଥ୍ୟ ଓ ମୂଲ୍ୟ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ତାପମାତ୍ରା</strong></td>
+            <td>ବସ୍ତୁର ଉତ୍ତପ୍ତତା ବା ଶୀତଳତାର ମାତ୍ରା (Degree of hotness/coldness)।</td>
+          </tr>
+          <tr>
+            <td><strong>ମାନବ ଶରୀରର ସ୍ୱାଭାବିକ ତାପମାତ୍ରା</strong></td>
+            <td><strong>୩୭ °C (ବା ୯୮.୬ °F)</strong>।</td>
+          </tr>
+          <tr>
+            <td><strong>ଡାକ୍ତରୀ ଥର୍ମୋମିଟର ପରିସର</strong></td>
+            <td><strong>୩୫ °C ରୁ ୪୨ °C</strong> (ବା ୯୪ °F ରୁ ୧୦୮ °F)।</td>
+          </tr>
+          <tr>
+            <td><strong>ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର ପରିସର</strong></td>
+            <td><strong>&minus;୧୦ °C ରୁ ୧୧୦ °C</strong>।</td>
+          </tr>
+          <tr>
+            <td><strong>କିଙ୍କ୍ (Kink)</strong></td>
+            <td>କେବଳ ଡାକ୍ତରୀ ଥର୍ମୋମିଟରରେ ଥାଏ; ପାରଦ ଖସିବାକୁ ଅଟକାଏ।</td>
+          </tr>
+          <tr>
+            <td><strong>ପାରଦ (Mercury)</strong></td>
+            <td>ଥର୍ମୋମିଟରରେ ବ୍ୟବହୃତ ତରଳ ଧାତୁ (ବିଷାକ୍ତ)।</td>
+          </tr>
+          <tr>
+            <td><strong>ଡିଜିଟାଲ୍ ଥର୍ମୋମିଟର</strong></td>
+            <td>ପାରଦମୁକ୍ତ ସୁରକ୍ଷିତ ଇଲେକ୍ଟ୍ରୋନିକ୍ ଥର୍ମୋମିଟର।</td>
+          </tr>
+          <tr>
+            <td><strong>ଜଳର ହିମାଙ୍କ (Freezing Point)</strong></td>
+            <td>୦ °C (ବା ୩୨ °F)।</td>
+          </tr>
+          <tr>
+            <td><strong>ଜଳର ସ୍ଫୁଟନାଙ୍କ (Boiling Point)</strong></td>
+            <td>୧୦୦ °C (ବା ୨୧୨ °F)।</td>
+          </tr>
+          <tr>
+            <td><strong>ସର୍ବୋଚ୍ଚ-ସର୍ବନିମ୍ନ ଥର୍ମୋମିଟର</strong></td>
+            <td>ଦିନର ସର୍ବାଧିକ ଓ ସର୍ବନିମ୍ନ ପାଣିପାଗ ତାପମାତ୍ରା ମାପିବା ପାଇଁ ବ୍ୟବହୃତ।</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4: 100% COMPLETE NCERT SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <h2><i class="fa-solid fa-clipboard-check"></i> ବିଭାଗ ୪: ସମ୍ପୂର୍ଣ୍ଣ NCERT ପାଠ୍ୟପୁସ୍ତକ ପ୍ରଶ୍ନୋତ୍ତର (NCERT Solutions)</h2>
+
+      <!-- Q1 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>ପ୍ରଶ୍ନ ୧ (ପୃଷ୍ଠା ୧୩୦):</strong> ସୁସ୍ଥ ମାନବ ଶରୀରର ସ୍ୱାଭାବିକ ତାପମାତ୍ରା ପ୍ରାୟ କେତେ? (A) 35 °C, (B) 37 °C, (C) 42 °C, (D) 98.6 °C।</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ସମାଧାନ:</strong></p>
+          <p>ସଠିକ୍ ଉତ୍ତର ହେଉଛି <strong>(B) 37 °C</strong>।<br>
+          <em>(ଫାରେନହାଇଟ୍ ସ୍କେଲ୍ରେ ଏହା ହେଉଛି 98.6 °F। ବିକଳ୍ପ D ରେ 98.6 °C ଲେଖାଅଛି ଯାହା ଫୁଟନ୍ତା ପାଣି ସହ ସମାନ, ତେଣୁ ସେଲସିୟସ୍ରେ 37 °C ହିଁ ସଠିକ୍)।</em></p>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>ପ୍ରଶ୍ନ ୨ (ପୃଷ୍ଠା ୧୩୦):</strong> ୩୭ ଡିଗ୍ରୀ ସେଲସିୟସ୍ (37 °C) ତାପମାତ୍ରା ଫାରେନହାଇଟ୍ ସ୍କେଲ୍ରେ କେତେ ସହିତ ସମାନ?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ସମାଧାନ:</strong></p>
+          <p>୩୭ °C ତାପମାତ୍ରା ଫାରେନହାଇଟ୍ ସ୍କେଲ୍ରେ <strong>୯୮.୬ °F (98.6 °F)</strong> ସହିତ ସମାନ ଅଟେ।</p>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>ପ୍ରଶ୍ନ ୩ (ପୃଷ୍ଠା ୧୩୦):</strong> ଶୂନ୍ୟସ୍ଥାନ ପୂରଣ କର: (i) ବସ୍ତୁର ଉତ୍ତପ୍ତତାର ମାତ୍ରାକୁ ______ କୁହାଯାଏ। (ii) ଡାକ୍ତରୀ ଥର୍ମୋମିଟର ପରିସର ______ ରୁ ______ ଅଟେ। (iii) ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର ପରିସର ସାଧାରଣତଃ ______ ରୁ ______ ଥାଏ।</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ସମାଧାନ:</strong></p>
+          <p>(i) ବସ୍ତୁର ଉତ୍ତପ୍ତତାର ମାତ୍ରାକୁ <strong>ତାପମାତ୍ରା (Temperature)</strong> କୁହାଯାଏ।<br>
+          (ii) ଡାକ୍ତରୀ ଥର୍ମୋମିଟର ପରିସର <strong>୩୫ °C ରୁ ୪୨ °C</strong> ଅଟେ।<br>
+          (iii) ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର ପରିସର ସାଧାରଣତଃ <strong>&minus;୧୦ °C ରୁ ୧୧୦ °C</strong> ଥାଏ।</p>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>ପ୍ରଶ୍ନ ୪ (ପୃଷ୍ଠା ୧୩୧):</strong> ମାନବ ଶରୀରର ତାପମାତ୍ରା ମାପିବା ପାଇଁ ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର କାହିଁକି ବ୍ୟବହାର କରାଯାଏ ନାହିଁ?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ସମାଧାନ:</strong></p>
+          <p>ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟରରେ କୌଣସି <strong>କିଙ୍କ୍ (Kink / ସଂକୋଚନ) ନଥାଏ</strong>। ଯେତେବେଳେ ଏହାକୁ ରୋଗୀର ପାଟିରୁ ବାହାର କରାଯାଏ, ବାହାର କୋଠରୀ ତାପମାତ୍ରା ସଂସ୍ପର୍ଶରେ ଆସିବା ମାତ୍ରେ ପାରଦ ସ୍ତମ୍ଭ ତୁରନ୍ତ ତଳକୁ ଖସିଯାଏ। ଫଳରେ ରୋଗୀର ପ୍ରକୃତ ଶରୀର ତାପମାତ୍ରା ଜାଣିବା ଅସମ୍ଭବ ହୋଇପଡ଼େ।</p>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>ପ୍ରଶ୍ନ ୫ (ପୃଷ୍ଠା ୧୩୧):</strong> ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟରରେ ଜଳର ତାପମାତ୍ରା ମାପିବା ସମୟରେ ୪ ଜଣ ଛାତ୍ରଙ୍କ ମଧ୍ୟରୁ କିଏ ସଠିକ୍ ନିୟମ ପାଳନ କଲା?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ସମାଧାନ:</strong></p>
+          <p>ସେହି ଛାତ୍ର ହିଁ ସଠିକ୍ ଯିଏ:<br>
+          ୧. ଥର୍ମୋମିଟରର ବଲ୍ବକୁ ଜଳ ଭିତରେ ସମ୍ପୂର୍ଣ୍ଣ ବୁଡ଼ାଇ ରଖିଛି,<br>
+          ୨. ବଲ୍ବଟି ବିକରର ତଳ କିମ୍ବା କାନ୍ଥକୁ ସ୍ପର୍ଶ କରି ନାହିଁ,<br>
+          ୩. ଥର୍ମୋମିଟରକୁ ସିଧା ଭୂଲମ୍ବ ଭାବେ ଧରିଛି, ଏବଂ<br>
+          ୪. <strong>ଥର୍ମୋମିଟର ପାଣି ଭିତରେ ବୁଡ଼ି ରହିଥିବା ଅବସ୍ଥାରେ ହିଁ</strong> ଆଖିକୁ ପାରଦ ସ୍ତମ୍ଭ ସହିତ ସମାନ୍ତରାଳ ରଖି ପାଠ୍ୟାଙ୍କ ପଢ଼ିଛି।</p>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>ପ୍ରଶ୍ନ ୬ (ପୃଷ୍ଠା ୧୩୧):</strong> ଗୋଟିଏ ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟରରେ ୦ °C ଏବଂ ୧୦୦ °C ମଧ୍ୟରେ ୫୦ଟି ସମାନ ଭାଗ ଅଛି। ଏହାର ଲଘୁତମ ମାପ କେତେ? ଏଥିରେ ଗୋଟିଏ ଛୋଟ ଘର କେତେ ତାପମାତ୍ରା ଦର୍ଶାଏ?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ସମାଧାନ:</strong></p>
+          <p>ଦିଆଯାଇଛି:<br>
+          &bull; ମୋଟ ତାପମାତ୍ରା ବ୍ୟବଧାନ = ୧୦୦ °C &minus; ୦ °C = ୧୦୦ °C<br>
+          &bull; ମୋଟ ବିଭାଗ ସଂଖ୍ୟା = ୫୦<br>
+          &bull; ଲଘୁତମ ମାପ (Least Count) = ୧୦୦ / ୫୦ = <strong>୨ °C</strong>।<br>
+          <em>ତେଣୁ ସେହି ଥର୍ମୋମିଟରର ଗୋଟିଏ ଛୋଟ ଘର ୨ ଡିଗ୍ରୀ ସେଲସିୟସ୍ (2 °C) ତାପମାତ୍ରା ଦର୍ଶାଏ।</em></p>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>ପ୍ରଶ୍ନ ୭ (ପୃଷ୍ଠା ୧୩୨):</strong> ଡାକ୍ତରୀ ଥର୍ମୋମିଟରରେ 'କିଙ୍କ୍' (Kink) ର ମୁଖ୍ୟ କାର୍ଯ୍ୟ କ’ଣ? ଏହା ନଥିଲେ କି ଅସୁବିଧା ହୁଅନ୍ତା?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ସମାଧାନ:</strong></p>
+          <p>୧. <strong>ମୁଖ୍ୟ କାର୍ଯ୍ୟ:</strong> କିଙ୍କ୍ ହେଉଛି ବଲ୍ବ ନିକଟରେ ଥିବା ଏକ ବଙ୍କା ସଂକୀର୍ଣ୍ଣ ନଳୀ। ରୋଗୀର ଶରୀରରୁ ଥର୍ମୋମିଟର ବାହାର କରିବା ପରେ ଏହା ପାରଦ ସ୍ତମ୍ଭକୁ ଆପେ ଆପେ ତଳକୁ ଖସିଯିବାକୁ ଦିଏ ନାହିଁ।<br>
+          ୨. <strong>ଅସୁବିଧା:</strong> ଯଦି କିଙ୍କ୍ ନଥାନ୍ତା, ତେବେ ପାଟିରୁ କାଢ଼ିବା କ୍ଷଣି ପାରଦ ତୁରନ୍ତ ବଲ୍ବ ଭିତରକୁ ଖସିଆସନ୍ତା ଏବଂ ଡାକ୍ତର ରୋଗୀର ଜ୍ୱର କେତେ ଡିଗ୍ରୀ ଥିଲା ତାହା ଜାଣିପାରନ୍ତେ ନାହିଁ।</p>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>ପ୍ରଶ୍ନ ୮ (ପୃଷ୍ଠା ୧୩୨):</strong> ଆଜିକାଲି ପାରଦ ଥର୍ମୋମିଟର ବଦଳରେ ଡିଜିଟାଲ୍ ଥର୍ମୋମିଟର ବ୍ୟବହାରକୁ କାହିଁକି ପ୍ରାଥମିକତା ଦିଆଯାଉଛି?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ସମାଧାନ:</strong></p>
+          <p>୧. <strong>ପାରଦର ବିଷାକ୍ତତା:</strong> ପାରଦ (Mercury) ଏକ ଅତ୍ୟନ୍ତ ବିଷାକ୍ତ ଧାତୁ। କାଚ ଥର୍ମୋମିଟର ଭାଙ୍ଗିଗଲେ ପାରଦ ବାହାରି ପରିବେଶକୁ ବିଷାକ୍ତ କରେ ଏବଂ ପିଲାମାନଙ୍କ ପେଟକୁ ଗଲେ ଜୀବନ ପ୍ରତି ବିପଦ ସୃଷ୍ଟି ହୁଏ। ଏହାର ନିରାପଦ ନିଷ୍କାସନ ଅତ୍ୟନ୍ତ କଷ୍ଟକର।<br>
+          ୨. <strong>ସହଜ ପାଠ୍ୟାଙ୍କ:</strong> ଡିଜିଟାଲ୍ ଥର୍ମୋମିଟରରେ ପାରଦ ନଥାଏ। ଏଥିରେ ଏକ LCD ସ୍କ୍ରିନ୍ରେ ସିଧାସଳଖ ସଂଖ୍ୟା ଆକାରରେ ତାପମାତ୍ରା ଦେଖାଯାଏ ଏବଂ ମାପ ଶେଷ ହେଲେ ବିପ୍ (Beep) ଶବ୍ଦ ହୁଏ। ଏହା ସମ୍ପୂର୍ଣ୍ଣ ସୁରକ୍ଷିତ ଓ ବ୍ୟବହାର ଉପଯୋଗୀ।</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: COMPETENCY QUESTION BANK -->
+    <section id="sec5" class="section-card">
+      <h2><i class="fa-solid fa-bullseye"></i> ବିଭାଗ ୫: ପରୀକ୍ଷା ଉପଯୋଗୀ ଦକ୍ଷତା ପ୍ରଶ୍ନ ବ୍ୟାଙ୍କ (CBSE/BSE Competency Bank)</h2>
+
+      <!-- 5 MCQs -->
+      <h3 style="color: var(--primary-dark); margin: 1.5rem 0 1rem;">ଇଣ୍ଟରାକ୍ଟିଭ୍ ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନୋତ୍ତର (5 High-Yield MCQs):</h3>
+
+      <div class="quiz-card" id="q1">
+        <div class="quiz-question">୧. ଡାକ୍ତରୀ ଥର୍ମୋମିଟରରେ କେବଳ ୩୫ °C ରୁ ୪୨ °C ପର୍ଯ୍ୟନ୍ତ ଦାଗ ଥାଏ କାହିଁକି?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q1', 'ଭୁଲ! କାଚ ନଳୀ ଲମ୍ବା କରାଯାଇପାରନ୍ତା।')">A) କାଚ ନଳୀର ଲମ୍ବ କମ୍ ଥିବାରୁ</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, true, 'q1', 'ସଠିକ୍! ଜୀବନ୍ତ ମାନବ ଶରୀରର ତାପମାତ୍ରା କେବେହେଲେ ୩୫ °C ରୁ କମେ ନାହିଁ ବା ୪୨ °C ରୁ ଅଧିକ ହୁଏ ନାହିଁ।')">B) ମାନବ ଶରୀର ତାପମାତ୍ରା ଏହି ସୀମା ଭିତରେ ହିଁ ରହେ</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q1', 'ଭୁଲ! ପାରଦ -୩୯ °C ରୁ ୩୫୭ °C ଯାଏ ତରଳ ରହେ।')">C) ପାରଦ ୪୨ °C ପରେ ବାଷ୍ପ ହୋଇଯାଏ</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q1', 'ଭୁଲ! ଡାକ୍ତରୀ ଫି ବୃଦ୍ଧି ପାଇଁ ନୁହେଁ।')">D) ଏହା ସରକାରୀ ନିୟମ ଅଟେ</button>
+        </div>
+        <div class="quiz-feedback" id="q1-fb"></div>
+      </div>
+
+      <div class="quiz-card" id="q2">
+        <div class="quiz-question">୨. ଡାକ୍ତରୀ ଥର୍ମୋମିଟରରେ ଥିବା 'କିଙ୍କ୍' କେଉଁ କାର୍ଯ୍ୟ କରେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q2', 'ଭୁଲ! ଏହା ପାରଦ ଉଠିବା ବନ୍ଦ କରେ ନାହିଁ।')">A) ପାରଦ ଉପରକୁ ଉଠିବା ବନ୍ଦ କରେ</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, true, 'q2', 'ସଠିକ୍! ପାଟିରୁ କାଢ଼ିବା ପରେ ପାରଦ ସ୍ତମ୍ଭ ସ୍ୱୟଂଚାଳିତ ଭାବେ ଖସିଯିବାକୁ ଅଟକାଏ।')">B) ପାଟିରୁ କାଢ଼ିବା ପରେ ପାରଦ ତଳକୁ ଖସିବା ରୋକେ</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q2', 'ଭୁଲ! ଏହା କାଚ ଭାଙ୍ଗିବାରୁ ରକ୍ଷା କରେ ନାହିଁ।')">C) ଥର୍ମୋମିଟର ଭାଙ୍ଗିବାରୁ ରକ୍ଷା କରେ</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q2', 'ଭୁଲ! ଏହା ତାପମାତ୍ରା ବଢ଼ାଏ ନାହିଁ।')">D) ତାପମାତ୍ରାକୁ ଅଧିକ ବଢ଼ାଇ ଦିଏ</button>
+        </div>
+        <div class="quiz-feedback" id="q2-fb"></div>
+      </div>
+
+      <div class="quiz-card" id="q3">
+        <div class="quiz-question">୩. ଗୋଟିଏ ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟରରେ ୧୦ °C ଏବଂ ୨୦ °C ମଧ୍ୟରେ ୧୦ଟି କ୍ଷୁଦ୍ର ଘର ଅଛି। ଏହାର ଲଘୁତମ ମାପ କେତେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q3', 'ଭୁଲ! (୨୦ - ୧୦) / ୧୦ = ୧୦ / ୧୦ = ୧।')">A) ୦.୧ °C</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, true, 'q3', 'ସଠିକ୍! ବ୍ୟବଧାନ = ୧୦ °C, ଭାଗ = ୧୦, ତେଣୁ ଲଘୁତମ ମାପ = ୧ °C।')">B) ୧.୦ °C</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q3', 'ଭୁଲ! ଗଣନା ଯାଞ୍ଚ କରନ୍ତୁ।')">C) ୨.୦ °C</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q3', 'ଭୁଲ! ୦.୫ °C ପାଇଁ ୨୦ଟି ଘର ଲୋଡ଼ା।')">D) ୦.୫ °C</button>
+        </div>
+        <div class="quiz-feedback" id="q3-fb"></div>
+      </div>
+
+      <div class="quiz-card" id="q4">
+        <div class="quiz-question">୪. ଜଳ କେଉଁ ତାପମାତ୍ରାରେ ବରଫରେ ପରିଣତ ହୁଏ (ହିମାଙ୍କ)?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkMCQ(this, true, 'q4', 'ସଠିକ୍! ୦ ଡିଗ୍ରୀ ସେଲସିୟସ୍ (ବା ୩୨ °F) ରେ ଜଳ ବରଫ ପାଲଟିଯାଏ।')">A) ୦ °C (32 °F)</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q4', 'ଭୁଲ! ୧୦୦ °C ରେ ଜଳ ଫୁଟି ବାଷ୍ପ ହୁଏ।')">B) ୧୦୦ °C (212 °F)</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q4', 'ଭୁଲ! ୩୭ °C ମାନବ ଶରୀରର ସ୍ୱାଭାବିକ ତାପମାତ୍ରା।')">C) ୩୭ °C</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q4', 'ଭୁଲ! ୪ °C ରେ ଜଳର ସର୍ବାଧିକ ଘନତା ଥାଏ।')">D) ୪ °C</button>
+        </div>
+        <div class="quiz-feedback" id="q4-fb"></div>
+      </div>
+
+      <div class="quiz-card" id="q5">
+        <div class="quiz-question">୫. ପାଣିପାଗ ଖବରକାଗଜରେ ପ୍ରକାଶିତ ଦିନର ସର୍ବୋଚ୍ଚ ଓ ସର୍ବନିମ୍ନ ତାପମାତ୍ରା କେଉଁ ଥର୍ମୋମିଟର ଦ୍ୱାରା ମପାଯାଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q5', 'ଭୁଲ! ଡାକ୍ତରୀ ଥର୍ମୋମିଟର କେବଳ ମଣିଷ ପାଇଁ।')">A) ଡାକ୍ତରୀ ଥର୍ମୋମିଟର</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q5', 'ଭୁଲ! ସାଧାରଣ ଲାବ୍ ଥର୍ମୋମିଟର ସେହି ସମୟର ତାପମାତ୍ରା ଦିଏ।')">B) ସାଧାରଣ ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, true, 'q5', 'ସଠିକ୍! ସର୍ବୋଚ୍ଚ-ସର୍ବନିମ୍ନ ଥର୍ମୋମିଟର (Maximum-Minimum Thermometer) ଦିନର ଚରମ ତାପମାତ୍ରା ରେକର୍ଡ କରେ।')">C) ସର୍ବୋଚ୍ଚ-ସର୍ବନିମ୍ନ ଥର୍ମୋମିଟର</button>
+          <button class="quiz-btn" onclick="checkMCQ(this, false, 'q5', 'ଭୁଲ! ବାରୋମିଟର ବାୟୁଚାପ ମାପେ।')">D) ବାରୋମିଟର</button>
+        </div>
+        <div class="quiz-feedback" id="q5-fb"></div>
+      </div>
+
+      <!-- 4 Assertion & Reasoning -->
+      <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem;">ନିଶ୍ଚିତୋକ୍ତି ଓ କାରଣ (Assertion &amp; Reasoning):</h3>
+
+      <details class="ans-box">
+        <summary><span><strong>ପ୍ରଶ୍ନ ୧:</strong> A: ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟରକୁ ଜଳ ଭିତରେ ରଖି ହିଁ ପାଠ୍ୟାଙ୍କ ପଢ଼ାଯାଏ। | R: ଏଥିରେ କୌଣସି କିଙ୍କ୍ ନଥିବାରୁ ବାହାରକୁ ଆଣିଲେ ପାରଦ ତୁରନ୍ତ ଖସିଯାଏ।</span><i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର: (A) ଉଭୟ A ଏବଂ R ସତ୍ୟ ଏବଂ R ହେଉଛି A ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</strong></p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span><strong>ପ୍ରଶ୍ନ ୨:</strong> A: ଡାକ୍ତରୀ ଥର୍ମୋମିଟରକୁ ଫୁଟନ୍ତା ପାଣିରେ ଧୋଇବା ଉଚିତ୍। | R: ଫୁଟନ୍ତା ପାଣି ଥର୍ମୋମିଟରକୁ ଜୀବାଣୁମୁକ୍ତ କରିଦିଏ।</span><i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର: (D) A ମିଥ୍ୟା କିନ୍ତୁ R ସତ୍ୟ (ବାକ୍ଯାଂଶ ଭାବେ)।</strong><br>
+          ଡାକ୍ତରୀ ଥର୍ମୋମିଟରର ସର୍ବୋଚ୍ଚ ସୀମା ମାତ୍ର ୪୨ °C। ୧୦୦ °C ଫୁଟନ୍ତା ପାଣିରେ ପଶାଇଲେ ପାରଦର ପ୍ରଚଣ୍ଡ ପ୍ରସାରଣ ଯୋଗୁଁ ଥର୍ମୋମିଟର ଫାଟି ନଷ୍ଟ ହୋଇଯିବ!</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span><strong>ପ୍ରଶ୍ନ ୩:</strong> A: ଆଜିକାଲି ଡିଜିଟାଲ୍ ଥର୍ମୋମିଟରକୁ ପାରଦ ଥର୍ମୋମିଟର ଅପେକ୍ଷା ଅଧିକ ପସନ୍ଦ କରାଯାଉଛି। | R: ପାରଦ ଏକ ଅତ୍ୟନ୍ତ ବିଷାକ୍ତ ପଦାର୍ଥ ଏବଂ ଭାଙ୍ଗିଗଲେ ଏହା ବିପଦଜନକ।</span><i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର: (A) ଉଭୟ A ଏବଂ R ସତ୍ୟ ଏବଂ R ହେଉଛି A ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</strong></p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary><span><strong>ପ୍ରଶ୍ନ ୪:</strong> A: ସ୍ପର୍ଶ ଦ୍ୱାରା କୌଣସି ବସ୍ତୁର ତାପମାତ୍ରା ସଠିକ୍ ଭାବେ ଜଣାପଡ଼େ। | R: ମାନବ ଚର୍ମ ଏକ ପ୍ରାକୃତିକ ଡିଜିଟାଲ୍ ସେନ୍ସର ଅଟେ।</span><i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର: (D) A ଏବଂ R ଉଭୟ ମିଥ୍ୟା।</strong><br>
+          ସ୍ପର୍ଶ ଅନୁଭୂତି ଆପେକ୍ଷିକ ଏବଂ ସମ୍ପୂର୍ଣ୍ଣ ଅବିଶ୍ୱସନୀୟ।</p>
+        </div>
+      </details>
+
+      <!-- 2 Case Studies -->
+      <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem;">ପରିସ୍ଥିତି ଅଧ୍ୟୟନ ଓ ପ୍ରୟୋଗାତ୍ମକ ପ୍ରଶ୍ନ (Case Studies):</h3>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-user-nurse"></i> କେସ୍ ଷ୍ଟଡି ୧: ବିଦ୍ୟାଳୟ ନର୍ସଙ୍କ ଡାକ୍ତରୀ ପରୀକ୍ଷା (The School Nurse)</div>
+        <p>ବିଦ୍ୟାଳୟରେ ଖେଳୁଥିବା ସମୟରେ ରମେଶର ଦେହ ତାତିଗଲା ଏବଂ ସେ କ୍ଳାନ୍ତ ହୋଇ ବସିପଡ଼ିଲା। ସ୍କୁଲ ନର୍ସ ତାଙ୍କ ଥର୍ମୋମିଟର ଆଣି ରମେଶର ଜିଭ ତଳେ ୧ ମିନିଟ୍ ରଖିଲେ। ପାଠ୍ୟାଙ୍କ ଦେଖିଲେ ୩୯.୫ °C ହୋଇଛି।</p>
+        <p><strong>ପ୍ରଶ୍ନଗୁଡ଼ିକ:</strong><br>
+        (a) ରମେଶର ଜ୍ୱର ଅଛି କି ନାହିଁ? ସ୍ୱାଭାବିକ ତାପମାତ୍ରାଠାରୁ ଏହା କେତେ ଅଧିକ?<br>
+        (b) ନର୍ସ ଥର୍ମୋମିଟର ରମେଶ ପାଟିରେ ପଶାଇବା ପୂର୍ବରୁ ଏବଂ କାଢ଼ିବା ପରେ କେଉଁ ସାବଧାନତା ଅବଲମ୍ବନ କରିଥିବେ?</p>
+      </div>
+
+      <details class="ans-box">
+        <summary><span>କେସ୍ ଷ୍ଟଡି ୧ ର ସମାଧାନ ଦେଖନ୍ତୁ</span><i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>ସମାଧାନ:</strong></p>
+          <p>(a) ହଁ, ରମେଶର ପ୍ରବଳ ଜ୍ୱର ଅଛି। ମାନବ ଶରୀରର ସ୍ୱାଭାବିକ ତାପମାତ୍ରା ୩୭ °C। ତେଣୁ ରମେଶର ତାପମାତ୍ରା ସ୍ୱାଭାବିକଠାରୁ (୩୯.୫ &minus; ୩୭.୦) = <strong>୨.୫ °C ଅଧିକ</strong> ଅଟେ।<br>
+          (b) <strong>ସାବଧାନତା:</strong><br>
+          ୧. ବ୍ୟବହାର ପୂର୍ବରୁ ଏବଂ ପରେ ଥର୍ମୋମିଟରକୁ ଆଣ୍ଟିସେପ୍ଟିକ୍ ଦ୍ରବଣରେ ଭଲ ଭାବେ ଧୋଇବା।<br>
+          ୨. ବ୍ୟବହାର ପୂର୍ବରୁ ଝାଙ୍କି ଦେଇ ପାରଦକୁ ୩୫ °C ତଳକୁ ଖସାଇବା।</p>
+        </div>
+      </details>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title"><i class="fa-solid fa-camel"></i> କେସ୍ ଷ୍ଟଡି ୨: ମରୁଭୂମି ଓ ଓଟର ଶାରୀରିକ ତାପମାତ୍ରା (Desert Adaptations)</div>
+        <p>ମରୁଭୂମିରେ ଦିନବେଳା ତାପମାତ୍ରା ୪୫ °C ରୁ ଅଧିକ ହୁଏ ଏବଂ ରାତିରେ ପ୍ରବଳ ଥଣ୍ଡା ହୋଇ ୧୦ °C କୁ ଖସିଆସେ। ମଣିଷ ଏତେ ଉତ୍ତାପରେ ଝାଳ ବୁହାଇ ଶରୀର ଥଣ୍ଡା ରଖିବାକୁ ଚେଷ୍ଟା କରେ, କିନ୍ତୁ ଓଟର ଶରୀର ନିଜ ତାପମାତ୍ରାକୁ ୩୪ °C ରୁ ୪୧ °C ପର୍ଯ୍ୟନ୍ତ ବଦଳାଇ ପାରେ ବିନା ଝାଳ ବୁହାଇ।</p>
+        <p><strong>ପ୍ରଶ୍ନଗୁଡ଼ିକ:</strong><br>
+        (a) ଓଟର ଏହି ସ୍ୱତନ୍ତ୍ର ତାପମାତ୍ରା ସହନଶୀଳତା ତାକୁ ମରୁଭୂମିରେ କିପରି ସାହାଯ୍ୟ କରେ?<br>
+        (b) ମରୁଭୂମିର ଦିନ ଓ ରାତିର ତାପମାତ୍ରା ରେକର୍ଡ କରିବା ପାଇଁ ପାଣିପାଗ ବିଜ୍ଞାନୀ କେଉଁ ଥର୍ମୋମିଟର ବ୍ୟବହାର କରନ୍ତି?</p>
+      </div>
+
+      <details class="ans-box">
+        <summary><span>କେସ୍ ଷ୍ଟଡି ୨ ର ସମାଧାନ ଦେଖନ୍ତୁ</span><i class="fa-solid fa-chevron-down"></i></summary>
+        <div class="ans-content">
+          <p><strong>ସମାଧାନ:</strong></p>
+          <p>(a) ଏହାଦ୍ୱାରା ଓଟର ଶରୀରରୁ ଝାଳ ମାଧ୍ୟମରେ ଜଳ ନଷ୍ଟ ହୁଏ ନାହିଁ। ମରୁଭୂମିରେ ଜଳର ଘୋର ଅଭାବ ଥିବାରୁ ଏହି ଅଭିଯୋଜନ ଓଟକୁ ଦୀର୍ଘ ଦିନ ବିନା ପାଣିରେ ବଞ୍ଚିବାକୁ ସାହାଯ୍ୟ କରେ।<br>
+          (b) ପାଣିପାଗ ବିଜ୍ଞାନୀ <strong>ସର୍ବୋଚ୍ଚ-ସର୍ବନିମ୍ନ ଥର୍ମୋମିଟର (Maximum-Minimum Thermometer)</strong> ବ୍ୟବହାର କରନ୍ତି।</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 6: EXAM HALL TRAPS & RAPID REVISION -->
+    <section id="sec6" class="section-card">
+      <h2><i class="fa-solid fa-triangle-exclamation"></i> ବିଭାଗ ୬: ପରୀକ୍ଷା ହଲ୍ ସାଧାରଣ ଭୁଲ୍ ଓ ୧୫ଟି ମହତ୍ତ୍ୱପୂର୍ଣ୍ଣ ତଥ୍ୟ</h2>
+
+      <h3 style="color: #b91c1c; margin: 1.5rem 0 1rem;"><i class="fa-solid fa-ban"></i> ୫ଟି ସାଧାରଣ ପରୀକ୍ଷା ଭୁଲ୍ (Common Traps to Avoid):</h3>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">ଭୁଲ ୧: ଡାକ୍ତରୀ ଥର୍ମୋମିଟରକୁ ଫୁଟନ୍ତା ପାଣିରେ ବୁଡ଼ାଇବା!</div>
+        <p><strong>ସଠିକ୍ ତଥ୍ୟ:</strong> ଡାକ୍ତରୀ ଥର୍ମୋମିଟରର ସର୍ବାଧିକ ସୀମା ୪୨ °C। ୧୦୦ °C ଫୁଟନ୍ତା ପାଣିରେ ବୁଡ଼ାଇଲେ ପାରଦର ପ୍ରଚଣ୍ଡ ପ୍ରସାରଣରେ ଏହା ଫାଟିଯିବ।</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">ଭୁଲ ୨: ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟରକୁ ପାଣିରୁ କାଢ଼ି ପାଠ୍ୟାଙ୍କ ପଢ଼ିବା!</div>
+        <p><strong>ସଠିକ୍ ତଥ୍ୟ:</strong> ଏଥିରେ କିଙ୍କ୍ ନଥିବାରୁ ବାହାରକୁ ଆଣିଲେ ପାରଦ ତୁରନ୍ତ ଖସିଯାଏ। ତେଣୁ ଏହାକୁ ତରଳ ଭିତରେ ବୁଡ଼ାଇ ରଖିଥିବା ଅବସ୍ଥାରେ ହିଁ ପଢ଼ିବା ଅନିବାର୍ଯ୍ୟ।</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">ଭୁଲ ୩: ସେଲସିୟସ୍ ଓ ଫାରେନହାଇଟ୍ ମୂଲ୍ୟରେ ଦ୍ୱନ୍ଦ୍ୱ!</div>
+        <p><strong>ସଠିକ୍ ତଥ୍ୟ:</strong> ସ୍ୱାଭାବିକ ଶରୀର ତାପମାତ୍ରା ହେଉଛି <strong>୩୭ °C</strong> (ସେଲସିୟସ୍) କିମ୍ବା <strong>୯୮.୬ °F</strong> (ଫାରେନହାଇଟ୍)। କେବେହେଲେ ୯୮.୬ °C ଲେଖିବେ ନାହିଁ!</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">ଭୁଲ ୪: ପାଠ୍ୟାଙ୍କ ନେବା ସମୟରେ ବଲ୍ବକୁ ହାତରେ ଧରିବା!</div>
+        <p><strong>ସଠିକ୍ ତଥ୍ୟ:</strong> ଥର୍ମୋମିଟରର ବଲ୍ବକୁ କଦାପି ହାତରେ ଧରିବା ଉଚିତ୍ ନୁହେଁ। ହାତର ତାପ ଯୋଗୁଁ ପାରଦ ସ୍ତମ୍ଭ ବଢ଼ି ଭୁଲ୍ ପାଠ୍ୟାଙ୍କ ଆସିବ।</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">ଭୁଲ ୫: ସ୍ପର୍ଶକୁ ତାପମାତ୍ରା ମାପର ମାଧ୍ୟମ ଭାବିବା!</div>
+        <p><strong>ସଠିକ୍ ତଥ୍ୟ:</strong> ସ୍ପର୍ଶ ଆପେକ୍ଷିକ ଓ ଅବିଶ୍ୱସନୀୟ। କେବଳ ଥର୍ମୋମିଟର ହିଁ ନିର୍ଭୁଲ ତାପମାତ୍ରା ଦିଏ।</p>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin: 2rem 0 1rem;"><i class="fa-solid fa-bolt"></i> ୧୫ଟି ଅଲ୍ଟ୍ରା-ହାଇ-ୟିଲ୍ଡ ତ୍ୱରିତ ପଏଣ୍ଟ (15 Rapid Fire Points):</h3>
+      <ol style="line-height: 2; padding-left: 1.5rem;">
+        <li>ବସ୍ତୁର ଉତ୍ତପ୍ତତା ବା ଶୀତଳତାର ମାତ୍ରାକୁ <strong>ତାପମାତ୍ରା (Temperature)</strong> କୁହାଯାଏ।</li>
+        <li>ତାପମାତ୍ରାର SI ଏକକ ହେଉଛି <strong>କେଲଭିନ୍ (K)</strong>।</li>
+        <li>ସାଧାରଣ ବ୍ୟବହାର୍ଯ୍ୟ ଏକକ ହେଉଛି <strong>ଡିଗ୍ରୀ ସେଲସିୟସ୍ (°C)</strong> ଓ <strong>ଡିଗ୍ରୀ ଫାରେନହାଇଟ୍ (°F)</strong>।</li>
+        <li>ସୁସ୍ଥ ମଣିଷ ଶରୀରର ସ୍ୱାଭାବିକ ତାପମାତ୍ରା <strong>୩୭ °C (୯୮.୬ °F)</strong>।</li>
+        <li>ଡାକ୍ତରୀ ଥର୍ମୋମିଟରର ପରିସର <strong>୩୫ °C ରୁ ୪୨ °C</strong>।</li>
+        <li>ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟରର ପରିସର <strong>&minus;୧୦ °C ରୁ ୧୧୦ °C</strong>।</li>
+        <li>ଡାକ୍ତରୀ ଥର୍ମୋମିଟରରେ ଥିବା <strong>କିଙ୍କ୍ (Kink)</strong> ପାରଦ ସ୍ତମ୍ଭକୁ ଆପେ ଆପେ ଖସିବାକୁ ଦିଏ ନାହିଁ।</li>
+        <li>ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟରରେ କିଙ୍କ୍ ନଥାଏ।</li>
+        <li>ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟରକୁ ତରଳ ଭିତରେ ବୁଡ଼ାଇ ରଖି ହିଁ ପାଠ୍ୟାଙ୍କ ପଢ଼ିବାକୁ ହୁଏ।</li>
+        <li>ପାରଦ ଏକ ବିଷାକ୍ତ ଧାତୁ ହୋଇଥିବାରୁ ଆଜିକାଲି <strong>ଡିଜିଟାଲ୍ ଥର୍ମୋମିଟର</strong> ବ୍ୟବହୃତ ହେଉଛି।</li>
+        <li>ଜଳର ହିମାଙ୍କ <strong>୦ °C (୩୨ °F)</strong> ଅଟେ।</li>
+        <li>ଜଳର ସ୍ଫୁଟନାଙ୍କ <strong>୧୦୦ °C (୨୧୨ °F)</strong> ଅଟେ।</li>
+        <li>ପାଣିପାଗର ଦୈନିକ ଚରମ ତାପମାତ୍ରା <strong>ସର୍ବୋଚ୍ଚ-ସର୍ବନିମ୍ନ ଥର୍ମୋମିଟର</strong> ଦ୍ୱାରା ମପାଯାଏ।</li>
+        <li>ଥର୍ମୋମିଟରର ଦୁଇଟି କ୍ରମିକ ଦାଗ ମଧ୍ୟରେ ଥିବା ମୂଲ୍ୟକୁ <strong>ଲଘୁତମ ମାପ (Least Count)</strong> କୁହାଯାଏ।</li>
+        <li>ମାନବ ସ୍ପର୍ଶ ଇନ୍ଦ୍ରିୟ ତାପମାତ୍ରା ମାପିବା ପାଇଁ ସମ୍ପୂର୍ଣ୍ଣ ଅବିଶ୍ୱସନୀୟ।</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <footer>
+    <p>&copy; 2026 ସୁଜିତ୍ କ୍ଲାସେସ୍ (Sujit Classes). ସର୍ବସ୍ୱତ୍ୱ ସଂରକ୍ଷିତ।</p>
+    <p style="font-size: 0.85rem; margin-top: 0.5rem;">BSE ଓଡ଼ିଶା / NCERT ପାଠ୍ୟଖସଡ଼ା ଅନୁମୋଦିତ ମାଷ୍ଟର ଷ୍ଟଡି ମ୍ୟାଟେରିଆଲ୍।</p>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+    });
+
+    function checkMCQ(btn, isCorrect, qId, explanation) {
+      const parent = document.getElementById(qId);
+      const buttons = parent.querySelectorAll('.quiz-btn');
+      const fb = document.getElementById(qId + '-fb');
+      
+      buttons.forEach(b => {
+        b.disabled = true;
+        b.style.cursor = 'default';
+      });
+
+      if (isCorrect) {
+        btn.classList.add('correct');
+        fb.style.display = 'block';
+        fb.style.background = '#d1fae5';
+        fb.style.color = '#065f46';
+        fb.style.border = '1px solid #10b981';
+        fb.innerHTML = '<strong><i class="fa-solid fa-circle-check"></i> ଚମତ୍କାର! ସଠିକ୍ ଉତ୍ତର:</strong> ' + explanation;
+      } else {
+        btn.classList.add('wrong');
+        fb.style.display = 'block';
+        fb.style.background = '#fee2e2';
+        fb.style.color = '#991b1b';
+        fb.style.border = '1px solid #ef4444';
+        fb.innerHTML = '<strong><i class="fa-solid fa-circle-xmark"></i> ଭୁଲ୍ ଉତ୍ତର:</strong> ' + explanation;
+      }
+    }
+
+    function speakSummary() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const text = "ନମସ୍କାର ଛାତ୍ରଛାତ୍ରୀମାନେ। ଅଧ୍ୟାୟ ୭: ତାପମାତ୍ରା ଓ ଏହାର ମାପ। ମନେରଖନ୍ତୁ: ମାନବ ଶରୀରର ସ୍ୱାଭାବିକ ତାପମାତ୍ରା ୩୭ ଡିଗ୍ରୀ ସେଲସିୟସ୍ ବା ୯୮.୬ ଡିଗ୍ରୀ ଫାରେନହାଇଟ୍। ଡାକ୍ତରୀ ଥର୍ମୋମିଟରର ପରିସର ୩୫ ରୁ ୪୨ ଡିଗ୍ରୀ ସେଲସିୟସ୍ ଏବଂ ଏଥିରେ କିଙ୍କ୍ ଥାଏ ଯାହା ପାରଦ ଖସିବା ରୋକେ। ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର ପରିସର ମାଇନସ୍ ୧୦ ରୁ ୧୧୦ ଡିଗ୍ରୀ ସେଲସିୟସ୍ ଏବଂ ଏଥିରେ କିଙ୍କ୍ ନଥାଏ। ଡିଜିଟାଲ୍ ଥର୍ମୋମିଟର ପାରଦମୁକ୍ତ ଓ ସୁରକ୍ଷିତ।";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'hi-IN';
+        utterance.rate = 0.9;
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert("ଆପଣଙ୍କ ବ୍ରାଉଜର୍ରେ ଅଡିଓ ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।");
+      }
+    }
+  </script>
+</body>
+</html>

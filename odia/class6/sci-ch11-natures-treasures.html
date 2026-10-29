@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ଅଧ୍ୟାୟ ୧୧: ପ୍ରକୃତିର ଅମୂଲ୍ୟ ସମ୍ପଦ | Class 6 Science (କୌତୂହଳ)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Oriya:wght@400;600;700&family=Outfit:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #059669;
+            --primary-light: #10b981;
+            --primary-dark: #047857;
+            --secondary: #0284c7;
+            --accent: #f59e0b;
+            --danger: #ef4444;
+            --bg-light: #f8fafc;
+            --surface: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.07), 0 2px 4px -2px rgba(0,0,0,0.05);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.08), 0 4px 6px -4px rgba(0,0,0,0.04);
+            --radius: 12px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Plus Jakarta Sans', 'Noto Sans Oriya', sans-serif;
+            background: var(--bg-light);
+            color: var(--text-main);
+            line-height: 1.8;
+            font-size: 16px;
+            scroll-behavior: smooth;
+        }
+        .progress-bar-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 5px; background: rgba(0,0,0,0.05); z-index: 1000;
+        }
+        .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, var(--primary), var(--secondary)); transition: width 0.1s; }
+        .hero {
+            background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #0284c7 100%);
+            color: #ffffff;
+            padding: 3.5rem 1.5rem 2.5rem;
+            text-align: center;
+            position: relative;
+        }
+        .hero h1 { font-family: 'Outfit', 'Noto Sans Oriya', sans-serif; font-size: 2.3rem; margin-bottom: 0.8rem; font-weight: 700; }
+        .hero p { font-size: 1.15rem; opacity: 0.95; max-width: 800px; margin: 0 auto 1.2rem; }
+        .hero-badges { display: flex; justify-content: center; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+        .badge { background: rgba(255,255,255,0.2); backdrop-filter: blur(4px); padding: 0.35rem 0.9rem; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .audio-btn {
+            background: #ffffff; color: var(--primary-dark); border: none; padding: 0.6rem 1.4rem; border-radius: 25px;
+            font-size: 0.95rem; font-weight: 700; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: all 0.2s; margin-top: 0.5rem;
+        }
+        .audio-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(0,0,0,0.2); background: #ecfdf5; }
+        .nav-tabs {
+            position: sticky; top: 5px; z-index: 100; background: rgba(255,255,255,0.92); backdrop-filter: blur(8px);
+            display: flex; justify-content: center; gap: 0.5rem; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03); overflow-x: auto;
+        }
+        .nav-tabs a {
+            color: var(--text-muted); text-decoration: none; font-size: 0.88rem; font-weight: 600; padding: 0.4rem 0.8rem;
+            border-radius: 8px; transition: all 0.2s; white-space: nowrap;
+        }
+        .nav-tabs a:hover { color: var(--primary); background: #d1fae5; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 2rem 1.25rem; }
+        .section-card {
+            background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border);
+            box-shadow: var(--shadow); padding: 2.2rem; margin-bottom: 2.5rem;
+        }
+        .section-header { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 1.5rem; border-bottom: 2px solid #f1f5f9; padding-bottom: 0.8rem; }
+        .section-header h2 { font-family: 'Outfit', 'Noto Sans Oriya', sans-serif; font-size: 1.6rem; color: var(--primary-dark); }
+        .section-icon { font-size: 1.8rem; }
+        h3 { font-size: 1.25rem; color: #1e293b; margin: 1.8rem 0 0.8rem; border-left: 4px solid var(--primary); padding-left: 0.6rem; }
+        h4 { font-size: 1.05rem; color: #334155; margin: 1.2rem 0 0.5rem; }
+        p { margin-bottom: 1rem; color: #334155; }
+        ul, ol { margin-left: 1.5rem; margin-bottom: 1.2rem; color: #334155; }
+        li { margin-bottom: 0.4rem; }
+        .callout-def { background: #ecfdf5; border-left: 4px solid #10b981; padding: 1.2rem; border-radius: 8px; margin: 1.2rem 0; }
+        .callout-act { background: #f0f9ff; border-left: 4px solid #0284c7; padding: 1.2rem; border-radius: 8px; margin: 1.2rem 0; }
+        .callout-warn { background: #fffbeb; border-left: 4px solid #f59e0b; padding: 1.2rem; border-radius: 8px; margin: 1.2rem 0; }
+        .callout-pyq { background: #faf5ff; border-left: 4px solid #a855f7; padding: 1.2rem; border-radius: 8px; margin: 1.2rem 0; }
+        .callout-title { font-weight: 700; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.4rem; }
+        .custom-table { width: 100%; border-collapse: collapse; margin: 1.5rem 0; border-radius: 8px; overflow: hidden; }
+        .custom-table th { background: #047857; color: white; text-align: left; padding: 0.8rem 1rem; font-weight: 600; font-size: 0.95rem; }
+        .custom-table td { padding: 0.8rem 1rem; border-bottom: 1px solid var(--border); font-size: 0.92rem; vertical-align: top; }
+        .custom-table tr:nth-child(even) { background: #f8fafc; }
+        .custom-table tr:hover { background: #f0fdf4; }
+        details.ans-box {
+            background: #ffffff; border: 1px solid #cbd5e1; border-radius: 10px; margin-bottom: 1.2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); overflow: hidden; transition: border-color 0.2s;
+        }
+        details.ans-box[open] { border-color: var(--primary); }
+        details.ans-box summary {
+            font-weight: 600; padding: 1rem 1.2rem; cursor: pointer; background: #f8fafc; display: flex;
+            align-items: center; justify-content: space-between; user-select: none; transition: background 0.2s;
+        }
+        details.ans-box summary:hover { background: #f1f5f9; color: var(--primary); }
+        details.ans-box .content { padding: 1.2rem; border-top: 1px solid #e2e8f0; background: #ffffff; }
+        .tag { font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 12px; text-transform: uppercase; margin-right: 0.5rem; }
+        .tag-ncert { background: #d1fae5; color: #065f46; }
+        .tag-exam { background: #e0e7ff; color: #4338ca; }
+        .tag-think { background: #fef3c7; color: #b45309; }
+        .svg-container { text-align: center; margin: 2rem 0; overflow-x: auto; padding: 1rem; background: #ffffff; border-radius: 12px; border: 1px solid var(--border); }
+        .quiz-option {
+            display: block; padding: 0.8rem 1rem; border: 1px solid var(--border); border-radius: 8px; margin-bottom: 0.5rem;
+            cursor: pointer; transition: all 0.2s; font-size: 0.95rem;
+        }
+        .quiz-option:hover { background: #ecfdf5; border-color: var(--primary); }
+        .quiz-option.correct { background: #d1fae5 !important; border-color: #059669 !important; font-weight: 600; color: #047857; }
+        .quiz-option.incorrect { background: #fee2e2 !important; border-color: #ef4444 !important; color: #991b1b; }
+        .quiz-feedback { margin-top: 0.6rem; font-weight: 600; font-size: 0.9rem; }
+        .footer { text-align: center; padding: 2.5rem 1rem; color: var(--text-muted); font-size: 0.9rem; border-top: 1px solid var(--border); }
+    </style>
+</head>
+<body>
+    <div class="progress-bar-container"><div class="progress-bar" id="progressBar"></div></div>
+
+    <header class="hero">
+        <div class="hero-badges">
+            <span class="badge">Class 6 Science (କୌତୂହଳ)</span>
+            <span class="badge">BSE Odisha / NCERT NEP ସିଲାବସ୍</span>
+            <span class="badge">100% ସମ୍ପୂର୍ଣ୍ଣ ଓଡ଼ିଆ ଅଧ୍ୟୟନ ନୋଟ୍ସ</span>
+        </div>
+        <h1>ଅଧ୍ୟାୟ ୧୧: ପ୍ରକୃତିର ଅମୂଲ୍ୟ ସମ୍ପଦ</h1>
+        <p>Nature's Treasures &bull; ବାୟୁ, ଜଳ, ସୌରଶକ୍ତି, ଜଙ୍ଗଲ, ମୃତ୍ତିକା, ଜୀବାଶ୍ମ ଇନ୍ଧନ, ନବୀକରଣଯୋଗ୍ୟ ଓ ଅନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ ଏବଂ 3R ସଂରକ୍ଷଣ ନୀତି</p>
+        <button class="audio-btn" onclick="speakOdiaSummary()">
+            <span>&#128266;</span> ଓଡ଼ିଆ ଅଡିଓ ସାରାଂଶ ଶୁଣନ୍ତୁ
+        </button>
+    </header>
+
+    <nav class="nav-tabs">
+        <a href="#blueprint">&#128506;&#65039; ମାଇଣ୍ଡ ମ୍ୟାପ୍</a>
+        <a href="#concepts">&#128214; ବିଷୟବସ୍ତୁ ନୋଟ୍ସ</a>
+        <a href="#definitions">&#9889; ସଂଜ୍ଞା ଓ ସାରଣୀ</a>
+        <a href="#solutions">&#128221; ପାଠ୍ୟପୁସ୍ତକ ସମାଧାନ</a>
+        <a href="#competency">&#128175; ପରୀକ୍ଷା ପ୍ରଶ୍ନ ବ୍ୟାଙ୍କ</a>
+        <a href="#mistakes">&#128680; ସାଧାରଣ ଭୁଲ୍ ଓ ରିଭିଜନ୍</a>
+    </nav>
+
+    <main class="container">
+        <!-- Section 1 -->
+        <section class="section-card" id="blueprint">
+            <div class="section-header">
+                <span class="section-icon">&#128506;&#65039;</span>
+                <h2>ବିଭାଗ ୧: ଭିଜୁଆଲ୍ ବ୍ଲୁପ୍ରିଣ୍ଟ ଓ କନସେପ୍ଟ ମାଇଣ୍ଡ ମ୍ୟାପ୍</h2>
+            </div>
+            <p>ପ୍ରକୃତି ଆମକୁ ଜୀବନ ଧାରଣ ପାଇଁ ଅନେକ ଅମୂଲ୍ୟ ଉପହାର ଦେଇଛି। ଏହି ଅଧ୍ୟାୟରେ ପ୍ରାକୃତିକ ସମ୍ପଦଗୁଡ଼ିକର ବର୍ଗୀକରଣ, ଜୀବାଶ୍ମ ଇନ୍ଧନର ଗଠନ, ଜଙ୍ଗଲ ଓ ମୃତ୍ତିକାର ଗୁରୁତ୍ୱ ଏବଂ ପରିବେଶ ସୁରକ୍ଷା ପାଇଁ 3R ନୀତିର ପ୍ରୟୋଗ ସମ୍ପର୍କରେ ଆଲୋକପାତ କରାଯାଇଛି।</p>
+            
+            <div class="svg-container">
+                <svg viewBox="0 0 940 460" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="920" height="440" rx="15" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2"/>
+                    <rect x="310" y="25" width="320" height="55" rx="10" fill="#047857" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.15))"/>
+                    <text x="470" y="50" fill="#ffffff" font-size="18" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">ପ୍ରକୃତିର ଅମୂଲ୍ୟ ସମ୍ପଦ</text>
+                    <text x="470" y="70" fill="#a7f3d0" font-size="12" text-anchor="middle">Earth's Natural Resources &bull; ବର୍ଗୀକରଣ ଓ ସଂରକ୍ଷଣ</text>
+
+                    <!-- Branch 1: Renewable -->
+                    <rect x="40" y="110" width="410" height="310" rx="10" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+                    <rect x="40" y="110" width="410" height="40" rx="10" fill="#d1fae5"/>
+                    <text x="245" y="135" fill="#065f46" font-size="15" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">୧. ନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ (Renewable)</text>
+                    <text x="55" y="175" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ସୌରଶକ୍ତି (Solar Energy):</strong> ଅଫୁରନ୍ତ, ସମସ୍ତ ଶକ୍ତିର ମୂଳ ଉତ୍ସ।</text>
+                    <text x="55" y="205" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ବାୟୁ (Air):</strong> ଶ୍ୱାସକ୍ରିୟା ପାଇଁ O<sub>2</sub>, ଆଲୋକଶ୍ଳେଷଣ ପାଇଁ CO<sub>2</sub>।</text>
+                    <text x="55" y="235" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ଜଳ (Water):</strong> ପାନୀୟ ଜଳ, ଜଳଚକ୍ର ଦ୍ୱାରା ନବୀକରଣ ହୁଏ।</text>
+                    <text x="55" y="265" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ଜଙ୍ଗଲ ଓ ଉଦ୍ଭିଦ (Forests):</strong> ପ୍ରକୃତିର ସବୁଜ ଫୁସଫୁସ।</text>
+                    <text x="55" y="295" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ମୃତ୍ତିକା (Soil):</strong> କୃଷି ଓ ଉଦ୍ଭିଦ ପୋଷଣର ଭିତ୍ତି।</text>
+                    <text x="55" y="340" fill="#047857" font-size="12" font-weight="bold">ବୈଶିଷ୍ଟ୍ୟ: ପ୍ରାକୃତିକ ଭାବେ ଅଳ୍ପ ସମୟ ମଧ୍ୟରେ ପୁନର୍ଭରଣ ହୋଇପାରେ।</text>
+                    <text x="55" y="360" fill="#64748b" font-size="11">ତଥାପି ଅତ୍ୟଧିକ ଶୋଷଣ କଲେ ଜଳ ଓ ମୃତ୍ତିକା ସଂକଟ ସୃଷ୍ଟି ହୁଏ।</text>
+
+                    <!-- Branch 2: Non-Renewable -->
+                    <rect x="490" y="110" width="410" height="310" rx="10" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+                    <rect x="490" y="110" width="410" height="40" rx="10" fill="#fef3c7"/>
+                    <text x="695" y="135" fill="#b45309" font-size="15" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">୨. ଅନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ (Non-Renewable)</text>
+                    <text x="505" y="175" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>କୋଇଲା (Coal):</strong> କୋଟି କୋଟି ବର୍ଷ ତଳେ ପୋତି ହୋଇଥିବା ଉଦ୍ଭିଦରୁ ଗଠିତ।</text>
+                    <text x="505" y="205" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ପେଟ୍ରୋଲିୟମ୍ (Petroleum):</strong> ସମୁଦ୍ର ତଳେ ପୋତି ହୋଇଥିବା ସୂକ୍ଷ୍ମ ଜୀବଙ୍କରୁ।</text>
+                    <text x="505" y="235" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ପ୍ରାକୃତିକ ଗ୍ୟାସ୍ (Natural Gas):</strong> ପେଟ୍ରୋଲିୟମ୍ ସହିତ ମିଳେ (CNG/LPG)।</text>
+                    <text x="505" y="265" fill="#1e293b" font-size="13" font-family="Noto Sans Oriya, sans-serif">&bull; <strong>ଧାତୁ ଓ ଖଣିଜ ଲବଣ:</strong> ଲୁହା, ତମ୍ବା, ଆଲୁମିନିୟମ୍ (ବକ୍ସାଇଟ୍), ସୁନା।</text>
+                    <text x="505" y="305" fill="#b45309" font-size="12" font-weight="bold">ସୀମିତ ପରିମାଣ (Exhaustible): ଥରେ ସରିଗଲେ ପୁନର୍ବାର ସୃଷ୍ଟି ହେବାକୁ</text>
+                    <text x="505" y="325" fill="#b45309" font-size="12" font-weight="bold">ଲକ୍ଷ ଲକ୍ଷ ବର୍ଷ ଲାଗିଥାଏ। ତେଣୁ ସଂରକ୍ଷଣ ଏକାନ୍ତ ଅପରିହାର୍ଯ୍ୟ।</text>
+
+                    <!-- Connecting Lines -->
+                    <line x1="390" y1="80" x2="245" y2="110" stroke="#047857" stroke-width="2" stroke-dasharray="4"/>
+                    <line x1="550" y1="80" x2="695" y2="110" stroke="#047857" stroke-width="2" stroke-dasharray="4"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Section 2 -->
+        <section class="section-card" id="concepts">
+            <div class="section-header">
+                <span class="section-icon">&#128214;</span>
+                <h2>ବିଭାଗ ୨: ବିସ୍ତୃତ ପାଠ୍ୟକ୍ରମ ଆଧାରିତ ଧାରଣା ନୋଟ୍ସ</h2>
+            </div>
+
+            <h3>୧୧.୧ ବାୟୁ: ଜୀବନର ଅଦୃଶ୍ୟ ଚାଦର (Air: Blanket of Life)</h3>
+            <p>ପୃଥିବୀକୁ ଘେରି ରହିଥିବା ବାୟୁର ସ୍ତରକୁ <strong>ବାୟୁମଣ୍ଡଳ (Atmosphere)</strong> କୁହାଯାଏ। ବାୟୁ ହେଉଛି ବିଭିନ୍ନ ଗ୍ୟାସର ମିଶ୍ରଣ:</p>
+            <ul>
+                <li><strong>ଯବକ୍ଷାରଜାନ (Nitrogen - ପ୍ରାୟ ୭୮%):</strong> ଉଦ୍ଭିଦ ଓ ପ୍ରାଣୀଙ୍କ ପ୍ରୋଟିନ୍ ଗଠନ ପାଇଁ ଆବଶ୍ୟକ। ଏହା ଜଳିବାରେ ସାହାଯ୍ୟ କରେ ନାହିଁ।</li>
+                <li><strong>ଅମ୍ଳଜାନ (Oxygen - ପ୍ରାୟ ୨୧%):</strong> ସମସ୍ତ ଜୀବଙ୍କ ଶ୍ୱାସକ୍ରିୟା ଏବଂ ଯେକୌଣସି ବସ୍ତୁ ଜଳିବା (ଦହନ) ପାଇଁ ଅପରିହାର୍ଯ୍ୟ।</li>
+                <li><strong>କାର୍ବନ ଡାଇଅକ୍ସାଇଡ୍ (CO<sub>2</sub> - ପ୍ରାୟ ୦.୦୪%):</strong> ସବୁଜ ଉଦ୍ଭିଦ ଆଲୋକଶ୍ଳେଷଣ ପ୍ରକ୍ରିୟାରେ ଖାଦ୍ୟ ତିଆରି କରିବା ପାଇଁ ଏହାକୁ ବ୍ୟବହାର କରନ୍ତି।</li>
+                <li><strong>ଜଳୀୟ ବାଷ୍ପ ଓ ଧୂଳିକଣା:</strong> ପାଣିପାଗ ପରିବର୍ତ୍ତନ, ବର୍ଷା ଓ ମେଘ ସୃଷ୍ଟିରେ ସାହାଯ୍ୟ କରେ।</li>
+            </ul>
+
+            <div class="callout-act">
+                <div class="callout-title">&#128168; ବାୟୁ ଥିବାରୁ ସମ୍ଭବ ହେଉଥିବା ୪ଟି ଦୈନନ୍ଦିନ କାର୍ଯ୍ୟ</div>
+                <ol>
+                    <li>ପବନ ସାହାଯ୍ୟରେ ପବନଚକ୍କି (Windmill) ଘୂରାଇ ବିଦ୍ୟୁତ୍ ଶକ୍ତି ଉତ୍ପାଦନ ଓ କୂଅରୁ ପାଣି ଉଠାଇବା।</li>
+                    <li>ପାଲଟଣା ଡଙ୍ଗା, ଉଡ଼ାଜାହାଜ, ହେଲିକପ୍ଟର, ପାରାସୁଟ୍ ଏବଂ ଚଢ଼େଇମାନଙ୍କ ଆକାଶରେ ଉଡ଼ିବା।</li>
+                    <li>ଫୁଲର ପରାଗସଙ୍ଗମ (Pollination) ଏବଂ ମଞ୍ଜିଗୁଡ଼ିକ ଦୂରଦୂରାନ୍ତକୁ ବିସ୍ତାରିତ ହେବା (Seed Dispersal)।</li>
+                    <li>ଶବ୍ଦ ତରଙ୍ଗର ଗତି &mdash; ବାୟୁ ମାଧ୍ୟମ ନଥିଲେ ଆମେ କାହାର କଥା ଶୁଣିପାରନ୍ତେ ନାହିଁ!</li>
+                </ol>
+            </div>
+
+            <h3>୧୧.୨ ଜଳ: ପୃଥିବୀର ତରଳ ସମ୍ପଦ (Water)</h3>
+            <p>ପୃଥିବୀ ପୃଷ୍ଠର ପ୍ରାୟ ୭୧% ଭାଗ ଜଳ ଦ୍ୱାରା ଆବୃତ, କିନ୍ତୁ ଏହାର ୯୭% ରୁ ଅଧିକ ଜଳ ସମୁଦ୍ରର ଲୁଣିଆ ପାଣି, ଯାହା ପିଇବା ଉପଯୋଗୀ ନୁହେଁ। ମାତ୍ର ପ୍ରାୟ ୨.୭% ଭାଗ ମଧୁର ଜଳ (Freshwater), ଯାହାର ଅଧିକାଂଶ ବରଫ ଆକାରରେ ହିମବାହ (Glaciers) ରେ ବନ୍ଧା ହୋଇ ରହିଛି। ମାତ୍ର ୧% ରୁ କମ୍ ମଧୁର ଜଳ ନଦୀ, ହ୍ରଦ ଏବଂ ଭୂତଳ ଜଳ (Groundwater) ଆକାରରେ ଆମ ପାଇଁ ଉପଲବ୍ଧ।</p>
+
+            <h3>୧୧.୩ ସୌରଶକ୍ତି: ସମସ୍ତ ଶକ୍ତିର ମୂଳ ଉତ୍ସ (Solar Energy)</h3>
+            <p>ସୂର୍ଯ୍ୟ ହେଉଛନ୍ତି ପୃଥିବୀର ପ୍ରାଥମିକ ଶକ୍ତି ଉତ୍ସ। ସୌରଶକ୍ତି ବିନା ପୃଥିବୀରେ ଜୀବନ ଅସମ୍ଭବ:</p>
+            <ul>
+                <li>ଉଦ୍ଭିଦ ସୌରଶକ୍ତିକୁ ରାସାୟନିକ ଶକ୍ତି (ଖାଦ୍ୟ) ରେ ରୂପାନ୍ତରିତ କରେ।</li>
+                <li>ସୌର କୁକର୍ (Solar Cooker) ଦ୍ୱାରା ବିନା ଇନ୍ଧନ ଓ ବିନା ଧୂଆଁରେ ଖାଦ୍ୟ ରାନ୍ଧିହୁଏ।</li>
+                <li>ସୌର ପ୍ୟାନେଲ୍ (Solar Panels / Photovoltaic cells) ଦ୍ୱାରା ସୂର୍ଯ୍ୟାଲୋକରୁ ସିଧାସଳଖ ବିଦ୍ୟୁତ୍ ଶକ୍ତି ଉତ୍ପନ୍ନ କରାଯାଏ।</li>
+            </ul>
+
+            <h3>୧୧.୪ ଜଙ୍ଗଲ ଓ ମୃତ୍ତିକା: ପୃଥିବୀର ସବୁଜ ଢାଲ (Forests and Soil)</h3>
+            <p>ଜଙ୍ଗଲ ହେଉଛି ଲକ୍ଷ ଲକ୍ଷ ପ୍ରାଣୀ ଓ ଉଦ୍ଭିଦଙ୍କ ପ୍ରାକୃତିକ ଆବାସସ୍ଥଳୀ (Habitat)।</p>
+            <div class="callout-def">
+                <div class="callout-title">&#127795; ଜଙ୍ଗଲ ଧ୍ୱଂସର ଭୟଙ୍କର ପରିଣାମ (Impact of Deforestation)</div>
+                <p>ବୃକ୍ଷରୋପଣ କମିଲେ ଏବଂ ବ୍ୟାପକ ଭାବେ ଗଛ କାଟିଲେ (Deforestation):</p>
+                <ul>
+                    <li><strong>ମୃତ୍ତିକା କ୍ଷୟ (Soil Erosion):</strong> ଗଛର ଚେର ମାଟିକୁ ଜାବୁଡ଼ି ଧରି ରଖେ। ଗଛ ନଥିଲେ ପ୍ରବଳ ବର୍ଷା ଓ ପବନରେ ଉପର ସାରୁଆ ମାଟି (Topsoil) ଧୋଇଯାଏ, ଯାହା ଫଳରେ ଜମି ମରୁଭୂମିରେ ପରିଣତ ହୁଏ।</li>
+                    <li><strong>ଭୂତଳ ଜଳସ୍ତର ହ୍ରାସ:</strong> ଗଛ ଥିଲେ ବର୍ଷା ପାଣି ମାଟି ଭିତରକୁ ଝରି ଭୂତଳ ଜଳସ୍ତର ବୃଦ୍ଧି ପାଏ।</li>
+                    <li><strong>ଗ୍ଲୋବାଲ ୱାର୍ମିଂ (Global Warming):</strong> ଗଛ କମିଲେ ବାୟୁମଣ୍ଡଳରେ CO<sub>2</sub> ବଢ଼ି ତାପମାତ୍ରା ବୃଦ୍ଧି ପାଏ।</li>
+                </ul>
+            </div>
+
+            <h3>୧୧.୫ ଜୀବାଶ୍ମ ଇନ୍ଧନ (Fossil Fuels): ପ୍ରାଚୀନ ସୂର୍ଯ୍ୟାଲୋକର ଗନ୍ତାଘର</h3>
+            <p>କୋଇଲା, ପେଟ୍ରୋଲିୟମ୍ ଏବଂ ପ୍ରାକୃତିକ ଗ୍ୟାସକୁ <strong>ଜୀବାଶ୍ମ ଇନ୍ଧନ (Fossil Fuels)</strong> କୁହାଯାଏ।</p>
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>ଜୀବାଶ୍ମ ଇନ୍ଧନ</th>
+                        <th>ଉତ୍ପତ୍ତିର ଉତ୍ସ</th>
+                        <th>ଗଠନ ପ୍ରକ୍ରିୟା</th>
+                        <th>ପ୍ରମୁଖ ବ୍ୟବହାର</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>କୋଇଲା (Coal)</strong></td>
+                        <td>ପ୍ରାଚୀନ କାଳର ବିଶାଳ ଘଞ୍ଚ ଜଙ୍ଗଲ ଓ ଉଦ୍ଭିଦ</td>
+                        <td>ପ୍ରାୟ ୩୦ କୋଟି ବର୍ଷ ପୂର୍ବେ ମାଟି ତଳେ ଚାପି ହୋଇ ଉଚ୍ଚ ତାପ ଓ ଚାପ ଯୋଗୁଁ ଅଙ୍ଗାରରେ ପରିଣତ ହେଲା।</td>
+                        <td>ତାପଜ ବିଦ୍ୟୁତ୍ କେନ୍ଦ୍ର (Thermal power), କଳକାରଖାନା।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ପେଟ୍ରୋଲିୟମ୍ (Petroleum / କଳା ସୁନା)</strong></td>
+                        <td>ସମୁଦ୍ରରେ ବାସ କରୁଥିବା ପ୍ରାଚୀନ ସୂକ୍ଷ୍ମ ଜୀବ ଓ ଶୈବାଳ</td>
+                        <td>ସମୁଦ୍ର ତଳେ ପଟୁମାଟି ଓ ବାଲି ତଳେ କୋଟି କୋଟି ବର୍ଷ ଧରି ଉଚ୍ଚ ତାପ ଓ ଅମ୍ଳଜାନ ବିହୀନ ପରିସ୍ଥିତିରେ ତୈଳରେ ରୂପାନ୍ତରିତ ହେଲା।</td>
+                        <td>ପେଟ୍ରୋଲ, ଡିଜେଲ, କିରୋସିନି, ଏଲ୍.ପି.ଜି, ପ୍ଲାଷ୍ଟିକ୍, ରାସ୍ତା ତିଆରି ପିଚୁ (Bitumen)।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ପ୍ରାକୃତିକ ଗ୍ୟାସ୍ (Natural Gas)</strong></td>
+                        <td>ପେଟ୍ରୋଲିୟମ୍ କୂଅର ଉପରିଭାଗରେ ଜମା ହୋଇଥିବା ଗ୍ୟାସ୍</td>
+                        <td>ପେଟ୍ରୋଲିୟମ୍ ସହିତ ସମାନ ଭାବେ ଗଠିତ। ମୁଖ୍ୟ ଉପାଦାନ ମିଥେନ୍ (CH<sub>4</sub>)।</td>
+                        <td>ସି.ଏନ୍.ଜି (CNG - ଯାନବାହନ ଇନ୍ଧନ), ପାଇପ୍ ଦ୍ୱାରା ରନ୍ଧନ ଗ୍ୟାସ୍ (PNG)।</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>୧୧.୬ ସମ୍ପଦ ସଂରକ୍ଷଣର 3R ନୀତି (The 3Rs of Resource Conservation)</h3>
+            <p>ଆମର 'ନିଅ-ବ୍ୟବହାର କର-ଫିଙ୍ଗିଦିଅ' ମନୋଭାବ ବଦଳାଇ ପରିବେଶକୁ ସୁରକ୍ଷିତ ରଖିବା ପାଇଁ <strong>3R ନୀତି</strong> ଏକାନ୍ତ ଅପରିହାର୍ଯ୍ୟ:</p>
+
+            <div class="svg-container">
+                <svg viewBox="0 0 880 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="10" y="10" width="860" height="300" rx="12" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"/>
+                    <text x="440" y="40" fill="#047857" font-size="18" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">ସମ୍ପଦ ସଂରକ୍ଷଣର 3R ମଡେଲ୍ (The 3Rs Framework)</text>
+
+                    <!-- Step 1: Reduce -->
+                    <g transform="translate(40, 70)">
+                        <rect x="0" y="0" width="240" height="210" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+                        <circle cx="120" cy="45" r="28" fill="#16a34a"/>
+                        <text x="120" y="52" fill="#ffffff" font-size="20" font-weight="bold" text-anchor="middle">1</text>
+                        <text x="120" y="100" fill="#166534" font-size="16" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">REDUCE (ହ୍ରାସ କର)</text>
+                        <text x="20" y="130" fill="#334155" font-size="12" font-family="Noto Sans Oriya, sans-serif">&bull; ଅନାବଶ୍ୟକ ବ୍ୟବହାର ବନ୍ଦ କର</text>
+                        <text x="20" y="150" fill="#334155" font-size="12" font-family="Noto Sans Oriya, sans-serif">&bull; ଫ୍ୟାନ୍, ଲାଇଟ୍ ବନ୍ଦ ରଖ</text>
+                        <text x="20" y="170" fill="#334155" font-size="12" font-family="Noto Sans Oriya, sans-serif">&bull; ନଳ ଖୋଲା ନଛାଡ଼ି ପାଣି ବଞ୍ଚାଅ</text>
+                        <text x="20" y="190" fill="#334155" font-size="12" font-family="Noto Sans Oriya, sans-serif">&bull; କମ୍ ଦୂରତାକୁ ଚାଲି ବା ସାଇକେଲରେ ଯାଅ</text>
+                    </g>
+
+                    <!-- Step 2: Reuse -->
+                    <g transform="translate(320, 70)">
+                        <rect x="0" y="0" width="240" height="210" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+                        <circle cx="120" cy="45" r="28" fill="#2563eb"/>
+                        <text x="120" y="52" fill="#ffffff" font-size="20" font-weight="bold" text-anchor="middle">2</text>
+                        <text x="120" y="100" fill="#1e40af" font-size="16" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">REUSE (ପୁନଃବ୍ୟବହାର)</text>
+                        <text x="20" y="130" fill="#334155" font-size="12" font-family="Noto Sans Oriya, sans-serif">&bull; ବସ୍ତୁକୁ ବାରମ୍ବାର ବ୍ୟବହାର କର</text>
+                        <text x="20" y="150" fill="#334155" font-size="12" font-family="Noto Sans Oriya, sans-serif">&bull; କାଚ ବୋତଲରେ ଜିନିଷ ରଖ</text>
+                        <text x="20" y="170" fill="#334155" font-size="12" font-family="Noto Sans Oriya, sans-serif">&bull; କପଡ଼ା ବ୍ୟାଗ୍ ସଉଦା ପାଇଁ ନିଅ</text>
+                        <text x="20" y="190" fill="#334155" font-size="12" font-family="Noto Sans Oriya, sans-serif">&bull; ପୁରୁଣା ଖାତାର ଧଳା ପୃଷ୍ଠାରେ ଟିପା ଖାତା</text>
+                    </g>
+
+                    <!-- Step 3: Recycle -->
+                    <g transform="translate(600, 70)">
+                        <rect x="0" y="0" width="240" height="210" rx="10" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+                        <circle cx="120" cy="45" r="28" fill="#d97706"/>
+                        <text x="120" y="52" fill="#ffffff" font-size="20" font-weight="bold" text-anchor="middle">3</text>
+                        <text x="120" y="100" fill="#b45309" font-size="16" font-weight="bold" text-anchor="middle" font-family="Noto Sans Oriya, sans-serif">RECYCLE (ପୁନଃଚକ୍ରଣ)</text>
+                        <text x="20" y="130" fill="#334155" font-size="12" font-family="Noto Sans Oriya, sans-serif">&bull; କାରଖାନାରେ ନୂଆ ରୂପ ଦିଅ</text>
+                        <text x="20" y="150" fill="#334155" font-size="12" font-family="Noto Sans Oriya, sans-serif">&bull; ପୁରୁଣା କାଗଜରୁ ନୂଆ କାଗଜ/କାର୍ଡ଼ବୋର୍ଡ଼</text>
+                        <text x="20" y="170" fill="#334155" font-size="12" font-family="Noto Sans Oriya, sans-serif">&bull; ଭଙ୍ଗା ଲୁହା, ଆଲୁମିନିୟମ୍ ତରଳାଇବା</text>
+                        <text x="20" y="190" fill="#334155" font-size="12" font-family="Noto Sans Oriya, sans-serif">&bull; ପ୍ଲାଷ୍ଟିକ୍ ପୁନଃପ୍ରକ୍ରିୟାକରଣ</text>
+                    </g>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Section 3 -->
+        <section class="section-card" id="definitions">
+            <div class="section-header">
+                <span class="section-icon">&#9889;</span>
+                <h2>ବିଭାଗ ୩: ମୁଖ୍ୟ ସଂଜ୍ଞା ଓ ତୁଳନାତ୍ମକ ସାରଣୀ</h2>
+            </div>
+
+            <table class="custom-table">
+                <thead>
+                    <tr>
+                        <th>ତୁଳନାର ବିଷୟ</th>
+                        <th>ନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ (Renewable)</th>
+                        <th>ଅନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ (Non-Renewable)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ସଂଜ୍ଞା</strong></td>
+                        <td>ଯେଉଁ ସମ୍ପଦ ପ୍ରାକୃତିକ ପ୍ରକ୍ରିୟା ଦ୍ୱାରା କମ୍ ସମୟ ମଧ୍ୟରେ ପୁନର୍ବାର ସୃଷ୍ଟି ବା ଭରଣା ହୋଇପାରେ।</td>
+                        <td>ଯେଉଁ ସମ୍ପଦର ଭଣ୍ଡାର ସୀମିତ ଏବଂ ଥରେ ସରିଗଲେ ପୁନଃସୃଷ୍ଟି ହେବା ପାଇଁ ଲକ୍ଷ ଲକ୍ଷ ବର୍ଷ ଲାଗେ।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ପ୍ରାକୃତିକ ଭଣ୍ଡାର</strong></td>
+                        <td>ଅସୀମିତ (ଅଫୁରନ୍ତ / Inexhaustible)</td>
+                        <td>ସୀମିତ (ସରିଯିବା ଯୋଗ୍ୟ / Exhaustible)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ପରିବେଶ ଉପରେ ପ୍ରଭାବ</strong></td>
+                        <td>ପରିବେଶ ଅନୁକୂଳ, ପ୍ରଦୂଷଣମୁକ୍ତ ବା ଅତି କମ୍ ପ୍ରଦୂଷଣକାରୀ।</td>
+                        <td>ଦହନ ଦ୍ୱାରା ବିଷାକ୍ତ ଗ୍ୟାସ (CO<sub>2</sub>, SO<sub>2</sub>) ନିର୍ଗତ ହୋଇ ପ୍ରଦୂଷଣ ବଢ଼େ।</td>
+                    </tr>
+                    <tr>
+                        <td><strong>ଉଦାହରଣ</strong></td>
+                        <td>ସୂର୍ଯ୍ୟାଲୋକ, ପବନ, ଜଳ, ଜଙ୍ଗଲ, ଜୈବଭାର (Biomass)।</td>
+                        <td>କୋଇଲା, ପେଟ୍ରୋଲିୟମ୍, ପ୍ରାକୃତିକ ଗ୍ୟାସ୍, ଲୁହା, ତମ୍ବା, ୟୁରାନିୟମ୍।</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 4 -->
+        <section class="section-card" id="solutions">
+            <div class="section-header">
+                <span class="section-icon">&#128221;</span>
+                <h2>ବିଭାଗ ୪: ୧୦୦% ସମାଧାନ ପାଠ୍ୟପୁସ୍ତକ ଅଭ୍ୟାସ ପ୍ରଶ୍ନୋତ୍ତର (Q1 - Q17)</h2>
+            </div>
+
+            <!-- Q1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୧</span> ପ୍ରାକୃତିକ ସମ୍ପଦର ନାମ ମେଳକ କର ଏବଂ ନବୀକରଣଯୋଗ୍ୟ ଓ ଅନବୀକରଣଯୋଗ୍ୟ ଭାବେ ବର୍ଗୀକରଣ କର।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ପ୍ରଦତ୍ତ ସମ୍ପଦଗୁଡ଼ିକର ସଠିକ୍ ବର୍ଗୀକରଣ ନିମ୍ନଲିଖିତ ସାରଣୀରେ ଦିଆଗଲା:</p>
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>ପ୍ରାକୃତିକ ସମ୍ପଦ</th>
+                                <th>ଶ୍ରେଣୀବିଭାଗ</th>
+                                <th>ବ୍ୟାଖ୍ୟା</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>ସୌରଶକ୍ତି (Sunlight)</td><td>ନବୀକରଣଯୋଗ୍ୟ (Renewable)</td><td>ସୂର୍ଯ୍ୟ ପ୍ରତିଦିନ ଅଫୁରନ୍ତ ଆଲୋକ ଓ ଉତ୍ତାପ ଦିଅନ୍ତି।</td></tr>
+                            <tr><td>ଜଳ (Water)</td><td>ନବୀକରଣଯୋଗ୍ୟ (Renewable)</td><td>ଜଳଚକ୍ର ଦ୍ୱାରା ପୁନର୍ଭରଣ ହୁଏ।</td></tr>
+                            <tr><td>କୋଇଲା (Coal)</td><td>ଅନବୀକରଣଯୋଗ୍ୟ (Non-renewable)</td><td>ସୀମିତ ଭଣ୍ଡାର, ଗଠନ ପାଇଁ କୋଟି କୋଟି ବର୍ଷ ଲାଗେ।</td></tr>
+                            <tr><td>ପେଟ୍ରୋଲିୟମ୍ (Petroleum)</td><td>ଅନବୀକରଣଯୋଗ୍ୟ (Non-renewable)</td><td>ଏକ ଜୀବାଶ୍ମ ଇନ୍ଧନ, ଥରେ ସରିଗଲେ ତୁରନ୍ତ ମିଳିବ ନାହିଁ।</td></tr>
+                            <tr><td>ଜଙ୍ଗଲ (Forests)</td><td>ନବୀକରଣଯୋଗ୍ୟ (Renewable)</td><td>ଯତ୍ନପୂର୍ବକ ବ୍ୟବହାର ଓ ଗଛ ଲଗାଇଲେ ପୁନର୍ବାର ସୃଷ୍ଟି ହୋଇପାରିବ।</td></tr>
+                            <tr><td>ବାୟୁ (Air)</td><td>ନବୀକରଣଯୋଗ୍ୟ (Renewable)</td><td>ବାୟୁମଣ୍ଡଳରେ ସର୍ବଦା ପ୍ରବାହିତ ଓ ଉପଲବ୍ଧ।</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+
+            <!-- Q2 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୨</span> ସତ୍ୟ (True) ବା ମିଥ୍ୟା (False) ଚିହ୍ନଟ କର ଏବଂ ଭୁଲ୍ ବିବୃତିକୁ ସଂଶୋଧନ କର।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <ol>
+                        <li><em>ବାୟୁ ଏକ ଅନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ।</em> &mdash; <strong>ମିଥ୍ୟା (False)</strong><br>
+                        <strong>ସଂଶୋଧନ:</strong> ବାୟୁ ଏକ <strong>ନବୀକରଣଯୋଗ୍ୟ (Renewable)</strong> ସମ୍ପଦ।</li>
+                        <li><em>କୋଇଲା ଏବଂ ପେଟ୍ରୋଲିୟମ୍ ହେଉଛନ୍ତି ଜୀବାଶ୍ମ ଇନ୍ଧନ।</em> &mdash; <strong>ସତ୍ୟ (True)</strong></li>
+                        <li><em>ଜଙ୍ଗଲ କାଟିବା ଦ୍ୱାରା ମୃତ୍ତିକା ସଂରକ୍ଷଣ ହୁଏ।</em> &mdash; <strong>ମିଥ୍ୟା (False)</strong><br>
+                        <strong>ସଂଶୋଧନ:</strong> ଜଙ୍ଗଲ କାଟିବା ଦ୍ୱାରା <strong>ମୃତ୍ତିକା କ୍ଷୟ (Soil Erosion)</strong> ବୃଦ୍ଧି ପାଏ।</li>
+                        <li><em>ସୌର କୁକର୍ ବ୍ୟବହାର କରିବା ଦ୍ୱାରା ପରିବେଶ ପ୍ରଦୂଷଣ ହୁଏ ନାହିଁ।</em> &mdash; <strong>ସତ୍ୟ (True)</strong></li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- Q3 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୩</span> ଶୂନ୍ୟସ୍ଥାନ ପୂରଣ କର (Fill in the blanks)।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <ol>
+                        <li>ବାୟୁମଣ୍ଡଳରେ ସର୍ବାଧିକ ପରିମାଣରେ ଥିବା ଗ୍ୟାସ୍ ହେଉଛି <strong><u>ଯବକ୍ଷାରଜାନ (Nitrogen - ୭୮%)</u></strong>।</li>
+                        <li>ସମୁଦ୍ର ତଳେ ଥିବା ସୂକ୍ଷ୍ମ ଜୀବମାନଙ୍କ ମୃତଦେହରୁ କୋଟି କୋଟି ବର୍ଷ ପରେ <strong><u>ପେଟ୍ରୋଲିୟମ୍ (Petroleum)</u></strong> ସୃଷ୍ଟି ହୋଇଛି।</li>
+                        <li>ଗଛର ଚେର ମାଟିକୁ ଜାବୁଡ଼ି ଧରି ରଖି <strong><u>ମୃତ୍ତିକା କ୍ଷୟ (Soil Erosion)</u></strong> ରୋକିଥାଏ।</li>
+                        <li>ସମ୍ପଦ ସଂରକ୍ଷଣର 3R ନୀତିର ଅର୍ଥ ହେଲା: Reduce, Reuse ଏବଂ <strong><u>Recycle (ପୁନଃଚକ୍ରଣ)</u></strong>।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- Q4 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୪</span> ନିମ୍ନଲିଖିତଗୁଡ଼ିକୁ ନବୀକରଣଯୋଗ୍ୟ ବା ଅନବୀକରଣଯୋଗ୍ୟ ଭାବେ ବର୍ଗୀକରଣ କର: କୋଇଲା, ପ୍ରାକୃତିକ ଗ୍ୟାସ୍, ଜଙ୍ଗଲ ଏବଂ ଖଣିଜ ପଦାର୍ଥ।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <ul>
+                        <li><strong>ନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ (Renewable):</strong> ଜଙ୍ଗଲ (Forests - ଉପଯୁକ୍ତ ବୃକ୍ଷରୋପଣ ଦ୍ୱାରା ପୁନର୍ଭରଣ ସମ୍ଭବ)।</li>
+                        <li><strong>ଅନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ (Non-renewable):</strong> କୋଇଲା (Coal), ପ୍ରାକୃତିକ ଗ୍ୟାସ୍ (Natural Gas), ଏବଂ ଖଣିଜ ପଦାର୍ଥ (Minerals - ଲୁହା, ତମ୍ବା ଇତ୍ୟାଦି)।</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Q5 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୫</span> ଆମେ ପେଟ୍ରୋଲିୟମ୍କୁ ଏକ ଅନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ କାହିଁକି କହୁ?</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ପେଟ୍ରୋଲିୟମ୍ ଗଠନ ହେବା ପାଇଁ ସମୁଦ୍ର ତଳେ ପୋତି ହୋଇଥିବା ପ୍ରାଚୀନ ସାମୁଦ୍ରିକ ଜୀବଙ୍କ ଉପରେ ଲକ୍ଷ ଲକ୍ଷ ବର୍ଷ ଧରି ଉଚ୍ଚ ତାପ, ଚାପ ଏବଂ ଅମ୍ଳଜାନ ବିହୀନ ପରିବେଶ ଆବଶ୍ୟକ ହୋଇଥିଲା। ପୃଥିବୀରେ ଏହାର ମୋଟ ଭଣ୍ଡାର ଅତ୍ୟନ୍ତ ସୀମିତ। ଆମେ ଯେଉଁ ଦ୍ରୁତ ଗତିରେ ଗାଡ଼ିମଟର ଓ ଶିଳ୍ପରେ ପେଟ୍ରୋଲ ଓ ଡିଜେଲ ଖର୍ଚ୍ଚ କରୁଛୁ, ତାହା ତୁଳନାରେ ଏହାର ନୂତନ ସୃଷ୍ଟି ହାର ନଗଣ୍ୟ। ଥରେ ଏହି ଭଣ୍ଡାର ଶେଷ ହୋଇଗଲେ ମାନବ ଜୀବନକାଳ ମଧ୍ୟରେ ଏହାକୁ ପୁନର୍ବାର ସୃଷ୍ଟି କରାଯାଇ ପାରିବ ନାହିଁ। ତେଣୁ ଏହା ଏକ <strong>ଅନବୀକରଣଯୋଗ୍ୟ (Non-renewable)</strong> ସମ୍ପଦ।</p>
+                </div>
+            </details>
+
+            <!-- Q6 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୬</span> "ଜଙ୍ଗଲକୁ ପୁନର୍ବାର ବଢ଼ାଇବା ଅତ୍ୟନ୍ତ କଷ୍ଟକର।" &mdash; ଏହି ବିବୃତିର ଯଥାର୍ଥତା ପ୍ରତିପାଦନ କର।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ଏହି ବିବୃତି ସମ୍ପୂର୍ଣ୍ଣ ସତ୍ୟ କାରଣ:</p>
+                    <ol>
+                        <li><strong>ସମୟର ଆବଶ୍ୟକତା:</strong> ଗୋଟିଏ ଗଛ କାଟିବାକୁ ମାତ୍ର କିଛି ମିନିଟ୍ ଲାଗେ, କିନ୍ତୁ ଏକ ପୂର୍ଣ୍ଣାଙ୍ଗ ବୃକ୍ଷ ଏବଂ ଏକ ଜଙ୍ଗଲୀୟ ପରିସଂସ୍ଥା (Ecosystem) ବିକଶିତ ହେବାକୁ ଦଶନ୍ଧି ଦଶନ୍ଧି (୩୦ ରୁ ୫୦ ବର୍ଷ) ସମୟ ଲାଗେ।</li>
+                        <li><strong>ଜୈବ ବିବିଧତାର କ୍ଷତି:</strong> ପ୍ରାକୃତିକ ଜଙ୍ଗଲରେ ଶହ ଶହ ପ୍ରଜାତିର ଉଦ୍ଭିଦ, ପଶୁପକ୍ଷୀ, କୀଟ ଓ ମୃତ୍ତିକା ଅଣୁଜୀବ ପରସ୍ପର ଉପରେ ନିର୍ଭର କରି ବାସ କରନ୍ତି। ଗଛ ଲଗାଇଲେ ମଧ୍ୟ ସେହି ପୁରାତନ ଜୈବିକ ସନ୍ତୁଳନ ତୁରନ୍ତ ଫେରିଆସେ ନାହିଁ।</li>
+                        <li><strong>ମୃତ୍ତିକା ସାରୁଆ ଅଂଶ ନଷ୍ଟ:</strong> ଜଙ୍ଗଲ ଉଜୁଡ଼ିବା ପରେ ବର୍ଷା ଜଳରେ ସାରୁଆ ଉପର ମାଟି (Topsoil) ଧୋଇଯାଏ, ଯାହା ଫଳରେ ନୂତନ ଚାରା ବଢ଼ିବା ଅତ୍ୟନ୍ତ କଷ୍ଟକର ହୋଇପଡ଼େ।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- Q7 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୭</span> ଦୈନନ୍ଦିନ ୫ଟି କାର୍ଯ୍ୟର ତାଲିକା କର ଯେଉଁଥିରେ ପ୍ରାକୃତିକ ସମ୍ପଦ ବ୍ୟବହାର ହୁଏ ଏବଂ ବ୍ୟବହାର ହ୍ରାସ କରିବାର ଉପାୟ ଦର୍ଶାଅ।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <table class="custom-table">
+                        <thead>
+                            <tr>
+                                <th>ଦୈନନ୍ଦିନ କାର୍ଯ୍ୟ</th>
+                                <th>ବ୍ୟବହୃତ ସମ୍ପଦ</th>
+                                <th>ବ୍ୟବହାର ହ୍ରାସ (Reduce) କରିବାର ଉପାୟ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>ଦାନ୍ତ ଘଷିବା ଓ ଗାଧୋଇବା</td><td>ଜଳ</td><td>ନଳ ଖୋଲା ନରଖି ବାଲ୍ଟିରେ ମାପି ପାଣି ବ୍ୟବହାର କରିବା।</td></tr>
+                            <tr><td>ସ୍କୁଲ ବା ବଜାର ଯିବା</td><td>ପେଟ୍ରୋଲ / ଡିଜେଲ</td><td>ପାଦରେ ଚାଲିବା, ସାଇକେଲ୍ କିମ୍ବା ସାର୍ବଜନୀନ ବସ୍ ବ୍ୟବହାର।</td></tr>
+                            <tr><td>ପଢ଼ିବା ସମୟରେ ଆଲୋକ ଜଳାଇବା</td><td>କୋଇଲା (ବିଦ୍ୟୁତ୍ ଶକ୍ତି)</td><td>ଦିନବେଳା ଝରକା ଖୋଲି ସୂର୍ଯ୍ୟାଲୋକରେ ପଢ଼ିବା, ଏଲ୍.ଇ.ଡି ବଲ୍ବ ବ୍ୟବହାର।</td></tr>
+                            <tr><td>ଖାଦ୍ୟ ରାନ୍ଧିବା</td><td>ଏଲ୍.ପି.ଜି (LPG)</td><td>ପ୍ରେସର କୁକର୍ ବ୍ୟବହାର କରିବା, ଢାଙ୍କୁଣୀ ଦେଇ ରାନ୍ଧିବା।</td></tr>
+                            <tr><td>ଲେଖାଲେଖି କରିବା</td><td>କାଗଜ (ଜଙ୍ଗଲ କାଠ)</td><td>ଖାତାର ଉଭୟ ପାର୍ଶ୍ୱ ଲେଖିବା, ବ୍ୟର୍ଥ ନକରିବା।</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </details>
+
+            <!-- Q8 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୮</span> ବାୟୁ ଥିବାରୁ ସମ୍ଭବ ହେଉଥିବା ଚାରୋଟି କାର୍ଯ୍ୟକଳାପ ତାଲିକାଭୁକ୍ତ କର।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <ol>
+                        <li><strong>ଶ୍ୱସନ ଓ ଦହନ:</strong> ସମସ୍ତ ଜୀବଙ୍କ ବଞ୍ଚିବା ପାଇଁ ଶ୍ୱାସକ୍ରିୟା ଏବଂ ନିଆଁ ଜଳିବା ପାଇଁ ଅମ୍ଳଜାନ ଯୋଗାଣ।</li>
+                        <li><strong>ବିଦ୍ୟୁତ୍ ଉତ୍ପାଦନ:</strong> ପବନର ଶକ୍ତି ଦ୍ୱାରା ପବନଚକ୍କି (Windmill) ଘୂରାଇ ବିଦ୍ୟୁତ୍ ଉତ୍ପନ୍ନ କରିବା।</li>
+                        <li><strong>ଜଳ ଓ ଆକାଶ ଯାତାୟାତ:</strong> ପାଲଟଣା ଡଙ୍ଗା ଚଳାଇବା, ବିମାନ ଓ ପାରାସୁଟ୍ ଉଡ଼ାଇବା।</li>
+                        <li><strong>ଶବ୍ଦ ପ୍ରସାରଣ:</strong> ବାୟୁ ଏକ ମାଧ୍ୟମ ଭାବେ କାର୍ଯ୍ୟ କରି ଶବ୍ଦ ତରଙ୍ଗକୁ ଆମ କାନ ପର୍ଯ୍ୟନ୍ତ ପହଞ୍ଚାଏ।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- Q9 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୯</span> ତୁମ ଅଞ୍ଚଳର ସବୁଜିମା (Green Cover) ବୃଦ୍ଧି କରିବା ପାଇଁ ତୁମେ କିପରି ଯୋଗଦାନ କରିପାରିବ? କାର୍ଯ୍ୟର ତାଲିକା ପ୍ରସ୍ତୁତ କର।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <ol>
+                        <li>ଜନ୍ମଦିନ ଏବଂ ବନ ମହୋତ୍ସବରେ ନିଜ ଘର ବଗିଚାରେ ଓ ରାସ୍ତା କଡ଼ରେ ଅତି କମରେ ଗୋଟିଏ ନିମ, ବର ବା ଆମ୍ବ ଚାରା ରୋପଣ କରିବା।</li>
+                        <li>ନବରୋପିତ ଚାରାଗୁଡ଼ିକରେ ପ୍ରତିଦିନ ପାଣି ଦେବା ଏବଂ ଗୃହପାଳିତ ପଶୁଙ୍କଠାରୁ ସୁରକ୍ଷା ପାଇଁ ବାଉଁଶ ଘେରା (Tree guard) ଦେବା।</li>
+                        <li>ସ୍କୁଲ ପରିସରରେ କିଚେନ୍ ଗାର୍ଡେନ୍ ଏବଂ ଔଷଧୀୟ ବୃକ୍ଷ ବଗିଚା ପ୍ରତିଷ୍ଠା କରିବା।</li>
+                        <li>ପଡ଼ୋଶୀ ଓ ସାଙ୍ଗମାନଙ୍କ ମଧ୍ୟରେ ଗଛ ନକାଟିବା ଏବଂ ବୃକ୍ଷରୋପଣ ସମ୍ପର୍କରେ ସଚେତନତା ସୃଷ୍ଟି କରିବା।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- Q10 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୧୦</span> ସୌର କୁକର୍ ଦ୍ୱାରା ଖାଦ୍ୟ ରନ୍ଧା ସମ୍ପର୍କିତ: (i) କେଉଁ ଶକ୍ତି ବ୍ୟବହୃତ ହୁଏ? (ii) ଏହାର ଗୋଟିଏ ଲାଭ ଓ ଗୋଟିଏ ସୀମାବଦ୍ଧତା ଦର୍ଶାଅ।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>(i) ବ୍ୟବହୃତ ଶକ୍ତି:</strong> ଏଥିରେ <strong>ସୌର ତାପଜ ଶକ୍ତି (Solar Thermal Energy)</strong> ବ୍ୟବହାର କରାଯାଏ।</p>
+                    <p><strong>(ii) ଲାଭ (Advantage):</strong> ଏହା ସମ୍ପୂର୍ଣ୍ଣ ମାଗଣା, ନବୀକରଣଯୋଗ୍ୟ ଏବଂ କୌଣସି ଧୂଆଁ ବା ପ୍ରଦୂଷଣ ସୃଷ୍ଟି କରେ ନାହିଁ। ଖାଦ୍ୟର ପୋଷକ ତତ୍ତ୍ୱ ନଷ୍ଟ ହୁଏ ନାହିଁ।</p>
+                    <p><strong>ସୀମାବଦ୍ଧତା (Drawback):</strong> ଏହା ରାତିରେ, କୁହୁଡ଼ିଆ କିମ୍ବା ମେଘୁଆ ପାଗରେ କାମ କରିପାରେ ନାହିଁ ଏବଂ ଏଥିରେ ଖାଦ୍ୟ ରାନ୍ଧିବା ପାଇଁ ଅଧିକ ସମୟ ଲାଗେ।</p>
+                </div>
+            </details>
+
+            <!-- Q11 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୧୧</span> ବ୍ୟାପକ ଭାବେ ଗଛ କାଟିବା ମୃତ୍ତିକାର ଗୁଣବତ୍ତାକୁ କିପରି ପ୍ରଭାବିତ କରେ?</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ଗଛର ଚେର ମାଟି କଣିକାଗୁଡ଼ିକୁ ଏକାଠି ବାନ୍ଧି ରଖେ। ଗଛ କାଟିଦେଲେ:</p>
+                    <ul>
+                        <li>ମାଟି ଅଲଗା ହୋଇଯାଏ ଏବଂ ପ୍ରବଳ ପବନ ଓ ବର୍ଷାରେ ସର୍ବାଧିକ ପୋଷକ ତତ୍ତ୍ୱ ଥିବା ଉପର ସ୍ତର (Topsoil) ଧୋଇ ହୋଇ ନଷ୍ଟ ହୋଇଯାଏ (ମୃତ୍ତିକା କ୍ଷୟ)।</li>
+                        <li>ଝଡ଼ିପଡ଼ୁଥିବା ପତ୍ରରୁ ସୃଷ୍ଟି ହେଉଥିବା ହ୍ୟୁମସ୍ (Humus) ଅଭାବରୁ ମାଟିର ଜଳଧାରଣ କ୍ଷମତା ଓ ଉର୍ବରତା ହ୍ରାସ ପାଏ।</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Q12 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୧୨</span> ମାନବ କାର୍ଯ୍ୟକଳାପ ବାୟୁକୁ ପ୍ରଦୂଷିତ କରୁଥିବା ୨ଟି ଉପାୟ ଏବଂ ବାୟୁ ପ୍ରଦୂଷଣ କମାଇବା ପାଇଁ ଗୋଟିଏ ପଦକ୍ଷେପ ଉଲ୍ଲେଖ କର।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ପ୍ରଦୂଷଣ କରୁଥିବା ୨ଟି କାରଣ:</strong></p>
+                    <ol>
+                        <li>ଯାନବାହନ (ପେଟ୍ରୋଲ ଓ ଡିଜେଲ ଗାଡ଼ି) ରୁ ନିର୍ଗତ କାର୍ବନ ମନୋକ୍ସାଇଡ୍, କଳା ଧୂଆଁ ଓ ନାଇଟ୍ରୋଜେନ୍ ଅକ୍ସାଇଡ୍।</li>
+                        <li>ତାପଜ ବିଦ୍ୟୁତ୍ କେନ୍ଦ୍ର ଓ ଶିଳ୍ପ କାରଖାନାରୁ କୋଇଲା ଜଳି ବାହାରୁଥିବା ଧୂଆଁ ଏବଂ ଫସଲ ଅବଶେଷ (ପରାଳି) ଜଳାଇବା।</li>
+                    </ol>
+                    <p><strong>ପ୍ରଦୂଷଣ କମାଇବା ପାଇଁ ପଦକ୍ଷେପ:</strong> ବ୍ୟକ୍ତିଗତ ପେଟ୍ରୋଲ ଗାଡ଼ି ପରିବର୍ତ୍ତେ <strong>ସି.ଏନ୍.ଜି (CNG) କିମ୍ବା ଇଲେକ୍ଟ୍ରିକ୍ ଯାନବାହନ (EV)</strong> ଏବଂ ସାର୍ବଜନୀନ ବସ୍ ଓ ସାଇକେଲ ବ୍ୟବହାରକୁ ପ୍ରାଥମିକତା ଦେବା।</p>
+                </div>
+            </details>
+
+            <!-- Q13 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୧୩</span> ଏକ ପରିବାର ବିଦ୍ୟୁତ୍ ପାଇଁ ସୋଲାର ପ୍ୟାନେଲ୍, ରନ୍ଧନ ପାଇଁ ଗ୍ୟାସ୍ ଚୁଲା ଏବଂ ପାଣି ଉଠାଇବାକୁ ପବନଚକ୍କି ବ୍ୟବହାର କରେ। ଏକ ସପ୍ତାହ ସୂର୍ଯ୍ୟାଲୋକ ନରହିଲେ କଣ ହେବ?</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong></p>
+                    <ul>
+                        <li><strong>ବିଦ୍ୟୁତ୍ ଶକ୍ତି:</strong> ସୋଲାର ପ୍ୟାନେଲ୍ କାମ କରିବ ନାହିଁ। ବ୍ୟାଟେରୀରେ ପୂର୍ବରୁ ସଞ୍ଚିତ ଚାର୍ଜ ଶେଷ ହେବା ପରେ ଘରେ ବିଦ୍ୟୁତ୍ ସେବା ବନ୍ଦ ହୋଇଯିବ।</li>
+                        <li><strong>ଖାଦ୍ୟ ରନ୍ଧନ:</strong> ଗ୍ୟାସ୍ ଚୁଲା (LPG) ସୂର୍ଯ୍ୟାଲୋକ ଉପରେ ନିର୍ଭର କରେ ନାହିଁ, ତେଣୁ ରନ୍ଧାକାର୍ଯ୍ୟ ସ୍ୱାଭାବିକ ଭାବେ ଚାଲୁ ରହିବ।</li>
+                        <li><strong>ପାଣି ଉଠାଇବା:</strong> ପବନଚକ୍କି ବାୟୁ ପ୍ରବାହ ଦ୍ୱାରା ଚାଲେ, ତେଣୁ ପବନ ବହିଲେ ପାଣି ଉଠିବାରେ କୌଣସି ଅସୁବିଧା ହେବ ନାହିଁ।</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Q14 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୧୪</span> ଧାରଣା ମାନଚିତ୍ର (Concept Map) ଶୂନ୍ୟସ୍ଥାନ ପୂରଣ କର।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ସଠିକ୍ ଧାରଣା ମ୍ୟାପ୍ ସଜ୍ଜା:</strong></p>
+                    <ul>
+                        <li><strong>ପ୍ରାକୃତିକ ସମ୍ପଦ</strong> &rarr; ଦୁଇ ଭାଗରେ ବିଭକ୍ତ: (୧) ନବୀକରଣଯୋଗ୍ୟ, (୨) ଅନବୀକରଣଯୋଗ୍ୟ।</li>
+                        <li><strong>ନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦରେ:</strong> ବାୟୁ (Air), ଜଳ (Water), ଜଙ୍ଗଲ (Forests), ସୌରଶକ୍ତି।</li>
+                        <li><strong>ଅନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦରେ:</strong> ଜୀବାଶ୍ମ ଇନ୍ଧନ (Fossil Fuels) &rarr; ଯଥା: କୋଇଲା (Coal), ପେଟ୍ରୋଲିୟମ୍ (Petroleum), ପ୍ରାକୃତିକ ଗ୍ୟାସ୍।</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Q15 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୧୫</span> ଘର ଓ ଶିଳ୍ପ ଆବଶ୍ୟକତା ପାଇଁ ବ୍ୟାପକ ଗଛ କଟାଯିବା କଣ ନ୍ୟାୟସଙ୍ଗତ? ଏକ ସଂକ୍ଷିପ୍ତ ରିପୋର୍ଟ ପ୍ରସ୍ତୁତ କର।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ରିପୋର୍ଟ:</strong> ଘର ଓ ଶିଳ୍ପ ପାଇଁ ବ୍ୟାପକ ଭାବେ ଗଛ କାଟିବା <strong>ଆଦୌ ନ୍ୟାୟସଙ୍ଗତ ନୁହେଁ।</strong></p>
+                    <p>ବିକାଶ ନାମରେ ପ୍ରକୃତିର ସବୁଜ ଆବରଣ ଧ୍ୱଂସ କରିବା ଦ୍ୱାରା ବନ୍ୟପ୍ରାଣୀ ବାସହୀନ ହେଉଛନ୍ତି, ଭୂତଳ ଜଳସ୍ତର ହ୍ରାସ ପାଉଛି, ମରୁଭୂମିକରଣ ବଢ଼ୁଛି ଏବଂ ଅସମୟରେ ବନ୍ୟା ଓ ବାତ୍ୟା ଭଳି ପ୍ରାକୃତିକ ବିପର୍ଯ୍ୟୟ ଘଟୁଛି। ଶିଳ୍ପ ପାଇଁ ଯଦି ଗୋଟିଏ ଗଛ କଟାଯାଏ, ତେବେ ବାଧ୍ୟତାମୂଳକ ଭାବେ ଅନ୍ୟୂନ <strong>୫ଟି ନୂଆ ଗଛ ଲଗାଇ ତାର ରକ୍ଷଣାବେକ୍ଷଣ (Compensatory Afforestation)</strong> କରାଯିବା ଉଚିତ। କାଠ ବଦଳରେ ପୁନଃଚକ୍ରଣ ଧାତୁ ବା ସିମେଣ୍ଟ ବିକଳ୍ପ ସାମଗ୍ରୀ ବ୍ୟବହାର କରିବା ଆବଶ୍ୟକ।</p>
+                </div>
+            </details>
+
+            <!-- Q16 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-ncert">ପ୍ରଶ୍ନ ୧୬</span> ତୁମ ବିଦ୍ୟାଳୟରେ ଜଳ ଅପଚୟ ରୋକିବା ପାଇଁ ଏକ କାର୍ଯ୍ୟ ଯୋଜନା ପ୍ରସ୍ତୁତ କର।</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ବିଦ୍ୟାଳୟ ଜଳ ସଂରକ୍ଷଣ କାର୍ଯ୍ୟ ଯୋଜନା:</strong></p>
+                    <ol>
+                        <li><strong>ନଳ ମରାମତି:</strong> ସ୍କୁଲର ଲିକ୍ କରୁଥିବା ସମସ୍ତ ପାଣି ଟ୍ୟାପ୍ ତୁରନ୍ତ ପ୍ଲମ୍ବର ଡକାଇ ମରାମତି କରାଇବା।</li>
+                        <li><strong>ଜଳ ଦୂତ (Water Monitors):</strong> ଛାତ୍ରଛାତ୍ରୀଙ୍କୁ ନେଇ ଦଳ ଗଠନ କରିବା, ଯେଉଁମାନେ ରିସେସ୍ ସମୟରେ ଖୋଲା ଥିବା ନଳକୁ ବନ୍ଦ କରିବେ।</li>
+                        <li><strong>ବଳକା ପିଇବା ପାଣିର ପୁନଃବ୍ୟବହାର:</strong> ୱାଟର ବୋତଲର ବଳିପଡ଼ୁଥିବା ପାଣି ଫିଙ୍ଗି ନଦେଇ ସ୍କୁଲ ବଗିଚା ଗଛ ମୂଳରେ ଢଳାଯିବା।</li>
+                        <li><strong>ଛାତ ବର୍ଷା ଜଳ ଅମଳ (RWH):</strong> ସ୍କୁଲ ଛାତର ବର୍ଷା ପାଣିକୁ ପାଇପ୍ ଯୋଗେ ଭୂତଳ ରିଚାର୍ଜ କୂଅ ମଧ୍ୟକୁ ଛାଡ଼ିବା।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- Q17 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-think">ଅଧିକ ଶିଖିବା ପ୍ରକଳ୍ପ</span> ଭାରତର ପାରମ୍ପରିକ ବର୍ଷା ଜଳ ସଂରକ୍ଷଣ ପଦ୍ଧତି (Traditional Rainwater Harvesting)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p>ଭାରତର ପ୍ରାଚୀନ ଲୋକମାନେ ବର୍ଷା ଜଳ ସଂରକ୍ଷଣର ଚମତ୍କାର କୌଶଳ ଜାଣିଥିଲେ:</p>
+                    <ul>
+                        <li><strong>ବାୱଡ଼ି / ଷ୍ଟେପୱେଲ୍ (Stepwells):</strong> ରାଜସ୍ଥାନ ଓ ଗୁଜରାଟରେ ଗଭୀର ପାହାଚ ଥିବା ଜଳାଶୟ ଯେଉଁଠି ବର୍ଷା ପାଣି ଜମା ରହୁଥିଲା।</li>
+                        <li><strong>କୁଲ୍ (Kuhl):</strong> ହିମାଚଳ ପ୍ରଦେଶରେ ଗ୍ଲେସିୟର ପାଣିକୁ କେନାଲ ମାଧ୍ୟମରେ ଗାଁକୁ ଆଣିବା କୌଶଳ।</li>
+                        <li><strong>ଟାଙ୍କା (Tanka):</strong> ରାଜସ୍ଥାନର ଘର ଅଗଣାରେ ଭୂତଳ ବର୍ଷା ଜଳ କୁଣ୍ଡ।</li>
+                        <li><strong>ବନ୍ଧ ଓ କଟା (Bandhas & Katas):</strong> ଓଡ଼ିଶାର ପଶ୍ଚିମାଞ୍ଚଳରେ ଚାଷ ଜମିରେ ବର୍ଷା ପାଣି ଅଟକାଇ ଭୂତଳ ଜଳ ବୃଦ୍ଧି କରିବା ପାରମ୍ପରିକ ପଦ୍ଧତି।</li>
+                    </ul>
+                </div>
+            </details>
+        </section>
+
+        <!-- Section 5 -->
+        <section class="section-card" id="competency">
+            <div class="section-header">
+                <span class="section-icon">&#128175;</span>
+                <h2>ବିଭାଗ ୫: ପରୀକ୍ଷା ପ୍ରଶ୍ନ ବ୍ୟାଙ୍କ ଓ ସିବିଏସଇ ଦକ୍ଷତା ପ୍ରଶ୍ନ</h2>
+            </div>
+
+            <h3>ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନ (MCQs)</h3>
+
+            <!-- MCQ 1 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୧:</strong> ନିମ୍ନଲିଖିତ ମଧ୍ୟରୁ କେଉଁଟି ଏକ ନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ ନୁହେଁ?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ସୌରଶକ୍ତି ଅଫୁରନ୍ତ ନବୀକରଣଯୋଗ୍ୟ।')">(A) ସୌରଶକ୍ତି (Solar Energy)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ପବନ ପ୍ରାକୃତିକ ଭାବେ ସର୍ବଦା ନବୀକରଣ ହୁଏ।')">(B) ପବନ ଶକ୍ତି (Wind Energy)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! କୋଇଲା ଏକ ସୀମିତ ଜୀବାଶ୍ମ ଇନ୍ଧନ, ଯାହା ଅନବୀକରଣଯୋଗ୍ୟ।')">(C) କୋଇଲା (Coal)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଜଳ ଜଳଚକ୍ର ଦ୍ୱାରା ନବୀକରଣ ହୁଏ।')">(D) ଜଳ (Water)</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <!-- MCQ 2 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୨:</strong> ପେଟ୍ରୋଲିୟମ୍ କେଉଁଥିରୁ ସୃଷ୍ଟି ହୋଇଛି?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ସ୍ଥଳଭାଗର ଜଙ୍ଗଲରୁ କୋଇଲା ସୃଷ୍ଟି ହୋଇଛି।')">(A) ପ୍ରାଚୀନ ବିଶାଳ ସ୍ଥଳଚର ଜଙ୍ଗଲରୁ</div>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! ସମୁଦ୍ର ତଳେ ପୋତି ହୋଇ ରହିଥିବା ସୂକ୍ଷ୍ମ ସାମୁଦ୍ରିକ ଜୀବ ଓ ଶୈବାଳଙ୍କ ମୃତଦେହରୁ।')">(B) ସମୁଦ୍ର ତଳେ ପୋତି ହୋଇଥିବା ପ୍ରାଚୀନ ସୂକ୍ଷ୍ମ ଜୀବଙ୍କରୁ</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଆଗ୍ନେୟଗିରି ଲାଭାରୁ ଶିଳା ଗଠିତ ହୁଏ।')">(C) ଆଗ୍ନେୟଗିରିର ଲାଭାରୁ</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଡାଇନୋସର ହାଡ଼ରୁ କେବଳ କଙ୍କାଳ ଜୀବାଶ୍ମ ମିଳେ।')">(D) କେବଳ ଡାଇନୋସର ହାଡ଼ରୁ</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <!-- MCQ 3 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୩:</strong> ପୃଥିବୀର ମୋଟ ଜଳରାଶି ମଧ୍ୟରୁ ପ୍ରାୟ କେତେ ପ୍ରତିଶତ ପିଇବା ଉପଯୋଗୀ ମଧୁର ଜଳ (Freshwater)?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ୭୧% ହେଉଛି ପୃଥିବୀ ପୃଷ୍ଠର ଜଳାବୃତ ଅଂଶ।')">(A) ପ୍ରାୟ ୭୧%</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ୯୭% ହେଉଛି ସମୁଦ୍ରର ଲୁଣିଆ ପାଣି।')">(B) ପ୍ରାୟ ୯୭%</div>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! ପ୍ରାୟ ୨.୭% ମଧୁର ଜଳ ଅଟେ, ଯାହାର ମାତ୍ର ୧% ରୁ କମ୍ ସହଜରେ ଉପଲବ୍ଧ।')">(C) ପ୍ରାୟ ୨.୭% ରୁ କମ୍</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଏତେ ପରିମାଣ ମଧୁର ଜଳ ନାହିଁ।')">(D) ପ୍ରାୟ ୫୦%</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <!-- MCQ 4 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୪:</strong> ପୁରୁଣା ଖବରକାଗଜରୁ ନୂଆ କାଗଜ ତିଆରି କରିବା 3R ନୀତିର କେଉଁ ପର୍ଯ୍ୟାୟ?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ରିଡ୍ୟୁସ୍ ମାନେ କମ୍ ବ୍ୟବହାର କରିବା।')">(A) Reduce (ହ୍ରାସ)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ରିୟୁଜ୍ ମାନେ ସମାନ ରୂପରେ ପୁଣି ବ୍ୟବହାର କରିବା।')">(B) Reuse (ପୁନଃବ୍ୟବହାର)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! କାରଖାନାରେ ପ୍ରକ୍ରିୟାକରଣ କରି ନୂତନ ବସ୍ତୁ ଗଠନ କରିବାକୁ ରିସାଇକ୍ଲିଂ କୁହାଯାଏ।')">(C) Recycle (ପୁନଃଚକ୍ରଣ)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ରିଫ୍ୟୁଜ୍ 3R ମଧ୍ୟରେ ଅନ୍ତର୍ଭୁକ୍ତ ନୁହେଁ।')">(D) Refuse (ପ୍ରତ୍ୟାଖ୍ୟାନ)</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <!-- MCQ 5 -->
+            <div style="background: #f8fafc; border: 1px solid var(--border); border-radius: 8px; padding: 1.2rem; margin-bottom: 1.2rem;">
+                <p><strong>ପ୍ରଶ୍ନ ୫:</strong> ଗଛର କେଉଁ ଅଂଶ ମାଟିକୁ ଜାବୁଡ଼ି ଧରି ମୃତ୍ତିକା କ୍ଷୟ ରୋକିଥାଏ?</p>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! କାଣ୍ଡ ଉପରକୁ ବଢ଼େ।')">(A) କାଣ୍ଡ (Stem)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ପତ୍ର ଝଡ଼ି ହ୍ୟୁମସ୍ ସୃଷ୍ଟି କରେ କିନ୍ତୁ ମାଟି ବାନ୍ଧେ ନାହିଁ।')">(B) ପତ୍ର (Leaves)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, true, 'ସଠିକ୍! ଚେର (Roots) ମାଟି କଣିକାକୁ ଦୃଢ଼ ଭାବେ ଧରି ରଖେ।')">(C) ଚେର (Roots)</div>
+                <div class="quiz-option" onclick="checkMCQ(this, false, 'ଭୁଲ୍! ଫୁଲ ମାଟି ସହ ସମ୍ପୃକ୍ତ ନୁହେଁ।')">(D) ଫୁଲ (Flowers)</div>
+                <div class="quiz-feedback"></div>
+            </div>
+
+            <h3>ଯୁକ୍ତି ଓ କାରଣ ପ୍ରଶ୍ନ (Assertion & Reasoning)</h3>
+
+            <!-- AR 1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">A&amp;R ୧</span> ସୂର୍ଯ୍ୟ ସମସ୍ତ ଶକ୍ତିର ପ୍ରାଥମିକ ଉତ୍ସ</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଯୁକ୍ତି (A):</strong> କୋଇଲା ଏବଂ ପେଟ୍ରୋଲିୟମ୍ରେ ଥିବା ରାସାୟନିକ ଶକ୍ତି ପରୋକ୍ଷରେ ସୌରଶକ୍ତିରୁ ଆସିଛି।<br>
+                    <strong>କାରଣ (R):</strong> ପ୍ରାଚୀନ ଉଦ୍ଭିଦ ଓ ସୂକ୍ଷ୍ମ ଜୀବମାନେ ସୂର୍ଯ୍ୟାଲୋକରୁ ଖାଦ୍ୟ ତିଆରି କରି ନିଜ ଶରୀରରେ ଶକ୍ତି ସଞ୍ଚୟ କରିଥିଲେ, ଯାହା ପରେ ଜୀବାଶ୍ମ ଇନ୍ଧନରେ ରୂପାନ୍ତରିତ ହୋଇଛି।</p>
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>ଉଭୟ (A) ଏବଂ (R) ସତ୍ୟ ଏବଂ (R) ହେଉଛି (A) ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</strong></p>
+                </div>
+            </details>
+
+            <!-- AR 2 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">A&amp;R ୨</span> ଜଳ ଏକ ନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ କିନ୍ତୁ ଜଳ ସଂକଟ ଦେଖାଦିଏ</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଯୁକ୍ତି (A):</strong> ଜଳ ଏକ ନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ ହୋଇଥିଲେ ମଧ୍ୟ ପୃଥିବୀର ଅନେକ ସହରରେ ଗମ୍ଭୀର ଜଳ ସଂକଟ ଦେଖାଦେଉଛି।<br>
+                    <strong>କାରଣ (R):</strong> ପିଇବା ଉପଯୋଗୀ ମଧୁର ଜଳର ପରିମାଣ ସୀମିତ ଏବଂ ପ୍ରଦୂଷଣ ତଥା ଅତ୍ୟଧିକ ଶୋଷଣ ଯୋଗୁଁ ଭୂତଳ ଜଳସ୍ତର ହ୍ରାସ ପାଉଛି।</p>
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>ଉଭୟ (A) ଏବଂ (R) ସତ୍ୟ ଏବଂ (R) ହେଉଛି (A) ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</strong></p>
+                </div>
+            </details>
+
+            <!-- AR 3 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">A&amp;R ୩</span> ପେଟ୍ରୋଲିୟମ୍ ଦ୍ରୁତ ଗତିରେ ସରିଯାଉଛି</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଯୁକ୍ତି (A):</strong> ପେଟ୍ରୋଲିୟମ୍ ଭଣ୍ଡାର ଆଗାମୀ କିଛି ଦଶନ୍ଧି ମଧ୍ୟରେ ଶେଷ ହୋଇପାରେ।<br>
+                    <strong>କାରଣ (R):</strong> ପେଟ୍ରୋଲିୟମ୍ ଏକ ନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ।</p>
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>(A) ସତ୍ୟ କିନ୍ତୁ (R) ମିଥ୍ୟା।</strong> (ପେଟ୍ରୋଲିୟମ୍ ଏକ ଅନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ)।</p>
+                </div>
+            </details>
+
+            <!-- AR 4 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">A&amp;R ୪</span> ଜଙ୍ଗଲ ସୁରକ୍ଷା ଓ ମୃତ୍ତିକା କ୍ଷୟ</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଯୁକ୍ତି (A):</strong> ପାହାଡ଼ିଆ ଅଞ୍ଚଳରେ ବୃକ୍ଷରୋପଣ କଲେ ଭୂସ୍ଖଳନ (Landslides) ରୋକାଯାଇ ପାରେ।<br>
+                    <strong>କାରଣ (R):</strong> ଗଛର ଚେର ପଥର ଓ ମାଟିକୁ ଦୃଢ଼ ଭାବରେ ଧରି ରଖେ।</p>
+                    <p><strong>ସଠିକ୍ ଉତ୍ତର:</strong> <strong>ଉଭୟ (A) ଏବଂ (R) ସତ୍ୟ ଏବଂ (R) ହେଉଛି (A) ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</strong></p>
+                </div>
+            </details>
+
+            <h3>କ୍ଷୁଦ୍ର ଉତ୍ତରମୂଳକ ପ୍ରଶ୍ନ (୨ ଓ ୩ ମାର୍କ)</h3>
+
+            <!-- SA 1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୧</span> ଜୀବାଶ୍ମ ଇନ୍ଧନ କାହାକୁ କୁହାଯାଏ? ଦୁଇଟି ଉଦାହରଣ ଦିଅ। (୨ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ଲକ୍ଷ ଲକ୍ଷ ବର୍ଷ ପୂର୍ବେ ମାଟି ଓ ସମୁଦ୍ର ତଳେ ଚାପି ହୋଇ ରହିଥିବା ମୃତ ଉଦ୍ଭିଦ ଓ ପ୍ରାଣୀଙ୍କ ଅବଶେଷରୁ ଉଚ୍ଚ ତାପ ଏବଂ ଚାପ ଯୋଗୁଁ ସୃଷ୍ଟି ହୋଇଥିବା ଇନ୍ଧନକୁ <strong>ଜୀବାଶ୍ମ ଇନ୍ଧନ (Fossil Fuels)</strong> କୁହାଯାଏ।<br>
+                    <strong>ଉଦାହରଣ:</strong> କୋଇଲା (Coal), ପେଟ୍ରୋଲିୟମ୍ (Petroleum), ପ୍ରାକୃତିକ ଗ୍ୟାସ୍ (Natural Gas)।</p>
+                </div>
+            </details>
+
+            <!-- SA 2 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୨</span> 3R ନୀତିରେ 'Reuse' ଏବଂ 'Recycle' ମଧ୍ୟରେ ପାର୍ଥକ୍ୟ କଣ? (୨ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <ul>
+                        <li><strong>Reuse (ପୁନଃବ୍ୟବହାର):</strong> କୌଣସି ବସ୍ତୁର ରୂପ ବା ଗଠନ ପରିବର୍ତ୍ତନ ନକରି ତାକୁ ବାରମ୍ବାର ବ୍ୟବହାର କରିବା। ଉଦାହରଣ: ଆଚାରର କାଚ ବୋତଲରେ ଲୁଣ ବା ଚିନି ରଖିବା। ଏଥିରେ କୌଣସି ଶକ୍ତି ଖର୍ଚ୍ଚ ହୁଏ ନାହିଁ।</li>
+                        <li><strong>Recycle (ପୁନଃଚକ୍ରଣ):</strong> ବର୍ଜ୍ୟ ବସ୍ତୁକୁ କାରଖାନାରେ ତରଳାଇ ବା ପ୍ରକ୍ରିୟାକରଣ କରି ସମ୍ପୂର୍ଣ୍ଣ ଏକ ନୂତନ ବସ୍ତୁରେ ପରିଣତ କରିବା। ଉଦାହରଣ: ପୁରୁଣା ଖବରକାଗଜରୁ ନୂଆ କାର୍ଡ଼ବୋର୍ଡ଼ ତିଆରି କରିବା। ଏଥିରେ ଶକ୍ତିର ଆବଶ୍ୟକତା ଥାଏ।</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- SA 3 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୩</span> ସୌର କୁକର୍ରେ କାଚ ଢାଙ୍କୁଣୀ କାହିଁକି ବ୍ୟବହାର କରାଯାଏ? (୨ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> ସୌର କୁକର୍ରେ କାଚ ଢାଙ୍କୁଣୀ ଏକ <strong>ସବୁଜଗୃହ ପ୍ରଭାବ (Greenhouse Effect)</strong> ସୃଷ୍ଟି କରେ। ସୂର୍ଯ୍ୟାଲୋକର ଆଲୋକ ଓ ଉତ୍ତାପ କାଚ ବାଟେ ସହଜରେ ବାକ୍ସ ଭିତରକୁ ପ୍ରବେଶ କରିପାରେ, କିନ୍ତୁ ଭିତରୁ ଉତ୍ତାପ ବାହାରକୁ ଫେରିପାରେ ନାହିଁ। ଫଳରେ ବାକ୍ସ ଭିତରର ତାପମାତ୍ରା ୧୦୦°C ରୁ ୧୪୦°C ପର୍ଯ୍ୟନ୍ତ ବୃଦ୍ଧି ପାଇ ଖାଦ୍ୟ ସହଜରେ ସିଝିଯାଏ।</p>
+                </div>
+            </details>
+
+            <!-- SA 4 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୪</span> ମୃତ୍ତିକା କ୍ଷୟ (Soil Erosion) କହିଲେ କଣ ବୁଝ? ଏହାର ଦୁଇଟି କୁପରିଣାମ ଲେଖ। (୩ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ସଂଜ୍ଞା (୧ ମାର୍କ):</strong> ପ୍ରବଳ ପବନ, ବର୍ଷା ଜଳ କିମ୍ବା ମାନବ କାର୍ଯ୍ୟକଳାପ ଯୋଗୁଁ ଭୂମି ଉପରିସ୍ଥ ସାରୁଆ ମୃତ୍ତିକା ସ୍ତର (Topsoil) ଧୋଇ ହୋଇ ବା ଉଡ଼ି ନଷ୍ଟ ହୋଇଯିବାକୁ <strong>ମୃତ୍ତିକା କ୍ଷୟ</strong> କୁହାଯାଏ।</p>
+                    <p><strong>ଦୁଇଟି କୁପରିଣାମ (୨ ମାର୍କ):</strong></p>
+                    <ol>
+                        <li>ଜମିର ଉର୍ବରତା ହ୍ରାସ ପାଇ କୃଷି ଉତ୍ପାଦନ କମିଯାଏ ଏବଂ ଜମି ବନ୍ଧ୍ୟା/ମରୁଭୂମିରେ ପରିଣତ ହୁଏ।</li>
+                        <li>ନଦୀଗର୍ଭରେ ମାଟି ଜମି ନଦୀର ଗଭୀରତା କମିଯାଏ, ଫଳରେ ସାମାନ୍ୟ ବର୍ଷାରେ ଭୟଙ୍କର ବନ୍ୟା ସୃଷ୍ଟି ହୁଏ।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- SA 5 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">SA ୫</span> ସି.ଏନ୍.ଜି (CNG) କୁ ପେଟ୍ରୋଲ ଓ ଡିଜେଲଠାରୁ ଉତ୍କୃଷ୍ଟ ଇନ୍ଧନ କାହିଁକି ବିବେଚନା କରାଯାଏ? (୨ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ଉତ୍ତର:</strong> CNG (Compressed Natural Gas) କୁ ଏକ ସ୍ୱଚ୍ଛ ଇନ୍ଧନ (Clean Fuel) କୁହାଯାଏ କାରଣ:</p>
+                    <ol>
+                        <li>ଏହାର ସମ୍ପୂର୍ଣ୍ଣ ଦହନ ହୁଏ ଏବଂ ଏଥିରୁ କୌଣସି ବିଷାକ୍ତ କଳା ଧୂଆଁ ବା ଅଣଜଳା ଅଙ୍ଗାର କଣିକା ନିର୍ଗତ ହୁଏ ନାହିଁ।</li>
+                        <li>ପେଟ୍ରୋଲ ଓ ଡିଜେଲ ତୁଳନାରେ ଏହା ଅତି କମ୍ କାର୍ବନ ଡାଇଅକ୍ସାଇଡ୍ ଏବଂ ଶୂନ ପରିମାଣର ସଲଫର ଡାଇଅକ୍ସାଇଡ୍ ଛାଡ଼େ, ଯାହା ବାୟୁ ପ୍ରଦୂଷଣ ବହୁତ କମାଏ।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <h3>ଦୀର୍ଘ ଉତ୍ତରମୂଳକ ପ୍ରଶ୍ନ (୫ ମାର୍କ)</h3>
+
+            <!-- LA 1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">LA ୧</span> ଜଙ୍ଗଲକୁ "ପୃଥିବୀର ସବୁଜ ଫୁସଫୁସ" କାହିଁକି କୁହାଯାଏ? ଜଙ୍ଗଲର ୫ଟି ପ୍ରମୁଖ ଉପକାରିତା ବର୍ଣ୍ଣନା କର। (୫ ମାର୍କ)</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ସବୁଜ ଫୁସଫୁସ କହିବାର କାରଣ:</strong> ମଣିଷ ଓ ପ୍ରାଣୀ ଶ୍ୱାସକ୍ରିୟାରେ ଅମ୍ଳଜାନ ଗ୍ରହଣ କରି CO<sub>2</sub> ଛାଡ଼ନ୍ତି। ଜଙ୍ଗଲର ଅଗଣିତ ଗଛପତ୍ର ଦିନବେଳା ଆଲୋକଶ୍ଳେଷଣ ପ୍ରକ୍ରିୟାରେ ଏହି CO<sub>2</sub> କୁ ଶୋଷଣ କରି ବିଶୁଦ୍ଧ ଅମ୍ଳଜାନ (O<sub>2</sub>) ପରିବେଶକୁ ଛାଡ଼ନ୍ତି। ଏହିପରି ଭାବେ ଜଙ୍ଗଲ ବାୟୁମଣ୍ଡଳର ଅମ୍ଳଜାନ ଓ ଅଙ୍ଗାରକାମ୍ଳର ଭାରସାମ୍ୟ ରକ୍ଷା କରୁଥିବାରୁ ଏହାକୁ <strong>ପୃଥିବୀର ସବୁଜ ଫୁସଫୁସ (Green Lungs of Earth)</strong> କୁହାଯାଏ।</p>
+                    <p><strong>ଜଙ୍ଗଲର ୫ଟି ପ୍ରମୁଖ ଉପକାରିତା:</strong></p>
+                    <ol>
+                        <li><strong>ଅମ୍ଳଜାନର ଉତ୍ସ ଓ ବାୟୁ ବିଶୋଧନ:</strong> ବାୟୁମଣ୍ଡଳକୁ ପ୍ରଚୁର O<sub>2</sub> ଯୋଗାଏ ଏବଂ ଧୂଳିକଣା ଶୋଷି ବାୟୁକୁ ସ୍ୱଚ୍ଛ ରଖେ।</li>
+                        <li><strong>ମୃତ୍ତିକା କ୍ଷୟ ଓ ବନ୍ୟା ନିୟନ୍ତ୍ରଣ:</strong> ଗଛର ଚେର ମାଟିକୁ ବାନ୍ଧି ରଖେ ଏବଂ ବର୍ଷା ଜଳର ବେଗକୁ କମାଇ ବନ୍ୟା ପ୍ରକୋପ ହ୍ରାସ କରେ।</li>
+                        <li><strong>ଭୂତଳ ଜଳ ରିଚାର୍ଜ:</strong> ଜଙ୍ଗଲ ଥିବା ସ୍ଥାନରେ ମାଟିର ପାଣି ଶୋଷିବା କ୍ଷମତା ବୃଦ୍ଧି ପାଏ, ଫଳରେ ଭୂତଳ ଜଳସ୍ତର ବଢ଼େ।</li>
+                        <li><strong>ବର୍ଷା କରାଇବାରେ ସାହାଯ୍ୟ:</strong> ଗଛର ପତ୍ରରୁ ହେଉଥିବା ଉତ୍ସ୍ୱେଦନ (Transpiration) ପ୍ରକ୍ରିୟା ବାୟୁକୁ ଆର୍ଦ୍ର କରି ମେଘ ସୃଷ୍ଟି ଓ ବୃଷ୍ଟିପାତରେ ସାହାଯ୍ୟ କରେ।</li>
+                        <li><strong>ଅମୂଲ୍ୟ ସମ୍ପଦ ପ୍ରଦାନ:</strong> ଜଙ୍ଗଲରୁ କାଠ, ମହୁ, ଝୁଣା, ଔଷଧୀୟ ଗଛଲତା, ରବର ଓ ବାଉଁଶ ମିଳିଥାଏ ଏବଂ ଏହା ଅସଂଖ୍ୟ ବନ୍ୟପ୍ରାଣୀଙ୍କୁ ସୁରକ୍ଷିତ ଆବାସ ଯୋଗାଏ।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <h3>ଦକ୍ଷତା ଆଧାରିତ କେସ୍ ଷ୍ଟଡି (Competency Case Studies)</h3>
+
+            <!-- Case 1 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">କେସ୍ ଷ୍ଟଡି ୧</span> ଏକ ଆଦର୍ଶ ସୌର ଗ୍ରାମ (Solar Village) ର ଶକ୍ତି ସମାଧାନ</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ପ୍ରସଙ୍ଗ:</strong> ଓଡ଼ିଶାର ଏକ ଦୁର୍ଗମ ପାହାଡ଼ିଆ ଗ୍ରାମ 'ସୂର୍ଯ୍ୟପୁର' ରେ ପାରମ୍ପରିକ ବିଦ୍ୟୁତ୍ ଗ୍ରୀଡ୍ ପହଞ୍ଚିପାରି ନଥିଲା। ସରକାର ସେଠାରେ ପ୍ରତ୍ୟେକ ଘର ଛାତ ଉପରେ ସୋଲାର ପ୍ୟାନେଲ୍ ଏବଂ ଷ୍ଟ୍ରିଟ୍ ଲାଇଟ୍ ଲଗାଇଲେ। ସ୍କୁଲରେ ଏକ ବଡ଼ ସୋଲାର ୱାଟର ପମ୍ପ ବସାଗଲା। ଗ୍ରାମବାସୀ କାଠ ଚୁଲି ବଦଳରେ ସୋଲାର କୁକର୍ ଏବଂ ବାୟୋଗ୍ୟାସ୍ ପ୍ଲାଣ୍ଟ ବ୍ୟବହାର ଆରମ୍ଭ କଲେ। ଏବେ ଗାଁରେ କୌଣସି ବିଷାକ୍ତ ଧୂଆଁ ନାହିଁ ଏବଂ ୨୪ ଘଣ୍ଟା ମାଗଣା ବିଜୁଳି ଉପଲବ୍ଧ ହେଉଛି।</p>
+                    <p><strong>ପ୍ରଶ୍ନ ଓ ଉତ୍ତର:</strong></p>
+                    <ol>
+                        <li><em>ସୂର୍ଯ୍ୟପୁର ଗ୍ରାମରେ ବ୍ୟବହୃତ ଶକ୍ତିର ଉତ୍ସ ନବୀକରଣଯୋଗ୍ୟ ନା ଅନବୀକରଣଯୋଗ୍ୟ?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ଏହା <strong>ନବୀକରଣଯୋଗ୍ୟ (Renewable)</strong> ଶକ୍ତି ଅଟେ କାରଣ ସୌରଶକ୍ତି ପ୍ରକୃତିରୁ ଅଫୁରନ୍ତ ଭାବେ ମିଳିଥାଏ।</li>
+                        <li><em>କାଠ ଚୁଲି ବଦଳରେ ବାୟୋଗ୍ୟାସ୍ ଓ ସୋଲାର କୁକର୍ ବ୍ୟବହାର ଦ୍ୱାରା ପରିବେଶକୁ କି ଲାଭ ମିଳିଲା?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ଗଛ କଟା ବନ୍ଦ ହୋଇ ଜଙ୍ଗଲ ସୁରକ୍ଷିତ ରହିଲା ଏବଂ ଘର ଭିତରେ ଧୂଆଁ ନହେବାରୁ ମହିଳାମାନେ ଶ୍ୱାସରୋଗରୁ ରକ୍ଷା ପାଇଲେ।</li>
+                        <li><em>ମେଘୁଆ ପାଗରେ ବିଜୁଳି ସମସ୍ୟାର ସମାଧାନ କିପରି କରାଯାଇପାରିବ?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ସୌର ପ୍ୟାନେଲ୍ ସହିତ ବଡ଼ ଷ୍ଟୋରେଜ୍ ବ୍ୟାଟେରୀ (Inverter Battery) ସଂଯୋଗ କରି ଖରା ଦିନେ ଅତିରିକ୍ତ ବିଦ୍ୟୁତ୍ ସଞ୍ଚୟ କରି ରଖାଯାଇପାରିବ।</li>
+                    </ol>
+                </div>
+            </details>
+
+            <!-- Case 2 -->
+            <details class="ans-box">
+                <summary>
+                    <span><span class="tag tag-exam">କେସ୍ ଷ୍ଟଡି ୨</span> ପ୍ଲାଷ୍ଟିକ୍ ପ୍ରଦୂଷଣ ଓ ସହରୀ ବର୍ଜ୍ୟବସ୍ତୁ ପରିଚାଳନା</span>
+                    <span>&#9660;</span>
+                </summary>
+                <div class="content">
+                    <p><strong>ପ୍ରସଙ୍ଗ:</strong> ଏକ ସହରରେ ନାଳଗୁଡ଼ିକ ପ୍ଲାଷ୍ଟିକ୍ ବ୍ୟାଗ୍ ଓ ବୋତଲ ଜମି ବନ୍ଦ ହୋଇଗଲା, ଫଳରେ ସାମାନ୍ୟ ବର୍ଷାରେ ରାସ୍ତା ଉପରେ ପାଣି ଜମି କୃତ୍ରିମ ବନ୍ୟା ସୃଷ୍ଟି ହେଲା। ପୌରପାଳିକା ସହରରେ ସିଙ୍ଗଲ୍ ୟୁଜ୍ ପ୍ଲାଷ୍ଟିକ୍ ବ୍ୟାନ କଲା ଏବଂ ଦୁଇଟି ଅଲଗା ଡଷ୍ଟବିନ୍ (ସବୁଜ - ଓଦା ବର୍ଜ୍ୟ ପାଇଁ, ନୀଳ - ଶୁଖିଲା ପୁନଃଚକ୍ରଣ ବର୍ଜ୍ୟ ପାଇଁ) ବ୍ୟବହାର କରିବା ବାଧ୍ୟତାମୂଳକ କଲା। ନୀଳ ଡଷ୍ଟବିନ୍ର ପ୍ଲାଷ୍ଟିକ୍ କାରଖାନାକୁ ପଠାଯାଇ ରାସ୍ତା ନିର୍ମାଣ (Plastic roads) ରେ ବ୍ୟବହାର କରାଗଲା।</p>
+                    <p><strong>ପ୍ରଶ୍ନ ଓ ଉତ୍ତର:</strong></p>
+                    <ol>
+                        <li><em>ପ୍ଲାଷ୍ଟିକ୍ ନାଳରେ ଜମି ରହିବା କାରଣରୁ କେଉଁ ସମସ୍ୟା ଦେଖାଦେଲା?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ପ୍ଲାଷ୍ଟିକ୍ ଜୈବ ଅବିଘଟନଶୀଳ (Non-biodegradable) ହୋଇଥିବାରୁ ପଚେ ନାହିଁ। ଏହା ନାଳର ଜଳ ନିଷ୍କାସନ ବନ୍ଦ କରି ସହରରେ କୃତ୍ରିମ ବନ୍ୟା ସୃଷ୍ଟି କଲା।</li>
+                        <li><em>ପ୍ଲାଷ୍ଟିକ୍କୁ ରାସ୍ତା ନିର୍ମାଣରେ ବ୍ୟବହାର କରିବା 3R ନୀତିର କେଉଁ ନିୟମ?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ଏହା <strong>Recycle (ପୁନଃଚକ୍ରଣ)</strong> ନୀତି ଅଟେ।</li>
+                        <li><em>ଦୋକାନରୁ ସଉଦା ଆଣିବା ସମୟରେ ତୁମେ କିପରି 3R ନୀତି ପାଳନ କରିବ?</em><br>
+                        <strong>ଉତ୍ତର:</strong> ପ୍ଲାଷ୍ଟିକ୍ ବ୍ୟାଗ୍ ମାଗିବା ବନ୍ଦ କରି (Reduce) ନିଜ ଘରୁ କପଡ଼ା ବା ଝୋଟ ବ୍ୟାଗ୍ ସାଙ୍ଗରେ ନେଇ ବାରମ୍ବାର ବ୍ୟବହାର କରିବା (Reuse)।</li>
+                    </ol>
+                </div>
+            </details>
+        </section>
+
+        <!-- Section 6 -->
+        <section class="section-card" id="mistakes">
+            <div class="section-header">
+                <span class="section-icon">&#128680;</span>
+                <h2>ବିଭାଗ ୬: ପରୀକ୍ଷା ହଲ୍ର ସାଧାରଣ ଭୁଲ୍ ଓ ୧୫ଟି ଦ୍ରୁତ ରିଭିଜନ୍ ପଏଣ୍ଟ</h2>
+            </div>
+
+            <div class="callout-warn">
+                <div class="callout-title">&#9888;&#65039; ପରୀକ୍ଷାରେ ଛାତ୍ରଛାତ୍ରୀ କରୁଥିବା ୫ଟି ବଡ଼ ଭୁଲ୍ (Exam Traps)</div>
+                <ol>
+                    <li><strong>ଜଙ୍ଗଲକୁ ଅନବୀକରଣଯୋଗ୍ୟ ବୋଲି ଭାବିବା:</strong> ଜଙ୍ଗଲ ଏକ ନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ କାରଣ ଗଛ ଲଗାଇଲେ ଏହା ପୁନର୍ବାର ସୃଷ୍ଟି ହୋଇପାରିବ। କିନ୍ତୁ ଅତ୍ୟଧିକ ଶୋଷଣ କଲେ ଏହା ବିପଦାପନ୍ନ ହୁଏ।</li>
+                    <li><strong>ପେଟ୍ରୋଲିୟମ୍ କେବଳ ପେଟ୍ରୋଲ ବୋଲି ଭାବିବା:</strong> ପେଟ୍ରୋଲିୟମ୍ ହେଉଛି ଅଶୋଧିତ ତୈଳ (Crude oil), ଯାହାର ବିଶୋଧନରୁ ପେଟ୍ରୋଲ, ଡିଜେଲ, କିରୋସିନି, ଏଲ୍.ପି.ଜି ଓ ମହମ ମିଳିଥାଏ।</li>
+                    <li><strong>ଜଳକୁ ଅସୀମ ଭାବି ଅପଚୟ କରିବା:</strong> ପୃଥିବୀରେ ପ୍ରଚୁର ପାଣି ଥିଲେ ମଧ୍ୟ ପିଇବା ଉପଯୋଗୀ ମଧୁର ଜଳ ମାତ୍ର ପ୍ରାୟ ୧% ଉପଲବ୍ଧ।</li>
+                    <li><strong>Reuse ଏବଂ Recycle ମଧ୍ୟରେ ଗୋଳମାଳ କରିବା:</strong> ବସ୍ତୁର ରୂପ ନବଦଳାଇ ସେମିତି ବ୍ୟବହାର କରିବା ହେଲା Reuse; କାରଖାନାରେ ତରଳାଇ ନୂଆ ଜିନିଷ ଗଢ଼ିବା ହେଲା Recycle।</li>
+                    <li><strong>ବାୟୁମଣ୍ଡଳରେ ସର୍ବାଧିକ ଅମ୍ଳଜାନ ଥାଏ ବୋଲି ଲେଖିବା:</strong> ବାୟୁରେ ସର୍ବାଧିକ ଗ୍ୟାସ୍ ହେଉଛି <strong>ଯବକ୍ଷାରଜାନ (୭୮%)</strong>, ଅମ୍ଳଜାନ ମାତ୍ର ୨୧%।</li>
+                </ol>
+            </div>
+
+            <h3>&#128640; ୧୫ଟି ଅଲ୍ଟ୍ରା-କ୍ଲିକ୍ ରିଭିଜନ୍ ୱାନ୍-ଲାଇନର୍</h3>
+            <ul>
+                <li>୧. ପ୍ରକୃତିରୁ ମିଳୁଥିବା ଜୀବନଧାରଣ ଉପଯୋଗୀ ବସ୍ତୁଗୁଡ଼ିକୁ ପ୍ରାକୃତିକ ସମ୍ପଦ କୁହାଯାଏ।</li>
+                <li>୨. ସୌରଶକ୍ତି, ବାୟୁ, ଜଳ ଏବଂ ଜଙ୍ଗଲ ହେଉଛନ୍ତି ନବୀକରଣଯୋଗ୍ୟ (Renewable) ସମ୍ପଦ।</li>
+                <li>୩. କୋଇଲା, ପେଟ୍ରୋଲିୟମ୍, ପ୍ରାକୃତିକ ଗ୍ୟାସ୍ ଏବଂ ଖଣିଜ ଲବଣ ହେଉଛନ୍ତି ଅନବୀକରଣଯୋଗ୍ୟ (Non-renewable) ସମ୍ପଦ।</li>
+                <li>୪. ବାୟୁମଣ୍ଡଳରେ ୭୮% ଯବକ୍ଷାରଜାନ, ୨୧% ଅମ୍ଳଜାନ ଏବଂ ୦.୦୪% ଅଙ୍ଗାରକାମ୍ଳ ଥାଏ।</li>
+                <li>୫. ଅମ୍ଳଜାନ ଜୀବଙ୍କ ଶ୍ୱସନ ଓ ଦହନ ପାଇଁ ଏବଂ ଅଙ୍ଗାରକାମ୍ଳ ଆଲୋକଶ୍ଳେଷଣ ପାଇଁ ଅପରିହାର୍ଯ୍ୟ।</li>
+                <li>୬. ପୃଥିବୀର ମୋଟ ଜଳରାଶିର ୯୭% ସମୁଦ୍ରର ଲୁଣିଆ ପାଣି ଏବଂ ମାତ୍ର ୨.୭% ମଧୁର ଜଳ।</li>
+                <li>୭. ପ୍ରାୟ ୩୦ କୋଟି ବର୍ଷ ପୂର୍ବେ ମାଟି ତଳେ ଚାପି ହୋଇଥିବା ଜଙ୍ଗଲରୁ କୋଇଲା ଗଠିତ ହୋଇଛି।</li>
+                <li>୮. ସମୁଦ୍ର ତଳେ ପୋତି ହୋଇଥିବା ପ୍ରାଚୀନ ସୂକ୍ଷ୍ମ ସାମୁଦ୍ରିକ ଜୀବଙ୍କ ମୃତଦେହରୁ ପେଟ୍ରୋଲିୟମ୍ ସୃଷ୍ଟି ହୋଇଛି।</li>
+                <li>୯. ସୌର କୁକର୍ ସୌର ତାପଜ ଶକ୍ତି ଏବଂ ସବୁଜଗୃହ ପ୍ରଭାବ ଉପଯୋଗ କରି ଖାଦ୍ୟ ରାନ୍ଧିଥାଏ।</li>
+                <li>୧୦. ଜଙ୍ଗଲକୁ ବାୟୁମଣ୍ଡଳରେ O<sub>2</sub> ଓ CO<sub>2</sub> ସନ୍ତୁଳନ ରଖୁଥିବାରୁ "ପୃଥିବୀର ସବୁଜ ଫୁସଫୁସ" କୁହାଯାଏ।</li>
+                <li>୧୧. ଗଛର ଚେର ମାଟିକୁ ଜାବୁଡ଼ି ଧରି ରଖି ମୃତ୍ତିକା କ୍ଷୟ (Soil Erosion) ରୋକିଥାଏ।</li>
+                <li>୧୨. ଉପରିସ୍ଥ ସାରୁଆ ମାଟିକୁ ଟପ୍-ସଏଲ୍ (Topsoil) କୁହାଯାଏ, ଯାହା କୃଷି ପାଇଁ ଅତ୍ୟନ୍ତ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ।</li>
+                <li>୧୩. ସି.ଏନ୍.ଜି (CNG) ଏକ ପ୍ରଦୂଷଣମୁକ୍ତ ସ୍ୱଚ୍ଛ ଇନ୍ଧନ ଅଟେ।</li>
+                <li>୧୪. ସମ୍ପଦ ସଂରକ୍ଷଣର 3R ନୀତି ହେଉଛି: Reduce (ହ୍ରାସ), Reuse (ପୁନଃବ୍ୟବହାର) ଏବଂ Recycle (ପୁନଃଚକ୍ରଣ)।</li>
+                <li>୧୫. ଛାତ ବର୍ଷା ଜଳ ଅମଳ (RWH) ଦ୍ୱାରା ଭୂତଳ ଜଳସ୍ତରକୁ ପୁନର୍ଭରଣ (Recharge) କରାଯାଇପାରେ।</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2026 ସୁଜିତ କ୍ଲାସେସ୍ | Class 6 Science (କୌତୂହଳ) Odia Medium Master Notes</p>
+        <p>BSE Odisha &amp; NCERT Pattern &bull; All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
+        function speakOdiaSummary() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+                const text = "ଅଧ୍ୟାୟ ଏଗାର: ପ୍ରକୃତିର ଅମୂଲ୍ୟ ସମ୍ପଦ। ପ୍ରାକୃତିକ ସମ୍ପଦ ଦୁଇ ପ୍ରକାରର: ନବୀକରଣଯୋଗ୍ୟ ଯଥା ସୌରଶକ୍ତି, ବାୟୁ, ଜଳ ଓ ଜଙ୍ଗଲ; ଏବଂ ଅନବୀକରଣଯୋଗ୍ୟ ଯଥା କୋଇଲା, ପେଟ୍ରୋଲିୟମ୍ ଓ ଖଣିଜ ପଦାର୍ଥ। ସମ୍ପଦ ସଂରକ୍ଷଣ ପାଇଁ 3R ନୀତି: ରିଡ୍ୟୁସ୍, ରିୟୁଜ୍ ଓ ରିସାଇକ୍ଲିଂ ପାଳନ କରିବା ନିତାନ୍ତ ଆବଶ୍ୟକ।";
+                const utterance = new SpeechSynthesisUtterance(text);
+                utterance.lang = 'or-IN';
+                utterance.rate = 0.9;
+                window.speechSynthesis.speak(utterance);
+            } else {
+                alert("ଆପଣଙ୍କ ବ୍ରାଉଜରରେ ସ୍ପିଚ୍ ସିନ୍ଥେସିସ୍ ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।");
+            }
+        }
+
+        function checkMCQ(elem, isCorrect, explanation) {
+            const parent = elem.parentElement;
+            const options = parent.querySelectorAll('.quiz-option');
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none';
+            });
+            const feedback = parent.querySelector('.quiz-feedback');
+            if (isCorrect) {
+                elem.classList.add('correct');
+                feedback.innerHTML = '<span style="color: #059669;">&#10004; ' + explanation + '</span>';
+            } else {
+                elem.classList.add('incorrect');
+                feedback.innerHTML = '<span style="color: #ef4444;">&#10008; ' + explanation + '</span>';
+            }
+        }
+    </script>
+</body>
+</html>
