@@ -1,0 +1,1458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 10 - Life Processes in Plants (Class 7 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #16a34a;
+      --primary-light: #f0fdf4;
+      --primary-dark: #15803d;
+      --secondary: #0284c7;
+      --secondary-light: #f0f9ff;
+      --accent: #eab308;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #16a34a, #0284c7, #eab308);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%);
+      border-radius: 1.5rem;
+      padding: 3rem 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #86efac;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #ffffff;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.3rem;
+      line-height: 1.25;
+      color: #14532d;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: #166534;
+      margin-bottom: 1.5rem;
+      max-width: 720px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      color: #14532d;
+      border-top: 1px solid #bbf7d0;
+      padding-top: 1.25rem;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Audio Bar */
+    .audio-bar {
+      background: white;
+      border: 1px solid #bbf7d0;
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .audio-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .audio-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .audio-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--surface);
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--light);
+    }
+
+    .section-tag {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    /* Typography */
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      color: #1e293b;
+      margin: 1.75rem 0 0.75rem;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      color: #334155;
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 1rem; }
+    ul, ol { margin: 0 0 1.25rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+
+    /* Callouts */
+    .callout {
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+
+    .callout-def {
+      background: #f0fdf4;
+      border-left: 4px solid #16a34a;
+      color: #15803d;
+    }
+
+    .callout-act {
+      background: #f0f9ff;
+      border-left: 4px solid #0284c7;
+      color: #0369a1;
+    }
+
+    .callout-pyq {
+      background: #fefce8;
+      border-left: 4px solid #ca8a04;
+      color: #854d0e;
+    }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-left: 4px solid #9333ea;
+      color: #6b21a8;
+    }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: #f8fafc;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      color: #1e293b;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background-color: #fbfcfe; }
+
+    /* Collapsible Solutions */
+    .ans-box {
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      background: #ffffff;
+      transition: all 0.2s ease;
+    }
+
+    .ans-box summary {
+      padding: 1rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #f8fafc;
+      transition: background 0.2s;
+    }
+
+    .ans-box summary:hover {
+      background: #f1f5f9;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+      background: #ffffff;
+    }
+
+    .step-pill {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.375rem;
+      margin-right: 0.4rem;
+    }
+
+    /* Formula / Equation Box */
+    .equation-card {
+      background: #f0fdf4;
+      border: 2px solid #16a34a;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      text-align: center;
+    }
+
+    .equation-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #15803d;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    .equation-main {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #14532d;
+    }
+
+    /* Quiz Widget */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quiz-q {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .opt-btn {
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 0.6rem;
+      background: white;
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .opt-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+
+    .opt-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+
+    .quiz-feedback {
+      display: none;
+      padding: 0.85rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* Floating Back to Top */
+    #backToTopBtn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.2s ease;
+      z-index: 999;
+    }
+
+    #backToTopBtn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero { padding: 2rem 1.25rem; }
+      .section-card { padding: 1.5rem 1rem; }
+      .top-nav { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <!-- Sticky Top Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Deep Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Quiz Engine</a>
+      <a href="#sec6" class="nav-link">6. Exam Readiness</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Hero Banner -->
+    <header class="hero">
+      <div class="hero-badge">
+        <i class="fa-solid fa-leaf"></i> Class 7 Science Curiosity • Chapter 10
+      </div>
+      <h1>Life Processes in Plants</h1>
+      <p class="hero-subtitle">
+        Discover the biochemical mastery of green plants: solar-powered autotrophic photosynthesis, stomatal gas exchange, vascular xylem &amp; phloem transport, and 24-hour plant respiration!
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><i class="fa-solid fa-book-open"></i> NCERT NEP 2020 Code: gecu110</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-clock"></i> 36 Mins Comprehensive Master Read</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-seedling"></i> Complete Botany Experiments &amp; Solutions</div>
+      </div>
+    </header>
+
+    <!-- Teacher Audio Summary Widget -->
+    <div class="audio-bar">
+      <div class="audio-info">
+        <div class="audio-icon"><i class="fa-solid fa-headphones-simple"></i></div>
+        <div>
+          <strong style="font-size: 0.95rem; color: var(--dark);">Listen to Chapter Summary</strong>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Interactive 2-Minute Speech Synthesis Audio Lecture</p>
+        </div>
+      </div>
+      <button class="audio-btn" id="ttsBtn" onclick="toggleTeacherAudio()">
+        <i class="fa-solid fa-play" id="ttsIcon"></i> <span id="ttsText">Play Audio</span>
+      </button>
+    </div>
+
+    <!-- ==========================================
+         SECTION 1: VISUAL ARCHITECTURE & BLUEPRINT
+         ========================================== -->
+    <section class="section-card" id="sec1">
+      <div class="section-header">
+        <span class="section-tag">Section 1</span>
+        <h2 class="section-title">Visual Architecture &amp; Mind Map</h2>
+      </div>
+      <p>
+        Green plants are the primary solar energy converters of planet Earth. The concept map below illustrates how <strong>Photosynthesis</strong>, <strong>Vascular Transport (Xylem &amp; Phloem)</strong>, and <strong>Plant Respiration</strong> maintain the balance of oxygen and carbon dioxide across the biosphere.
+      </p>
+
+      <!-- Inline SVG Concept Map -->
+      <div style="width: 100%; overflow-x: auto; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 1rem; padding: 1.5rem; margin: 1.5rem 0;">
+        <svg viewBox="0 0 880 500" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="plantGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#16a34a"/>
+              <stop offset="100%" stop-color="#15803d"/>
+            </linearGradient>
+            <linearGradient id="photoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#65a30d"/>
+              <stop offset="100%" stop-color="#4d7c0f"/>
+            </linearGradient>
+            <linearGradient id="transGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+            <linearGradient id="respPlantGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d97706"/>
+              <stop offset="100%" stop-color="#b45309"/>
+            </linearGradient>
+            <filter id="shadowPlant" x="-10%" y="-10%" width="120%" height="120%">
+              <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.15"/>
+            </filter>
+          </defs>
+
+          <!-- Central Core Node -->
+          <rect x="290" y="20" width="300" height="60" rx="12" fill="url(#plantGrad)" filter="url(#shadowPlant)"/>
+          <text x="440" y="46" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" text-anchor="middle">LIFE PROCESSES IN PLANTS</text>
+          <text x="440" y="66" fill="#dcfce7" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">Autotrophy • Transport • Respiration</text>
+
+          <!-- Branch 1: Photosynthesis -->
+          <path d="M 330 80 L 160 150" stroke="#65a30d" stroke-width="2.5"/>
+          <rect x="40" y="150" width="240" height="90" rx="10" fill="url(#photoGrad)" filter="url(#shadowPlant)"/>
+          <text x="160" y="178" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" text-anchor="middle">1. PHOTOSYNTHESIS</text>
+          <text x="160" y="200" fill="#f7fee7" font-size="11" text-anchor="middle">&bull; CO2 + H2O + Light &rarr; Glucose + O2</text>
+          <text x="160" y="216" fill="#f7fee7" font-size="11" text-anchor="middle">&bull; Chlorophyll in chloroplasts</text>
+          <text x="160" y="232" fill="#f7fee7" font-size="11" text-anchor="middle">&bull; Stomata gas exchange &amp; guard cells</text>
+
+          <!-- Branch 2: Vascular Transport -->
+          <path d="M 440 80 L 440 150" stroke="#0284c7" stroke-width="2.5"/>
+          <rect x="320" y="150" width="240" height="90" rx="10" fill="url(#transGrad)" filter="url(#shadowPlant)"/>
+          <text x="440" y="178" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" text-anchor="middle">2. VASCULAR TRANSPORT</text>
+          <text x="440" y="200" fill="#f0f9ff" font-size="11" text-anchor="middle">&bull; Xylem: Water &amp; minerals (Roots &rarr; Leaves)</text>
+          <text x="440" y="216" fill="#f0f9ff" font-size="11" text-anchor="middle">&bull; Transpiration pull suction force</text>
+          <text x="440" y="232" fill="#f0f9ff" font-size="11" text-anchor="middle">&bull; Phloem: Food translocation (Bidirectional)</text>
+
+          <!-- Branch 3: Plant Respiration -->
+          <path d="M 550 80 L 720 150" stroke="#d97706" stroke-width="2.5"/>
+          <rect x="600" y="150" width="240" height="90" rx="10" fill="url(#respPlantGrad)" filter="url(#shadowPlant)"/>
+          <text x="720" y="178" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" text-anchor="middle">3. PLANT RESPIRATION</text>
+          <text x="720" y="200" fill="#fffbeb" font-size="11" text-anchor="middle">&bull; Glucose + O2 &rarr; CO2 + H2O + ATP</text>
+          <text x="720" y="216" fill="#fffbeb" font-size="11" text-anchor="middle">&bull; Occurs 24 Hours/day in all living cells</text>
+          <text x="720" y="232" fill="#fffbeb" font-size="11" text-anchor="middle">&bull; Kamala Sohonie's research</text>
+
+          <!-- Lower Details Flow -->
+          <!-- Box 1 -->
+          <path d="M 160 240 L 160 290" stroke="#65a30d" stroke-width="1.5"/>
+          <rect x="35" y="290" width="250" height="160" rx="8" fill="#ffffff" stroke="#bef264" stroke-width="1.5"/>
+          <text x="160" y="315" fill="#4d7c0f" font-size="12" font-weight="700" text-anchor="middle">Key Laboratory Verifications</text>
+          <text x="45" y="338" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Iodine Starch Test:</tspan> Alcohol boiling bath</text>
+          <text x="45" y="356" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Light Essential:</tspan> Black paper stencil test</text>
+          <text x="45" y="374" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Chlorophyll Essential:</tspan> Variegated croton</text>
+          <text x="45" y="392" fill="#334155" font-size="11">&bull; <tspan font-weight="700">CO2 Essential:</tspan> KOH bell jar absorbs CO2</text>
+          <text x="45" y="410" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Oxygen Release:</tspan> Hydrilla funnel rekindles</text>
+
+          <!-- Box 2 -->
+          <path d="M 440 240 L 440 290" stroke="#0284c7" stroke-width="1.5"/>
+          <rect x="315" y="290" width="250" height="160" rx="8" fill="#ffffff" stroke="#7dd3fc" stroke-width="1.5"/>
+          <text x="440" y="315" fill="#0369a1" font-size="12" font-weight="700" text-anchor="middle">Vascular Mechanics</text>
+          <text x="325" y="338" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Xylem Vessels:</tspan> Dead hollow conduits</text>
+          <text x="325" y="356" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Red Ink Experiment:</tspan> Balsam stem lines</text>
+          <text x="325" y="374" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Transpiration:</tspan> Stomatal water loss pulls</text>
+          <text x="335" y="392" fill="#334155" font-size="11">water up to 100m tall sequoia trees!</text>
+          <text x="325" y="410" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Phloem Sieve Tubes:</tspan> Translocation of sap</text>
+
+          <!-- Box 3 -->
+          <path d="M 720 240 L 720 290" stroke="#d97706" stroke-width="1.5"/>
+          <rect x="595" y="290" width="250" height="160" rx="8" fill="#ffffff" stroke="#fcd34d" stroke-width="1.5"/>
+          <text x="720" y="315" fill="#b45309" font-size="12" font-weight="700" text-anchor="middle">Day vs Night Atmospheric Balance</text>
+          <text x="605" y="338" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Daytime:</tspan> Photosynthesis &gt; Respiration</text>
+          <text x="615" y="356" fill="#334155" font-size="11">&rarr; Net O2 released, CO2 consumed</text>
+          <text x="605" y="374" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Nighttime:</tspan> Photosynthesis STOPPED</text>
+          <text x="615" y="392" fill="#334155" font-size="11">&rarr; Respiration only (O2 in, CO2 out)</text>
+          <text x="605" y="410" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Bottle Garden:</tspan> Sealed closed ecosystem</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: COMPREHENSIVE STUDY NOTES
+         ========================================== -->
+    <section class="section-card" id="sec2">
+      <div class="section-header">
+        <span class="section-tag">Section 2</span>
+        <h2 class="section-title">Comprehensive Line-by-Line Study Notes</h2>
+      </div>
+
+      <!-- Part 1: Autotrophic Nutrition & Photosynthesis -->
+      <h3>1. Autotrophic Nutrition &amp; The Photosynthetic Factory</h3>
+      <p>
+        Unlike animals that must search for and consume organic matter, green plants are <strong>autotrophs</strong> (self-feeders). They are the primary food producers for the entire biosphere.
+      </p>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-sun"></i> Definition: Photosynthesis</div>
+        <strong>Photosynthesis</strong> is the physiological biochemical process by which green plants manufacture glucose from inorganic raw materials — <strong>Carbon Dioxide ($\text{CO}_2$)</strong> from the air and <strong>Water ($\text{H}_2\text{O}$)</strong> from the soil — in the presence of <strong>Sunlight</strong> trapped by the green pigment <strong>Chlorophyll</strong>, releasing <strong>Oxygen ($\text{O}_2$)</strong> as a vital byproduct.
+      </div>
+
+      <div class="equation-card">
+        <div class="equation-title">The Master Chemical Equation of Photosynthesis</div>
+        <div class="equation-main">$$6\text{CO}_2 + 6\text{H}_2\text{O} \xrightarrow[\text{Chlorophyll}]{\text{Sunlight}} \mathbf{C_6H_{12}O_6 \text{ (Glucose)}} + \mathbf{6O_2 \uparrow \text{ (Oxygen)}}$$</div>
+        <p style="font-size: 0.85rem; color: #166534; margin-top: 0.5rem;">
+          Word Equation: $\text{Carbon Dioxide} + \text{Water} \xrightarrow[\text{Chlorophyll}]{\text{Sunlight}} \text{Glucose} + \text{Oxygen}$
+        </p>
+      </div>
+
+      <h4>Raw Materials for Photosynthesis</h4>
+      <ol>
+        <li><strong>Carbon Dioxide ($\text{CO}_2$):</strong> Enters the leaves directly from the atmosphere through microscopic surface pores called <strong>stomata</strong>.</li>
+        <li><strong>Water ($\text{H}_2\text{O}$):</strong> Absorbed from the soil by root hairs via osmosis, along with dissolved mineral salts (nitrogen, phosphorus, potassium, magnesium), and transported up the stem through <strong>xylem vessels</strong>.</li>
+        <li><strong>Sunlight:</strong> Radiant solar energy captured by chlorophyll molecules inside specialised cell organelles called <strong>chloroplasts</strong>.</li>
+        <li><strong>Chlorophyll:</strong> The green pigment responsible for absorbing blue and red light wavelengths, enabling solar photonic energy to convert into chemical bond energy.</li>
+      </ol>
+
+      <h4>Fate of Synthesized Glucose</h4>
+      <ul>
+        <li>A portion of the simple glucose is immediately utilized by plant cells during <strong>respiration</strong> to release metabolic energy for cell division and growth.</li>
+        <li>The surplus glucose is converted into insoluble <strong>Starch</strong> and stored in storage organs like leaves, stems, roots (e.g. carrots, sweet potatoes), tubers (e.g. potatoes), and seeds (e.g. wheat, rice, peas).</li>
+      </ul>
+
+      <!-- Part 2: Experimental Botany -->
+      <h3>2. Classic Laboratory Verifications of Photosynthesis</h3>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-flask"></i> Activity 10.2: Testing a Leaf for Starch (The Iodine Decolorization Test)</div>
+        <strong>Step-by-Step Procedure:</strong>
+        <ol>
+          <li><strong>Boil in Water:</strong> Dip a green leaf in boiling water for 2-3 minutes. (This kills the protoplasm, breaks cell membranes, and stops all enzymatic reactions).</li>
+          <li><strong>Decolorize in Alcohol Bath:</strong> Place the softened leaf in a test tube containing 70% alcohol (ethanol), and immerse this test tube in a beaker of boiling water (a <em>water bath</em>). <em>Caution: Never heat alcohol directly over a naked flame as it is highly inflammable!</em> The alcohol dissolves out all green chlorophyll, turning the leaf pale white or yellowish.</li>
+          <li><strong>Wash in Warm Water:</strong> Rinse the brittle decolorized leaf in warm water to soften its tissues.</li>
+          <li><strong>Add Iodine Solution:</strong> Spread the leaf on a white porcelain tile and add a few drops of dilute iodine solution.</li>
+        </ol>
+        <strong>Result:</strong> The leaf turns deep <strong>blue-black</strong>, confirming the synthesis and presence of starch!
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-palette"></i> Activity 10.3: Chlorophyll is Essential for Photosynthesis (Variegated Leaf Test)</div>
+        Take a potted plant with variegated leaves (like <em>Croton</em>, <em>Coleus</em>, or <em>Money Plant</em>), where leaves contain green patches alongside white or yellow non-green patches.
+        <br>&bull; Keep the plant in bright sunlight for 6 hours.
+        <br>&bull; Pick a leaf, map the green and non-green zones on tracing paper, and perform the iodine starch test.
+        <br>&bull; <strong>Observation:</strong> <em>Only the originally green parts turn blue-black!</em> The white/yellow parts turn yellowish-brown with iodine.
+        <br>&bull; <strong>Conclusion:</strong> Photosynthesis and starch synthesis occur strictly in the presence of chlorophyll.
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-ban"></i> Activity 10.4: Carbon Dioxide is Essential for Photosynthesis (The KOH Bell Jar Setup)</div>
+        Two destarched potted plants, A and B, are placed under identical airtight glass bell jars sealed with vaseline.
+        <br>&bull; In Jar A: A watch glass containing <strong>Potassium Hydroxide ($\text{KOH}$)</strong> pellets is placed. (KOH chemically absorbs all $\text{CO}_2$ from the air inside the jar).
+        <br>&bull; In Jar B: A watch glass with plain water is placed (normal $\text{CO}_2$ present).
+        <br>&bull; Both jars are exposed to bright sunlight for 4 hours.
+        <br>&bull; When leaves are tested with iodine: Leaf from Jar B turns deep blue-black; leaf from Jar A fails to turn blue-black!
+        <br>&bull; <strong>Conclusion:</strong> Without atmospheric carbon dioxide, photosynthesis is impossible.
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-bubbles"></i> Activity 10.5: Release of Oxygen during Photosynthesis</div>
+        An aquatic plant (such as <em>Hydrilla</em> or <em>Elodea</em>) is submerged in a beaker filled with pond water, covered with an inverted glass funnel. An inverted test tube filled with water is placed over the funnel stem.
+        <br>&bull; When placed in direct sunlight, steady streams of tiny gas bubbles evolve from the cut stems, rising and displacing water at the top of the test tube.
+        <br>&bull; When a glowing wooden splinter is introduced into the collected gas, <strong>the splinter bursts vigorously into flame</strong>!
+        <br>&bull; <strong>Conclusion:</strong> The gas evolved is pure <strong>Oxygen ($\text{O}_2$)</strong>.
+      </div>
+
+      <!-- Part 3: Stomata & Transpiration -->
+      <h3>3. Stomata: The Microscopic Gatekeepers of the Leaf</h3>
+      <p>
+        If leaves are the kitchen of the plant, stomata are its ventilation windows!
+      </p>
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-door-open"></i> Structure of Stomata</div>
+        <strong>Stomata</strong> (singular: <em>stoma</em>) are tiny microscopic apertures located primarily on the lower epidermis of leaves.
+        <ul>
+          <li>Each stoma is bordered and regulated by two kidney- or bean-shaped living cells called <strong>Guard Cells</strong>.</li>
+          <li>When guard cells absorb water by osmosis, they swell and become turgid, bowing outward and causing the <strong>stomatal pore to OPEN</strong>.</li>
+          <li>When guard cells lose water, they become flaccid, straightening and causing the <strong>stomatal pore to CLOSE</strong>.</li>
+          <li><strong>Dual Functions:</strong>
+            <br>1. <em>Gaseous Exchange:</em> Influx of $\text{CO}_2$ for photosynthesis and efflux of $\text{O}_2$ and $\text{CO}_2$.
+            <br>2. <em>Transpiration:</em> Evaporation of surplus water in the form of water vapour.</li>
+        </ul>
+      </div>
+
+      <!-- Part 4: Vascular Transport -->
+      <h3>4. Vascular Transport in Plants: Xylem vs Phloem</h3>
+      <p>
+        Plants do not have a muscular pumping heart or circulating blood, yet tall trees (like the California Redwoods reaching over 100 metres high) lift hundreds of litres of water against gravity every single day! How is this achieved?
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Xylem Tissue</th>
+              <th>Phloem Tissue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Nature of Cells</strong></td>
+              <td>Composed largely of dead, thick, lignified hollow tubes (vessels and tracheids).</td>
+              <td>Composed of living cells (sieve tube elements and companion cells).</td>
+            </tr>
+            <tr>
+              <td><strong>Substance Transported</strong></td>
+              <td>Water and dissolved inorganic mineral salts (nitrates, phosphates).</td>
+              <td>Soluble organic food (mainly sucrose, amino acids).</td>
+            </tr>
+            <tr>
+              <td><strong>Direction of Transport</strong></td>
+              <td><strong>Unidirectional:</strong> Strictly UPWARDS from roots &rarr; stem &rarr; leaves.</td>
+              <td><strong>Bidirectional / Multidirectional:</strong> From source (leaves) to sink (roots, buds, fruits).</td>
+            </tr>
+            <tr>
+              <td><strong>Driving Mechanism</strong></td>
+              <td>Driven physically by <strong>Transpiration Pull</strong> (suction force) and root pressure.</td>
+              <td>Driven biologically by active osmotic transport (<strong>Translocation</strong>).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-vial"></i> Activity 10.7: Demonstrating Water Transport via Xylem (The Red Ink Experiment)</div>
+        A tender herbaceous plant with translucent stems (like <em>Balsam</em>) or a white carnation flower is cut at the base under water and placed in a beaker containing water tinted with red eosin or red fountain pen ink.
+        <br>&bull; Within a few hours, fine red lines appear along the stem and travel directly into the delicate vein networks of the leaves and white petals!
+        <br>&bull; A sharp thin transverse cross-section (T.S.) of the stem examined under a microscope reveals that <strong>only the xylem vessels are stained red</strong>.
+        <br>&bull; <em>Conclusion:</em> Water is conducted exclusively through xylem vessels.
+      </div>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-droplet"></i> The Physics of Transpiration Pull</div>
+        As water constantly evaporates through open stomata into the drier atmosphere (<em>Transpiration</em>), a negative pressure (suction) is created at the top of the continuous column of water inside xylem vessels. Because water molecules have strong mutual attraction (cohesion and adhesion), this continuous unbroken thread of water is hauled upward through the entire height of the plant, much like drinking cold juice through a straw!
+      </div>
+
+      <!-- Part 5: Plant Respiration -->
+      <h3>5. Do Plants Respire? Yes, 24 Hours a Day!</h3>
+      <p>
+        A widespread student misconception is that "plants breathe in carbon dioxide and breathe out oxygen". In reality, plants carry out <strong>aerobic cellular respiration</strong> continuously, just like animals!
+      </p>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-fire"></i> Cellular Respiration in Plants</div>
+        $$\text{Glucose } (\text{C}_6\text{H}_{12}\text{O}_6) + 6\text{O}_2 \longrightarrow 6\text{CO}_2 + 6\text{H}_2\text{O} + \mathbf{Energy \ (ATP)}$$
+        Plant cells require metabolic energy (ATP) around the clock for nutrient uptake, protein synthesis, cell division, and cellular maintenance. Every living part — leaves, green stems, woody bark (via <em>lenticels</em>), and roots (absorbing soil air) — respires!
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-seedling"></i> Activity 10.8: Demonstration of Respiration in Germinating Seeds</div>
+        Moist germinating gram (chana) or pea seeds are placed inside an airtight conical flask fitted with a delivery tube leading into a test tube of clear lime water ($\text{Ca(OH)}_2$).
+        <br>&bull; Germinating seeds are growing vigorously and metabolizing at a high rate.
+        <br>&bull; Within a few hours, the clear lime water turns <strong>milky white</strong>!
+        <br>&bull; <em>Conclusion:</em> Actively respiring plant tissues release substantial carbon dioxide gas.
+      </div>
+
+      <h4>Comparison: Daytime vs Nighttime Gas Exchange</h4>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Time of Day</th>
+              <th>Photosynthesis Status</th>
+              <th>Respiration Status</th>
+              <th>Net Atmospheric Gas Exchange</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Bright Daytime</strong></td>
+              <td>Occurring at peak rate (utilizing abundant solar energy).</td>
+              <td>Occurring at normal baseline rate.</td>
+              <td><strong>Net $\text{O}_2$ Released, Net $\text{CO}_2$ Consumed.</strong> (Photosynthesis rate is 10 to 20 times faster than respiration; the plant consumes all its own respiratory $\text{CO}_2$ plus draws extra from the atmosphere, releasing vast excess $\text{O}_2$).</td>
+            </tr>
+            <tr>
+              <td><strong>Nighttime (Darkness)</strong></td>
+              <td>Completely <strong>STOPPED</strong> (no light photons available).</td>
+              <td>Occurring continuously at normal baseline rate.</td>
+              <td><strong>Net $\text{O}_2$ Consumed, Net $\text{CO}_2$ Released.</strong> (The plant behaves exactly like an animal, taking in atmospheric oxygen and discharging carbon dioxide).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title"><i class="fa-solid fa-tree"></i> Why Elders Advise Against Sleeping Under Large Trees at Night</div>
+        During the night, in the absence of sunlight, trees perform only cellular respiration and emit substantial amounts of carbon dioxide while consuming oxygen. Sleeping closely underneath a dense tree canopy can lead to breathing stagnant air with elevated $\text{CO}_2$ levels, which can cause headaches, mild suffocation, or restless sleep.
+      </div>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-award"></i> Scientist in Focus: Dr. Kamala Sohonie (1911–1998)</div>
+        Dr. Kamala Sohonie was the pioneering first Indian woman to earn a Ph.D. in Science from Cambridge University. Her groundbreaking doctoral research focused on <strong>plant tissue respiration</strong> and discovered that every plant cell contains the respiratory enzyme <em>cytochrome c</em>. Returning to India, she served as Director of the Royal Institute of Science in Bombay and developed the affordable, nutrient-packed beverage <em>Neera</em> (fresh palm sap rich in vitamin C and iron) for malnourished tribal communities.
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: HIGH-YIELD FACT & TERM BANK
+         ========================================== -->
+    <section class="section-card" id="sec3">
+      <div class="section-header">
+        <span class="section-tag">Section 3</span>
+        <h2 class="section-title">High-Yield Fact &amp; Scientific Term Bank</h2>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Scientific Term</th>
+              <th>Rigorous Definition</th>
+              <th>High-Yield Exam Context</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Autotroph</strong></td>
+              <td>Organism synthesizing its own organic nutrients from inorganic molecules.</td>
+              <td>Green plants, algae, and cyanobacteria.</td>
+            </tr>
+            <tr>
+              <td><strong>Chloroplast</strong></td>
+              <td>Double-membraned plant organelle enclosing chlorophyll pigment.</td>
+              <td>The structural site of photosynthesis in plant cells.</td>
+            </tr>
+            <tr>
+              <td><strong>Stoma (pl. Stomata)</strong></td>
+              <td>Microscopic epidermal pore flanked by two regulatory guard cells.</td>
+              <td>Primary conduit for $\text{CO}_2/\text{O}_2$ exchange and transpiration.</td>
+            </tr>
+            <tr>
+              <td><strong>Guard Cells</strong></td>
+              <td>Specialized bean-shaped epidermal cells controlling stomatal aperture.</td>
+              <td>Turgid = Open pore; Flaccid = Closed pore.</td>
+            </tr>
+            <tr>
+              <td><strong>Xylem</strong></td>
+              <td>Lignified vascular tissue conducting water and mineral ions upwards.</td>
+              <td>Unidirectional capillary transport powered by transpiration pull.</td>
+            </tr>
+            <tr>
+              <td><strong>Phloem</strong></td>
+              <td>Living vascular tissue conducting soluble synthesized food (sucrose).</td>
+              <td>Bidirectional translocation from leaves to sinks (roots, fruits).</td>
+            </tr>
+            <tr>
+              <td><strong>Transpiration</strong></td>
+              <td>Evaporative loss of water vapour from aerial plant parts through stomata.</td>
+              <td>Cools the plant canopy and generates transpiration pull.</td>
+            </tr>
+            <tr>
+              <td><strong>Translocation</strong></td>
+              <td>Transport of soluble organic photosynthetic products through phloem.</td>
+              <td>Active biological transport supplying energy to all non-green tissues.</td>
+            </tr>
+            <tr>
+              <td><strong>Lenticels</strong></td>
+              <td>Loosely packed aerating pores in the woody bark of tree stems.</td>
+              <td>Enable respiratory gas exchange in non-photosynthetic woody stems.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: 100% COMPLETE NCERT SOLUTIONS
+         ========================================== -->
+    <section class="section-card" id="sec4">
+      <div class="section-header">
+        <span class="section-tag">Section 4</span>
+        <h2 class="section-title">100% Complete NCERT Solutions (Let Us Enhance Our Learning)</h2>
+      </div>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Question 1:</strong> Complete the comparison table between Photosynthesis and Respiration.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Completed Comparison Table</span></p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>S.No.</th>
+                  <th>Feature</th>
+                  <th>Photosynthesis</th>
+                  <th>Respiration</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1.</td>
+                  <td><strong>Raw Materials</strong></td>
+                  <td>Carbon dioxide ($\text{CO}_2$) and Water ($\text{H}_2\text{O}$)</td>
+                  <td>Glucose ($\text{C}_6\text{H}_{12}\text{O}_6$) and Oxygen ($\text{O}_2$)</td>
+                </tr>
+                <tr>
+                  <td>2.</td>
+                  <td><strong>Products</strong></td>
+                  <td>Glucose ($\text{C}_6\text{H}_{12}\text{O}_6$) and Oxygen ($\text{O}_2$)</td>
+                  <td>Carbon dioxide ($\text{CO}_2$), Water ($\text{H}_2\text{O}$), and Energy (ATP)</td>
+                </tr>
+                <tr>
+                  <td>3.</td>
+                  <td><strong>Word Equation</strong></td>
+                  <td>$\text{Carbon dioxide} + \text{Water} \xrightarrow[\text{Chlorophyll}]{\text{Sunlight}} \text{Glucose} + \text{Oxygen}$</td>
+                  <td>$\text{Glucose} + \text{Oxygen} \longrightarrow \text{Carbon dioxide} + \text{Water} + \text{Energy}$</td>
+                </tr>
+                <tr>
+                  <td>4.</td>
+                  <td><strong>Biological Importance</strong></td>
+                  <td>Synthesizes food for the entire living world; absorbs $\text{CO}_2$ and replenishes atmospheric oxygen.</td>
+                  <td>Oxidizes food to release biochemical energy (ATP) required to drive all cellular life processes in living cells.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 2:</strong> Imagine a situation where all the organisms that carry out photosynthesis on the earth have disappeared. What would be the impact of this on living organisms?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Teacher's Answer</span> If all photosynthetic organisms (green plants, trees, phytoplankton, cyanobacteria) disappeared, it would cause a <strong>total catastrophic extinction of nearly all life on Earth</strong>:</p>
+          <ol>
+            <li><strong>Collapse of Food Chains:</strong> Plants are the universal primary producers. Without photosynthesis, no organic food would be synthesized. Herbivorous animals would starve and die out within weeks; subsequent carnivores and omnivores (including human beings) would starve soon after.</li>
+            <li><strong>Depletion of Atmospheric Oxygen:</strong> Photosynthesis is the sole biological source of free oxygen ($\text{O}_2$) in our atmosphere. As existing organisms, decomposition, and fires consume available oxygen, oxygen levels would drop steadily to zero, suffocating all aerobic life.</li>
+            <li><strong>Runaway Greenhouse Effect:</strong> With no photosynthetic uptake of carbon dioxide, $\text{CO}_2$ released by remaining respiration and decay would accumulate uncontrollably, causing catastrophic global warming and climate chaos.</li>
+            <li><em>Conclusion:</em> In short, life as we know it would cease to exist on planet Earth!</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 3:</strong> A potato slice shows the presence of starch with iodine solution. Where does the starch in potatoes come from? Where is the food synthesised in the plant, and how does it reach the potato?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Comprehensive Mechanism</span></p>
+          <ol>
+            <li><strong>Site of Food Synthesis:</strong> Food is originally synthesized in the green leaves of the potato plant through the process of <strong>photosynthesis</strong> in the form of simple sugar (glucose).</li>
+            <li><strong>Transport Mechanism:</strong> Glucose is converted into soluble sugar (sucrose). It is then loaded into the vascular tissue called <strong>phloem</strong>. Through the process of <strong>translocation</strong>, phloem conducts the soluble food downwards from the leaves through the stem to underground modified stem branches called <strong>stolons</strong>.</li>
+            <li><strong>Storage as Starch:</strong> At the tips of these underground stolons, the excess sucrose is unloaded into specialized storage cells and converted into insoluble, compact <strong>starch</strong> molecules. The stolons swell up to form the familiar potato tubers!</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 4:</strong> Does the broad and flat structure of leaves make plants more efficient for photosynthesis? Justify your answer.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Verdict &amp; Justification</span> <strong>Yes, the broad and flat structure of leaves dramatically enhances photosynthetic efficiency.</strong></p>
+          <p><strong>Scientific Justification:</strong></p>
+          <ul>
+            <li><strong>Maximum Sunlight Interception:</strong> A broad, flattened leaf blade (lamina) provides an expansive surface area to capture the maximum amount of incident sunlight (photons).</li>
+            <li><strong>Minimal Diffusion Distance:</strong> A flat, thin leaf ensures that solar rays can easily penetrate through to the middle chlorophyll-rich mesophyll cells.</li>
+            <li><strong>Efficient Carbon Dioxide Absorption:</strong> The broad lower surface accommodates thousands of stomata per square millimetre, facilitating rapid diffusion of atmospheric $\text{CO}_2$ directly into photosynthetic cells without requiring long internal transport pathways.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 5:</strong> $X$ is broken down using $Y$ to release carbon dioxide, $Z$, and energy. $X + Y \longrightarrow \text{Carbon dioxide} + Z + \text{Energy}$. What do $X$, $Y$, and $Z$ stand for?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Identification</span> This represents the fundamental chemical equation for <strong>Aerobic Cellular Respiration</strong>:</p>
+          <ul>
+            <li><strong>$X$ stands for:</strong> <strong>Glucose</strong> (or food / carbohydrate, $\text{C}_6\text{H}_{12}\text{O}_6$).</li>
+            <li><strong>$Y$ stands for:</strong> <strong>Oxygen</strong> ($\text{O}_2$).</li>
+            <li><strong>$Z$ stands for:</strong> <strong>Water</strong> ($\text{H}_2\text{O}$).</li>
+          </ul>
+          <p>$$\text{Glucose } (X) + \text{Oxygen } (Y) \longrightarrow \text{Carbon dioxide} + \text{Water } (Z) + \text{Energy (ATP)}$$</p>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 6:</strong> Krishna set up an experiment with two potted plants of same size: one in sunlight, the other in a dark room (Fig. 10.10). Answer: (i) What idea might she be testing? (ii) What are visible differences? (iii) Which leaves confirm the iodine test for starch?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answers</span></p>
+          <p><strong>(i) What idea might she be testing?</strong><br>
+          Krishna is testing the scientific hypothesis: <strong>"Sunlight is an indispensable condition required for photosynthesis and healthy plant growth."</strong></p>
+
+          <p><strong>(ii) What are the visible differences in plants in both conditions?</strong><br>
+          &bull; <em>Plant in Sunlight:</em> Grows vigorously, possesses healthy lush green leaves, a thick sturdy stem, and upright growth.
+          <br>&bull; <em>Plant in Complete Dark:</em> Displays pale yellow or whitish leaves (chlorophyll degenerates), a thin, spindly, elongated weak stem (etiolation), and starts wilting or drooping due to starvation.</p>
+
+          <p><strong>(iii) Leaves of which plant confirm the iodine test for the presence of starch?</strong><br>
+          <strong>Only the leaves of the plant kept in sunlight will confirm the iodine test</strong> by turning deep <strong>blue-black</strong>. The leaves of the plant kept in the dark will remain yellowish-brown because, in the absence of sunlight, photosynthesis could not take place and existing starch was fully consumed during respiration (destarched).</p>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 7:</strong> Vani believes that 'carbon dioxide is essential for photosynthesis' and sets up four potted plants (Fig. 10.11): (a) Sunlight with CO2, (b) Sunlight without CO2, (c) Dark with CO2, (d) Dark without CO2. Answer (i) to (iv).</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Condition Evaluation</span> Photosynthesis requires BOTH sunlight AND carbon dioxide simultaneously:</p>
+          <ul>
+            <li><strong>(i) In which plant(s) will starch be formed?</strong><br>
+            <strong>Plant (a) ONLY.</strong> Plant (a) has both necessary conditions: sunlight and carbon dioxide.</li>
+
+            <li><strong>(ii) In which plant(s) will starch NOT be formed?</strong><br>
+            <strong>Plants (b), (c), and (d).</strong>
+            <br>&bull; Plant (b) lacks carbon dioxide.
+            <br>&bull; Plant (c) lacks sunlight.
+            <br>&bull; Plant (d) lacks both sunlight and carbon dioxide.</li>
+
+            <li><strong>(iii) In which plant(s) will oxygen be generated?</strong><br>
+            <strong>Plant (a) ONLY.</strong> Oxygen is released as a byproduct only when the light-driven water-splitting reactions of photosynthesis take place.</li>
+
+            <li><strong>(iv) In which plant(s) will oxygen NOT be generated?</strong><br>
+            <strong>Plants (b), (c), and (d).</strong> Since photosynthesis cannot proceed in these plants, no oxygen will be produced.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 8:</strong> Ananya filled 4 test tubes with water and added CO2 indicator (Fig. 10.12): Tube A (Snail), Tube B (Water plant), Tube C (Snail + Water plant), Tube D (Only water). What is she trying to find out? How will she know if she is correct?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Investigation Goal</span> Ananya is investigating: <strong>"The ecological balance and mutual interdependence between animal respiration and plant photosynthesis with respect to Carbon Dioxide ($\text{CO}_2$) exchange."</strong></p>
+          <p><span class="step-pill">Expected Results &amp; Confirmation</span></p>
+          <ul>
+            <li><strong>Tube A (Water + Snail):</strong> The snail carries out only <em>respiration</em>, releasing $\text{CO}_2$ continuously. The $\text{CO}_2$ concentration increases significantly, turning the indicator acidic (yellowish).</li>
+            <li><strong>Tube B (Water + Plant in light):</strong> The plant carries out both photosynthesis and respiration, but the rate of photosynthesis is far greater, consuming $\text{CO}_2$ rapidly. The $\text{CO}_2$ concentration drops, turning the indicator alkaline (deep purple/magenta).</li>
+            <li><strong>Tube C (Water + Snail + Plant):</strong> The $\text{CO}_2$ produced by the respiring snail is immediately utilized by the plant for photosynthesis, while the $\text{O}_2$ released by the plant is used by the snail for respiration! The $\text{CO}_2$ level remains in balance (indicator stays neutral green).</li>
+            <li><strong>Tube D (Water only):</strong> Acts as a <strong>control setup</strong> to prove that without living organisms, the indicator does not change color on its own.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 9:</strong> Design an experiment to observe if water transportation in plants is quicker in warm or cold conditions.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Experimental Design</span></p>
+          <ol>
+            <li><strong>Apparatus:</strong> Two identical leafy twigs of a white-flowering balsam plant or white carnation, two 250 mL beakers, red fountain pen ink, water, a timer/stopwatch, and a thermometer.</li>
+            <li><strong>Preparation:</strong> Fill both beakers with 150 mL of water and add 5 mL of red ink to each. Cut the cut bases of both twigs under water at an identical 45-degree angle. Place Twig 1 in Beaker 1 and Twig 2 in Beaker 2.</li>
+            <li><strong>Controlled Variables:</strong>
+              <br>&bull; <em>Beaker 1 (Warm Condition):</em> Placed in a warm, sunny room or near an incandescent lamp at approximately <strong>$32^\circ\text{C}$ to $35^\circ\text{C}$</strong>.
+              <br>&bull; <em>Beaker 2 (Cold Condition):</em> Placed in a cool, air-conditioned room or near an ice basin at approximately <strong>$10^\circ\text{C}$ to $12^\circ\text{C}$</strong>.
+            </li>
+            <li><strong>Observation:</strong> Measure the exact time taken for the red ink to visibly travel up the stem and tint the veins of the leaves and white flower petals.</li>
+            <li><strong>Expected Conclusion:</strong> The red color appears significantly <strong>faster in the warm condition</strong> (Twig 1). Warm temperature increases the rate of stomatal evaporation (transpiration), creating a much stronger <em>transpiration pull</em> that accelerates upward water transport through the xylem!</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 10:</strong> Photosynthesis and respiration are essential to maintain balance in nature. Discuss.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Discussion</span> Photosynthesis and cellular respiration form a closed, self-sustaining biochemical cycle that stabilizes the planet's biosphere:</p>
+          <ul>
+            <li><strong>Oxygen-Carbon Dioxide Atmospheric Equilibrium:</strong>
+              <br>&bull; Animals and respiring plants continuously consume atmospheric oxygen ($\text{O}_2$) and release carbon dioxide ($\text{CO}_2$).
+              <br>&bull; Concurrently, photosynthetic plants absorb $\text{CO}_2$ and release $\text{O}_2$ back into the air.
+              <br>&bull; This complementary reciprocity maintains the atmospheric concentration of oxygen at roughly $21\%$ and carbon dioxide at $0.04\%$, preventing runaway asphyxiation or global overheating.</li>
+            <li><strong>Energy and Biomass Flow:</strong> Photosynthesis captures solar radiation and locks it into high-energy organic bonds (glucose and starch). Respiration unlocks this chemical bond energy, converting it into ATP to fuel all metabolic work in living organisms.</li>
+            <li>Without this perpetual dynamic balance between photosynthesis and respiration, geochemical recycling would collapse, rendering Earth barren.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: CBSE/BSE COMPETENCY BANK & QUIZ
+         ========================================== -->
+    <section class="section-card" id="sec5">
+      <div class="section-header">
+        <span class="section-tag">Section 5</span>
+        <h2 class="section-title">CBSE/BSE Competency Bank &amp; Interactive Quiz Engine</h2>
+      </div>
+      <p>Evaluate your conceptual grasp of plant physiology with real-time feedback and dynamic scoring!</p>
+
+      <!-- Scoreboard -->
+      <div style="background: var(--light); border: 1.5px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-weight: 700; color: var(--dark);"><i class="fa-solid fa-trophy" style="color: var(--accent);"></i> Scoreboard:</span>
+        <span id="quizScoreText" style="font-weight: 800; color: var(--primary); font-size: 1.05rem;">0 / 6 Answered</span>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-card" id="q1-box">
+        <div class="quiz-q">1. In which form is the primary synthesized food (glucose) stored for long-term reserves in plant organs?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q1', 0, false)">A) Glycogen</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 1, true)">B) Insoluble Starch</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 2, false)">C) Simple Glucose</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 3, false)">D) Liquid Water</button>
+        </div>
+        <div class="quiz-feedback" id="q1-fb"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-card" id="q2-box">
+        <div class="quiz-q">2. Which vascular tissue conducts water and dissolved mineral ions upwards from roots to the highest leaves?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q2', 0, true)">A) Xylem Vessels</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 1, false)">B) Phloem Sieve Tubes</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 2, false)">C) Guard Cells</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 3, false)">D) Epidermal Cortex</button>
+        </div>
+        <div class="quiz-feedback" id="q2-fb"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-card" id="q3-box">
+        <div class="quiz-q">3. Why must a green leaf be boiled in an alcohol bath (over a water bath) before testing for starch with iodine?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q3', 0, false)">A) To convert starch into glucose</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 1, true)">B) To dissolve and extract green chlorophyll so color changes are clearly visible</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 2, false)">C) To kill bacteria on the leaf</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 3, false)">D) To add moisture to dry leaves</button>
+        </div>
+        <div class="quiz-feedback" id="q3-fb"></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-card" id="q4-box">
+        <div class="quiz-q">4. What is the status of gas exchange in green plants during the middle of the night?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q4', 0, false)">A) Plants release oxygen and absorb carbon dioxide</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 1, true)">B) Plants consume oxygen and release carbon dioxide via cellular respiration</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 2, false)">C) All gas exchange stops completely until sunrise</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 3, false)">D) Plants produce glucose from moonlight</button>
+        </div>
+        <div class="quiz-feedback" id="q4-fb"></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-card" id="q5-box">
+        <div class="quiz-q">5. What chemical compound is placed in a bell jar to absorb all carbon dioxide in photosynthesis experiments?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q5', 0, false)">A) Sodium Chloride (NaCl)</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 1, true)">B) Potassium Hydroxide (KOH)</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 2, false)">C) Calcium Carbonate (CaCO3)</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 3, false)">D) Copper Sulphate (CuSO4)</button>
+        </div>
+        <div class="quiz-feedback" id="q5-fb"></div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-card" id="q6-box">
+        <div class="quiz-q">6. Who was the pioneering Indian woman scientist who earned her Cambridge Ph.D. for research on plant respiration?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q6', 0, false)">A) Janaki Ammal</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 1, true)">B) Dr. Kamala Sohonie</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 2, false)">C) Asima Chatterjee</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 3, false)">D) Kalpana Chawla</button>
+        </div>
+        <div class="quiz-feedback" id="q6-fb"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: EXAM HALL READINESS
+         ========================================== -->
+    <section class="section-card" id="sec6">
+      <div class="section-header">
+        <span class="section-tag">Section 6</span>
+        <h2 class="section-title">Exam Hall Readiness: Traps &amp; Lightning Revision</h2>
+      </div>
+
+      <h3>Common Exam Traps &amp; Misconceptions</h3>
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 1: "Plants only respire at night."</div>
+        <strong>Wrong!</strong> Respiration is a continuous, 24-hour vital process. If a plant stops respiring for even a few minutes, its cells will die from lack of ATP energy. In daytime, respiration happens concurrently with photosynthesis!
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 2: Heating alcohol directly over a burner</div>
+        <strong>DANGER!</strong> In the starch test, alcohol must <strong>NEVER</strong> be heated directly over a flame because alcohol vapours are highly flammable and will catch fire instantly. Always use a <strong>water bath</strong>!
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 3: Confusing Xylem and Phloem directionality</div>
+        Xylem transport is strictly <strong>unidirectional (upwards only)</strong>. Phloem transport is <strong>bidirectional (multidirectional)</strong>, moving nutrients up to growing buds or down to storage roots.
+      </div>
+
+      <h3>15 Lightning Revision Key Takeaways</h3>
+      <ol style="column-count: 2; column-gap: 2rem; margin-left: 1.5rem;">
+        <li>Green plants are autotrophs that synthesize glucose via photosynthesis.</li>
+        <li>Formula: $6\text{CO}_2 + 6\text{H}_2\text{O} \xrightarrow[\text{Chlorophyll}]{\text{Sunlight}} \text{C}_6\text{H}_{12}\text{O}_6 + 6\text{O}_2$.</li>
+        <li>Excess glucose is polymerized and stored as insoluble starch in tubers and seeds.</li>
+        <li>Iodine turns blue-black in the presence of starch; white variegated leaf areas stay brown.</li>
+        <li>Potassium Hydroxide (KOH) absorbs CO2, verifying that CO2 is essential for photosynthesis.</li>
+        <li>Hydrilla funnel experiment proves that oxygen gas is evolved during photosynthesis.</li>
+        <li>Stomata on leaf surfaces regulate gas exchange and transpiration via swollen/flaccid guard cells.</li>
+        <li>Xylem conducts water and minerals upwards from roots via transpiration pull.</li>
+        <li>Phloem translocates soluble organic food (sucrose) bidirectionally to sinks.</li>
+        <li>Plant respiration occurs 24 hours a day in all living cells, oxidising glucose to release ATP.</li>
+        <li>Germinating seeds respire vigorously, releasing CO2 that turns lime water milky.</li>
+        <li>Daytime net gas exchange: O2 released, CO2 consumed (photosynthesis &gt; respiration).</li>
+        <li>Nighttime net gas exchange: O2 consumed, CO2 released (photosynthesis halted).</li>
+        <li>Dr. Kamala Sohonie was India's first female Cambridge Ph.D., discovering plant cytochrome c.</li>
+        <li>Photosynthesis and respiration maintain global carbon dioxide and oxygen equilibrium.</li>
+      </ol>
+
+      <!-- Checklist -->
+      <h3 style="margin-top: 2rem;">Interactive Student Self-Assessment</h3>
+      <div style="background: var(--light); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem;">
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can write the balanced chemical and word equation for photosynthesis.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I know all 4 steps of the iodine decolorization test for leaf starch.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can clearly explain the differences between Xylem (water, upwards) and Phloem (food, multidirectional).</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can explain why plants respire continuously day and night, and contrast daytime vs nighttime gas exchange.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I understand how guard cells open and close the stomatal pore.</span>
+        </label>
+      </div>
+    </section>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" onclick="scrollToTop()" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      const btn = document.getElementById('backToTopBtn');
+      if (window.scrollY > 400) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Teacher Audio Summary (Web Speech API)
+    let isSpeaking = false;
+    let speechUtterance = null;
+
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('ttsBtn');
+      const icon = document.getElementById('ttsIcon');
+      const text = document.getElementById('ttsText');
+
+      if (!('speechSynthesis' in window)) {
+        alert('Sorry! Your browser does not support text-to-speech.');
+        return;
+      }
+
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        icon.className = 'fa-solid fa-play';
+        text.innerText = 'Play Audio';
+        btn.style.background = 'var(--primary)';
+      } else {
+        const scriptText = "Welcome to Sujit Classes Chapter Summary for Life Processes in Plants. " +
+          "Green plants are autotrophs that manufacture glucose using water from roots, carbon dioxide from stomata, and sunlight absorbed by chlorophyll. " +
+          "Surplus glucose is stored as insoluble starch. " +
+          "Laboratory experiments prove that sunlight, chlorophyll, and carbon dioxide are all essential, and that oxygen gas is released. " +
+          "Stomata with their bean-shaped guard cells facilitate gas exchange and transpiration. " +
+          "Water and minerals travel upwards through xylem vessels driven by transpiration pull, while synthesized food is translocated bidirectionally through phloem sieve tubes. " +
+          "Crucially, plants respire 24 hours a day, breaking down glucose with oxygen to yield ATP energy. " +
+          "During the day, photosynthesis outpaces respiration, resulting in net oxygen output; at night, photosynthesis stops, so plants release carbon dioxide. " +
+          "Review the complete NCERT solutions and interactive quiz below to master this topic!";
+
+        speechUtterance = new SpeechSynthesisUtterance(scriptText);
+        speechUtterance.rate = 0.95;
+        speechUtterance.pitch = 1.0;
+
+        speechUtterance.onend = () => {
+          isSpeaking = false;
+          icon.className = 'fa-solid fa-play';
+          text.innerText = 'Play Audio';
+          btn.style.background = 'var(--primary)';
+        };
+
+        window.speechSynthesis.speak(speechUtterance);
+        isSpeaking = true;
+        icon.className = 'fa-solid fa-pause';
+        text.innerText = 'Pause Audio';
+        btn.style.background = '#dc2626';
+      }
+    }
+
+    // Interactive Quiz Engine
+    let quizScore = 0;
+    const answeredQuestions = new Set();
+
+    const explanations = {
+      q1: "Correct! Excess glucose is polymerized into insoluble starch granules for long-term compact storage in leaves, tubers, and seeds.",
+      q2: "Correct! Xylem vessels form hollow capillary pipelines conducting water and dissolved minerals upwards from root hairs to leaves.",
+      q3: "Correct! Alcohol in a hot water bath dissolves and removes the green chlorophyll, decolorizing the leaf so the blue-black iodine reaction is distinct.",
+      q4: "Correct! At night, with no sunlight, photosynthesis stops completely; however, living cells must respire continuously, consuming oxygen and releasing carbon dioxide.",
+      q5: "Correct! Potassium Hydroxide (KOH) chemically reacts with and absorbs all carbon dioxide from enclosed air inside the bell jar.",
+      q6: "Correct! Dr. Kamala Sohonie was the first Indian woman to earn a science Ph.D. from Cambridge, discovering the plant respiratory enzyme cytochrome c."
+    };
+
+    function checkQuiz(qId, selectedIdx, isCorrect) {
+      const qBox = document.getElementById(qId + '-box');
+      const buttons = qBox.querySelectorAll('.opt-btn');
+      const fb = document.getElementById(qId + '-fb');
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        buttons[selectedIdx].classList.add('correct');
+        fb.style.display = 'block';
+        fb.style.background = '#dcfce7';
+        fb.style.color = '#15803d';
+        fb.innerHTML = '<strong><i class=\"fa-solid fa-circle-check\"></i> Correct!</strong> ' + explanations[qId];
+        if (!answeredQuestions.has(qId)) {
+          quizScore++;
+        }
+      } else {
+        buttons[selectedIdx].classList.add('wrong');
+        fb.style.display = 'block';
+        fb.style.background = '#fee2e2';
+        fb.style.color = '#b91c1c';
+        fb.innerHTML = '<strong><i class=\"fa-solid fa-circle-xmark\"></i> Not quite.</strong> ' + explanations[qId];
+      }
+
+      answeredQuestions.add(qId);
+      document.getElementById('quizScoreText').innerText = quizScore + ' / 6 Correct';
+    }
+  </script>
+</body>
+</html>
