@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Unit 4 - Travel and Adventure (Class 7 English - Poorvi)</title>
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #f5f3ff;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.65;
+      font-size: 15.5px;
+      padding-bottom: 60px;
+    }
+
+    /* Reading Progress Bar (Top-Fixed) */
+    #progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 2000;
+    }
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #059669, #0284c7, #f59e0b);
+      transition: width 0.1s ease-out;
+    }
+
+    /* Sticky Top Navigation & Toolbar */
+    .top-bar {
+      position: sticky;
+      top: 4px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .nav-links a:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1080px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 50%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 36px 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 12px 30px -8px rgba(5, 150, 105, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: 2.15rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.95;
+      max-width: 820px;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 14px;
+      margin-bottom: 22px;
+    }
+
+    .section-num {
+      background: var(--primary);
+      color: white;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 5px 11px;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .section-header h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .topic-block {
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .topic-block:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .topic-title {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #ecfdf5;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border-left: 5px solid var(--primary);
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 18px 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 14px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    li strong {
+      color: #0f172a;
+    }
+
+    /* Pastel Callouts */
+    .callout {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      border-left: 5px solid;
+    }
+
+    .callout-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .callout-def {
+      background-color: #ecfdf5;
+      border-left-color: #059669;
+      color: #064e3b;
+    }
+
+    .callout-act {
+      background-color: #f0fdfa;
+      border-left-color: #0d9488;
+      color: #115e59;
+    }
+
+    .callout-pyq {
+      background-color: #fffbeb;
+      border-left-color: #f59e0b;
+      color: #78350f;
+    }
+
+    .callout-hack {
+      background-color: #f5f3ff;
+      border-left-color: #7c3aed;
+      color: #4c1d95;
+    }
+
+    .callout-warn {
+      background-color: #fff1f2;
+      border-left-color: #e11d48;
+      color: #881337;
+    }
+
+    .quote-box {
+      background: linear-gradient(to right, #f8fafc, #ecfdf5);
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 10px;
+      font-style: italic;
+      color: #334155;
+      margin: 14px 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fcfcfd;
+    }
+
+    .mindmap-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+
+    .mm-root {
+      background: #047857;
+      color: #fff;
+      font-weight: 800;
+      text-align: center;
+      padding: 12px 20px;
+      border-radius: 10px;
+      max-width: 520px;
+      margin: 0 auto 20px auto;
+      box-shadow: 0 4px 12px rgba(4, 120, 87, 0.25);
+    }
+
+    .mm-branches {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .mm-col {
+      background: #fff;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .mm-col-1 { border-top: 5px solid #059669; }
+    .mm-col-2 { border-top: 5px solid #0284c7; }
+    .mm-col-3 { border-top: 5px solid #d97706; }
+
+    .mm-branch-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      text-align: center;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mm-node {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+    }
+
+    .diagram-card {
+      background: #ffffff;
+      border: 2px solid #d1fae5;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 18px 0;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .q-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+    }
+
+    .q-title {
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .pyq-tag {
+      background: #d1fae5;
+      color: #047857;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-right: 6px;
+      display: inline-block;
+    }
+
+    details.ans-box {
+      margin-top: 10px;
+      background: #f8fafc;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      padding: 10px 14px;
+    }
+
+    details.ans-box summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--primary-dark);
+      user-select: none;
+    }
+
+    .ans-content {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.93rem;
+    }
+
+    /* Quiz Engine */
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .quiz-opt-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1e293b;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #f8fafc;
+      border-color: var(--primary);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #14532d !important;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #ffe4e6 !important;
+      border-color: #e11d48 !important;
+      color: #881337 !important;
+    }
+
+    .quiz-opt-indicator {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .score-banner {
+      background: linear-gradient(135deg, #d1fae5, #ecfdf5);
+      border: 1px solid #10b981;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .score-title {
+      font-weight: 800;
+      color: #064e3b;
+      font-size: 1.05rem;
+    }
+
+    .score-badge {
+      background: #ffffff;
+      color: #047857;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 4px 14px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .svg-anim-glow {
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 2px #facc15); }
+      to { filter: drop-shadow(0 0 10px #f59e0b); }
+    }
+
+    @media (max-width: 768px) {
+      .mm-branches {
+        grid-template-columns: 1fr;
+      }
+      .top-bar {
+        padding: 8px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <!-- Sticky Top Bar -->
+  <header class="top-bar">
+    <nav class="nav-links">
+      <a href="#sec1">Blueprint</a>
+      <a href="#sec2">Text Analysis</a>
+      <a href="#sec3">Grammar &amp; Vocab</a>
+      <a href="#sec4">NCERT Solutions</a>
+      <a href="#sec5">Question Bank</a>
+      <a href="#sec6">Cheat Sheet</a>
+    </nav>
+    <div class="toolbar-actions">
+      <button class="btn btn-primary" onclick="speakSummary()">🔊 Listen to Summary</button>
+      <button class="btn" onclick="window.print()">🖨️ Print Notes</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Banner -->
+    <div class="hero">
+      <div class="hero-badges">
+        <span class="badge">Class 7 English (Poorvi)</span>
+        <span class="badge">NCERT &bull; NEP 2020 Curricular Alignment</span>
+        <span class="badge">Teacher-Crafted Master Study Notes</span>
+      </div>
+      <h1>Unit 4: Travel and Adventure</h1>
+      <p id="hero-summary">
+        An exhilarating exploration of courage, the call of the unknown, and the majestic human spirit across three unforgettable works: Ruskin Bond's wild Himalayan tale <em>The Tunnel</em>, Edna St. Vincent Millay's evocative railway poem <em>Travel</em>, and the awe-inspiring true triumph of Bachendri Pal and Arunima Sinha in <em>Conquering the Summit</em>.
+      </p>
+    </div>
+
+    <!-- ==========================================
+         SECTION 1: UNIT BLUEPRINT & EXAM TRENDS
+         ========================================== -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1</span>
+        <h2>🎯 Unit Blueprint &amp; Exam Trend Analysis</h2>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-title">📖 Unit Overview &amp; NEP 2020 Pedagogical Goals</div>
+        <p>
+          True adventure is not merely visiting new landscapes; it is discovering inner strength, resilience in the face of physical adversity, and fostering deep reverence for wild nature. <strong>Unit 4: Travel and Adventure</strong> bridges physical expeditions with mental courage—from a young boy discovering forest wildlife in a railway tunnel to an amputee conquering the highest peaks of planet Earth.
+        </p>
+      </div>
+
+      <h4>📊 Exam Blueprint &amp; Weightage Breakdown</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Chapter / Literary Piece</th>
+              <th>Form &amp; Author</th>
+              <th>Core Themes &amp; Concepts</th>
+              <th>Expected Question Types</th>
+              <th>Weightage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>The Tunnel</strong></td>
+              <td>Short Story Fiction<br><em>Ruskin Bond</em></td>
+              <td>Nature vs Technology, mutual coexistence, courage without aggression, Tunnel 13, leopard habitat.</td>
+              <td>Character sketches (Ranji &amp; Sunder Singh), Leopard encounter analysis, Punctuation rules, Train journey essay.</td>
+              <td><strong>35%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Travel</strong></td>
+              <td>Lyrical Romantic Poem<br><em>Edna St. Vincent Millay</em></td>
+              <td>Wanderlust, train as symbol of escape &amp; discovery, sensory imagery, paradox of friendship vs longing to leave.</td>
+              <td>Stanza RTC, Rhyme Scheme (ABAB), Personification of train whistle, Diamante poem composition.</td>
+              <td><strong>30%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Conquering the Summit</strong></td>
+              <td>Biographical Non-Fiction<br><em>Inspirational Chronicle</em></td>
+              <td>Bachendri Pal (1984), Arunima Sinha (2013), overcoming amputation, grit, Seven Summits, mountaineering ethics.</td>
+              <td>Extract RTC, Prepositional phrases, Value-based answers on resilience, Adventure sports safety report.</td>
+              <td><strong>35%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>🧠 Comprehensive Unit Mind Map</h4>
+      <div class="mindmap-box">
+        <div class="mm-root">UNIT 4: TRAVEL AND ADVENTURE (POORVI CLASS 7)</div>
+        <div class="mm-branches">
+          <div class="mm-col mm-col-1">
+            <div class="mm-branch-title" style="color:#059669;">🌲 The Tunnel</div>
+            <div class="mm-node"><strong>Author:</strong> Ruskin Bond (Master of Himalayan tales)</div>
+            <div class="mm-node"><strong>Characters:</strong> Ranji (schoolboy cyclist) &amp; Sunder Singh (tunnel watchman)</div>
+            <div class="mm-node"><strong>Setting:</strong> Deep jungle cutting at Tunnel No. 13</div>
+            <div class="mm-node"><strong>The Climax:</strong> Leopard in the tunnel as evening mail roars past</div>
+            <div class="mm-node"><strong>Ethic:</strong> <em>"The tunnel belongs to the leopard as much as to the train."</em></div>
+          </div>
+          <div class="mm-col mm-col-2">
+            <div class="mm-branch-title" style="color:#0284c7;">🚂 Travel</div>
+            <div class="mm-node"><strong>Poet:</strong> Edna St. Vincent Millay (American lyric poet)</div>
+            <div class="mm-node"><strong>Structure:</strong> 3 quatrains, strict ABAB rhyme scheme</div>
+            <div class="mm-node"><strong>Sensory Contrast:</strong> Day noisy with voices vs Night still for dreams</div>
+            <div class="mm-node"><strong>Train Symbol:</strong> Relentless vehicle of wanderlust &amp; destiny</div>
+            <div class="mm-node"><strong>The Paradox:</strong> Better friends she cannot have, yet she'd board any train!</div>
+          </div>
+          <div class="mm-col mm-col-3">
+            <div class="mm-branch-title" style="color:#d97706;">🏔️ Conquering the Summit</div>
+            <div class="mm-node"><strong>Pioneers:</strong> Bachendri Pal (1st Indian woman atop Everest)</div>
+            <div class="mm-node"><strong>Unstoppable Grit:</strong> Arunima Sinha (train robbery victim, amputee athlete)</div>
+            <div class="mm-node"><strong>Historic Summit:</strong> May 21, 2013 — World's first female amputee on Everest</div>
+            <div class="mm-node"><strong>The Seven Summits:</strong> Conquered highest peaks on all 7 continents!</div>
+            <div class="mm-node"><strong>Core Value:</strong> Disability is a state of mind, not body</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: EXHAUSTIVE TEXT & STANZA NOTES
+         ========================================== -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2</span>
+        <h2>📖 Exhaustive Text-by-Text &amp; Stanza-by-Stanza Notes</h2>
+      </div>
+
+      <!-- Part A: The Tunnel -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>🌲 Chapter 10: The Tunnel (Ruskin Bond)</span>
+        </div>
+
+        <h4>1. Narrative Synopsis &amp; The Jungle Cutting</h4>
+        <p>
+          <strong>Ranji’s Exploration:</strong> Ranji, a young boy on school holidays, cycles along a forest track near the Himalayan foothills. He discovers a dramatic railway cutting where the tracks pierce straight through the heart of a granite hill through <strong>Tunnel No. 13</strong>.
+        </p>
+        <p>
+          <strong>Sunder Singh, the Solitary Guardian:</strong> At the tunnel entrance stands a small stone hut inhabited by Sunder Singh, the railway watchman. Sunder Singh's lonely job is to inspect the tracks, clear fallen boulders, and wave the kerosene signal lamp to guide the trains safely through the pitch-black tunnel.
+        </p>
+        <p>
+          <strong>The Presence of the Beast:</strong> Sunder Singh casually informs Ranji that a wild leopard lives in the dense shisham and sal forest above the cutting. The leopard regularly uses the tunnel as a cool shelter during scorching afternoons and as a convenient shortcut across the hill. When Ranji asks if he feels afraid, Sunder Singh replies serenely: <em>“I am used to him. He does not bother me if I do not bother him. The tunnel belongs to the leopard as much as to the train.”</em>
+        </p>
+        <p>
+          <strong>The Breath-stopping Climax:</strong> As dusk gathers, the distant hoot of the evening mail train vibrates along the rails. Sunder Singh grabs his lit kerosene lamp and enters the cutting. Suddenly, Ranji spots the luminous green eyes and sleek golden silhouette of the leopard inside the tunnel mouth! The train roars closer, its giant front headlight piercing the darkness like a dragon's eye. Sunder Singh stands rock-still, raising his lantern high. At the very last moment, before the rushing engine enters the archway, the leopard leaps effortlessly up the sheer rock cutting and vanishes into the dark forest! The train thunders through without incident, its coaches glowing like a ribbon of fire.
+        </p>
+
+        <div class="diagram-card">
+          <!-- Responsive Inline SVG 1: The Tunnel & The Golden Leopard -->
+          <svg viewBox="0 0 760 270" width="100%" height="270" xmlns="http://www.w3.org/2000/svg">
+            <rect width="760" height="270" rx="14" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+            
+            <!-- Mountain Silhouette -->
+            <polygon points="0,180 180,40 400,120 620,30 760,180 760,270 0,270" fill="#1e293b"/>
+            
+            <!-- Tunnel Stone Arch -->
+            <path d="M 260 270 L 260 140 Q 380 70 500 140 L 500 270 Z" fill="#020617" stroke="#475569" stroke-width="4"/>
+            <text x="380" y="115" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="13" fill="#cbd5e1">TUNNEL NO. 13</text>
+
+            <!-- Railway Tracks -->
+            <line x1="330" y1="270" x2="355" y2="170" stroke="#94a3b8" stroke-width="3"/>
+            <line x1="430" y1="270" x2="405" y2="170" stroke="#94a3b8" stroke-width="3"/>
+            <!-- Sleepers -->
+            <line x1="320" y1="260" x2="440" y2="260" stroke="#64748b" stroke-width="2"/>
+            <line x1="330" y1="240" x2="430" y2="240" stroke="#64748b" stroke-width="2"/>
+            <line x1="340" y1="220" x2="420" y2="220" stroke="#64748b" stroke-width="2"/>
+            <line x1="348" y1="200" x2="412" y2="200" stroke="#64748b" stroke-width="2"/>
+
+            <!-- Train Headlight Beam in Distance -->
+            <polygon points="380,175 180,270 580,270" fill="#fef08a" opacity="0.15"/>
+            <circle cx="380" cy="175" r="10" fill="#facc15" class="svg-anim-glow"/>
+
+            <!-- Sunder Singh with Kerosene Lamp on Left -->
+            <g transform="translate(180, 160)">
+              <!-- Figure -->
+              <circle cx="20" cy="20" r="10" fill="#fed7aa"/>
+              <line x1="20" y1="30" x2="20" y2="65" stroke="#38bdf8" stroke-width="4"/>
+              <line x1="20" y1="65" x2="10" y2="95" stroke="#0284c7" stroke-width="3"/>
+              <line x1="20" y1="65" x2="30" y2="95" stroke="#0284c7" stroke-width="3"/>
+              <!-- Arm holding lamp -->
+              <line x1="20" y1="40" x2="45" y2="30" stroke="#38bdf8" stroke-width="3"/>
+              <!-- Kerosene Lamp -->
+              <rect x="42" y="28" width="12" height="18" rx="2" fill="#d97706" stroke="#f59e0b" stroke-width="1.5"/>
+              <circle cx="48" cy="37" r="4" fill="#fef08a" class="svg-anim-glow"/>
+              <text x="20" y="112" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#93c5fd">Sunder Singh</text>
+            </g>
+
+            <!-- Leopard on Top Right Cutting -->
+            <g transform="translate(520, 120)">
+              <!-- Body -->
+              <ellipse cx="40" cy="25" rx="30" ry="15" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+              <!-- Head -->
+              <circle cx="15" cy="18" r="11" fill="#f59e0b" stroke="#b45309" stroke-width="1.5"/>
+              <!-- Glowing Green Eyes -->
+              <circle cx="12" cy="16" r="2" fill="#22c55e" class="svg-anim-glow"/>
+              <circle cx="17" cy="16" r="2" fill="#22c55e" class="svg-anim-glow"/>
+              <!-- Spots -->
+              <circle cx="32" cy="22" r="2" fill="#78350f"/>
+              <circle cx="45" cy="20" r="2.5" fill="#78350f"/>
+              <circle cx="55" cy="25" r="2" fill="#78350f"/>
+              <!-- Tail -->
+              <path d="M 70 25 Q 90 20 85 40" fill="none" stroke="#f59e0b" stroke-width="3"/>
+              <text x="40" y="55" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#fde68a">Wild Leopard</text>
+            </g>
+          </svg>
+          <div class="diagram-caption">Figure 4.1: Ruskin Bond's "The Tunnel" — Coexistence of Wildlife, Human Vigilance, and Railway Tech</div>
+        </div>
+      </div>
+
+      <!-- Part B: Travel -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>🚂 Chapter 11: Travel (Poem by Edna St. Vincent Millay)</span>
+        </div>
+
+        <h4>1. Complete Poem Text</h4>
+        <div class="quote-box">
+          <p>
+            The railroad track is miles away,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;And the day is loud with voices speaking,<br>
+            Yet there isn’t a train goes by all day<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;But I hear its whistle shrieking.<br><br>
+            All night there isn’t a train goes by,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Though the night is still for sleep and dreaming,<br>
+            But I see its cinders red on the sky,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;And hear its engine steaming.<br><br>
+            My heart is warm with the friends I make,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;And better friends I’ll not be knowing;<br>
+            Yet there isn’t a train I wouldn’t take,<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;No matter where it’s going.<br>
+            <span style="font-size:0.85rem; font-weight:700; color:var(--primary-dark); display:block; margin-top:8px;">— Edna St. Vincent Millay</span>
+          </p>
+        </div>
+
+        <h4>2. Stanza-by-Stanza Master Explanation</h4>
+        <ul>
+          <li>
+            <strong>Stanza 1 (The Day &amp; The Audible Call):</strong> Although the railroad track is located many miles away across the countryside, and the daytime is packed with human conversations and chores, the speaker's mind remains transfixed by the distant railway. Every single train that passes makes its whistle echo in her heart as if it were <em>shrieking</em> directly to her.
+          </li>
+          <li>
+            <strong>Stanza 2 (The Night &amp; The Visual Call):</strong> When stillness falls over the countryside and ordinary people sleep and dream, the speaker stays awake watching the horizon. In her imagination and memory, she sees the train's glowing red coal cinders spewing into the dark starry sky and hears the heavy chug and hiss of the steam engine.
+          </li>
+          <li>
+            <strong>Stanza 3 (The Paradox of Wanderlust):</strong> In the final poignant quatrain, the poet clarifies that she is not running away from unhappiness. She cherishes her warm, wonderful companions and knows she could never find better friends. Yet, the irresistible urge to travel, explore the unknown world, and seek adventure is so overwhelming that she would board <em>any train</em>, without even asking its final destination!
+          </li>
+        </ul>
+
+        <div class="callout callout-hack">
+          <div class="callout-title">💡 Poetic Devices Decoded</div>
+          <p>
+            • <strong>Rhyme Scheme:</strong> Strict <code>ABAB</code> (<em>away/day</em>, <em>speaking/shrieking</em>; <em>by/sky</em>, <em>dreaming/steaming</em>; <em>make/take</em>, <em>knowing/going</em>).
+            <br>• <strong>Personification:</strong> <em>"whistle shrieking"</em> (attributing a sharp human cry of longing to a mechanical train whistle).
+            <br>• <strong>Sensory Imagery:</strong> Visual (<em>cinders red on the sky</em>), Auditory (<em>voices speaking, whistle shrieking, engine steaming</em>), Tactile/Emotional (<em>heart is warm</em>).
+            <br>• <strong>Paradox:</strong> Deep love for home friends combined with an unstoppable desire to leave on any train.
+          </p>
+        </div>
+      </div>
+
+      <!-- Part C: Conquering the Summit -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>🏔️ Chapter 12: Conquering the Summit (Bachendri Pal &amp; Arunima Sinha)</span>
+        </div>
+
+        <h4>1. Two Himalayan Legends &amp; Their Historic Ascents</h4>
+        <p>
+          <strong>Bachendri Pal (The Trailblazer):</strong> Born in a simple village in Uttarakhand, Bachendri Pal defied societal discouragement to pursue mountaineering. On <strong>May 23, 1984</strong>, braving sub-zero blizzards, vertical ice-walls, and life-threatening avalanches, she reached the 8,848-metre summit of Mount Everest, etching her name as the first Indian woman to conquer the world’s roof.
+        </p>
+        <p>
+          <strong>Arunima Sinha (Triumph Over Tragedy):</strong> A talented national volleyball champion from Uttar Pradesh, Arunima's life was shattered in April 2011 when armed robbers threw her out of a moving train for resisting a robbery. A passing train on the opposite track crushed her left leg. Surgeons had to amputate her leg below the knee to save her life.
+        </p>
+        <p>
+          <strong>The Decision to Climb:</strong> Lying in her hospital bed at AIIMS, surrounded by pity, Arunima refused to be treated as a victim. She made a vow: <em>"People are pitying me. I will not live on pity. I will climb the highest mountain in the world!"</em>
+        </p>
+        <p>
+          <strong>The Mentorship of Bachendri Pal:</strong> When Arunima met Bachendri Pal at the Tata Steel Adventure Foundation, Pal looked at her with tears of admiration and said: <em>“My child, you have already conquered your inner Everest the day you made this decision with a prosthetic limb! Now you only need to show the world the date!”</em>
+        </p>
+        <p>
+          <strong>The Summit Triumph (May 21, 2013):</strong> Fitted with a carbon-fibre prosthetic limb, Arunima trained through agony. When blood oozed from her amputated stump, she refused to stop. On <strong>May 21, 2013</strong>, at 10:55 AM, Arunima Sinha stood on the summit of Mount Everest—the first female amputee in human history to do so! She subsequently went on to scale the <strong>Seven Summits</strong> (the highest peak of every continent: Kilimanjaro, Elbrus, Kosciuszko, Aconcagua, Denali, and Mount Vinson in Antarctica).
+        </p>
+
+        <div class="diagram-card">
+          <!-- Responsive Inline SVG 2: Seven Summits & Everest Ascent -->
+          <svg viewBox="0 0 760 260" width="100%" height="260" xmlns="http://www.w3.org/2000/svg">
+            <rect width="760" height="260" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+            
+            <!-- Mountain Peak Base -->
+            <polygon points="100,240 380,40 660,240" fill="#e2e8f0" stroke="#0284c7" stroke-width="2"/>
+            <polygon points="300,95 380,40 460,95" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+            
+            <!-- Indian Tricolour at Summit -->
+            <line x1="380" y1="40" x2="380" y2="15" stroke="#0f172a" stroke-width="2"/>
+            <rect x="380" y="15" width="28" height="6" fill="#f97316"/>
+            <rect x="380" y="21" width="28" height="6" fill="#ffffff"/>
+            <rect x="380" y="27" width="28" height="6" fill="#16a34a"/>
+            <circle cx="394" cy="24" r="2.5" fill="#1e3a8a"/>
+
+            <!-- Altitude Markings -->
+            <line x1="300" y1="95" x2="220" y2="95" stroke="#94a3b8" stroke-dasharray="3,3"/>
+            <text x="210" y="99" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="10" fill="#0369a1">8,848 m (Summit)</text>
+
+            <line x1="260" y1="140" x2="180" y2="140" stroke="#94a3b8" stroke-dasharray="3,3"/>
+            <text x="170" y="144" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="10" fill="#047857">South Col (Camp 4)</text>
+
+            <line x1="210" y1="190" x2="140" y2="190" stroke="#94a3b8" stroke-dasharray="3,3"/>
+            <text x="130" y="194" text-anchor="end" font-family="'JetBrains Mono', monospace" font-size="10" fill="#d97706">Khumbu Icefall</text>
+
+            <!-- Seven Summits Showcase Badges on Right -->
+            <rect x="520" y="45" width="210" height="185" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+            <text x="625" y="68" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#047857">ARUNIMA'S 7 SUMMITS</text>
+            <text x="535" y="90" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#334155">• Asia: Everest (8,848 m)</text>
+            <text x="535" y="110" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#334155">• Africa: Kilimanjaro (5,895 m)</text>
+            <text x="535" y="130" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#334155">• Europe: Elbrus (5,642 m)</text>
+            <text x="535" y="150" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#334155">• Australia: Kosciuszko (2,228 m)</text>
+            <text x="535" y="170" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#334155">• S. America: Aconcagua (6,961 m)</text>
+            <text x="535" y="190" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#334155">• N. America: Denali (6,190 m)</text>
+            <text x="535" y="210" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#334155">• Antarctica: Vinson (4,892 m)</text>
+          </svg>
+          <div class="diagram-caption">Figure 4.2: The Ascent of Mount Everest &amp; Arunima Sinha's Historic Seven Summits Odyssey</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: MASTER VOCABULARY & GRAMMAR
+         ========================================== -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3</span>
+        <h2>📚 Master Vocabulary, Etymology &amp; Grammar Rules Bank</h2>
+      </div>
+
+      <h4>1. High-Frequency Vocabulary Bank</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Word</th>
+              <th>Part of Speech</th>
+              <th>Simple Meaning</th>
+              <th>Synonyms</th>
+              <th>Antonyms</th>
+              <th>Exemplar Sentence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Adversity</strong></td>
+              <td>Noun</td>
+              <td>A difficult, unfortunate, or painful situation</td>
+              <td>Hardship, misfortune, trial</td>
+              <td>Prosperity, blessing, ease</td>
+              <td>Arunima displayed heroic grit in the face of physical adversity.</td>
+            </tr>
+            <tr>
+              <td><strong>Instilled</strong></td>
+              <td>Verb (past)</td>
+              <td>Gradually but firmly established an idea or feeling in someone's mind</td>
+              <td>Inculcated, infused, inspired</td>
+              <td>Uprooted, removed</td>
+              <td>Bachendri Pal instilled immense self-belief in young Arunima.</td>
+            </tr>
+            <tr>
+              <td><strong>Crampons</strong></td>
+              <td>Noun (plural)</td>
+              <td>Spiked metal plates clamped to mountaineering boots for walking on ice</td>
+              <td>Ice spikes, cleats</td>
+              <td>—</td>
+              <td>Mountaineers rely on sharp crampons to prevent slipping down ice crevasses.</td>
+            </tr>
+            <tr>
+              <td><strong>Instinctively</strong></td>
+              <td>Adverb</td>
+              <td>Done automatically by natural instinct without conscious thought</td>
+              <td>Spontaneously, naturally</td>
+              <td>Deliberately, consciously</td>
+              <td>The leopard turned instinctively as the train headlight lit the tunnel.</td>
+            </tr>
+            <tr>
+              <td><strong>Cinders</strong></td>
+              <td>Noun (plural)</td>
+              <td>Partly burned pieces of coal or wood that glow red</td>
+              <td>Embers, ashes, sparks</td>
+              <td>—</td>
+              <td>The poet saw glowing train cinders scattered across the night sky.</td>
+            </tr>
+            <tr>
+              <td><strong>Wanderlust</strong></td>
+              <td>Noun</td>
+              <td>A strong, irresistible desire to travel and explore the world</td>
+              <td>Travel itch, adventure spirit</td>
+              <td>Homesickness</td>
+              <td>Edna Millay's poem is an iconic celebration of youthful wanderlust.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>2. Grammar Topic A: Punctuation Masterclass (Colons, Semicolons &amp; Dashes)</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Punctuation Mark</th>
+              <th>Primary Grammatical Function</th>
+              <th>Rule &amp; Textbook Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Colon ( : )</strong></td>
+              <td>Introduces a list, an explanation, or a quotation that elaborates on the first clause.</td>
+              <td><em>The mountaineer packed three vital tools: crampons, an ice axe, and oxygen cylinders.</em></td>
+            </tr>
+            <tr>
+              <td><strong>Semicolon ( ; )</strong></td>
+              <td>Connects two independent clauses that are closely related in thought without a conjunction.</td>
+              <td><em>The day was loud with speaking voices; the night was quiet for sleep and dreaming.</em></td>
+            </tr>
+            <tr>
+              <td><strong>Em Dash ( — )</strong></td>
+              <td>Creates an emphatic pause or adds a sudden parenthetical thought.</td>
+              <td><em>The wild beast—a sleek golden leopard—leaped up the rocky wall.</em></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>3. Grammar Topic B: Expressing Past Habits (<em>Used to</em> vs <em>Would</em> vs <em>Simple Past</em>)</h4>
+      <div class="callout callout-hack">
+        <div class="callout-title">💡 Past Habit Rules Decoded</div>
+        <ul>
+          <li><strong>Used to:</strong> Expresses past habits OR past states that are no longer true (<em>We <strong>used to live</strong> in a mountain village</em> [State]; <em>He <strong>used to cycle</strong> every morning</em> [Action]).</li>
+          <li><strong>Would:</strong> Expresses repeated past <em>actions</em> only, NEVER past states (<em>Every evening, the watchman <strong>would light</strong> his lantern</em> [Correct]; <em>He would live near the forest</em> [Incorrect!]).</li>
+          <li><strong>Simple Past:</strong> Used for specific single completed events in past time (<em>Yesterday, Ranji <strong>visited</strong> Tunnel 13</em>).</li>
+        </ul>
+      </div>
+
+      <h4>4. Poetic Form: The Diamante Poem</h4>
+      <p>
+        A <strong>Diamante poem</strong> is a seven-line diamond-shaped poem that contrasts or compares two opposing concepts using specific parts of speech:
+      </p>
+      <div class="quote-box" style="text-align:center;">
+        Line 1: Beginning Topic (Noun)<br>
+        Line 2: Two Adjectives describing Topic 1<br>
+        Line 3: Three -ing Participles describing Topic 1<br>
+        Line 4: Four Nouns (Two for Topic 1, Two for Topic 2)<br>
+        Line 5: Three -ing Participles describing Topic 2<br>
+        Line 6: Two Adjectives describing Topic 2<br>
+        Line 7: Ending Opposite Topic (Noun)
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: COMPLETE NCERT SOLUTIONS
+         ========================================== -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4</span>
+        <h2>✍️ Complete NCERT Solutions (Zero-Omission)</h2>
+      </div>
+
+      <!-- Chapter 10 Solutions -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>🌲 NCERT Solutions: The Tunnel (Ruskin Bond)</span>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Pre-Reading I &amp; II (Pages 139-140)</span> Adventure Personality Choices</div>
+          <p><strong>Prompt:</strong> (1) How would you spend weekends? (2) Which place would you prefer to explore? Classify yourself.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>(1) Weekend Choice:</strong> (iv) Learning something new and exploring nature trails.</p>
+              <p><strong>(2) Place to Explore:</strong> (i) Dense forests and clear streams, observing wild flora and fauna.</p>
+              <p><strong>Classification:</strong> <strong>Bold Explorer &amp; Thoughtful Creator</strong>—someone who seeks adventure while closely observing ecological harmony and respecting natural habitats.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Discuss (Page 149)</span> Sunder Singh's Knowledge of the Leopard</div>
+          <p><strong>Question:</strong> Complete: Sunder Singh knew that the leopard was in the tunnel because ___________________.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>Answer:</strong> Sunder Singh knew that the leopard was in the tunnel because <strong>he had spotted fresh pugmarks on the ballast and knew the animal regularly used the dark cutting as a sheltered path to cross the hill before nightfall</strong>.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Think and Reflect (Page 150)</span> The Ethics of Coexistence</div>
+          <p><strong>Question:</strong> What does Sunder Singh mean when he says, "The tunnel belongs to the leopard as much as to the train"?</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>Sunder Singh recognizes that wild animals lived in the forest long before humans blasted railway tunnels through their hills. He believes that modern human technology must respect wildlife. Instead of hunting or harassing the leopard, humans must practice peaceful coexistence and allow wild creatures to share their natural ancestral territory.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Learn: Past Habits (Page 153)</span> Used to / Would Fill-ins</div>
+          <p><strong>Prompt:</strong> Fill in blanks with <em>used to</em> or <em>would</em>.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>When I was a child we <strong>used to</strong> (grow/live) near a forest. Back then, we <strong>used to grow</strong> (grow) vegetables in our back garden. Every day after school, my brother and I <strong>would explore</strong> (explore) the railway cutting. Sunder Singh <strong>would wave</strong> (wave) his red and green flags to signal passing goods trains. We <strong>used to have</strong> (have) immense respect for the quiet courage of the forest dwellers.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Explore (Page 156)</span> Atal Tunnel Facts</div>
+          <p><strong>Question:</strong> State key facts about the Atal Tunnel.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>&bull; <strong>Length:</strong> 9.02 kilometres long.</p>
+              <p>&bull; <strong>Location:</strong> Built under the Rohtang Pass in the Pir Panjal range of the Himalayas (Himachal Pradesh).</p>
+              <p>&bull; <strong>World Record:</strong> Officially certified as the <em>World's Longest Highway Tunnel above 10,000 Feet (3,048 m)</em>.</p>
+              <p>&bull; <strong>Strategic Value:</strong> Provides all-weather road connectivity between Manali and Lahaul-Spiti valley, cutting travel time significantly and ensuring round-the-year military supply lines.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Chapter 11 Solutions -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>🚂 NCERT Solutions: Travel (Edna St. Vincent Millay)</span>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Discuss I–IV (Page 161)</span> Stanza Matching, Rhyme Scheme &amp; Personification</div>
+          <p><strong>Questions:</strong> Match stanzas to main ideas. Identify rhyming words, rhyme scheme, and personification.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>I. Stanza Matching:</strong>
+                <br>&bull; 1. At night, the speaker imagines the train and hears its engine in the quiet &rarr; <strong>Stanza 2</strong>
+                <br>&bull; 2. The speaker feels a strong desire to take any train, no matter where it goes &rarr; <strong>Stanza 3</strong>
+                <br>&bull; 3. The speaker hears the train whistle during the day, even though it is far away &rarr; <strong>Stanza 1</strong>
+              </p>
+              <p><strong>II. Rhyming Pairs:</strong>
+                <br>&bull; Stanza 1: <em>away-day</em>; <em>speaking-shrieking</em>
+                <br>&bull; Stanza 2: <em>by-sky</em>; <em>dreaming-steaming</em>
+                <br>&bull; Stanza 3: <em>make-take</em>; <em>knowing-going</em>
+              </p>
+              <p><strong>III. Rhyme Scheme:</strong> <strong>(3) ABAB</strong>.</p>
+              <p><strong>IV. Personification:</strong> The word <strong>shrieking</strong> personifies the train whistle with a shrill human cry of urgent longing.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Discuss V–VII (Pages 161-162)</span> Tone, Symbolism &amp; Repetition</div>
+          <p><strong>Questions:</strong> Tone of poet? What does train symbolise? Why is 'there isn't a train goes by' repeated?</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>V. Tone:</strong> <strong>Thoughtful, excited, and enthusiastic</strong>.</p>
+              <p><strong>VI. Train Symbolism:</strong> <strong>(2) Adventure</strong> and <strong>(4) Opportunities</strong>.</p>
+              <p><strong>VII. Repetition:</strong> The poet repeats the line to <strong>highlight the speaker’s irresistible fascination with trains</strong>, showing that her wandering thoughts never cease day or night.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Write (Page 165)</span> Diamante Poem: Reading vs Adventure</div>
+          <p><strong>Prompt:</strong> Compose a 7-line diamante poem connecting 'Reading' and 'Adventure'.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <div style="background:#ecfdf5; border-left:4px solid #059669; padding:16px; border-radius:8px; text-align:center; font-style:italic;">
+                Reading<br>
+                Quiet, Thoughtful<br>
+                Imagining, Learning, Dreaming<br>
+                Pages, Words, Trails, Summits<br>
+                Climbing, Exploring, Daring<br>
+                Wild, Thrilling<br>
+                Adventure
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Chapter 12 Solutions -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>🏔️ NCERT Solutions: Conquering the Summit</span>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Think and Reflect (Page 172)</span> Bachendri Pal's Words to Arunima</div>
+          <p><strong>Extract:</strong> <em>Bachendri Pal instilled confidence in Arunima and said, “My child, you have already conquered your inner Everest the day you decided to climb with a prosthetic limb!”</em></p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>(i) What is the "inner Everest"?</strong> The inner Everest refers to overcoming fear, despair, social pity, self-doubt, and physical trauma after a catastrophic accident.</p>
+              <p><strong>(ii) Why did Bachendri Pal say she had already conquered it?</strong> Because the greatest battle is fought in the human mind. Most people would have surrendered to despair after losing a leg, but Arunima resolved to climb the world's most perilous mountain. Having conquered her mind, the physical mountain was merely a matter of time and discipline.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Learn (Page 173)</span> Prepositional Phrases Matching</div>
+          <p><strong>Prompt:</strong> Match underlined phrases with appropriate meanings.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>1. <strong>In the face of adversity:</strong> Despite enduring severe hardships or difficulties.</p>
+              <p>2. <strong>Instilled with confidence:</strong> Filled gradually with unwavering self-belief.</p>
+              <p>3. <strong>Set out on:</strong> Began an expedition or journey.</p>
+              <p>4. <strong>Pushed her limits:</strong> Strove beyond her perceived physical or mental boundaries.</p>
+              <p>5. <strong>Stood out from:</strong> Was visibly superior or distinct from ordinary expectations.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Listening Transcripts (Pages 175-178)</span> Opinions on Adventure Sports</div>
+          <p><strong>Prompt:</strong> Match the 5 speakers with their viewpoints on adventure sports.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>&bull; <strong>Speaker (i) (Parent):</strong> Worried about severe safety risks before letting children participate.</p>
+              <p>&bull; <strong>Speaker (ii) (Youth Adventurer):</strong> Believes adventure sports are thrilling and worth trying with a trained coach to push personal limits.</p>
+              <p>&bull; <strong>Speaker (iii) (Camp Organiser):</strong> Prioritises safety checks, certified gear, and thorough supervision to minimise risk while ensuring fun.</p>
+              <p>&bull; <strong>Speaker (iv) (School Head):</strong> Promotes safe, manageable school adventure activities like trekking and zip-lining with strict precautions.</p>
+              <p>&bull; <strong>Speaker (v) (Traditional Athlete):</strong> Prefers traditional sports like track and swimming for fitness without risking life for fleeting thrills.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: COMPETENCY QUESTION BANK
+         ========================================== -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5</span>
+        <h2>🏆 CBSE &amp; State Board Competency Question Bank</h2>
+      </div>
+
+      <!-- Quiz Engine Score Banner -->
+      <div class="score-banner">
+        <div>
+          <div class="score-title">Interactive Competency MCQ Evaluation</div>
+          <div id="quiz-status-msg" style="font-size:0.85rem; color:#064e3b;">Select an option to evaluate your understanding. Immediate feedback will appear!</div>
+        </div>
+        <div class="score-badge">Score: <span id="quiz-score">0</span> / <span id="quiz-total">6</span></div>
+      </div>
+
+      <h4>Part A: Competency Multiple Choice Questions (Interactive)</h4>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 1</span> Thematic Wisdom in 'The Tunnel'</div>
+        <p>What core environmental ethic does watchman Sunder Singh demonstrate toward the leopard?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) Wild animals should be captured and kept in zoological parks.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) Humans and wildlife can coexist in mutual peace if boundaries and nature are respected.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Railway tracks should never be laid through forests.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) Leopards must be hunted because they pose a hazard to passing locomotives.</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> Sunder Singh recognizes that nature belongs to wild beasts as much as modern developments belong to humans, showing quiet, non-violent coexistence.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 2</span> Poetic Meaning in 'Travel'</div>
+        <p>In Edna St. Vincent Millay's poem, why does the speaker hear the train whistle even though the tracks are miles away?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) She possesses superhuman acoustic hearing.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) The train engine's whistle is unusually deafening.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Her intense mental longing and wanderlust make her perpetually conscious of passing trains.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) The town has no other sounds during the daytime.</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> The sound represents her internal psychological longing; wanderlust keeps her constantly attuned to the call of the railroad.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 3</span> Inspirational Achievement</div>
+        <p>What historic milestone did Arunima Sinha achieve on May 21, 2013?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) She became the first Indian woman to reach Mount Everest.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) She became the world's first female amputee to climb Mount Everest.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) She broke the world speed record for climbing the Seven Summits.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) She won a gold medal in Paralympic volleyball.</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> Arunima Sinha became the world’s first female amputee to conquer Everest, proving that human will transcends physical limitation.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 4</span> Grammar: Past Habits</div>
+        <p>Which sentence uses the past modal <em>would</em> incorrectly?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) Every morning, the watchman would inspect the railway cutting.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) During summer holidays, Ranji would cycle through the pine forest.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Sunder Singh would be a tall man with a thick grey moustache.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) The leopard would often cross the hill through the tunnel.</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> <em>Would</em> cannot describe past states of being (like height or appearance); <em>used to be</em> must be used for states.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 5</span> Punctuation Application</div>
+        <p>Identify the sentence with correct punctuation:</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) The tunnel watchman had one main task, to protect the line.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) Sunder Singh carried three items: a kerosene lamp, a brass whistle, and a signal flag.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Sunder Singh carried three items; a kerosene lamp, a brass whistle, and a signal flag.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) Sunder Singh carried three items—a kerosene lamp; a brass whistle; and a signal flag.</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> A colon ( : ) correctly introduces a series or list of items following an independent clause.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 6</span> Poetic Form</div>
+        <p>In a standard Diamante poem, which line contains four nouns?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) Line 1</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) Line 3</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Line 4 (the transitional middle line)</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) Line 7</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> Line 4 is the transition point of a diamante poem, containing two nouns associated with the first topic and two with the opposite second topic.
+          </div>
+        </details>
+      </div>
+
+      <h4>Part B: Short Answer Questions (2 &amp; 3 Marks)</h4>
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">2-Mark SAQ</span> How did Sunder Singh ensure the safety of the night mail train?</div>
+        <details class="ans-box" open>
+          <summary>View Model Answer</summary>
+          <div class="ans-content">
+            Before the train was due, Sunder Singh walked through the cutting and tunnel inspecting the rails for fallen boulders or debris. When the train approached, he stood by the entrance holding his lit kerosene lantern high, signaling all clear to the engine driver.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">3-Mark SAQ</span> Why is the ending of Edna Millay's 'Travel' considered a paradox?</div>
+        <details class="ans-box" open>
+          <summary>View Model Answer</summary>
+          <p>A paradox is a seemingly self-contradictory statement that reveals a deeper truth:</p>
+          <ul>
+            <li>The speaker sincerely treasures the warm, loving friendships she has at home, admitting she could never know better friends.</li>
+            <li>Yet, in the very next breath, she confesses she would board <em>any passing train</em> regardless of its destination.</li>
+            <li>This reveals that wanderlust is not driven by unhappiness with one's companions, but by an innate human thirst to explore the vast unknown.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Part C: Long Answer / Competency Value-Based Questions (5 Marks)</h4>
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">5-Mark Value Question</span> "True disability exists only in a defeated mind." Elaborate with reference to Arunima Sinha's journey in 'Conquering the Summit'.</div>
+        <details class="ans-box" open>
+          <summary>View CBSE Topper Answer</summary>
+          <div class="ans-content">
+            <p><strong>Introduction:</strong> Arunima Sinha’s journey from a hospital bed to the pinnacle of Mount Everest is one of the most heroic chapters in modern human history.</p>
+            <p><strong>Overcoming Unimaginable Adversity:</strong></p>
+            <ul>
+              <li><strong>Refusing Victimhood:</strong> After being thrown from a train by robbers and losing her leg, society looked upon Arunima with pity. Instead of accepting a life of dependence, she transformed her tragedy into an audacious challenge.</li>
+              <li><strong>Mental Resolve Preceding Physical Victory:</strong> As mentor Bachendri Pal remarked, Arunima conquered her "inner Everest" the moment she made the decision to climb with a prosthetic limb. True courage is won in the mind before it is manifested in action.</li>
+              <li><strong>Physical Endurance:</strong> During the grueling ascent through the Khumbu Icefall and the Death Zone, her artificial leg slipped repeatedly, causing agonizing friction and bleeding on her stump. Yet, fueled by national pride and sheer willpower, she pressed forward.</li>
+            </ul>
+            <p><strong>Conclusion:</strong> Arunima proved to the world that physical limitations cannot shackle the human spirit. She went on to scale the Seven Summits of all seven continents, reminding millions of students that faith and perseverance can conquer any summit.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: EXAM HALL MISTAKES & REVISION
+         ========================================== -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6</span>
+        <h2>⚡ "Exam Hall Mistakes" &amp; 5-Minute Rapid Revision Cheat Sheet</h2>
+      </div>
+
+      <h4>⚠️ Common Student Mistakes in Exams &amp; How to Avoid Them</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Common Student Error</th>
+              <th>Why It Loses Marks</th>
+              <th>CBSE Correct Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Using <em>would</em> to describe past physical states (e.g., <em>He would be an amputee</em>).</td>
+              <td>'Would' expresses repeated past actions, never past states or conditions.</td>
+              <td>Use <em>used to be</em> or <em>was</em> for states of being.</td>
+            </tr>
+            <tr>
+              <td>Claiming Arunima Sinha was the first Indian woman on Everest.</td>
+              <td>Bachendri Pal was the first Indian woman (1984); Arunima was the world's first <strong>female amputee</strong> (2013).</td>
+              <td>Distinguish clearly between Bachendri Pal (1984) and Arunima Sinha (2013).</td>
+            </tr>
+            <tr>
+              <td>Using a semicolon before introducing a list of items.</td>
+              <td>Semicolons connect independent clauses; colons introduce lists.</td>
+              <td>Use a colon ( : ) to introduce lists after a complete thought.</td>
+            </tr>
+            <tr>
+              <td>Assuming the leopard in Ruskin Bond's story was shot or captured.</td>
+              <td>The story is a celebration of non-violent wildlife coexistence.</td>
+              <td>Describe how the leopard bounded safely up the cutting into the forest.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>🚀 5-Minute Rapid Revision Flash Table</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th>Key Fact / Rule to Memorize</th>
+              <th>Instant Memory Hack</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>The Tunnel Setting</strong></td>
+              <td>Tunnel No. 13 guarded by watchman Sunder Singh.</td>
+              <td>Lucky 13: Where train meets leopard!</td>
+            </tr>
+            <tr>
+              <td><strong>Millay's Travel Poem</strong></td>
+              <td>3 stanzas, ABAB rhyme scheme, whistle shrieking, red cinders.</td>
+              <td><strong>A</strong>ll day whistle &rarr; <strong>A</strong>ll night cinders!</td>
+            </tr>
+            <tr>
+              <td><strong>Atal Tunnel Length</strong></td>
+              <td>9.02 km, Rohtang Pass, longest highway tunnel above 10,000 ft.</td>
+              <td><strong>9.02 km</strong> above the clouds!</td>
+            </tr>
+            <tr>
+              <td><strong>Seven Summits Record</strong></td>
+              <td>Arunima Sinha climbed highest peak on all 7 continents.</td>
+              <td>From train tracks to seven continental crowns!</td>
+            </tr>
+            <tr>
+              <td><strong>Diamante Structure</strong></td>
+              <td>1-2-3-4-3-2-1 words forming a diamond shape.</td>
+              <td>Starts with 1 noun, pivots at 4 nouns, ends with 1 opposite noun!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // Audio Reader
+    function speakSummary() {
+      if (!('speechSynthesis' in window)) {
+        alert("Sorry, your browser does not support text-to-speech!");
+        return;
+      }
+      window.speechSynthesis.cancel();
+      var summaryText = document.getElementById('hero-summary').innerText;
+      var utterance = new SpeechSynthesisUtterance(summaryText);
+      utterance.rate = 0.95;
+      utterance.pitch = 1.0;
+      utterance.lang = 'en-US';
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Interactive Quiz Engine
+    function initInteractiveQuizEngine() {
+      var quizCards = document.querySelectorAll('[data-quiz-item="true"]');
+      var scoreEl = document.getElementById('quiz-score');
+      var totalEl = document.getElementById('quiz-total');
+      var statusEl = document.getElementById('quiz-status-msg');
+      if (!quizCards.length || !scoreEl) return;
+
+      var currentScore = 0;
+      var totalQuestions = quizCards.length;
+      totalEl.textContent = totalQuestions;
+      var answeredQuestions = {};
+
+      quizCards.forEach(function(card, qIdx) {
+        var details = card.querySelector('details.ans-box');
+        var ansContent = details ? details.querySelector('.ans-content') : null;
+        var ansText = ansContent ? ansContent.innerText.toLowerCase() : '';
+        var btns = card.querySelectorAll('.quiz-opt-btn');
+
+        btns.forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            if (answeredQuestions[qIdx]) return;
+
+            var btnText = btn.innerText.toLowerCase();
+            var letterMatch = btnText.match(/^\s*\(?([a-d])\)?/);
+            var selectedLetter = letterMatch ? letterMatch[1] : '';
+
+            var isCorrect = false;
+            if (selectedLetter && (
+              ansText.indexOf('answer: (' + selectedLetter + ')') !== -1 ||
+              ansText.indexOf('answer: ' + selectedLetter) !== -1 ||
+              ansText.indexOf('(' + selectedLetter + ')') !== -1
+            )) {
+              isCorrect = true;
+            }
+
+            btns.forEach(function(b) {
+              b.classList.add('evaluated');
+            });
+
+            if (isCorrect) {
+              btn.classList.add('correct-opt');
+              var ind = btn.querySelector('.quiz-opt-indicator');
+              if (ind) ind.textContent = ' ✓';
+              currentScore++;
+              answeredQuestions[qIdx] = true;
+            } else {
+              btn.classList.add('wrong-opt');
+              var ind = btn.querySelector('.quiz-opt-indicator');
+              if (ind) ind.textContent = ' ✗';
+              answeredQuestions[qIdx] = false;
+
+              btns.forEach(function(b) {
+                var bMatch = b.innerText.toLowerCase().match(/^\s*\(?([a-d])\)?/);
+                if (bMatch && (
+                  ansText.indexOf('answer: (' + bMatch[1] + ')') !== -1 ||
+                  ansText.indexOf('answer: ' + bMatch[1]) !== -1
+                )) {
+                  b.classList.add('correct-opt');
+                  var bInd = b.querySelector('.quiz-opt-indicator');
+                  if (bInd) bInd.textContent = ' ✓';
+                }
+              });
+            }
+
+            scoreEl.textContent = currentScore;
+            if (details) details.open = true;
+
+            if (currentScore === totalQuestions) {
+              statusEl.textContent = "🌟 Perfect 100%! You have mastered Unit 4 Travel and Adventure!";
+            } else if (currentScore >= Math.floor(totalQuestions * 0.7)) {
+              statusEl.textContent = "👏 Great effort! Keep practicing to achieve top CBSE marks!";
+            } else {
+              statusEl.textContent = "👍 Good effort! Review the teacher explanations to reinforce concepts!";
+            }
+          });
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      initInteractiveQuizEngine();
+    });
+  </script>
+</body>
+</html>
