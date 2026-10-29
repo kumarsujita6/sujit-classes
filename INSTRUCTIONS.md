@@ -71,3 +71,9 @@ Every generated chapter HTML note must incorporate:
    - Add a "🔊 Listen to Summary" button utilizing `window.speechSynthesis` so young students can listen to pronunciation and explanations.
 4. **Interactive SVG Micro-Animations:**
    - Include gentle CSS hover effects, glowing lines, or rotating indicator needles inside diagrams.
+
+## 8. Odia Medium Translation Standards (BSE Odisha NEP Edition)
+- **Direct Curricular Mirror:** Because BSE Odisha follows the NEP NCERT curriculum translated into Odia, the chapter outline, activities, and questions mirror the English edition.
+- **Natural Odia Diction:** Write in fluent, standard textbook Odia (ଓଡ଼ିଆ ଭାଷା) understandable by 11-to-12-year-old middle school students. Avoid literal machine-translation phrasing.
+- **Bilingual Scientific / Math Keywords:** Provide technical terms in Odia followed by English in parentheses where helpful (e.g., ମୌଳିକ ସଂଖ୍ୟା (Prime Numbers), ବ୍ୟାସାର୍ଦ୍ଧ (Radius), ଅକ୍ଷାଂଶ (Latitude), ଦ୍ରାଘିମା (Longitude), ପ୍ରତିବିମ୍ବ (Image)).
+- **Preserve Interactive Architecture:** Keep the 6-section structure, responsive inline SVGs, and collapsible <details class="ans-box"> answer tags intact.
