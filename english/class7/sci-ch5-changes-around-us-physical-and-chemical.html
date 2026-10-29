@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 5 - Changes Around Us: Physical and Chemical (Class 7 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981, #0284c7, #f59e0b);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 45%, #0284c7 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #065f46;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Section Card */
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    /* Sub-section Headings */
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    /* Callout Boxes */
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease;
+    }
+
+    .callout-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-box .callout-text {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .callout-def {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .callout-def i { color: #059669; }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-color: #a855f7;
+      color: #581c87;
+    }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+    .callout-warn i { color: #dc2626; }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+    .data-table tr:hover { background: #f1f5f9; }
+
+    /* Collapsible Details Answers */
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+
+    /* Diagrams Container */
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    /* General Cards */
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Quiz Engine */
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #065f46 0%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    /* Floating Back to Top Button */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      background: #0369a1;
+      transform: translateY(-3px) scale(1.08);
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Sticky Top Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Master Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Competency Bank</a>
+      <a href="#sec6" class="nav-link">6. Exam Traps</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-recycle"></i> Class 7 Science &bull; Chapter 5 (Curiosity NEP)
+    </div>
+    <h1 class="hero-title">Changes Around Us: Physical and Chemical</h1>
+    <p class="hero-sub">
+      A Complete Master Study Note on Physical vs Chemical Transformations, Reversible vs Irreversible Changes, the Chemistry of Combustion &amp; Rusting, The Fire Triangle, Geological Weathering, and Biological Adaptations!
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT Curiosity Grade 7</span>
+      <span><i class="fa-solid fa-clock"></i> 50 Mins Full Mastery</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Complete &amp; Unabridged</span>
+      <span><i class="fa-solid fa-brain"></i> Interactive Quiz &amp; Audio</span>
+    </div>
+    <button id="teacherAudioBtn" class="audio-btn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+
+    <!-- ==========================================
+         SECTION 1: VISUAL BLUEPRINT & MIND MAP
+         ========================================== -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
+        <h2>Visual Mind Map &amp; Chapter Blueprint</h2>
+        <p class="section-sub">A structured classification of changes occurring in matter: Physical vs. Chemical, Reversible vs. Irreversible.</p>
+      </div>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-seedling"></i>
+        <div class="callout-text">
+          <strong>Teacher's Welcome Note:</strong> Look around you! Ice cubes melt into water in your cup, raw batter bakes into fluffy idlis, iron gates turn reddish with rust, and glowing wax feeds a burning candle flame. Some changes can be undone in seconds, while others create totally new substances that can never be reversed. In Chapter 5, we master the fundamental scientific difference between <strong>Physical Changes</strong> and <strong>Chemical Changes</strong>!
+        </div>
+      </div>
+
+      <!-- SVG 1: Chapter 5 Mind Map -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 860 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <defs>
+            <linearGradient id="gradPhysCh" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7" />
+              <stop offset="100%" stop-color="#0369a1" />
+            </linearGradient>
+            <linearGradient id="gradChemCh" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ef4444" />
+              <stop offset="100%" stop-color="#b91c1c" />
+            </linearGradient>
+            <linearGradient id="gradDual" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b" />
+              <stop offset="100%" stop-color="#d97706" />
+            </linearGradient>
+            <linearGradient id="gradNature" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981" />
+              <stop offset="100%" stop-color="#059669" />
+            </linearGradient>
+          </defs>
+
+          <rect width="860" height="480" fill="#f8fafc" rx="12" />
+
+          <!-- Connectors -->
+          <line x1="430" y1="240" x2="180" y2="110" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,4" />
+          <line x1="430" y1="240" x2="680" y2="110" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,4" />
+          <line x1="430" y1="240" x2="180" y2="370" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,4" />
+          <line x1="430" y1="240" x2="680" y2="370" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,4" />
+
+          <!-- Center Node -->
+          <g>
+            <circle cx="430" cy="240" r="75" fill="url(#gradDual)" filter="drop-shadow(0 8px 16px rgba(245, 158, 11, 0.35))" />
+            <text x="430" y="228" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="14">CHANGES</text>
+            <text x="430" y="246" text-anchor="middle" fill="#ffffff" font-weight="800" font-size="16">AROUND US</text>
+            <text x="430" y="264" text-anchor="middle" fill="#fef3c7" font-weight="600" font-size="12">MATTER &amp; ENERGY</text>
+          </g>
+
+          <!-- Branch 1: Physical Changes (Top-Left) -->
+          <g transform="translate(180, 110)">
+            <rect x="-130" y="-55" width="260" height="110" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(2, 132, 199, 0.15))" />
+            <rect x="-130" y="-55" width="260" height="28" rx="8" fill="url(#gradPhysCh)" />
+            <text x="0" y="-36" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12">PHYSICAL CHANGES</text>
+            <text x="-115" y="-6" fill="#334155" font-size="11" font-weight="600">&bull; No new substance formed</text>
+            <text x="-115" y="14" fill="#334155" font-size="11" font-weight="600">&bull; Shape, size, state alter (Ice &rarr; Water)</text>
+            <text x="-115" y="34" fill="#334155" font-size="11" font-weight="600">&bull; Generally reversible (folding, melting)</text>
+          </g>
+
+          <!-- Branch 2: Chemical Changes (Top-Right) -->
+          <g transform="translate(680, 110)">
+            <rect x="-130" y="-55" width="260" height="110" rx="10" fill="#ffffff" stroke="#ef4444" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(239, 68, 68, 0.15))" />
+            <rect x="-130" y="-55" width="260" height="28" rx="8" fill="url(#gradChemCh)" />
+            <text x="0" y="-36" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12">CHEMICAL CHANGES</text>
+            <text x="-115" y="-6" fill="#334155" font-size="11" font-weight="600">&bull; Brand-new substances created</text>
+            <text x="-115" y="14" fill="#334155" font-size="11" font-weight="600">&bull; Heat, light, gas (CO₂), colour change</text>
+            <text x="-115" y="34" fill="#334155" font-size="11" font-weight="600">&bull; Generally irreversible (Rusting, Curdling)</text>
+          </g>
+
+          <!-- Branch 3: Dual Changes & Fire Triangle (Bottom-Left) -->
+          <g transform="translate(180, 370)">
+            <rect x="-130" y="-55" width="260" height="110" rx="10" fill="#ffffff" stroke="#f59e0b" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(245, 158, 11, 0.15))" />
+            <rect x="-130" y="-55" width="260" height="28" rx="8" fill="url(#gradDual)" />
+            <text x="0" y="-36" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12">DUAL CHANGES &amp; FIRE</text>
+            <text x="-115" y="-6" fill="#334155" font-size="11" font-weight="600">&bull; Burning Candle: Melting (P) + Burning (C)</text>
+            <text x="-115" y="14" fill="#334155" font-size="11" font-weight="600">&bull; Fire Triangle: Fuel + Oxygen + Heat</text>
+            <text x="-115" y="34" fill="#334155" font-size="11" font-weight="600">&bull; Combustion creates CO₂ and heat</text>
+          </g>
+
+          <!-- Branch 4: Slow Natural Changes (Bottom-Right) -->
+          <g transform="translate(680, 370)">
+            <rect x="-130" y="-55" width="260" height="110" rx="10" fill="#ffffff" stroke="#10b981" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(16, 185, 129, 0.15))" />
+            <rect x="-130" y="-55" width="260" height="28" rx="8" fill="url(#gradNature)" />
+            <text x="0" y="-36" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12">SLOW NATURAL CHANGES</text>
+            <text x="-115" y="-6" fill="#334155" font-size="11" font-weight="600">&bull; Weathering: Rocks break into soil</text>
+            <text x="-115" y="14" fill="#334155" font-size="11" font-weight="600">&bull; Erosion &amp; Sedimentation</text>
+            <text x="-115" y="34" fill="#334155" font-size="11" font-weight="600">&bull; Reversible: Chameleon colour changes</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 5.1: Visual Mind Map &bull; Complete structural categorization of physical and chemical changes.</p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: COMPREHENSIVE STUDY NOTES
+         ========================================== -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2 &bull; Comprehensive Line-by-Line Study Notes</span>
+        <h2>Exhaustive Concept Explanations</h2>
+        <p class="section-sub">Line-by-line detailed explanations crafted by caring science teachers.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-shapes"></i> 1. Physical Changes: Changes in Size, Shape, or State</h3>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-cube"></i>
+        <div class="callout-text">
+          <strong>Key Definition &bull; Physical Change:</strong><br>
+          A change in which a substance undergoes a change in its <strong>physical properties</strong>—such as shape, size, color, or state of matter—<strong>WITHOUT any new chemical substance being formed</strong> is called a <strong>physical change</strong>.<br>
+          <em>Key Test:</em> The molecules of the substance remain chemically identical before and after the change!
+        </div>
+      </div>
+
+      <div class="card">
+        <h4 class="sub-topic"><i class="fa-solid fa-droplet" style="color: #0284c7;"></i> Classic Everyday Examples of Physical Changes</h4>
+        <ul style="margin: 0.5rem 0 0.8rem 1.6rem; line-height: 1.8;">
+          <li><strong>Melting of Ice to Water (and Freezing):</strong> Solid ice turns to liquid water when warmed, and steam when boiled. In all three states (ice, liquid water, steam), the chemical formula is strictly <strong>H₂O</strong>. No new substance is created!</li>
+          <li><strong>Tearing or Folding a Sheet of Paper:</strong> When you tear a sheet of paper into four pieces or fold it into a toy boat, the size and shape change, but every piece is still made of cellulose paper fibres.</li>
+          <li><strong>Dissolving Sugar or Salt in Water:</strong> When sugar dissolves, individual sucrose molecules disperse between water molecules. The sugar can be completely recovered by evaporating the water!</li>
+          <li><strong>Stretching a Rubber Band or Spring:</strong> The length increases under tension, and returns to its original length when released.</li>
+        </ul>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-flask-vial"></i> 2. Chemical Changes: Changes in Chemical Composition</h3>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-fire"></i>
+        <div class="callout-text">
+          <strong>Key Definition &bull; Chemical Change (Chemical Reaction):</strong><br>
+          A change in which <strong>one or more brand-new substances with entirely different chemical properties are formed</strong> is called a <strong>chemical change</strong>. A chemical change cannot be reversed by simple physical methods.<br>
+          <em>Signs of a Chemical Change:</em> Evolution of a gas (fizzing/bubbles), release or absorption of heat and light, change in permanent colour, change in smell, or formation of a precipitate.
+        </div>
+      </div>
+
+      <!-- SVG 2: Physical vs Chemical Venn Diagram -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 840 340" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <rect width="840" height="340" fill="#f8fafc" rx="12" stroke="#e2e8f0" stroke-width="1.5" />
+          <text x="420" y="30" text-anchor="middle" font-size="16" font-weight="700" fill="#0f172a">PHYSICAL VS. CHEMICAL CHANGES VENN MATRIX</text>
+
+          <!-- Left Circle: Physical -->
+          <circle cx="320" cy="180" r="130" fill="#e0f2fe" fill-opacity="0.7" stroke="#0284c7" stroke-width="2.5" />
+          <!-- Right Circle: Chemical -->
+          <circle cx="520" cy="180" r="130" fill="#fee2e2" fill-opacity="0.7" stroke="#ef4444" stroke-width="2.5" />
+
+          <!-- Left Labels (Pure Physical) -->
+          <text x="240" y="115" font-size="13" font-weight="800" fill="#0369a1">PHYSICAL CHANGES</text>
+          <text x="240" y="140" font-size="11" font-weight="600" fill="#334155">&bull; No new substance formed</text>
+          <text x="240" y="160" font-size="11" font-weight="600" fill="#334155">&bull; Molecules stay identical</text>
+          <text x="240" y="180" font-size="11" font-weight="600" fill="#334155">&bull; Usually reversible</text>
+          <text x="240" y="205" font-size="10.5" fill="#0284c7">e.g., Melting ice, tearing</text>
+          <text x="240" y="222" font-size="10.5" fill="#0284c7">paper, boiling water</text>
+
+          <!-- Right Labels (Pure Chemical) -->
+          <text x="600" y="115" font-size="13" font-weight="800" fill="#b91c1c">CHEMICAL CHANGES</text>
+          <text x="600" y="140" font-size="11" font-weight="600" fill="#334155">&bull; New substance formed</text>
+          <text x="600" y="160" font-size="11" font-weight="600" fill="#334155">&bull; Bonds break &amp; form</text>
+          <text x="600" y="180" font-size="11" font-weight="600" fill="#334155">&bull; Irreversible</text>
+          <text x="600" y="205" font-size="10.5" fill="#dc2626">e.g., Rusting, curdling,</text>
+          <text x="600" y="222" font-size="10.5" fill="#dc2626">baking soda + vinegar</text>
+
+          <!-- Middle Intersection (Both) -->
+          <text x="420" y="145" text-anchor="middle" font-size="12" font-weight="800" fill="#78350f">BOTH</text>
+          <text x="420" y="165" text-anchor="middle" font-size="12" font-weight="800" fill="#78350f">OCCUR:</text>
+          <rect x="365" y="178" width="110" height="48" rx="6" fill="#fef3c7" stroke="#f59e0b" />
+          <text x="420" y="196" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">BURNING A</text>
+          <text x="420" y="212" text-anchor="middle" font-size="10" font-weight="700" fill="#92400e">CANDLE</text>
+        </svg>
+        <p class="diagram-caption">Figure 5.2: The Overlap &bull; Physical, Chemical, and Dual Processes like the Burning Candle.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-volcano"></i> 3. Classic Laboratory Chemical Reactions Explored</h3>
+
+      <div class="card">
+        <h4 class="sub-topic"><i class="fa-solid fa-vial" style="color: #0284c7;"></i> Activity 5.3 &bull; Blowing Breath into Lime Water</h4>
+        <p>
+          When you blow gently into freshly prepared clear lime water [calcium hydroxide, $	ext{Ca(OH)}_2$] through a drinking straw, the clear liquid gradually turns <strong>milky white</strong>!
+        </p>
+        <div style="background: #eff6ff; padding: 0.6rem 1rem; border-radius: 6px; font-weight: 700; color: #1e40af; text-align: center; margin: 0.5rem 0;">
+          Ca(OH)₂ (Lime Water) + CO₂ (Carbon Dioxide) &rarr; CaCO₃ &darr; (White Precipitate) + H₂O
+        </div>
+        <p>
+          <em>Why?</em> The carbon dioxide present in our exhaled breath reacts with dissolved calcium hydroxide to form insoluble <strong>calcium carbonate ($	ext{CaCO}_3$)</strong> particles that float suspended in the water, giving it a milky appearance. This is the universal chemical confirmatory test for carbon dioxide gas!
+        </p>
+      </div>
+
+      <div class="card">
+        <h4 class="sub-topic"><i class="fa-solid fa-sparkles" style="color: #10b981;"></i> Activity 5.4 &bull; Vinegar + Baking Soda Reaction</h4>
+        <p>
+          When a teaspoon of white baking soda is dropped into a cup of vinegar, immediate vigorous <strong>fizzing and bubbling (effervescence)</strong> occurs:
+        </p>
+        <div style="background: #f0fdf4; padding: 0.6rem 1rem; border-radius: 6px; font-weight: 700; color: #065f46; text-align: center; margin: 0.5rem 0;">
+          Acetic Acid (Vinegar) + Sodium Hydrogen Carbonate (Baking Soda) &rarr; Sodium Acetate + Water + CO₂ &uarr; (Gas)
+        </div>
+        <p>
+          If this released gas is passed into lime water, the lime water turns milky, confirming that the bubbles are pure $	ext{CO}_2$ gas!
+        </p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-fire-burner"></i> 4. Combustion and the Fire Triangle</h3>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-fire-flame-curved"></i>
+        <div class="callout-text">
+          <strong>Key Definition &bull; Combustion:</strong><br>
+          <strong>Combustion</strong> is a chemical process in which a fuel reacts rapidly with oxygen gas with the simultaneous release of energy in the form of <strong>heat and light</strong>.<br>
+          <em>The Fire Triangle:</em> A fire cannot ignite or sustain itself unless three essential conditions are present simultaneously:
+          <br>1. <strong>Fuel</strong> (combustible substance like candle wax, wood, paper, gas).
+          <br>2. <strong>Oxygen</strong> (air supply).
+          <br>3. <strong>Heat</strong> (reaching the ignition temperature).<br>
+          <em>Firefighting Rule:</em> Extinguish a fire by removing any ONE of these three sides!
+        </div>
+      </div>
+
+      <!-- SVG 3: Fire Triangle -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 800 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <rect width="800" height="280" fill="#fffbeb" rx="12" stroke="#fde68a" stroke-width="1.5" />
+          <text x="400" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#92400e">THE FIRE TRIANGLE: THREE PREREQUISITES FOR COMBUSTION</text>
+
+          <!-- Triangle Graphic -->
+          <polygon points="400,60 260,230 540,230" fill="#fef3c7" stroke="#f59e0b" stroke-width="3" />
+          <circle cx="400" cy="160" r="30" fill="#ef4444" opacity="0.85" />
+          <text x="400" y="166" text-anchor="middle" font-size="14" font-weight="800" fill="#ffffff">FIRE</text>
+
+          <!-- Side 1: Heat (Top-Left side) -->
+          <g transform="translate(310, 130) rotate(-60)">
+            <rect x="-60" y="-14" width="120" height="28" rx="6" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" />
+            <text x="0" y="5" text-anchor="middle" font-size="12" font-weight="800" fill="#b91c1c">1. HEAT</text>
+          </g>
+
+          <!-- Side 2: Oxygen (Top-Right side) -->
+          <g transform="translate(490, 130) rotate(60)">
+            <rect x="-60" y="-14" width="120" height="28" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" />
+            <text x="0" y="5" text-anchor="middle" font-size="12" font-weight="800" fill="#0369a1">2. OXYGEN</text>
+          </g>
+
+          <!-- Side 3: Fuel (Bottom base) -->
+          <g transform="translate(400, 248)">
+            <rect x="-60" y="-14" width="120" height="28" rx="6" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5" />
+            <text x="0" y="5" text-anchor="middle" font-size="12" font-weight="800" fill="#047857">3. FUEL</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 5.3: The Fire Triangle &bull; Cut off oxygen (smother with blanket) or cool below ignition (water) to stop fire.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-mountain"></i> 5. Slow Natural Changes: Weathering, Erosion &amp; Life Adaptations</h3>
+      <div class="card">
+        <h4 class="sub-topic"><i class="fa-solid fa-wind" style="color: #059669;"></i> Weathering of Rocks and Soil Formation</h4>
+        <p>
+          Soil is not manufactured in factories; it is born through <strong>weathering</strong>—a slow natural process spanning thousands of years:
+        </p>
+        <ul style="margin: 0.5rem 0 0.8rem 1.6rem; line-height: 1.8;">
+          <li><strong>Physical Weathering:</strong> Water enters micro-cracks in massive boulders. During cold nights, the water freezes into ice, expanding by 9% and shattering rocks into smaller stones and pebbles (a physical change).</li>
+          <li><strong>Chemical Weathering:</strong> Rainwater absorbs atmospheric carbon dioxide and sulfur compounds, forming weak natural acids. These mildly acidic waters dissolve rock minerals (like feldspar and limestone), converting hard rock into mineral-rich clay and silt (a chemical change).</li>
+          <li><strong>Erosion &amp; Sedimentation:</strong> Rivers, glaciers, and blowing winds transport fine rock sediments across valleys, depositing fertile alluvium in delta plains.</li>
+          <li><strong>Chameleon Colour Change (Biological Reversibility):</strong> Chameleons can shift skin colours from green to bright yellow or red! They do this by actively shifting the lattice spacing of microscopic guanine nanocrystals inside specialised skin cells (iridophores), altering the wavelength of reflected light. When relaxed, the crystals return to their resting position, fully reversing the colour!</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: FACT & SCIENTIFIC TERM BANK
+         ========================================== -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3 &bull; High-Yield Fact &amp; Term Bank</span>
+        <h2>Rapid Revision Fact &amp; Scientific Term Bank</h2>
+        <p class="section-sub">Essential definitions, reaction equations, and memory shortcuts for Chapter 5.</p>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Reaction / Process</th>
+              <th style="width: 45%;">Balanced Word / Chemical Equation</th>
+              <th style="width: 30%;">Classification Type</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Lime Water Milky Test</strong></td>
+              <td>Ca(OH)₂ + CO₂ &rarr; CaCO₃ &darr; (white) + H₂O</td>
+              <td>Chemical change (Precipitation)</td>
+            </tr>
+            <tr>
+              <td><strong>Baking Soda + Vinegar</strong></td>
+              <td>CH₃COOH + NaHCO₃ &rarr; CH₃COONa + H₂O + CO₂ &uarr;</td>
+              <td>Chemical change (Gas evolution)</td>
+            </tr>
+            <tr>
+              <td><strong>Magnesium Ribbon Burning</strong></td>
+              <td>2Mg + O₂ &rarr; 2MgO (white ash)</td>
+              <td>Chemical change (Exothermic synthesis)</td>
+            </tr>
+            <tr>
+              <td><strong>Curdling of Milk</strong></td>
+              <td>Lactose sugar + Lactobacillus bacteria &rarr; Lactic acid</td>
+              <td>Chemical change (Irreversible fermentation)</td>
+            </tr>
+            <tr>
+              <td><strong>Melting of Candle Wax</strong></td>
+              <td>Solid paraffin wax + Heat &rarr; Liquid paraffin wax</td>
+              <td>Physical change (Reversible state change)</td>
+            </tr>
+            <tr>
+              <td><strong>Burning of Candle Wick/Wax</strong></td>
+              <td>Wax vapour + O₂ &rarr; CO₂ + H₂O + Heat + Light</td>
+              <td>Chemical change (Combustion)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <div class="callout-text">
+          <strong>Memory Hack &bull; The "N-E-W" Rule for Chemical Changes:</strong><br>
+          Remember <strong>N-E-W</strong>:<br>
+          <strong>N</strong> = <em>New</em> substance always formed!<br>
+          <strong>E</strong> = <em>Energy</em> released or absorbed (heat/light)!<br>
+          <strong>W</strong> = <em>Won't</em> reverse back by simple physical means!
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: 100% COMPLETE NCERT SOLUTIONS
+         ========================================== -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4 &bull; 100% Complete NCERT Solutions</span>
+        <h2>Complete NCERT In-Text Activities &amp; Exercise Solutions</h2>
+        <p class="section-sub">Step-by-step teacher solutions for all 8 activities and all end-of-chapter questions.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-clipboard-question"></i> End-of-Chapter Exercises (Questions 1 to 10)</h3>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Question 1:</strong> Which of the following statements are characteristics of a physical change?</span>
+          <span class="badge badge-green">Exercise Q1</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Statements Given:</strong></p>
+          <p>(i) The state of the substance may or may not change.<br>
+          (ii) A substance with different properties is formed.<br>
+          (iii) No new substance is formed.<br>
+          (iv) The substance undergoes a chemical reaction.</p>
+          <p><strong>Correct Answer: (c) (i) and (iii)</strong></p>
+          <p><em>Reason:</em> In a physical change, physical state (solid/liquid/gas) may alter (e.g. melting ice), but <strong>no new chemical substance is formed</strong>. Statements (ii) and (iv) describe chemical changes.</p>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 2:</strong> Predict which of the following changes can be reversed and which cannot be reversed.</span>
+          <span class="badge badge-green">Exercise Q2</span>
+        </summary>
+        <div class="ans-content">
+          <div class="table-container">
+            <table class="data-table">
+              <thead><tr><th>Activity / Change</th><th>Can Be Reversed?</th><th>Scientific Reason</th></tr></thead>
+              <tbody>
+                <tr><td>(i) Stitching cloth to a shirt</td><td><strong>Cannot be reversed</strong></td><td>Cutting cloth into pieces alters structure permanently (un-stitching leaves cut fabric pieces).</td></tr>
+                <tr><td>(ii) Twisting of straight string</td><td><strong>Can be reversed</strong></td><td>Untwisting restores the original straight shape (elastic physical deformation).</td></tr>
+                <tr><td>(iii) Making idlis from a batter</td><td><strong>Cannot be reversed</strong></td><td>Steaming causes chemical denaturation of rice and dal starches and proteins.</td></tr>
+                <tr><td>(iv) Dissolving sugar in water</td><td><strong>Can be reversed</strong></td><td>Evaporating the water completely recovers the pure crystalline sugar.</td></tr>
+                <tr><td>(v) Drawing water from a well</td><td><strong>Can be reversed</strong></td><td>Water poured back into the well returns to the groundwater reservoir.</td></tr>
+                <tr><td>(vi) Ripening of fruits</td><td><strong>Cannot be reversed</strong></td><td>Enzymatic breakdown of complex acids into fructose sugar is an irreversible chemical process.</td></tr>
+                <tr><td>(vii) Boiling water in an open pan</td><td><strong>Can be reversed</strong></td><td>Steam can be trapped and condensed back into liquid water.</td></tr>
+                <tr><td>(viii) Rolling up a mat</td><td><strong>Can be reversed</strong></td><td>Unrolling simply uncoils the flexible fibres to their flat state.</td></tr>
+                <tr><td>(ix) Grinding wheat grains to flour</td><td><strong>Cannot be reversed</strong></td><td>Fine powdered flour particles cannot be reconstituted into whole grains.</td></tr>
+                <tr><td>(x) Forming of soil from rocks</td><td><strong>Cannot be reversed</strong></td><td>Finely weathered mineral clay and humus cannot be compressed back into massive bedrock.</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 3:</strong> State whether True or False. Correct the False statements.</span>
+          <span class="badge badge-green">Exercise Q3</span>
+        </summary>
+        <div class="ans-content">
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.85;">
+            <li><strong>(i) Melting of wax is necessary for burning a candle. [ TRUE ]</strong>
+              <br><em>Reason:</em> Solid wax does not burn directly; capillary action pulls molten liquid wax up the wick where it vaporises into flammable gas that combusts in air.
+            </li>
+            <li><strong>(ii) Collecting water vapour by condensing involves a chemical change. [ FALSE ]</strong>
+              <br><em>Correct Statement:</em> Condensing water vapour involves a <strong>physical change</strong> because gaseous H₂O simply transitions into liquid H₂O with no change in chemical composition.
+            </li>
+            <li><strong>(iii) The process of converting leaves into compost is a chemical change. [ TRUE ]</strong>
+              <br><em>Reason:</em> Microorganisms decompose organic cellulose and proteins, creating a brand-new dark organic substance called humus.
+            </li>
+            <li><strong>(iv) Mixing baking soda with lemon juice is a chemical change. [ TRUE ]</strong>
+              <br><em>Reason:</em> Citric acid in lemon juice reacts with sodium hydrogen carbonate to produce sodium citrate, water, and brisk effervescence of carbon dioxide gas.
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 4:</strong> Fill in the blanks.</span>
+          <span class="badge badge-green">Exercise Q4</span>
+        </summary>
+        <div class="ans-content">
+          <ol style="margin-left: 1.5rem; line-height: 1.85;">
+            <li>(i) Nalini observed brown deposits on her cycle handle. The brown deposits are due to <strong>rusting</strong>, and this is a <strong>chemical</strong> change.</li>
+            <li>(ii) Folding a handkerchief is a <strong>physical</strong> change and can be <strong>reversed</strong>.</li>
+            <li>(iii) A chemical process in which a substance reacts with oxygen with evolution of heat is called <strong>combustion</strong>, and this is a <strong>chemical</strong> change.</li>
+            <li>(iv) Magnesium, when burnt in air, produces a substance called <strong>magnesium oxide</strong>. The substance formed is <strong>basic</strong> in nature. Burning of magnesium is a <strong>chemical</strong> change.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 5:</strong> Are the changes of water to ice and water to steam, physical or chemical? Explain.</span>
+          <span class="badge badge-green">Exercise Q5</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer: Both are PHYSICAL changes.</strong></p>
+          <p><strong>Scientific Explanation:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li>In both processes (freezing of water to ice, and evaporation/boiling of water to steam), only the <strong>physical state</strong> (solid, liquid, gas) and arrangement of molecules change.</li>
+            <li>No new chemical substance is formed. Every molecule remains <strong>H₂O</strong> (two hydrogen atoms bonded to one oxygen atom).</li>
+            <li>Both processes are easily reversible: warming ice produces liquid water, and cooling steam condenses it back into water.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 6:</strong> Is curdling of milk a physical or chemical change? Justify your statement.</span>
+          <span class="badge badge-green">Exercise Q6</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer: Curdling of milk is a CHEMICAL change.</strong></p>
+          <p><strong>Justification:</strong></p>
+          <ol style="margin-left: 1.5rem; line-height: 1.8;">
+            <li><strong>Formation of a New Substance:</strong> When warm milk is inoculated with a little starter curd, <em>Lactobacillus</em> bacteria ferment the sweet lactose sugar of milk into <strong>lactic acid</strong>.</li>
+            <li><strong>Irreversible Texture &amp; Taste Change:</strong> The lactic acid coagulates milk proteins (casein), changing sweet liquid milk into a thick, sour curd.</li>
+            <li><strong>Permanence:</strong> Curd cannot be transformed back into fresh raw milk by any physical or chemical means.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 7:</strong> Natural factors like wind and rain form soil from rocks. Is this change physical or chemical and why?</span>
+          <span class="badge badge-green">Exercise Q7</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer: Formation of soil from rocks involves BOTH Physical and Chemical changes!</strong></p>
+          <p><strong>Scientific Explanation:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li><strong>Physical Aspect:</strong> Temperature fluctuations, freeze-thaw cycles, fast-flowing river currents, and howling winds physically pulverise big boulders into smaller rocks, sand, and silt without altering chemical composition.</li>
+            <li><strong>Chemical Aspect:</strong> Atmospheric rainwater containing dissolved carbon dioxide and acids reacts chemically with rock minerals (like feldspar and silicates) through hydrolysis and oxidation, converting them into brand-new soft clay minerals and releasing essential plant nutrients.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 8:</strong> Story analysis: 'Eco-friendly Prithvi'. Choose physical/chemical changes and provide a suitable title.</span>
+          <span class="badge badge-green">Exercise Q8</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Suggested Title:</strong> <em>"Prithvi's Green Kitchen: The Cycle of Matter"</em></p>
+          <p><strong>Selected Options:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li>Chopping vegetables, peeling potatoes, and cutting fruits &rarr; <strong>Physical changes</strong> (altering size and shape without changing chemical identity).</li>
+            <li>Collecting seeds, fruit and vegetable peels into a clay pot &rarr; <strong>Physical change</strong> (simple mechanical gathering).</li>
+            <li>Materials decomposing due to bacteria and fungi into compost &rarr; <strong>Chemical change</strong> (biological breakdown producing humus and new mineral compounds).</li>
+            <li>Seeds germinating and growing into blooming plants &rarr; <strong>Chemical change</strong> (complex biochemical synthesis of cellulose, sugars, chlorophyll, and floral pigments).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 9:</strong> Classify changes into Physical (A), Chemical (B), and Both Physical &amp; Chemical (C).</span>
+          <span class="badge badge-green">Exercise Q9</span>
+        </summary>
+        <div class="ans-content">
+          <div class="table-container">
+            <table class="data-table">
+              <thead><tr><th>Zone</th><th>Category</th><th>Changes Entered</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td><strong>Area A</strong></td>
+                  <td>Pure Physical Changes</td>
+                  <td><strong>Tearing of paper; Melting of ice; Folding of clothes.</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Area B</strong></td>
+                  <td>Pure Chemical Changes</td>
+                  <td><strong>Rusting; Curdling of milk; Ripening of fruits; Burning of magnesium; Mixing baking soda with vinegar.</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Area C</strong></td>
+                  <td>Both Physical &amp; Chemical</td>
+                  <td><strong>Process of burning a candle</strong> (melting of wax is physical, combustion of wax vapour is chemical).</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 10:</strong> Fig. 5.11 experiments (Vinegar + Baking soda; Vinegar + Salt; Lemon + Vinegar; Lemon + Baking soda). In which case(s) did lime water turn milky and why?</span>
+          <span class="badge badge-green">Exercise Q10</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer: Lime water will turn milky in Case (a) and Case (d)!</strong></p>
+          <p><strong>Scientific Explanation:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.85;">
+            <li><strong>Case (a) [Vinegar + Baking Soda]:</strong> Acetic acid reacts with sodium hydrogen carbonate to produce brisk effervescence of <strong>carbon dioxide gas (CO₂)</strong>. When this gas passes into lime water, insoluble calcium carbonate forms, turning it milky white!</li>
+            <li><strong>Case (d) [Lemon Juice + Baking Soda]:</strong> Citric acid in lemon juice also reacts with sodium hydrogen carbonate to release <strong>carbon dioxide gas (CO₂)</strong>, which turns lime water milky white!</li>
+            <li><strong>Why Cases (b) and (c) do NOT turn milky:</strong>
+              <br>&bull; <em>Case (b) [Vinegar + Common Salt]:</em> Acetic acid does not react with sodium chloride; no gas is evolved.
+              <br>&bull; <em>Case (c) [Lemon Juice + Vinegar]:</em> Both are acids; no neutralisation occurs, and zero CO₂ gas is produced.
+            </li>
+          </ul>
+        </div>
+      </details>
+
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: COMPETENCY BANK & INTERACTIVE QUIZ
+         ========================================== -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5 &bull; CBSE / BSE Competency Question Bank</span>
+        <h2>High-Order Thinking (HOTS) &amp; Interactive Quiz Engine</h2>
+        <p class="section-sub">Test your conceptual clarity with instant interactive button feedback!</p>
+      </div>
+
+      <!-- Scoreboard Banner -->
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <span>🎯</span> Mastered: <span id="quizScoreCount">0</span> / 5 Questions
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Click an option to test your knowledge!
+        </div>
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qcard1">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q1. Which of the following is an example of an irreversible chemical change?
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+            <span>(a) Melting of butter in a warm pan</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+            <span>(b) Cooking an egg into an omelette</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+            <span>(c) Boiling water into steam</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+            <span>(d) Stretching a rubber balloon</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong><br>
+            Cooking an egg permanently denatures and cross-links its albumin proteins, forming a new solid structure that can never be converted back into a liquid raw egg.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qcard2">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q2. When a candle burns, what changes occur?
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'd')">
+            <span>(a) Only physical changes</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'd')">
+            <span>(b) Only chemical changes</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'd')">
+            <span>(c) Neither physical nor chemical change</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'd')">
+            <span>(d) Both physical and chemical changes take place simultaneously</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d)</strong><br>
+            Melting of solid wax near the wick is a physical change (can re-solidify). Vaporisation and combustion of wax vapour with oxygen to produce CO₂, water vapour, heat, and light is a chemical change.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qcard3">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q3. A person throws a heavy woollen blanket over a person whose clothes have caught fire. Which element of the fire triangle is removed?
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+            <span>(a) Oxygen (air supply is smothered and cut off)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+            <span>(b) Fuel (clothes are instantly dissolved)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+            <span>(c) Gravitational pull</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+            <span>(d) Light waves</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong><br>
+            Wrapping in a thick blanket smothers the flames, cutting off fresh atmospheric oxygen. Without oxygen, the combustion reaction stops immediately.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qcard4">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q4. Clear lime water turns milky when carbon dioxide gas is passed through it due to the precipitation of:
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'c')">
+            <span>(a) Calcium bicarbonate</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'c')">
+            <span>(b) Calcium hydroxide crystals</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'c')">
+            <span>(c) Insoluble Calcium Carbonate (CaCO₃)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'c')">
+            <span>(d) Pure metallic calcium</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong><br>
+            Carbon dioxide reacts with calcium hydroxide solution to form solid calcium carbonate (CaCO₃) particles that turn the liquid milky white.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qcard5">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q5. How does a chameleon change its skin colour, and is this change reversible?
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+            <span>(a) By shifting the spacing of nanocrystals in skin cells; it is completely reversible</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+            <span>(b) By permanently shedding all skin layers each time it gets angry</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+            <span>(c) By drinking colored berry juices</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+            <span>(d) It is an irreversible chemical oxidation of blood</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong><br>
+            Chameleons tune the structural lattice spacing of guanine nanocrystals within iridophores. When calm, the lattice tightens back, reversing the colour completely!
+          </div>
+        </details>
+      </div>
+
+      <!-- Assertion-Reason -->
+      <h3 class="topic-title" style="margin-top: 2rem;"><i class="fa-solid fa-scale-balanced"></i> Assertion &amp; Reason Drills</h3>
+      <div class="card">
+        <details class="ans-box">
+          <summary>
+            <span><strong>Drill 1:</strong> Assertion (A): Rusting of iron is classified as a chemical change.<br>
+            Reason (R): Iron reacts chemically with atmospheric oxygen and water to form a brand-new reddish-brown compound (hydrated iron oxide).</span>
+            <span class="badge badge-purple">Assertion-Reason</span>
+          </summary>
+          <div class="ans-content">
+            <strong>Answer: (a) Both A and R are true, and R is the correct explanation of A.</strong><br>
+            Rust has different chemical properties from elemental iron. Once iron turns to rust, it cannot be physically converted back into metallic iron.
+          </div>
+        </details>
+
+        <details class="ans-box">
+          <summary>
+            <span><strong>Drill 2:</strong> Assertion (A): When water boils into steam, it undergoes an irreversible chemical change.<br>
+            Reason (R): Steam contains hydrogen and oxygen gases that have permanently split apart.</span>
+            <span class="badge badge-purple">Assertion-Reason</span>
+          </summary>
+          <div class="ans-content">
+            <strong>Answer: (d) Both Assertion and Reason are completely FALSE!</strong><br>
+            Boiling is a physical change of state. Steam is gaseous H₂O; cooling condenses it back into liquid water.
+          </div>
+        </details>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: EXAM TRAPS & REVISION CHECKLIST
+         ========================================== -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6 &bull; Exam Hall Readiness &amp; Quick Recap</span>
+        <h2>Exam Hall Traps &amp; 15 High-Yield Revision Points</h2>
+        <p class="section-sub">Bulletproof your preparation with common exam pitfalls and a rapid 2-minute memory checklist.</p>
+      </div>
+
+      <!-- Common Traps -->
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Hall Trap #1 &bull; Classifying Burning of a Candle as "Only Physical":</strong><br>
+          <em>Trap:</em> Writing that candle burning is purely physical because wax melts.<br>
+          <em>Correction:</em> Burning a candle involves <strong>BOTH</strong>! The melting of wax is a physical change, but the combustion of wax vapour producing heat, light, and CO₂ is a chemical change!
+        </div>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Hall Trap #2 &bull; Assuming All Chemical Changes are "Instant":</strong><br>
+          <em>Trap:</em> Believing that chemical reactions always happen in seconds.<br>
+          <em>Correction:</em> While vinegar + baking soda is instantaneous, <strong>rusting of iron</strong> and <strong>chemical weathering of rocks</strong> take days, years, or millennia!
+        </div>
+      </div>
+
+      <!-- 15 Points -->
+      <h3 class="topic-title"><i class="fa-solid fa-list-check"></i> 15 Lightning Revision Points for Quick Exam Recap</h3>
+      <div class="card">
+        <ol style="margin-left: 1.5rem; line-height: 1.85; font-size: 0.93rem;">
+          <li><strong>Physical Change:</strong> A change in shape, size, or state where NO new chemical substance is formed.</li>
+          <li><strong>Chemical Change:</strong> A process where one or more brand-new substances with distinct properties are created.</li>
+          <li><strong>Reversibility:</strong> Physical changes are generally reversible; chemical changes are generally irreversible.</li>
+          <li><strong>Combustion:</strong> Rapid chemical reaction of a fuel with oxygen producing heat and light.</li>
+          <li><strong>Fire Triangle:</strong> Three requirements: Fuel + Oxygen + Heat (ignition temperature).</li>
+          <li><strong>Rusting Equation:</strong> 4Fe + 3O₂ + 2xH₂O &rarr; 2Fe₂O₃ &bull; xH₂O (hydrated iron oxide).</li>
+          <li><strong>Rusting Dual Condition:</strong> Requires BOTH oxygen (air) and water (moisture) simultaneously.</li>
+          <li><strong>Lime Water Test:</strong> CO₂ + Ca(OH)₂ &rarr; CaCO₃ &darr; (milky precipitate) + H₂O.</li>
+          <li><strong>Fizzing Reaction:</strong> Vinegar + Baking soda produces immediate bubbles of CO₂ gas.</li>
+          <li><strong>Burning Candle:</strong> Exemplifies both physical change (wax melting) and chemical change (wax burning).</li>
+          <li><strong>Curdling of Milk:</strong> Irreversible chemical change driven by lactic acid produced by <em>Lactobacillus</em>.</li>
+          <li><strong>Dissolving Sugar:</strong> Physical change; sugar molecules can be recovered by evaporating water.</li>
+          <li><strong>Weathering of Rocks:</strong> Physical breakdown (frost wedging) and chemical alteration (acid rain) forming soil.</li>
+          <li><strong>Chameleon Adaptation:</strong> Reversible biological change altering nanocrystal spacing in skin iridophores.</li>
+          <li><strong>Yeast Fermentation:</strong> Yeast decomposes sugar anaerobically to produce ethanol and CO₂ gas bubbles.</li>
+        </ol>
+      </div>
+
+      <!-- Checklist -->
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-circle-check"></i>
+        <div class="callout-text">
+          <strong>Self-Assessment Exam Checklist:</strong><br>
+          &check; Can you state 3 differences between physical and chemical changes?<br>
+          &check; Can you explain why burning a candle involves both physical and chemical changes?<br>
+          &check; Can you write the chemical equation for lime water turning milky?<br>
+          &check; Can you draw and explain the Fire Triangle?
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Portal Footer -->
+  <footer>
+    <p style="font-weight: 700; color: #f8fafc; font-size: 1.05rem; margin-bottom: 0.5rem;">
+      Sujit Classes &bull; Empowering Young Minds Across Odisha
+    </p>
+    <p style="font-size: 0.88rem; margin-bottom: 1rem;">
+      Aligned with NEP 2020 &amp; NCF-SE 2023 &bull; NCERT Curiosity Science Series
+    </p>
+    <p style="font-size: 0.82rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Back to Main Portal</a> &bull; 
+      <a href="#sec1">Top of Page</a>
+    </p>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    // 1. Reading Progress Bar & Back to Top Controller
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    // 2. Teacher Audio Reader (TTS)
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+      }
+    }
+
+    // 3. Interactive Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Perfect! You have completely mastered Physical and Chemical Changes!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! Review the teacher explanations to score 100%!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good effort! Check the difference between state changes and chemical reactions!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
