@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 7 Mathematics Chapter 6: Number Play - Master Study Notes (Ganita Prakash)</title>
+  <meta name="description" content="Comprehensive, zero-omission teacher notes for Class 7 Maths Chapter 6: Number Play (NCERT Ganita Prakash). Master parity invariance, 3x3 magic squares, Virahanka-Fibonacci numbers, cryptarithms, and full NCERT solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #4c1d95 0%, #7c3aed 45%, #0284c7 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #6d28d9;
+      border: none;
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    /* Callout Boxes */
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-def { background: #f0fdf4; border-color: #10b981; color: #065f46; }
+    .callout-def i { color: #059669; }
+
+    .callout-act { background: #eff6ff; border-color: #3b82f6; color: #1e3a8a; }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq { background: #fffbeb; border-color: #f59e0b; color: #78350f; }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack { background: #faf5ff; border-color: #a855f7; color: #581c87; }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn { background: #fef2f2; border-color: #ef4444; color: #7f1d1d; }
+    .callout-warn i { color: #dc2626; }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+
+    /* 5-Step Solution Box */
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.2rem 0;
+    }
+
+    .step-item {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .step-label {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 90px;
+    }
+
+    .step-ans {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      margin-top: 0.8rem;
+      font-weight: 700;
+      color: #166534;
+    }
+
+    /* Collapsible Details Answers */
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    /* Diagrams */
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    /* Quiz Engine */
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+    }
+
+    .correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700 !important;
+    }
+
+    .wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Overview &amp; Mind Map</a>
+      <a href="#sec2" class="nav-link">2. Core Concepts</a>
+      <a href="#sec3" class="nav-link">3. In-Text Activities</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Practice Quiz</a>
+      <a href="#sec6" class="nav-link">6. Teacher Hacks</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge"><i class="fa-solid fa-calculator"></i> Class 7 Mathematics &bull; Chapter 6</div>
+    <h1 class="hero-title">Number Play</h1>
+    <p class="hero-sub">The Joy of Patterns: Parity Invariance, 3&times;3 Magic Squares, The Virahāṅka–Fibonacci Sequence in Nature, and Cryptarithms (Digits in Disguise)</p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> Textbook: Ganita Prakash</span>
+      <span><i class="fa-solid fa-layer-group"></i> NEP 2020 Aligned</span>
+      <span><i class="fa-solid fa-check-double"></i> Zero-Omission Guide</span>
+    </div>
+    <button class="audio-btn" id="audioSummaryBtn" onclick="toggleAudioSummary()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+    <!-- SECTION 1 -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1</span>
+        <h2>Chapter Overview &amp; Visual Mind Map</h2>
+        <p class="section-sub">Numbers are not just tools for counting; they are playgrounds of beauty and mystery!</p>
+      </div>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div class="callout-text">
+          <strong>Teacher's Welcome Note:</strong> In Chapter 6, we become number detectives! We explore <strong>parity</strong> (even and odd arithmetic), solve ancient Indian <strong>magic squares</strong> where rows, columns, and diagonals always sum to 15, uncover <strong>Virahāṅka numbers</strong> that explain flower petals and spiral shells, and crack <strong>alphametics</strong> where letters wear masks to disguise digits!
+        </div>
+      </div>
+
+      <!-- SVG Mind Map: Number Play Architecture -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 880 420" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="numGradCenter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#4c1d95"/>
+              <stop offset="100%" stop-color="#7c3aed"/>
+            </linearGradient>
+            <linearGradient id="numNode1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+            <linearGradient id="numNode2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#059669"/>
+              <stop offset="100%" stop-color="#10b981"/>
+            </linearGradient>
+            <linearGradient id="numNode3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#d97706"/>
+              <stop offset="100%" stop-color="#f59e0b"/>
+            </linearGradient>
+            <linearGradient id="numNode4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0891b2"/>
+              <stop offset="100%" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Branch curves -->
+          <path d="M 440 210 C 280 210, 180 100, 140 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 280 210, 180 320, 140 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 100, 740 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 320, 740 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+
+          <!-- Center Node -->
+          <circle cx="440" cy="210" r="82" fill="url(#numGradCenter)" filter="drop-shadow(0 4px 10px rgba(124,58,237,0.35))"/>
+          <text x="440" y="200" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">NUMBER</text>
+          <text x="440" y="222" fill="#ede9fe" font-size="16" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">PLAY</text>
+          <text x="440" y="242" fill="#c4b5fd" font-size="11" text-anchor="middle">Grade 7 Chapter 6</text>
+
+          <!-- Branch 1: Parity Rules -->
+          <rect x="20" y="55" width="240" height="90" rx="14" fill="url(#numNode1)" filter="drop-shadow(0 3px 8px rgba(2,132,199,0.25))"/>
+          <text x="140" y="85" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">1. Parity (Odd &amp; Even)</text>
+          <text x="140" y="108" fill="#e0f2fe" font-size="12" text-anchor="middle">&bull; Odd + Odd = Even</text>
+          <text x="140" y="126" fill="#e0f2fe" font-size="12" text-anchor="middle">&bull; Consecutive numbers sum to Odd</text>
+
+          <!-- Branch 2: Magic Squares -->
+          <rect x="20" y="275" width="240" height="90" rx="14" fill="url(#numNode2)" filter="drop-shadow(0 3px 8px rgba(5,150,105,0.25))"/>
+          <text x="140" y="305" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">2. 3&times;3 Magic Squares</text>
+          <text x="140" y="328" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; Constant sum = 15</text>
+          <text x="140" y="346" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; Center is 5 &bull; Corners are even</text>
+
+          <!-- Branch 3: Virahanka Numbers -->
+          <rect x="620" y="55" width="240" height="90" rx="14" fill="url(#numNode3)" filter="drop-shadow(0 3px 8px rgba(217,119,6,0.25))"/>
+          <text x="740" y="85" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">3. Virahāṅka Numbers</text>
+          <text x="740" y="108" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; 1, 2, 3, 5, 8, 13, 21...</text>
+          <text x="740" y="126" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; Sanskrit prosody to nature</text>
+
+          <!-- Branch 4: Digits in Disguise -->
+          <rect x="620" y="275" width="240" height="90" rx="14" fill="url(#numNode4)" filter="drop-shadow(0 3px 8px rgba(8,145,178,0.25))"/>
+          <text x="740" y="305" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">4. Cryptarithms</text>
+          <text x="740" y="328" fill="#cffafe" font-size="12" text-anchor="middle">&bull; Letter-to-digit deduction</text>
+          <text x="740" y="346" fill="#cffafe" font-size="12" text-anchor="middle">&bull; T + T + T = UT (U=1, T=5)</text>
+        </svg>
+        <p class="diagram-caption">Figure 6.1: Visual Mind Map of Number Play, Parity, and Sequences.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2</span>
+        <h2>Deep-Dive Core Concepts &amp; Teacher Explanations</h2>
+        <p class="section-sub">Parity arithmetic, magic squares, and Indian mathematical history.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-yin-yang"></i> 6.1 Parity Rules (Even vs. Odd Arithmetic)</h3>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr><th>Operation</th><th>Rule</th><th>Example</th><th>Reason / Mental Image</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Even + Even</strong></td>
+              <td><strong>EVEN</strong></td>
+              <td>4 + 6 = 10</td>
+              <td>Pairs + Pairs = Still all paired up!</td>
+            </tr>
+            <tr>
+              <td><strong>Odd + Odd</strong></td>
+              <td><strong>EVEN</strong></td>
+              <td>3 + 5 = 8</td>
+              <td>Two leftover single items pair up together!</td>
+            </tr>
+            <tr>
+              <td><strong>Odd + Even</strong></td>
+              <td><strong>ODD</strong></td>
+              <td>3 + 4 = 7</td>
+              <td>One item remains unpaired.</td>
+            </tr>
+            <tr>
+              <td><strong>Consecutive Sum</strong></td>
+              <td><strong>ODD</strong></td>
+              <td>n + (n + 1) = 2n + 1</td>
+              <td>One number is always even, the other odd!</td>
+            </tr>
+            <tr>
+              <td><strong>Odd &times; Odd</strong></td>
+              <td><strong>ODD</strong></td>
+              <td>3 &times; 5 = 15</td>
+              <td>Odd rows of odd items leave a single leftover.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SVG 3x3 Magic Square Diagram -->
+      <h3 class="topic-title"><i class="fa-solid fa-border-all"></i> 6.2 The Ancient 3&times;3 Magic Square (Kubera Yantra)</h3>
+      <p>A magic square is a square grid filled with distinct positive integers from 1 to 9 such that the numbers in each row, column, and diagonal all add up to the same number: the <strong>Magic Constant (15)</strong>.</p>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 340 340" width="280" height="280" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background Grid -->
+          <rect x="20" y="20" width="300" height="300" rx="12" fill="#f8fafc" stroke="#334155" stroke-width="3"/>
+          <line x1="120" y1="20" x2="120" y2="320" stroke="#334155" stroke-width="2"/>
+          <line x1="220" y1="20" x2="220" y2="320" stroke="#334155" stroke-width="2"/>
+          <line x1="20" y1="120" x2="320" y2="120" stroke="#334155" stroke-width="2"/>
+          <line x1="20" y1="220" x2="320" y2="220" stroke="#334155" stroke-width="2"/>
+
+          <!-- Row 1: 4, 9, 2 -->
+          <text x="70" y="80" font-size="28" font-weight="bold" fill="#0284c7" text-anchor="middle">4</text>
+          <text x="170" y="80" font-size="28" font-weight="bold" fill="#d97706" text-anchor="middle">9</text>
+          <text x="270" y="80" font-size="28" font-weight="bold" fill="#0284c7" text-anchor="middle">2</text>
+
+          <!-- Row 2: 3, 5, 7 -->
+          <text x="70" y="180" font-size="28" font-weight="bold" fill="#d97706" text-anchor="middle">3</text>
+          <!-- Center cell 5 highlighted -->
+          <circle cx="170" cy="170" r="38" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+          <text x="170" y="180" font-size="32" font-weight="bold" fill="#15803d" text-anchor="middle">5</text>
+          <text x="270" y="180" font-size="28" font-weight="bold" fill="#d97706" text-anchor="middle">7</text>
+
+          <!-- Row 3: 8, 1, 6 -->
+          <text x="70" y="280" font-size="28" font-weight="bold" fill="#0284c7" text-anchor="middle">8</text>
+          <text x="170" y="280" font-size="28" font-weight="bold" fill="#d97706" text-anchor="middle">1</text>
+          <text x="270" y="280" font-size="28" font-weight="bold" fill="#0284c7" text-anchor="middle">6</text>
+        </svg>
+        <p class="diagram-caption">Figure 6.2: The Standard 3&times;3 Magic Square. Sum of any line = 15. The center is 5, and corners are always even (2, 4, 6, 8).</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-leaf"></i> 6.3 The Virahāṅka–Fibonacci Sequence</h3>
+      <p>Centuries before Fibonacci published his book in Europe in 1202 CE, Indian scholar <strong>Ācārya Virahāṅka</strong> (c. 600–700 CE), followed by Gopāla and Hemacandra, discovered this sequence while studying poetic meters in Sanskrit prosody!</p>
+      <div class="math-block">
+        1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597...<br>
+        Rule: Each term is the sum of the two preceding terms: F<sub>n</sub> = F<sub>n&minus;1</sub> + F<sub>n&minus;2</sub>.
+      </div>
+      <p>This sequence appears throughout the natural world:</p>
+      <ul style="margin-left: 1.5rem;">
+        <li><strong>Flower Petals:</strong> Lilies (3 petals), Buttercups (5 petals), Delphiniums (8 petals), Marigolds (13 petals), Black-eyed Susans (21 petals).</li>
+        <li><strong>Spirals:</strong> Pinecone scales and sunflower seed heads follow consecutive Virahāṅka numbers (e.g. 21 spirals clockwise, 34 counter-clockwise).</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3</span>
+        <h2>In-Text Activities &amp; Classroom Explorations (Fully Solved)</h2>
+        <p class="section-sub">Step-by-step solutions to in-text exercises from pages 2, 5, 10, and 17.</p>
+      </div>
+
+      <h4 class="sub-topic">Activity 1: Martin and Maria's Ages (Page 5)</h4>
+      <div class="solution-box">
+        <p><strong>Question:</strong> Martin and Maria have consecutive ages (e.g. 11 and 12, or 13 and 14). Can the sum of their ages be 112?</p>
+        <div class="step-item"><span class="step-label">Parity Check:</span> If two numbers are consecutive, one is always even and the other is odd.</div>
+        <div class="step-item"><span class="step-label">Parity Rule:</span> Even + Odd = <strong>ODD</strong>. The sum of any two consecutive integers is always an odd number!</div>
+        <div class="step-item"><span class="step-label">Conclusion:</span> 112 is an even number. Therefore, their ages can <strong>never add up to 112</strong>!</div>
+        <div class="step-ans">&check; Answer: <strong>No</strong>, because the sum of consecutive ages must be odd, whereas 112 is even.</div>
+      </div>
+
+      <h4 class="sub-topic">Activity 2: Cryptarithm T + T + T = UT (Page 17)</h4>
+      <div class="solution-box">
+        <p><strong>Problem:</strong> A single digit T added to itself 3 times gives a two-digit number UT ending in T: <code>3 &times; T = UT</code>.</p>
+        <div class="step-item"><span class="step-label">Analysis:</span> 3 &times; T must end with the digit T itself.</div>
+        <div class="step-item"><span class="step-label">Testing digits:</span>
+          <br>&bull; 3 &times; 0 = 0 (not a 2-digit number)
+          <br>&bull; 3 &times; 1 = 3 (ends in 3 &ne; 1)
+          <br>&bull; 3 &times; 2 = 6 (ends in 6 &ne; 2)
+          <br>&bull; 3 &times; 5 = <strong>15</strong> (ends in 5 = T!).
+        </div>
+        <div class="step-item"><span class="step-label">Match:</span> 3 &times; 5 = 15. Here T = 5, and the leading digit U = 1.</div>
+        <div class="step-ans">&check; Answer: <strong>T = 5</strong> and <strong>U = 1</strong> (5 + 5 + 5 = 15).</div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4</span>
+        <h2>Complete End-of-Chapter 'Figure it Out' Exercises (Solved Step-by-Step)</h2>
+        <p class="section-sub">Comprehensive solutions for review problems on pages 18 and 31.</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>Q1. Parity of the Sum from 1 to 100 (Page 18, 31)</summary>
+        <div class="ans-content">
+          <p><strong>Problem:</strong> What is the parity (even or odd) of the sum of numbers from 1 to 100?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">Method 1 (Count of Odd Numbers):</span> In the sequence 1, 2, 3, ..., 100, there are exactly 50 odd numbers and 50 even numbers.
+              <br>Even numbers always add up to an even sum.
+              <br>Odd numbers add up in pairs. 50 odd numbers form 25 pairs of (odd + odd = even).
+              <br>Even + Even = <strong>EVEN</strong>.
+            </div>
+            <div class="step-item"><span class="step-label">Method 2 (Gauss Formula):</span> Sum = <code>n(n + 1) &divide; 2 = 100 &times; 101 &divide; 2 = 50 &times; 101 = 5,050</code>.
+              <br>5,050 ends in 0, so it is an <strong>even number</strong>.
+            </div>
+            <div class="step-ans">&check; Answer: The parity is <strong>EVEN</strong>.</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q2. Consecutive Terms of the Virahāṅka Sequence (Page 31)</summary>
+        <div class="ans-content">
+          <p><strong>Problem:</strong> Two consecutive numbers in the Virahāṅka sequence are 987 and 1597. What are the next 2 numbers? What are the previous 2 numbers?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">Next Number 1:</span> 987 + 1597 = <strong>2,584</strong>.</div>
+            <div class="step-item"><span class="step-label">Next Number 2:</span> 1597 + 2584 = <strong>4,181</strong>.</div>
+            <div class="step-item"><span class="step-label">Previous Number 1:</span> 1597 &minus; 987 = <strong>610</strong>.</div>
+            <div class="step-item"><span class="step-label">Previous Number 2:</span> 987 &minus; 610 = <strong>377</strong>.</div>
+            <div class="step-ans">&check; Answer: Next two numbers = <strong>2584, 4181</strong>; Previous two numbers = <strong>610, 377</strong>.</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q3. Loose Sheets from the Encyclopaedia (Page 18)</summary>
+        <div class="ans-content">
+          <p><strong>Problem:</strong> 50 loose sheets fell out of an old encyclopaedia. Each sheet has an odd page number on one side and the consecutive even page on the back. Can the sum of all page numbers be 6000?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">Page Pair:</span> Each sheet has page numbers <code>(2k &minus; 1)</code> and <code>2k</code>.
+              <br>Sum of pages on 1 sheet = (2k &minus; 1) + 2k = 4k &minus; 1, which is always <strong>ODD</strong>.
+            </div>
+            <div class="step-item"><span class="step-label">50 Sheets:</span> We are adding 50 odd numbers together.
+              <br>An even count of odd numbers (50 &times; odd) always produces an <strong>EVEN</strong> sum.
+              <br>Since 6000 is even, it is theoretically possible in terms of parity!
+            </div>
+            <div class="step-ans">&check; Answer: Yes, because the sum of 50 odd numbers is always even, and 6000 is an even number.</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5</span>
+        <h2>Interactive Practice Quiz Engine</h2>
+        <p class="section-sub">Challenge your pattern and logic skills!</p>
+      </div>
+
+      <div class="callout-box callout-pyq" id="scoreBanner" style="justify-content: space-between; align-items: center;">
+        <div><strong>Current Score:</strong> <span id="quizScoreCount">0</span> / 5 Correct</div>
+        <div id="quizTeacherMsg" style="font-size: 0.9rem; font-weight: 600;">Answer all questions to see your rank!</div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-card" id="qcard1">
+        <div class="quiz-question"><strong>Q1:</strong> If you add 11 odd numbers together, the result is always:</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(a) Even</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(b) Odd</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(c) Zero</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(d) Prime</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b) Odd.</strong> An odd count of odd numbers (11) always yields an odd sum (10 pair up to make even, plus 1 odd leftover).
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-card" id="qcard2">
+        <div class="quiz-question"><strong>Q2:</strong> What number must always occupy the central cell of a standard 3&times;3 magic square of numbers 1 to 9?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')"><span>(a) 1</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')"><span>(b) 3</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')"><span>(c) 5</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')"><span>(d) 9</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c) 5.</strong> The center cell must be the average of 1 to 9, which is 5.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-card" id="qcard3">
+        <div class="quiz-question"><strong>Q3:</strong> Which term follows 13, 21, 34 in the Virahāṅka–Fibonacci sequence?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')"><span>(a) 55</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')"><span>(b) 48</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')"><span>(c) 68</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')"><span>(d) 52</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a) 55.</strong> Add the two preceding numbers: 21 + 34 = 55!
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-card" id="qcard4">
+        <div class="quiz-question"><strong>Q4:</strong> What are the only digits that can occupy the four corner cells in a 3&times;3 magic square with sum 15?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')"><span>(a) 1, 3, 7, 9 (Odd numbers)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')"><span>(b) 1, 2, 3, 4</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')"><span>(c) 5, 6, 7, 8</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')"><span>(d) 2, 4, 6, 8 (Even numbers)</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d) 2, 4, 6, 8.</strong> Each corner cell participates in 3 lines summing to 15. Only even numbers (2, 4, 6, 8) have 3 distinct pairings summing to 15!
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-card" id="qcard5">
+        <div class="quiz-question"><strong>Q5:</strong> In the cryptarithm A + A + A = BA, what is the value of digit A?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')"><span>(a) 3</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')"><span>(b) 5</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')"><span>(c) 7</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')"><span>(d) 9</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b) 5.</strong> 3 &times; 5 = 15 &rArr; A = 5 and B = 1.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6</span>
+        <h2>Quick Revision Notes &amp; Common Pitfalls</h2>
+        <p class="section-sub">Exam master tips and golden logic rules.</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Don't Make This Mistake in Exams:</strong><br>
+          &bull; <strong>Odd Count vs. Even Count:</strong> Adding 4 odd numbers gives an EVEN sum (3+5+7+9=24). Adding 5 odd numbers gives an ODD sum.<br>
+          &bull; <strong>Placing 1 or 9 in Corners:</strong> 1 and 9 can NEVER be in corners of a 3&times;3 magic square; they must always be in middle edge cells.<br>
+          &bull; <strong>Virahāṅka Addition:</strong> Do not multiply terms! Always add the two previous terms: 8 + 13 = 21.
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div class="callout-text">
+          <strong>Teacher's Golden Number Rules:</strong><br>
+          1. <strong>Parity Invariant:</strong> Even &plusmn; Even = Even; Odd &plusmn; Odd = Even; Even &plusmn; Odd = Odd.<br>
+          2. <strong>3&times;3 Magic Constant:</strong> Magic Sum = 15; Center = 5; Corners = 2, 4, 6, 8.<br>
+          3. <strong>Virahāṅka Sequence:</strong> 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89... governs nature's spirals and flower petals!<br>
+          4. <strong>Cryptarithm Strategy:</strong> Check the units digit behavior first.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // 2. Audio Reader (Text-to-Speech)
+    var speechActive = false;
+    function toggleAudioSummary() {
+      var btn = document.getElementById('audioSummaryBtn');
+      if (!speechActive) {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          var text = "Welcome to Class 7 Mathematics, Chapter 6: Number Play. In this chapter, we explore parity, magic squares, Virahāṅka-Fibonacci numbers, and cryptarithms. Parity tells us that adding an even number of odd numbers always produces an even sum, and two consecutive numbers always add to an odd sum. In a three-by-three magic square, every line adds up to fifteen, the center is five, and the four corners must be even numbers. The Virahāṅka sequence, discovered by Indian scholars studying poetry, governs the number of petals on flowers and spirals in pinecones and sunflowers.";
+          var utterance = new SpeechSynthesisUtterance(text);
+          utterance.rate = 0.95;
+          utterance.onend = function() {
+            speechActive = false;
+            if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+          };
+          window.speechSynthesis.speak(utterance);
+          speechActive = true;
+          if (btn) btn.innerHTML = '<span>⏹ Stop Audio</span>';
+        } else {
+          alert('Sorry, text-to-speech is not supported on this device.');
+        }
+      } else {
+        window.speechSynthesis.cancel();
+        speechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+      }
+    }
+
+    // 3. Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Perfect Score! You are a Number Play Grandmaster!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! You have a solid grasp of Parity & Magic Squares!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Keep practicing! Review the teacher explanations above.";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
