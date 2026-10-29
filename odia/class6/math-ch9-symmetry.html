@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୯: ପ୍ରତିସାମ୍ୟ (Symmetry) | ଶ୍ରେଣୀ ୬ ଗଣିତ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalinga:wght@400;700&family=Noto+Sans+Oriya:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-light: #e0f2fe;
+      --primary-dark: #0369a1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --success: #10b981;
+      --success-light: #d1fae5;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans Oriya', 'Kalinga', 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      padding-bottom: 60px;
+    }
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #0284c7, #38bdf8, #f59e0b);
+      width: 0%;
+      z-index: 1000;
+      transition: width 0.1s ease;
+    }
+    .header-hero {
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #38bdf8 100%);
+      color: white;
+      padding: 50px 20px 40px;
+      text-align: center;
+      position: relative;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 15px;
+    }
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      opacity: 0.95;
+    }
+    .audio-btn {
+      background: white;
+      color: var(--primary-dark);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all 0.2s ease;
+    }
+    .audio-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+    .sticky-nav {
+      position: sticky;
+      top: 5px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 10px 15px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .nav-btn {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover, .nav-btn.active {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+    .action-btn {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .section-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 35px;
+      margin-bottom: 35px;
+      border: 1px solid var(--border);
+    }
+    .sec-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 12px;
+      margin-bottom: 25px;
+    }
+    .sec-header h2 {
+      color: var(--primary-dark);
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .sec-badge {
+      background: var(--primary);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .callout-def {
+      background: #f0fdf4;
+      border-left: 5px solid var(--success);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 20px 0;
+    }
+    .callout-act {
+      background: #f0f9ff;
+      border-left: 5px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 20px 0;
+    }
+    .callout-hack {
+      background: #fefce8;
+      border-left: 5px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 20px 0;
+    }
+    .callout-warn {
+      background: #fef2f2;
+      border-left: 5px solid var(--danger);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 20px 0;
+    }
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .svg-container {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 15px;
+      margin: 25px 0;
+      text-align: center;
+      overflow-x: auto;
+    }
+    .svg-container svg {
+      max-width: 100%;
+      height: auto;
+    }
+    .svg-caption {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.98rem;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      text-align: left;
+    }
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+    .data-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      padding: 0 4px;
+      font-size: 0.9em;
+      line-height: 1;
+    }
+    .frac sup {
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+    }
+    .frac sub {
+      padding-top: 1px;
+    }
+    details.ans-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin: 18px 0;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+    details.ans-box[open] {
+      background: #ffffff;
+      border-color: #38bdf8;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+    }
+    details.ans-box summary {
+      padding: 14px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    details.ans-box summary::-webkit-details-marker {
+      display: none;
+    }
+    details.ans-box summary::after {
+      content: "➕ ସମାଧାନ ଦେଖନ୍ତୁ";
+      font-size: 0.85rem;
+      background: white;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    details.ans-box[open] summary::after {
+      content: "➖ ସମାଧାନ ଲୁଚାନ୍ତୁ";
+      background: var(--primary-light);
+    }
+    .ans-content {
+      padding: 20px;
+      line-height: 1.8;
+    }
+    .step-box {
+      margin-bottom: 12px;
+      padding-left: 14px;
+      border-left: 3px solid #38bdf8;
+    }
+    .step-title {
+      font-weight: 700;
+      color: #0369a1;
+      font-size: 0.95rem;
+    }
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .quiz-question {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 15px;
+      color: #1e293b;
+    }
+    .quiz-opts {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 640px) {
+      .quiz-opts { grid-template-columns: 1fr 1fr; }
+    }
+    .quiz-opt-btn {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 0.95rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .quiz-opt-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .quiz-opt-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+    .quiz-opt-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+    .quiz-feedback {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .one-liner-list {
+      list-style: none;
+      counter-reset: one-liner;
+    }
+    .one-liner-list li {
+      counter-increment: one-liner;
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: 12px;
+    }
+    .one-liner-list li::before {
+      content: counter(one-liner);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #backToTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      z-index: 99;
+      transition: all 0.3s;
+    }
+    #backToTopBtn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress-bar"></div>
+
+  <header class="header-hero">
+    <div class="hero-badge">NCERT ଗଣିତ ପ୍ରକାଶ • ଶ୍ରେଣୀ ୬ • ଅଧ୍ୟାୟ ୯</div>
+    <h1 class="hero-title">ପ୍ରତିସାମ୍ୟ<br><span style="font-size: 1.4rem; font-weight: 500;">(Symmetry)</span></h1>
+    <p class="hero-subtitle">ରୈଖିକ ପ୍ରତିସାମ୍ୟ, ପ୍ରତିଫଳନ, କାଗଜ ଭାଙ୍ଗିବା ପ୍ରଣାଳୀ, ସୁଷମ ବହୁଭୁଜ ନିୟମ ଏବଂ ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟର ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ନୋଟ୍ସ</p>
+    <button class="audio-btn" onclick="toggleTeacherAudio()">
+      <span id="audio-icon">🔊</span> <span id="audio-text">ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ</span>
+    </button>
+  </header>
+
+  <nav class="sticky-nav">
+    <a href="#sec-1" class="nav-btn active">୧. ମାଇଣ୍ଡ୍ ମ୍ୟାପ୍</a>
+    <a href="#sec-2" class="nav-btn">୨. ଧାରଣାଗତ ନୋଟ୍ସ</a>
+    <a href="#sec-3" class="nav-btn">୩. ସୂତ୍ର ଓ ନିୟମ ବ୍ୟାଙ୍କ</a>
+    <a href="#sec-4" class="nav-btn">୪. NCERT ସମାଧାନ</a>
+    <a href="#sec-5" class="nav-btn">୫. ପରୀକ୍ଷା ପ୍ରଶ୍ନୋତ୍ତର</a>
+    <a href="#sec-6" class="nav-btn">୬. ପରୀକ୍ଷା ହଲ୍ ଟ୍ରାପ୍</a>
+    <button class="action-btn" onclick="toggleAllAnswers(true)">ସବୁ ଖୋଲନ୍ତୁ</button>
+    <button class="action-btn" onclick="toggleAllAnswers(false)">ସବୁ ବନ୍ଦ କରନ୍ତୁ</button>
+  </nav>
+
+  <main class="container">
+
+    <!-- SECTION 1 -->
+    <section id="sec-1" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୧</span>
+        <h2>ଭିଜୁଆଲ୍ ମାଇଣ୍ଡ୍ ମ୍ୟାପ୍ ଓ ଅଧ୍ୟାୟ ସାରସଂକ୍ଷେପ (Visual Mind Map &amp; Blueprint)</h2>
+      </div>
+      <p>ପ୍ରତିସାମ୍ୟ ହେଉଛି ପ୍ରକୃତି, କଳା, ସ୍ଥାପତ୍ୟ ଏବଂ ଗଣିତର ଏକ ଅଦ୍ଭୁତ ସନ୍ତୁଳନ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ପ୍ରତିସାମ୍ୟର ଦୁଇଟି ମୁଖ୍ୟ ରୂପ ଶିଖିବା: (୧) ରୈଖିକ ପ୍ରତିସାମ୍ୟ (Line/Reflection Symmetry) ଏବଂ (୨) ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ (Rotational Symmetry)।</p>
+
+      <!-- SVG 1: Mind Map -->
+      <div class="svg-container">
+        <svg viewBox="0 0 880 440" xmlns="http://www.w3.org/2000/svg">
+          <rect width="880" height="440" fill="#f8fafc" rx="12"/>
+          <rect x="330" y="20" width="220" height="70" rx="10" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+          <text x="440" y="48" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">ପ୍ରତିସାମ୍ୟ (SYMMETRY)</text>
+          <text x="440" y="70" font-size="13" fill="#e0f2fe" text-anchor="middle">Reflection &amp; Rotation Invariants</text>
+
+          <!-- Branch 1: Line Symmetry -->
+          <line x1="330" y1="55" x2="160" y2="150" stroke="#0284c7" stroke-width="2.5"/>
+          <rect x="50" y="150" width="230" height="115" rx="8" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+          <text x="165" y="175" font-size="15" font-weight="bold" fill="#0369a1" text-anchor="middle">୧. ରୈଖିକ ପ୍ରତିସାମ୍ୟ (Line)</text>
+          <text x="65" y="200" font-size="12" fill="#334155">• ଦର୍ପଣ ଅକ୍ଷ (ଭାଙ୍ଗିଲେ ପରସ୍ପର ଉପରେ ପଡ଼ନ୍ତି)</text>
+          <text x="65" y="220" font-size="12" fill="#334155">• କାଗଜ କଣା ପ୍ରଣାଳୀ (Punch-hole)</text>
+          <text x="65" y="240" font-size="12" fill="#334155">• ଡଟ୍ ଗ୍ରିଡ୍ ପ୍ରତିଫଳନ ଅଙ୍କନ</text>
+
+          <!-- Branch 2: Regular Polygon Law -->
+          <line x1="440" y1="90" x2="440" y2="150" stroke="#0284c7" stroke-width="2.5"/>
+          <rect x="325" y="150" width="230" height="115" rx="8" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+          <text x="440" y="175" font-size="15" font-weight="bold" fill="#0369a1" text-anchor="middle">୨. ସୁଷମ ବହୁଭୁଜ ନିୟମ</text>
+          <text x="340" y="200" font-size="12" fill="#334155">• n-ବାହୁ ବିଶିଷ୍ଟ ସୁଷମ ବହୁଭୁଜର n ଟି ଅକ୍ଷ</text>
+          <text x="340" y="220" font-size="12" fill="#334155">• ବର୍ଗକ୍ଷେତ୍ର = ୪, ଆୟତକ୍ଷେତ୍ର = ୨</text>
+          <text x="340" y="240" font-size="12" fill="#334155">• ବୃତ୍ତ = ଅସଂଖ୍ୟ (∞) ଅକ୍ଷ</text>
+
+          <!-- Branch 3: Rotational Symmetry -->
+          <line x1="550" y1="55" x2="720" y2="150" stroke="#0284c7" stroke-width="2.5"/>
+          <rect x="600" y="150" width="230" height="115" rx="8" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+          <text x="715" y="175" font-size="15" font-weight="bold" fill="#0369a1" text-anchor="middle">୩. ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ (Rotation)</text>
+          <text x="615" y="200" font-size="12" fill="#334155">• ଘୂର୍ଣ୍ଣନ କେନ୍ଦ୍ର ଓ କୋଣ (θ)</text>
+          <text x="615" y="220" font-size="12" fill="#334155">• ଘୂର୍ଣ୍ଣନ କ୍ରମ (Order = ୩୬୦° / θ)</text>
+          <text x="615" y="240" font-size="12" fill="#334155">• ୩୬୦° ଭିତରେ ମୂଳ ଚିତ୍ର ସହ ମେଳ</text>
+
+          <!-- Bottom Box: Four Quadrants -->
+          <line x1="440" y1="265" x2="440" y2="315" stroke="#0284c7" stroke-width="2.5"/>
+          <rect x="220" y="315" width="440" height="100" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+          <text x="440" y="342" font-size="15" font-weight="bold" fill="#b45309" text-anchor="middle">୪. ପ୍ରତିସାମ୍ୟର ଚାରୋଟି ଶ୍ରେଣୀବିଭାଗ (Interaction)</text>
+          <text x="240" y="368" font-size="12.5" fill="#78350f">• ଉଭୟ ଥିବା: ବର୍ଗକ୍ଷେତ୍ର, ସମବାହୁ ତ୍ରିଭୁଜ, ବୃତ୍ତ, H, X, O</text>
+          <text x="240" y="392" font-size="12.5" fill="#78350f">• କେବଳ ଘୂର୍ଣ୍ଣନ ଥିବା: ପଙ୍ଖା/ଚକ୍ର, S, Z • କୌଣସିଟି ନଥିବା: ବିଷମବାହୁ ତ୍ରିଭୁଜ, F, P</text>
+        </svg>
+        <div class="svg-caption">ଚିତ୍ର ୯.୧: ପ୍ରତିସାମ୍ୟ ଅଧ୍ୟାୟର ସମ୍ପୂର୍ଣ୍ଣ ଢାଞ୍ଚା ଓ ଧାରଣା ମାନଚିତ୍ର</div>
+      </div>
+
+      <!-- SVG 2: Lines of Symmetry Comparison -->
+      <div class="svg-container">
+        <svg viewBox="0 0 880 300" xmlns="http://www.w3.org/2000/svg">
+          <rect width="880" height="300" fill="#ffffff" rx="12" stroke="#e2e8f0" stroke-width="1.5"/>
+          <text x="440" y="30" font-size="16" font-weight="bold" fill="#0369a1" text-anchor="middle">ରୈଖିକ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷର ତୁଳନାତ୍ମକ ବିଶ୍ଳେଷଣ (ସତର୍କତା ଓ ପାର୍ଥକ୍ୟ)</text>
+
+          <!-- Square (4 lines) -->
+          <g transform="translate(60, 55)">
+            <rect width="210" height="210" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+            <text x="105" y="26" font-size="13" font-weight="bold" fill="#0369a1" text-anchor="middle">ବର୍ଗକ୍ଷେତ୍ର (୪ଟି ଅକ୍ଷ)</text>
+            <rect x="45" y="45" width="120" height="120" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+            <!-- 2 medians -->
+            <line x1="105" y1="35" x2="105" y2="175" stroke="#ef4444" stroke-width="2" stroke-dasharray="4"/>
+            <line x1="35" y1="105" x2="175" y2="105" stroke="#ef4444" stroke-width="2" stroke-dasharray="4"/>
+            <!-- 2 diagonals -->
+            <line x1="38" y1="38" x2="172" y2="172" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3"/>
+            <line x1="172" y1="38" x2="38" y2="172" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3"/>
+            <text x="105" y="195" font-size="11" fill="#475569" text-anchor="middle">୨ଟି ମଧ୍ୟବିନ୍ଦୁ + ୨ଟି କର୍ଣ୍ଣ = ୪</text>
+          </g>
+
+          <!-- Rectangle (2 lines only) -->
+          <g transform="translate(335, 55)">
+            <rect width="210" height="210" rx="8" fill="#fffbeb" stroke="#fde68a"/>
+            <text x="105" y="26" font-size="13" font-weight="bold" fill="#b45309" text-anchor="middle">ଆୟତକ୍ଷେତ୍ର (କେବଳ ୨ଟି ଅକ୍ଷ!)</text>
+            <rect x="35" y="65" width="140" height="80" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+            <!-- 2 medians -->
+            <line x1="105" y1="45" x2="105" y2="165" stroke="#ef4444" stroke-width="2" stroke-dasharray="4"/>
+            <line x1="20" y1="105" x2="190" y2="105" stroke="#ef4444" stroke-width="2" stroke-dasharray="4"/>
+            <!-- crossed diagonal showing NOT symmetry -->
+            <line x1="35" y1="145" x2="175" y2="65" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="2"/>
+            <text x="105" y="185" font-size="11" font-weight="bold" fill="#dc2626" text-anchor="middle">❌ କର୍ଣ୍ଣ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ନୁହେଁ!</text>
+            <text x="105" y="200" font-size="10.5" fill="#475569" text-anchor="middle">(ଭାଙ୍ଗିଲେ ଦୁଇ ଭାଗ ମିଶନ୍ତି ନାହିଁ)</text>
+          </g>
+
+          <!-- Equilateral Triangle (3 lines) -->
+          <g transform="translate(610, 55)">
+            <rect width="210" height="210" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+            <text x="105" y="26" font-size="13" font-weight="bold" fill="#0369a1" text-anchor="middle">ସମବାହୁ ତ୍ରିଭୁଜ (୩ଟି ଅକ୍ଷ)</text>
+            <polygon points="105,45 40,160 170,160" fill="#d1fae5" stroke="#059669" stroke-width="2"/>
+            <!-- 3 altitudes -->
+            <line x1="105" y1="40" x2="105" y2="170" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4"/>
+            <line x1="40" y1="160" x2="140" y2="100" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4"/>
+            <line x1="170" y1="160" x2="70" y2="100" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4"/>
+            <text x="105" y="195" font-size="11" fill="#475569" text-anchor="middle">୩ଟି ଶୀର୍ଷରୁ ଲମ୍ବ = ୩ଟି ଅକ୍ଷ</text>
+          </g>
+        </svg>
+        <div class="svg-caption">ଚିତ୍ର ୯.୨: ବର୍ଗକ୍ଷେତ୍ର, ଆୟତକ୍ଷେତ୍ର ଓ ସମବାହୁ ତ୍ରିଭୁଜର ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ (କର୍ଣ୍ଣ ଭ୍ରାନ୍ତି ସତର୍କତା)</div>
+      </div>
+
+      <!-- SVG 3: Rotational Symmetry of Fan -->
+      <div class="svg-container">
+        <svg viewBox="0 0 880 250" xmlns="http://www.w3.org/2000/svg">
+          <rect width="880" height="250" fill="#ffffff" rx="12" stroke="#e2e8f0" stroke-width="1.5"/>
+          <text x="440" y="28" font-size="16" font-weight="bold" fill="#0369a1" text-anchor="middle">୪-ପାଖିଆ ପଙ୍ଖାର ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ: କ୍ରମ = ୪, କ୍ଷୁଦ୍ରତମ କୋଣ = ୯୦°</text>
+
+          <!-- Stage 1: 0 deg -->
+          <g transform="translate(60, 50)">
+            <circle cx="65" cy="65" r="50" fill="#f0f9ff" stroke="#cbd5e1"/>
+            <circle cx="65" cy="65" r="8" fill="#0284c7"/>
+            <rect x="62" y="20" width="6" height="40" fill="#0284c7" rx="3"/>
+            <rect x="62" y="70" width="6" height="40" fill="#94a3b8" rx="3"/>
+            <rect x="20" y="62" width="40" height="6" fill="#94a3b8" rx="3"/>
+            <rect x="70" y="62" width="40" height="6" fill="#94a3b8" rx="3"/>
+            <circle cx="65" cy="22" r="5" fill="#ef4444"/>
+            <text x="65" y="145" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">୦° (ଆରମ୍ଭ)</text>
+          </g>
+
+          <!-- Stage 2: 90 deg -->
+          <g transform="translate(260, 50)">
+            <circle cx="65" cy="65" r="50" fill="#f0f9ff" stroke="#cbd5e1"/>
+            <circle cx="65" cy="65" r="8" fill="#0284c7"/>
+            <rect x="70" y="62" width="40" height="6" fill="#0284c7" rx="3"/>
+            <rect x="20" y="62" width="40" height="6" fill="#94a3b8" rx="3"/>
+            <rect x="62" y="20" width="6" height="40" fill="#94a3b8" rx="3"/>
+            <rect x="62" y="70" width="6" height="40" fill="#94a3b8" rx="3"/>
+            <circle cx="108" cy="65" r="5" fill="#ef4444"/>
+            <text x="65" y="145" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">୯୦° ଘୂର୍ଣ୍ଣନ (ମେଳ ୧)</text>
+          </g>
+
+          <!-- Stage 3: 180 deg -->
+          <g transform="translate(460, 50)">
+            <circle cx="65" cy="65" r="50" fill="#f0f9ff" stroke="#cbd5e1"/>
+            <circle cx="65" cy="65" r="8" fill="#0284c7"/>
+            <rect x="62" y="70" width="6" height="40" fill="#0284c7" rx="3"/>
+            <rect x="62" y="20" width="6" height="40" fill="#94a3b8" rx="3"/>
+            <rect x="20" y="62" width="40" height="6" fill="#94a3b8" rx="3"/>
+            <rect x="70" y="62" width="40" height="6" fill="#94a3b8" rx="3"/>
+            <circle cx="65" cy="108" r="5" fill="#ef4444"/>
+            <text x="65" y="145" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">୧୮୦° ଘୂର୍ଣ୍ଣନ (ମେଳ ୨)</text>
+          </g>
+
+          <!-- Stage 4: 270 deg -->
+          <g transform="translate(660, 50)">
+            <circle cx="65" cy="65" r="50" fill="#f0f9ff" stroke="#cbd5e1"/>
+            <circle cx="65" cy="65" r="8" fill="#0284c7"/>
+            <rect x="20" y="62" width="40" height="6" fill="#0284c7" rx="3"/>
+            <rect x="70" y="62" width="40" height="6" fill="#94a3b8" rx="3"/>
+            <rect x="62" y="20" width="6" height="40" fill="#94a3b8" rx="3"/>
+            <rect x="62" y="70" width="6" height="40" fill="#94a3b8" rx="3"/>
+            <circle cx="22" cy="65" r="5" fill="#ef4444"/>
+            <text x="65" y="145" font-size="12" font-weight="bold" fill="#0369a1" text-anchor="middle">୨୭୦° ଘୂର୍ଣ୍ଣନ (ମେଳ ୩)</text>
+          </g>
+
+          <!-- Bottom Text Summary -->
+          <text x="440" y="225" font-size="13" font-weight="bold" fill="#15803d" text-anchor="middle">୩୬୦° ପୂର୍ଣ୍ଣ ଘୂର୍ଣ୍ଣନରେ ମୋଟ ୪ ଥର ମୂଳ ରୂପ ସହ ମିଶେ &bull; ଘୂର୍ଣ୍ଣନ କ୍ରମ = ୪ &bull; ପ୍ରତିସାମ୍ୟ କୋଣ = ୯୦°, ୧୮୦°, ୨୭୦°, ୩୬୦°</text>
+        </svg>
+        <div class="svg-caption">ଚିତ୍ର ୯.୩: ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟର କ୍ରମ (Order) ଏବଂ ପ୍ରତିସାମ୍ୟ କୋଣ ନିର୍ଣ୍ଣୟ ପ୍ରଣାଳୀ</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec-2" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୨</span>
+        <h2>ଧାରଣାଗତ ନୋଟ୍ସ ଓ ପ୍ରତିସାମ୍ୟ ଉପପାଦ୍ୟ (Conceptual Notes &amp; Symmetry Theorems)</h2>
+      </div>
+
+      <!-- 9.1 -->
+      <h3 style="color: var(--primary-dark); margin: 25px 0 10px;">୯.୧ ରୈଖିକ ପ୍ରତିସାମ୍ୟ (Line / Reflection Symmetry)</h3>
+      <p>ପ୍ରକୃତିରେ ପ୍ରଜାପତିର ଡେଣା, ଗଛର ପତ୍ର, ମାନବ ମୁଖମଣ୍ଡଳ ଏବଂ ସ୍ଥାପତ୍ୟରେ ତାଜମହଲର ସମ୍ମୁଖ ଭାଗରେ ରୈଖିକ ପ୍ରତିସାମ୍ୟ ଦେଖିବାକୁ ମିଳେ।</p>
+      
+      <div class="callout-def">
+        <div class="callout-title">📌 ଗାଣିତିକ ସଂଜ୍ଞା: ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ (Line of Symmetry / Axis of Symmetry)</div>
+        ଯଦି ଏକ ସରଳରେଖା ବରାବର ଗୋଟିଏ ଚିତ୍ରକୁ ଭାଙ୍ଗି ଦିଆଯାଏ (Folded) ଏବଂ ଚିତ୍ରର ଗୋଟିଏ ଅର୍ଦ୍ଧାଂଶ ଅପର ଅର୍ଦ୍ଧାଂଶକୁ ସମ୍ପୂର୍ଣ୍ଣ ରୂପେ ଆଚ୍ଛାଦନ କରେ (Coincides exactly), ତେବେ ସେହି ରେଖାକୁ <strong>ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ (Line of Symmetry)</strong> ବା <strong>ଦର୍ପଣ ରେଖା (Mirror Line)</strong> କୁହାଯାଏ।
+      </div>
+
+      <div class="callout-act">
+        <div class="callout-title">✂️ କାର୍ଯ୍ୟକଳାପ: କାଗଜ ଭାଙ୍ଗିବା ଓ କଣା କରିବା (Punch-Hole Folding Method)</div>
+        <ol style="margin-left: 20px;">
+          <li>ଏକ କାଗଜକୁ ମଝିରୁ ଭାଙ୍ଗନ୍ତୁ। ଏହି ଭାଙ୍ଗ ରେଖାଟି ହିଁ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ।</li>
+          <li>ଭାଙ୍ଗି ହୋଇଥିବା କାଗଜରେ ଏକ ପଞ୍ଚିଂ ମେସିନ୍ ସାହାଯ୍ୟରେ ଗୋଟିଏ କଣା କରନ୍ତୁ।</li>
+          <li>କାଗଜକୁ ଖୋଲିଲେ ଦେଖାଯିବ ଯେ ଭାଙ୍ଗ ରେଖାର ଉଭୟ ପାର୍ଶ୍ୱରେ ଦୁଇଟି କଣା ସମାନ ଦୂରତାରେ ରହିଛନ୍ତି।</li>
+          <li>ଯଦି କାଗଜକୁ ଦୁଇଥର (ଥରେ ଭୂସମାନ୍ତର ଓ ଥରେ ଭୂଲମ୍ବ) ଭାଙ୍ଗି ଗୋଟିଏ କଣା କରାଯାଏ, ତେବେ ଖୋଲିବା ପରେ ମୋଟ <strong>୪ଟି କଣା</strong> ସୃଷ୍ଟି ହୁଏ।</li>
+        </ol>
+      </div>
+
+      <div class="callout-hack">
+        <div class="callout-title">⭐ ସୁଷମ ବହୁଭୁଜ ନିୟମ (Regular Polygon Law)</div>
+        ଏକ <strong>n-ବାହୁ ବିଶିଷ୍ଟ ସୁଷମ ବହୁଭୁଜ (Regular Polygon)</strong> ର ଠିକ୍ <strong>n ଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ</strong> ଥାଏ।
+        <ul style="margin: 6px 0 0 20px;">
+          <li>ସମବାହୁ ତ୍ରିଭୁଜ (୩ ସମାନ ବାହୁ) = ୩ଟି ଅକ୍ଷ</li>
+          <li>ବର୍ଗକ୍ଷେତ୍ର (୪ ସମାନ ବାହୁ) = ୪ଟି ଅକ୍ଷ</li>
+          <li>ସୁଷମ ପଞ୍ଚଭୁଜ (୫ ସମାନ ବାହୁ) = ୫ଟି ଅକ୍ଷ</li>
+          <li>ସୁଷମ ଷଡ଼ଭୁଜ (୬ ସମାନ ବାହୁ) = ୬ଟି ଅକ୍ଷ</li>
+          <li>ବୃତ୍ତ (Circle) = <strong>ଅସଂଖ୍ୟ (Infinite, ∞)</strong> ଅକ୍ଷ (କେନ୍ଦ୍ର ଦେଇ ଯାଇଥିବା ପ୍ରତ୍ୟେକ ବ୍ୟାସ ଏକ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ)।</li>
+        </ul>
+      </div>
+
+      <div class="callout-warn">
+        <div class="callout-title">⚠️ ସାଂଘାତିକ ପରୀକ୍ଷା ଟ୍ରାପ୍: ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣ!</div>
+        ଅନେକ ଛାତ୍ର ଭାବନ୍ତି ଆୟତକ୍ଷେତ୍ରର ୪ଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଅଛି। ଏହା ଭୁଲ୍!
+        <br>
+        ଆୟତକ୍ଷେତ୍ରର କେବଳ <strong>୨ଟି</strong> ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଥାଏ (ବିପରୀତ ବାହୁମାନଙ୍କର ମଧ୍ୟବିନ୍ଦୁ ସଂଯୋଜକ ରେଖା)।<br>
+        <strong>ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ନୁହେଁ</strong>, କାରଣ କର୍ଣ୍ଣ ବରାବର ଭାଙ୍ଗିଲେ ଦୁଇଟି ତ୍ରିଭୁଜ ପରସ୍ପରକୁ ଘୋଡ଼ାଇ ପାରନ୍ତି ନାହିଁ (ବାହାରକୁ ବାହାରି ରହନ୍ତି)।
+      </div>
+
+      <!-- 9.2 -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 10px;">୯.୨ ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ (Rotational Symmetry)</h3>
+      <p>ଅନେକ ଚିତ୍ର ରହିଛି ଯାହାକୁ ଭାଙ୍ଗିଲେ ଦୁଇ ଭାଗ ମିଳେ ନାହିଁ, କିନ୍ତୁ ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ବିନ୍ଦୁ ଚାରିପାଖରେ ଘୂରାଇଲେ ତାହା ପୁଣି ପୂର୍ବପରି ଦେଖାଯାଏ (ଯଥା: ଛାତ ପଙ୍ଖା, ପବନଚକ୍ର, ସ୍ୱସ୍ତିକ ଚିହ୍ନ)।</p>
+
+      <div class="callout-def">
+        <div class="callout-title">🔄 ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟର ମୌଳିକ ସଂଜ୍ଞା</div>
+        <ul style="margin-left: 20px;">
+          <li><strong>ଘୂର୍ଣ୍ଣନ କେନ୍ଦ୍ର (Center of Rotation):</strong> ଯେଉଁ ସ୍ଥିର ବିନ୍ଦୁ ଚାରିପାଖରେ ଚିତ୍ରଟି ଘୂର୍ଣ୍ଣନ କରେ (ଯଥା ପଙ୍ଖାର ମଝି କେନ୍ଦ୍ର ବିନ୍ଦୁ)।</li>
+          <li><strong>ଘୂର୍ଣ୍ଣନ କୋଣ (Angle of Rotation, θ):</strong> ସର୍ବନିମ୍ନ ଯେତିକି କୋଣ ଘୂରାଇଲେ ଚିତ୍ରଟି ତାର ମୂଳ ରୂପ ସହିତ ଠିକ୍ ଭାବରେ ମିଶିଯାଏ।</li>
+          <li><strong>ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟର କ୍ରମ (Order of Rotational Symmetry, n):</strong> ୩୬୦° ପୂର୍ଣ୍ଣ ଘୂର୍ଣ୍ଣନ ମଧ୍ୟରେ ଚିତ୍ରଟି କେତେ ଥର ମୂଳ ରୂପ ସହିତ ଅବିକଳ ମିଶେ।</li>
+        </ul>
+        <div style="margin-top: 10px; font-weight: 700; color: #0369a1;">
+          ସୂତ୍ର: ଘୂର୍ଣ୍ଣନ କ୍ରମ (Order) = <span class="frac"><sup>୩୬୦°</sup><sub>କ୍ଷୁଦ୍ରତମ ଘୂର୍ଣ୍ଣନ କୋଣ (θ)</sub></span>
+        </div>
+      </div>
+
+      <!-- 9.3 -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 10px;">୯.୩ ପ୍ରତିସାମ୍ୟର ଚାରୋଟି ଚତୁର୍ଥାଂଶ (The Four Quadrants of Symmetry Interaction)</h3>
+      <p>ରୈଖିକ ଓ ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ମଧ୍ୟରେ ଥିବା ସମ୍ପର୍କ ଅନୁଯାୟୀ ସମସ୍ତ ଜ୍ୟାମିତିକ ଚିତ୍ର ଓ ବର୍ଣ୍ଣମାଳାକୁ ୪ଟି ଶ୍ରେଣୀରେ ବିଭକ୍ତ କରାଯାଇଛି:</p>
+      
+      <div class="data-table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ଚତୁର୍ଥାଂଶ (Category)</th>
+              <th>ବୈଶିଷ୍ଟ୍ୟ</th>
+              <th>ଜ୍ୟାମିତିକ ଉଦାହରଣ</th>
+              <th>ଇଂରାଜୀ ବର୍ଣ୍ଣମାଳା</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>୧ମ ଶ୍ରେଣୀ: ଉଭୟ ଅଛି</strong></td>
+              <td>ରୈଖିକ ପ୍ରତିସାମ୍ୟ ଅଛି + ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ (&gt;୧) ଅଛି</td>
+              <td>ବର୍ଗକ୍ଷେତ୍ର, ଆୟତକ୍ଷେତ୍ର, ସମବାହୁ ତ୍ରିଭୁଜ, ରମ୍ବସ୍, ବୃତ୍ତ</td>
+              <td>H, I, O, X</td>
+            </tr>
+            <tr>
+              <td><strong>୨ୟ ଶ୍ରେଣୀ: କେବଳ ରୈଖିକ</strong></td>
+              <td>ରୈଖିକ ପ୍ରତିସାମ୍ୟ ଅଛି, କିନ୍ତୁ ଘୂର୍ଣ୍ଣନ କ୍ରମ = ୧</td>
+              <td>ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜ, ସମଦ୍ୱିବାହୁ ଟ୍ରାପିଜିୟମ୍, କାଇଟ୍ (Kite)</td>
+              <td>A, B, C, D, E, M, T, U, V, W, Y</td>
+            </tr>
+            <tr>
+              <td><strong>୩ୟ ଶ୍ରେଣୀ: କେବଳ ଘୂର୍ଣ୍ଣନ</strong></td>
+              <td>କୌଣସି ରୈଖିକ ଅକ୍ଷ ନାହିଁ, କିନ୍ତୁ ଘୂର୍ଣ୍ଣନ କ୍ରମ &gt; ୧</td>
+              <td>ସାଧାରଣ ସାମାନ୍ତରିକ ଚିତ୍ର, ପବନଚକ୍ର (Pinwheel)</td>
+              <td>N, S, Z</td>
+            </tr>
+            <tr>
+              <td><strong>୪ର୍ଥ ଶ୍ରେଣୀ: କୌଣସିଟି ନାହିଁ</strong></td>
+              <td>ରୈଖିକ ଅକ୍ଷ = ୦, ଘୂର୍ଣ୍ଣନ କ୍ରମ = ୧ (ଅସମମିତିକ)</td>
+              <td>ବିଷମବାହୁ ତ୍ରିଭୁଜ (Scalene Triangle), ସାଧାରଣ ଟ୍ରାପିଜିୟମ୍</td>
+              <td>F, G, J, L, P, Q, R</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec-3" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୩</span>
+        <h2>ଦ୍ରୁତ ପୁନରାବୃତ୍ତି ସୂତ୍ର ଓ ନିୟମ ବ୍ୟାଙ୍କ (Formula &amp; Law Bank)</h2>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin-bottom: 12px;">ସାରଣୀ ୯.୧: ପ୍ରମୁଖ ଜ୍ୟାମିତିକ ଆକୃତିମାନଙ୍କର ପ୍ରତିସାମ୍ୟ କାଟାଲଗ୍</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ଜ୍ୟାମିତିକ ଆକୃତି</th>
+            <th>ରୈଖିକ ଅକ୍ଷ ସଂଖ୍ୟା</th>
+            <th>ଘୂର୍ଣ୍ଣନ କେନ୍ଦ୍ର</th>
+            <th>କ୍ଷୁଦ୍ରତମ ଘୂର୍ଣ୍ଣନ କୋଣ</th>
+            <th>ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟର କ୍ରମ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ସମବାହୁ ତ୍ରିଭୁଜ</strong></td>
+            <td>୩</td>
+            <td>ମଧ୍ୟମାମାନଙ୍କ ଛେଦବିନ୍ଦୁ (Centroid)</td>
+            <td>୧୨୦°</td>
+            <td>୩</td>
+          </tr>
+          <tr>
+            <td><strong>ବର୍ଗକ୍ଷେତ୍ର</strong></td>
+            <td>୪</td>
+            <td>କର୍ଣ୍ଣଦ୍ୱୟର ଛେଦବିନ୍ଦୁ</td>
+            <td>୯୦°</td>
+            <td>୪</td>
+          </tr>
+          <tr>
+            <td><strong>ଆୟତକ୍ଷେତ୍ର</strong></td>
+            <td>୨</td>
+            <td>କର୍ଣ୍ଣଦ୍ୱୟର ଛେଦବିନ୍ଦୁ</td>
+            <td>୧୮୦°</td>
+            <td>୨</td>
+          </tr>
+          <tr>
+            <td><strong>ରମ୍ବସ୍</strong></td>
+            <td>୨ (କର୍ଣ୍ଣଦ୍ୱୟ)</td>
+            <td>କର୍ଣ୍ଣଦ୍ୱୟର ଛେଦବିନ୍ଦୁ</td>
+            <td>୧୮୦°</td>
+            <td>୨</td>
+          </tr>
+          <tr>
+            <td><strong>ସାମାନ୍ତରିକ ଚିତ୍ର</strong></td>
+            <td>୦</td>
+            <td>କର୍ଣ୍ଣଦ୍ୱୟର ଛେଦବିନ୍ଦୁ</td>
+            <td>୧୮୦°</td>
+            <td>୨</td>
+          </tr>
+          <tr>
+            <td><strong>ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜ</strong></td>
+            <td>୧</td>
+            <td>ନାହିଁ</td>
+            <td>୩୬୦°</td>
+            <td>୧ (ପ୍ରତିସାମ୍ୟ ନାହିଁ)</td>
+          </tr>
+          <tr>
+            <td><strong>ବିଷମବାହୁ ତ୍ରିଭୁଜ</strong></td>
+            <td>୦</td>
+            <td>ନାହିଁ</td>
+            <td>୩୬୦°</td>
+            <td>୧ (ପ୍ରତିସାମ୍ୟ ନାହିଁ)</td>
+          </tr>
+          <tr>
+            <td><strong>ସୁଷମ ଷଡ଼ଭୁଜ</strong></td>
+            <td>୬</td>
+            <td>ଜ୍ୟାମିତିକ କେନ୍ଦ୍ର</td>
+            <td>୬୦°</td>
+            <td>୬</td>
+          </tr>
+          <tr>
+            <td><strong>ବୃତ୍ତ (Circle)</strong></td>
+            <td>ଅସଂଖ୍ୟ (∞)</td>
+            <td>ବୃତ୍ତର କେନ୍ଦ୍ର O</td>
+            <td>ଯେକୌଣସି କୋଣ</td>
+            <td>ଅସଂଖ୍ୟ (∞)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="color: var(--primary-dark); margin: 25px 0 12px;">ସାରଣୀ ୯.୨: ଇଂରାଜୀ ବଡ଼ ଅକ୍ଷର (Capital Letters) ର ପ୍ରତିସାମ୍ୟ ବିଶ୍ଳେଷଣ</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ପ୍ରତିସାମ୍ୟ ପ୍ରକାର</th>
+            <th>ଅକ୍ଷର ସମୂହ</th>
+            <th>ବିଶେଷ ନୋଟ୍</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>କେବଳ ଭୂଲମ୍ବ (Vertical) ଅକ୍ଷ</strong></td>
+            <td>A, M, T, U, V, W, Y</td>
+            <td>ବାମ ଓ ଡାହାଣ ପାର୍ଶ୍ୱ ସର୍ବସମ।</td>
+          </tr>
+          <tr>
+            <td><strong>କେବଳ ଭୂସମାନ୍ତର (Horizontal) ଅକ୍ଷ</strong></td>
+            <td>B, C, D, E, K</td>
+            <td>ଉପର ଓ ତଳ ପାର୍ଶ୍ୱ ସର୍ବସମ।</td>
+          </tr>
+          <tr>
+            <td><strong>ଉଭୟ ଭୂଲମ୍ବ ଓ ଭୂସମାନ୍ତର (୨ଟି ଅକ୍ଷ + କ୍ରମ ୨)</strong></td>
+            <td>H, I, X, O</td>
+            <td>ଏମାନଙ୍କର ୧୮୦° ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ମଧ୍ୟ ଅଛି।</td>
+          </tr>
+          <tr>
+            <td><strong>କୌଣସି ଅକ୍ଷ ନାହିଁ, କିନ୍ତୁ ଘୂର୍ଣ୍ଣନ କ୍ରମ = ୨</strong></td>
+            <td>N, S, Z</td>
+            <td>୧୮୦° ଓଲଟାଇଲେ ଅବିକଳ ସମାନ ଦିଶନ୍ତି।</td>
+          </tr>
+          <tr>
+            <td><strong>କୌଣସି ପ୍ରତିସାମ୍ୟ ନାହିଁ</strong></td>
+            <td>F, G, J, L, P, Q, R</td>
+            <td>ଅକ୍ଷ = ୦, ଘୂର୍ଣ୍ଣନ କ୍ରମ = ୧।</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec-4" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୪</span>
+        <h2>ସମସ୍ତ NCERT ପାଠ୍ୟପୁସ୍ତକ ପ୍ରଶ୍ନୋତ୍ତର (100% Complete NCERT Solutions)</h2>
+      </div>
+
+      <!-- Q1 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୧ (ବିଭାଗ ୯.୧): ଅଧ୍ୟାୟ ଆରମ୍ଭରେ ଦିଆଯାଇଥିବା ଚିତ୍ରଗୁଡ଼ିକ (ଫୁଲ, ଝୋଟି/ରଙ୍ଗୋଲି, ପ୍ରଜାପତି, ଫିରଫିରା) ରେ କେଉଁ ପ୍ରକାର ପ୍ରତିସାମ୍ୟ ଅଛି? ମେଘର ଚିତ୍ର ବିଷୟରେ କ’ଣ କହିବେ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ପ୍ରଜାପତିର ପ୍ରତିସାମ୍ୟ</span>
+              <p>ପ୍ରଜାପତିର ଶରୀର ମଝିରେ ଏକ ଭୂଲମ୍ବ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଥାଏ, ଯାହା ଏହାର ବାମ ଓ ଡାହାଣ ଡେଣାକୁ ସମାନ ଦୁଇ ଭାଗରେ ବିଭକ୍ତ କରେ (ରୈଖିକ ପ୍ରତିସାମ୍ୟ)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ଝୋଟି ଓ ଫୁଲ</span>
+              <p>ଫୁଲ ଏବଂ ବୃତ୍ତାକାର ଝୋଟିରେ ଉଭୟ ରୈଖିକ ପ୍ରତିସାମ୍ୟ (ଏକାଧିକ ଅକ୍ଷ) ଏବଂ ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ଥାଏ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ଫିରଫିରା / ପବନଚକ୍ର</span>
+              <p>ଏଥିରେ କୌଣସି ରୈଖିକ ପ୍ରତିସାମ୍ୟ ନଥାଏ, କିନ୍ତୁ ୪-ପାଖିଆ ପଙ୍ଖା ଭଳି ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ (କ୍ରମ = ୪) ଥାଏ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୪: ମେଘର ଚିତ୍ର</span>
+              <p>ମେଘର ଆକାର ଅନିୟମିତ (Irregular) ହୋଇଥିବାରୁ ଏଥିରେ କୌଣସି ରୈଖିକ କିମ୍ବା ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ନଥାଏ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୨ (ବିଭାଗ ୯.୧): (କ) ବର୍ଗକ୍ଷେତ୍ର ABCD କୁ କର୍ଣ୍ଣ AC ବରାବର ପ୍ରତିଫଳନ କଲେ ଶୀର୍ଷ B ଏବଂ D କେଉଁଠାକୁ ଯିବେ? (ଖ) ଆୟତକ୍ଷେତ୍ରରେ କର୍ଣ୍ଣ ବରାବର ଭାଙ୍ଗିଲେ କ’ଣ ଘଟେ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ବର୍ଗକ୍ଷେତ୍ରର କର୍ଣ୍ଣ ପ୍ରତିଫଳନ</span>
+              <p>ବର୍ଗକ୍ଷେତ୍ରରେ କର୍ଣ୍ଣ AC ଏକ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଅଟେ। AC ବରାବର ଭାଙ୍ଗିଲେ ଶୀର୍ଷ B ଠିକ୍ ଶୀର୍ଷ D ଉପରେ ପଡ଼ିବ ଏବଂ ଶୀର୍ଷ D ଯାଇ B ସ୍ଥାନରେ ମିଶିବ (B ↔ D ସ୍ଥାନାନ୍ତରିତ ହେବେ)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ଆୟତକ୍ଷେତ୍ରର ପର୍ଯ୍ୟବେକ୍ଷଣ</span>
+              <p>ଆୟତକ୍ଷେତ୍ରରେ କର୍ଣ୍ଣ ବରାବର ଭାଙ୍ଗିଲେ ଶୀର୍ଷ B ଯାଇ D ଉପରେ ପଡ଼େ ନାହିଁ, ବରଂ ବାହାରକୁ ବାହାରି ରହେ। ତେଣୁ ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ନୁହେଁ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୩ (ବିଭାଗ ୯.୧): (କ) ଗୋଟିଏ କାଗଜକୁ ଦୁଇଥର ଭାଙ୍ଗି ଗୋଟିଏ କଣା କଲେ ଖୋଲିବା ପରେ କେତୋଟି କଣା ଦେଖାଯିବ? (ଖ) ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଏବଂ ଗୋଟିଏ ପାର୍ଶ୍ୱର କଣା ଦିଆଯାଇଥିଲେ ଅନ୍ୟ ପାର୍ଶ୍ୱର ଅନୁପସ୍ଥିତ କଣା କିପରି ଚିହ୍ନଟ କରାଯିବ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: (କ) ର ସମାଧାନ</span>
+              <p>କାଗଜକୁ ଥରେ ଭାଙ୍ଗିଲେ ୨ ପରସ୍ତ, ଦୁଇଥର ଭାଙ୍ଗିଲେ ୪ ପରସ୍ତ ହୁଏ। ଗୋଟିଏ କଣା କଲେ ପ୍ରତ୍ୟେକ ପରସ୍ତ କଣା ହୁଏ, ତେଣୁ କାଗଜ ଖୋଲିଲେ ଠିକ୍ <strong>୪ଟି କଣା</strong> ଦେଖାଯିବ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: (ଖ) ର ସମାଧାନ</span>
+              <p>ପ୍ରଦତ୍ତ କଣାରୁ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଉପରକୁ ଏକ ଲମ୍ବ ଟାଣନ୍ତୁ। ଅକ୍ଷର ଅପର ପାର୍ଶ୍ୱରେ ସେହି ଲମ୍ବ ରେଖା ଉପରେ ସମାନ ଦୂରତା ମାପି ଅନୁପସ୍ଥିତ କଣାଟିକୁ ଚିହ୍ନଟ କରାଯିବ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୪ (ବିଭାଗ ୯.୧): ନିମ୍ନଲିଖିତ ଚିତ୍ରଗୁଡ଼ିକର କେତୋଟି ଲେଖାଏଁ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଅଛି? (କ) ସୁଷମ ପଞ୍ଚଭୁଜ (ଖ) ସୁଷମ ଷଡ଼ଭୁଜ (ଗ) ଏକ ସାଧାରଣ ବିଷମବାହୁ ତ୍ରିଭୁଜ।</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ସୁଷମ ପଞ୍ଚଭୁଜ</span>
+              <p>ସୁଷମ ବହୁଭୁଜ ନିୟମ ଅନୁସାରେ, ଏହାର ୫ଟି ସମାନ ବାହୁ ଥିବାରୁ ଏହାର ଠିକ୍ <strong>୫ଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ</strong> ଅଛି (ପ୍ରତ୍ୟେକ ଶୀର୍ଷରୁ ସମ୍ମୁଖ ବାହୁର ମଧ୍ୟବିନ୍ଦୁ ପର୍ଯ୍ୟନ୍ତ)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ସୁଷମ ଷଡ଼ଭୁଜ</span>
+              <p>ଏହାର ୬ଟି ସମାନ ବାହୁ ଥିବାରୁ ଏହାର ଠିକ୍ <strong>୬ଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ</strong> ଅଛି (୩ଟି ବିପରୀତ ଶୀର୍ଷ ଯୋଡ଼ି ଏବଂ ୩ଟି ବିପରୀତ ବାହୁର ମଧ୍ୟବିନ୍ଦୁ ଯୋଡ଼ି)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ବିଷମବାହୁ ତ୍ରିଭୁଜ</span>
+              <p>ଏହାର ସମସ୍ତ ବାହୁ ଓ କୋଣ ଅସମାନ, ତେଣୁ ଏହାର <strong>ଶୂନ (୦) ଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ</strong> ଅଛି (କୌଣସି ଅକ୍ଷ ନାହିଁ)।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୫ (ବିଭାଗ ୯.୧): ଉଦାହରଣ ଦିଅନ୍ତୁ: (କ) ଏପରି ଏକ ଚିତ୍ର ଯାହାର ଭୂଲମ୍ବ ଅକ୍ଷ ଅଛି କିନ୍ତୁ ଭୂସମାନ୍ତର ଅକ୍ଷ ନାହିଁ। (ଖ) ଏପରି ଏକ ଚତୁର୍ଭୁଜ ଯାହାର ଭୂସମାନ୍ତର ଅକ୍ଷ ଅଛି କିନ୍ତୁ ଭୂଲମ୍ବ ଅକ୍ଷ ନାହିଁ।</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: (କ) ର ଉଦାହରଣ</span>
+              <p>ଜ୍ୟାମିତିକ ଚିତ୍ର: ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜ (Isosceles Triangle)। ଅକ୍ଷର: <strong>A, M, T</strong>।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: (ଖ) ର ଉଦାହରଣ</span>
+              <p>ଚତୁର୍ଭୁଜ: ଆଡୁଆ ଭାବରେ ରଖାଯାଇଥିବା କାଇଟ୍ (Kite) କିମ୍ବା ସମଦ୍ୱିବାହୁ ଟ୍ରାପିଜିୟମ୍ (ଯାହାର ସମାନ୍ତର ବାହୁ ଭୂଲମ୍ବ ଥିବ)। ଅକ୍ଷର: <strong>B, C, D, E</strong>।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q6 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୬ (ବିଭାଗ ୯.୨): (କ) ୩-ପାଖିଆ ପଙ୍ଖାର କ୍ଷୁଦ୍ରତମ ଘୂର୍ଣ୍ଣନ କୋଣ ଓ କ୍ରମ କେତେ? (ଖ) ୭ଟି ସମାନ ବାହୁ ଥିବା ଏକ ତାରକା ଚିତ୍ରର କ୍ଷୁଦ୍ରତମ ଘୂର୍ଣ୍ଣନ କୋଣ କେତେ? ଏହା ଏକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା କି? ଏହାକୁ ମିଶ୍ର ଭଗ୍ନାଂଶରେ ପ୍ରକାଶ କରନ୍ତୁ।</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ୩-ପାଖିଆ ପଙ୍ଖା</span>
+              <p>ଘୂର୍ଣ୍ଣନ କୋଣ = <span class="frac"><sup>୩୬୦°</sup><sub>୩</sub></span> = <strong>୧୨୦°</strong>। ଘୂର୍ଣ୍ଣନ କ୍ରମ = <strong>୩</strong>।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ୭-ବାହୁ ବିଶିଷ୍ଟ ତାରକା</span>
+              <p>କ୍ଷୁଦ୍ରତମ ଘୂର୍ଣ୍ଣନ କୋଣ = <span class="frac"><sup>୩୬୦°</sup><sub>୭</sub></span>।<br>
+                 ୩୬୦ ÷ ୭ = ୫୧, ଭାଗଶେଷ ୩।<br>
+                 ଅତଏବ କୋଣ = <strong>୫୧ <span class="frac"><sup>୩</sup><sub>୭</sub></span>°</strong>।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ନିଷ୍କର୍ଷ</span>
+              <p>ନାଁ, ଏହା ଏକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ନୁହେଁ। ଏହା ଏକ ମିଶ୍ର ଭଗ୍ନାଂଶ <strong>୫୧ <span class="frac"><sup>୩</sup><sub>୭</sub></span>°</strong> ଅଟେ। ଏହାର ଘୂର୍ଣ୍ଣନ କ୍ରମ = <strong>୭</strong>।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q7 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୭ (ବିଭାଗ ୯.୨): ଏପରି ଚିତ୍ରର ଉଦାହରଣ ଦିଅନ୍ତୁ: (କ) ଯାହାର ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ଅଛି କିନ୍ତୁ କୌଣସି ରୈଖିକ ପ୍ରତିସାମ୍ୟ ନାହିଁ। (ଖ) ଯାହାର ରୈଖିକ ପ୍ରତିସାମ୍ୟ ଅଛି କିନ୍ତୁ ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ନାହିଁ।</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: (କ) ର ସମାଧାନ</span>
+              <p>ଜ୍ୟାମିତିକ ଚିତ୍ର: ସାଧାରଣ ସାମାନ୍ତରିକ ଚିତ୍ର (Parallelogram) କିମ୍ବା ପବନଚକ୍ର (Pinwheel)।<br>
+                 ଅକ୍ଷର: <strong>S, Z, N</strong> (ଏମାନଙ୍କୁ ୧୮୦° ଘୂରାଇଲେ ସମାନ ଦିଶନ୍ତି କିନ୍ତୁ ଭାଙ୍ଗିଲେ ଦୁଇ ଭାଗ ମିଳନ୍ତି ନାହିଁ)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: (ଖ) ର ସମାଧାନ</span>
+              <p>ଜ୍ୟାମିତିକ ଚିତ୍ର: ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜ, କାଇଟ୍ (Kite) କିମ୍ବା ସମଦ୍ୱିବାହୁ ଟ୍ରାପିଜିୟମ୍।<br>
+                 ଅକ୍ଷର: <strong>A, M, V, W</strong>।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q8 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୮ (ଅଧ୍ୟାୟ ୧ ସହିତ ସଂଯୋଗ): ସୁଷମ ବହୁଭୁଜ କ୍ରମ (ସମବାହୁ ତ୍ରିଭୁଜ, ବର୍ଗକ୍ଷେତ୍ର, ପଞ୍ଚଭୁଜ, ଷଡ଼ଭୁଜ...) ର ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ସଂଖ୍ୟାରୁ ଆପଣ କେଉଁ ସଂଖ୍ୟା ଶ୍ରେଣୀ ପାଉଛନ୍ତି?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ତଥ୍ୟ ସଂଗ୍ରହ</span>
+              <p>ସମବାହୁ ତ୍ରିଭୁଜ = ୩, ବର୍ଗକ୍ଷେତ୍ର = ୪, ସୁଷମ ପଞ୍ଚଭୁଜ = ୫, ସୁଷମ ଷଡ଼ଭୁଜ = ୬, ସୁଷମ ସପ୍ତଭୁଜ = ୭...</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ସଂଖ୍ୟା ଧାରା (Number Pattern)</span>
+              <p>ମିଳୁଥିବା ସଂଖ୍ୟା ଶ୍ରେଣୀଟି ହେଉଛି: <strong>୩, ୪, ୫, ୬, ୭, ୮, ...</strong>।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ନିୟମ</span>
+              <p>ଏହା ୩ ରୁ ଆରମ୍ଭ ହୋଇଥିବା କ୍ରମିକ ଗଣନ ସଂଖ୍ୟା (Natural Numbers starting from 3) ଅଟେ, ଯାହାର ସାଧାରଣ ପଦ Tₙ = n + ୨ (ଯେଉଁଠାରେ n = ୧, ୨, ୩...)।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec-5" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୫</span>
+        <h2>ପରୀକ୍ଷା ଉପଯୋଗୀ ପ୍ରଶ୍ନୋତ୍ତର ବ୍ୟାଙ୍କ (Competency Question Bank)</h2>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin-bottom: 15px;">୫.୧ ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନୋତ୍ତର (Interactive MCQs with Trap Analysis)</h3>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="q1">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୧: ଏକ ଆୟତକ୍ଷେତ୍ରର କେତୋଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଥାଏ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 0, false, 'ଭୁଲ୍! ଆୟତକ୍ଷେତ୍ରର କେବଳ ୧ଟି ନୁହେଁ।')">୧</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 1, true, 'ସଠିକ୍! ଆୟତକ୍ଷେତ୍ରର କେବଳ ୨ଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଥାଏ (ଭୂଲମ୍ବ ଓ ଭୂସମାନ୍ତର ମଧ୍ୟବିନ୍ଦୁ ରେଖା)। କର୍ଣ୍ଣ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ନୁହେଁ!')">୨</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 2, false, 'ଭୁଲ୍ ଟ୍ରାପ୍! ୪ଟି ଅକ୍ଷ ବର୍ଗକ୍ଷେତ୍ରର ଥାଏ, ଆୟତକ୍ଷେତ୍ରର ନୁହେଁ।')">୪</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 3, false, 'ଭୁଲ୍! ବୃତ୍ତର ଅସଂଖ୍ୟ ଥାଏ।')">ଅସଂଖ୍ୟ</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q1"></div>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="q2">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୨: ଏକ ସୁଷମ ଷଡ଼ଭୁଜ (Regular Hexagon) ର ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟର କ୍ରମ କେତେ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 0, false, 'ଭୁଲ୍!')">୩</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 1, false, 'ଭୁଲ୍!')">୪</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 2, true, 'ସଠିକ୍! ସୁଷମ ଷଡ଼ଭୁଜର ୬ଟି ସମାନ ବାହୁ ଥିବାରୁ ଏହାର ଘୂର୍ଣ୍ଣନ କୋଣ ୬୦° ଏବଂ କ୍ରମ = ୩୬୦°/୬୦° = ୬।')">୬</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 3, false, 'ଭୁଲ୍!')">୮</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q2"></div>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="q3">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୩: ଇଂରାଜୀ ବର୍ଣ୍ଣମାଳାର କେଉଁ ଅକ୍ଷରଟିର କୌଣସି ରୈଖିକ ପ୍ରତିସାମ୍ୟ ନାହିଁ କିନ୍ତୁ ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ କ୍ରମ ୨ ଅଛି?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 0, false, 'ଭୁଲ୍! H ର ୨ଟି ରୈଖିକ ଅକ୍ଷ ଅଛି।')">H</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 1, false, 'ଭୁଲ୍! M ର ୧ଟି ଭୂଲମ୍ବ ଅକ୍ଷ ଅଛି।')">M</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 2, true, 'ସଠିକ୍! S କୁ ଭାଙ୍ଗିଲେ ମିଶେ ନାହିଁ, କିନ୍ତୁ ୧୮୦° ଘୂରାଇଲେ ସମାନ ଦିଶେ (କ୍ରମ = ୨)।')">S</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 3, false, 'ଭୁଲ୍! E ର ଭୂସମାନ୍ତର ଅକ୍ଷ ଅଛି।')">E</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q3"></div>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="q4">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୪: ଏକ ବୃତ୍ତର କେତୋଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଥାଏ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 0, false, 'ଭୁଲ୍!')">୨ଟି</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 1, false, 'ଭୁଲ୍!')">୪ଟି</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 2, false, 'ଭୁଲ୍!')">୩୬୦ଟି</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 3, true, 'ସଠିକ୍! କେନ୍ଦ୍ର ଦେଇ ଯାଇଥିବା ପ୍ରତ୍ୟେକ ବ୍ୟାସ ଏକ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ, ତେଣୁ ବୃତ୍ତର ଅସଂଖ୍ୟ (Infinite) ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଥାଏ।')">ଅସଂଖ୍ୟ (Infinite)</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q4"></div>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="q5">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୫: ଯଦି ଏକ ଚିତ୍ରର ଘୂର୍ଣ୍ଣନ କୋଣ ୪୫° ହୁଏ, ତେବେ ଏହାର ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟର କ୍ରମ (Order) କେତେ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 0, false, 'ଭୁଲ୍!')">୪</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 1, false, 'ଭୁଲ୍!')">୬</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 2, true, 'ସଠିକ୍! କ୍ରମ = ୩୬୦° ÷ ୪୫° = ୮।')">୮</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 3, false, 'ଭୁଲ୍!')">୧୦</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q5"></div>
+      </div>
+
+      <!-- 5.2 Assertion & Reasoning -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 15px;">୫.୨ ନିଶ୍ଚିତୋକ୍ତି ଓ ଯୁକ୍ତିମୂଳକ ପ୍ରଶ୍ନୋତ୍ତର (Assertion &amp; Reasoning)</h3>
+      <div class="step-box" style="margin-bottom: 20px;">
+        <p><strong>ପ୍ରଶ୍ନ ୧:</strong><br>
+           <strong>ନିଶ୍ଚିତୋକ୍ତି (A):</strong> ଏକ ସମବାହୁ ତ୍ରିଭୁଜର ୩ଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଏବଂ ଘୂର୍ଣ୍ଣନ କ୍ରମ ୩ ଥାଏ।<br>
+           <strong>ଯୁକ୍ତି (R):</strong> n-ବାହୁ ବିଶିଷ୍ଟ ସୁଷମ ବହୁଭୁଜର n ଟି ରୈଖିକ ଅକ୍ଷ ଏବଂ ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟର କ୍ରମ n ହୋଇଥାଏ।</p>
+        <p style="color: var(--success); font-weight: 700;">ଉତ୍ତର: (A) A ଏବଂ R ଉଭୟ ସତ୍ୟ ଏବଂ R ହେଉଛି A ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</p>
+      </div>
+
+      <div class="step-box" style="margin-bottom: 20px;">
+        <p><strong>ପ୍ରଶ୍ନ ୨:</strong><br>
+           <strong>ନିଶ୍ଚିତୋକ୍ତି (A):</strong> ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣ ଏହାର ଏକ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଅଟେ।<br>
+           <strong>ଯୁକ୍ତି (R):</strong> ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣ ଏହାକୁ ଦୁଇଟି ସର୍ବସମ ତ୍ରିଭୁଜରେ ବିଭକ୍ତ କରେ।</p>
+        <p style="color: var(--danger); font-weight: 700;">ଉତ୍ତର: (D) A ମିଥ୍ୟା କିନ୍ତୁ R ସତ୍ୟ। (ତ୍ରିଭୁଜ ଦୁଇଟି ସର୍ବସମ ହେଲେ ମଧ୍ୟ ଭାଙ୍ଗିଲେ ପରସ୍ପର ଉପରେ ପଡ଼ନ୍ତି ନାହିଁ, ତେଣୁ କର୍ଣ୍ଣ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ନୁହେଁ)।</p>
+      </div>
+
+      <div class="step-box" style="margin-bottom: 20px;">
+        <p><strong>ପ୍ରଶ୍ନ ୩:</strong><br>
+           <strong>ନିଶ୍ଚିତୋକ୍ତି (A):</strong> ଇଂରାଜୀ ଅକ୍ଷର 'O' ର ଉଭୟ ଅସଂଖ୍ୟ ରୈଖିକ ପ୍ରତିସାମ୍ୟ ଏବଂ ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ଥାଏ (ଯଦି ଏହା ପୂର୍ଣ୍ଣ ବୃତ୍ତାକାର ହୁଏ)।<br>
+           <strong>ଯୁକ୍ତି (R):</strong> ଏକ ବୃତ୍ତର କେନ୍ଦ୍ର ଦେଇ ଯାଇଥିବା ଯେକୌଣସି ରେଖା ଏହାର ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଅଟେ।</p>
+        <p style="color: var(--success); font-weight: 700;">ଉତ୍ତର: (A) A ଏବଂ R ଉଭୟ ସତ୍ୟ ଏବଂ R ହେଉଛି ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</p>
+      </div>
+
+      <div class="step-box" style="margin-bottom: 20px;">
+        <p><strong>ପ୍ରଶ୍ନ ୪:</strong><br>
+           <strong>ନିଶ୍ଚିତୋକ୍ତି (A):</strong> ଏକ ସାଧାରଣ ସାମାନ୍ତରିକ ଚିତ୍ରର କୌଣସି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ନାହିଁ।<br>
+           <strong>ଯୁକ୍ତି (R):</strong> ସାମାନ୍ତରିକ ଚିତ୍ରର ବିପରୀତ ବାହୁଗୁଡ଼ିକ ସମାନ ଓ ସମାନ୍ତର।</p>
+        <p style="color: var(--primary-dark); font-weight: 700;">ଉତ୍ତର: (B) A ଏବଂ R ଉଭୟ ସତ୍ୟ, କିନ୍ତୁ R ସଠିକ୍ କାରଣ ନୁହେଁ (କୋଣ ସମକୋଣ ନଥିବାରୁ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ନଥାଏ)।</p>
+      </div>
+
+      <!-- 5.3 Short Answer Questions -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 15px;">୫.୩ ସଂକ୍ଷିପ୍ତ ଉତ୍ତରମୂଳକ ପ୍ରଶ୍ନୋତ୍ତର (Short Answer Questions — 2M / 3M)</h3>
+      <div class="step-box" style="margin-bottom: 15px;">
+        <strong>ପ୍ରଶ୍ନ ୧: ରୈଖିକ ପ୍ରତିସାମ୍ୟ ଓ ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ମଧ୍ୟରେ ମୁଖ୍ୟ ପାର୍ଥକ୍ୟ କ’ଣ?</strong>
+        <p><strong>ଉତ୍ତର:</strong> ରୈଖିକ ପ୍ରତିସାମ୍ୟରେ ଚିତ୍ରକୁ ଏକ ଅକ୍ଷ ବରାବର <strong>ଭଙ୍ଗାଯାଏ (Folded/Reflected)</strong>, ଯେଉଁଥିରେ ଦୁଇଟି ଅର୍ଦ୍ଧାଂଶ ପରସ୍ପର ଉପରେ ପଡ଼ନ୍ତି। ଅପରପକ୍ଷରେ, ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟରେ ଚିତ୍ରକୁ ଏକ ସ୍ଥିର କେନ୍ଦ୍ର ଚାରିପାଖରେ ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ କୋଣରେ <strong>ଘୂରାଯାଏ (Rotated)</strong>।</p>
+      </div>
+      <div class="step-box" style="margin-bottom: 15px;">
+        <strong>ପ୍ରଶ୍ନ ୨: ଏକ ଘଣ୍ଟାର ମିନିଟ୍ କଣ୍ଟା ୧୨ ରୁ ଆରମ୍ଭ କରି ପୁଣି ୧୨ କୁ ଫେରିବା ମଧ୍ୟରେ କେତେ ଡିଗ୍ରୀ ଘୂର୍ଣ୍ଣନ କରେ ଏବଂ ଏହାର ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ କ୍ରମ କେତେ?</strong>
+        <p><strong>ଉତ୍ତର:</strong> ମିନିଟ୍ କଣ୍ଟା ପୂର୍ଣ୍ଣ ଏକ ଘଣ୍ଟାରେ <strong>୩୬୦°</strong> ଘୂର୍ଣ୍ଣନ କରେ। ଯଦି କେବଳ କଣ୍ଟାଟିକୁ ବିଚାର କରାଯାଏ (ଏହାର ଏକ ପାର୍ଶ୍ୱରେ ତୀର ଥାଏ), ତେବେ ୩୬୦° ଘୂରିବା ପରେ ହିଁ ଏହା ପୂର୍ବପରି ଦେଖାଯାଏ, ତେଣୁ ଏହାର ଘୂର୍ଣ୍ଣନ କ୍ରମ = <strong>୧</strong> (ଅର୍ଥାତ୍ ଏହାର କୌଣସି ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ନାହିଁ)।</p>
+      </div>
+      <div class="step-box" style="margin-bottom: 15px;">
+        <strong>ପ୍ରଶ୍ନ ୩: ଇଂରାଜୀ ବର୍ଣ୍ଣମାଳାର ଏପରି ୪ଟି ଅକ୍ଷର ଲେଖନ୍ତୁ ଯାହାର ଉଭୟ ଭୂଲମ୍ବ ଓ ଭୂସମାନ୍ତର ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ରହିଛି।</strong>
+        <p><strong>ଉତ୍ତର:</strong> ସେହି ୪ଟି ଅକ୍ଷର ହେଉଛନ୍ତି: <strong>H, I, O, X</strong>।</p>
+      </div>
+
+      <!-- 5.4 Competency Case Studies -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 15px;">୫.୪ ବ୍ୟବହାରିକ କେସ୍ ଷ୍ଟଡି (Real-World Case Studies)</h3>
+      <div class="callout-act">
+        <div class="callout-title">📋 କେସ୍ ଷ୍ଟଡି: କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିରର ଚକ୍ର (The Wheel of Konark)</div>
+        ଓଡ଼ିଶାର ବିଶ୍ୱପ୍ରସିଦ୍ଧ କୋଣାର୍କ ସୂର୍ଯ୍ୟ ମନ୍ଦିରରେ ୨୪ଟି ପଥର ଖୋଦିତ ବିଶାଳ ରଥଚକ ରହିଛି। ପ୍ରତ୍ୟେକ ଚକରେ ୮ଟି ମୁଖ୍ୟ ଅର (Major Spokes) ଏବଂ ୮ଟି ଗୌଣ ଅର (Minor Spokes) ମିଶି ସମାନ ଦୂରତାରେ ମୋଟ ୧୬ଟି ଅର କେନ୍ଦ୍ରରୁ ପରିଧି ଆଡ଼କୁ ବିସ୍ତାରିତ ହୋଇଛନ୍ତି।
+        <ol style="margin: 10px 0 0 20px;">
+          <li><strong>ପ୍ରଶ୍ନ (କ):</strong> ଏହି ଚକ୍ରର କ୍ଷୁଦ୍ରତମ ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ କୋଣ କେତେ?</li>
+          <li><strong>ପ୍ରଶ୍ନ (ଖ):</strong> ଏହି ଚକ୍ରର ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟର କ୍ରମ (Order) କେତେ?</li>
+          <li><strong>ପ୍ରଶ୍ନ (ଗ):</strong> ଚକ୍ରଟିର କେନ୍ଦ୍ର ଦେଇ ଯାଇଥିବା ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ସଂଖ୍ୟା କେତେ?</li>
+        </ol>
+        <div style="margin-top: 10px; background: white; padding: 12px; border-radius: 8px;">
+          <strong>ସମାଧାନ:</strong><br>
+          (କ) ଚକ୍ରରେ ମୋଟ ୧୬ଟି ସମଦୂରବର୍ତ୍ତୀ ଅର ଅଛି। ଅତଏବ କ୍ଷୁଦ୍ରତମ ଘୂର୍ଣ୍ଣନ କୋଣ = ୩୬୦° ÷ ୧୬ = <strong>୨୨.୫°</strong>।<br>
+          (ଖ) ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟର କ୍ରମ = <strong>୧୬</strong>।<br>
+          (ଗ) ସମମିତିକ ଗଠନ ହେତୁ ଏହାର <strong>୧୬ଟି</strong> ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ରହିଛି (୮ଟି ବିପରୀତ ଅର ଯୋଡ଼ି ଏବଂ ୮ଟି ମଧ୍ୟବର୍ତ୍ତୀ ରେଖା)। ଏହା ଭାରତୀୟ ସ୍ଥାପତ୍ୟ କଳାର ଏକ ଚରମ ନିଦର୍ଶନ।
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec-6" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୬</span>
+        <h2>ପରୀକ୍ଷା ହଲ୍ ଟ୍ରାପ୍ ଆଲର୍ଟ ଓ ୧୫ ଦ୍ରୁତ ୱାନ୍-ଲାଇନର୍ (Exam Traps &amp; One-Liners)</h2>
+      </div>
+
+      <div class="callout-warn">
+        <div class="callout-title">⚠️ ପରୀକ୍ଷା ହଲ୍ରେ ହେଉଥିବା ୫ଟି ସାଂଘାତିକ ଭୁଲ୍ (Top 5 Exam Hall Traps)</div>
+        <ol style="margin-left: 20px;">
+          <li><strong>ଟ୍ରାପ୍ ୧ (ଆୟତକ୍ଷେତ୍ର କର୍ଣ୍ଣ):</strong> ଆୟତକ୍ଷେତ୍ରର ୪ଟି ଅକ୍ଷ ଅଛି ବୋଲି ଲେଖିବା। ମନେରଖନ୍ତୁ: ଆୟତକ୍ଷେତ୍ରର କେବଳ <strong>୨ଟି</strong> ଅକ୍ଷ ଥାଏ। କର୍ଣ୍ଣ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ନୁହେଁ।</li>
+          <li><strong>ଟ୍ରାପ୍ ୨ (ଘୂର୍ଣ୍ଣନ କ୍ରମ ୧ ର ଭ୍ରାନ୍ତି):</strong> ପ୍ରତ୍ୟେକ ଚିତ୍ରକୁ ୩୬୦° ଘୂରାଇଲେ ତାହା ପୂର୍ବପରି ଦେଖାଯାଏ। କିନ୍ତୁ ଯଦି କୌଣସି ଚିତ୍ର କେବଳ ୩୬୦° ରେ ଥରେ ହିଁ ମିଳେ, ତେବେ ତାର ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ନାହିଁ ବୋଲି ଧରାଯାଏ (Order 1 means NO rotational symmetry)। ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ଥିବା ପାଇଁ Order ଅତିକମ୍ରେ ୨ ହେବା ଆବଶ୍ୟକ।</li>
+          <li><strong>ଟ୍ରାପ୍ ୩ (ସାମାନ୍ତରିକ ଚିତ୍ର ଭୁଲ୍):</strong> ସାଧାରଣ ସାମାନ୍ତରିକ ଚିତ୍ରର ରୈଖିକ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ୦ ଥାଏ, କିନ୍ତୁ ଘୂର୍ଣ୍ଣନ କ୍ରମ ୨ ଥାଏ। ଛାତ୍ରମାନେ ଏହାକୁ ଭୁଲ୍ରେ ୨ଟି ଅକ୍ଷ ଲେଖିଦିଅନ୍ତି।</li>
+          <li><strong>ଟ୍ରାପ୍ ୪ (କାଗଜ କଣା ଫଳାଫଳ):</strong> ଥରେ ଭାଙ୍ଗିଲେ ୨ଟି କଣା, ଦୁଇଥର ଭାଙ୍ଗିଲେ ୪ଟି କଣା ହୁଏ। କେତେକ ଛାତ୍ର ୨ଥର ଭାଙ୍ଗିଲେ ୨ଟି କଣା ଲେଖି ଭୁଲ୍ କରନ୍ତି।</li>
+          <li><strong>ଟ୍ରାପ୍ ୫ (ସୁଷମ ବହୁଭୁଜ ସର୍ତ୍ତ):</strong> କେବଳ ସୁଷମ (Regular) ବହୁଭୁଜରେ ହିଁ n ଟି ଅକ୍ଷ ଥାଏ। ଯଦି ବହୁଭୁଜଟି ସୁଷମ ନୁହେଁ (ଯଥା ବିଷମବାହୁ ଷଡ଼ଭୁଜ), ତେବେ ଏହି ନିୟମ ଲାଗୁ ହେବ ନାହିଁ।</li>
+        </ol>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin: 25px 0 15px;">🚀 ୧୫ ଦ୍ରୁତ ପରୀକ୍ଷା ୱାନ୍-ଲାଇନର୍ (15 Rapid Revision One-Liners)</h3>
+      <ol class="one-liner-list">
+        <li>ଚିତ୍ରକୁ ଯେଉଁ ରେଖା ବରାବର ଭାଙ୍ଗିଲେ ଦୁଇଟି ଅର୍ଦ୍ଧାଂଶ ପରସ୍ପରକୁ ସମ୍ପୂର୍ଣ୍ଣ ଘୋଡ଼ାଇ ପାରନ୍ତି, ତାହାକୁ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ କୁହାଯାଏ।</li>
+        <li>ଏକ n-ବାହୁ ବିଶିଷ୍ଟ ସୁଷମ ବହୁଭୁଜର ଠିକ୍ n ଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଏବଂ ଘୂର୍ଣ୍ଣନ କ୍ରମ n ଥାଏ।</li>
+        <li>ସମବାହୁ ତ୍ରିଭୁଜର ୩ଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଥାଏ ଏବଂ ଏହାର କ୍ଷୁଦ୍ରତମ ଘୂର୍ଣ୍ଣନ କୋଣ ୧୨୦°।</li>
+        <li>ବର୍ଗକ୍ଷେତ୍ରର ୪ଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଥାଏ (୨ଟି ବାହୁର ମଧ୍ୟବିନ୍ଦୁ ରେଖା + ୨ଟି କର୍ଣ୍ଣ)।</li>
+        <li>ଆୟତକ୍ଷେତ୍ରର କେବଳ ୨ଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଥାଏ; ଏହାର କର୍ଣ୍ଣ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ନୁହେଁ।</li>
+        <li>ବୃତ୍ତର କେନ୍ଦ୍ର ଦେଇ ଯାଇଥିବା ପ୍ରତ୍ୟେକ ବ୍ୟାସ ଏକ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ, ତେଣୁ ବୃତ୍ତର ଅସଂଖ୍ୟ (∞) ଅକ୍ଷ ଥାଏ।</li>
+        <li>୩୬୦° ପୂର୍ଣ୍ଣ ଘୂର୍ଣ୍ଣନ ମଧ୍ୟରେ ଯେତେ ଥର ଚିତ୍ରଟି ମୂଳ ରୂପ ସହ ମିଶେ, ତାହାକୁ ଘୂର୍ଣ୍ଣନ କ୍ରମ (Order) କୁହାଯାଏ।</li>
+        <li>ଘୂର୍ଣ୍ଣନ କ୍ରମ (Order) = ୩୬୦° ÷ କ୍ଷୁଦ୍ରତମ ଘୂର୍ଣ୍ଣନ କୋଣ (θ)।</li>
+        <li>କୌଣସି ଚିତ୍ରର ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ଥିବା ପାଇଁ ଏହାର କ୍ରମ ଅତିକମ୍ରେ ୨ ହେବା ଆବଶ୍ୟକ।</li>
+        <li>ଇଂରାଜୀ ଅକ୍ଷର H, I, O, X ର ଉଭୟ ୨ଟି ରୈଖିକ ଅକ୍ଷ ଏବଂ ଘୂର୍ଣ୍ଣନ କ୍ରମ ୨ ଅଛି।</li>
+        <li>ଇଂରାଜୀ ଅକ୍ଷର N, S, Z ର କୌଣସି ରୈଖିକ ପ୍ରତିସାମ୍ୟ ନାହିଁ, କିନ୍ତୁ ଘୂର୍ଣ୍ଣନ କ୍ରମ ୨ ଅଛି।</li>
+        <li>ବିଷମବାହୁ ତ୍ରିଭୁଜ ଏବଂ ସାଧାରଣ ଟ୍ରାପିଜିୟମ୍ର କୌଣସି ରୈଖିକ କିମ୍ବା ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ନଥାଏ।</li>
+        <li>କାଗଜକୁ ଦୁଇଥର ଭାଙ୍ଗି ଗୋଟିଏ କଣା କଲେ କାଗଜ ଖୋଲିବା ପରେ ୪ଟି କଣା ଦେଖାଯାଏ।</li>
+        <li>ସାଧାରଣ ସାମାନ୍ତରିକ ଚିତ୍ରର ରୈଖିକ ଅକ୍ଷ ୦ ଏବଂ ଘୂର୍ଣ୍ଣନ କ୍ରମ ୨ ଅଟେ।</li>
+        <li>ତାଜମହଲ ଏବଂ ପ୍ରଜାପତିର ଶରୀର ରୈଖିକ ପ୍ରତିସାମ୍ୟର ପ୍ରାକୃତିକ ଓ ସ୍ଥାପତ୍ୟଗତ ଚରମ ଉଦାହରଣ।</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="ଉପରକୁ ଯାଆନ୍ତୁ">↑</button>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      // Back to top button
+      const btn = document.getElementById('backToTopBtn');
+      if (winScroll > 300) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+
+    // Expand/Collapse All
+    function toggleAllAnswers(open) {
+      document.querySelectorAll('details.ans-box').forEach(d => d.open = open);
+    }
+
+    // Interactive Quiz Engine
+    function checkQuiz(cardId, optIdx, isCorrect, feedbackText) {
+      const card = document.getElementById(cardId);
+      const btns = card.querySelectorAll('.quiz-opt-btn');
+      const fb = document.getElementById('fb-' + cardId);
+
+      btns.forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === optIdx) {
+          if (isCorrect) {
+            b.classList.add('correct');
+          } else {
+            b.classList.add('wrong');
+          }
+        }
+      });
+
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.style.background = '#dcfce7';
+        fb.style.color = '#15803d';
+        fb.innerHTML = '<strong>ଠିକ୍ ଉତ୍ତର!</strong> ' + feedbackText;
+      } else {
+        fb.style.background = '#fee2e2';
+        fb.style.color = '#b91c1c';
+        fb.innerHTML = '<strong>ଭୁଲ୍ ଉତ୍ତର!</strong> ' + feedbackText;
+      }
+    }
+
+    // Audio Speech Synthesis
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      if ('speechSynthesis' in window) {
+        if (isSpeaking) {
+          window.speechSynthesis.cancel();
+          isSpeaking = false;
+          document.getElementById('audio-text').textContent = 'ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ';
+          document.getElementById('audio-icon').textContent = '🔊';
+        } else {
+          const text = "ନମସ୍କାର ପିଲାମାନେ! ଆଜି ଆମେ ଶ୍ରେଣୀ ୬ ଗଣିତର ନବମ ଅଧ୍ୟାୟ 'ପ୍ରତିସାମ୍ୟ' ବିଷୟରେ ଆଲୋଚନା କରିବା। ଏହି ଅଧ୍ୟାୟରେ ରୈଖିକ ପ୍ରତିସାମ୍ୟ ଏବଂ ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ ବିଷୟରେ ବିସ୍ତୃତ ଭାବେ ବୁଝାଯାଇଛି। ସୁଷମ ବହୁଭୁଜ ନିୟମ ଅନୁସାରେ ଏକ ଏନ୍-ବାହୁ ବିଶିଷ୍ଟ ସୁଷମ ବହୁଭୁଜର ଏନ୍-ଟି ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ଥାଏ। ବର୍ଗକ୍ଷେତ୍ରର ଚାରୋଟି ଅକ୍ଷ ଥିବାବେଳେ ଆୟତକ୍ଷେତ୍ରର କେବଳ ଦୁଇଟି ଅକ୍ଷ ଥାଏ। ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣ ପ୍ରତିସାମ୍ୟ ଅକ୍ଷ ନୁହେଁ। ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟର କ୍ରମ ତିନିଶହ ଷାଠିଏ ଡିଗ୍ରୀ ହରଣ ଘୂର୍ଣ୍ଣନ କୋଣ ସୂତ୍ରରୁ ବାହାର କରାଯାଏ। ମନଧ୍ୟାନ ଦେଇ ପଢ଼ନ୍ତୁ ଏବଂ ପରୀକ୍ଷାରେ ଶତପ୍ରତିଶତ ସଫଳତା ହାସଲ କରନ୍ତୁ!";
+          const utter = new SpeechSynthesisUtterance(text);
+          utter.lang = 'or-IN';
+          utter.rate = 0.95;
+          utter.onend = () => {
+            isSpeaking = false;
+            document.getElementById('audio-text').textContent = 'ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ';
+            document.getElementById('audio-icon').textContent = '🔊';
+          };
+          window.speechSynthesis.speak(utter);
+          isSpeaking = true;
+          document.getElementById('audio-text').textContent = 'ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ';
+          document.getElementById('audio-icon').textContent = '⏹️';
+        }
+      } else {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Speech Synthesis ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+      }
+    }
+  </script>
+</body>
+</html>
