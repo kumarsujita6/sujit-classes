@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Unit 5 - Bravehearts (Class 7 English - Poorvi)</title>
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #b91c1c;
+      --primary-dark: #991b1b;
+      --primary-light: #fee2e2;
+      --secondary: #d97706;
+      --secondary-light: #fef3c7;
+      --accent: #0284c7;
+      --accent-light: #e0f2fe;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #f5f3ff;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.65;
+      font-size: 15.5px;
+      padding-bottom: 60px;
+    }
+
+    /* Reading Progress Bar (Top-Fixed) */
+    #progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 2000;
+    }
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #b91c1c, #d97706, #16a34a);
+      transition: width 0.1s ease-out;
+    }
+
+    /* Sticky Top Navigation & Toolbar */
+    .top-bar {
+      position: sticky;
+      top: 4px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .nav-links a:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1080px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(135deg, #7f1d1d 0%, #b91c1c 50%, #b45309 100%);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 36px 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 12px 30px -8px rgba(185, 28, 28, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: 2.15rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.95;
+      max-width: 820px;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 14px;
+      margin-bottom: 22px;
+    }
+
+    .section-num {
+      background: var(--primary);
+      color: white;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 5px 11px;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .section-header h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .topic-block {
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .topic-block:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .topic-title {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #fee2e2;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border-left: 5px solid var(--primary);
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 18px 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 14px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    li strong {
+      color: #0f172a;
+    }
+
+    /* Pastel Callouts */
+    .callout {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      border-left: 5px solid;
+    }
+
+    .callout-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .callout-def {
+      background-color: #fee2e2;
+      border-left-color: #b91c1c;
+      color: #7f1d1d;
+    }
+
+    .callout-act {
+      background-color: #f0fdfa;
+      border-left-color: #0d9488;
+      color: #115e59;
+    }
+
+    .callout-pyq {
+      background-color: #fffbeb;
+      border-left-color: #f59e0b;
+      color: #78350f;
+    }
+
+    .callout-hack {
+      background-color: #f5f3ff;
+      border-left-color: #7c3aed;
+      color: #4c1d95;
+    }
+
+    .callout-warn {
+      background-color: #fff1f2;
+      border-left-color: #e11d48;
+      color: #881337;
+    }
+
+    .quote-box {
+      background: linear-gradient(to right, #f8fafc, #fee2e2);
+      border-left: 4px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 10px;
+      font-style: italic;
+      color: #334155;
+      margin: 14px 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fcfcfd;
+    }
+
+    .mindmap-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+
+    .mm-root {
+      background: #991b1b;
+      color: #fff;
+      font-weight: 800;
+      text-align: center;
+      padding: 12px 20px;
+      border-radius: 10px;
+      max-width: 520px;
+      margin: 0 auto 20px auto;
+      box-shadow: 0 4px 12px rgba(153, 27, 27, 0.25);
+    }
+
+    .mm-branches {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .mm-col {
+      background: #fff;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .mm-col-1 { border-top: 5px solid #b91c1c; }
+    .mm-col-2 { border-top: 5px solid #d97706; }
+    .mm-col-3 { border-top: 5px solid #0284c7; }
+
+    .mm-branch-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      text-align: center;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mm-node {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+    }
+
+    .diagram-card {
+      background: #ffffff;
+      border: 2px solid #fee2e2;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 18px 0;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .q-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+    }
+
+    .q-title {
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .pyq-tag {
+      background: #fee2e2;
+      color: #991b1b;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-right: 6px;
+      display: inline-block;
+    }
+
+    details.ans-box {
+      margin-top: 10px;
+      background: #f8fafc;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      padding: 10px 14px;
+    }
+
+    details.ans-box summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--primary-dark);
+      user-select: none;
+    }
+
+    .ans-content {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.93rem;
+    }
+
+    /* Quiz Engine */
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .quiz-opt-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1e293b;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #f8fafc;
+      border-color: var(--primary);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #14532d !important;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #ffe4e6 !important;
+      border-color: #e11d48 !important;
+      color: #881337 !important;
+    }
+
+    .quiz-opt-indicator {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .score-banner {
+      background: linear-gradient(135deg, #fee2e2, #ffedd5);
+      border: 1px solid #f87171;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .score-title {
+      font-weight: 800;
+      color: #7f1d1d;
+      font-size: 1.05rem;
+    }
+
+    .score-badge {
+      background: #ffffff;
+      color: #991b1b;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 4px 14px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .svg-anim-flame {
+      animation: flame 1.5s ease-in-out infinite alternate;
+      transform-origin: bottom center;
+    }
+    @keyframes flame {
+      0% { transform: scale(1); filter: drop-shadow(0 0 4px #f97316); }
+      100% { transform: scale(1.08); filter: drop-shadow(0 0 12px #ef4444); }
+    }
+
+    @media (max-width: 768px) {
+      .mm-branches {
+        grid-template-columns: 1fr;
+      }
+      .top-bar {
+        padding: 8px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <!-- Sticky Top Bar -->
+  <header class="top-bar">
+    <nav class="nav-links">
+      <a href="#sec1">Blueprint</a>
+      <a href="#sec2">Text Analysis</a>
+      <a href="#sec3">Grammar &amp; Vocab</a>
+      <a href="#sec4">NCERT Solutions</a>
+      <a href="#sec5">Question Bank</a>
+      <a href="#sec6">Cheat Sheet</a>
+    </nav>
+    <div class="toolbar-actions">
+      <button class="btn btn-primary" onclick="speakSummary()">🔊 Listen to Summary</button>
+      <button class="btn" onclick="window.print()">🖨️ Print Notes</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Banner -->
+    <div class="hero">
+      <div class="hero-badges">
+        <span class="badge">Class 7 English (Poorvi)</span>
+        <span class="badge">NCERT &bull; NEP 2020 Curricular Alignment</span>
+        <span class="badge">Teacher-Crafted Master Study Notes</span>
+      </div>
+      <h1>Unit 5: Bravehearts</h1>
+      <p id="hero-summary">
+        A stirring, reverent tribute to the supreme valor, selfless sacrifice, and unyielding patriotic pride of India’s warriors across three timeless works: the sacred memorial pilgrimage <em>A Homage to Our Brave Soldiers</em>, Dr. A.P.J. Abdul Kalam's moving poetic prayer <em>My Dear Soldiers</em>, and the thrilling historic resistance of Ullal's fearless sovereign, <em>Rani Abbakka</em>.
+      </p>
+    </div>
+
+    <!-- ==========================================
+         SECTION 1: UNIT BLUEPRINT & EXAM TRENDS
+         ========================================== -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1</span>
+        <h2>🎯 Unit Blueprint &amp; Exam Trend Analysis</h2>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-title">📖 Unit Overview &amp; NEP 2020 Pedagogical Goals</div>
+        <p>
+          Freedom is not free; it is preserved through continuous vigilance and supreme sacrifice. <strong>Unit 5: Bravehearts</strong> instills deep constitutional values, gratitude, and national pride in Grade 7 learners. By studying the architecture of the National War Memorial, meditating on soldiers safeguarding hostile borders as selfless "yogis", and learning how Rani Abbakka resisted European colonization, students learn that true bravery means putting country and community above self.
+        </p>
+      </div>
+
+      <h4>📊 Exam Blueprint &amp; Weightage Breakdown</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Chapter / Literary Piece</th>
+              <th>Form &amp; Author</th>
+              <th>Core Themes &amp; Concepts</th>
+              <th>Expected Question Types</th>
+              <th>Weightage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>A Homage to Our Brave Soldiers</strong></td>
+              <td>Epistolary Letter<br><em>Contemporary Non-Fiction</em></td>
+              <td>National War Memorial, New Delhi; 4 Chakras (Amar, Veerta, Tyag, Raksha); Param Vir Chakra heroes; armed forces mottos.</td>
+              <td>Chakra layout diagram analysis, Extract RTC, Clauses (Main vs Subordinate), Negative prefixes (dis-, in-, im-, un-).</td>
+              <td><strong>35%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>My Dear Soldiers</strong></td>
+              <td>Free-Verse Lyrical Ode<br><em>Dr. A.P.J. Abdul Kalam</em></td>
+              <td>Soldiers as ascetics ("yogis"), guarding Siachen &amp; Thar, sacrifice of youth, wind chimes vibrating feats, universal prayer.</td>
+              <td>Poetic Devices (Metaphor, Imagery, Free Verse), Acrostic poem composition, Stanza RTC, Long-answer on sacrifice.</td>
+              <td><strong>30%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Rani Abbakka</strong></td>
+              <td>Historical Drama / Prose<br><em>Heritage Account</em></td>
+              <td>Rani Abbakka of Ullal, defying Portuguese tributes, communal harmony (Mogaveera &amp; Beary allies), night fire-arrows naval attack.</td>
+              <td>Direct to Indirect Speech, Extract RTC, Biography of Rani Gaidinliu, Value-based answers on sovereignty.</td>
+              <td><strong>35%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>🧠 Comprehensive Unit Mind Map</h4>
+      <div class="mindmap-box">
+        <div class="mm-root">UNIT 5: BRAVEHEARTS (POORVI CLASS 7)</div>
+        <div class="mm-branches">
+          <div class="mm-col mm-col-1">
+            <div class="mm-branch-title" style="color:#b91c1c;">🪖 National War Memorial</div>
+            <div class="mm-node"><strong>Location:</strong> 40 acres near India Gate, New Delhi (Inaugurated Feb 2019)</div>
+            <div class="mm-node"><strong>Amar Chakra:</strong> Central obelisk with eternal flame (Amar Jawan Jyoti)</div>
+            <div class="mm-node"><strong>Veerta Chakra:</strong> 6 bronze murals depicting iconic historic battles</div>
+            <div class="mm-node"><strong>Tyag Chakra:</strong> 26,000+ granite tablets inscribed with martyrs' names in gold</div>
+            <div class="mm-node"><strong>Raksha Chakra:</strong> Ring of 600+ dense trees standing as guardian sentinels</div>
+          </div>
+          <div class="mm-col mm-col-2">
+            <div class="mm-branch-title" style="color:#d97706;">🕊️ My Dear Soldiers</div>
+            <div class="mm-node"><strong>Poet:</strong> Dr. A.P.J. Abdul Kalam (Scientist &amp; 11th President of India)</div>
+            <div class="mm-node"><strong>The Metaphor:</strong> Soldiers treading lonely expanses "as yogis"</div>
+            <div class="mm-node"><strong>The Vigil:</strong> Awake through snowy Siachen heights and scorching Thar deserts</div>
+            <div class="mm-node"><strong>The Gift:</strong> "Prime of your youth given to the nation!!"</div>
+            <div class="mm-node"><strong>The Prayer:</strong> Cosmic wind chimes vibrating their feats with divine blessings</div>
+          </div>
+          <div class="mm-col mm-col-3">
+            <div class="mm-branch-title" style="color:#0284c7;">⚔️ Rani Abbakka</div>
+            <div class="mm-node"><strong>Identity:</strong> 16th-century Queen of Ullal (Chowta dynasty, Karnataka)</div>
+            <div class="mm-node"><strong>Title:</strong> Abhaya Rani (The Fearless Queen)</div>
+            <div class="mm-node"><strong>Defiance:</strong> Refused trade monopoly &amp; tribute to Portuguese armada</div>
+            <div class="mm-node"><strong>Strategy:</strong> United Hindu-Muslim coastal forces &amp; night fire-arrows</div>
+            <div class="mm-node"><strong>Companion Legend:</strong> Rani Gaidinliu (Manipur's "Daughter of the Hills")</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: EXHAUSTIVE TEXT & STANZA NOTES
+         ========================================== -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2</span>
+        <h2>📖 Exhaustive Text-by-Text &amp; Stanza-by-Stanza Notes</h2>
+      </div>
+
+      <!-- Part A: National War Memorial -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>🪖 Chapter 13: A Homage to Our Brave Soldiers (National War Memorial)</span>
+        </div>
+
+        <h4>1. Narrative Form &amp; The Sacred Pilgrimage</h4>
+        <p>
+          Written as a heartfelt letter from young student Ananya in Bengaluru to her friend Soumya, recounting a transformative educational excursion to the <strong>National War Memorial (Rashtriya Samar Smarak)</strong> in New Delhi.
+        </p>
+        <p>
+          Inaugurated in February 2019, this monument spans over 40 sprawling acres near the iconic India Gate. It honors the armed forces personnel who made the supreme sacrifice in post-Independence conflicts—including the Indo-Pak wars of 1947, 1965, 1971, the 1999 Kargil War, the 1962 Sino-Indian War, UN Peacekeeping Missions, and Counter-Terrorist Operations.
+        </p>
+
+        <h4>2. Architecture of the Four Concentric Chakras (Chakravyuh Formation)</h4>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Chakra (Circle)</th>
+                <th>Symbolic Meaning</th>
+                <th>Architectural Features &amp; Sacred Geometry</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Amar Chakra</strong><br><em>Circle of Immortality</em></td>
+                <td>The eternal, indestructible spirit of fallen martyrs.</td>
+                <td>A 15.5-metre tall central granite obelisk. At its base burns the unquenchable <strong>Amar Jawan Jyoti</strong> (Eternal Flame), symbolising that soldiers never die; their memory lives on forever.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Veerta Chakra</strong><br><em>Circle of Bravery</em></td>
+                <td>Courage, daring valor, and military tactical genius.</td>
+                <td>A sunken ceremonial walkway displaying six giant bronze bas-relief murals depicting historic ground, sea, and air operations (e.g. Battle of Longewala, Operation Meghdoot, Battle of Rezang La).</td>
+              </tr>
+              <tr>
+                <td><strong>3. Tyag Chakra</strong><br><em>Circle of Sacrifice</em></td>
+                <td>The supreme sacrifice of individual soldiers' lives.</td>
+                <td>Concentric circular walls made of red granite bricks. Each brick represents a soldier, engraved in gold with the martyr's name, rank, regiment, and date of sacrifice (over 26,000 names).</td>
+              </tr>
+              <tr>
+                <td><strong>4. Raksha Chakra</strong><br><em>Circle of Protection</em></td>
+                <td>The protective shield securing 1.4 billion citizens.</td>
+                <td>The outermost perimeter ring planted with over 600 dense evergreen trees (such as Neem and Arjuna), standing like silent, disciplined soldiers protecting the sanctum sanctorum.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="diagram-card">
+          <!-- Responsive Inline SVG 1: National War Memorial Four Concentric Chakras -->
+          <svg viewBox="0 0 760 280" width="100%" height="280" xmlns="http://www.w3.org/2000/svg">
+            <rect width="760" height="280" rx="14" fill="#fffbeb" stroke="#fde68a" stroke-width="2"/>
+            
+            <!-- Outer Ring 4: Raksha Chakra (Circle of Protection - Trees) -->
+            <circle cx="380" cy="140" r="125" fill="#f0fdf4" stroke="#16a34a" stroke-width="3" stroke-dasharray="6,4"/>
+            <text x="380" y="27" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#15803d">4. RAKSHA CHAKRA (Circle of Protection &bull; 600+ Trees)</text>
+
+            <!-- Ring 3: Tyag Chakra (Circle of Sacrifice - Granite Walls) -->
+            <circle cx="380" cy="140" r="95" fill="#fff1f2" stroke="#b91c1c" stroke-width="3"/>
+            <text x="380" y="58" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="10" fill="#991b1b">3. TYAG CHAKRA (26,000+ Martyrs' Names in Gold)</text>
+
+            <!-- Ring 2: Veerta Chakra (Circle of Bravery - Murals) -->
+            <circle cx="380" cy="140" r="65" fill="#fef3c7" stroke="#d97706" stroke-width="2.5"/>
+            <text x="380" y="88" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="9" fill="#b45309">2. VEERTA CHAKRA (Bronze Battle Murals)</text>
+
+            <!-- Center Ring 1: Amar Chakra (Circle of Immortality - Obelisk & Flame) -->
+            <circle cx="380" cy="140" r="35" fill="#fee2e2" stroke="#b91c1c" stroke-width="2"/>
+            
+            <!-- Central Obelisk Silhouette -->
+            <polygon points="377,145 383,145 381,115 379,115" fill="#475569" stroke="#0f172a" stroke-width="1"/>
+            <!-- Eternal Flame (Amar Jawan Jyoti) -->
+            <circle cx="380" cy="142" r="5" fill="#f97316" class="svg-anim-flame"/>
+            <text x="380" y="160" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="8" font-weight="700" fill="#7f1d1d">AMAR JYOTI</text>
+
+            <!-- Tree icons around Raksha Chakra -->
+            <text x="250" y="145" font-size="16">🌲</text>
+            <text x="500" y="145" font-size="16">🌲</text>
+            <text x="375" y="270" font-size="16">🌲</text>
+            <text x="310" y="240" font-size="14">🌲</text>
+            <text x="440" y="240" font-size="14">🌲</text>
+            <text x="310" y="60" font-size="14">🌲</text>
+            <text x="440" y="60" font-size="14">🌲</text>
+          </svg>
+          <div class="diagram-caption">Figure 5.1: The Four Concentric Chakras of the National War Memorial (Rashtriya Samar Smarak), New Delhi</div>
+        </div>
+      </div>
+
+      <!-- Part B: My Dear Soldiers -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>🕊️ Chapter 14: My Dear Soldiers (Poem by Dr. A.P.J. Abdul Kalam)</span>
+        </div>
+
+        <h4>1. Complete Poem Text</h4>
+        <div class="quote-box">
+          <p>
+            Oh! Defenders of borders<br>
+            You are great sons of my land<br>
+            When we are all asleep<br>
+            You still hold on to your deed<br>
+            Windy season or snowy days<br>
+            Or scorching sun’s sweltering rays<br>
+            You are there guarding all the time awake<br>
+            Treading the lonely expanses as yogis<br>
+            Climbing the heights or striding the valleys<br>
+            Defending the deserts or guarding the marshes<br>
+            Surveillance in seas and by securing the air<br>
+            Prime of your youth given to the nation!!<br>
+            Wind chimes of my land vibrate your feat<br>
+            We pray for you brave men!!<br>
+            May the Lord bless you all!!<br>
+            <span style="font-size:0.85rem; font-weight:700; color:var(--primary-dark); display:block; margin-top:8px;">— Dr. A.P.J. Abdul Kalam</span>
+          </p>
+        </div>
+
+        <h4>2. Stanza-by-Stanza Master Explanation</h4>
+        <ul>
+          <li>
+            <strong>Lines 1–4 (The Silent Vigil):</strong> The former President addresses the defenders of India's international borders (encompassing both brave men and women). While civilian families rest peacefully in the comfort and security of their homes, soldiers maintain a relentless, lonely vigil on the frozen or arid frontiers.
+          </li>
+          <li>
+            <strong>Lines 5–7 (Enduring Harsh Climatic Extremes):</strong> Whether it is the howling blizzard of the high Himalayas (-50°C in Siachen) or the scorching, blistering heat of the Thar Desert (+50°C in Rajasthan), soldiers stand upright, unwavering in their duty.
+          </li>
+          <li>
+            <strong>Line 8 (The Metaphor of the Yogi):</strong> Kalam likens the soldier to a <strong>yogi</strong> (a self-disciplined spiritual ascetic). Just as a yogi renounces personal luxuries, bodily comfort, and worldly pleasures in pursuit of divine duty, a soldier renounces personal comfort, family companionship, and personal ambition to serve and protect the motherland with selfless detachment (<em>Nishkama Karma</em>).
+          </li>
+          <li>
+            <strong>Lines 9–11 (Pan-Indian Terrains):</strong> The poem spans India’s varied geography—climbing the heights of Ladakh, patrolling dense Northeastern valleys, defending salt marshes in the Rann of Kutch, conducting round-the-clock naval surveillance on the Indian Ocean, and securing Indian skies with fighter jets.
+          </li>
+          <li>
+            <strong>Line 12 (The Supreme Gift of Youth):</strong> <em>“Prime of your youth given to the nation!!”</em> While other youths enjoy recreation and leisure, young soldiers spend their golden years living in trenches, bunker posts, and submarine hulls, willingly giving their youth so the country's youth may dream in freedom.
+          </li>
+          <li>
+            <strong>Lines 13–15 (The Cosmic Blessing &amp; Gratitude):</strong> The wind chimes hanging outside Indian homes resonate in the breeze, symbolically carrying the nation’s deepest gratitude to the soldiers' feats. The poem concludes with a universal, heartfelt prayer for their eternal protection, well-being, and divine blessings.
+          </li>
+        </ul>
+
+        <div class="diagram-card">
+          <!-- Responsive Inline SVG 2: Soldier Standing Vigil in Siachen & Desert -->
+          <svg viewBox="0 0 760 250" width="100%" height="250" xmlns="http://www.w3.org/2000/svg">
+            <rect width="760" height="250" rx="14" fill="#0f172a" stroke="#334155" stroke-width="2"/>
+            
+            <!-- Left Side: Siachen Snow Peaks -->
+            <polygon points="40,220 180,60 320,220" fill="#334155" stroke="#64748b" stroke-width="1.5"/>
+            <polygon points="140,110 180,60 220,110" fill="#ffffff"/>
+            <text x="180" y="240" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#93c5fd">Siachen Heights (-50°C)</text>
+
+            <!-- Right Side: Thar Desert Dunes -->
+            <path d="M 440 220 Q 560 140 720 220 Z" fill="#b45309" opacity="0.8"/>
+            <text x="580" y="240" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#fde68a">Thar Desert (+50°C)</text>
+
+            <!-- Center: Soldier Silhouette Standing Guard -->
+            <g transform="translate(360, 60)">
+              <!-- Helmet & Head -->
+              <ellipse cx="20" cy="20" rx="12" ry="10" fill="#15803d" stroke="#166534" stroke-width="1.5"/>
+              <circle cx="20" cy="24" r="8" fill="#fed7aa"/>
+              <!-- Body / Uniform -->
+              <rect x="10" y="32" width="20" height="45" rx="3" fill="#166534"/>
+              <!-- Backpack -->
+              <rect x="0" y="36" width="10" height="35" rx="2" fill="#14532d"/>
+              <!-- Legs -->
+              <line x1="14" y1="77" x2="12" y2="125" stroke="#166534" stroke-width="4"/>
+              <line x1="26" y1="77" x2="28" y2="125" stroke="#166534" stroke-width="4"/>
+              <!-- Rifle Held in Hand -->
+              <line x1="28" y1="40" x2="42" y2="25" stroke="#000" stroke-width="3"/>
+              <line x1="42" y1="25" x2="32" y2="90" stroke="#000" stroke-width="2.5"/>
+              <text x="20" y="145" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#f8fafc">"Treading as Yogis"</text>
+            </g>
+
+            <!-- Wind Chimes in Sky -->
+            <g transform="translate(640, 30)">
+              <line x1="30" y1="0" x2="30" y2="20" stroke="#f59e0b" stroke-width="1.5"/>
+              <circle cx="30" cy="22" r="6" fill="#d97706"/>
+              <line x1="22" y1="26" x2="22" y2="60" stroke="#fbbf24" stroke-width="1.5"/>
+              <line x1="30" y1="26" x2="30" y2="70" stroke="#fbbf24" stroke-width="1.5"/>
+              <line x1="38" y1="26" x2="38" y2="55" stroke="#fbbf24" stroke-width="1.5"/>
+              <text x="30" y="85" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" fill="#fef08a">Wind Chimes</text>
+            </g>
+          </svg>
+          <div class="diagram-caption">Figure 5.2: Dr. Kalam's Vision — The Guardian of Borders Standing Firm Across India's Geographic Extremes</div>
+        </div>
+      </div>
+
+      <!-- Part C: Rani Abbakka -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>⚔️ Chapter 15: Rani Abbakka (Queen of Ullal)</span>
+        </div>
+
+        <h4>1. Historical Context: The Fearless Queen of Coastal Karnataka</h4>
+        <p>
+          Long before the Revolt of 1857, India's first resistance against European naval imperialism was ignited along the Arabian Sea by <strong>Rani Abbakka Chowta</strong> (the Queen of Ullal, near Mangalore, Karnataka). Known reverently as the <strong>Abhaya Rani</strong> (The Fearless Queen), she ruled a prosperous port city renowned for international spice trading in black pepper, cinnamon, and cardamom.
+        </p>
+
+        <h4>2. Defying the Portuguese Colonial Armada</h4>
+        <p>
+          In the 16th century, the Portuguese had established control over Goa and demanded that Ullal surrender its trade sovereignty, cease direct spice exports to Persian and Arab merchants, and pay exorbitant annual tributes (*chauth*).
+        </p>
+        <p>
+          When the arrogant Portuguese Viceroy sent his envoy demanding immediate submission, Rani Abbakka stood tall in her court and delivered an immortal declaration of Indian freedom:
+        </p>
+        <div class="quote-box">
+          <p>
+            <em>“We are a sovereign country. We do not pay tribute to foreign plunderers. The ocean is free for all merchants of the earth, and Ullal will bow to no king across the seas!”</em>
+          </p>
+        </div>
+
+        <h4>3. The Master Tactical Stroke: Communal Unity &amp; Night Fire-Arrows</h4>
+        <ul>
+          <li><strong>Inter-Faith Military Coalition:</strong> Rani Abbakka forged a powerful coalition encompassing all local communities. Her naval force was led by skilled Muslim seamen from the Beary community, indigenous Mogaveera fishermen, and Billava warriors. She was an ally of the Zamorin of Kozhikode and the Sultan of Bijapur.</li>
+          <li><strong>The Battle of Ullal:</strong> When Portuguese Admiral Don Alvaro de Silveira launched a naval siege on Ullal with massive cannon-bearing galleons, Abbakka avoided a direct broadside confrontation. Instead, on a pitch-black moonless night, her agile local fishing boats and catamarans slipped quietly around the Portuguese armada.</li>
+          <li><strong>Agniban (Fire-Arrows):</strong> Her archers unleashed volleys of flaming resin-soaked fire-arrows (*agniban*) directly into the Portuguese sails, gun-decks, and powder magazines! The enemy ships were engulfed in roaring flames, forcing the armada into a humiliating retreat. For over four decades, Rani Abbakka repeatedly repelled Portuguese invasions, ensuring Ullal remained an unconquered bastion of Indian independence.</li>
+        </ul>
+
+        <h4>4. Companion Legend: Rani Gaidinliu (Daughter of the Hills)</h4>
+        <p>
+          The chapter also celebrates <strong>Rani Gaidinliu</strong> of Manipur and Nagaland (born January 26, 1915). At just 13, she joined the Heraka religious and political movement against British colonial rule. She was arrested by British forces at age 16 and sentenced to life imprisonment in 1932. Prime Minister Jawaharlal Nehru described her as the <em>"Daughter of the Hills"</em> and conferred upon her the royal title of <em>Rani</em>. Released upon Indian Independence in 1947, she was awarded the <strong>Padma Bhushan</strong> in 1982 for her lifelong service to tribal empowerment.
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: MASTER VOCABULARY & GRAMMAR
+         ========================================== -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3</span>
+        <h2>📚 Master Vocabulary, Etymology &amp; Grammar Rules Bank</h2>
+      </div>
+
+      <h4>1. High-Frequency Vocabulary Bank</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Word</th>
+              <th>Part of Speech</th>
+              <th>Simple Definition</th>
+              <th>Synonyms</th>
+              <th>Antonyms</th>
+              <th>Exemplar Sentence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Homage</strong></td>
+              <td>Noun</td>
+              <td>Special honor or respect shown publicly</td>
+              <td>Tribute, reverence, honor</td>
+              <td>Disrespect, scorn</td>
+              <td>Every citizen pays homage to the martyrs at the National War Memorial.</td>
+            </tr>
+            <tr>
+              <td><strong>Sovereign</strong></td>
+              <td>Adjective / Noun</td>
+              <td>Possessing supreme, independent political power without foreign rule</td>
+              <td>Independent, autonomous</td>
+              <td>Subjugated, colonial, dependent</td>
+              <td>Rani Abbakka declared Ullal to be a sovereign land free from foreign tribute.</td>
+            </tr>
+            <tr>
+              <td><strong>Obelisk</strong></td>
+              <td>Noun</td>
+              <td>A tall, four-sided stone pillar tapering to a pyramid point at top</td>
+              <td>Monument pillar, monolith</td>
+              <td>—</td>
+              <td>The central obelisk at the Amar Chakra stands 15.5 metres tall.</td>
+            </tr>
+            <tr>
+              <td><strong>Undaunted</strong></td>
+              <td>Adjective</td>
+              <td>Not intimidated or discouraged by danger or difficulty</td>
+              <td>Fearless, brave, resolute</td>
+              <td>Timid, fearful, cowardly</td>
+              <td>The soldiers remained undaunted despite freezing blizzard gales.</td>
+            </tr>
+            <tr>
+              <td><strong>Armada</strong></td>
+              <td>Noun</td>
+              <td>A large fleet of armed warships</td>
+              <td>Naval fleet, flotilla</td>
+              <td>Lone vessel</td>
+              <td>The Portuguese armada sailed into Ullal's waters expecting an easy victory.</td>
+            </tr>
+            <tr>
+              <td><strong>Sweltering</strong></td>
+              <td>Adjective</td>
+              <td>Uncomfortably and oppressively hot</td>
+              <td>Scorching, blistering, boiling</td>
+              <td>Freezing, chilly, icy</td>
+              <td>Soldiers patrol desert frontiers beneath the sweltering desert sun.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>2. Negative Prefixes Masterclass (<em>dis-</em>, <em>in-</em>, <em>im-</em>, <em>un-</em>)</h4>
+      <div class="callout callout-act">
+        <div class="callout-title">🔍 Word Building with Negative Prefixes</div>
+        <ul>
+          <li><code>dis- + regard</code> &rarr; <strong>disregard</strong> (to ignore or pay no attention to).</li>
+          <li><code>in- + consequential</code> &rarr; <strong>inconsequential</strong> (not important or significant).</li>
+          <li><code>im- + mortal</code> &rarr; <strong>immortal</strong> (living forever; never dying). Note: <em>im-</em> is used before root words starting with 'm' or 'p' (e.g. <em>im-possible</em>, <em>im-mature</em>).</li>
+          <li><code>un- + daunted</code> &rarr; <strong>undaunted</strong> (not discouraged by hardship or fear).</li>
+          <li><code>in- + dependent</code> &rarr; <strong>independent</strong> (free from outside control).</li>
+        </ul>
+      </div>
+
+      <h4>3. Grammar Topic A: Clauses (Main / Independent vs Subordinate / Dependent)</h4>
+      <div class="callout callout-hack">
+        <div class="callout-title">💡 Clause Structure Decoded</div>
+        <p>
+          A <strong>clause</strong> is a group of words containing a subject and a predicate (verb).
+        </p>
+        <ul>
+          <li><strong>Main Clause (Independent):</strong> Expresses a complete thought and can stand alone as a grammatical sentence (e.g., <em>The soldiers guard the borders</em>).</li>
+          <li><strong>Subordinate Clause (Dependent):</strong> Begins with a subordinating conjunction (<em>when, while, because, although, if, since</em>) and cannot stand alone (e.g., <em>while the nation sleeps peacefully</em>).</li>
+        </ul>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>Full Sentence</th><th>Main / Independent Clause</th><th>Subordinate / Dependent Clause</th></tr></thead>
+            <tbody>
+              <tr>
+                <td><em>When we are all asleep, soldiers guard our frontiers.</em></td>
+                <td><strong>soldiers guard our frontiers</strong></td>
+                <td><strong>When we are all asleep</strong></td>
+              </tr>
+              <tr>
+                <td><em>Rani Abbakka fought fiercely because she loved freedom.</em></td>
+                <td><strong>Rani Abbakka fought fiercely</strong></td>
+                <td><strong>because she loved freedom</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <h4>4. Grammar Topic B: Direct to Indirect (Reported) Speech</h4>
+      <p>When reporting what someone said without quoting their exact words:</p>
+      <ul>
+        <li><strong>Rule 1 (Tense Shift):</strong> Simple Present changes to Simple Past; Simple Past changes to Past Perfect.
+          <br>&bull; Direct: <em>Rani Abbakka said, “I will make them pay for this.”</em>
+          <br>&bull; Indirect: <em>Rani Abbakka declared that she <strong>would</strong> make them pay for that.</em>
+        </li>
+        <li><strong>Rule 2 (Pronoun &amp; Time Shifts):</strong> <em>this &rarr; that</em>, <em>today &rarr; that day</em>, <em>now &rarr; then</em>, <em>we &rarr; they</em>.
+          <br>&bull; Direct: <em>The envoy said, “We demand tribute from Ullal today.”</em>
+          <br>&bull; Indirect: <em>The envoy stated that they <strong>demanded</strong> tribute from Ullal <strong>that day</strong>.</em>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: COMPLETE NCERT SOLUTIONS
+         ========================================== -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4</span>
+        <h2>✍️ Complete NCERT Solutions (Zero-Omission)</h2>
+      </div>
+
+      <!-- Chapter 13 Solutions -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>🪖 NCERT Solutions: A Homage to Our Brave Soldiers</span>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Pre-Reading I &amp; II (Page 179)</span> Paying Homage to Soldiers</div>
+          <p><strong>Prompt:</strong> (I) Define homage and state whom every Indian should pay homage to. (II) Complete table of 3 ways to celebrate victories and honour sacrifices.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>(I) Homage:</strong> Homage means a public demonstration of deep respect, reverence, and gratitude. Every citizen of India should pay homage to the valiant soldiers of the Indian Armed Forces who safeguard the nation's integrity and borders.</p>
+              <p><strong>(II) Table of Honor:</strong>
+                <br>&bull; <em>Celebrating Victories:</em> Observing Vijay Diwas (16 Dec) and Kargil Vijay Diwas (26 July); organizing school parades and patriotic quizzes; felicitating military veterans.
+                <br>&bull; <em>Honouring Sacrifices:</em> Visiting the National War Memorial; contributing to the Armed Forces Flag Day Fund; supporting families of martyrs (Veer Naris) with education and rehabilitation.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Discuss (Page 192)</span> The Four Chakras &amp; Param Vir Chakra</div>
+          <p><strong>Questions:</strong> Name the 4 Chakras of the National War Memorial. What is the significance of the Amar Jawan Jyoti?</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>1. Four Chakras:</strong>
+                <br>(i) <strong>Amar Chakra</strong> (Circle of Immortality with central obelisk and eternal flame).
+                <br>(ii) <strong>Veerta Chakra</strong> (Circle of Bravery with six bronze battle murals).
+                <br>(iii) <strong>Tyag Chakra</strong> (Circle of Sacrifice with circular brick walls carrying martyrs' names).
+                <br>(iv) <strong>Raksha Chakra</strong> (Circle of Protection planted with 600+ guardian trees).
+              </p>
+              <p><strong>2. Amar Jawan Jyoti:</strong> The eternal flame represents that soldiers never die; their immortal spirit continues to burn bright in the collective memory of the nation.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Learn: Clauses (Pages 194-196)</span> Main vs Subordinate Clauses Solved</div>
+          <p><strong>Prompt:</strong> Identify the main clause and subordinate clause in each textbook sentence.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>1. <em>When the part of a sentence conveys complete meaning, it is called a main clause.</em>
+                <br>&bull; <strong>Main Clause:</strong> it is called a main clause
+                <br>&bull; <strong>Subordinate Clause:</strong> When the part of a sentence conveys complete meaning
+              </p>
+              <p>2. <em>Because the soldiers sacrifice their lives, we enjoy freedom and peace.</em>
+                <br>&bull; <strong>Main Clause:</strong> we enjoy freedom and peace
+                <br>&bull; <strong>Subordinate Clause:</strong> Because the soldiers sacrifice their lives
+              </p>
+              <p>3. <em>If you visit New Delhi, you must visit the National War Memorial.</em>
+                <br>&bull; <strong>Main Clause:</strong> you must visit the National War Memorial
+                <br>&bull; <strong>Subordinate Clause:</strong> If you visit New Delhi
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Explore (Page 198)</span> Mottos of the Indian Armed Forces</div>
+          <p><strong>Prompt:</strong> State the official mottos of the three branches of the Indian Armed Forces and their English translations.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>&bull; <strong>Indian Army:</strong> <em>Seva Paramo Dharma</em> (Service Before Self) — Highlighting that duty to the nation takes precedence over personal safety or desire.</p>
+              <p>&bull; <strong>Indian Navy:</strong> <em>Sham No Varunah</em> (May the Lord of the Oceans be Auspicious unto Us) — An invocation from the Rigveda seeking divine blessing over maritime waters.</p>
+              <p>&bull; <strong>Indian Air Force:</strong> <em>Nabhah Sprsham Deeptam</em> (Touch the Sky with Glory) — Taken from the eleventh chapter of the Bhagavad Gita, expressing soaring valor.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Chapter 14 Solutions -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>🕊️ NCERT Solutions: My Dear Soldiers (Dr. A.P.J. Abdul Kalam)</span>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Discuss I (Page 201)</span> Summary Cloze Text</div>
+          <p><strong>Prompt:</strong> Complete the summary with exact words from the poem.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>The poem is a tribute to the soldiers of the 1. <strong>land</strong> who defend the 2. <strong>borders</strong> of their country. It highlights their untiring commitment and sacrifices as they guard the nation. The soldiers remain vigilant and dedicated, whether it’s windy, snowy, or 3. <strong>sweltering</strong> hot. They walk on 4. <strong>lonely</strong> stretches of land like the yogis. Their duty takes them to different terrains, including mountains, valleys, 5. <strong>deserts</strong>, and marshes. The poet acknowledges that they have given a major part of their 6. <strong>youth</strong> to protect the nation. The poet says the wind chimes show their respect to the soldiers’ 7. <strong>feat</strong>. The poet concludes with prayers for their well-being and blessings.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Discuss II (Page 201)</span> Theme and Tone</div>
+          <p><strong>Questions:</strong> Identify the theme and tone of the poem.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>1. Theme:</strong> <strong>(i) patriotism and sacrifice</strong>.</p>
+              <p><strong>2. Tone:</strong> <strong>D. (i), (iii), (iv) and (v)</strong> (Admiring, respectful, grateful, and prayerful).</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Think and Reflect (Page 202)</span> Extract Analysis: "Treading as Yogis"</div>
+          <p><strong>Extract:</strong> <em>"Treading the lonely expanses as yogis ... Prime of your youth given to the nation!!"</em></p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>1. Opposite words:</strong> <em>asleep</em> &times; <em>awake</em>.</p>
+              <p><strong>2. Meaning of "hold on to your deed":</strong> Refers to the soldier's unwavering commitment and steadfast dedication to fulfilling their duty without faltering.</p>
+              <p><strong>3. True / False:</strong> <em>"The soldiers walk across the deserted stretches of land."</em> &rarr; <strong>TRUE</strong>.</p>
+              <p><strong>4. Evidence of harsh weather:</strong> <em>"Windy season or snowy days / Or scorching sun’s sweltering rays."</em></p>
+              <p><strong>5. Quality highlighted:</strong> <strong>(iv) dedication</strong>.</p>
+              <p><strong>6. Significance of 'Prime of your youth':</strong> It underscores the immense personal sacrifice made by young soldiers who dedicate the most vibrant, formative years of their lives to military discipline on dangerous frontiers, ensuring peaceful futures for their fellow countrymen.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Write (Page 205)</span> Acrostic Poem: S-O-L-D-I-E-R</div>
+          <p><strong>Prompt:</strong> Compose an acrostic poem using the word SOLDIER.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <div style="background:#fee2e2; border-left:4px solid #b91c1c; padding:16px; border-radius:8px; font-weight:600;">
+                <span style="color:#b91c1c; font-size:1.1rem;">S</span> — Shielding the nation with honor and pride,<br>
+                <span style="color:#b91c1c; font-size:1.1rem;">O</span> — Onward they march where cold shadows hide.<br>
+                <span style="color:#b91c1c; font-size:1.1rem;">L</span> — Loyal to India through day and through night,<br>
+                <span style="color:#b91c1c; font-size:1.1rem;">D</span> — Defending our borders with resolute might.<br>
+                <span style="color:#b91c1c; font-size:1.1rem;">I</span> — In freezing blizzards or scorching sun rays,<br>
+                <span style="color:#b91c1c; font-size:1.1rem;">E</span> — Ever watchful and brave through perilous days.<br>
+                <span style="color:#b91c1c; font-size:1.1rem;">R</span> — Ready to serve till their very last breath!
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Chapter 15 Solutions -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>⚔️ NCERT Solutions: Rani Abbakka (Queen of Ullal)</span>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Discuss (Page 213)</span> Sovereignty &amp; The Fearless Queen</div>
+          <p><strong>Questions:</strong> Why does Rani Abbakka say "We are a sovereign country"? Why is she known as 'Abhaya Rani'?</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>1. Sovereign Country:</strong> Rani Abbakka states this because Ullal was an independent kingdom with its own legal government, people, and ancient sea-trade rights. She rightly asserted that no foreign European navy had the legal or moral right to extort taxes or dictate trade terms on Indian soil.</p>
+              <p><strong>2. Abhaya Rani:</strong> The local population called her <em>Abhaya Rani</em> (The Fearless Queen) because she never retreated in the face of Portuguese cannons. She personally rode into battle and commanded night naval raids from the frontlines.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Learn: Reported Speech (Pages 216-218)</span> Direct to Indirect Speech Solved</div>
+          <p><strong>Prompt:</strong> Convert dialogues from the text into reported speech.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>1. <em>Rani Abbakka said, “I will make them pay for this.”</em>
+                <br>&rarr; Rani Abbakka declared that she <strong>would make them pay for that</strong>.
+              </p>
+              <p>2. <em>The Portuguese envoy said, “You must pay tribute to the King of Portugal.”</em>
+                <br>&rarr; The Portuguese envoy demanded that they <strong>had to pay tribute</strong> to the King of Portugal.
+              </p>
+              <p>3. <em>Abbakka said to her naval commanders, “Launch the fire-arrows tonight.”</em>
+                <br>&rarr; Abbakka commanded her naval officers to <strong>launch the fire-arrows that night</strong>.
+              </p>
+              <p>4. <em>The general asked, “Can our boats withstand their cannon fire?”</em>
+                <br>&rarr; The general inquired whether their boats <strong>could withstand</strong> their cannon fire.
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Listening Transcripts (Pages 224-225)</span> Biography of Rani Gaidinliu</div>
+          <p><strong>Prompt:</strong> Complete the biographical profile table of Rani Gaidinliu based on the listening transcript.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Biographical Parameter</th><th>Historical Fact from Transcript</th></tr></thead>
+                  <tbody>
+                    <tr><td><strong>Date &amp; Place of Birth</strong></td><td>26 January 1915, Tamenglong district, Manipur.</td></tr>
+                    <tr><td><strong>Tribe &amp; Movement</strong></td><td>Rongmei (Kabui) Naga tribe; joined the Heraka Movement at age 13.</td></tr>
+                    <tr><td><strong>Arrest &amp; Imprisonment</strong></td><td>Arrested in 1932 at age 16; sentenced to life imprisonment; released in 1947.</td></tr>
+                    <tr><td><strong>Title Conferred</strong></td><td>'Rani' (Queen) and 'Daughter of the Hills' by Prime Minister Jawaharlal Nehru.</td></tr>
+                    <tr><td><strong>National Honours</strong></td><td>Padma Bhushan (1982), Birsa Munda Award (posthumous), postal stamp (1996), commemorative coin (2015).</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: COMPETENCY QUESTION BANK
+         ========================================== -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5</span>
+        <h2>🏆 CBSE &amp; State Board Competency Question Bank</h2>
+      </div>
+
+      <!-- Quiz Engine Score Banner -->
+      <div class="score-banner">
+        <div>
+          <div class="score-title">Interactive Competency MCQ Evaluation</div>
+          <div id="quiz-status-msg" style="font-size:0.85rem; color:#7f1d1d;">Select an option to evaluate your understanding. Immediate feedback will appear!</div>
+        </div>
+        <div class="score-badge">Score: <span id="quiz-score">0</span> / <span id="quiz-total">6</span></div>
+      </div>
+
+      <h4>Part A: Competency Multiple Choice Questions (Interactive)</h4>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 1</span> Monument Architecture</div>
+        <p>In the National War Memorial, which Chakra contains over 26,000 granite tablets with martyrs' names engraved in gold?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) Amar Chakra (Circle of Immortality)</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) Veerta Chakra (Circle of Bravery)</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Tyag Chakra (Circle of Sacrifice)</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) Raksha Chakra (Circle of Protection)</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> The <em>Tyag Chakra</em> (Circle of Sacrifice) is constructed with circular brick-style granite walls commemorating every individual fallen hero by name.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 2</span> Poetic Metaphor in 'My Dear Soldiers'</div>
+        <p>Why does Dr. A.P.J. Abdul Kalam compare soldiers to <em>yogis</em>?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) Soldiers practice yoga exercises every morning on the border.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) Like yogis, soldiers lead a life of selfless discipline, renouncing personal comforts to perform their sacred duty.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Soldiers live in hermitages deep inside Himalayan caves.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) Soldiers do not wear warm clothes even during winter snows.</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> A yogi practices self-restraint and detachment from material comfort in devotion to a higher calling; soldiers similarly sacrifice sleep, home comforts, and youth to safeguard the nation.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 3</span> Historical Strategy in 'Rani Abbakka'</div>
+        <p>What tactical weapon did Rani Abbakka's naval forces employ to defeat the Portuguese armada?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) Heavy bronze cannons imported from Europe.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) Flaming fire-arrows (agniban) shot from agile fishing catamarans at night.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Submarine torpedoes in the harbor.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) Poisoned water barrels set adrift on the waves.</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> Abbakka leveraged the agility of local boats under cover of night, raining flaming fire-arrows onto the wooden decks and canvas sails of the massive Portuguese warships.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 4</span> Grammar: Clause Identification</div>
+        <p>In <em>"Although the winds were howling, the sentinel did not flinch"</em>, identify the subordinate clause:</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) the sentinel did not flinch</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) Although the winds were howling</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) the winds were howling</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) did not flinch</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> Introduced by the subordinating conjunction <em>Although</em>, this clause cannot stand alone as a complete sentence and depends on the main clause.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 5</span> Grammar: Reported Speech</div>
+        <p>Choose the correct indirect form of: <em>Rani Abbakka said, "We will defend our harbor."</em></p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) Rani Abbakka said that we will defend our harbor.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) Rani Abbakka stated that they would defend their harbor.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Rani Abbakka said that they will defend their harbor.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) Rani Abbakka declared that she would defend our harbor.</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> In reported speech with a past reporting verb, <em>will &rarr; would</em>, and the first-person plural pronouns <em>we / our &rarr; they / their</em>.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 6</span> Historical Biography</div>
+        <p>Who conferred the title of 'Rani' and 'Daughter of the Hills' upon Naga freedom fighter Gaidinliu?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) Mahatma Gandhi</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) Netaji Subhas Chandra Bose</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Jawaharlal Nehru</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) Sardar Vallabhbhai Patel</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> Jawaharlal Nehru visited her while she was imprisoned in the Northeast, marveled at her courage as a teenage warrior, and bestowed the title 'Rani'.
+          </div>
+        </details>
+      </div>
+
+      <h4>Part B: Short Answer Questions (2 &amp; 3 Marks)</h4>
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">2-Mark SAQ</span> What is the significance of the trees planted in the Raksha Chakra?</div>
+        <details class="ans-box" open>
+          <summary>View Model Answer</summary>
+          <div class="ans-content">
+            The Raksha Chakra features a dense perimeter ring of over 600 evergreen trees (like Neem and Arjuna). Architecturally and symbolically, these trees stand as living sentinels forming a protective green barrier around the memorial, representing how the Armed Forces safeguard 1.4 billion citizens from external threats.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">3-Mark SAQ</span> How did Rani Abbakka demonstrate communal harmony during her defense of Ullal?</div>
+        <details class="ans-box" open>
+          <summary>View Model Answer</summary>
+          <p>Rani Abbakka built an inclusive, multi-community defense force:</p>
+          <ul>
+            <li><strong>Naval Coalition:</strong> Her navy was spearheaded by Muslim seafarers from the Beary community and indigenous Mogaveera fishermen.</li>
+            <li><strong>United Front:</strong> People of all castes and faiths fought side by side under her royal banner, prioritizing the defense of their shared motherland over religious differences.</li>
+            <li><strong>Strategic Alliances:</strong> She forged defense treaties with the Zamorin of Calicut and neighboring rulers, showing that Indian unity could overcome foreign colonial navies.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Part C: Long Answer / Competency Value-Based Questions (5 Marks)</h4>
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">5-Mark Value Question</span> "Freedom is earned through sacrifice and preserved through gratitude." Discuss this statement with reference to the National War Memorial and Dr. Kalam's poem.</div>
+        <details class="ans-box" open>
+          <summary>View CBSE Topper Answer</summary>
+          <div class="ans-content">
+            <p><strong>Introduction:</strong> In both <em>A Homage to Our Brave Soldiers</em> and Dr. A.P.J. Abdul Kalam's <em>My Dear Soldiers</em>, students are reminded that national sovereignty is not an accident of history; it is a sacred gift purchased with the blood and youth of our armed forces.</p>
+            <p><strong>Key Facets of Sacrifice and Gratitude:</strong></p>
+            <ul>
+              <li><strong>The Magnitude of Sacrifice:</strong> As reflected in the Tyag Chakra, over 26,000 soldiers have laid down their lives since 1947. Dr. Kalam poignantly observes that soldiers surrender the <em>"prime of their youth"</em>—living away from loved ones in trenches and glaciers—so the rest of the nation can sleep in safety.</li>
+              <li><strong>The Duty of National Remembrance:</strong> Monuments like the National War Memorial ensure that sacrifice does not fade into oblivion. When young students read the names of Param Vir Chakra heroes inscribed in gold, history transforms from textbook dates into living gratitude.</li>
+              <li><strong>Spiritual Reverence:</strong> Kalam likens the soldier to a yogi, emphasizing that national defense is a high spiritual discipline. The vibrating wind chimes symbolize that every citizen’s heartbeat owes its rhythm to the soldier’s silent vigil.</li>
+            </ul>
+            <p><strong>Conclusion:</strong> Gratitude must not remain confined to national holidays. True patriotism means upholding the constitutional unity, integrity, and social peace for which our bravehearts sacrificed their tomorrows.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: EXAM HALL MISTAKES & REVISION
+         ========================================== -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6</span>
+        <h2>⚡ "Exam Hall Mistakes" &amp; 5-Minute Rapid Revision Cheat Sheet</h2>
+      </div>
+
+      <h4>⚠️ Common Student Mistakes in Exams &amp; How to Avoid Them</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Common Student Error</th>
+              <th>Why It Loses Marks</th>
+              <th>CBSE Correct Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Confusing <em>Amar Chakra</em> with <em>Tyag Chakra</em>.</td>
+              <td>Amar Chakra is the center with the obelisk and flame; Tyag Chakra is the brick wall with soldiers' names.</td>
+              <td>Memorize: <strong>Amar</strong> = Eternal Flame; <strong>Tyag</strong> = Names on bricks.</td>
+            </tr>
+            <tr>
+              <td>Forgetting to change pronouns and time markers in Reported Speech.</td>
+              <td>Tense change alone is incomplete; leaving <em>today</em> or <em>this</em> unchanged leads to deductions.</td>
+              <td>Change <em>today &rarr; that day</em>, <em>this &rarr; that</em>, <em>will &rarr; would</em>.</td>
+            </tr>
+            <tr>
+              <td>Classifying free-verse poetry as rhyming poetry.</td>
+              <td>Dr. Kalam's poem does not follow a strict end-rhyme scheme; it relies on internal rhythm and natural cadence.</td>
+              <td>Identify the form as lyrical free verse driven by emotional cadence and imagery.</td>
+            </tr>
+            <tr>
+              <td>Misidentifying negative prefix for <em>mortal</em>.</td>
+              <td>Writing <em>unmortal</em> or <em>dismortal</em> is incorrect English.</td>
+              <td>Use <strong>im-</strong> before roots starting with 'm' (<em>immortal</em>).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>🚀 5-Minute Rapid Revision Flash Table</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th>Key Fact / Rule to Memorize</th>
+              <th>Instant Memory Hack</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>War Memorial 4 Chakras</strong></td>
+              <td>Amar (Flame), Veerta (Bravery), Tyag (Sacrifice), Raksha (Protection).</td>
+              <td><strong>A-V-T-R</strong>: From core flame to outer trees!</td>
+            </tr>
+            <tr>
+              <td><strong>Kalam's Metaphor</strong></td>
+              <td>Soldiers walking lonely expanses "as yogis".</td>
+              <td>Yogic discipline in uniform!</td>
+            </tr>
+            <tr>
+              <td><strong>Rani Abbakka's Weapon</strong></td>
+              <td>Night fire-arrows (agniban) on Portuguese sails.</td>
+              <td>Fire on water defeated the armada!</td>
+            </tr>
+            <tr>
+              <td><strong>Rani Gaidinliu</strong></td>
+              <td>Naga freedom fighter from Manipur, Heraka movement, 'Daughter of the Hills'.</td>
+              <td>Imprisoned at 16, revered forever!</td>
+            </tr>
+            <tr>
+              <td><strong>Armed Forces Mottos</strong></td>
+              <td>Army: <em>Seva Paramo Dharma</em>; Navy: <em>Sham No Varunah</em>; Air Force: <em>Nabhah Sprsham Deeptam</em>.</td>
+              <td>Service, Auspicious Sea, Glorious Sky!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // Audio Reader
+    function speakSummary() {
+      if (!('speechSynthesis' in window)) {
+        alert("Sorry, your browser does not support text-to-speech!");
+        return;
+      }
+      window.speechSynthesis.cancel();
+      var summaryText = document.getElementById('hero-summary').innerText;
+      var utterance = new SpeechSynthesisUtterance(summaryText);
+      utterance.rate = 0.95;
+      utterance.pitch = 1.0;
+      utterance.lang = 'en-US';
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Interactive Quiz Engine
+    function initInteractiveQuizEngine() {
+      var quizCards = document.querySelectorAll('[data-quiz-item="true"]');
+      var scoreEl = document.getElementById('quiz-score');
+      var totalEl = document.getElementById('quiz-total');
+      var statusEl = document.getElementById('quiz-status-msg');
+      if (!quizCards.length || !scoreEl) return;
+
+      var currentScore = 0;
+      var totalQuestions = quizCards.length;
+      totalEl.textContent = totalQuestions;
+      var answeredQuestions = {};
+
+      quizCards.forEach(function(card, qIdx) {
+        var details = card.querySelector('details.ans-box');
+        var ansContent = details ? details.querySelector('.ans-content') : null;
+        var ansText = ansContent ? ansContent.innerText.toLowerCase() : '';
+        var btns = card.querySelectorAll('.quiz-opt-btn');
+
+        btns.forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            if (answeredQuestions[qIdx]) return;
+
+            var btnText = btn.innerText.toLowerCase();
+            var letterMatch = btnText.match(/^\s*\(?([a-d])\)?/);
+            var selectedLetter = letterMatch ? letterMatch[1] : '';
+
+            var isCorrect = false;
+            if (selectedLetter && (
+              ansText.indexOf('answer: (' + selectedLetter + ')') !== -1 ||
+              ansText.indexOf('answer: ' + selectedLetter) !== -1 ||
+              ansText.indexOf('(' + selectedLetter + ')') !== -1
+            )) {
+              isCorrect = true;
+            }
+
+            btns.forEach(function(b) {
+              b.classList.add('evaluated');
+            });
+
+            if (isCorrect) {
+              btn.classList.add('correct-opt');
+              var ind = btn.querySelector('.quiz-opt-indicator');
+              if (ind) ind.textContent = ' ✓';
+              currentScore++;
+              answeredQuestions[qIdx] = true;
+            } else {
+              btn.classList.add('wrong-opt');
+              var ind = btn.querySelector('.quiz-opt-indicator');
+              if (ind) ind.textContent = ' ✗';
+              answeredQuestions[qIdx] = false;
+
+              btns.forEach(function(b) {
+                var bMatch = b.innerText.toLowerCase().match(/^\s*\(?([a-d])\)?/);
+                if (bMatch && (
+                  ansText.indexOf('answer: (' + bMatch[1] + ')') !== -1 ||
+                  ansText.indexOf('answer: ' + bMatch[1]) !== -1
+                )) {
+                  b.classList.add('correct-opt');
+                  var bInd = b.querySelector('.quiz-opt-indicator');
+                  if (bInd) bInd.textContent = ' ✓';
+                }
+              });
+            }
+
+            scoreEl.textContent = currentScore;
+            if (details) details.open = true;
+
+            if (currentScore === totalQuestions) {
+              statusEl.textContent = "🌟 Perfect 100%! You have mastered Unit 5 Bravehearts!";
+            } else if (currentScore >= Math.floor(totalQuestions * 0.7)) {
+              statusEl.textContent = "👏 Great effort! Keep practicing to achieve top CBSE marks!";
+            } else {
+              statusEl.textContent = "👍 Good effort! Review the teacher explanations to reinforce concepts!";
+            }
+          });
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      initInteractiveQuizEngine();
+    });
+  </script>
+</body>
+</html>
