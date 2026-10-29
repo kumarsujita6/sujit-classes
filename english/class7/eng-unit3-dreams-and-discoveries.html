@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Unit 3 - Dreams and Discoveries (Class 7 English - Poorvi)</title>
+  <!-- Google Fonts: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #8b5cf6;
+      --secondary-light: #ede9fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #f5f3ff;
+      --success: #16a34a;
+      --success-light: #dcfce7;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.65;
+      font-size: 15.5px;
+      padding-bottom: 60px;
+    }
+
+    /* Reading Progress Bar (Top-Fixed) */
+    #progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: transparent;
+      z-index: 2000;
+    }
+    #progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #8b5cf6, #10b981);
+      transition: width 0.1s ease-out;
+    }
+
+    /* Sticky Top Navigation & Toolbar */
+    .top-bar {
+      position: sticky;
+      top: 4px;
+      z-index: 1000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 6px 12px;
+      border-radius: 8px;
+      transition: all 0.2s;
+    }
+
+    .nav-links a:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.82rem;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .btn:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1080px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+
+    /* Hero Banner */
+    .hero {
+      background: linear-gradient(135deg, #075985 0%, #0284c7 50%, #7c3aed 100%);
+      color: #ffffff;
+      border-radius: 20px;
+      padding: 36px 32px;
+      margin-bottom: 32px;
+      box-shadow: 0 12px 30px -8px rgba(2, 132, 199, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(4px);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      font-size: 2.15rem;
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1rem;
+      opacity: 0.95;
+      max-width: 820px;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 30px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 14px;
+      margin-bottom: 22px;
+    }
+
+    .section-num {
+      background: var(--primary);
+      color: white;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 5px 11px;
+      border-radius: 8px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .section-header h2 {
+      font-size: 1.45rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    .topic-block {
+      margin-bottom: 32px;
+      padding-bottom: 24px;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .topic-block:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .topic-title {
+      font-size: 1.22rem;
+      font-weight: 800;
+      color: var(--primary-dark);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #e0f2fe;
+      padding: 10px 16px;
+      border-radius: 10px;
+      border-left: 5px solid var(--primary);
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 18px 0 10px 0;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    ul, ol {
+      padding-left: 22px;
+      margin-bottom: 14px;
+    }
+
+    li {
+      margin-bottom: 7px;
+    }
+
+    li strong {
+      color: #0f172a;
+    }
+
+    /* Pastel Callouts */
+    .callout {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 16px 0;
+      border-left: 5px solid;
+    }
+
+    .callout-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .callout-def {
+      background-color: #e0f2fe;
+      border-left-color: #0284c7;
+      color: #075985;
+    }
+
+    .callout-act {
+      background-color: #f0fdfa;
+      border-left-color: #0d9488;
+      color: #115e59;
+    }
+
+    .callout-pyq {
+      background-color: #fffbeb;
+      border-left-color: #f59e0b;
+      color: #78350f;
+    }
+
+    .callout-hack {
+      background-color: #f5f3ff;
+      border-left-color: #7c3aed;
+      color: #4c1d95;
+    }
+
+    .callout-warn {
+      background-color: #fff1f2;
+      border-left-color: #e11d48;
+      color: #881337;
+    }
+
+    .quote-box {
+      background: linear-gradient(to right, #f8fafc, #f0fdfa);
+      border-left: 4px solid var(--secondary);
+      padding: 16px 20px;
+      border-radius: 10px;
+      font-style: italic;
+      color: #334155;
+      margin: 14px 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 16px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.92rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #0f172a;
+      font-weight: 700;
+      padding: 12px 14px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fcfcfd;
+    }
+
+    .mindmap-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+
+    .mm-root {
+      background: #0369a1;
+      color: #fff;
+      font-weight: 800;
+      text-align: center;
+      padding: 12px 20px;
+      border-radius: 10px;
+      max-width: 520px;
+      margin: 0 auto 20px auto;
+      box-shadow: 0 4px 12px rgba(3, 105, 161, 0.25);
+    }
+
+    .mm-branches {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .mm-col {
+      background: #fff;
+      border: 2px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+    }
+
+    .mm-col-1 { border-top: 5px solid #0284c7; }
+    .mm-col-2 { border-top: 5px solid #8b5cf6; }
+    .mm-col-3 { border-top: 5px solid #10b981; }
+
+    .mm-branch-title {
+      font-weight: 800;
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+      text-align: center;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .mm-node {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 8px;
+      font-size: 0.85rem;
+    }
+
+    .diagram-card {
+      background: #ffffff;
+      border: 2px solid #e0f2fe;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 18px 0;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-weight: 600;
+    }
+
+    .q-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-bottom: 16px;
+    }
+
+    .q-title {
+      font-weight: 700;
+      color: #0f172a;
+      margin-bottom: 8px;
+    }
+
+    .pyq-tag {
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-right: 6px;
+      display: inline-block;
+    }
+
+    details.ans-box {
+      margin-top: 10px;
+      background: #f8fafc;
+      border-radius: 8px;
+      border: 1px solid #e2e8f0;
+      padding: 10px 14px;
+    }
+
+    details.ans-box summary {
+      cursor: pointer;
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--primary-dark);
+      user-select: none;
+    }
+
+    .ans-content {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #e2e8f0;
+      font-size: 0.93rem;
+    }
+
+    /* Interactive Quiz Engine */
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .quiz-opt-btn {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border: 1.5px solid #cbd5e1;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #1e293b;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #f8fafc;
+      border-color: var(--primary);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #14532d !important;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #ffe4e6 !important;
+      border-color: #e11d48 !important;
+      color: #881337 !important;
+    }
+
+    .quiz-opt-indicator {
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    .score-banner {
+      background: linear-gradient(135deg, #e0f2fe, #dbeafe);
+      border: 1px solid #38bdf8;
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .score-title {
+      font-weight: 800;
+      color: #0369a1;
+      font-size: 1.05rem;
+    }
+
+    .score-badge {
+      background: #ffffff;
+      color: #0284c7;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 4px 14px;
+      border-radius: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    /* Micro-animations */
+    .svg-anim-wave {
+      animation: wave 4s ease-in-out infinite alternate;
+    }
+    .svg-anim-float {
+      animation: float 3s ease-in-out infinite alternate;
+    }
+    @keyframes wave {
+      0% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-4px) rotate(1deg); }
+      100% { transform: translateY(0px) rotate(-1deg); }
+    }
+    @keyframes float {
+      from { transform: translateY(0px); }
+      to { transform: translateY(-6px); }
+    }
+
+    @media (max-width: 768px) {
+      .mm-branches {
+        grid-template-columns: 1fr;
+      }
+      .top-bar {
+        padding: 8px 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="progress-container">
+    <div id="progress-bar"></div>
+  </div>
+
+  <!-- Sticky Top Bar -->
+  <header class="top-bar">
+    <nav class="nav-links">
+      <a href="#sec1">Blueprint</a>
+      <a href="#sec2">Text Analysis</a>
+      <a href="#sec3">Grammar &amp; Vocab</a>
+      <a href="#sec4">NCERT Solutions</a>
+      <a href="#sec5">Question Bank</a>
+      <a href="#sec6">Cheat Sheet</a>
+    </nav>
+    <div class="toolbar-actions">
+      <button class="btn btn-primary" onclick="speakSummary()">🔊 Listen to Summary</button>
+      <button class="btn" onclick="window.print()">🖨️ Print Notes</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero Banner -->
+    <div class="hero">
+      <div class="hero-badges">
+        <span class="badge">Class 7 English (Poorvi)</span>
+        <span class="badge">NCERT &bull; NEP 2020 Curricular Alignment</span>
+        <span class="badge">Teacher-Crafted Master Study Notes</span>
+      </div>
+      <h1>Unit 3: Dreams and Discoveries</h1>
+      <p id="hero-summary">
+        An inspiring voyage into human innovation, childhood imagination, and the rich geographical tapestry of India across three brilliant literary pieces: the witty inventor story <em>My Brother's Great Invention</em>, Rabindranath Tagore's lyrical masterpiece <em>Paper Boats</em>, and C.G. Salamander's epistolary expedition <em>North, South, East, West</em>.
+      </p>
+    </div>
+
+    <!-- ==========================================
+         SECTION 1: UNIT BLUEPRINT & EXAM TRENDS
+         ========================================== -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1</span>
+        <h2>🎯 Unit Blueprint &amp; Exam Trend Analysis</h2>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-title">📖 Unit Overview &amp; NEP 2020 Pedagogical Goals</div>
+        <p>
+          Discovery begins with a spark in the imagination. <strong>Unit 3: Dreams and Discoveries</strong> nurtures the scientific temper, poetic sensitivity, and geographic curiosity of Grade 7 students. It shows how everyday objects (a bucket, a folded sheet of paper, a postcard) become vehicles of wonder, innovation, and global unity.
+        </p>
+      </div>
+
+      <h4>📊 Exam Blueprint &amp; Weightage Breakdown</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Chapter / Literary Piece</th>
+              <th>Form &amp; Author</th>
+              <th>Core Themes &amp; Concepts</th>
+              <th>Expected Question Types</th>
+              <th>Weightage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>My Brother’s Great Invention</strong></td>
+              <td>Humorous Family Fiction<br><em>Contemporary Prose</em></td>
+              <td>Curiosity, scientific trial &amp; error, onomatopoeia, family dynamics, Time Machine imagination.</td>
+              <td>RTC Extracts, Onomatopoeia Bank, Simple Past vs Past Perfect, Paragraph Writing on Vocations.</td>
+              <td><strong>35%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Paper Boats</strong></td>
+              <td>Lyrical Symbolic Poem<br><em>Rabindranath Tagore</em></td>
+              <td>Childhood longing, loading shiuli flowers, cloud sails, nocturnal dreams, global friendship.</td>
+              <td>Poetic Devices (Metaphor, Personification, Imagery), Stanza RTC, Origami Culture, Acrostic/Dream Verse.</td>
+              <td><strong>35%</strong></td>
+            </tr>
+            <tr>
+              <td><strong>North, South, East, West</strong></td>
+              <td>Epistolary Travelogue<br><em>C.G. Salamander</em></td>
+              <td>India's 4 cardinal points (Ladakh, Rameswaram, Majuli, Kutch), diverse ecology, indigenous art.</td>
+              <td>Geographic Matchings, Subject-Verb Agreement Rules, Postcard Composition, Agarwood History.</td>
+              <td><strong>30%</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>🧠 Comprehensive Unit Mind Map</h4>
+      <div class="mindmap-box">
+        <div class="mm-root">UNIT 3: DREAMS AND DISCOVERIES (POORVI CLASS 7)</div>
+        <div class="mm-branches">
+          <div class="mm-col mm-col-1">
+            <div class="mm-branch-title" style="color:#0284c7;">⚙️ My Brother's Invention</div>
+            <div class="mm-node"><strong>Anand:</strong> Passionate, unstoppable young tinkerer</div>
+            <div class="mm-node"><strong>Invention 1:</strong> Burglar alarm (soaked Papa with water bag!)</div>
+            <div class="mm-node"><strong>Invention 2:</strong> Cardboard Time Machine (inspired by <em>Back to the Future</em>)</div>
+            <div class="mm-node"><strong>Literary Device:</strong> Onomatopoeia (clattering, hissing, buzzing)</div>
+            <div class="mm-node"><strong>Grammar:</strong> Simple Past vs Past Perfect (<code>had + V3</code>)</div>
+          </div>
+          <div class="mm-col mm-col-2">
+            <div class="mm-branch-title" style="color:#8b5cf6;">⛵ Paper Boats</div>
+            <div class="mm-node"><strong>Poet:</strong> Rabindranath Tagore (Nobel Laureate)</div>
+            <div class="mm-node"><strong>The Ritual:</strong> Big black letters with name &amp; village on boats</div>
+            <div class="mm-node"><strong>Cargo:</strong> Dawn shiuli flowers (Parijat) for distant playmates</div>
+            <div class="mm-node"><strong>Sky Companions:</strong> Billowing white clouds racing like sails</div>
+            <div class="mm-node"><strong>Night Vision:</strong> Fairies of sleep sailing with baskets of dreams</div>
+          </div>
+          <div class="mm-col mm-col-3">
+            <div class="mm-branch-title" style="color:#10b981;">🧭 North, South, East, West</div>
+            <div class="mm-node"><strong>North:</strong> Pangong Lake (Ladakh cold desert &amp; yaks)</div>
+            <div class="mm-node"><strong>South:</strong> Rameswaram &amp; Pamban Bridge (coastal ocean)</div>
+            <div class="mm-node"><strong>East:</strong> Majuli (Assam river island, Satras &amp; masks)</div>
+            <div class="mm-node"><strong>West:</strong> Rann of Kutch (Gujarat salt desert &amp; Rogan art)</div>
+            <div class="mm-node"><strong>Grammar:</strong> Subject-Verb Agreement (Syntax Rules)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: EXHAUSTIVE TEXT & STANZA NOTES
+         ========================================== -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2</span>
+        <h2>📖 Exhaustive Text-by-Text &amp; Stanza-by-Stanza Notes</h2>
+      </div>
+
+      <!-- Part A: My Brother's Great Invention -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>⚙️ Chapter 7: My Brother’s Great Invention (Contemporary Prose)</span>
+        </div>
+
+        <h4>1. Narrative Synopsis &amp; Key Incidents</h4>
+        <p>
+          <strong>The Household Chaos:</strong> The story opens with a loud, enraged roar from the front doorstep: <em>“Who put that water bag here?”</em> It is Papa, dripping wet from head to toe and scowling fiercely. Anand, the young budding inventor, had rigged up what he claimed was an ingenious "burglar alarm."
+        </p>
+        <p>
+          <strong>The Flawed Logic:</strong> Anand smugly explained his invention: <em>“A burglar tries to open the door stealthily. I rigged it so the alarm triggers only when the door is pushed open very gently!”</em> The comedic irony was that Papa, being naturally polite and gentle, always turned the doorknob softly—triggering the water trap right over his head!
+        </p>
+        <p>
+          <strong>The Time Machine Experiment:</strong> After a week of lying low, Anand and the narrator watched the sci-fi movie <em>Back to the Future</em>. Instantly inspired, Anand locked himself in the attic. Hammering, sawing, clattering, and buzzing echoed through the house. When the narrator finally peeked inside, Anand had built a "Time Machine" using a massive corrugated packing crate, a bicycle chain, two old alarm clocks, wires, and flashing flashlight bulbs!
+        </p>
+        <p>
+          <strong>The Disappearance:</strong> On the day family physician Dr. Mohan visited, Anand climbed inside his carton machine and vanished! The entire family and Dr. Mohan searched frantically throughout the house and neighborhood, fearing he had hurt himself. Just as panic reached its height, Anand emerged triumphant from behind the garden shed, proudly announcing: <em>“I have traveled half an hour into the future!”</em>
+        </p>
+
+        <div class="diagram-card">
+          <!-- Responsive Inline SVG 1: Anand's Cardboard Time Machine -->
+          <svg viewBox="0 0 760 260" width="100%" height="260" xmlns="http://www.w3.org/2000/svg">
+            <rect width="760" height="260" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+            
+            <!-- Cardboard Box Body -->
+            <rect x="240" y="50" width="280" height="170" rx="8" fill="#d97706" stroke="#b45309" stroke-width="3"/>
+            <!-- Box Flaps -->
+            <polygon points="240,50 200,20 340,20 380,50" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+            <polygon points="520,50 560,20 420,20 380,50" fill="#d97706" stroke="#b45309" stroke-width="2"/>
+            
+            <!-- Controls on Box Front -->
+            <rect x="270" y="80" width="220" height="110" rx="6" fill="#1e293b" stroke="#0f172a" stroke-width="2"/>
+            
+            <!-- Dials & Clock Faces -->
+            <circle cx="310" cy="120" r="22" fill="#fff" stroke="#64748b" stroke-width="2"/>
+            <line x1="310" y1="120" x2="310" y2="105" stroke="#ef4444" stroke-width="2"/>
+            <line x1="310" y1="120" x2="322" y2="120" stroke="#000" stroke-width="2"/>
+            <text x="310" y="152" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">PAST</text>
+
+            <circle cx="450" cy="120" r="22" fill="#fff" stroke="#64748b" stroke-width="2"/>
+            <line x1="450" y1="120" x2="450" y2="105" stroke="#10b981" stroke-width="2"/>
+            <line x1="450" y1="120" x2="462" y2="125" stroke="#000" stroke-width="2"/>
+            <text x="450" y="152" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="9" fill="#94a3b8">FUTURE</text>
+
+            <!-- Digital Indicator -->
+            <rect x="350" y="105" width="60" height="30" rx="4" fill="#000"/>
+            <text x="380" y="125" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="700" fill="#22c55e">20XX</text>
+
+            <!-- Flashing Lights on top -->
+            <circle cx="300" cy="40" r="8" fill="#ef4444" class="svg-anim-float"/>
+            <circle cx="380" cy="40" r="8" fill="#eab308" class="svg-anim-float"/>
+            <circle cx="460" cy="40" r="8" fill="#3b82f6" class="svg-anim-float"/>
+
+            <!-- Sound Wave Annotations (Onomatopoeia) -->
+            <text x="120" y="80" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#0284c7">CLATTER! 🔨</text>
+            <text x="110" y="130" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#d97706">BUZZZZ! ⚡</text>
+            <text x="120" y="180" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#e11d48">TICK-TOCK! ⏰</text>
+
+            <text x="630" y="80" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#059669">ROARED! 🦁</text>
+            <text x="640" y="130" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#7c3aed">HISSED! 🐍</text>
+            <text x="630" y="180" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#b45309">SPLASH! 💦</text>
+          </svg>
+          <div class="diagram-caption">Figure 3.1: Anand's Cardboard Time Machine &amp; The Onomatopoeic Soundscape of Innovation</div>
+        </div>
+
+        <h4>2. Character Analysis &amp; Thematic Value</h4>
+        <ul>
+          <li><strong>Anand:</strong> Enthusiastic, optimistic, deeply imaginative, and completely undaunted by failure. Even when his inventions malfunction comically, he views every failure as a stepping stone to his next breakthrough.</li>
+          <li><strong>The Narrator:</strong> Anand's sibling; acts as the voice of reason and practical caution (<em>"If Papa asks, I'm not involved!"</em>), yet secretly marvels at Anand's relentless energy.</li>
+          <li><strong>Thematic Message:</strong> Great inventors like Thomas Edison and the Wright Brothers started with childlike curiosity and homemade contraptions. Imagination must be encouraged, even when it causes wet doorknobs!</li>
+        </ul>
+      </div>
+
+      <!-- Part B: Paper Boats -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>⛵ Chapter 8: Paper Boats (Rabindranath Tagore)</span>
+        </div>
+
+        <h4>1. Complete Poem Text</h4>
+        <div class="quote-box">
+          <p>
+            Day by day I float my paper boats one by one down the running stream.<br>
+            In big black letters I write my name on them and the name of the village where I live.<br>
+            I hope that someone in some strange land will find them and know who I am.<br>
+            I load my little boats with shiuli flower from our garden, and hope that these blooms of the dawn will be carried safely to land in the night.<br>
+            I launch my paper boats and look up into the sky and see the little clouds setting the white bulging sails.<br>
+            I know not what playmate of mine in the sky sends them down the air to race with my boats!<br>
+            When night comes I bury my face in my arms and dream that my paper boats float on and on under the midnight stars.<br>
+            The fairies of sleep are sailing in them, and the lading is their baskets full of dreams.<br>
+            <span style="font-size:0.85rem; font-weight:700; color:var(--primary-dark); display:block; margin-top:8px;">— Rabindranath Tagore</span>
+          </p>
+        </div>
+
+        <h4>2. Detailed Line-by-Line Teacher Explanation</h4>
+        <ul>
+          <li>
+            <strong>Lines 1–3 (The Longing for Distant Connection):</strong> Every morning, the young child makes paper boats and sets them sailing down the rainwater stream. By writing his name and village in bold black letters, he sends a message in a bottle across the earth—hoping an unknown playmate in a far-off land will discover his boat, learn his name, and become his friend.
+          </li>
+          <li>
+            <strong>Line 4 (The Fragile Sacred Gift):</strong> The child loads the boats with <em>shiuli</em> flowers (night-flowering jasmine / Parijat) gathered at dawn. These pristine white blooms with orange stems are symbols of purity and love. He prays that these morning flowers reach dry land safely by nightfall without sinking.
+          </li>
+          <li>
+            <strong>Lines 5–6 (The Cosmic Playmate):</strong> Looking upward, the child notices billowing white monsoon clouds gliding across the azure sky. To his imaginative eyes, the clouds look like giant celestial ships with white bulging sails! He wonders which unseen divine playmate in the sky has launched those cloud-ships to race against his little paper fleet on earth.
+          </li>
+          <li>
+            <strong>Lines 7–8 (The Nocturnal Dream World):</strong> At night, resting his head in his arms, the child falls asleep. In his dreams, his paper boats do not perish in the dark; they keep sailing under the luminous midnight stars. Even more magically, <em>fairies of sleep</em> steer the boats, and their precious cargo (<em>lading</em>) consists of baskets brimming with sweet dreams for children everywhere.
+          </li>
+        </ul>
+
+        <div class="diagram-card">
+          <!-- Responsive Inline SVG 2: Paper Boats & Sky Cloud Sails -->
+          <svg viewBox="0 0 760 270" width="100%" height="270" xmlns="http://www.w3.org/2000/svg">
+            <rect width="760" height="270" rx="14" fill="#f0fdfa" stroke="#ccfbf1" stroke-width="2"/>
+            
+            <!-- Sky Region -->
+            <rect x="0" y="0" width="760" height="150" fill="#e0f2fe"/>
+            
+            <!-- Cloud Boats in Sky (White Bulging Sails) -->
+            <g class="svg-anim-float" transform="translate(180, 25)">
+              <ellipse cx="60" cy="40" rx="45" ry="25" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+              <ellipse cx="95" cy="30" rx="35" ry="22" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+              <ellipse cx="125" cy="42" rx="30" ry="20" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+              <text x="95" y="45" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#0369a1">Sky Cloud Sail</text>
+            </g>
+            <g class="svg-anim-float" transform="translate(460, 15)">
+              <ellipse cx="70" cy="35" rx="55" ry="28" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+              <ellipse cx="110" cy="25" rx="40" ry="22" fill="#ffffff" stroke="#93c5fd" stroke-width="1.5"/>
+              <text x="90" y="38" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="10" fill="#0369a1">Celestial Playmate</text>
+            </g>
+
+            <!-- Stream Water Region -->
+            <path d="M 0 150 Q 190 135 380 150 T 760 150 L 760 270 L 0 270 Z" fill="#0284c7" opacity="0.85"/>
+            <path d="M 0 180 Q 200 165 400 180 T 760 180" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="8,6"/>
+            
+            <!-- Paper Boat 1 -->
+            <g class="svg-anim-wave" transform="translate(200, 140)">
+              <!-- Boat Hull -->
+              <polygon points="0,50 100,50 80,75 20,75" fill="#ffffff" stroke="#b45309" stroke-width="2"/>
+              <!-- Sail Triangle -->
+              <polygon points="20,50 50,10 50,50" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+              <polygon points="50,50 50,15 80,50" fill="#fffbeb" stroke="#b45309" stroke-width="1.5"/>
+              <!-- Shiuli Flowers (White Petals + Orange Center) -->
+              <circle cx="35" cy="46" r="5" fill="#f97316"/>
+              <circle cx="35" cy="46" r="3" fill="#ffffff"/>
+              <circle cx="50" cy="44" r="5" fill="#f97316"/>
+              <circle cx="50" cy="44" r="3" fill="#ffffff"/>
+              <circle cx="65" cy="46" r="5" fill="#f97316"/>
+              <circle cx="65" cy="46" r="3" fill="#ffffff"/>
+              <!-- Name on Hull -->
+              <text x="50" y="65" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="8" fill="#0f172a">TAGORE &bull; SHANTINIKETAN</text>
+            </g>
+
+            <!-- Paper Boat 2 -->
+            <g class="svg-anim-wave" transform="translate(480, 160)">
+              <polygon points="0,40 80,40 65,60 15,60" fill="#ffffff" stroke="#b45309" stroke-width="2"/>
+              <polygon points="15,40 40,8 40,40" fill="#fef3c7" stroke="#b45309" stroke-width="1.5"/>
+              <polygon points="40,40 40,12 65,40" fill="#fffbeb" stroke="#b45309" stroke-width="1.5"/>
+              <circle cx="30" cy="37" r="4" fill="#f97316"/>
+              <circle cx="45" cy="36" r="4" fill="#f97316"/>
+              <text x="40" y="52" text-anchor="middle" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="7" fill="#0f172a">BLOOMS OF DAWN</text>
+            </g>
+          </svg>
+          <div class="diagram-caption">Figure 3.2: Tagore's "Paper Boats" — The Earthly Fleet of Shiuli Blooms Racing Heavenly Cloud Sails</div>
+        </div>
+      </div>
+
+      <!-- Part C: North, South, East, West -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>🧭 Chapter 9: North, South, East, West (C.G. Salamander)</span>
+        </div>
+
+        <h4>1. Epistolary Format &amp; The Four Geographic Corners</h4>
+        <p>
+          Written in the lively format of illustrated travel postcards sent by children exploring India's extremities:
+        </p>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Compass Direction</th>
+                <th>Destination &amp; State</th>
+                <th>Distinct Landscape &amp; Climate</th>
+                <th>Cultural &amp; Natural Highlights</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>NORTH</strong></td>
+                <td><strong>Pangong Tso</strong><br><em>Ladakh (UT)</em></td>
+                <td>High-altitude cold desert, saltwater lake that freezes solid in winter, stark barren mountains.</td>
+                <td>Changpa nomadic pastoralists, Pashmina goats, yaks, Tibetan Buddhist prayer flags (lungta).</td>
+              </tr>
+              <tr>
+                <td><strong>SOUTH</strong></td>
+                <td><strong>Rameswaram &amp; Dhanushkodi</strong><br><em>Tamil Nadu</em></td>
+                <td>Tropical coastline, confluence of Gulf of Mannar &amp; Palk Strait, white sands, coastal lagoons.</td>
+                <td>Historic Pamban Sea Bridge, coral reefs, fishermen catamarans, Dr. A.P.J. Abdul Kalam's birthplace.</td>
+              </tr>
+              <tr>
+                <td><strong>EAST</strong></td>
+                <td><strong>Majuli Island</strong><br><em>Assam</em></td>
+                <td>World’s largest inhabited river island, braided channels of the mighty Brahmaputra river.</td>
+                <td>Neo-Vaishnavite Satras (monasteries), traditional bamboo-and-clay mask making, aromatic agarwood trees.</td>
+              </tr>
+              <tr>
+                <td><strong>WEST</strong></td>
+                <td><strong>Rann of Kutch</strong><br><em>Gujarat</em></td>
+                <td>Vast seasonal salt marsh, shimmering white desert under full moon, arid thorn scrub.</td>
+                <td>Indian Wild Ass (Khur) Sanctuary, greater flamingos, exquisite Rogan textile art, mirror-work embroidery.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: MASTER VOCABULARY & GRAMMAR
+         ========================================== -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3</span>
+        <h2>📚 Master Vocabulary, Etymology &amp; Grammar Rules Bank</h2>
+      </div>
+
+      <h4>1. High-Frequency Vocabulary Bank</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Word</th>
+              <th>Part of Speech</th>
+              <th>Simple Definition</th>
+              <th>Synonyms</th>
+              <th>Antonyms</th>
+              <th>Exemplar Sentence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Onomatopoeia</strong></td>
+              <td>Noun</td>
+              <td>A word that phonetically mimics the sound it describes</td>
+              <td>Sound-word, echoic word</td>
+              <td>Abstract term</td>
+              <td><em>Clatter</em>, <em>buzz</em>, and <em>hiss</em> are vivid examples of onomatopoeia.</td>
+            </tr>
+            <tr>
+              <td><strong>Shiuli</strong></td>
+              <td>Noun</td>
+              <td>Night-flowering fragrant jasmine (Parijat) with white petals and orange stems</td>
+              <td>Coral jasmine, Parijat</td>
+              <td>—</td>
+              <td>The child loaded fragrant shiuli blooms gathered at dawn into his boats.</td>
+            </tr>
+            <tr>
+              <td><strong>Lading</strong></td>
+              <td>Noun</td>
+              <td>Cargo, freight, or loaded burden carried by a ship</td>
+              <td>Cargo, shipment, load</td>
+              <td>Empty space</td>
+              <td>The fairy boat’s lading was nothing other than baskets full of sweet dreams.</td>
+            </tr>
+            <tr>
+              <td><strong>Stealthily</strong></td>
+              <td>Adverb</td>
+              <td>Done in a quiet, secret, or sneaky way to avoid detection</td>
+              <td>Secretly, sneakily, furtively</td>
+              <td>Openly, boldly, loudly</td>
+              <td>The cat walked stealthily towards the pigeon on the wall.</td>
+            </tr>
+            <tr>
+              <td><strong>Sceptical</strong></td>
+              <td>Adjective</td>
+              <td>Doubtful; not easily convinced of an idea</td>
+              <td>Doubtful, distrustful, suspicious</td>
+              <td>Convinced, gullible, certain</td>
+              <td>The narrator was sceptical of Anand's claim about building a time machine.</td>
+            </tr>
+            <tr>
+              <td><strong>Epistolary</strong></td>
+              <td>Adjective</td>
+              <td>Written in the literary form of letters or postcards</td>
+              <td>Letter-based, correspondence</td>
+              <td>Spoken, oral</td>
+              <td><em>North, South, East, West</em> is written in an engaging epistolary format.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>2. Onomatopoeic Sound Words Decoded</h4>
+      <div class="callout callout-act">
+        <div class="callout-title">🔊 Sound Words from Chapter 7</div>
+        <ul>
+          <li><strong>Hissed:</strong> Whispered with an angry, sharp 's' sound (<em>"Your burglar alarm!" I hissed to Anand</em>).</li>
+          <li><strong>Roared:</strong> Shouted with a deep, booming, lion-like pitch (<em>Papa roared from the doorstep</em>).</li>
+          <li><strong>Clattering:</strong> Rapid rattling sound of hard objects crashing together (<em>hammering, sawing and clattering</em>).</li>
+          <li><strong>Splashed:</strong> Liquid striking a surface forcefully (<em>the water bag splashed over Papa</em>).</li>
+          <li><strong>Buzzing:</strong> Low continuous vibrating electrical sound (<em>the circuits buzzed inside the crate</em>).</li>
+        </ul>
+      </div>
+
+      <h4>3. Grammar Topic A: Simple Past vs Past Perfect Tense</h4>
+      <div class="callout callout-hack">
+        <div class="callout-title">💡 The Two-Step Past Rule (Earlier Past vs Later Past)</div>
+        <p>
+          When two actions occurred in the past, the <strong>older / earlier action</strong> takes the <strong>Past Perfect (<code>had + V3</code>)</strong>, while the <strong>subsequent / later action</strong> takes the <strong>Simple Past (<code>V2</code>)</strong>.
+        </p>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Combined Sentence</th>
+              <th>Action 1 (Happened First &rarr; Past Perfect)</th>
+              <th>Action 2 (Happened Next &rarr; Simple Past)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><em>When Papa reached home, Anand <strong>had vanished</strong> into the garden.</em></td>
+              <td>Anand <strong>had vanished</strong> (First)</td>
+              <td>Papa <strong>reached</strong> home (Second)</td>
+            </tr>
+            <tr>
+              <td><em>The train <strong>had departed</strong> before we arrived at the station.</em></td>
+              <td>The train <strong>had departed</strong> (First)</td>
+              <td>We <strong>arrived</strong> (Second)</td>
+            </tr>
+            <tr>
+              <td><em>Ma found Papa wet because the water bag <strong>had burst</strong>.</em></td>
+              <td>Water bag <strong>had burst</strong> (First)</td>
+              <td>Ma <strong>found</strong> Papa wet (Second)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>4. Grammar Topic B: Subject-Verb Agreement (Master Rules)</h4>
+      <ul>
+        <li><strong>Rule 1 (Singular vs Plural):</strong> Singular subject takes singular verb (<em>The child <strong>floats</strong> a boat</em>); plural subject takes plural verb (<em>The children <strong>float</strong> boats</em>).</li>
+        <li><strong>Rule 2 (Compound Subjects with 'and'):</strong> Two subjects joined by <em>and</em> take a plural verb (<em>Amma and Appa <strong>are</strong> fast asleep</em>).</li>
+        <li><strong>Rule 3 (Proximity Rule with 'Either...or' / 'Neither...nor'):</strong> The verb agrees with the subject closest to it:
+          <br>&bull; <em>Neither the teacher nor the students <strong>were</strong> present.</em> (students is plural)
+          <br>&bull; <em>Neither the students nor the teacher <strong>was</strong> present.</em> (teacher is singular)
+        </li>
+        <li><strong>Rule 4 (Parenthetical Expressions):</strong> Words introduced by <em>as well as</em>, <em>along with</em>, <em>together with</em> do not affect the subject's number (<em>The captain, along with his sailors, <strong>was</strong> awarded</em>).</li>
+        <li><strong>Rule 5 (Indefinite Pronouns):</strong> <em>Everyone</em>, <em>each</em>, <em>somebody</em> take singular verbs (<em>Each of the postcards <strong>tells</strong> an exciting tale</em>).</li>
+      </ul>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: COMPLETE NCERT SOLUTIONS
+         ========================================== -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4</span>
+        <h2>✍️ Complete NCERT Solutions (Zero-Omission)</h2>
+      </div>
+
+      <!-- Chapter 7 Solutions -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>⚙️ NCERT Solutions: My Brother’s Great Invention</span>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Pre-Reading I (Page 91)</span> Ancient Indian Inventions &amp; Inventions Grid</div>
+          <p><strong>Prompt:</strong> (1) Guess concept invented by ancient Indian mathematicians that adds value to numbers. (2) Ancient wellness practice popular globally. (3) Fill grid of inventor qualities.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>1. <strong>Zero (Śūnya):</strong> Invented and formalized by ancient Indian mathematicians like Brahmagupta and Aryabhata, forming the mathematical backbone of binary digital computers.</p>
+              <p>2. <strong>Yoga &amp; Ayurveda:</strong> Ancient Indian holistic systems focusing on physical, mental, and spiritual well-being.</p>
+              <p>3. <strong>Inventor Qualities Grid:</strong> C-U-R-I-O-U-S (Curious), P-A-T-I-E-N-T (Patient), C-R-E-A-T-I-V-E (Creative), O-B-S-E-R-V-A-N-T (Observant).</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Discuss (Page 94 &amp; 98)</span> The Water Bag Alarm &amp; Time Machine Search</div>
+          <p><strong>Questions:</strong> Why was Papa soaking wet? Why did Anand’s alarm fail to catch a burglar? Where did Anand hide?</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>1. Why Papa was wet:</strong> Anand had balanced a water bag over the front door designed to tip when the door opened softly. Papa, being naturally gentle, opened the door gently and received the full bucket of water.</p>
+              <p><strong>2. Flawed burglar logic:</strong> Burglars often use force to break in, while polite family members open doors gently. Anand's design foolishly targeted gentle door openings instead of forced entries.</p>
+              <p><strong>3. Anand's hiding place:</strong> Anand hid inside his cardboard carton "Time Machine" behind the tool shed in the garden, letting everyone search in panic before dramatically declaring he had travelled into the future.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Learn: Tenses (Page 103)</span> Simple Past vs Past Perfect Fill-ins</div>
+          <p><strong>Prompt:</strong> Fill in blanks using Simple Past or Past Perfect forms.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>1. It <strong>had been raining</strong> and we <strong>had had</strong> (have) little time to set up for the function, so we quickly <strong>rigged up</strong> (rig up) some decorations using whatever materials we had. We accidentally <strong>tripped off</strong> (trip off) the fire alarm during the process, but the rain finally <strong>let up</strong> (let up) by evening.</p>
+              <p>2. Ma <strong>had rushed</strong> (rush) in to see what the racket was all about and <strong>found</strong> (find) Papa soaking wet.</p>
+              <p>3. By the time Dr. Mohan <strong>arrived</strong> (arrive), the family <strong>had searched</strong> (search) every room.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Chapter 8 Solutions -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>⛵ NCERT Solutions: Paper Boats (Rabindranath Tagore)</span>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Discuss I (Page 111)</span> Summary Cloze Text</div>
+          <p><strong>Prompt:</strong> Complete the summary of the poem by choosing the correct words.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>The poet sends paper boats down a 1. <strong>stream</strong> each day, writing his name and the name of his 2. <strong>village</strong> on them. He hopes that someone in a 3. <strong>strange</strong> land will find them and know who he is. The poet fills his boats with 4. <strong>shiuli</strong> flowers from his garden, hoping they will be safely carried to another land at 5. <strong>night</strong>. As he launches his boats, he imagines that the 6. <strong>clouds</strong> in the sky are like friends, racing with his boats. At night, he dreams that his paper boats continue to 7. <strong>float</strong> under the midnight stars, with the fairies of sleep sailing in them, their baskets full of 8. <strong>dreams</strong>.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Discuss II–VI (Page 111)</span> Themes, Poetic Devices &amp; Alliteration</div>
+          <p><strong>Questions:</strong> What is the theme? Tone and mood? Examples of alliteration?</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>II. Theme:</strong> <strong>(iv) 1, 2 and 4</strong> (Innocence, Imagination, and Playfulness).</p>
+              <p><strong>III. Setting:</strong> <strong>TRUE</strong>. It is set in a natural, outdoor environment by a running rainwater stream with shiuli gardens and an open sky.</p>
+              <p><strong>IV. Tone &amp; Mood:</strong> The tone is <strong>gentle and wishful</strong>, and the mood is <strong>thoughtful and peaceful</strong>.</p>
+              <p><strong>V. Alliteration Examples:</strong>
+                <br>&bull; <em>"<strong>b</strong>ig <strong>b</strong>lack letters"</em> (repetition of /b/ sound)
+                <br>&bull; <em>"<strong>D</strong>ay by <strong>d</strong>ay"</em> (repetition of /d/ sound)
+                <br>&bull; <em>"<strong>s</strong>ome <strong>s</strong>trange land"</em> (repetition of /s/ sound)
+              </p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Think and Reflect (Page 112)</span> Extract Analysis: "Fairies of Sleep"</div>
+          <p><strong>Extract:</strong> <em>"When night comes I bury my face in my arms and dream that my paper boats float on and on under the midnight stars. The fairies of sleep are sailing in them, and the lading is their baskets full of dreams."</em></p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>(i) What does "bury my face in my arms" mean?</strong> It depicts a child curling up cozily in bed, hiding his face in his folded arms as he drifts into sleep.</p>
+              <p><strong>(ii) Who sails in the boats at night?</strong> The <em>fairies of sleep</em> (symbolizing sweet dreams and nocturnal peace).</p>
+              <p><strong>(iii) What is their cargo ("lading")?</strong> Their cargo consists of <em>baskets brimming with dreams</em>, bringing comfort and imaginative adventures to sleeping children.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+
+      <!-- Chapter 9 Solutions -->
+      <div class="topic-block">
+        <div class="topic-title">
+          <span>🧭 NCERT Solutions: North, South, East, West (C.G. Salamander)</span>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Discuss (Page 125)</span> Geographical Features Matching</div>
+          <p><strong>Prompt:</strong> Match the 4 regions with their distinctive geographic phenomena.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>&bull; <strong>Ladakh (North):</strong> Pangong Tso, high altitude cold desert, snow-capped ridges, Buddhist prayer flags.</p>
+              <p>&bull; <strong>Rameswaram (South):</strong> Pamban railway sea bridge, meeting of two seas, sea shell crafts.</p>
+              <p>&bull; <strong>Majuli (East):</strong> River island on the Brahmaputra, Satra monasteries, traditional mask artisans.</p>
+              <p>&bull; <strong>Kutch (West):</strong> Vast white salt desert, flamingos, wild ass sanctuary, Rogan art.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Learn: Subject-Verb Agreement (Pages 128-130)</span> Syntax Exercises Solved</div>
+          <p><strong>Prompt:</strong> Underline subject and choose correct verb form.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p>1. Amma and Appa <strong>are</strong> (is/are) fast asleep. <em>[Compound subject with 'and' takes plural verb]</em></p>
+              <p>2. Neither the students nor the teacher <strong>wants</strong> (want/wants) to cancel the trip. <em>[Subject closer to verb is singular 'teacher']</em></p>
+              <p>3. Either Renu or her friends <strong>have</strong> (has/have) the map. <em>[Subject closer to verb is plural 'friends']</em></p>
+              <p>4. The flock of migratory flamingos <strong>looks</strong> (look/looks) magnificent against the white salt. <em>[Collective noun 'flock' takes singular verb]</em></p>
+              <p>5. Each of the travel postcards <strong>carries</strong> (carry/carries) a unique postal stamp. <em>['Each' takes singular verb]</em></p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Listening Transcripts (Pages 131–133)</span> Agartala &amp; Agarwood History</div>
+          <p><strong>Question:</strong> How did Agartala get its name? Why is agarwood called 'wood of the gods'?</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <p><strong>Name Origin:</strong> 'Agartala' is formed from two words: <em>agar</em> (the agarwood tree) and <em>tala</em> (underneath/below). Thus, Agartala literally means <em>"under the shade of the agar tree."</em></p>
+              <p><strong>Wood of the Gods:</strong> Agarwood (aloeswood/eaglewood) produces a divine, rich, therapeutic resin only when infected or wounded. It has been described in the Vedas since 1400 BCE and utilized by ancient Egyptians 3,000 years ago for religious incense, Ayurvedic medicines, and sacred perfumes.</p>
+            </div>
+          </details>
+        </div>
+
+        <div class="q-card">
+          <div class="q-title"><span class="pyq-tag">Let Us Write (Page 134)</span> Travel Postcard Composition</div>
+          <p><strong>Prompt:</strong> Write a travel postcard to your best friend describing your visit to the world's largest river island, Majuli.</p>
+          <details class="ans-box" open>
+            <summary>View Step-by-Step Teacher Answer</summary>
+            <div class="ans-content">
+              <div style="border: 1.5px dashed #0284c7; padding: 18px; border-radius: 8px; background: #f0fdfa;">
+                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #cbd5e1; padding-bottom: 8px; margin-bottom: 12px;">
+                  <span style="font-weight: 800; color: #0369a1;">POSTCARD FROM MAJULI, ASSAM</span>
+                  <span style="border: 1px solid #94a3b8; padding: 2px 8px; font-size: 0.75rem; font-weight: 700;">STAMP: ₹5</span>
+                </div>
+                <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 16px;">
+                  <div>
+                    <p style="font-size: 0.9rem; line-height: 1.5;">
+                      Dear Aarav,<br><br>
+                      Greetings from Majuli, the world’s largest river island in the middle of the mighty Brahmaputra! Yesterday, I took a ferry across the swirling river. I visited the ancient Natun Samaguri Satra where master artisans make giant mythological masks out of bamboo, clay, and cow dung. The peaceful island breezes smell of fresh tea gardens and agarwood. Wish you were here with me!
+                      <br><br>Your friend,<br><strong>Sujit</strong>
+                    </p>
+                  </div>
+                  <div style="border-left: 1px solid #cbd5e1; padding-left: 12px; font-size: 0.88rem;">
+                    <strong>To:</strong><br>
+                    Aarav Patnaik<br>
+                    Flat 4B, Lotus Apartments<br>
+                    Saheed Nagar, Bhubaneswar<br>
+                    Odisha - 751007
+                  </div>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: COMPETENCY QUESTION BANK
+         ========================================== -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5</span>
+        <h2>🏆 CBSE &amp; State Board Competency Question Bank</h2>
+      </div>
+
+      <!-- Quiz Engine Score Banner -->
+      <div class="score-banner">
+        <div>
+          <div class="score-title">Interactive Competency MCQ Evaluation</div>
+          <div id="quiz-status-msg" style="font-size:0.85rem; color:#0369a1;">Select an answer to test your understanding. Immediate feedback will appear!</div>
+        </div>
+        <div class="score-badge">Score: <span id="quiz-score">0</span> / <span id="quiz-total">6</span></div>
+      </div>
+
+      <h4>Part A: Competency Multiple Choice Questions (Interactive)</h4>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 1</span> Symbolic Interpretation in 'Paper Boats'</div>
+        <p>In Rabindranath Tagore's poem, why does the child load his paper boats with <em>shiuli</em> flowers?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) To make the boats heavier so they won't capsize in the wind.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) To send fresh morning blooms of beauty as a gift of friendship to distant lands.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) To feed the fishes living in the running stream.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) Because the flowers were dry and needed to be discarded.</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> The child gathers dawn shiuli blooms as pristine, sacred offerings of love, hoping they will travel safely through the night to reach an unknown friend.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 2</span> Narrative Irony in 'My Brother's Great Invention'</div>
+        <p>What caused the burglar alarm to soak Papa instead of catching a thief?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) Papa forgot the secret password of the house.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) Anand deliberately designed the water bag to punish Papa.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) The alarm was rigged to trigger only on gentle doorknob turns, which Papa always did.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) A heavy wind opened the front door forcefully.</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> Anand foolishly assumed only thieves open doors softly, forgetting that courteous family members also open doors gently!
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 3</span> Grammar: Subject-Verb Agreement</div>
+        <p>Which sentence satisfies the correct rules of Subject-Verb Agreement?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) Neither the captain nor the sailors was able to navigate the storm.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) Each of the four corners of India offer unique cultural marvels.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Neither the sailors nor the captain was able to navigate the storm.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) The boy, along with his brothers, have launched paper boats.</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> In <em>neither...nor</em> constructions, the verb agrees with the subject closest to it. Here, <em>the captain</em> is singular, so it takes the singular verb <em>was</em>.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 4</span> Grammar: Tense Logic</div>
+        <p>Choose the correct sentence combining past events chronologically:</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) When Dr. Mohan arrived, Anand had already hidden inside the time machine.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) When Dr. Mohan had arrived, Anand already hid inside the time machine.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Anand has hidden inside the box after Dr. Mohan arrived.</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) Dr. Mohan had arrived before Anand had hidden.</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong> The earlier action (Anand hiding) takes Past Perfect (<em>had already hidden</em>), and the later action takes Simple Past (<em>arrived</em>).
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 5</span> Literary Device Identification</div>
+        <p>In <em>"clouds setting the white bulging sails"</em>, what literary device is used?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) Hyperbole</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) Metaphor (comparing clouds to billowing sails of ships)</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Oxymoron</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) Onomatopoeia</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> Tagore directly describes the billowing white clouds as the sails of sky-boats without using 'like' or 'as', creating an evocative metaphor.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card" data-quiz-item="true">
+        <div class="q-title"><span class="pyq-tag">CBSE Competency MCQ 6</span> Cultural Geography</div>
+        <p>Where are traditional mask-making and Neo-Vaishnavite Satras located?</p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn"><span>(a) Pangong Tso, Ladakh</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(b) Rameswaram, Tamil Nadu</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(c) Majuli Island, Assam</span><span class="quiz-opt-indicator"></span></button>
+          <button type="button" class="quiz-opt-btn"><span>(d) Great Rann of Kutch, Gujarat</span><span class="quiz-opt-indicator"></span></button>
+        </div>
+        <details class="ans-box">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> Majuli Island in Assam is the cultural heartland of Neo-Vaishnavite monasteries (Satras) founded by Srimanta Sankardev, renowned for its heritage bamboo mask artistry.
+          </div>
+        </details>
+      </div>
+
+      <h4>Part B: Short Answer Questions (2 &amp; 3 Marks)</h4>
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">2-Mark SAQ</span> Why does the child write his name and village in 'big black letters' on his paper boats?</div>
+        <details class="ans-box" open>
+          <summary>View Model Answer</summary>
+          <div class="ans-content">
+            The child writes his name and village in bold black letters so that his identity remains clear and legible even if the paper gets damp. He harbours an innocent hope that when the boat floats to an unknown distant shore, a strange playmate will read it, learn who he is, and feel connected across geographic boundaries.
+          </div>
+        </details>
+      </div>
+
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">3-Mark SAQ</span> How does onomatopoeia enhance the storytelling in 'My Brother's Great Invention'?</div>
+        <details class="ans-box" open>
+          <summary>View Model Answer</summary>
+          <p>Onomatopoeia enlivens the narrative by turning the reader into an eyewitness:</p>
+          <ul>
+            <li><strong>Sensory Immersion:</strong> Words like <em>hammering</em>, <em>sawing</em>, and <em>clattering</em> reproduce the noisy chaos of Anand’s workshop.</li>
+            <li><strong>Comedic Timing:</strong> Papa’s sudden <em>roar</em> and the water’s loud <em>splash</em> create immediate visual comedy.</li>
+            <li><strong>Sci-Fi Atmosphere:</strong> The <em>buzzing</em> and <em>ticking</em> of the time machine emphasize Anand's intense mechanical imagination.</li>
+          </ul>
+        </div>
+      </div>
+
+      <h4>Part C: Long Answer / Competency Value-Based Questions (5 Marks)</h4>
+      <div class="q-card">
+        <div class="q-title"><span class="pyq-tag">5-Mark Value Question</span> "A nation's greatness lies in its diversity." Illustrate how C.G. Salamander's 'North, South, East, West' showcases India's ecological and cultural unity.</div>
+        <details class="ans-box" open>
+          <summary>View CBSE Topper Answer</summary>
+          <div class="ans-content">
+            <p><strong>Introduction:</strong> In <em>North, South, East, West</em>, C.G. Salamander takes readers on a panoramic journey through India's four geographical extremes through the eyes of curious young postcard writers.</p>
+            <p><strong>Exemplary Diversity Across the Four Corners:</strong></p>
+            <ul>
+              <li><strong>The High North (Ladakh):</strong> Barren mountain passes, sub-zero winters, and crystal-clear high-altitude lakes like Pangong Tso depict how human communities adapt to harsh cold deserts with warmth, Buddhist values, and yak herding.</li>
+              <li><strong>The Coastal South (Rameswaram):</strong> The historic Pamban Bridge and turbulent waters connecting the Indian Ocean and Bay of Bengal showcase India's maritime traditions and pilgrimage heritage.</li>
+              <li><strong>The Riverine East (Assam):</strong> Majuli Island in the Brahmaputra highlights ecological resilience, sacred Satra culture, and heritage craft traditions like mask-making.</li>
+              <li><strong>The Arid West (Gujarat):</strong> The shimmering salt pans of the Rann of Kutch reveal that even harsh salt flats host wildlife sanctuaries (the Indian wild ass and flamingos) and exquisite indigenous art like Rogan painting.</li>
+            </ul>
+            <p><strong>Conclusion:</strong> Across different climates, languages, and terrains, the postcards weave a single message: India's unity does not mean uniformity; it is an organic celebration of diverse landscapes living in mutual harmony.</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: EXAM HALL MISTAKES & REVISION
+         ========================================== -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6</span>
+        <h2>⚡ "Exam Hall Mistakes" &amp; 5-Minute Rapid Revision Cheat Sheet</h2>
+      </div>
+
+      <h4>⚠️ Common Student Mistakes in Exams &amp; How to Avoid Them</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Common Student Error</th>
+              <th>Why It Loses Marks</th>
+              <th>CBSE Correct Method</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Using Simple Past for both actions in two-step past events.</td>
+              <td>Examiners look for the temporal sequence marker; failing to use Past Perfect creates grammatical ambiguity.</td>
+              <td>Use <code>had + V3</code> for the earlier action and <code>V2</code> for the subsequent action.</td>
+            </tr>
+            <tr>
+              <td>Writing that the child in Tagore's poem sends boats to a specific real friend.</td>
+              <td>The text says <em>"someone in some strange land"</em>—it is an unknown, imagined playmate.</td>
+              <td>Highlight the theme of innocent universal longing to connect with strangers worldwide.</td>
+            </tr>
+            <tr>
+              <td>Using plural verbs after <em>each</em> or <em>everyone</em>.</td>
+              <td>Indefinite distributive pronouns are grammatically singular in standard English.</td>
+              <td>Always write <em>Each of the postcards <strong>is</strong></em> (never <em>are</em>).</td>
+            </tr>
+            <tr>
+              <td>Confusing Majuli with an ocean island.</td>
+              <td>Majuli is located within the Brahmaputra River, making it a <strong>river island</strong>.</td>
+              <td>Identify it accurately as the world's largest inhabited river island.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h4>🚀 5-Minute Rapid Revision Flash Table</h4>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Topic</th>
+              <th>Key Fact / Rule to Memorize</th>
+              <th>Instant Memory Hack</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tagore's Paper Boats</strong></td>
+              <td>Carries shiuli flowers gathered at dawn; dreams of fairies of sleep.</td>
+              <td><strong>S</strong>hiuli at dawn &rarr; <strong>S</strong>tars at midnight!</td>
+            </tr>
+            <tr>
+              <td><strong>Onomatopoeia</strong></td>
+              <td>Sound-imitative words (<em>buzz, clatter, roar, hiss</em>).</td>
+              <td>The word makes the sound it means!</td>
+            </tr>
+            <tr>
+              <td><strong>Two-Step Past Rule</strong></td>
+              <td>Earlier action = <code>had + V3</code>; Later action = <code>V2</code>.</td>
+              <td><strong>P</strong>ast <strong>P</strong>erfect = <strong>P</strong>ast of the <strong>P</strong>ast!</td>
+            </tr>
+            <tr>
+              <td><strong>Majuli (East)</strong></td>
+              <td>Brahmaputra river island, Satras, bamboo mask making.</td>
+              <td><strong>M</strong>ajuli = <strong>M</strong>asks &amp; <strong>M</strong>ighty river!</td>
+            </tr>
+            <tr>
+              <td><strong>Agartala Origin</strong></td>
+              <td><em>Agar</em> (Aloeswood) + <em>Tala</em> (Underneath).</td>
+              <td>Capital shaded beneath sacred agarwood!</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // Audio Reader
+    function speakSummary() {
+      if (!('speechSynthesis' in window)) {
+        alert("Sorry, your browser does not support text-to-speech!");
+        return;
+      }
+      window.speechSynthesis.cancel();
+      var summaryText = document.getElementById('hero-summary').innerText;
+      var utterance = new SpeechSynthesisUtterance(summaryText);
+      utterance.rate = 0.95;
+      utterance.pitch = 1.0;
+      utterance.lang = 'en-US';
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // Interactive Quiz Engine
+    function initInteractiveQuizEngine() {
+      var quizCards = document.querySelectorAll('[data-quiz-item="true"]');
+      var scoreEl = document.getElementById('quiz-score');
+      var totalEl = document.getElementById('quiz-total');
+      var statusEl = document.getElementById('quiz-status-msg');
+      if (!quizCards.length || !scoreEl) return;
+
+      var currentScore = 0;
+      var totalQuestions = quizCards.length;
+      totalEl.textContent = totalQuestions;
+      var answeredQuestions = {};
+
+      quizCards.forEach(function(card, qIdx) {
+        var details = card.querySelector('details.ans-box');
+        var ansContent = details ? details.querySelector('.ans-content') : null;
+        var ansText = ansContent ? ansContent.innerText.toLowerCase() : '';
+        var btns = card.querySelectorAll('.quiz-opt-btn');
+
+        btns.forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            if (answeredQuestions[qIdx]) return;
+
+            var btnText = btn.innerText.toLowerCase();
+            var letterMatch = btnText.match(/^\s*\(?([a-d])\)?/);
+            var selectedLetter = letterMatch ? letterMatch[1] : '';
+
+            var isCorrect = false;
+            if (selectedLetter && (
+              ansText.indexOf('answer: (' + selectedLetter + ')') !== -1 ||
+              ansText.indexOf('answer: ' + selectedLetter) !== -1 ||
+              ansText.indexOf('(' + selectedLetter + ')') !== -1
+            )) {
+              isCorrect = true;
+            }
+
+            btns.forEach(function(b) {
+              b.classList.add('evaluated');
+            });
+
+            if (isCorrect) {
+              btn.classList.add('correct-opt');
+              var ind = btn.querySelector('.quiz-opt-indicator');
+              if (ind) ind.textContent = ' ✓';
+              currentScore++;
+              answeredQuestions[qIdx] = true;
+            } else {
+              btn.classList.add('wrong-opt');
+              var ind = btn.querySelector('.quiz-opt-indicator');
+              if (ind) ind.textContent = ' ✗';
+              answeredQuestions[qIdx] = false;
+
+              btns.forEach(function(b) {
+                var bMatch = b.innerText.toLowerCase().match(/^\s*\(?([a-d])\)?/);
+                if (bMatch && (
+                  ansText.indexOf('answer: (' + bMatch[1] + ')') !== -1 ||
+                  ansText.indexOf('answer: ' + bMatch[1]) !== -1
+                )) {
+                  b.classList.add('correct-opt');
+                  var bInd = b.querySelector('.quiz-opt-indicator');
+                  if (bInd) bInd.textContent = ' ✓';
+                }
+              });
+            }
+
+            scoreEl.textContent = currentScore;
+            if (details) details.open = true;
+
+            if (currentScore === totalQuestions) {
+              statusEl.textContent = "🌟 Perfect 100%! You have mastered Unit 3 Dreams and Discoveries!";
+            } else if (currentScore >= Math.floor(totalQuestions * 0.7)) {
+              statusEl.textContent = "👏 Great effort! Keep practicing to achieve top CBSE marks!";
+            } else {
+              statusEl.textContent = "👍 Good effort! Review the teacher explanations to reinforce concepts!";
+            }
+          });
+        });
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      initInteractiveQuizEngine();
+    });
+  </script>
+</body>
+</html>
