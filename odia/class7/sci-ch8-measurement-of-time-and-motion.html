@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୮: ସମୟ ଓ ଗତିର ମାପ (Measurement of Time and Motion) | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ସପ୍ତମ ଶ୍ରେଣୀ ବିଜ୍ଞାନ ଅଧ୍ୟାୟ ୮: ସମୟ ଓ ଗତିର ମାପ। ସରଳ ଦୋଳକ, ଦୋଳନ କାଳ, ବେଗ ଗଣନା ସୂତ୍ର, ସମାନ ଓ ଅସମାନ ଗତି, ସ୍ପିଡୋମିଟର, ଓଡୋମିଟର, NCERT ସମାଧାନ ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.85;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #0284c7, #10b981, #f59e0b);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.4rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 0.7rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #0f172a 0%, #0369a1 50%, #059669 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.25rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    h3.topic-title {
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-left: 4px solid var(--primary);
+      padding-left: 0.75rem;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 1rem; font-size: 1.02rem; }
+
+    ul, ol {
+      margin: 0.75rem 0 1.25rem 1.5rem;
+    }
+
+    li { margin-bottom: 0.5rem; }
+
+    .callout {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid;
+    }
+
+    .callout-def {
+      background: #ecfdf5;
+      border-color: #10b981;
+      color: #065f46;
+    }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e40af;
+    }
+
+    .callout-hack {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #92400e;
+    }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #991b1b;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.98rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #fafafa; }
+
+    details.ans-box {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box summary {
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      cursor: pointer;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.98rem;
+      line-height: 1.85;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quiz-question {
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .quiz-opt-btn {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-family: inherit;
+      color: var(--text);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      border-color: var(--secondary);
+      background: #f0f9ff;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #ecfdf5 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700 !important;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fef2f2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+      font-weight: 600 !important;
+    }
+
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+
+    .audio-btn {
+      background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+      color: #ffffff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 14px auto;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .audio-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(5, 150, 105, 0.45);
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> ସୁଜିତ୍ କ୍ଲାସେସ୍ (Sujit Classes)
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">୧. ମାନଚିତ୍ର</a>
+      <a href="#sec2" class="nav-link">୨. ମାଷ୍ଟର ନୋଟ୍ସ</a>
+      <a href="#sec3" class="nav-link">୩. ପରିଭାଷା</a>
+      <a href="#sec4" class="nav-link">୪. NCERT ସମାଧାନ</a>
+      <a href="#sec5" class="nav-link">୫. ପ୍ରଶ୍ନ ବ୍ୟାଙ୍କ ଓ କୁଇଜ୍</a>
+      <a href="#sec6" class="nav-link">୬. ରିଭିଜନ୍</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-stopwatch"></i> ସପ୍ତମ ଶ୍ରେଣୀ ବିଜ୍ଞାନ &bull; ଅଧ୍ୟାୟ ୮ (କୌତୂହଳ - Curiosity)
+    </div>
+    <h1 class="hero-title">ଅଧ୍ୟାୟ ୮: ସମୟ ଓ ଗତିର ମାପ<br><span style="font-size: 1.55rem; opacity: 0.95;">(Measurement of Time and Motion)</span></h1>
+    <p class="hero-sub">
+      ସୂର୍ଯ୍ୟ ଘଡ଼ିରୁ କ୍ୱାର୍ଟଜ୍ ଘଣ୍ଟା ପର୍ଯ୍ୟନ୍ତ &mdash; ଗାଲିଲିଓଙ୍କ ସରଳ ଦୋଳକର ରହସ୍ୟ, ଦୋଳନ କାଳ, ବେଗ ଗଣନା ସୂତ୍ର (Speed = Distance / Time), ସମାନ ବନାମ ଅସମାନ ଗତି, ସ୍ପିଡୋମିଟର ଓ ଓଡୋମିଟର।
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT / BSE Odisha: କୌତୂହଳ</span>
+      <span><i class="fa-solid fa-gauge-high"></i> ବିଷୟବସ୍ତୁ: ସମୟ, ଗତି ଓ ବେଗ</span>
+      <span><i class="fa-solid fa-check-double"></i> ୧୦୦% ସମାଧାନ ହୋଇଥିବା କାର୍ଯ୍ୟକଳାପ ଓ ପ୍ରଶ୍ନୋତ୍ତର</span>
+    </div>
+    <div>
+      <button class="audio-btn" id="teacherAudioBtn" onclick="toggleTeacherAudio()">
+        <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL MIND MAP & BLUEPRINT -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୧</span>
+        <h2>ଦୃଶ୍ୟ ମାନସିକ ମାନଚିତ୍ର ଓ ଅଧ୍ୟାୟ ଖସଡ଼ା (Visual Mind Map & Blueprint)</h2>
+        <p class="section-sub">ସମୟ ମାପ ଓ ଗତି ସମ୍ବନ୍ଧୀୟ ସମସ୍ତ ଗାଣିତିକ ସୂତ୍ର ଓ ଧାରଣା</p>
+      </div>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 920 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="c8bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f0f9ff"/>
+              <stop offset="100%" stop-color="#ecfdf5"/>
+            </linearGradient>
+            <linearGradient id="c8core" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#059669"/>
+            </linearGradient>
+          </defs>
+
+          <rect x="10" y="10" width="900" height="500" rx="16" fill="url(#c8bg)" stroke="#cbd5e1" stroke-width="2"/>
+
+          <path d="M 460 260 L 180 130" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="6,4"/>
+          <path d="M 460 260 L 740 130" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="6,4"/>
+          <path d="M 460 260 L 180 390" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="6,4"/>
+          <path d="M 460 260 L 740 390" stroke="#10b981" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+          <!-- Center Node -->
+          <g>
+            <circle cx="460" cy="260" r="80" fill="url(#c8core)" stroke="#ffffff" stroke-width="4"/>
+            <text x="460" y="245" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="15">ସମୟ ଓ ଗତିର ମାପ</text>
+            <text x="460" y="268" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="15">(Time &amp; Motion)</text>
+            <text x="460" y="290" text-anchor="middle" fill="#e0f2fe" font-family="'Space Grotesk', sans-serif" font-size="11">ଦୂରତା &divide; ସମୟ = ବେଗ</text>
+          </g>
+
+          <!-- Branch 1: Time Measurement Evolution (Top-Left) -->
+          <g>
+            <rect x="50" y="60" width="260" height="135" rx="12" fill="#ffffff" stroke="#0284c7" stroke-width="2"/>
+            <rect x="50" y="60" width="260" height="32" rx="12" fill="#0284c7"/>
+            <text x="180" y="82" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="13">୧. ସମୟ ମାପର ବିକାଶ</text>
+            <text x="65" y="110" fill="#0c4a6e" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ପ୍ରାକୃତିକ ପର୍ଯ୍ୟାୟକ୍ରମ (ଦିନ, ମାସ, ବର୍ଷ)</text>
+            <text x="65" y="130" fill="#0c4a6e" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ପ୍ରାଚୀନ: ସୂର୍ଯ୍ୟ ଘଡ଼ି (Sundial), ଜଳ ଘଣ୍ଟା</text>
+            <text x="65" y="150" fill="#0c4a6e" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ବାଲି ଘଣ୍ଟା (Hourglass)</text>
+            <text x="65" y="170" fill="#0369a1" font-family="'Noto Sans Oriya', sans-serif" font-size="11" font-weight="600">&bull; ଆଧୁନିକ: କ୍ୱାର୍ଟଜ୍ ଘଣ୍ଟା ଓ ଷ୍ଟପ୍-ୱାଚ୍</text>
+          </g>
+
+          <!-- Branch 2: Simple Pendulum (Top-Right) -->
+          <g>
+            <rect x="610" y="60" width="260" height="135" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+            <rect x="610" y="60" width="260" height="32" rx="12" fill="#f59e0b"/>
+            <text x="740" y="82" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="13">୨. ସରଳ ଦୋଳକ (Pendulum)</text>
+            <text x="625" y="110" fill="#78350f" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ଗାଲିଲିଓଙ୍କ ପର୍ଯ୍ୟାୟକ୍ରମିକ ଦୋଳନ ଆବିଷ୍କାର</text>
+            <text x="625" y="130" fill="#78350f" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ଗୋଟିଏ ପୂର୍ଣ୍ଣ ଦୋଳନ: O &rarr; A &rarr; B &rarr; O</text>
+            <text x="625" y="150" fill="#78350f" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ଦୋଳନ କାଳ = ସମୁଦାୟ ସମୟ &divide; ଦୋଳନ</text>
+            <text x="625" y="170" fill="#b45309" font-family="'Noto Sans Oriya', sans-serif" font-size="11" font-weight="600">&bull; କେବଳ ସୂତା ଦୈର୍ଘ୍ୟ ଉପରେ ନିର୍ଭର କରେ</text>
+          </g>
+
+          <!-- Branch 3: Speed & Motion (Bottom-Left) -->
+          <g>
+            <rect x="50" y="325" width="260" height="140" rx="12" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+            <rect x="50" y="325" width="260" height="32" rx="12" fill="#8b5cf6"/>
+            <text x="180" y="347" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="13">୩. ବେଗ ଓ ଗତି (Speed)</text>
+            <text x="65" y="375" fill="#4c1d95" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ବେଗ = ଅତିକ୍ରାନ୍ତ ଦୂରତା / ସମୟ</text>
+            <text x="65" y="395" fill="#4c1d95" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; SI ଏକକ: ମିଟର/ସେକେଣ୍ଡ (m/s)</text>
+            <text x="65" y="415" fill="#4c1d95" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ବ୍ୟବହାରିକ ଏକକ: କିମି/ଘଣ୍ଟା (km/h)</text>
+            <text x="65" y="435" fill="#6d28d9" font-family="'Noto Sans Oriya', sans-serif" font-size="11" font-weight="600">&bull; 1 km/h = 5/18 m/s</text>
+          </g>
+
+          <!-- Branch 4: Uniform Motion & Instruments (Bottom-Right) -->
+          <g>
+            <rect x="610" y="325" width="260" height="140" rx="12" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+            <rect x="610" y="325" width="260" height="32" rx="12" fill="#10b981"/>
+            <text x="740" y="347" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="13">୪. ସମାନ ଗତି ଓ ଯନ୍ତ୍ରପାତି</text>
+            <text x="625" y="375" fill="#065f46" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ସମାନ ଗତି: ସମାନ ସମୟରେ ସମାନ ଦୂରତା</text>
+            <text x="625" y="395" fill="#065f46" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ଅସମାନ ଗତି: ବେଗ ବାରମ୍ବାର ବଦଳେ</text>
+            <text x="625" y="415" fill="#065f46" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ସ୍ପିଡୋମିଟର: ତତ୍କାଳୀନ ବେଗ ମାପେ</text>
+            <text x="625" y="435" fill="#047857" font-family="'Noto Sans Oriya', sans-serif" font-size="11" font-weight="600">&bull; ଓଡୋମିଟର: ମୋଟ ଅତିକ୍ରାନ୍ତ ଦୂରତା ମାପେ</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EXHAUSTIVE CONCEPT EXPLANATIONS -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୨</span>
+        <h2>ସମ୍ପୂର୍ଣ୍ଣ ଧାରଣା ସ୍ପଷ୍ଟୀକରଣ (Exhaustive Concept Explanations)</h2>
+        <p class="section-sub">ସମୟ ମାପ, ସରଳ ଦୋଳକ ଏବଂ ବେଗ ଗଣନାର ସମ୍ପୂର୍ଣ୍ଣ ବିଶ୍ଳେଷଣ</p>
+      </div>
+
+      <!-- Topic 1: Evolution of Time -->
+      <h3 class="topic-title"><i class="fa-solid fa-clock-rotate-left"></i> ୧. ସମୟ ମାପର ଇତିହାସ: ପ୍ରାକୃତିକ ଘଟଣାରୁ ଘଣ୍ଟା</h3>
+      <p>
+        ପ୍ରାଚୀନ କାଳରେ ମଣିଷ ପାଖରେ ଆମ ପରି ହାତଘଣ୍ଟା ବା ମୋବାଇଲ୍ ଫୋନ୍ ନଥିଲା। ସେମାନେ ପ୍ରକୃତିର ନିୟମିତ ପୁନରାବୃତ୍ତି ହେଉଥିବା ଘଟଣାକୁ ଦେଖି ସମୟ ମାପୁଥିଲେ:
+      </p>
+      <ul>
+        <li><strong>ଦିନ (Day):</strong> ଗୋଟିଏ ସୂର୍ଯ୍ୟୋଦୟରୁ ପରବର୍ତ୍ତୀ ସୂର୍ଯ୍ୟୋଦୟ ମଧ୍ୟବର୍ତ୍ତୀ ସମୟ।</li>
+        <li><strong>ମାସ (Month):</strong> ଗୋଟିଏ ନୂଆ ଚାନ୍ଦ (ଅମାବାସ୍ୟା) ରୁ ପରବର୍ତ୍ତୀ ଅମାବାସ୍ୟା ପର୍ଯ୍ୟନ୍ତ ସମୟ।</li>
+        <li><strong>ବର୍ଷ (Year):</strong> ପୃଥିବୀ ସୂର୍ଯ୍ୟଙ୍କ ଚାରିପାଖରେ ଥରେ ସମ୍ପୂର୍ଣ୍ଣ ଘୂରି ଆସିବାକୁ ନେଉଥିବା ସମୟ (ପ୍ରାୟ ୩୬୫ ଦିନ)।</li>
+      </ul>
+      <p>
+        ଦିନର କ୍ଷୁଦ୍ର ସମୟ ବ୍ୟବଧାନ ମାପିବା ପାଇଁ ପୂର୍ବଜମାନେ <strong>ସୂର୍ଯ୍ୟ ଘଡ଼ି (Sundial)</strong>, <strong>ଜଳ ଘଣ୍ଟା</strong> ଏବଂ <strong>ବାଲି ଘଣ୍ଟା</strong> ଉଦ୍ଭାବନ କରିଥିଲେ। ଦିଲ୍ଲୀ ଓ ଜୟପୁରର ଜନ୍ତର ମନ୍ତରରେ ଏବେ ମଧ୍ୟ ବିଶାଳ ସୂର୍ଯ୍ୟ ଘଡ଼ି ରହିଛି!
+      </p>
+
+      <!-- Topic 2: Simple Pendulum -->
+      <h3 class="topic-title"><i class="fa-solid fa-bell"></i> ୨. ସରଳ ଦୋଳକ (Simple Pendulum) ଓ ଆଧୁନିକ ଘଣ୍ଟାର ଜନ୍ମ</h3>
+      <p>
+        ଇଟାଲୀୟ ବୈଜ୍ଞାନିକ <strong>ଗାଲିଲିଓ ଗାଲିଲି</strong> ଥରେ ଗୀର୍ଜାଘରେ ଛାତରୁ ଝୁଲୁଥିବା ଏକ ଲ୍ୟାମ୍ପ୍ର ଦୋଳନକୁ ନିଜ ନାଡ଼ି ସ୍ପନ୍ଦନ ସାହାଯ୍ୟରେ ମାପି ଲକ୍ଷ୍ୟ କଲେ ଯେ, ପ୍ରତ୍ୟେକ ଥର ଥରେ ଦୋଳନ ଶେଷ କରିବାକୁ ଲ୍ୟାମ୍ପ୍କୁ ଠିକ୍ ସମାନ ସମୟ ଲାଗୁଛି! ଏହି ଆବିଷ୍କାର ପରବର୍ତ୍ତୀ ସମୟରେ ପେଣ୍ଡୁଲମ୍ ଘଣ୍ଟା ନିର୍ମାଣର ଆଧାର ହେଲା।
+      </p>
+
+      <!-- SVG 2: Pendulum Oscillation -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 880 280" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="860" height="260" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+          <text x="440" y="35" text-anchor="middle" fill="#0f172a" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="14">ସରଳ ଦୋଳକର ସାମ୍ୟାବସ୍ଥା ଓ ଗୋଟିଏ ପୂର୍ଣ୍ଣ ଦୋଳନ (One Full Oscillation)</text>
+
+          <g transform="translate(320, 50)">
+            <!-- Rigid ceiling support -->
+            <rect x="60" y="0" width="120" height="12" fill="#475569" rx="3"/>
+            <line x1="60" y1="12" x2="180" y2="12" stroke="#0f172a" stroke-width="2"/>
+
+            <!-- Center mean position line -->
+            <line x1="120" y1="12" x2="120" y2="170" stroke="#0284c7" stroke-width="2" stroke-dasharray="4,2"/>
+            <circle cx="120" cy="170" r="16" fill="#0284c7" stroke="#0f172a" stroke-width="2"/>
+            <text x="120" y="205" text-anchor="middle" fill="#0369a1" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="12">O (ସାମ୍ୟାବସ୍ଥା - Mean)</text>
+
+            <!-- Left extreme position -->
+            <line x1="120" y1="12" x2="40" y2="155" stroke="#64748b" stroke-width="1.5"/>
+            <circle cx="40" cy="155" r="16" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+            <text x="35" y="190" text-anchor="middle" fill="#475569" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="12">A (ଚରମ ବିନ୍ଦୁ)</text>
+
+            <!-- Right extreme position -->
+            <line x1="120" y1="12" x2="200" y2="155" stroke="#64748b" stroke-width="1.5"/>
+            <circle cx="200" cy="155" r="16" fill="#e2e8f0" stroke="#64748b" stroke-width="1.5"/>
+            <text x="205" y="190" text-anchor="middle" fill="#475569" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="12">B (ଚରମ ବିନ୍ଦୁ)</text>
+
+            <!-- Oscillation path arrow -->
+            <path d="M 40 135 Q 120 150 200 135" stroke="#f59e0b" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+            <text x="120" y="125" text-anchor="middle" fill="#b45309" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="11">&larr; ୧ଟି ପୂର୍ଣ୍ଣ ଦୋଳନ: A &rarr; O &rarr; B &rarr; O &rarr; A &rarr;</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-calculator"></i> ଦୋଳନ କାଳ (Time Period) ର ସୂତ୍ର</div>
+        <p style="font-size: 1.15rem; font-weight: 700; color: #047857; text-align: center;">
+          ଦୋଳନ କାଳ (T) = ମୋଟ ନିଆଯାଇଥିବା ସମୟ (t) &divide; ଦୋଳନ ସଂଖ୍ୟା (n)
+        </p>
+        <p><strong>ଉଦାହରଣ:</strong> ଯଦି ଗୋଟିଏ ସରଳ ଦୋଳକ ୨୦ ଥର ଦୋଳନ ପାଇଁ ୪୦ ସେକେଣ୍ଡ ନିଏ, ତେବେ ଏହାର ଦୋଳନ କାଳ = ୪୦ &divide; ୨୦ = <strong>୨ ସେକେଣ୍ଡ</strong>।</p>
+      </div>
+
+      <!-- Topic 3: Speed -->
+      <h3 class="topic-title"><i class="fa-solid fa-gauge"></i> ୩. ବେଗ (Speed): ଧୀର କି ଦ୍ରୁତ?</h3>
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-car"></i> ବେଗର ସଂଜ୍ଞା ଓ ସୂତ୍ର</div>
+        <p><strong>ବେଗ (Speed):</strong> କୌଣସି ବସ୍ତୁ ଏକକ ସମୟରେ ଅତିକ୍ରମ କରୁଥିବା ଦୂରତାକୁ ତାହାର ବେଗ କୁହାଯାଏ।</p>
+        <p style="font-size: 1.15rem; font-weight: 700; color: #0284c7; text-align: center;">
+          ବେଗ (Speed) = ଅତିକ୍ରାନ୍ତ ଦୂରତା (Distance) &divide; ନିଆଯାଇଥିବା ସମୟ (Time)
+        </p>
+        <ul>
+          <li><strong>ବେଗର SI ଏକକ:</strong> ମିଟର ପ୍ରତି ସେକେଣ୍ଡ (m/s)।</li>
+          <li><strong>ଯାନବାହାନ ପାଇଁ ବ୍ୟବହୃତ ଏକକ:</strong> କିଲୋମିଟର ପ୍ରତି ଘଣ୍ଟା (km/h)।</li>
+        </ul>
+      </div>
+
+      <!-- Topic 4: Speedometer & Odometer -->
+      <h3 class="topic-title"><i class="fa-solid fa-tachograph-digital"></i> ୪. ସ୍ପିଡୋମିଟର ଓ ଓଡୋମିଟର</h3>
+      <ul>
+        <li><strong>ସ୍ପିଡୋମିଟର (Speedometer):</strong> ଗାଡ଼ିର ଡ୍ୟାସବୋର୍ଡରେ ଲାଗିଥିବା ଯନ୍ତ୍ର, ଯାହା ଗାଡ଼ିଟି ସେହି ମୁହୂର୍ତ୍ତରେ କେତେ ବେଗରେ (km/h ରେ) ଚାଲିଛି ତାହା ସିଧାସଳଖ ଦର୍ଶାଏ।</li>
+        <li><strong>ଓଡୋମିଟର (Odometer):</strong> ଏହା ଗାଡ଼ିଟି ସମୁଦାୟ କେତେ କିଲୋମିଟର ଦୂରତା ଅତିକ୍ରମ କରିଛି, ତାହାର ପାଠ୍ୟାଙ୍କ ରେକର୍ଡ କରି ଦର୍ଶାଏ।</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3: SCIENTIFIC TERM BANK -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୩</span>
+        <h2>ମୁଖ୍ୟ ବୈଜ୍ଞାନିକ ଶବ୍ଦାବଳୀ ଓ ପରିଭାଷା (Scientific Term Bank)</h2>
+        <p class="section-sub">ସମୟ ଓ ଗତି ଅଧ୍ୟାୟର ମୁଖ୍ୟ ଶବ୍ଦକୋଷ</p>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">ଓଡ଼ିଆ ଶବ୍ଦ (Odia Term)</th>
+              <th style="width: 25%;">ଇଂରାଜୀ ଶବ୍ଦ (English Term)</th>
+              <th style="width: 50%;">ଛାତ୍ର-ଅନୁକୂଳ ପରିଭାଷା (Simple Explanation)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ସରଳ ଦୋଳକ</strong></td>
+              <td>Simple Pendulum</td>
+              <td>ଏକ ଦୃଢ଼ ଷ୍ଟାଣ୍ଡରୁ ସୂତା ସାହାଯ୍ୟରେ ଝୁଲୁଥିବା ଛୋଟ ଧାତବ ଗୋଲକ ଯାହା ନିୟମିତ ଦୋଳନ କରେ।</td>
+            </tr>
+            <tr>
+              <td><strong>ଦୋଳନ କାଳ</strong></td>
+              <td>Time Period</td>
+              <td>ଦୋଳକ ଗୋଟିଏ ସମ୍ପୂର୍ଣ୍ଣ ଦୋଳନ ସମାପ୍ତ କରିବା ପାଇଁ ନେଉଥିବା ସମୟ।</td>
+            </tr>
+            <tr>
+              <td><strong>ବେଗ</strong></td>
+              <td>Speed</td>
+              <td>ଏକକ ସମୟରେ ବସ୍ତୁ ଅତିକ୍ରମ କରିଥିବା ମୋଟ ଦୂରତା।</td>
+            </tr>
+            <tr>
+              <td><strong>ସମାନ ଗତି</strong></td>
+              <td>Uniform Motion</td>
+              <td>ସରଳ ରେଖାରେ ଗତି କରୁଥିବା ବସ୍ତୁ ସମାନ ସମୟ ବ୍ୟବଧାନରେ ସମାନ ଦୂରତା ଅତିକ୍ରମ କଲେ ତାହା ସମାନ ଗତି।</td>
+            </tr>
+            <tr>
+              <td><strong>ଅସମାନ ଗତି</strong></td>
+              <td>Non-uniform Motion</td>
+              <td>ଯଦି ବସ୍ତୁର ବେଗ ସମୟ ସହିତ କ୍ରମାଗତ ଭାବେ ବଦଳୁଥାଏ (ଯଥା: ଭିଡ଼ ରାସ୍ତାରେ କାର୍)।</td>
+            </tr>
+            <tr>
+              <td><strong>ସ୍ପିଡୋମିଟର</strong></td>
+              <td>Speedometer</td>
+              <td>ଯାନବାହାନର ତତ୍କାଳୀନ ଗତି ବା ବେଗକୁ କିମି/ଘଣ୍ଟାରେ ମାପୁଥିବା ଯନ୍ତ୍ର।</td>
+            </tr>
+            <tr>
+              <td><strong>ଓଡୋମିଟର</strong></td>
+              <td>Odometer</td>
+              <td>ଯାନବାହାନ ଦ୍ୱାରା ଅତିକ୍ରାନ୍ତ ସମୁଦାୟ ଦୂରତାକୁ କିଲୋମିଟରରେ ମାପୁଥିବା ଯନ୍ତ୍ର।</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4: COMPLETE NCERT SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୪</span>
+        <h2>ପାଠ୍ୟପୁସ୍ତକ କାର୍ଯ୍ୟକଳାପ ଓ ପ୍ରଶ୍ନୋତ୍ତର ସମାଧାନ (NCERT Solutions)</h2>
+        <p class="section-sub">ସମସ୍ତ ଅଭ୍ୟାସ ପ୍ରଶ୍ନର ପଏଣ୍ଟ୍-ୱାଇଜ୍ ସମାଧାନ</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>
+          <span>ପ୍ରଶ୍ନ ୧: ଏକ ସରଳ ଦୋଳକ ୨୦ ଥର ଦୋଳନ ପାଇଁ ୩୨ ସେକେଣ୍ଡ ସମୟ ନିଏ। ଏହାର ଦୋଳନ କାଳ କେତେ?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ସମାଧାନ:</strong></p>
+          <ul>
+            <li>ଦୋଳନ ସଂଖ୍ୟା (n) = ୨୦</li>
+            <li>ମୋଟ ନିଆଯାଇଥିବା ସମୟ (t) = ୩୨ ସେକେଣ୍ଡ</li>
+            <li>ଦୋଳନ କାଳ (T) = ମୋଟ ସମୟ / ଦୋଳନ ସଂଖ୍ୟା = ୩୨ / ୨୦ = <strong>୧.୬ ସେକେଣ୍ଡ</strong>।</li>
+          </ul>
+          <p><strong>ଉତ୍ତର:</strong> ସରଳ ଦୋଳକର ଦୋଳନ କାଳ ୧.୬ ସେକେଣ୍ଡ ଅଟେ।</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>ପ୍ରଶ୍ନ ୨: ଦୁଇଟି ଷ୍ଟେସନ୍ ମଧ୍ୟରେ ଦୂରତା ୨୪୦ କିଲୋମିଟର। ଏକ ଟ୍ରେନ୍ ଏହି ଦୂରତା ଅତିକ୍ରମ କରିବାକୁ ୪ ଘଣ୍ଟା ସମୟ ନିଏ। ଟ୍ରେନ୍ର ବେଗ ନିର୍ଣ୍ଣୟ କର।</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ସମାଧାନ:</strong></p>
+          <ul>
+            <li>ଦୂରତା (Distance) = ୨୪୦ କିମି</li>
+            <li>ସମୟ (Time) = ୪ ଘଣ୍ଟା</li>
+            <li>ବେଗ = ଦୂରତା / ସମୟ = ୨୪୦ / ୪ = <strong>୬୦ କିମି/ଘଣ୍ଟା (km/h)</strong>।</li>
+          </ul>
+          <p><strong>ଉତ୍ତର:</strong> ଟ୍ରେନ୍ର ହାରାହାରି ବେଗ ୬୦ କିମି/ଘଣ୍ଟା।</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>ପ୍ରଶ୍ନ ୩: ସ୍ପିଡୋମିଟର ଏବଂ ଓଡୋମିଟର ମଧ୍ୟରେ ମୁଖ୍ୟ ପାର୍ଥକ୍ୟ କ'ଣ?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <table style="width: 100%;">
+            <tr>
+              <th>ଉପକରଣ</th>
+              <th>ମାପ କରୁଥିବା ରାଶି</th>
+              <th>ଏକକ</th>
+            </tr>
+            <tr>
+              <td><strong>ସ୍ପିଡୋମିଟର</strong></td>
+              <td>ଯାନର ତତ୍କାଳୀନ ଚଳନ ବେଗ (Speed)।</td>
+              <td>କିଲୋମିଟର ପ୍ରତି ଘଣ୍ଟା (km/h)।</td>
+            </tr>
+            <tr>
+              <td><strong>ଓଡୋମିଟର</strong></td>
+              <td>ଯାନ ଅତିକ୍ରମ କରିଥିବା ସମୁଦାୟ ଦୂରତା (Distance)।</td>
+              <td>କିଲୋମିଟର (km)।</td>
+            </tr>
+          </table>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: HOTS & INTERACTIVE QUIZ ENGINE -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୫</span>
+        <h2>ଉଚ୍ଚସ୍ତରୀୟ ଚିନ୍ତନ ଦକ୍ଷତା (HOTS) ଓ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍</h2>
+        <p class="section-sub">ସ୍ୱ-ମୂଲ୍ୟାୟନ ପରୀକ୍ଷା</p>
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-brain"></i> HOTS ବିଚାର ପ୍ରଶ୍ନ</div>
+        <p><strong>ପ୍ରଶ୍ନ:</strong> ଏକ ସରଳ ଦୋଳକରେ ଝୁଲୁଥିବା ଲୁହା ବବ୍ (Bob) ବଦଳରେ ସମାନ ଆକାରର ଏକ କାଠ ବବ୍ ଲଗାଇଲେ ଦୋଳନ କାଳରେ କି ପରିବର୍ତ୍ତନ ହେବ?</p>
+        <p><strong>ଉତ୍ତର:</strong> ଦୋଳନ କାଳରେ <strong>କୌଣସି ପରିବର୍ତ୍ତନ ହେବ ନାହିଁ!</strong> କାରଣ ସରଳ ଦୋଳକର ଦୋଳନ କାଳ ବବ୍ର ବସ୍ତୁତ୍ୱ (Mass) ବା ପଦାର୍ଥ ଉପରେ ନିର୍ଭର କରେ ନାହିଁ। ଏହା କେବଳ ସୂତାର ଦୈର୍ଘ୍ୟ (Length of pendulum) ଉପରେ ହିଁ ନିର୍ଭର କରେ।</p>
+      </div>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card" id="q8card1">
+        <div class="quiz-question">୧. ବେଗ (Speed) ର ମୌଳିକ SI ଏକକ କ'ଣ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card1', 0, false)">
+            <span>(A) କିମି/ମିନିଟ୍</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card1', 1, false)">
+            <span>(B) କିମି/ଘଣ୍ଟା</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card1', 2, true)">
+            <span>(C) ମିଟର ପ୍ରତି ସେକେଣ୍ଡ (m/s)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card1', 3, false)">
+            <span>(D) ମିଟର ପ୍ରତି ମିନିଟ୍</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card" id="q8card2">
+        <div class="quiz-question">୨. ସରଳ ଦୋଳକର ଦୋଳନ କାଳ କାହା ଉପରେ ନିର୍ଭର କରେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card2', 0, true)">
+            <span>(A) ସୂତାର ଦୈର୍ଘ୍ୟ ଉପରେ (Length of pendulum)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card2', 1, false)">
+            <span>(B) ବବ୍ର ଓଜନ ବା ବସ୍ତୁତ୍ୱ ଉପରେ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card2', 2, false)">
+            <span>(C) ବବ୍ର ରଙ୍ଗ ଉପରେ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card2', 3, false)">
+            <span>(D) କୋଠରୀର ତାପମାତ୍ରା ଉପରେ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card" id="q8card3">
+        <div class="quiz-question">୩. ଗାଡ଼ି ଦ୍ୱାରା ଅତିକ୍ରାନ୍ତ ସମୁଦାୟ ଦୂରତା କେଉଁ ମିଟର ମାପିଥାଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card3', 0, false)">
+            <span>(A) ସ୍ପିଡୋମିଟର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card3', 1, true)">
+            <span>(B) ଓଡୋମିଟର (Odometer)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card3', 2, false)">
+            <span>(C) ବାରୋମିଟର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card3', 3, false)">
+            <span>(D) ଥର୍ମୋମିଟର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="quiz-card" id="q8card4">
+        <div class="quiz-question">୪. ସରଳ ରେଖାରେ ସମାନ ସମୟ ବ୍ୟବଧାନରେ ସମାନ ଦୂରତା ଅତିକ୍ରମ କରୁଥିବା ଗତିକୁ କ'ଣ କୁହାଯାଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card4', 0, true)">
+            <span>(A) ସମାନ ଗତି (Uniform Motion)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card4', 1, false)">
+            <span>(B) ଅସମାନ ଗତି</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card4', 2, false)">
+            <span>(C) ବକ୍ର ଗତି</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q8card4', 3, false)">
+            <span>(D) ବୃତ୍ତାକାର ଗତି</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM HALL TRAPS & 15 REVISION POINTS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୬</span>
+        <h2>ପରୀକ୍ଷା ହଲ୍ ସାଧାରଣ ଭୁଲ୍ ଚେତାବନୀ ଓ ୧୫ଟି ମୁଖ୍ୟ ରିଭିଜନ୍ ପଏଣ୍ଟ୍</h2>
+        <p class="section-sub">୫ ମିନିଟ୍ ଦ୍ରୁତ ପୁନରାବୃତ୍ତି</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> ୩ଟି ପରୀକ୍ଷା ହଲ୍ ଭୁଲ୍:</div>
+        <ul>
+          <li><strong>ଭୁଲ୍ ୧:</strong> ସ୍ପିଡୋମିଟର ଓ ଓଡୋମିଟର ମଧ୍ୟରେ ଗୋଳମାଳ: <strong>ସ୍ପିଡୋମିଟର = ବେଗ (km/h)</strong>, <strong>ଓଡୋମିଟର = ଦୂରତା (km)</strong>!</li>
+          <li><strong>ଭୁଲ୍ ୨:</strong> ଗାଣିତିକ ପ୍ରଶ୍ନରେ ଏକକ ପରିବର୍ତ୍ତନ ନକରିବା: କିମିକୁ ମିଟରରେ ବା ଘଣ୍ଟାକୁ ସେକେଣ୍ଡରେ ପରିଣତ କରିବା ପାଇଁ <strong>1 km/h = 5/18 m/s</strong> ସୂତ୍ର ମନେରଖନ୍ତୁ।</li>
+          <li><strong>ଭୁଲ୍ ୩:</strong> ଦୋଳନ କାଳ ବବ୍ର ଓଜନ ବଢ଼ିଲେ ବଢ଼େ ବୋଲି ଲେଖିବା। ଦୋଳନ କାଳ ବବ୍ର ଓଜନ ଉପରେ ସମ୍ପୂର୍ଣ୍ଣ ନିର୍ଭରଶୀଳ ନୁହେଁ।</li>
+        </ul>
+      </div>
+
+      <h4>୧୫ଟି ବିଜୁଳି ବେଗରେ ପୁନରାବୃତ୍ତି ସୂତ୍ର (15 Lightning Revision Points):</h4>
+      <ol style="line-height: 2; margin-left: 1.5rem;">
+        <li>ଏକକ ସମୟରେ ଅତିକ୍ରାନ୍ତ ଦୂରତାକୁ <strong>ବେଗ (Speed)</strong> କୁହାଯାଏ।</li>
+        <li>ବେଗ ଗଣନା ସୂତ୍ର: <strong>ବେଗ = ଦୂରତା &divide; ସମୟ</strong>।</li>
+        <li>ବେଗର SI ଏକକ ହେଉଛି <strong>ମିଟର/ସେକେଣ୍ଡ (m/s)</strong>।</li>
+        <li>ସମୟର ମୌଳିକ SI ଏକକ ହେଉଛି <strong>ସେକେଣ୍ଡ (s)</strong>।</li>
+        <li>ଗୋଟିଏ ସମ୍ପୂର୍ଣ୍ଣ ଦୋଳନ ପାଇଁ ଲାଗୁଥିବା ସମୟକୁ <strong>ଦୋଳନ କାଳ (Time Period)</strong> କୁହାଯାଏ।</li>
+        <li>ଦୋଳନ କାଳ କେବଳ <strong>ସରଳ ଦୋଳକର ସୂତାର ଦୈର୍ଘ୍ୟ</strong> ଉପରେ ନିର୍ଭର କରେ।</li>
+        <li>ଦୋଳନ କାଳ ବବ୍ର ବସ୍ତୁତ୍ୱ (ଓଜନ) ଉପରେ ନିର୍ଭର କରେ ନାହିଁ।</li>
+        <li>ସରଳ ଦୋଳକର ପର୍ଯ୍ୟାୟକ୍ରମିକ ଗତିକୁ <strong>ଗାଲିଲିଓ ଗାଲିଲି</strong> ଆବିଷ୍କାର କରିଥିଲେ।</li>
+        <li>ଆଧୁନିକ ଘଣ୍ଟାଗୁଡ଼ିକରେ <strong>କ୍ୱାର୍ଟଜ୍ ସ୍ଫଟିକ (Quartz crystal)</strong> ର କମ୍ପନ ବ୍ୟବହୃତ ହୁଏ।</li>
+        <li>ସମାନ ସମୟ ବ୍ୟବଧାନରେ ସମାନ ଦୂରତା ଅତିକ୍ରମ କଲେ ତାହା <strong>ସମାନ ଗତି (Uniform motion)</strong>।</li>
+        <li>ବେଗ ବାରମ୍ବାର ପରିବର୍ତ୍ତିତ ହେଲେ ତାହା <strong>ଅସମାନ ଗତି (Non-uniform motion)</strong>।</li>
+        <li>ଯାନବାହାନର ତତ୍କାଳୀନ ଗତିକୁ <strong>ସ୍ପିଡୋମିଟର</strong> କିମି/ଘଣ୍ଟାରେ ମାପେ।</li>
+        <li>ଯାନବାହାନ ଅତିକ୍ରମ କରିଥିବା ସମୁଦାୟ ଦୂରତାକୁ <strong>ଓଡୋମିଟର</strong> କିଲୋମିଟରରେ ରେକର୍ଡ କରେ।</li>
+        <li><strong>1 km/h = 5/18 m/s</strong> ଏବଂ <strong>1 m/s = 18/5 km/h</strong>।</li>
+        <li>ଦୂରତା-ସମୟ ଗ୍ରାଫ୍ (Distance-Time graph) ରେ ସମାନ ଗତିର ଗ୍ରାଫ୍ ଏକ <strong>ସରଳ ରେଖା</strong> ହୋଇଥାଏ।</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+    });
+
+    function checkQuiz(cardId, optionIndex, isCorrect) {
+      const card = document.getElementById(cardId);
+      const buttons = card.querySelectorAll('.quiz-opt-btn');
+      
+      buttons.forEach((btn, idx) => {
+        btn.classList.add('evaluated');
+        btn.disabled = true;
+        const ind = btn.querySelector('.quiz-opt-indicator');
+        if (idx === optionIndex) {
+          if (isCorrect) {
+            btn.classList.add('correct-opt');
+            ind.innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          } else {
+            btn.classList.add('wrong-opt');
+            ind.innerHTML = ' &cross; (ଭୁଲ୍ ଉତ୍ତର)';
+          }
+        }
+      });
+
+      if (!isCorrect) {
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct-opt');
+            btn.querySelector('.quiz-opt-indicator').innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          }
+        });
+      }
+    }
+
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Text-to-Speech ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+      } else {
+        const text = "ନମସ୍କାର ପିଲାମାନେ! ସପ୍ତମ ଶ୍ରେଣୀ ବିଜ୍ଞାନର ଅଷ୍ଟମ ଅଧ୍ୟାୟ 'ସମୟ ଓ ଗତିର ମାପ' କୁ ସ୍ୱାଗତ। ଏକକ ସମୟରେ ଅତିକ୍ରାନ୍ତ ଦୂରତାକୁ ବେଗ କୁହାଯାଏ। ବେଗ ସମାନ ଦୂରତା ଭାଗ ସମୟ। ସରଳ ଦୋଳକର ଗୋଟିଏ ପୂର୍ଣ୍ଣ ଦୋଳନ ପାଇଁ ଲାଗୁଥିବା ସମୟକୁ ଦୋଳନ କାଳ କୁହାଯାଏ, ଯାହା କେବଳ ସୂତା ଦୈର୍ଘ୍ୟ ଉପରେ ନିର୍ଭର କରେ। ଯାନବାହନର ବେଗ ସ୍ପିଡୋମିଟରରେ ଏବଂ ଅତିକ୍ରାନ୍ତ ଦୂରତା ଓଡୋମିଟରରେ ମପାଯାଏ। ଧନ୍ୟବାଦ!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'or-IN';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>";
+      }
+    }
+  </script>
+</body>
+</html>
