@@ -1,0 +1,1409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 6 - The Age of Reorganisation (Class 7 Social Science)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #8b5cf6, #0284c7, #f59e0b);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: #7c3aed;
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: #ede9fe;
+      color: #6d28d9;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #3b0764 0%, #6d28d9 50%, #0369a1 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #6d28d9;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      background: #f8fafc;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-number {
+      background: #ede9fe;
+      color: #6d28d9;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    .topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 1.8rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+      font-size: 1.02rem;
+      color: #334155;
+    }
+
+    /* Pastel Callouts */
+    .callout {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid;
+    }
+
+    .callout-def {
+      background-color: #f0f9ff;
+      border-left-color: #0284c7;
+      color: #0c4a6e;
+    }
+
+    .callout-act {
+      background-color: #f0fdf4;
+      border-left-color: #16a34a;
+      color: #14532d;
+    }
+
+    .callout-pyq {
+      background-color: #fffbeb;
+      border-left-color: #f59e0b;
+      color: #78350f;
+    }
+
+    .callout-hack {
+      background-color: #faf5ff;
+      border-left-color: #a855f7;
+      color: #581c87;
+    }
+
+    .callout-warn {
+      background-color: #fef2f2;
+      border-left-color: #ef4444;
+      color: #7f1d1d;
+    }
+
+    .callout-head {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #f8fafc;
+      color: var(--dark);
+      font-weight: 700;
+      padding: 0.9rem 1.1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.9rem 1.1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) { background-color: #fafbfd; }
+
+    /* Collapsible Question Cards */
+    details.ans-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin: 1.15rem 0;
+      padding: 0;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: #7c3aed;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.08);
+    }
+
+    details.ans-box summary {
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      font-size: 1.02rem;
+      cursor: pointer;
+      background: #f8fafc;
+      color: var(--dark);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    details.ans-box summary::-webkit-details-marker { display: none; }
+
+    details.ans-box summary:hover {
+      background: #ede9fe;
+      color: #6d28d9;
+    }
+
+    details.ans-box summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #7c3aed;
+      transition: transform 0.2s ease;
+    }
+
+    details.ans-box[open] summary::after {
+      content: '−';
+      transform: rotate(180deg);
+    }
+
+    .ans-content {
+      padding: 1.25rem 1.4rem;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      color: #334155;
+    }
+
+    /* SVG Diagrams */
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Quiz Engine */
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #6d28d9 0%, #0369a1 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    /* Back to Top */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #6d28d9;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(109, 40, 217, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .term-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.15rem;
+      margin: 1.5rem 0;
+    }
+
+    .term-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.15rem;
+      border-top: 4px solid #7c3aed;
+    }
+
+    .term-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #6d28d9;
+      margin-bottom: 0.35rem;
+    }
+
+    .term-def {
+      font-size: 0.92rem;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    footer a { color: #38bdf8; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Sticky Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">Overview & Mind Map</a>
+      <a href="#sec2" class="nav-link">Concept Notes</a>
+      <a href="#sec3" class="nav-link">Term Bank</a>
+      <a href="#sec4" class="nav-link">NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">Interactive Quiz</a>
+      <a href="#sec6" class="nav-link">Revision & Traps</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-arrows-spin"></i> Class 7 Social Science &bull; Tapestry of the Past
+    </div>
+    <h1 class="hero-title">Chapter 6: The Age of Reorganisation</h1>
+    <p class="hero-sub">
+      The post-Mauryan resurgence (200 BCE – 300 CE): Shungas, Chedis of Kalinga, Satavahanas, the Sangam age of Tamilakam, Indo-Greeks, the Kushan Empire, and Gandhara &amp; Mathura art.
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-regular fa-clock"></i> Reading Time: 32 mins</span>
+      <span><i class="fa-solid fa-book-open"></i> Full NCERT Solutions</span>
+      <span><i class="fa-solid fa-palette"></i> Art &amp; Cultural Confluence</span>
+    </div>
+    <button class="audio-btn" id="teacherAudioBtn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL MIND MAP & OVERVIEW -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <div class="section-number">01</div>
+        <h2 class="section-title">Visual Mind Map &amp; Chapter Overview</h2>
+      </div>
+
+      <p>
+        When the mighty Maurya Empire disintegrated around 185 BCE, no single emperor ruled India. For a long time, early colonial historians wrongly labeled this period as a "dark age" of chaos and weakness.
+      </p>
+      <p>
+        Modern archaeology has completely shattered that myth! As the eminent Indian scientist <strong>Sir Jagdish Chandra Bose</strong> observed in 1917: <em>"By continuous living tradition and a vital power of rejuvenescence, this land has readjusted itself through unnumbered transformations."</em> 
+      </p>
+      <p>
+        This era (approx. <strong>200 BCE to 300 CE</strong>) was a vibrant <strong>Age of Reorganisation</strong>. Indigenous powers like the <strong>Shungas</strong>, <strong>Chedis of Kalinga</strong>, <strong>Satavahanas</strong>, and the <strong>Three Sangam Kingdoms (Cheras, Cholas, Pandyas)</strong> flourished. Meanwhile, incoming groups like the <strong>Indo-Greeks, Shakas, and Kushanas</strong> eagerly embraced Indian religions, minted stunning bilingual coins, protected the Silk Route, and created the breathtaking <strong>Gandhara and Mathura schools of art</strong>!
+      </p>
+
+      <!-- SVG Mind Map: The Four Power Zones of Reorganisation -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 900 450" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="cReorg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#6d28d9"/>
+              <stop offset="100%" stop-color="#4c1d95"/>
+            </linearGradient>
+            <linearGradient id="gNorth" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ef4444"/>
+              <stop offset="100%" stop-color="#b91c1c"/>
+            </linearGradient>
+            <linearGradient id="gKalinga" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#b45309"/>
+            </linearGradient>
+            <linearGradient id="gDeccan" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+            <linearGradient id="gSouth" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#047857"/>
+            </linearGradient>
+            <linearGradient id="gKushan" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ec4899"/>
+              <stop offset="100%" stop-color="#be185d"/>
+            </linearGradient>
+            <filter id="rShadow" x="-5%" y="-5%" width="110%" height="110%">
+              <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.12"/>
+            </filter>
+          </defs>
+
+          <!-- Connecting Spokes -->
+          <line x1="450" y1="225" x2="180" y2="85" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="225" x2="720" y2="85" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="225" x2="160" y2="350" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="225" x2="450" y2="385" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="225" x2="740" y2="350" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+
+          <!-- Center Node -->
+          <g filter="url(#rShadow)">
+            <rect x="310" y="180" width="280" height="90" rx="20" fill="url(#cReorg)" />
+            <text x="450" y="220" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="17" fill="#ffffff" text-anchor="middle">AGE OF REORGANISATION</text>
+            <text x="450" y="245" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#ede9fe" text-anchor="middle">(200 BCE – 300 CE)</text>
+          </g>
+
+          <!-- Node 1: Shungas of North -->
+          <g filter="url(#rShadow)">
+            <rect x="60" y="40" width="240" height="90" rx="14" fill="url(#gNorth)" />
+            <text x="180" y="73" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">🏛️ The Śhungas</text>
+            <text x="180" y="95" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Pushyamitra; Sanchi &amp; Bharhut</text>
+            <text x="180" y="113" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#fee2e2" text-anchor="middle">Sanskrit revival: Patanjali &amp; Natyashastra</text>
+          </g>
+
+          <!-- Node 2: Chedis of Kalinga -->
+          <g filter="url(#rShadow)">
+            <rect x="600" y="40" width="240" height="90" rx="14" fill="url(#gKalinga)" />
+            <text x="720" y="73" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">🐘 Chedis of Kalinga</text>
+            <text x="720" y="95" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Emperor Khāravela (1st c. BCE)</text>
+            <text x="720" y="113" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#fef3c7" text-anchor="middle">Hāthīgumphā Inscription &amp; Udayagiri</text>
+          </g>
+
+          <!-- Node 3: Satavahanas -->
+          <g filter="url(#rShadow)">
+            <rect x="40" y="305" width="240" height="90" rx="14" fill="url(#gDeccan)" />
+            <text x="160" y="338" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">⛵ Sātavāhana Empire</text>
+            <text x="160" y="360" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Gautamīputra Sātakarṇi</text>
+            <text x="160" y="378" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#e0f2fe" text-anchor="middle">Matronymics, Karle Caves &amp; Ship Coins</text>
+          </g>
+
+          <!-- Node 4: Sangam Tamilakam -->
+          <g filter="url(#rShadow)">
+            <rect x="330" y="340" width="240" height="90" rx="14" fill="url(#gSouth)" />
+            <text x="450" y="373" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">📜 Sangam Tamil Kingdoms</text>
+            <text x="450" y="395" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Chera (Bow), Chola (Tiger), Pandya (Fish)</text>
+            <text x="450" y="413" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#dcfce7" text-anchor="middle">Silappadikāram, Kallanai &amp; Pearls</text>
+          </g>
+
+          <!-- Node 5: Indo-Greeks & Kushans -->
+          <g filter="url(#rShadow)">
+            <rect x="620" y="305" width="240" height="90" rx="14" fill="url(#gKushan)" />
+            <text x="740" y="338" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">👑 Kushanas &amp; Confluence</text>
+            <text x="740" y="360" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Emperor Kaṇiṣhka (Shaka Era 78 CE)</text>
+            <text x="740" y="378" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#fce7f3" text-anchor="middle">Silk Route, Gandhara &amp; Mathura Art</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 6.1: The Multipower Landscape of the Age of Reorganisation (200 BCE – 300 CE).</p>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-head"><i class="fa-solid fa-bullseye"></i> The Big Questions of Chapter 6</div>
+        <p>1. <strong>Why is this era called the 'Age of Reorganisation'?</strong> (Because regional kingdoms reorganised governance, trade flourished across oceans and the Silk Route, and diverse cultures fused together).</p>
+        <p>2. <strong>What unique cultural values guided rulers like Gautamiputra Satakarni and Kharavela?</strong> (Devotion to mothers through matronymics, religious pluralism, public engineering, and classical art patronage).</p>
+        <p>3. <strong>How did foreign entrants (Greeks, Shakas, Kushanas) assimilate into Indian society?</strong> (They adopted Indian faiths—Buddhism and Vaishnavism—minted bilingual coins, and enriched Indian sculpture).</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EXHAUSTIVE CONCEPT EXPLANATIONS -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <div class="section-number">02</div>
+        <h2 class="section-title">Exhaustive Concept Explanations</h2>
+      </div>
+
+      <!-- 2.1 The Shunga Dynasty -->
+      <h3 class="topic-title"><i class="fa-solid fa-monument"></i> 1. The Śhungas of Northern India (c. 185–73 BCE)</h3>
+      <p>
+        In 185 BCE, the last Mauryan ruler Brihadratha was overthrown by his military commander-in-chief, <strong>Puṣhyamitra Śhunga</strong>, who founded the Shunga dynasty in Magadha and central India.
+      </p>
+      <ul>
+        <li><strong>Revival of Sanskrit Literature:</strong> During the Shunga era, classical Sanskrit emerged as the preeminent language of philosophy and literature.
+          <ul>
+            <li>The great grammarian <strong>Patañjali</strong> wrote the celebrated <em>Mahābhāṣhya</em> (commentary on Pāṇini’s Sanskrit grammar).</li>
+            <li>The foundational manual of Indian classical theatre, music, and dance—the <strong>Nāṭyaśhāstra</strong> by Bharata Muni—took definitive shape.</li>
+          </ul>
+        </li>
+        <li><strong>Magnificent Buddhist Art:</strong> Although the Shungas revived Vedic sacrifices (such as the <em>Ashvamedha</em>), they actively patronized Buddhist monuments. They replaced the original wooden railings of the <strong>Great Stūpa at Sāñchī</strong> with massive stone railings and built the famous <strong>Stūpa of Bharhut</strong> (in Madhya Pradesh), whose beautifully carved stone panels depict stories of the Buddha’s previous lives (the Jātakas) with lively scenes of dancers, musicians, and woodland spirits (<em>Yakshas</em> and <em>Yakshis</em>).</li>
+      </ul>
+
+      <!-- 2.2 The Chedis of Kalinga & Kharavela -->
+      <h3 class="topic-title"><i class="fa-solid fa-mountain-city"></i> 2. The Chedi Dynasty of Kalinga &amp; Emperor Khāravela</h3>
+      <p>
+        Having suffered devastating destruction during Ashoka's invasion in 261 BCE, <strong>Kalinga</strong> (modern Odisha) staged a spectacular resurgence in the 1st century BCE under the <strong>Chedi (or Mahameghavahana) Dynasty</strong>.
+      </p>
+      <p>
+        Its greatest emperor was <strong>Khāravela</strong>, a devout follower of Jainism and a brilliant military strategist.
+      </p>
+
+      <div class="callout callout-act">
+        <div class="callout-head"><i class="fa-solid fa-scroll"></i> The Hāthīgumphā Inscription of Udayagiri</div>
+        <p>
+          On the ceiling and wall of the <strong>Hāthīgumphā (Elephant Cave)</strong> on the twin hills of <strong>Udayagiri and Khandagiri</strong> near Bhubaneswar, Khāravela carved a masterly 17-line biographical inscription in the ancient Brahmi script and Prakrit language:
+        </p>
+        <ul>
+          <li><strong>Water Infrastructure:</strong> In his 5th regnal year, Khāravela extended an ancient canal originally built by a King of Magadha three centuries earlier, bringing clean river water straight into his capital city, <em>Kalinganagara</em>!</li>
+          <li><strong>Public Reconstruction:</strong> In his very first year, he spent 3.5 million coins to repair and rebuild the city gates, ramparts, and pleasure gardens devastated by a severe cyclone.</li>
+          <li><strong>Master of Fine Arts:</strong> The inscription records that Khāravela was an expert in <em>Gandharva-veda</em> (the science of music and drama), hosting magnificent public festivals with wrestling, dancing, and orchestral concerts.</li>
+          <li><strong>Rock-Cut Monasteries:</strong> He excavated dozens of comfortable, sheltered cave residences on Udayagiri and Khandagiri for holy Jain monks (<em>Arhats</em> and <em>Nirgranthas</em>).</li>
+          <li><strong>Religious Pluralism:</strong> Although an ardent Jain, the inscription proudly calls him <em>Sava-pāsaṇḍa-pūjako</em> ("honorer of all religious sects") and <em>Sava-devāyatana-sankāra-kārako</em> ("repairer of all temples of all gods").</li>
+        </ul>
+      </div>
+
+      <!-- 2.3 The Satavahanas -->
+      <h3 class="topic-title"><i class="fa-solid fa-ship"></i> 3. The Sātavāhana Empire: Lords of the Deccan</h3>
+      <p>
+        In the Deccan plateau, the <strong>Sātavāhana Dynasty</strong> (also known in ancient Puranic texts as the <em>Andhras</em>) ruled for over 400 years from twin capitals: <strong>Pratishṭhāna (Paithan)</strong> in Maharashtra on the Godavari and <strong>Amarāvatī</strong> in Andhra Pradesh on the Krishna.
+      </p>
+      <ul>
+        <li><strong>Lords of the Southern Route:</strong> They held the title <em>Dakṣhiṇāpatha-pati</em> ("Lords of the Southern Highway"), controlling trade between the northern Gangetic plains and southern coastal ports.</li>
+        <li><strong>Gautamīputra Sātakarṇi (c. 106–130 CE):</strong> The most illustrious ruler of the dynasty. He crushed the invading Western Shaka satraps (King Nahapāna), re-minting thousands of captured Shaka coins. His mother, the noble queen <strong>Gautamī Balaśhrī</strong>, recorded his glorious deeds in the famous rock inscription at Nashik, calling him <em>Ekabrāhmaṇa</em> (unrivalled champion of Vedic knowledge) and saying his war horses drank the waters of the three oceans (Arabian Sea, Bay of Bengal, Indian Ocean).</li>
+        <li><strong>Honoring Mothers (Matronymics):</strong> In an extraordinary departure from patriarchal norms, Sātavāhana kings proudly prefixed their mother's name to their own:
+          <br><em>Gautamīputra</em> (son of Queen Gautamī), <em>Vāsiṣhṭhīputra</em> (son of Queen Vāsiṣhṭhī), <em>Yajñaśhrī</em>. This custom recognized the pivotal dynastic and political role played by royal mothers!</li>
+        <li><strong>Rock-Cut Cave Architecture:</strong> The Sātavāhanas and their wealthy merchant guilds excavated magnificent rock-cut Buddhist temples:
+          <ul>
+            <li>The colossal <strong>Kārlē Chaitya</strong> in Maharashtra—the largest rock-cut Buddhist prayer hall in India with vaulted teak timber ribs and elephant pillars.</li>
+            <li>Famous rock-cut caves at <strong>Ajanta, Bhājā, Kanheri, and Nashik</strong>.</li>
+            <li>The dazzling white marble relief carvings of the <strong>Amarāvatī Stūpa</strong>.</li>
+          </ul>
+        </li>
+        <li><strong>Maritime Might &amp; Ship Coins:</strong> Later rulers like <em>Yajñaśhrī Sātakarṇi</em> minted lead and bronze coins featuring <strong>two-masted sailing ships with double rudders</strong>, proving that the Sātavāhanas commanded a formidable naval and merchant fleet that traded spices, muslins, and pearls across the Indian Ocean to the Roman Empire!</li>
+      </ul>
+
+      <!-- 2.4 The Sangam Age of Tamilakam -->
+      <h3 class="topic-title"><i class="fa-solid fa-feather-pointed"></i> 4. The Sangam Age: The Three Crowned Kings of Tamilakam</h3>
+      <p>
+        In the deep south (the ancient land of <strong>Tamilakam</strong>, covering modern Tamil Nadu and Kerala), the period between 300 BCE and 300 CE is celebrated as the <strong>Sangam Age</strong>.
+      </p>
+      <p>
+        The word <strong>Sangam</strong> refers to an elite royal assembly or academy of celebrated poets, bards, and scholars patronized by the Pāṇḍyan kings in the historic city of <strong>Madurai</strong>. Over 473 poets (including 30 renowned women poets such as <em>Avvaiyār</em> and <em>Vellivīthiyār</em>) composed thousands of verses capturing the heroic deeds of kings, agricultural life, romance, and philosophy.
+      </p>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Kingdom &amp; Royal Title</th>
+              <th>Royal Emblem</th>
+              <th>Capital &amp; Major Ports</th>
+              <th>Famous Rulers &amp; Highlights</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>The Chēras</strong><br>(Keralaputras)</td>
+              <td><strong>Bow and Arrow</strong> (Villu)</td>
+              <td>Capital: <strong>Vañji</strong> (Karur)<br>Port: <strong>Muziris</strong> (Kodungallur, Kerala)</td>
+              <td>King <em>Senguttuvan</em> (the 'Red Chera'); commanded the Malabar pepper trade. Muziris welcomed Roman cargo ships laden with gold coins in exchange for black pepper ('black gold').</td>
+            </tr>
+            <tr>
+              <td><strong>The Chōḷas</strong></td>
+              <td><strong>Tiger</strong> (Puli)</td>
+              <td>Capital: <strong>Uṟaiyūr</strong><br>Port: <strong>Puhār</strong> (Kāveripaṭṭanam)</td>
+              <td>Greatest king was <strong>Karikāla</strong>. He constructed the world-famous <strong>Kallanai (Grand Anicut)</strong>—a massive 329-metre stone dam across the flooded Kaveri River that transformed the delta into a lush rice bowl that feeds millions even today!</td>
+            </tr>
+            <tr>
+              <td><strong>The Pāṇḍyas</strong></td>
+              <td><strong>Fish / Carp</strong> (Meen)</td>
+              <td>Capital: <strong>Madurai</strong><br>Port: <strong>Korkai</strong></td>
+              <td>Celebrated patrons of all three Tamil Sangams. Famous across the ancient world for their exquisite, lustrous <strong>natural sea pearls</strong> harvested by divers in the Gulf of Mannar.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-head"><i class="fa-solid fa-gem"></i> Silappadikāram: The Tale of the Anklet</div>
+        <p>
+          Written by Prince-poet <strong>Iḷaṅgō Aḍigaḷ</strong>, <em>Silappadikāram</em> is the crown jewel of ancient Tamil literature. It tells the unforgettable story of <strong>Kaṇṇagi</strong> and her merchant husband <strong>Kōvalan</strong>.
+        </p>
+        <p>
+          When Kovalan is falsely accused of stealing the Queen's pearl-filled golden anklet and unjustly executed by the Pāṇḍyan King of Madurai, Kannagi marches boldly into the royal court! She smashes her remaining anklet on the marble floor—rubies spill out, proving her husband's innocence! 
+        </p>
+        <p>
+          Overwhelmed by guilt and grief at failing justice, the King drops dead from his throne. Kannagi’s fiery wrath burns the unjust city of Madurai. She became revered across South India as <em>Pattini Devi</em>—the supreme goddess of truth, chastity, and righteous justice!
+        </p>
+      </div>
+
+      <!-- 2.5 Indo-Greeks and Heliodorus -->
+      <h3 class="topic-title"><i class="fa-solid fa-landmark"></i> 5. Indo-Greeks &amp; The Heliodorus Garuda Pillar</h3>
+      <p>
+        In northwest India, descendants of Alexander's generals established the <strong>Indo-Greek Kingdom</strong>:
+      </p>
+      <ul>
+        <li><strong>King Menander (Milinda):</strong> Ruled Punjab from his capital at Sagala (Sialkot). He engaged in profound philosophical debates with the Buddhist sage <strong>Nāgasena</strong>, recorded in the celebrated Pāli Buddhist text <strong>Milinda Pañha</strong> ("Questions of King Menander"). Convinced by Nagasena's answers, Menander converted to Buddhism.</li>
+        <li><strong>Bilingual Coins:</strong> Indo-Greek kings were the first in India to mint realistic portrait coins bearing the king's bust, with Greek inscriptions on the front and Indian <em>Prakrit in Kharosthi script</em> on the back.</li>
+        <li><strong>Heliodorus Pillar at Vidiśhā (113 BCE):</strong> A Greek diplomat named <strong>Heliodorus</strong> was sent by the Greek King Antialcidas to the court of Shunga King Bhagabhadra in Vidisha (MP). Heliodorus became a passionate devotee of <strong>Vāsudeva Krishna</strong> (Vaishnavism)! He erected a tall, carved stone pillar crowned with a <strong>Garuda</strong> emblem, calling himself a <em>Bhāgavata</em> in its Prakrit inscription!</li>
+      </ul>
+
+      <!-- 2.6 The Kushans & Kanishka -->
+      <h3 class="topic-title"><i class="fa-solid fa-crown"></i> 6. The Kuṣhāṇa Empire &amp; Emperor Kaṇiṣhka</h3>
+      <p>
+        Originally nomadic Yuezhi pastoralists from Central Asia, the <strong>Kuṣhāṇas</strong> built a colossal trans-Asian empire in the 1st century CE stretching from the River Oxus in Uzbekistan through Afghanistan and Kashmir down to Mathura and Varanasi!
+      </p>
+      <ul>
+        <li><strong>Emperor Kaṇiṣhka I (ascended 78 CE):</strong> The greatest Kuṣhāṇa emperor. His coronation year, <strong>78 CE</strong>, marks the beginning of the <strong>Śhaka Era</strong>, which the Government of India officially adopted as the <strong>Indian National Calendar</strong> alongside the Gregorian calendar!</li>
+        <li><strong>The Fourth Buddhist Council:</strong> Kanishka convened the historic Fourth Buddhist Council at Kundalavana in Kashmir, presided over by scholars <strong>Vasumitra</strong> and <strong>Aśhvaghoṣha</strong> (author of <em>Buddhacharita</em>, the classic Sanskrit biography of the Buddha). Here, Buddhism crystallized into two great traditions: <em>Hinayana (Theravada)</em> and <strong>Mahayana</strong> (which worshipped the Buddha through divine statues and venerated Bodhisattvas).</li>
+        <li><strong>Mastery of the Silk Route:</strong> The Kuṣhāṇas controlled key branches of the famous <strong>Silk Route</strong> connecting China with the Roman Empire. Caravans carrying silk, spices, fine pottery, and Roman gold coins paid heavy tolls, making the Kuṣhāṇa treasury enormously rich. They were the first empire in India to issue widespread <strong>pure gold coins (Dinars)</strong>!</li>
+      </ul>
+
+      <!-- 2.7 Gandhara vs Mathura Art -->
+      <h3 class="topic-title"><i class="fa-solid fa-paint-brush"></i> 7. Art of the Era: Gandhara vs Mathura Schools</h3>
+      <p>Under the patronage of the Kuṣhāṇas, Indian sculpture reached an extraordinary golden pinnacle through two distinct stylistic traditions:</p>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Gāndhāra School of Art</th>
+              <th>Mathurā School of Art</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Geographical Region</strong></td>
+              <td>North-West Frontier (Peshawar, Taxila, Swat Valley in modern Pakistan/Afghanistan).</td>
+              <td>Mathurā region (along the Yamuna in Uttar Pradesh).</td>
+            </tr>
+            <tr>
+              <td><strong>Material Used</strong></td>
+              <td>Grey-blue schist stone, stucco, and terracotta.</td>
+              <td>Distinctive, warm <strong>spotted red sandstone</strong> quarried at Sikri.</td>
+            </tr>
+            <tr>
+              <td><strong>Artistic Influence</strong></td>
+              <td><strong>Greco-Roman Fusion (Hellenistic):</strong> Greek realistic sculpting techniques applied to sacred Indian Buddhist themes.</td>
+              <td><strong>Purely Indigenous Indian Style:</strong> Developed naturally from earlier Yaksha and folk traditions.</td>
+            </tr>
+            <tr>
+              <td><strong>Depiction of the Buddha</strong></td>
+              <td>Buddha resembles a Greek god (Apollo): wavy curly hair, sharp facial features, athletic body, sharp Roman toga-like drapery with heavy folds.</td>
+              <td>Buddha has an energetic, smiling Indian face, shaved head or tight top-knot, transparent drapery clinging to a fleshy body, seated on a lotus throne.</td>
+            </tr>
+            <tr>
+              <td><strong>Religious Themes</strong></td>
+              <td>Exclusively Buddhist (Buddha statues, Bodhisattvas, Jātaka story relief panels).</td>
+              <td>Multi-religious: Buddhist images alongside Hindu deities (Vishnu, Shiva, Surya, Kartikeya) and Jain Tirthankaras.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 3: RAPID REVISION FACT & TECHNICAL TERM BANK -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <div class="section-number">03</div>
+        <h2 class="section-title">Rapid Revision Fact &amp; Technical Term Bank</h2>
+      </div>
+
+      <div class="term-grid">
+        <div class="term-card">
+          <div class="term-title">1. Age of Reorganisation</div>
+          <div class="term-def">The dynamic post-Mauryan era (200 BCE–300 CE) marked by regional empires, vibrant maritime trade, and creative cultural synthesis.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">2. Matronymic</div>
+          <div class="term-def">The practice of naming a child after their mother (e.g., Gautamīputra Sātakarṇi = son of Gautamī), widely used by the Sātavāhana royal family.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">3. Hāthīgumphā Inscription</div>
+          <div class="term-def">A 17-line Brahmi-Prakrit inscription on Udayagiri hill recording the year-by-year military and public works of Kalinga's Emperor Khāravela.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">4. Sangam</div>
+          <div class="term-def">An ancient academy of celebrated Tamil poets patronized by Pāṇḍyan kings in Madurai, which produced classical Sangam literature.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">5. Kallanai (Grand Anicut)</div>
+          <div class="term-def">A massive 329-metre stone diversion dam built across the Kaveri River by Chola King Karikala in the 2nd century CE, still operating today!</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">6. Silappadikāram</div>
+          <div class="term-def">The celebrated Tamil epic ('The Tale of the Anklet') by Ilango Adigal telling the dramatic story of Kannagi's quest for righteous justice.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">7. Heliodorus Pillar</div>
+          <div class="term-def">A carved stone Garuda pillar erected at Vidisha in 113 BCE by Greek ambassador Heliodorus, who converted to Bhagavata Vaishnavism.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">8. Śhaka Era (78 CE)</div>
+          <div class="term-def">The calendar era founded by Kushan Emperor Kanishka upon his coronation in 78 CE, adopted as India's official National Calendar.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">9. Gāndhāra Art</div>
+          <div class="term-def">A Greco-Buddhist sculptural style using grey schist stone that combined Greek realistic aesthetics with Indian Buddhist theology.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">10. Mathurā Art</div>
+          <div class="term-def">An indigenous Indian sculpting style utilizing spotted red sandstone to carve images of Buddha, Jain Tirthankaras, and Hindu deities.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: COMPLETE NCERT IN-TEXT ACTIVITIES & EXERCISE SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <div class="section-number">04</div>
+        <h2 class="section-title">Complete NCERT In-Text Activities &amp; Exercise Solutions</h2>
+      </div>
+
+      <!-- Exercise 1 -->
+      <details class="ans-box">
+        <summary>Exercise Q1: Why was the post-Maurya era also known as the era of reorganisation?</summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong> The period following the collapse of the Mauryan Empire (c. 200 BCE – 300 CE) is called the <strong>Age of Reorganisation</strong> because:</p>
+          <ol>
+            <li><strong>Decentralised Power Architecture:</strong> Instead of a single giant imperial authority in Pataliputra, dynamic regional powers emerged across India—the Shungas in the north, Chedis in Kalinga, Satavahanas in the Deccan, and Cheras, Cholas, and Pandyas in Tamilakam.</li>
+            <li><strong>Assimilation of Foreign Dynasties:</strong> Migrating peoples (Indo-Greeks, Shakas, and Kushanas) did not destroy Indian society; they assimilated into it, adopted Indian religions (Buddhism and Vaishnavism), took Sanskritized names, and minted bilingual coins.</li>
+            <li><strong>Economic &amp; Trade Expansion:</strong> Trade boomed internally across <em>Uttarapatha</em> and <em>Dakshinapatha</em>, while international maritime trade reached Rome and Southeast Asia, and northern overland routes tapped into the great <strong>Silk Route</strong>.</li>
+            <li><strong>Cultural &amp; Artistic Synthesis:</strong> Classical Sanskrit flourished alongside Tamil Sangam poetry, and magnificent new art forms like Gandhara and Mathura sculpture took birth.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Exercise 2 -->
+      <details class="ans-box">
+        <summary>Exercise Q2: Write a note on Sangam literature in 150 words.</summary>
+        <div class="ans-content">
+          <p><strong>Answer (Sangam Literature — 150 words):</strong></p>
+          <p>
+            <strong>Sangam literature</strong> represents the earliest body of secular classical poetry in South India, composed between 300 BCE and 300 CE in the Tamil language. The word <em>Sangam</em> refers to an assembly or academy of poets patronized by the Pandyan monarchs in Madurai.
+          </p>
+          <p>
+            Over 473 renowned poets, including more than 30 celebrated female poets like <em>Avvaiyār</em>, contributed to this rich corpus. The poems are broadly classified into two themes: <strong>Agam</strong> (inner personal emotions, love, and family life) and <strong>Puram</strong> (outer public virtues, battlefield heroism, charity, and kingship). 
+          </p>
+          <p>
+            Sangam literature provides invaluable eyewitness history about the three crowned kingdoms (Cheras, Cholas, and Pandyas), vibrant maritime trade with the Roman Empire through ports like Muziris and Puhar, craft guilds, agriculture, and ethics (epitomized by Thiruvalluvar's <em>Tirukkural</em> and the epic <em>Silappadikāram</em>).
+          </p>
+        </div>
+      </details>
+
+      <!-- Exercise 3 -->
+      <details class="ans-box">
+        <summary>Exercise Q3: Which rulers mentioned in this chapter included their mother's name in their title, and why did they do so?</summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul>
+            <li><strong>Rulers:</strong> The rulers of the <strong>Sātavāhana Dynasty</strong> in the Deccan proudly included their mother's name in their imperial titles (a practice known as <strong>matronymics</strong>). Famous examples include <strong>Gautamīputra Sātakarṇi</strong> (son of Queen Gautamī Balaśhrī) and <strong>Vāsiṣhṭhīputra Puḷumāvi</strong> (son of Queen Vāsiṣhṭhī).</li>
+            <li><strong>Why They Did So:</strong>
+              <ol>
+                <li><em>High Status of Women:</em> Royal mothers and queens played vital political, administrative, and religious roles. They funded major rock-cut Buddhist chaityas and donated vast tracts of land.</li>
+                <li><em>Dynastic Legitimacy:</em> Royal marriages with high-status noble clans brought prestige, alliances, and stability to the throne.</li>
+                <li><em>Deep Filial Reverence:</em> Honoring the mother reflected the deep Vedic and Indian ethical value that the mother is the first and most sacred guru of a child (*Matru Devo Bhava*).</li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Exercise 4 -->
+      <details class="ans-box">
+        <summary>Exercise Q4: Write a note of 250 words about one kingdom from this chapter that you find interesting and explain why.</summary>
+        <div class="ans-content">
+          <p><strong>Featured Kingdom: The Chedis of Kalinga under Emperor Khāravela (~250 words)</strong></p>
+          <p>
+            Among all the fascinating dynasties of the post-Mauryan era, I find the <strong>Chedi Dynasty of Kalinga</strong> (modern Odisha) the most inspiring, especially under its extraordinary third ruler, <strong>Emperor Khāravela</strong> (1st century BCE).
+          </p>
+          <p>
+            What makes Kalinga's resurgence truly magnificent is that just two centuries earlier, the land had been drenched in blood and devastated during Ashoka’s invasion. Yet, through resilience and determination, the people of Kalinga rebuilt their civilization into an imperial powerhouse that commanded land and sea!
+          </p>
+          <p>
+            Khāravela was not merely a conqueror whose armies marched across northern India and the Deccan; he was a model welfare monarch and an enlightened patron of the arts. As recorded in the famous <strong>Hāthīgumphā Inscription</strong> at Udayagiri, in his very first regnal year he spent millions of silver coins repairing city storm walls and gates damaged by cyclones. In his fifth year, he extended an ancient agricultural canal, bringing freshwater into the capital. 
+          </p>
+          <p>
+            Furthermore, he was an accomplished scholar of <em>Gandharva-veda</em> (music and performing arts), organising grand public festivals for his citizens. Though a devout Jain who excavated sheltered rock-cut cave dwellings on Udayagiri and Khandagiri for Jain ascetics, his inscription proudly proclaims him as a worshipper of all religious faiths and repairer of all temples. This rare blend of public welfare, religious tolerance, artistic brilliance, and military courage makes Khāravela and the Chedis of Kalinga unforgettable!
+          </p>
+        </div>
+      </details>
+
+      <!-- Exercise 5 -->
+      <details class="ans-box">
+        <summary>Exercise Q5: Imagine you have the chance to create your own kingdom. What royal emblem would you choose, and why? What title would you take?</summary>
+        <div class="ans-content">
+          <p><strong>My Sovereign Kingdom Design:</strong></p>
+          <ul>
+            <li><strong>Kingdom Name:</strong> The <em>Samata Rashtra</em> (Realm of Equality &amp; Harmony).</li>
+            <li><strong>Royal Title of Ruler:</strong> <em>Lokahita-Vardhana</em> ("He Who Nurtures the Welfare of All People").</li>
+            <li><strong>Royal Emblem:</strong> <strong>A Banyan Tree with an Open Book at its Base</strong>.
+              <br><em>Reason for Emblem:</em> The mighty Banyan tree represents enduring shelter, environmental protection, deep roots of ancient culture, and branches that give shade to everyone regardless of background. The open book symbolizes free education, scientific inquiry, and truth.
+            </li>
+            <li><strong>Core Values &amp; Rules:</strong>
+              <ol>
+                <li><em>Universal Education:</em> Every child, boy and girl, must receive free schooling in language, science, and ethical values.</li>
+                <li><em>Environmental Stewardship:</em> Every household must plant and nurture at least five fruit-bearing trees; deforesting hills or polluting rivers is strictly prohibited.</li>
+                <li><em>Justice &amp; Transparency:</em> Community disputes must be resolved peacefully in open village assemblies; the king is subject to the same laws as ordinary citizens.</li>
+              </ol>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Exercise 6 -->
+      <details class="ans-box">
+        <summary>Exercise Q6: Map activity: Mark the approximate locations of ancient structures mentioned in this chapter.</summary>
+        <div class="ans-content">
+          <p><strong>Locations to Mark on an Outline Map of India:</strong></p>
+          <ol>
+            <li><strong>Great Stūpa of Sāñchī:</strong> Near Bhopal / Vidisha, Madhya Pradesh (famous stone railings and torana gates).</li>
+            <li><strong>Stūpa of Bharhut:</strong> Satna district, northern Madhya Pradesh (Jātaka story reliefs).</li>
+            <li><strong>Udayagiri &amp; Khandagiri Caves:</strong> Near Bhubaneswar, Odisha (Hāthīgumphā inscription of Emperor Khāravela).</li>
+            <li><strong>Kārlē &amp; Bhājā Caves:</strong> Near Lonavala / Pune, Maharashtra (colossal rock-cut chaitya prayer halls).</li>
+            <li><strong>Amarāvatī Stūpa:</strong> Guntur district, Andhra Pradesh on the Krishna River (magnificent marble relief carvings).</li>
+            <li><strong>Heliodorus Pillar:</strong> Vidiśhā, Madhya Pradesh (Garuda pillar of the Greek ambassador).</li>
+            <li><strong>Kallanai (Grand Anicut):</strong> Near Tiruchirappalli, Tamil Nadu (King Karikāla's ancient dam across the Kaveri).</li>
+            <li><strong>Muziris:</strong> Kodungallur, Kerala coast (ancient international Roman pepper trading port).</li>
+            <li><strong>Mathurā:</strong> Uttar Pradesh on the Yamuna (capital of indigenous red sandstone sculpture).</li>
+            <li><strong>Taxila (Takshashila):</strong> Rawalpindi district, Gandhara region (epicenter of Greco-Buddhist art).</li>
+          </ol>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: HIGH-ORDER THINKING (HOTS) & INTERACTIVE QUIZ ENGINE -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <div class="section-number">05</div>
+        <h2 class="section-title">HOTS &amp; Interactive Quiz Engine</h2>
+      </div>
+
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <i class="fa-solid fa-trophy"></i> Your Score: <span id="quizScoreCount">0</span> / 5
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Test your mastery of the Age of Reorganisation!
+        </div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-card" id="qcard1">
+        <p><strong>Q1. Which famous 17-line biographical inscription carved on Udayagiri hill records the deeds of Kalinga's Emperor Khāravela?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(a) Junagadh Rock Inscription</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(b) Hāthīgumphā Inscription</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(c) Allahabad Pillar Inscription</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(d) Aihole Inscription</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> The <em>Hāthīgumphā</em> (Elephant Cave) inscription in Brahmi script records Emperor Khāravela's public works, canal extension, and military triumphs.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-card" id="qcard2">
+        <p><strong>Q2. What ancient dam across the Kaveri River, built by Chola King Karikala in the 2nd century CE, is still in active use today?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(a) Kallanai (Grand Anicut)</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(b) Tehri Dam</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(c) Hirakud Dam</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(d) Bhakra Nangal</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong> <em>Kallanai</em> (Grand Anicut) is an ancient 329-metre stone diversion dam engineered by Karikala Chola that irrigated the lush Kaveri delta.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-card" id="qcard3">
+        <p><strong>Q3. The coronation of Kushan Emperor Kanishka in 78 CE marks the foundation of which calendar used officially by the Republic of India?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(a) Vikram Samvat</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(b) Hijri Era</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(c) Śhaka Era</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(d) Gupta Era</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> Kanishka's accession in 78 CE founded the <em>Śhaka Era</em>, adopted by the Indian Government as our official National Calendar.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-card" id="qcard4">
+        <p><strong>Q4. The distinctive material used by the indigenous Mathurā School of Art to carve statues of the Buddha and Hindu deities was:</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(a) Grey-blue schist stone</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(b) Pure white Italian marble</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(c) Cast iron and bronze</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(d) Spotted red sandstone</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d)</strong> Mathurā sculptors used local <em>spotted red sandstone</em> quarried from Sikri to create indigenous, warm, smiling statues of the Buddha.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-card" id="qcard5">
+        <p><strong>Q5. The Greek ambassador Heliodorus erected a famous stone Garuda pillar at Vidisha after converting to which Indian spiritual tradition?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(a) Jainism</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(b) Bhāgavata Vaishnavism (devotion to Vāsudeva Krishna)</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(c) Shaivism</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(d) Mahayana Buddhism</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> Heliodorus inscribed that he was a <em>Bhāgavata</em>, erecting the Garuda pillar in honor of *Devadeva Vāsudeva* (Lord Krishna).
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM HALL TRAPS & 15 HIGH-YIELD REVISION POINTS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <div class="section-number">06</div>
+        <h2 class="section-title">Exam Hall Traps &amp; 15 High-Yield Revision Points</h2>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-head"><i class="fa-solid fa-triangle-exclamation"></i> Common Exam Hall Traps to Avoid!</div>
+        <ul>
+          <li><strong>Trap 1: Not a 'Dark Age':</strong> Never describe the post-Mauryan era as a dark age of decline! It was a golden era of thriving international trade (Silk Route &amp; Roman Ocean Trade), Sangam poetry, and magnificent art.</li>
+          <li><strong>Trap 2: Gandhara vs Mathura Material:</strong> <em>Gandhara art</em> used <strong>grey-blue schist stone</strong> with Greco-Roman realistic drapery. <em>Mathura art</em> used <strong>spotted red sandstone</strong> with an indigenous Indian style.</li>
+          <li><strong>Trap 3: Matronymics Meaning:</strong> Sātavāhana society was not matriarchal (succession was still from father to son), but royal names used <strong>matronymics</strong> (prefixes of mothers' names like Gautamiputra) to honor royal queens and maternal ancestry.</li>
+          <li><strong>Trap 4: Three Sangam Emblems:</strong> Remember: <strong>Chera = Bow &amp; Arrow</strong>; <strong>Chola = Tiger</strong>; <strong>Pandya = Fish (Carp)</strong>.</li>
+        </ul>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-bolt"></i> 15 High-Yield Revision Points</h3>
+      <ol style="padding-left: 1.5rem; line-height: 1.9;">
+        <li><strong>Age of Reorganisation (200 BCE – 300 CE):</strong> Dynamic post-Mauryan era of regional kingdoms, oceanic commerce, and artistic confluence.</li>
+        <li><strong>Pushyamitra Shunga:</strong> Founded the Shunga dynasty in 185 BCE; patronized Bharhut and Sanchi stūpas; era of Patanjali and the <em>Nāṭyaśhāstra</em>.</li>
+        <li><strong>Emperor Khāravela:</strong> Greatest ruler of Kalinga's Chedi dynasty (1st c. BCE); extended freshwater canals and patronized Jainism.</li>
+        <li><strong>Hāthīgumphā Inscription:</strong> Famous 17-line Brahmi inscription at Udayagiri documenting Khāravela's life and religious tolerance.</li>
+        <li><strong>Sātavāhana Empire:</strong> Ruled the Deccan for 400 years from Paithan and Amaravati; controlled the <em>Dakṣhiṇāpatha</em>.</li>
+        <li><strong>Gautamīputra Sātakarṇi:</strong> Greatest Sātavāhana king; defeated the Western Shakas; celebrated in his mother's Nashik inscription.</li>
+        <li><strong>Matronymic Custom:</strong> Sātavāhana princes proudly prefixed mothers' names (e.g., Gautamīputra, Vāsiṣhṭhīputra).</li>
+        <li><strong>Rock-cut Chaityas:</strong> Magnificent Buddhist halls excavated at Karle, Bhaja, Ajanta, and Kanheri.</li>
+        <li><strong>Ship Coins:</strong> Sātavāhana lead coins featuring two-masted ships, proving extensive maritime trade with Rome and Southeast Asia.</li>
+        <li><strong>Sangam Literature:</strong> Earliest classical Tamil poetry academy in Madurai under Pandyan patronage.</li>
+        <li><strong>Three Sangam Kings:</strong> Cheras (Bow; Muziris pepper trade), Cholas (Tiger; Karikala's Kallanai dam), and Pandyas (Fish; Madurai &amp; pearl fisheries).</li>
+        <li><strong>Silappadikāram:</strong> Tamil epic by Ilango Adigal detailing the story of Kannagi's righteous justice in Madurai.</li>
+        <li><strong>Heliodorus Pillar (113 BCE):</strong> Greek ambassador converted to Bhagavata Vaishnavism and erected a Garuda pillar at Vidisha.</li>
+        <li><strong>Emperor Kanishka (78 CE):</strong> Kushan emperor who founded the Śhaka Era; patronized the Fourth Buddhist Council in Kashmir.</li>
+        <li><strong>Artistic Traditions:</strong> Gandhara School (Greco-Buddhist, grey schist) vs Mathura School (indigenous, spotted red sandstone).</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; color: #f8fafc;">
+      Sujit Classes &bull; Conceptual Middle School Portal
+    </p>
+    <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+      Empowering young minds across Odisha and India with crystal-clear NCERT foundations.
+    </p>
+    <p style="font-size: 0.85rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Portal Home</a> &bull; 
+      <a href="#sec1">Top of Notes</a>
+    </p>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    // 1. Reading Progress Bar & Back to Top Controller
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    // 2. Teacher Audio Reader (TTS)
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+      }
+    }
+
+    // 3. Interactive Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) {
+        details.style.display = 'block';
+        details.open = true;
+      }
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Brilliant! Perfect 5/5 score on The Age of Reorganisation!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! You have mastered the post-Mauryan kingdoms and art!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good practice! Check the teacher explanations above to master all concepts!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
