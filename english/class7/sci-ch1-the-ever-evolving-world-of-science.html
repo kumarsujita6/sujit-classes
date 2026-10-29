@@ -1,0 +1,1581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 1 - The Ever-Evolving World of Science (Class 7 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981, #0284c7, #8b5cf6);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 45%, #0284c7 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #065f46;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Section Card */
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    /* Sub-section Headings */
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    /* Callout Boxes */
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease;
+    }
+
+    .callout-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-box .callout-text {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .callout-def {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .callout-def i { color: #059669; }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-color: #a855f7;
+      color: #581c87;
+    }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+    .callout-warn i { color: #dc2626; }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+    .data-table tr:hover { background: #f1f5f9; }
+
+    /* Collapsible Details Answers */
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    /* Badges */
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+
+    /* Diagrams Container */
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    /* General Cards */
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    /* Quiz Engine */
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #065f46 0%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    /* Floating Back to Top Button */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      background: #0369a1;
+      transform: translateY(-3px) scale(1.08);
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    /* SVG Animations */
+    .pulse-node {
+      animation: pulseGlow 3s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.4)); }
+      100% { filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.8)); }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top-Fixed Reading Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Sticky Top Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Master Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Competency Bank</a>
+      <a href="#sec6" class="nav-link">6. Exam Traps</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-flask-vial"></i> Class 7 Science &bull; Chapter 1 (Curiosity NEP)
+    </div>
+    <h1 class="hero-title">The Ever-Evolving World of Science</h1>
+    <p class="hero-sub">
+      A Complete, Teacher-Crafted Master Study Note Exploring Why Science Is an Ongoing Process of Wonder, How Observation Sparks Inventions, the Interconnected Web of Nature, and How to "Question the Answer" Like a True Scientist!
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT Curiosity Grade 7</span>
+      <span><i class="fa-solid fa-clock"></i> 45 Mins Full Mastery</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Complete &amp; Unabridged</span>
+      <span><i class="fa-solid fa-brain"></i> Interactive Quiz &amp; Audio</span>
+    </div>
+    <button id="teacherAudioBtn" class="audio-btn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+
+    <!-- ==========================================
+         SECTION 1: VISUAL BLUEPRINT & MIND MAP
+         ========================================== -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
+        <h2>Visual Mind Map &amp; Chapter Overview</h2>
+        <p class="section-sub">A bird's-eye view of how Chapter 1 introduces our Grade 7 scientific journey, connecting curiosity to everyday experiments.</p>
+      </div>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div class="callout-text">
+          <strong>Teacher's Welcome Note:</strong> Welcome to Class 7 Science! In Grade 6, we discovered that science is not just a stack of heavy definitions to memorise for exams. Science is a <em>way of looking at our world</em>, asking bold questions, trying things out with our hands, and testing our ideas. In this chapter, we open the door to our whole Grade 7 journey. Every chapter in this book connects with the others like pieces in a grand, living jigsaw puzzle!
+        </div>
+      </div>
+
+      <!-- SVG 1: Chapter 1 Visual Mind Map -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 850 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <defs>
+            <linearGradient id="gradCenter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#059669" />
+              <stop offset="100%" stop-color="#047857" />
+            </linearGradient>
+            <linearGradient id="gradPhys" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7" />
+              <stop offset="100%" stop-color="#0369a1" />
+            </linearGradient>
+            <linearGradient id="gradChem" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b" />
+              <stop offset="100%" stop-color="#d97706" />
+            </linearGradient>
+            <linearGradient id="gradBio" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981" />
+              <stop offset="100%" stop-color="#059669" />
+            </linearGradient>
+            <linearGradient id="gradEarth" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8b5cf6" />
+              <stop offset="100%" stop-color="#6d28d9" />
+            </linearGradient>
+          </defs>
+
+          <!-- Background subtle grid -->
+          <rect width="850" height="480" fill="#f8fafc" rx="12" />
+
+          <!-- Connector Lines -->
+          <line x1="425" y1="240" x2="170" y2="110" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,4" />
+          <line x1="425" y1="240" x2="680" y2="110" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,4" />
+          <line x1="425" y1="240" x2="170" y2="370" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,4" />
+          <line x1="425" y1="240" x2="680" y2="370" stroke="#cbd5e1" stroke-width="2.5" stroke-dasharray="6,4" />
+
+          <!-- Center Node: The Ever-Evolving World of Science -->
+          <g class="pulse-node">
+            <circle cx="425" cy="240" r="75" fill="url(#gradCenter)" filter="drop-shadow(0 8px 16px rgba(5, 150, 105, 0.35))" />
+            <text x="425" y="228" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="14">SCIENCE AS</text>
+            <text x="425" y="246" text-anchor="middle" fill="#ffffff" font-weight="800" font-size="16">AN ONGOING</text>
+            <text x="425" y="264" text-anchor="middle" fill="#d1fae5" font-weight="700" font-size="13">PROCESS</text>
+          </g>
+
+          <!-- Branch 1: Chemistry & Matter (Top-Left) -->
+          <g transform="translate(170, 110)">
+            <rect x="-120" y="-55" width="240" height="110" rx="10" fill="#ffffff" stroke="#f59e0b" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(245, 158, 11, 0.15))" />
+            <rect x="-120" y="-55" width="240" height="28" rx="8" fill="url(#gradChem)" />
+            <text x="0" y="-36" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12">MATTER &amp; CHEMISTRY</text>
+            <text x="-105" y="-6" fill="#334155" font-size="11" font-weight="600">&bull; Acids, Bases &amp; Indicators (Ch 2)</text>
+            <text x="-105" y="14" fill="#334155" font-size="11" font-weight="600">&bull; Metals &amp; Non-metals (Ch 4)</text>
+            <text x="-105" y="34" fill="#334155" font-size="11" font-weight="600">&bull; Physical &amp; Chemical Changes (Ch 5)</text>
+          </g>
+
+          <!-- Branch 2: Physics & Energy (Top-Right) -->
+          <g transform="translate(680, 110)">
+            <rect x="-120" y="-55" width="240" height="110" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(2, 132, 199, 0.15))" />
+            <rect x="-120" y="-55" width="240" height="28" rx="8" fill="url(#gradPhys)" />
+            <text x="0" y="-36" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12">PHYSICS &amp; ENERGY</text>
+            <text x="-105" y="-6" fill="#334155" font-size="11" font-weight="600">&bull; Electric Circuits &amp; Cells (Ch 3)</text>
+            <text x="-105" y="14" fill="#334155" font-size="11" font-weight="600">&bull; Heat Transfer in Nature (Ch 7)</text>
+            <text x="-105" y="34" fill="#334155" font-size="11" font-weight="600">&bull; Measurement of Time &amp; Speed (Ch 8)</text>
+          </g>
+
+          <!-- Branch 3: Living World & Biology (Bottom-Left) -->
+          <g transform="translate(170, 370)">
+            <rect x="-120" y="-55" width="240" height="110" rx="10" fill="#ffffff" stroke="#10b981" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(16, 185, 129, 0.15))" />
+            <rect x="-120" y="-55" width="240" height="28" rx="8" fill="url(#gradBio)" />
+            <text x="0" y="-36" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12">LIVING WORLD &amp; BIOLOGY</text>
+            <text x="-105" y="-6" fill="#334155" font-size="11" font-weight="600">&bull; Adolescence &amp; Growth (Ch 6)</text>
+            <text x="-105" y="14" fill="#334155" font-size="11" font-weight="600">&bull; Life Processes in Animals (Ch 9)</text>
+            <text x="-105" y="34" fill="#334155" font-size="11" font-weight="600">&bull; Life Processes in Plants (Ch 10)</text>
+          </g>
+
+          <!-- Branch 4: Earth, Space & Light (Bottom-Right) -->
+          <g transform="translate(680, 370)">
+            <rect x="-120" y="-55" width="240" height="110" rx="10" fill="#ffffff" stroke="#8b5cf6" stroke-width="2" filter="drop-shadow(0 4px 10px rgba(139, 92, 246, 0.15))" />
+            <rect x="-120" y="-55" width="240" height="28" rx="8" fill="url(#gradEarth)" />
+            <text x="0" y="-36" text-anchor="middle" fill="#ffffff" font-weight="700" font-size="12">LIGHT &amp; THE COSMOS</text>
+            <text x="-105" y="-6" fill="#334155" font-size="11" font-weight="600">&bull; Light, Shadows &amp; Reflections (Ch 11)</text>
+            <text x="-105" y="14" fill="#334155" font-size="11" font-weight="600">&bull; Earth, Moon &amp; the Sun (Ch 12)</text>
+            <text x="-105" y="34" fill="#334155" font-size="11" font-weight="600">&bull; Environmental Responsibility &amp; Care</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 1.1: Visual Mind Map &bull; The Interconnected Four Pillars of Grade 7 Science (Curiosity NEP Series).</p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: COMPREHENSIVE STUDY NOTES
+         ========================================== -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2 &bull; Comprehensive Line-by-Line Study Notes</span>
+        <h2>Exhaustive Concept Explanations</h2>
+        <p class="section-sub">Thorough, child-friendly explanations explaining the WHY and HOW behind every paragraph of Chapter 1.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-seedling"></i> 1. The Nature of Science: Why Is Science an "Ever-Evolving" Journey?</h3>
+      <p>
+        Imagine you are building a giant jigsaw puzzle of the entire universe. Every time you do an experiment, read an interesting observation, or ask a fresh question, you place another piece on the table. But here is the exciting part: <strong>the puzzle never ends!</strong> As our tools get sharper and our questions get bolder, the picture grows bigger and more wondrous.
+      </p>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-book-bookmark"></i>
+        <div class="callout-text">
+          <strong>Key Definition &bull; What is Science?</strong><br>
+          <strong>Science</strong> is not just a collection of memorised facts, formulas, or rules written in heavy books. <strong>Science is a systematic way of thinking, observing, asking questions, and discovering truth through hands-on experiments.</strong> It is an ever-evolving process where old ideas are constantly tested, refined, and improved whenever new evidence appears.
+        </div>
+      </div>
+
+      <p>
+        In Grade 6, we learned an unforgettable rule: <em>"To be a wise person, you must be a 'whys' person!"</em> That means we should never simply accept things just because someone said so. We look at the world around us and ask:
+      </p>
+      <ul style="margin: 0.8rem 0 1.2rem 1.8rem; line-height: 1.8;">
+        <li><strong>Why</strong> are lemons and unripe mangoes sour, while soap water feels slippery and tastes bitter?</li>
+        <li><strong>How</strong> does electric current pass through a thin metal wire and light up a torch bulb?</li>
+        <li><strong>Why</strong> does an iron nail left outside in the damp air turn reddish-brown with rust, while a plastic spoon remains untouched?</li>
+        <li><strong>How</strong> do tall trees pull gallons of water all the way from underground up to the topmost leaves without any electric pump?</li>
+      </ul>
+
+      <!-- SVG 2: The Scientific Inquiry Cycle -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 800 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <defs>
+            <marker id="arrowHead" markerWidth="8" markerHeight="8" refX="5" refY="4" orient="auto">
+              <path d="M 0 0 L 8 4 L 0 8 Z" fill="#0284c7" />
+            </marker>
+          </defs>
+          <rect width="800" height="360" fill="#f0f9ff" rx="12" />
+
+          <!-- Title -->
+          <text x="400" y="32" text-anchor="middle" font-size="16" font-weight="700" fill="#0369a1">THE 5-STEP SCIENTIFIC INQUIRY WHEEL</text>
+          <text x="400" y="52" text-anchor="middle" font-size="12" fill="#64748b">How Young Scientists Explore and Discover Truth</text>
+
+          <!-- Step 1: Observe -->
+          <g transform="translate(100, 90)">
+            <circle cx="50" cy="50" r="45" fill="#ffffff" stroke="#0284c7" stroke-width="2.5" />
+            <text x="50" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#0284c7">STEP 1</text>
+            <text x="50" y="62" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Observe</text>
+            <text x="50" y="115" text-anchor="middle" font-size="10.5" fill="#475569">Notice interesting patterns</text>
+          </g>
+
+          <!-- Arrow 1 to 2 -->
+          <path d="M 205 140 L 255 140" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrowHead)" />
+
+          <!-- Step 2: Question -->
+          <g transform="translate(265, 90)">
+            <circle cx="50" cy="50" r="45" fill="#ffffff" stroke="#059669" stroke-width="2.5" />
+            <text x="50" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#059669">STEP 2</text>
+            <text x="50" y="62" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Ask 'Why?'</text>
+            <text x="50" y="115" text-anchor="middle" font-size="10.5" fill="#475569">Formulate curious questions</text>
+          </g>
+
+          <!-- Arrow 2 to 3 -->
+          <path d="M 370 140 L 420 140" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrowHead)" />
+
+          <!-- Step 3: Experiment -->
+          <g transform="translate(430, 90)">
+            <circle cx="50" cy="50" r="45" fill="#ffffff" stroke="#f59e0b" stroke-width="2.5" />
+            <text x="50" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#f59e0b">STEP 3</text>
+            <text x="50" y="62" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Experiment</text>
+            <text x="50" y="115" text-anchor="middle" font-size="10.5" fill="#475569">Test ideas with safe hands-on trials</text>
+          </g>
+
+          <!-- Arrow 3 to 4 -->
+          <path d="M 535 140 L 585 140" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrowHead)" />
+
+          <!-- Step 4: Analyze -->
+          <g transform="translate(595, 90)">
+            <circle cx="50" cy="50" r="45" fill="#ffffff" stroke="#8b5cf6" stroke-width="2.5" />
+            <text x="50" y="42" text-anchor="middle" font-size="13" font-weight="700" fill="#8b5cf6">STEP 4</text>
+            <text x="50" y="62" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Analyze</text>
+            <text x="50" y="115" text-anchor="middle" font-size="10.5" fill="#475569">Check data &amp; draw honest inferences</text>
+          </g>
+
+          <!-- Step 5 (Loop back): Reflect & Question Again -->
+          <g transform="translate(260, 245)">
+            <rect x="0" y="0" width="280" height="55" rx="28" fill="#ffffff" stroke="#10b981" stroke-width="2" />
+            <text x="140" y="24" text-anchor="middle" font-size="12" font-weight="700" fill="#047857">STEP 5: Reflect &amp; Ask Deeper Questions</text>
+            <text x="140" y="42" text-anchor="middle" font-size="11" fill="#64748b">New discoveries spark brand-new mysteries!</text>
+          </g>
+
+          <!-- Curved feedback loop paths -->
+          <path d="M 645 205 Q 645 272 545 272" stroke="#0284c7" stroke-width="2" fill="none" marker-end="url(#arrowHead)" />
+          <path d="M 260 272 Q 150 272 150 205" stroke="#0284c7" stroke-width="2" fill="none" marker-end="url(#arrowHead)" />
+        </svg>
+        <p class="diagram-caption">Figure 1.2: The Scientific Inquiry Cycle &bull; Observation leads to questions, experiments, and yet deeper mysteries.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-paper-plane"></i> 2. The Butterfly and the Paper Plane: From Play to Aerodynamics</h3>
+      <p>
+        Have you ever folded a piece of paper into a paper aeroplane and thrown it across your verandah? Have you watched a colourful butterfly flutter effortlessly from blossom to blossom?
+      </p>
+      <p>
+        In the Grade 7 textbook, the page numbers playfully track the flight of a butterfly and a paper plane. This is not just a pretty design. <strong>It holds a profound lesson about how science actually happens:</strong>
+      </p>
+      <div class="card">
+        <h4 class="sub-topic"><i class="fa-solid fa-feather-pointed" style="color: #0284c7;"></i> How Human Flight Began with Childlike Curiosity</h4>
+        <p>
+          For thousands of years, humans looked up at birds and butterflies with longing: <em>"Why can a tiny sparrow fly into the clouds while a heavy human cannot?"</em>
+        </p>
+        <ul style="margin: 0.6rem 0 0.8rem 1.6rem; line-height: 1.75;">
+          <li><strong>Step 1 (Observation):</strong> Early inventors like Leonardo da Vinci closely drew the bone structure of bird wings, noticing how their curved upper surface creates lift.</li>
+          <li><strong>Step 2 (Playful Models):</strong> Pioneers made tiny gliders and paper shapes to understand how air pushes against moving surfaces.</li>
+          <li><strong>Step 3 (Systematic Testing):</strong> In 1903, the Wright brothers built a simple wooden wind tunnel to test over 200 different wing designs before building the first successful motor-powered aeroplane.</li>
+          <li><strong>Conclusion:</strong> Modern passenger planes, helicopters, and even space rockets all trace back to someone playfully watching a bird flap its wings and folding a sheet of paper!</li>
+        </ul>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-compass"></i> 3. Stepping Out of the Book: Discovery and Responsibility</h3>
+      <p>
+        Science is not confined inside four classroom walls. To truly understand science, you must step outdoors, observe tree bark, feel the temperature of garden soil under shade versus direct sunlight, and watch water droplets condense on a cold glass.
+      </p>
+      <p>
+        However, Grade 7 science adds an indispensable second dimension: <strong>Responsibility</strong>.
+      </p>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-earth-americas"></i>
+        <div class="callout-text">
+          <strong>Science and Environmental Responsibility:</strong><br>
+          As we discover how humans transform materials—burning fossil fuels, cutting trees, generating plastic waste, and consuming electricity—we must recognise that our actions affect the entire biosphere. Science gives us the power to understand nature, and therefore the duty to protect it. In this book, we will study renewable energy, water conservation, clean life processes, and sustainable living to keep our planet healthy.
+        </div>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-network-wired"></i> 4. The Grand Thread: How All 12 Chapters Connect Together</h3>
+      <p>
+        Although this textbook contains 12 chapters, they are not separate islands. They are woven together like a tapestry:
+      </p>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">Unit / Theme</th>
+              <th style="width: 25%;">Chapters Included</th>
+              <th style="width: 35%;">Core Scientific Concept</th>
+              <th style="width: 25%;">Everyday Connection</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Matter &amp; Chemistry</strong></td>
+              <td>Ch 2 (Acids &amp; Bases)<br>Ch 4 (Metals &amp; Non-metals)<br>Ch 5 (Changes Around Us)</td>
+              <td>How substances are grouped by properties (taste, indicator colour, lustre, malleability) and how they undergo reversible vs irreversible chemical transformations.</td>
+              <td>Turmeric stain turning red with soap; rusted iron gates; sour curd; shiny copper utensils.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Electricity &amp; Energy</strong></td>
+              <td>Ch 3 (Electricity &amp; Circuits)<br>Ch 7 (Heat Transfer)</td>
+              <td>How charges flow through closed circuits, what conducts electricity, and the three mechanisms of thermal energy transfer (conduction, convection, radiation).</td>
+              <td>Why torch batteries run out; why frying pan handles are plastic; why sea breezes blow on hot afternoons.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Living World</strong></td>
+              <td>Ch 6 (Adolescence)<br>Ch 9 (Animal Life Processes)<br>Ch 10 (Plant Life Processes)</td>
+              <td>How adolescent bodies grow; how animals digest food and circulate oxygen; and how green plants prepare food via photosynthesis and respire.</td>
+              <td>Sudden growth spurts and voice changes; why we breathe heavily after running; how water reaches tree canopies.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Motion, Light &amp; Cosmos</strong></td>
+              <td>Ch 8 (Time &amp; Motion)<br>Ch 11 (Light &amp; Reflections)<br>Ch 12 (Earth, Moon &amp; Sun)</td>
+              <td>How ancient humans measured time using periodic shadow motions; how light travels in straight lines and reflects; and planetary orbits causing day/night, seasons, and eclipses.</td>
+              <td>Sundials, speedometer on scooters, mirror selfies, and thrilling solar and lunar eclipses.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-question"></i> 5. Activity 1.1: Question the Answer (Divergent Thinking)</h3>
+      <p>
+        In traditional school exams, a teacher gives a question, and the student writes one specific answer. But real scientific breakthroughs happen when scientists look at an ordinary fact or result and ask: <em>"What hidden situation could have caused this?"</em>
+      </p>
+
+      <div class="callout-box callout-act">
+        <i class="fa-solid fa-flask"></i>
+        <div class="callout-text">
+          <strong>Activity 1.1 Walkthrough &bull; The Art of "Questioning the Answer":</strong><br>
+          In NCERT Activity 1.1, we are given surprising "Answers". Our task is to reverse our mindset and craft imaginative, scientifically curious questions that could lead to those exact answers.
+        </div>
+      </div>
+
+      <!-- SVG 3: Divergent Thinking Matrix -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 820 300" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+          <rect width="820" height="300" fill="#faf5ff" rx="12" stroke="#e9d5ff" stroke-width="1.5" />
+          <text x="410" y="30" text-anchor="middle" font-size="15" font-weight="700" fill="#6b21a8">DIVERGENT THINKING: ONE ANSWER &rarr; MANY CURIOUS QUESTIONS</text>
+
+          <!-- Given Answer Box -->
+          <g transform="translate(310, 55)">
+            <rect width="200" height="50" rx="10" fill="#8b5cf6" />
+            <text x="100" y="22" text-anchor="middle" fill="#ffffff" font-size="11" font-weight="600">GIVEN ANSWER:</text>
+            <text x="100" y="40" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="800">"Just make it half!"</text>
+          </g>
+
+          <!-- Branch 1 -->
+          <path d="M 330 105 L 150 170" stroke="#a855f7" stroke-width="2" stroke-dasharray="4,3" />
+          <g transform="translate(50, 175)">
+            <rect width="200" height="85" rx="8" fill="#ffffff" stroke="#c084fc" stroke-width="1.5" />
+            <text x="100" y="24" text-anchor="middle" font-size="11" font-weight="700" fill="#7e22ce">Situation A (Food/Fairness):</text>
+            <text x="100" y="45" text-anchor="middle" font-size="11" fill="#334155">"How do two siblings share</text>
+            <text x="100" y="65" text-anchor="middle" font-size="11" fill="#334155">the last piece of cake?"</text>
+          </g>
+
+          <!-- Branch 2 -->
+          <path d="M 410 105 L 410 170" stroke="#a855f7" stroke-width="2" stroke-dasharray="4,3" />
+          <g transform="translate(310, 175)">
+            <rect width="200" height="85" rx="8" fill="#ffffff" stroke="#c084fc" stroke-width="1.5" />
+            <text x="100" y="24" text-anchor="middle" font-size="11" font-weight="700" fill="#7e22ce">Situation B (Science/Cooking):</text>
+            <text x="100" y="45" text-anchor="middle" font-size="11" fill="#334155">"My test recipe is way</text>
+            <text x="100" y="65" text-anchor="middle" font-size="11" fill="#334155">too sweet, what should I do?"</text>
+          </g>
+
+          <!-- Branch 3 -->
+          <path d="M 490 105 L 670 170" stroke="#a855f7" stroke-width="2" stroke-dasharray="4,3" />
+          <g transform="translate(570, 175)">
+            <rect width="200" height="85" rx="8" fill="#ffffff" stroke="#c084fc" stroke-width="1.5" />
+            <text x="100" y="24" text-anchor="middle" font-size="11" font-weight="700" fill="#7e22ce">Situation C (Physics/Design):</text>
+            <text x="100" y="45" text-anchor="middle" font-size="11" fill="#334155">"This pendulum swings too</text>
+            <text x="100" y="65" text-anchor="middle" font-size="11" fill="#334155">slowly, how to shorten length?"</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 1.3: Divergent Thinking &bull; A single simple answer can unlock dozens of creative, scientific questions.</p>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: FACT & SCIENTIFIC TERM BANK
+         ========================================== -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3 &bull; High-Yield Fact &amp; Term Bank</span>
+        <h2>Rapid Revision Fact &amp; Scientific Term Bank</h2>
+        <p class="section-sub">Essential definitions, key scientific terms, and memory shortcuts for Class 7 Chapter 1.</p>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Scientific Term</th>
+              <th style="width: 50%;">Precise Child-Friendly Meaning</th>
+              <th style="width: 25%;">Real-Life Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Scientific Method</strong></td>
+              <td>A systematic 5-step way to investigate questions using observations, hypotheses, controlled experiments, data collection, and rational conclusions.</td>
+              <td>Testing whether a plant grows faster in direct sunlight or inside a dark cupboard.</td>
+            </tr>
+            <tr>
+              <td><strong>Hypothesis</strong></td>
+              <td>An educated, testable guess or proposed explanation made on the basis of limited evidence as a starting point for further investigation.</td>
+              <td>"If I add ice cubes to warm milk, the temperature will drop rapidly."</td>
+            </tr>
+            <tr>
+              <td><strong>Aerodynamics</strong></td>
+              <td>The branch of physics that studies how air and other gases move around solid objects like bird wings or aeroplanes.</td>
+              <td>Curved shape of an aircraft wing creating lift to keep a heavy Boeing 747 in the air.</td>
+            </tr>
+            <tr>
+              <td><strong>Sustainable Development</strong></td>
+              <td>Meeting human needs today in a smart, eco-friendly way without harming or exhausting the natural resources needed by future generations.</td>
+              <td>Using solar panels and harvesting rainwater instead of wasting groundwater.</td>
+            </tr>
+            <tr>
+              <td><strong>Divergent Questioning</strong></td>
+              <td>Asking open-ended, creative questions that invite multiple possible answers and unique perspectives rather than a single memorised fact.</td>
+              <td>"What would happen to life on Earth if honeybees disappeared completely?"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <div class="callout-text">
+          <strong>Memory Hack &bull; The "P-O-Q-E-R" Formula of a Young Scientist:</strong><br>
+          Remember how a scientist works using the word <strong>POQER</strong>:<br>
+          <strong>P</strong> = <em>Perceive</em> (Notice something unusual with your senses)<br>
+          <strong>O</strong> = <em>Observe</em> (Record careful details without guessing)<br>
+          <strong>Q</strong> = <em>Question</em> (Ask why or how it happened)<br>
+          <strong>E</strong> = <em>Experiment</em> (Perform a fair test)<br>
+          <strong>R</strong> = <em>Reflect &amp; Repeat</em> (Share results and ask deeper questions!)
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: 100% COMPLETE NCERT SOLUTIONS
+         ========================================== -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4 &bull; 100% Complete NCERT Solutions</span>
+        <h2>Complete NCERT In-Text Activities &amp; Exercise Solutions</h2>
+        <p class="section-sub">Step-by-step, teacher-crafted solutions for every activity and prompt in Chapter 1.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-puzzle-piece"></i> Solutions to Activity 1.1: Question the Answer</h3>
+      <p style="margin-bottom: 1rem;">
+        The textbook presents four provocative answers. Below are teacher-approved, highly creative, and scientifically insightful questions for each:
+      </p>
+
+      <!-- Question 1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Prompt 1:</strong> Given Answer: <em>"Because the cat’s teeth were crooked."</em></span>
+          <span class="badge badge-green">Solved</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Possible Scientific &amp; Creative Questions:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li><strong>Question 1 (Biological Observation):</strong> <em>"Why did the veterinary doctor advise the pet owner to give only soft, mashed food to the senior rescue cat?"</em></li>
+            <li><strong>Question 2 (Behavioural Observation):</strong> <em>"Why did the little kitten leave funny zig-zag bite marks on the cardboard packaging box?"</em></li>
+            <li><strong>Question 3 (Anatomical Study):</strong> <em>"Why was the tiger cub unable to tear meat properly during its clinical dental examination at the sanctuary?"</em></li>
+          </ul>
+          <p style="color: #047857; font-size: 0.88rem; margin-top: 0.5rem;">
+            <em>Teacher's Insight:</em> Notice how linking the condition (crooked teeth) to physical consequences (mastication, diet, bite patterns) turns a quirky sentence into a sharp biological inquiry!
+          </p>
+        </div>
+      </details>
+
+      <!-- Question 2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Prompt 2:</strong> Given Answer: <em>"Just add some milk."</em></span>
+          <span class="badge badge-green">Solved</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Possible Scientific &amp; Everyday Questions:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li><strong>Question 1 (Chemistry &amp; Heat Balance):</strong> <em>"My black filter coffee is boiling hot and tastes extremely bitter. What simple step will cool it down and soothe the bitterness?"</em></li>
+            <li><strong>Question 2 (Acidity &amp; Capsaicin Neutralisation):</strong> <em>"My mouth is burning after accidentally biting into a fiery green chilli! What should I consume to dissolve the fat-soluble capsaicin compound?"</em></li>
+            <li><strong>Question 3 (Biology &amp; Microbial Culture):</strong> <em>"I want to prepare fresh curd for dinner tomorrow using a teaspoon of starter inoculum (khatta/dahi). What base liquid must I pour into the warm bowl?"</em></li>
+          </ul>
+          <p style="color: #047857; font-size: 0.88rem; margin-top: 0.5rem;">
+            <em>Teacher's Insight:</em> Milk contains casein protein, fats, and calcium which neutralise chilli spice (capsaicin) and buffer acidic solutions!
+          </p>
+        </div>
+      </details>
+
+      <!-- Question 3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Prompt 3:</strong> Given Answer: <em>"Don’t panic, I have my towel."</em></span>
+          <span class="badge badge-green">Solved</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Possible Scientific &amp; Humorous Questions:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li><strong>Question 1 (Water Absorption &amp; Capillary Action):</strong> <em>"Oh no! Someone just knocked over a beaker filled with 200 mL of water across the laboratory bench! How are we going to soak it up before it reaches the electric switchboard?"</em></li>
+            <li><strong>Question 2 (Cultural Science Reference - Hitchhiker’s Guide to the Galaxy):</strong> <em>"What iconic reassuring phrase does an interstellar galactic hitchhiker utter when embarking on an unpredictable, multi-planetary space expedition?"</em></li>
+            <li><strong>Question 3 (Evaporative Cooling in Sports):</strong> <em>"You have just completed a rigorous 5 km cross-country marathon in humid weather and are drenched in sweat. How will you prevent sweat from dripping into your eyes?"</em></li>
+          </ul>
+          <p style="color: #047857; font-size: 0.88rem; margin-top: 0.5rem;">
+            <em>Teacher's Insight:</em> Towels absorb liquids through <strong>capillary action</strong> in cotton fibres. They also help evaporative cooling and personal safety.
+          </p>
+        </div>
+      </details>
+
+      <!-- Question 4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Prompt 4:</strong> Given Answer: <em>"42"</em></span>
+          <span class="badge badge-green">Solved</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Possible Mathematical, Physical &amp; Cultural Questions:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li><strong>Question 1 (Optics &amp; Atmospheric Physics):</strong> <em>"At what precise angle (in degrees) does sunlight refract and reflect internally inside spherical raindrops to form the brightest primary rainbow in the sky?"</em> (Answer: 42&deg;!)</li>
+            <li><strong>Question 2 (Popular Science &amp; Literature):</strong> <em>"In Douglas Adams’ famous science fiction classic, what is the ultimate number calculated by the supercomputer Deep Thought over 7.5 million years as the 'Answer to the Ultimate Question of Life, the Universe, and Everything'?"</em></li>
+            <li><strong>Question 3 (Arithmetic Puzzle):</strong> <em>"What is the total number of dots on a pair of standard six-sided playing dice?"</em> (1+2+3+4+5+6 = 21 per die; 21 &times; 2 = 42).</li>
+          </ul>
+          <p style="color: #047857; font-size: 0.88rem; margin-top: 0.5rem;">
+            <em>Teacher's Insight:</em> 42&deg; is a real physical constant in rainbow optics! When red light emerges from water droplets at 42&deg; relative to the incoming sunlight, it produces the primary bow.
+          </p>
+        </div>
+      </details>
+
+      <h3 class="topic-title" style="margin-top: 2rem;"><i class="fa-solid fa-clipboard-check"></i> End-of-Chapter Concept Mastery Questions</h3>
+
+      <!-- In-Text Conceptual Q1 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Conceptual Question 1:</strong> Why does the textbook emphasize that science is a "process" rather than just a "compilation of facts"?</span>
+          <span class="badge badge-blue">Core Concept</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Model Answer (Point-Wise):</strong></p>
+          <ol style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li><strong>Facts Change with New Evidence:</strong> In ancient times, people believed the Earth was flat and stationary at the center of the universe. When Galileo and Copernicus gathered better observational data using telescopes, that "fact" was discarded.</li>
+            <li><strong>The Process Is Permanent:</strong> The way scientists investigate—observing honestly, formulating hypotheses, designing fair tests, and re-evaluating theories—never becomes obsolete.</li>
+            <li><strong>Active Exploration vs. Passive Memorisation:</strong> Viewing science as a compilation of facts makes students memorise lines blindly. Viewing science as a process turns students into active detectives who test their surroundings.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- In-Text Conceptual Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Conceptual Question 2:</strong> Give two examples showing how discoveries in physics directly help biological or environmental research.</span>
+          <span class="badge badge-blue">Interdisciplinary</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Model Answer:</strong></p>
+          <ul style="margin: 0.5rem 0 0.5rem 1.5rem; line-height: 1.8;">
+            <li><strong>Example 1 &bull; The Optical Microscope:</strong> The physics of glass lenses and light refraction enabled Robert Hooke and Anton van Leeuwenhoek to invent the microscope, which allowed biologists to discover living cells, bacteria, and blood corpuscles.</li>
+            <li><strong>Example 2 &bull; Satellite Remote Sensing:</strong> The physics of electromagnetic waves, infrared sensors, and orbital mechanics allows environmental scientists to track deforestation, measure melting Arctic glaciers, and forecast cyclone paths from space.</li>
+          </ul>
+        </div>
+      </details>
+
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: COMPETENCY BANK & INTERACTIVE QUIZ
+         ========================================== -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5 &bull; CBSE / BSE Competency Question Bank</span>
+        <h2>High-Order Thinking (HOTS) &amp; Interactive Quiz Engine</h2>
+        <p class="section-sub">Click the option you think is correct! Real-time evaluation marks green for correct and red for incorrect with complete teacher explanations.</p>
+      </div>
+
+      <!-- Scoreboard Banner -->
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <span>🎯</span> Mastered: <span id="quizScoreCount">0</span> / 5 Questions
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Click an option to test your knowledge!
+        </div>
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qcard1">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q1. Which of the following statements best describes the true nature of science?
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+            <span>(a) A rigid collection of permanent facts that never change</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+            <span>(b) An ongoing, self-correcting process of inquiry, testing, and discovery</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+            <span>(c) Believing theories because they were written by ancient scholars without testing</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+            <span>(d) Memorising definitions to score maximum marks in annual school examinations</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong><br>
+            Science is inherently dynamic and self-correcting. When new observations or experiments contradict an existing theory, scientists test the new evidence rather than ignoring it.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qcard2">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q2. In Chapter 1, what does the playful flight of a butterfly and a paper plane symbolize?
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+            <span>(a) That studying science is only meant for children who want to become pilots</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+            <span>(b) That butterflies are the only insects that follow the laws of physics</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+            <span>(c) That great scientific discoveries and human flight start with simple, playful curiosity</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+            <span>(d) That paper planes fly faster than motorized jet aircraft</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong><br>
+            Human flight was inspired by observing birds and insects in nature. Simple toy models and paper gliders led to aerodynamic wind-tunnel testing by the Wright brothers.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qcard3">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q3. An astronomer, a botanist, and a chemist collaborate on a planetary science project. This proves that:
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+            <span>(a) Different branches of science are interconnected and enrich one another</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+            <span>(b) Astronomy and Chemistry should be merged into a single subject</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+            <span>(c) Botanists do not need to study plant life on Earth anymore</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+            <span>(d) Experiments can only be performed if all three scientists use the same equipment</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong><br>
+            Astrobiology and planetary chemistry require knowledge of atmospheric gases (chemistry), plant survival limits (biology), and orbital radiation (physics/astronomy).
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qcard4">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q4. In optics, at what angle of internal reflection does sunlight emerge from water droplets to create a rainbow?
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+            <span>(a) 18&deg;</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+            <span>(b) 30&deg;</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+            <span>(c) 90&deg;</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+            <span>(d) 42&deg;</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d)</strong><br>
+            Primary rainbows form when light rays reflect off the back inside surface of spherical raindrops and refract outwards at an angle between 40&deg; (violet) and 42&deg; (red).
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qcard5">
+        <p style="font-weight: 700; color: #0f172a; margin-bottom: 0.75rem;">
+          Q5. What is the fundamental motto introduced in Grade 6 and Grade 7 for becoming a wise scientific thinker?
+        </p>
+        <div class="quiz-options">
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+            <span>(a) "Memorise first, question never."</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+            <span>(b) "Only laboratory scientists can do real experiments."</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+            <span>(c) "To be a wise person, you must be a 'whys' person."</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button type="button" class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+            <span>(d) "The answers in old books are always final."</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary><span>Teacher Explanation</span></summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong><br>
+            Curiosity is the engine of wisdom. Asking "Why does this happen?" and "How does it work?" transforms a passive learner into an active scientific explorer.
+          </div>
+        </details>
+      </div>
+
+      <!-- Assertion-Reason & HOTS -->
+      <h3 class="topic-title" style="margin-top: 2rem;"><i class="fa-solid fa-scale-balanced"></i> Assertion &amp; Reason Drills (CBSE Standard)</h3>
+
+      <div class="card">
+        <p><strong>Directions:</strong> In each question below, two statements are given—one labelled Assertion (A) and the other labelled Reason (R). Choose:</p>
+        <p style="font-size: 0.9rem; color: #475569; margin: 0.3rem 0 0.8rem;">
+          (a) Both A and R are true, and R is the correct explanation of A.<br>
+          (b) Both A and R are true, but R is NOT the correct explanation of A.<br>
+          (c) A is true, but R is false.<br>
+          (d) A is false, but R is true.
+        </p>
+
+        <details class="ans-box">
+          <summary>
+            <span><strong>Drill 1:</strong> Assertion (A): Great scientists do not merely answer questions; they ask bold, creative questions.<br>
+            Reason (R): Progress in science happens when an unexplored question leads to fresh observations and new experiments.</span>
+            <span class="badge badge-purple">Assertion-Reason</span>
+          </summary>
+          <div class="ans-content">
+            <strong>Answer: (a)</strong><br>
+            <em>Explanation:</em> Both statements are correct. A breakthrough in science begins when someone questions an accepted dogma or notices an anomaly that everyone else ignored.
+          </div>
+        </details>
+
+        <details class="ans-box">
+          <summary>
+            <span><strong>Drill 2:</strong> Assertion (A): All 12 chapters in Class 7 Curiosity are isolated subjects with zero connection to each other.<br>
+            Reason (R): Physics deals strictly with machines, whereas Biology deals exclusively with animals.</span>
+            <span class="badge badge-purple">Assertion-Reason</span>
+          </summary>
+          <div class="ans-content">
+            <strong>Answer: (d) Both Assertion and Reason are completely FALSE!</strong><br>
+            <em>Explanation:</em> The chapters are deeply interconnected. For example, animal and plant life processes (Biology) rely entirely on chemical transformations (Chemistry) and heat/light energy transfer (Physics).
+          </div>
+        </details>
+      </div>
+
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: EXAM TRAPS & 15-POINT RECAP
+         ========================================== -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6 &bull; Exam Hall Readiness &amp; Quick Recap</span>
+        <h2>Exam Hall Traps &amp; 15 High-Yield Revision Points</h2>
+        <p class="section-sub">Bulletproof your preparation with common traps to avoid and a rapid 2-minute memory checklist.</p>
+      </div>
+
+      <!-- Common Traps -->
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Hall Trap #1 &bull; Confusing "Observation" with "Inference":</strong><br>
+          <em>Trap:</em> Writing "The plant liked the sunlight" as an observation.<br>
+          <em>Correction:</em> An observation must describe objective sensory facts: <em>"The plant stem bent 30 degrees towards the window over 5 days."</em> The explanation ("It bent because of phototropism") is an <strong>inference</strong>, not a raw observation!
+        </div>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Hall Trap #2 &bull; Assuming Failed Experiments are "Useless":</strong><br>
+          <em>Trap:</em> Believing that if an experiment doesn't give the expected result, it was a waste of time.<br>
+          <em>Correction:</em> In science, a negative result or an unexpected outcome is often more valuable than a confirmed guess! It tells us that our initial assumption was flawed and reveals a new path to explore.
+        </div>
+      </div>
+
+      <!-- 15 High-Yield Revision Bullet Points -->
+      <h3 class="topic-title"><i class="fa-solid fa-list-check"></i> 15 Lightning Revision Points for Quick Exam Recap</h3>
+      <div class="card" style="background: #fdfdfd;">
+        <ol style="margin-left: 1.5rem; line-height: 1.85; font-size: 0.93rem;">
+          <li><strong>Dynamic Nature:</strong> Science is an ever-evolving, ongoing process of inquiry rather than a finished body of static facts.</li>
+          <li><strong>The Master Motto:</strong> "To be a wise person, you must be a 'whys' person"—always seek the cause behind the effect.</li>
+          <li><strong>Observation First:</strong> Scientific discoveries begin with humble, everyday observations of patterns in nature.</li>
+          <li><strong>Play Sparks Genius:</strong> Playful toys like paper aeroplanes led directly to modern aerodynamics and aeronautical engineering.</li>
+          <li><strong>Hands-On Learning:</strong> Real scientific understanding requires stepping outside the textbook to conduct hands-on experiments.</li>
+          <li><strong>Environmental Duty:</strong> Scientific literacy brings social and planetary responsibility to conserve water, energy, and biodiversity.</li>
+          <li><strong>Chemistry in Class 7:</strong> Focuses on acids, bases, indicators, metals, non-metals, and distinguishing physical from chemical changes.</li>
+          <li><strong>Physics in Class 7:</strong> Investigates closed electric circuits, heat transfer mechanisms, time measurement, and rectilinear propagation of light.</li>
+          <li><strong>Biology in Class 7:</strong> Explores adolescent developmental changes and the vital life processes sustaining plants and animals.</li>
+          <li><strong>Earth &amp; Space in Class 7:</strong> Connects shadows and optics to planetary motions, lunar phases, and solar/lunar eclipses.</li>
+          <li><strong>Activity 1.1 Insight:</strong> Great thinkers invert questions to discover hidden premises through divergent thinking.</li>
+          <li><strong>The Number 42:</strong> Beyond science fiction humor, 42&deg; is the precise angle of internal reflection producing primary atmospheric rainbows.</li>
+          <li><strong>Scientific Method Loop:</strong> Observe &rarr; Question &rarr; Hypothesize &rarr; Experiment &rarr; Analyze &rarr; Conclude &rarr; Refine.</li>
+          <li><strong>Peer Review &amp; Evidence:</strong> A scientific claim is only accepted when supported by repeatable, verifiable experimental evidence.</li>
+          <li><strong>Curiosity is Innate:</strong> Every single student who wonders about the natural world is already a practicing scientist!</li>
+        </ol>
+      </div>
+
+      <!-- Readiness Checklist -->
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-circle-check"></i>
+        <div class="callout-text">
+          <strong>Self-Assessment Exam Checklist:</strong><br>
+          &check; Can you define why science is called an "ever-evolving process"?<br>
+          &check; Can you explain how paper planes relate to the history of aerodynamics?<br>
+          &check; Can you give at least three examples showing connections between physics, chemistry, and biology?<br>
+          &check; Can you formulate creative scientific questions for the answers in Activity 1.1?
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Portal Footer -->
+  <footer>
+    <p style="font-weight: 700; color: #f8fafc; font-size: 1.05rem; margin-bottom: 0.5rem;">
+      Sujit Classes &bull; Empowering Young Minds Across Odisha
+    </p>
+    <p style="font-size: 0.88rem; margin-bottom: 1rem;">
+      Aligned with NEP 2020 &amp; NCF-SE 2023 &bull; NCERT Curiosity Science Series
+    </p>
+    <p style="font-size: 0.82rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Back to Main Portal</a> &bull; 
+      <a href="#sec1">Top of Page</a>
+    </p>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    // 1. Reading Progress Bar & Back to Top Controller
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    // 2. Teacher Audio Reader (TTS)
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+      }
+    }
+
+    // 3. Interactive Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return; // prevent re-clicking
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        // highlight correct one
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      // Open explanation details box
+      var details = card.querySelector('details.ans-box');
+      if (details) details.open = true;
+
+      // Update scoreboard
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Phenomenal! Perfect score on Chapter 1 concepts!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! You have a solid grasp of scientific thinking!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good practice! Review the teacher explanations to master every point!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
