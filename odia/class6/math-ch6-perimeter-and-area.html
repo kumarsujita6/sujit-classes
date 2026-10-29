@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୬: ପରିସୀମା ଓ କ୍ଷେତ୍ରଫଳ (Perimeter and Area) &mdash; ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ ମାଷ୍ଟର ନୋଟ୍ସ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ (NEP ଗଣିତ ପ୍ରକାଶ) ଅଧ୍ୟାୟ ୬: ପରିସୀମା ଓ କ୍ଷେତ୍ରଫଳ ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ନୋଟ୍ସ, ଆୟତକ୍ଷେତ୍ର, ବର୍ଗକ୍ଷେତ୍ର, ସଂଯୁକ୍ତ ଚିତ୍ର, ୫-ସ୍ତରୀୟ NCERT ସମାଧାନ ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+      --primary-gradient: linear-gradient(90deg, #0284c7 0%, #38bdf8 50%, #10b981 100%);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.75;
+      font-size: 15.5px;
+      padding-bottom: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: var(--primary-gradient);
+      z-index: 999999;
+      transition: width 0.1s ease-out;
+      box-shadow: 0 1px 4px rgba(2, 132, 199, 0.3);
+    }
+
+    header.header {
+      background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 55%, #0d9488 100%);
+      color: #ffffff;
+      padding: 42px 24px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 12px 30px -8px rgba(2, 132, 199, 0.35);
+    }
+    header.header h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    header.header p {
+      font-size: 1.05rem;
+      opacity: 0.94;
+      max-width: 860px;
+      margin: 0 auto 16px;
+    }
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      transition: all 0.2s var(--ease-spring);
+    }
+    .nav-links a:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.84rem;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    .btn-audio {
+      background: #ffffff;
+      color: var(--primary-dark);
+      font-weight: 700;
+      border: 2px solid var(--primary-light);
+    }
+    .btn-audio:hover {
+      background: var(--primary-light);
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+    .nav-breadcrumb {
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .nav-breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-breadcrumb a:hover { text-decoration: underline; }
+
+    section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+    }
+    section h2 {
+      font-size: 1.55rem;
+      color: var(--primary-dark);
+      border-left: 5px solid var(--primary);
+      padding-left: 14px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section h3 {
+      font-size: 1.25rem;
+      color: #0f172a;
+      margin: 26px 0 14px;
+      font-weight: 700;
+      border-bottom: 2px dashed #f1f5f9;
+      padding-bottom: 6px;
+    }
+    section h4 {
+      font-size: 1.05rem;
+      color: #1e293b;
+      margin: 18px 0 10px;
+      font-weight: 700;
+    }
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 10px 0 18px 24px; }
+    li { margin-bottom: 8px; }
+
+    .math-formula {
+      font-family: 'JetBrains Mono', monospace;
+      background: #f1f5f9;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      color: #0369a1;
+    }
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 0.9em;
+      padding: 0 2px;
+    }
+    .frac sup {
+      border-bottom: 1.5px solid currentColor;
+      padding-bottom: 1px;
+      font-size: inherit;
+      line-height: 1;
+    }
+    .frac sub {
+      font-size: inherit;
+      line-height: 1;
+    }
+
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin: 12px 0 16px;
+    }
+    .step-line {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .step-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 140px;
+    }
+    .step-conclusion {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-weight: 600;
+      color: #166534;
+    }
+
+    .callout {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      border-left: 5px solid;
+    }
+    .callout-title {
+      font-weight: 800;
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .callout-def { background: #f0f9ff; border-left-color: #0284c7; color: #0c4a6e; }
+    .callout-act { background: #f0fdfa; border-left-color: #0d9488; color: #115e59; }
+    .callout-pyq { background: #fffbeb; border-left-color: #f59e0b; color: #78350f; }
+    .callout-hack { background: #f5f3ff; border-left-color: #7c3aed; color: #4c1d95; }
+    .callout-warn { background: #fff1f2; border-left-color: #e11d48; color: #881337; }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.94rem;
+      text-align: left;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border);
+      padding: 11px 14px;
+    }
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    .data-table tr:nth-child(even) { background-color: #f8fafc; }
+
+    details.ans-box {
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.25s var(--ease-spring);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    details.ans-box summary {
+      list-style: none;
+      padding: 1rem 1.35rem;
+      background: #f8fafc;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    details.ans-box summary::-webkit-details-marker { display: none; }
+    details.ans-box summary::after {
+      content: "▾";
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      transition: transform 0.3s var(--ease-spring);
+    }
+    details.ans-box[open] summary::after {
+      transform: rotate(180deg);
+    }
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.08);
+    }
+    details.ans-box[open] summary {
+      background: #f0f9ff;
+      color: var(--primary-dark);
+      border-bottom: 1px solid #bae6fd;
+    }
+    details.ans-box .ans-content {
+      padding: 1.35rem;
+      background: #ffffff;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .diagram-container {
+      margin: 24px auto;
+      text-align: center;
+      background: #ffffff;
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 18px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .quiz-question {
+      font-weight: 700;
+      font-size: 1.02rem;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .quiz-opt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      background: #ffffff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .quiz-opt-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateX(4px);
+    }
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700;
+    }
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+      font-weight: 600;
+    }
+    .quiz-feedback {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .quiz-feedback.correct-fb { background: #f0fdf4; border: 1px solid #86efac; color: #166534; }
+    .quiz-feedback.incorrect-fb { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+    .quiz-score-board {
+      background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+      border: 1.5px solid #a7f3d0;
+      border-radius: 12px;
+      padding: 14px 22px;
+      text-align: center;
+      margin: 18px 0;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #065f46;
+    }
+
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: all 0.3s var(--ease-spring);
+      z-index: 9999;
+    }
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-to-top-btn:hover {
+      background: var(--primary-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress-bar"></div>
+
+  <header class="header">
+    <div class="badge-bar">
+      <span class="badge">ଓଡ଼ିଆ ମାଧ୍ୟମ (BSE Odisha / NEP ସଂସ୍କରଣ)</span>
+      <span class="badge">ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ &bull; ଅଧ୍ୟାୟ ୬</span>
+      <span class="badge">ଗଣିତ ପ୍ରକାଶ (Ganita Prakash)</span>
+    </div>
+    <h1>ଅଧ୍ୟାୟ ୬: ପରିସୀମା ଓ କ୍ଷେତ୍ରଫଳ</h1>
+    <p style="font-size: 1.15rem; font-weight: 600; opacity: 0.95;">Perimeter and Area &mdash; ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ଷ୍ଟଡି ନୋଟ୍ସ</p>
+    <p>ପରିସୀମା (ସୀମା ଲମ୍ବ), କ୍ଷେତ୍ରଫଳ (ସ୍ଥାନ ଆବୃତି), ଆୟତକ୍ଷେତ୍ର, ବର୍ଗକ୍ଷେତ୍ର, ସଂଯୁକ୍ତ ଚିତ୍ର ଏବଂ ସମ୍ପୂର୍ଣ୍ଣ NCERT ୫-ସ୍ତରୀୟ ସମାଧାନ</p>
+    <div style="margin-top: 15px;">
+      <button class="btn btn-audio" onclick="toggleTeacherAudio()" id="teacherAudioBtn">
+        <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="top-bar">
+    <div class="nav-links">
+      <a href="#section1">୧. ମାନସିକ ମାନଚିତ୍ର</a>
+      <a href="#section2">୨. ବିସ୍ତୃତ ଧାରଣା</a>
+      <a href="#section3">୩. ସୂତ୍ର ଓ ନିୟମ</a>
+      <a href="#section4">୪. NCERT ସମାଧାନ</a>
+      <a href="#section5">୫. ପ୍ରଶ୍ନୋତ୍ତର ଓ କୁଇଜ୍</a>
+      <a href="#section6">୬. ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା</a>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn btn-primary" onclick="toggleAllAnswers(true)">➕ ସମସ୍ତ ଉତ୍ତର ଖୋଲନ୍ତୁ</button>
+      <button class="btn" onclick="toggleAllAnswers(false)">➖ ସମସ୍ତ ବନ୍ଦ କରନ୍ତୁ</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="nav-breadcrumb">
+      <a href="../../index.html">ପୋର୍ଟାଲ୍ ମୁଖ୍ୟପୃଷ୍ଠା</a> &raquo; 
+      <a href="../../index.html#odia-medium">ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ (Odia Medium)</a> &raquo; 
+      <span>ଅଧ୍ୟାୟ ୬: ପରିସୀମା ଓ କ୍ଷେତ୍ରଫଳ</span>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section id="section1">
+      <h2>Section 1: ମାନସିକ ମାନଚିତ୍ର ଓ ଅଧ୍ୟାୟର ରୂପରେଖ (Visual Mind Map &amp; Blueprint)</h2>
+      <p>ବାସ୍ତବ ଜୀବନର କ୍ଷେତ୍ରମାପରେ ଦୁଇଟି ମୁଖ୍ୟ ଧାରଣା ସବୁଠାରୁ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ: <strong>ପରିସୀମା (Perimeter)</strong> &mdash; ଯାହାକି କୌଣସି ଆବଦ୍ଧ ଚିତ୍ରର ଚାରିପାଖ ସୀମାର ମୋଟ ଦୈର୍ଘ୍ୟ (ଯଥା: ବାଡ଼ ଘେରାଇବା), ଏବଂ <strong>କ୍ଷେତ୍ରଫଳ (Area)</strong> &mdash; ଯାହାକି ଉକ୍ତ ଆବଦ୍ଧ ସୀମା ଭିତରେ ଥିବା ସମତଳ ପୃଷ୍ଠର ମାପ (ଯଥା: ଟାଇଲ୍ସ ବସାଇବା ବା ଘାସ ଲଗାଇବା)।</p>
+
+      <div class="diagram-container">
+        <!-- SVG 1: Mind Map for Perimeter and Area -->
+        <svg viewBox="0 0 900 440" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <!-- Central Hub -->
+          <rect x="330" y="180" width="240" height="70" rx="35" fill="#0284c7"/>
+          <text x="450" y="215" text-anchor="middle" fill="#ffffff" font-weight="800" font-size="16">ପରିସୀମା ଓ କ୍ଷେତ୍ରଫଳ</text>
+          <text x="450" y="235" text-anchor="middle" fill="#e0f2fe" font-weight="600" font-size="12">PERIMETER &amp; AREA</text>
+
+          <!-- Branch 1: Perimeter (Top-Left) -->
+          <line x1="350" y1="190" x2="200" y2="100" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="50" y="40" width="220" height="100" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.5"/>
+          <text x="160" y="68" text-anchor="middle" fill="#0369a1" font-weight="800" font-size="13.5">୧. ପରିସୀମା (Perimeter)</text>
+          <text x="160" y="92" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ସୀମା ରେଖାର ମୋଟ ଦୈର୍ଘ୍ୟ</text>
+          <text x="160" y="112" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଆୟତକ୍ଷେତ୍ର = ୨(l + b)</text>
+          <text x="160" y="130" text-anchor="middle" fill="#0284c7" font-weight="bold" font-size="11.5">ବର୍ଗକ୍ଷେତ୍ର = ୪ &times; ବାହୁ</text>
+
+          <!-- Branch 2: Area (Top-Right) -->
+          <line x1="550" y1="190" x2="700" y2="100" stroke="#0d9488" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="630" y="40" width="220" height="100" rx="10" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+          <text x="740" y="68" text-anchor="middle" fill="#115e59" font-weight="800" font-size="13.5">୨. କ୍ଷେତ୍ରଫଳ (Area)</text>
+          <text x="740" y="92" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଆବୃତ ସମତଳ ପୃଷ୍ଠର ମାପ</text>
+          <text x="740" y="112" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଆୟତକ୍ଷେତ୍ର = l &times; b</text>
+          <text x="740" y="130" text-anchor="middle" fill="#0d9488" font-weight="bold" font-size="11.5">ବର୍ଗକ୍ଷେତ୍ର = ବାହୁ&sup2;</text>
+
+          <!-- Branch 3: Composite Shapes (Bottom-Left) -->
+          <line x1="350" y1="240" x2="200" y2="330" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="50" y="290" width="220" height="110" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+          <text x="160" y="318" text-anchor="middle" fill="#b45309" font-weight="800" font-size="13.5">୩. ସଂଯୁକ୍ତ ଚିତ୍ର (Composite)</text>
+          <text x="160" y="342" text-anchor="middle" fill="#334155" font-size="11.5">&bull; L-ଆକାର ଓ T-ଆକାର ବିଭାଜନ</text>
+          <text x="160" y="362" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଅଣ-ଅତିବ୍ୟାପ୍ତ ଆୟତରେ ଭାଙ୍ଗିବା</text>
+          <text x="160" y="382" text-anchor="middle" fill="#b45309" font-weight="bold" font-size="11.5">ସମସ୍ତ ଅଂଶର କ୍ଷେତ୍ରଫଳ ଯୋଗ</text>
+
+          <!-- Branch 4: Optimization (Bottom-Right) -->
+          <line x1="550" y1="240" x2="700" y2="330" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="630" y="290" width="220" height="110" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+          <text x="740" y="318" text-anchor="middle" fill="#6d28d9" font-weight="800" font-size="13.5">୪. ସମପରିସୀମା ସର୍ବୋତ୍ତମତା</text>
+          <text x="740" y="342" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ସମାନ ପରିସୀମା ଥିଲେ ମଧ୍ୟ</text>
+          <text x="740" y="362" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ବର୍ଗକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ ସର୍ବାଧିକ</text>
+          <text x="740" y="382" text-anchor="middle" fill="#6d28d9" font-weight="bold" font-size="11.5">ସରୁ ଆୟତକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ କମ୍</text>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୬.୧: ପରିସୀମା ଓ କ୍ଷେତ୍ରଫଳର ମାନସିକ ମାନଚିତ୍ର</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="section2">
+      <h2>Section 2: ବିସ୍ତୃତ ଧାରଣା ଓ ତତ୍ତ୍ୱ ବିଶ୍ଳେଷଣ (Line-by-Line Conceptual Notes)</h2>
+
+      <h3 class="topic-title">୨.୧ ପରିସୀମା କ'ଣ? (Concept of Perimeter)</h3>
+      <p>ଏକ ଆବଦ୍ଧ ସମତଳ ଚିତ୍ରର ଚତୁର୍ପାର୍ଶ୍ୱ ସୀମା ରେଖାଗୁଡ଼ିକର ସମୁଦାୟ ଦୈର୍ଘ୍ୟକୁ ତାର <strong>ପରିସୀମା (Perimeter)</strong> କୁହାଯାଏ। ଏହାର ଏକକ ହେଉଛି ଦୈର୍ଘ୍ୟର ଏକକ: <strong>ସେଣ୍ଟିମିଟର (cm), ମିଟର (m)</strong> ଇତ୍ୟାଦି।</p>
+      
+      <div class="callout callout-def">
+        <div class="callout-title">📌 ପରିସୀମା ସୂତ୍ରାବଳୀ (Perimeter Formulas)</div>
+        <ul>
+          <li><strong>ଆୟତକ୍ଷେତ୍ରର ପରିସୀମା:</strong> ୨ &times; (ଦୈର୍ଘ୍ୟ + ପ୍ରସ୍ଥ) = <span class="math-formula">୨(l + b)</span></li>
+          <li><strong>ବର୍ଗକ୍ଷେତ୍ରର ପରିସୀମା:</strong> ୪ &times; ବାହୁ = <span class="math-formula">୪s</span></li>
+          <li><strong>ସମବାହୁ ତ୍ରିଭୁଜର ପରିସୀମା:</strong> ୩ &times; ବାହୁ = <span class="math-formula">୩s</span></li>
+          <li><strong>ସୁଷମ ବହୁଭୁଜର ପରିସୀମା:</strong> ବାହୁ ସଂଖ୍ୟା (n) &times; ପ୍ରତ୍ୟେକ ବାହୁର ଦୈର୍ଘ୍ୟ (s) = <span class="math-formula">n &times; s</span></li>
+        </ul>
+      </div>
+
+      <div class="diagram-container">
+        <!-- SVG 2: Grid Unit Tile Visualizer (Rectangle 6x4) -->
+        <svg viewBox="0 0 850 300" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <text x="425" y="26" text-anchor="middle" fill="#0f172a" font-weight="800" font-size="14">ଗ୍ରିଡ୍ ଏକକ ଟାଇଲ୍ ପ୍ରଦର୍ଶନ: ଆୟତକ୍ଷେତ୍ର (୬ ସେମି &times; ୪ ସେମି)</text>
+
+          <!-- Grid: 6 columns × 4 rows, cell size = 40px -->
+          <g transform="translate(140, 50)">
+            <!-- Outer boundary highlight -->
+            <rect x="0" y="0" width="240" height="160" fill="#f0f9ff" stroke="#0284c7" stroke-width="3"/>
+            <!-- Grid lines -->
+            <line x1="40" y1="0" x2="40" y2="160" stroke="#bae6fd" stroke-width="1.5"/>
+            <line x1="80" y1="0" x2="80" y2="160" stroke="#bae6fd" stroke-width="1.5"/>
+            <line x1="120" y1="0" x2="120" y2="160" stroke="#bae6fd" stroke-width="1.5"/>
+            <line x1="160" y1="0" x2="160" y2="160" stroke="#bae6fd" stroke-width="1.5"/>
+            <line x1="200" y1="0" x2="200" y2="160" stroke="#bae6fd" stroke-width="1.5"/>
+
+            <line x1="0" y1="40" x2="240" y2="40" stroke="#bae6fd" stroke-width="1.5"/>
+            <line x1="0" y1="80" x2="240" y2="80" stroke="#bae6fd" stroke-width="1.5"/>
+            <line x1="0" y1="120" x2="240" y2="120" stroke="#bae6fd" stroke-width="1.5"/>
+
+            <!-- Dimension labels -->
+            <text x="120" y="-10" text-anchor="middle" fill="#0369a1" font-weight="bold" font-size="13">ଦୈର୍ଘ୍ୟ (l) = ୬ ସେମି (୬ ଟି ବର୍ଗ)</text>
+            <text x="-15" y="85" text-anchor="end" fill="#0369a1" font-weight="bold" font-size="13">ପ୍ରସ୍ଥ (b) = ୪ ସେମି</text>
+          </g>
+
+          <g transform="translate(450, 60)">
+            <rect x="0" y="0" width="360" height="150" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+            <text x="20" y="32" fill="#0f172a" font-weight="800" font-size="14">ତୁଳନାତ୍ମକ ବିଶ୍ଳେଷଣ:</text>
+            <text x="20" y="65" fill="#0284c7" font-weight="bold" font-size="13">&bull; ପରିସୀମା = ୨ &times; (୬ + ୪) = ୨୦ ସେମି</text>
+            <text x="35" y="85" fill="#64748b" font-size="11.5">(କେବଳ ବାହ୍ୟ ନୀଳ ସୀମା ରେଖାର ଦୈର୍ଘ୍ୟ)</text>
+
+            <text x="20" y="115" fill="#16a34a" font-weight="bold" font-size="13">&bull; କ୍ଷେତ୍ରଫଳ = ୬ &times; ୪ = ୨୪ ବର୍ଗ ସେମି</text>
+            <text x="35" y="135" fill="#64748b" font-size="11.5">(ଭିତରେ ଥିବା ସମୁଦାୟ ୨୪ଟି ଏକକ ବର୍ଗ)</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୬.୨: ପରିସୀମା (ସୀମା ଦୈର୍ଘ୍ୟ) ଏବଂ କ୍ଷେତ୍ରଫଳ (ଗ୍ରିଡ୍ ବର୍ଗ ଗଣନା) ର ପ୍ରତ୍ୟକ୍ଷ ତୁଳନା</div>
+      </div>
+
+      <h3 class="topic-title">୨.୨ କ୍ଷେତ୍ରଫଳ କ'ଣ? (Concept of Area)</h3>
+      <p>ଏକ ଆବଦ୍ଧ ସମତଳ ଚିତ୍ର ଦ୍ୱାରା ଆବୃତ ହୋଇଥିବା ପୃଷ୍ଠଭାଗର ପରିମାଣକୁ ତାର <strong>କ୍ଷେତ୍ରଫଳ (Area)</strong> କୁହାଯାଏ। ଏହାର ଏକକ ହେଉଛି ବର୍ଗ ଏକକ: <strong>ବର୍ଗ ସେମି (cm&sup2;), ବର୍ଗ ମିଟର (m&sup2;)</strong>।</p>
+
+      <div class="diagram-container">
+        <!-- SVG 3: Decomposing Composite L-Shape -->
+        <svg viewBox="0 0 850 250" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <text x="425" y="24" text-anchor="middle" fill="#0f172a" font-weight="800" font-size="14">ସଂଯୁକ୍ତ L-ଆକାର ଚିତ୍ରକୁ ଦୁଇଟି ଆୟତକ୍ଷେତ୍ରରେ ବିଭାଜନ କରି କ୍ଷେତ୍ରଫଳ ନିର୍ଣ୍ଣୟ</text>
+
+          <!-- L-Shape on Left -->
+          <g transform="translate(120, 45)">
+            <polygon points="0,0 60,0 60,80 140,80 140,140 0,140" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+            <!-- Dimension text -->
+            <text x="30" y="-8" text-anchor="middle" fill="#b45309" font-size="12">୩ ସେମି</text>
+            <text x="-10" y="75" text-anchor="end" fill="#b45309" font-size="12">୭ ସେମି</text>
+            <text x="70" y="160" text-anchor="middle" fill="#b45309" font-size="12">୭ ସେମି</text>
+            <text x="155" y="115" fill="#b45309" font-size="12">୩ ସେମି</text>
+          </g>
+
+          <!-- Arrow -->
+          <g transform="translate(340, 105)">
+            <text x="35" y="10" font-size="24" fill="#0284c7">&rarr;</text>
+            <text x="35" y="30" text-anchor="middle" font-size="11" fill="#64748b">ବିଭାଜନ</text>
+          </g>
+
+          <!-- Split Shape on Right -->
+          <g transform="translate(470, 45)">
+            <!-- Rectangle A -->
+            <rect x="0" y="0" width="60" height="140" fill="#e0f2fe" stroke="#0284c7" stroke-width="2"/>
+            <text x="30" y="75" text-anchor="middle" fill="#0369a1" font-weight="bold" font-size="13">ଆୟତ I</text>
+            <text x="30" y="95" text-anchor="middle" fill="#0369a1" font-size="11">୩ &times; ୭ = ୨୧</text>
+
+            <!-- Rectangle B -->
+            <rect x="60" y="80" width="80" height="60" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+            <text x="100" y="115" text-anchor="middle" fill="#166534" font-weight="bold" font-size="13">ଆୟତ II</text>
+            <text x="100" y="132" text-anchor="middle" fill="#166534" font-size="11">୪ &times; ୩ = ୧୨</text>
+          </g>
+
+          <text x="680" y="125" fill="#0f172a" font-weight="bold" font-size="14">ମୋଟ କ୍ଷେତ୍ରଫଳ = ୨୧ + ୧୨ = ୩୩ ବର୍ଗ ସେମି</text>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୬.୩: ସଂଯୁକ୍ତ L-ଆକାର କ୍ଷେତ୍ରକୁ ଦୁଇଟି ସରଳ ଆୟତରେ ଭାଙ୍ଗି କ୍ଷେତ୍ରଫଳ ସମାଧାନ</div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="section3">
+      <h2>Section 3: ତ୍ୱରିତ ପୁନରାବୃତ୍ତି ସୂତ୍ର ଓ ନିୟମ ଭଣ୍ଡାର (Formula &amp; Mensuration Bank)</h2>
+      <p>ପରିସୀମା ଓ କ୍ଷେତ୍ରଫଳର ସମସ୍ତ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସୂତ୍ରାବଳୀ:</p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ଜ୍ୟାମିତିକ ଚିତ୍ର</th>
+              <th>ପରିସୀମା ସୂତ୍ର (Perimeter)</th>
+              <th>କ୍ଷେତ୍ରଫଳ ସୂତ୍ର (Area)</th>
+              <th>ପରିସୀମା ଏକକ</th>
+              <th>କ୍ଷେତ୍ରଫଳ ଏକକ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ଆୟତକ୍ଷେତ୍ର (Rectangle)</strong></td>
+              <td><span class="math-formula">୨ &times; (l + b)</span></td>
+              <td><span class="math-formula">l &times; b</span> (ଦୈର୍ଘ୍ୟ &times; ପ୍ରସ୍ଥ)</td>
+              <td>ସେମି, ମିଟର</td>
+              <td>ବର୍ଗ ସେମି, ବର୍ଗ ମିଟର</td>
+            </tr>
+            <tr>
+              <td><strong>ବର୍ଗକ୍ଷେତ୍ର (Square)</strong></td>
+              <td><span class="math-formula">୪ &times; ବାହୁ (୪s)</span></td>
+              <td><span class="math-formula">ବାହୁ &times; ବାହୁ (s<sup>୨</sup>)</span></td>
+              <td>ସେମି, ମିଟର</td>
+              <td>ବର୍ଗ ସେମି, ବର୍ଗ ମିଟର</td>
+            </tr>
+            <tr>
+              <td><strong>ସମବାହୁ ତ୍ରିଭୁଜ (Equilateral Triangle)</strong></td>
+              <td><span class="math-formula">୩ &times; ବାହୁ (୩s)</span></td>
+              <td><span class="math-formula"><span class="frac"><sup>&radic;୩</sup><sub>୪</sub></span> s<sup>୨</sup></span></td>
+              <td>ସେମି, ମିଟର</td>
+              <td>ବର୍ଗ ସେମି, ବର୍ଗ ମିଟର</td>
+            </tr>
+            <tr>
+              <td><strong>ସୁଷମ ପଞ୍ଚଭୁଜ (Regular Pentagon)</strong></td>
+              <td><span class="math-formula">୫ &times; ବାହୁ (୫s)</span></td>
+              <td>ବିଭାଜିତ ତ୍ରିଭୁଜ ଯୋଗ</td>
+              <td>ସେମି, ମିଟର</td>
+              <td>ବର୍ଗ ସେମି</td>
+            </tr>
+            <tr>
+              <td><strong>ସୁଷମ ଷଡ଼ଭୁଜ (Regular Hexagon)</strong></td>
+              <td><span class="math-formula">୬ &times; ବାହୁ (୬s)</span></td>
+              <td>୬ &times; ସମବାହୁ ତ୍ରିଭୁଜ କ୍ଷେତ୍ରଫଳ</td>
+              <td>ସେମି, ମିଟର</td>
+              <td>ବର୍ଗ ସେମି</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="section4">
+      <h2>Section 4: ୧୦୦% ସମ୍ପୂର୍ଣ୍ଣ NCERT ପାଠ୍ୟପୁସ୍ତକ ସମାଧାନ (5-Step Topper Format)</h2>
+      <p>NEP ଗଣିତ ପ୍ରକାଶ ଅଧ୍ୟାୟ ୬ ର ସମସ୍ତ ଅଭ୍ୟାସ ପ୍ରଶ୍ନର ପଦକ୍ଷେପ-ୱାରୀ ଆଦର୍ଶ ସମାଧାନ:</p>
+
+      <!-- NCERT Q1 -->
+      <details class="ans-box" open>
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ତାର ପୁନଃରୂପାନ୍ତର ସମସ୍ୟା (Wire Reshaping Problem)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୧:</strong> ୫ ସେମି ଦୈର୍ଘ୍ୟ ଏବଂ ୩ ସେମି ପ୍ରସ୍ଥ ବିଶିଷ୍ଟ ଏକ ଆୟତକ୍ଷେତ୍ର ଗୋଟିଏ ତାର ସାହାଯ୍ୟରେ ତିଆରି ହୋଇଛି।<br>
+          (କ) ଏହି ତାରଟିର ସମୁଦାୟ ଲମ୍ବ କେତେ?<br>
+          (ଖ) ଯଦି ଏହି ତାରଟିକୁ ସିଧା କରି ପୁନର୍ବାର ଏକ ବର୍ଗକ୍ଷେତ୍ର ତିଆରି କରାଯାଏ, ତେବେ ଉକ୍ତ ବର୍ଗକ୍ଷେତ୍ରର ପ୍ରତ୍ୟେକ ବାହୁର ଦୈର୍ଘ୍ୟ କେତେ ହେବ?<br>
+          (ଗ) କେଉଁ ଚିତ୍ରଟି ଅଧିକ କ୍ଷେତ୍ରଫଳ ଆବୃତ କରିବ?</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ଆୟତକ୍ଷେତ୍ରର ଦୈର୍ଘ୍ୟ l = ୫ ସେମି, ପ୍ରସ୍ଥ b = ୩ ସେମି।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ତାରର ମୋଟ ଲମ୍ବ):</span> ତାରର ଲମ୍ବ = ଆୟତକ୍ଷେତ୍ରର ପରିସୀମା = ୨ &times; (l + b) = ୨ &times; (୫ + ୩) = ୨ &times; ୮ = <strong>୧୬ ସେମି</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ବର୍ଗକ୍ଷେତ୍ରର ବାହୁ ନିର୍ଣ୍ଣୟ):</span> ବର୍ଗକ୍ଷେତ୍ରର ପରିସୀମା = ୧୬ ସେମି &rArr; ୪ &times; ବାହୁ = ୧୬ &rArr; ବାହୁ (s) = ୧୬ &divide; ୪ = <strong>୪ ସେମି</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (କ୍ଷେତ୍ରଫଳ ତୁଳନା):</span><br>
+            &bull; ଆୟତକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ = ୫ &times; ୩ = <strong>୧୫ ବର୍ଗ ସେମି</strong><br>
+            &bull; ବର୍ଗକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ = ୪ &times; ୪ = <strong>୧୬ ବର୍ଗ ସେମି</strong></div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) ତାରର ଲମ୍ବ = ୧୬ ସେମି &bull; (ଖ) ବର୍ଗକ୍ଷେତ୍ରର ବାହୁ = ୪ ସେମି &bull; (ଗ) ବର୍ଗକ୍ଷେତ୍ରଟି ଅଧିକ କ୍ଷେତ୍ରଫଳ (୧୬ ବର୍ଗ ସେମି > ୧୫ ବର୍ଗ ସେମି) ଆବୃତ କରିବ। (ସମପରିସୀମା ସର୍ବୋତ୍ତମତା ପ୍ରମାଣିତ)।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Q2 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ପାର୍କରେ ବାଡ଼ ଘେରାଇବା ଖର୍ଚ୍ଚ (Park Fencing Cost)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୨:</strong> ଗୋଟିଏ ଆୟତାକାର ପାର୍କର ଦୈର୍ଘ୍ୟ ୧୭୫ ମିଟର ଏବଂ ପ୍ରସ୍ଥ ୧୨୫ ମିଟର। ପ୍ରତି ମିଟର ପିଛା ୧୨ ଟଙ୍କା ହିସାବରେ ପାର୍କର ଚାରିପାଖରେ ତାରବାଡ଼ ଘେରାଇବା ପାଇଁ କେତେ ଟଙ୍କା ଖର୍ଚ୍ଚ ହେବ?</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ଦୈର୍ଘ୍ୟ l = ୧୭୫ ମିଟର, ପ୍ରସ୍ଥ b = ୧୨୫ ମିଟର। ଦର = ମିଟର ପିଛା ୧୨ ଟଙ୍କା।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ପରିସୀମା ସୂତ୍ର):</span> ବାଡ଼ ଚାରିପାଖେ ଦିଆଯାଉଥିବାରୁ ଆମକୁ ପରିସୀମା ବାହାର କରିବାକୁ ହେବ: <br>
+            ପରିସୀମା = ୨ &times; (l + b) = ୨ &times; (୧୭୫ + ୧୨୫) = ୨ &times; ୩୦୦ = <strong>୬୦୦ ମିଟର</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ଖର୍ଚ୍ଚ ଗଣନା):</span> ମୋଟ ଖର୍ଚ୍ଚ = ପରିସୀମା &times; ପ୍ରତି ମିଟର ଦର = ୬୦୦ &times; ୧୨ ଟଙ୍କା।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଚୂଡ଼ାନ୍ତ ଗୁଣନ):</span> ୬୦୦ &times; ୧୨ = <strong>୭,୨୦୦ ଟଙ୍କା</strong>।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: ପାର୍କ ଚାରିପାଖରେ ତାରବାଡ଼ ଘେରାଇବା ପାଇଁ ମୋଟ <strong>୭,୨୦୦ ଟଙ୍କା</strong> ଖର୍ଚ୍ଚ ହେବ।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Q3 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ଚଟାଣରେ ଟାଇଲ୍ସ ବସାଇବା ସମସ୍ୟା (Tiling the Floor)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୩:</strong> ଗୋଟିଏ କୋଠରୀର ଚଟାଣର ଲମ୍ବ ୪ ମିଟର ଏବଂ ପ୍ରସ୍ଥ ୩ ମିଟର। ଏଥିରେ ୨୦ ସେମି &times; ୧୫ ସେମି ମାପର କେତୋଟି ଆୟତାକାର ଟାଇଲ୍ସ ଲାଗିବ?</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ଏକକ ସମାନ କରିବା):</span><br>
+            ଚଟାଣର ଦୈର୍ଘ୍ୟ = ୪ ମିଟର = ୪୦୦ ସେମି (କାରଣ ୧ ମିଟର = ୧୦୦ ସେମି)।<br>
+            ଚଟାଣର ପ୍ରସ୍ଥ = ୩ ମିଟର = ୩୦୦ ସେମି।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଚଟାଣର କ୍ଷେତ୍ରଫଳ):</span> ଚଟାଣର କ୍ଷେତ୍ରଫଳ = ୪୦୦ &times; ୩୦୦ = <strong>୧,୨୦,୦୦୦ ବର୍ଗ ସେମି</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ଗୋଟିଏ ଟାଇଲ୍ସର କ୍ଷେତ୍ରଫଳ):</span> ୧ ଟି ଟାଇଲ୍ସର କ୍ଷେତ୍ରଫଳ = ୨୦ &times; ୧୫ = <strong>୩୦୦ ବର୍ଗ ସେମି</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଟାଇଲ୍ସ ସଂଖ୍ୟା ଗଣନା):</span> ଟାଇଲ୍ସ ସଂଖ୍ୟା = ଚଟାଣ କ୍ଷେତ୍ରଫଳ &divide; ଗୋଟିଏ ଟାଇଲ୍ସ କ୍ଷେତ୍ରଫଳ = ୧,୨୦,୦୦୦ &divide; ୩୦୦ = <strong>୪୦୦ ଟି</strong>।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: ସମ୍ପୂର୍ଣ୍ଣ ଚଟାଣ ପାଇଁ ମୋଟ <strong>୪୦୦ ଟି ଟାଇଲ୍ସ</strong> ଆବଶ୍ୟକ ହେବ।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Q4 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ସଂଯୁକ୍ତ ଚିତ୍ରର ପରିସୀମା ଓ କ୍ଷେତ୍ରଫଳ</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୪:</strong> ଗୋଟିଏ କୋଠରୀ ଚଟାଣ ୫ ମିଟର ଲମ୍ବ ଏବଂ ୪ ମିଟର ଚଉଡ଼ା। ଏହାର ଠିକ୍ ମଝିରେ ୩ ମିଟର ବାହୁ ବିଶିଷ୍ଟ ଏକ ବର୍ଗାକାର କାଲିନ୍ (Carpet) ପକାଯାଇଛି। କାଲିନ୍ ପଡ଼ିନଥିବା ଅଂଶର କ୍ଷେତ୍ରଫଳ କେତେ?</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ଚଟାଣ: l = ୫ ମି, b = ୪ ମି। ବର୍ଗାକାର କାଲିନ୍: s = ୩ ମି।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ସମ୍ପୂର୍ଣ୍ଣ ଚଟାଣ କ୍ଷେତ୍ରଫଳ):</span> ଚଟାଣର କ୍ଷେତ୍ରଫଳ = ୫ &times; ୪ = <strong>୨୦ ବର୍ଗ ମିଟର</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (କାଲିନ୍ ର କ୍ଷେତ୍ରଫଳ):</span> କାଲିନ୍ ର କ୍ଷେତ୍ରଫଳ = ୩ &times; ୩ = <strong>୯ ବର୍ଗ ମିଟର</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଖୋଲା ଅଂଶ ନିର୍ଣ୍ଣୟ):</span> କାଲିନ୍ ପଡ଼ିନଥିବା ଅଂଶ = ୨୦ &minus; ୯ = <strong>୧୧ ବର୍ଗ ମିଟର</strong>।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: କାଲିନ୍ ବିହୀନ ଖୋଲା ଚଟାଣର କ୍ଷେତ୍ରଫଳ ହେଉଛି <strong>୧୧ ବର୍ଗ ମିଟର</strong>।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="section5">
+      <h2>Section 5: ପରୀକ୍ଷା ଉପଯୋଗୀ ପ୍ରଶ୍ନୋତ୍ତର ବ୍ୟାଙ୍କ ଓ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍ (Exam Question Bank &amp; Quiz Engine)</h2>
+      <p>ସମସ୍ତ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ପ୍ରଶ୍ନ ଏବଂ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍:</p>
+
+      <div class="quiz-score-board" id="quizScoreBoard">
+        🎯 ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍ ସ୍କୋର: <span id="currentScore">୦</span> / <span id="totalQuestions">୫</span> ସଠିକ୍
+      </div>
+
+      <!-- Part A: Interactive MCQs -->
+      <h3>ଭାଗ 'କ': ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନାବଳୀ (Interactive MCQs with Instant Feedback)</h3>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card" id="quiz-card-1">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୧: ଏକ ବର୍ଗକ୍ଷେତ୍ରର ବାହୁର ଦୈର୍ଘ୍ୟ ୮ ସେମି ହେଲେ, ତାର ପରିସୀମା କେତେ ହେବ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 0, false, 'ଭୁଲ! ୧୬ ସେମି ହେଉଛି ୨ × ୮। ବର୍ଗକ୍ଷେତ୍ରର ୪ଟି ବାହୁ ଥାଏ।')">
+            <span>(A) ୧୬ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 1, false, 'ଭୁଲ! ୬୪ ବର୍ଗ ସେମି ହେଉଛି ଏହାର କ୍ଷେତ୍ରଫଳ, ପରିସୀମା ନୁହେଁ।')">
+            <span>(B) ୬୪ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 2, true, 'ନିର୍ଭୁଲ! ବର୍ଗକ୍ଷେତ୍ରର ପରିସୀମା = ୪ × ବାହୁ = ୪ × ୮ = ୩୨ ସେମି।')">
+            <span>(C) ୩୨ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 3, false, 'ଭୁଲ! ୨୪ ସେମି ସମବାହୁ ତ୍ରିଭୁଜ ପାଇଁ ହୋଇଥାନ୍ତା।')">
+            <span>(D) ୨୪ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-1-fb"></div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card" id="quiz-card-2">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୨: ଏକ ଆୟତକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ ୯୬ ବର୍ଗ ସେମି ଏବଂ ଦୈର୍ଘ୍ୟ ୧୨ ସେମି ହେଲେ, ତାର ପ୍ରସ୍ଥ କେତେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 0, false, 'ଭୁଲ! ୬ ସେମି ହେଲେ କ୍ଷେତ୍ରଫଳ ୭୨ ହୋଇଥାନ୍ତା।')">
+            <span>(A) ୬ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 1, true, 'ସଠିକ୍ ଉତ୍ତର! ପ୍ରସ୍ଥ = କ୍ଷେତ୍ରଫଳ ÷ ଦୈର୍ଘ୍ୟ = ୯୬ ÷ ୧୨ = ୮ ସେମି।')">
+            <span>(B) ୮ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 2, false, 'ଭୁଲ! ୧୦ ସେମି ନୁହେଁ।')">
+            <span>(C) ୧୦ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 3, false, 'ଭୁଲ! ୧୪ ସେମି ନୁହେଁ।')">
+            <span>(D) ୧୪ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-2-fb"></div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card" id="quiz-card-3">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୩: ଏକ ସୁଷମ ପଞ୍ଚଭୁଜ (Regular Pentagon) ର ପରିସୀମା ୪୫ ସେମି। ଏହାର ପ୍ରତ୍ୟେକ ବାହୁର ଦୈର୍ଘ୍ୟ କେତେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 0, true, 'ଚମତ୍କାର! ପଞ୍ଚଭୁଜର ୫ଟି ସମାନ ବାହୁ ଥାଏ। ବାହୁ = ୪୫ ÷ ୫ = ୯ ସେମି।')">
+            <span>(A) ୯ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 1, false, 'ଭୁଲ! ୭ ସେମି ହେଲେ ପରିସୀମା ୩୫ ହୁଏ।')">
+            <span>(B) ୭ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 2, false, 'ଭୁଲ! ୧୫ ସେମି ତ୍ରିଭୁଜ ପାଇଁ ହୋଇଥାନ୍ତା।')">
+            <span>(C) ୧୫ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 3, false, 'ଭୁଲ! ଗଣନା ଯାଞ୍ଚ କରନ୍ତୁ।')">
+            <span>(D) ୫ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-3-fb"></div>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="quiz-card" id="quiz-card-4">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୪: ସମାନ ପରିସୀମା (ଉଦାହରଣ: ୨୦ ସେମି) ଥିବା ଏକ ବର୍ଗକ୍ଷେତ୍ର ଏବଂ ଏକ ସରୁ ଆୟତକ୍ଷେତ୍ର ମଧ୍ୟରୁ କାହାର କ୍ଷେତ୍ରଫଳ ସର୍ବଦା ଅଧିକ ହେବ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 0, false, 'ଭୁଲ! ସରୁ ଆୟତକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ ସର୍ବଦା କମ୍ ଥାଏ।')">
+            <span>(A) ଆୟତକ୍ଷେତ୍ରର</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 1, true, 'ନିର୍ଭୁଲ! ସମପରିସୀମା ସର୍ବୋତ୍ତମତା ନିୟମ ଅନୁସାରେ ବର୍ଗକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ ସର୍ବଦା ସର୍ବାଧିକ ହୁଏ (୫² = ୨୫ ବର୍ଗ ସେମି > ୯ × ୧ = ୯ ବର୍ଗ ସେମି)।')">
+            <span>(B) ବର୍ଗକ୍ଷେତ୍ରର</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 2, false, 'ଭୁଲ! କ୍ଷେତ୍ରଫଳ ସମାନ ହୁଏ ନାହିଁ।')">
+            <span>(C) ଉଭୟଙ୍କର ସମାନ ହେବ</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 3, false, 'ଭୁଲ! ଏହା ନିର୍ଦ୍ଧାରଣ କରାଯାଇପାରିବ।')">
+            <span>(D) ନିର୍ଦ୍ଧାରଣ ଅସମ୍ଭବ</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-4-fb"></div>
+      </div>
+
+      <!-- Quiz 5 -->
+      <div class="quiz-card" id="quiz-card-5">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୫: ୨ ମିଟର ଦୈର୍ଘ୍ୟ ବିଶିଷ୍ଟ ଏକ ବର୍ଗକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ କେତେ ବର୍ଗ ସେମି?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 0, false, 'ଭୁଲ! ୪ ବର୍ଗ ସେମି ନୁହେଁ, ୨ ମିଟର = ୨୦୦ ସେମି।')">
+            <span>(A) ୪ ବର୍ଗ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 1, false, 'ଭୁଲ! ୪୦୦ ବର୍ଗ ସେମି ନୁହେଁ।')">
+            <span>(B) ୪୦୦ ବର୍ଗ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 2, true, 'ସଠିକ୍! ୨ ମିଟର = ୨୦୦ ସେମି। କ୍ଷେତ୍ରଫଳ = ୨୦୦ × ୨୦୦ = ୪୦,୦୦୦ ବର୍ଗ ସେମି।')">
+            <span>(C) ୪୦,୦୦୦ ବର୍ଗ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 3, false, 'ଭୁଲ! ୪,୦୦୦ ନୁହେଁ।')">
+            <span>(D) ୪,୦୦୦ ବର୍ଗ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-5-fb"></div>
+      </div>
+
+      <!-- Part B: Subjective Questions -->
+      <h3 style="margin-top: 2rem;">ଭାଗ 'ଖ': ସଂକ୍ଷିପ୍ତ ଓ ଦୀର୍ଘ ଉତ୍ତରମୂଳକ ପରୀକ୍ଷା ପ୍ରଶ୍ନୋତ୍ତର (Subjective Question Bank)</h3>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୬ (୨ ମାର୍କ): ପରିସୀମା ଏବଂ କ୍ଷେତ୍ରଫଳ ମଧ୍ୟରେ ୨ଟି ମୁଖ୍ୟ ପାର୍ଥକ୍ୟ ଲେଖ।</summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong></p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ବିଷୟ</th>
+                <th>ପରିସୀମା (Perimeter)</th>
+                <th>କ୍ଷେତ୍ରଫଳ (Area)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ସଂଜ୍ଞା</strong></td>
+                <td>ଆବଦ୍ଧ ଚିତ୍ରର ଚତୁର୍ପାର୍ଶ୍ୱ ସୀମା ରେଖାର ମୋଟ ଦୈର୍ଘ୍ୟ।</td>
+                <td>ଚିତ୍ରଟି ସମତଳ ଉପରେ ଆବୃତ କରିଥିବା ପୃଷ୍ଠଭାଗର ପରିମାଣ।</td>
+              </tr>
+              <tr>
+                <td><strong>ମାନକ ଏକକ</strong></td>
+                <td>ରୈଖିକ ଏକକ (ମିଟର, ସେଣ୍ଟିମିଟର)।</td>
+                <td>ବର୍ଗ ଏକକ (ବର୍ଗ ମିଟର, ବର୍ଗ ସେଣ୍ଟିମିଟର)।</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୭ (୩ ମାର୍କ): ଏକ ଆୟତାକାର ପଡ଼ିଆର ଦୈର୍ଘ୍ୟ ଓ ପ୍ରସ୍ଥର ଅନୁପାତ ୩:୨ ଏବଂ ଏହାର ପରିସୀମା ୧୦୦ ମିଟର। ପଡ଼ିଆଟିର କ୍ଷେତ୍ରଫଳ ନିର୍ଣ୍ଣୟ କର।</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ଚଳରାଶି ଧରିବା):</span> ମନେକର ଦୈର୍ଘ୍ୟ = ୩x ଏବଂ ପ୍ରସ୍ଥ = ୨x।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ପରିସୀମା ସମୀକରଣ):</span> ପରିସୀମା = ୨(l + b) = ୨(୩x + ୨x) = ୨(୫x) = ୧୦x।<br>
+            ୧୦x = ୧୦୦ &rArr; x = ୧୦୦ &divide; ୧୦ = ୧୦।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ବାସ୍ତବ ମାପ ନିର୍ଣ୍ଣୟ):</span> ଦୈର୍ଘ୍ୟ l = ୩(୧୦) = ୩୦ ମିଟର; ପ୍ରସ୍ଥ b = ୨(୧୦) = ୨୦ ମିଟର।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (କ୍ଷେତ୍ରଫଳ ଗଣନା):</span> କ୍ଷେତ୍ରଫଳ = l &times; b = ୩୦ &times; ୨୦ = <strong>୬୦୦ ବର୍ଗ ମିଟର</strong>।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: ପଡ଼ିଆଟିର କ୍ଷେତ୍ରଫଳ ହେଉଛି <strong>୬୦୦ ବର୍ଗ ମିଟର</strong>।</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୮ (୫ ମାର୍କ ଦକ୍ଷତା ଭିତ୍ତିକ): ରମେଶ ବାବୁଙ୍କର ୬୦ ମିଟର ଲମ୍ବ ଏବଂ ୪୦ ମିଟର ଚଉଡ଼ା ବିଶିଷ୍ଟ ଏକ ଆୟତାକାର ଜମି ଅଛି। ଏହାର ଠିକ୍ ମଝିରେ ପରସ୍ପରକୁ ଲମ୍ବ ଭାବେ ଛେଦ କରୁଥିବା ୨ ମିଟର ଚଉଡ଼ାର ଦୁଇଟି ରାସ୍ତା ତିଆରି କରାଗଲା। (କ) ରାସ୍ତା ଦୁଇଟିର ମୋଟ କ୍ଷେତ୍ରଫଳ କେତେ? (ଖ) ପ୍ରତି ବର୍ଗ ମିଟରକୁ ୫୦ ଟଙ୍କା ହିସାବରେ ରାସ୍ତାରେ କଂକ୍ରିଟ୍ ପକାଇବା ପାଇଁ କେତେ ଟଙ୍କା ଖର୍ଚ୍ଚ ହେବ?</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ଜମି: l = ୬୦ ମି, b = ୪୦ ମି। ରାସ୍ତାର ଚଉଡ଼ା w = ୨ ମି।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଦୈର୍ଘ୍ୟ ସମାନ୍ତରାଳ ରାସ୍ତାର କ୍ଷେତ୍ରଫଳ):</span> A<sub>1</sub> = ୬୦ &times; ୨ = ୧୨୦ ବର୍ଗ ମିଟର।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ପ୍ରସ୍ଥ ସମାନ୍ତରାଳ ରାସ୍ତାର କ୍ଷେତ୍ରଫଳ):</span> A<sub>2</sub> = ୪୦ &times; ୨ = ୮୦ ବର୍ଗ ମିଟର।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଛେଦ ବିନ୍ଦୁ ସଂଶୋଧନ):</span> ଦୁଇ ରାସ୍ତାର ମଝିରେ ଏକ ୨ ମି &times; ୨ ମି ମାପର ବର୍ଗାକାର ସାଧାରଣ ଅଂଶ ଅଛି, ଯାହା ଦୁଇଥର ଗଣା ହୋଇଛି। <br>
+            ସାଧାରଣ ଅଂଶ = ୨ &times; ୨ = ୪ ବର୍ଗ ମିଟର।<br>
+            ମୋଟ ରାସ୍ତା କ୍ଷେତ୍ରଫଳ = ୧୨୦ + ୮୦ &minus; ୪ = <strong>୧୯୬ ବର୍ଗ ମିଟର</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୫ (ଖର୍ଚ୍ଚ ଗଣନା):</span> ମୋଟ ଖର୍ଚ୍ଚ = ୧୯୬ &times; ୫୦ = <strong>୯,୮୦୦ ଟଙ୍କା</strong>।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ସିଦ୍ଧାନ୍ତ: (କ) ରାସ୍ତାର ମୋଟ କ୍ଷେତ୍ରଫଳ = ୧୯୬ ବର୍ଗ ମିଟର &bull; (ଖ) କଂକ୍ରିଟ୍ ପକାଇବା ପାଇଁ ମୋଟ ୯,୮୦୦ ଟଙ୍କା ଖର୍ଚ୍ଚ ହେବ।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="section6">
+      <h2>Section 6: ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା ଓ ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ତଥ୍ୟ (Exam Hall Traps &amp; One-Liners)</h2>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">⚠️ ସାଧାରଣ ଭ୍ରାନ୍ତି ସତର୍କତା (Exam Hall Traps)</div>
+        <ul>
+          <li><strong>ଭୁଲ ୧:</strong> ଏକକ ଭୁଲ ଲେଖିବା! ପରିସୀମା ସର୍ବଦା ରୈଖିକ ଏକକ (ମିଟର, ସେମି) ହୁଏ, କିନ୍ତୁ କ୍ଷେତ୍ରଫଳ ସର୍ବଦା <strong>ବର୍ଗ ଏକକ (sq m, sq cm)</strong> ହୁଏ। କ୍ଷେତ୍ରଫଳରେ ବର୍ଗ ନଲେଖିଲେ ନମ୍ବର କଟିଯାଏ!</li>
+          <li><strong>ଭୁଲ ୨:</strong> ଗଣନା ପୂର୍ବରୁ ଦୈର୍ଘ୍ୟ ଓ ପ୍ରସ୍ଥର ଏକକ ସମାନ ନକରିବା। ଗୋଟିଏ ମିଟରରେ ଏବଂ ଅନ୍ୟଟି ସେଣ୍ଟିମିଟରରେ ଥିଲେ ପ୍ରଥମେ ଉଭୟଙ୍କୁ ସମାନ ଏକକକୁ ରୂପାନ୍ତର କରନ୍ତୁ।</li>
+          <li><strong>ଭୁଲ ୩:</strong> ତାରବାଡ଼ ଘେରାଇବା କହିଲେ କ୍ଷେତ୍ରଫଳ ନୁହେଁ, ସର୍ବଦା <strong>ପରିସୀମା</strong> ଗଣନା କରାଯାଏ। ଟାଇଲ୍ସ ବା ଘାସ ଲଗାଇବା କହିଲେ <strong>କ୍ଷେତ୍ରଫଳ</strong> ଗଣନା କରାଯାଏ।</li>
+        </ul>
+      </div>
+
+      <h3 class="topic-title">📌 ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ଏକ-ପଦୀ ତଥ୍ୟ (15 Rapid Revision One-Liners)</h3>
+      <ol style="line-height: 2; margin-left: 1.5rem;">
+        <li>ଆବଦ୍ଧ ସମତଳ ଚିତ୍ରର ସୀମାରେଖାର ମୋଟ ଦୈର୍ଘ୍ୟକୁ <strong>ପରିସୀମା (Perimeter)</strong> କୁହାଯାଏ।</li>
+        <li>ଆୟତକ୍ଷେତ୍ରର ପରିସୀମା ସୂତ୍ର = <strong>୨ &times; (ଦୈର୍ଘ୍ୟ + ପ୍ରସ୍ଥ)</strong>।</li>
+        <li>ବର୍ଗକ୍ଷେତ୍ରର ପରିସୀମା ସୂତ୍ର = <strong>୪ &times; ବାହୁ</strong>।</li>
+        <li>ସମବାହୁ ତ୍ରିଭୁଜର ପରିସୀମା ସୂତ୍ର = <strong>୩ &times; ବାହୁ</strong>।</li>
+        <li>ସୁଷମ ବହୁଭୁଜର ପରିସୀମା = <strong>ବାହୁ ସଂଖ୍ୟା &times; ବାହୁର ଦୈର୍ଘ୍ୟ</strong>।</li>
+        <li>ଆବଦ୍ଧ ସୀମା ମଧ୍ୟରେ ଥିବା ସମତଳ ପୃଷ୍ଠଭାଗର ପରିମାଣକୁ <strong>କ୍ଷେତ୍ରଫଳ (Area)</strong> କୁହାଯାଏ।</li>
+        <li>ଆୟତକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ ସୂତ୍ର = <strong>ଦୈର୍ଘ୍ୟ &times; ପ୍ରସ୍ଥ (l &times; b)</strong>।</li>
+        <li>ବର୍ଗକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ ସୂତ୍ର = <strong>ବାହୁ &times; ବାହୁ (ବାହୁ<sup>୨</sup>)</strong>।</li>
+        <li>କ୍ଷେତ୍ରଫଳର ମାନକ ଏକକ ହେଉଛି <strong>ବର୍ଗ ଏକକ (Square Units)</strong>।</li>
+        <li>୧ ମିଟର = ୧୦୦ ସେଣ୍ଟିମିଟର।</li>
+        <li>୧ ବର୍ଗ ମିଟର = ୧୦,୦୦୦ ବର୍ଗ ସେଣ୍ଟିମିଟର (୧୦୦ &times; ୧୦୦)।</li>
+        <li>ସମାନ ପରିସୀମା ଥିବା ଆକୃତିମାନଙ୍କ ମଧ୍ୟରେ <strong>ବର୍ଗକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ ସର୍ବାଧିକ</strong> ହୁଏ।</li>
+        <li>ସଂଯୁକ୍ତ ଚିତ୍ରର କ୍ଷେତ୍ରଫଳ ତାହାର ବିଭାଜିତ ଅଂଶଗୁଡ଼ିକର କ୍ଷେତ୍ରଫଳର <strong>ଯୋଗଫଳ ସହ ସମାନ</strong>।</li>
+        <li>ବାଡ଼ ଘେରାଇବା ଖର୍ଚ୍ଚ ସର୍ବଦା <strong>ପରିସୀମା &times; ପ୍ରତି ମିଟର ଦର</strong> ଦ୍ୱାରା ନିର୍ଣ୍ଣୟ କରାଯାଏ।</li>
+        <li>ଟାଇଲ୍ସ ବା ପଥର ବିଛାଇବା ଖର୍ଚ୍ଚ ସର୍ବଦା <strong>କ୍ଷେତ୍ରଫଳ &times; ପ୍ରତି ବର୍ଗ ମିଟର ଦର</strong> ଦ୍ୱାରା ନିର୍ଣ୍ଣୟ କରାଯାଏ।</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      const btn = document.getElementById('backToTopBtn');
+      if (winScroll > 350) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+
+    function toggleAllAnswers(openState) {
+      document.querySelectorAll('details.ans-box').forEach(el => {
+        el.open = openState;
+      });
+    }
+
+    let quizScore = 0;
+    const answeredQuizzes = new Set();
+
+    function checkQuiz(cardId, optionIndex, isCorrect, explanation) {
+      const card = document.getElementById(cardId);
+      const buttons = card.querySelectorAll('.quiz-opt-btn');
+      const fb = document.getElementById(cardId + '-fb');
+
+      if (answeredQuizzes.has(cardId)) return;
+      answeredQuizzes.add(cardId);
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        const ind = btn.querySelector('.quiz-opt-indicator');
+        if (idx === optionIndex) {
+          if (isCorrect) {
+            btn.classList.add('correct-opt');
+            ind.innerHTML = ' &check; (ସଠିକ୍)';
+          } else {
+            btn.classList.add('wrong-opt');
+            ind.innerHTML = ' &cross; (ଭୁଲ)';
+          }
+        }
+      });
+
+      if (!isCorrect) {
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct-opt');
+            btn.querySelector('.quiz-opt-indicator').innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          }
+        });
+      }
+
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.className = 'quiz-feedback correct-fb';
+        fb.innerHTML = '<strong>ଠିକ୍ ଉତ୍ତର! 🎉</strong> ' + explanation;
+        quizScore++;
+      } else {
+        fb.className = 'quiz-feedback incorrect-fb';
+        fb.innerHTML = '<strong>ଭୁଲ ଉତ୍ତର! ⚠️</strong> ' + explanation;
+      }
+
+      document.getElementById('currentScore').innerText = quizScore;
+    }
+
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Text-to-Speech ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+      } else {
+        const text = "ନମସ୍କାର ପିଲାମାନେ! ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତର ଷଷ୍ଠ ଅଧ୍ୟାୟ 'ପରିସୀମା ଓ କ୍ଷେତ୍ରଫଳ' କୁ ସ୍ୱାଗତ। ପରିସୀମା ହେଉଛି କୌଣସି ଚିତ୍ରର ଚାରିପାଖ ସୀମାର ମୋଟ ଲମ୍ବ। ଆୟତକ୍ଷେତ୍ରର ପରିସୀମା ଦୁଇ ଗୁଣନ ଦୈର୍ଘ୍ୟ ଯୁକ୍ତ ପ୍ରସ୍ଥ, ଏବଂ ବର୍ଗକ୍ଷେତ୍ରର ପରିସୀମା ଚାରି ଗୁଣନ ବାହୁ। କ୍ଷେତ୍ରଫଳ ହେଉଛି ଭିତରେ ଥିବା ସମତଳ ଜାଗାର ମାପ, ଯାହା ବର୍ଗ ଏକକରେ ପ୍ରକାଶ ପାଏ। ଆୟତକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ ଦୈର୍ଘ୍ୟ ଗୁଣନ ପ୍ରସ୍ଥ ଏବଂ ବର୍ଗକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ ବାହୁ ଗୁଣନ ବାହୁ। ସମାନ ପରିସୀମା ଥିଲେ ବର୍ଗକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ ସବୁଠାରୁ ଅଧିକ ହୁଏ। ସୂତ୍ରଗୁଡ଼ିକୁ ଭଲଭାବେ ମନେରଖନ୍ତୁ!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'or-IN';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>";
+      }
+    }
+  </script>
+</body>
+</html>
