@@ -1,0 +1,1137 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୭: ଭଗ୍ନାଂଶ (Fractions) &mdash; ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ ମାଷ୍ଟର ନୋଟ୍ସ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ (NEP ଗଣିତ ପ୍ରକାଶ) ଅଧ୍ୟାୟ ୭: ଭଗ୍ନାଂଶ (Fractions) ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ନୋଟ୍ସ, ପ୍ରକୃତ, ଅପ୍ରକୃତ, ମିଶ୍ର, ସମତୁଲ୍ୟ ଭଗ୍ନାଂଶ, ସଂଖ୍ୟାରେଖା, ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ଯୋଗ ଓ ବିୟୋଗ।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+      --primary-gradient: linear-gradient(90deg, #0284c7 0%, #38bdf8 50%, #10b981 100%);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.75;
+      font-size: 15.5px;
+      padding-bottom: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: var(--primary-gradient);
+      z-index: 999999;
+      transition: width 0.1s ease-out;
+      box-shadow: 0 1px 4px rgba(2, 132, 199, 0.3);
+    }
+
+    header.header {
+      background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 55%, #0d9488 100%);
+      color: #ffffff;
+      padding: 42px 24px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 12px 30px -8px rgba(2, 132, 199, 0.35);
+    }
+    header.header h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    header.header p {
+      font-size: 1.05rem;
+      opacity: 0.94;
+      max-width: 860px;
+      margin: 0 auto 16px;
+    }
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      transition: all 0.2s var(--ease-spring);
+    }
+    .nav-links a:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.84rem;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    .btn-audio {
+      background: #ffffff;
+      color: var(--primary-dark);
+      font-weight: 700;
+      border: 2px solid var(--primary-light);
+    }
+    .btn-audio:hover {
+      background: var(--primary-light);
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+    .nav-breadcrumb {
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .nav-breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-breadcrumb a:hover { text-decoration: underline; }
+
+    section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+    }
+    section h2 {
+      font-size: 1.55rem;
+      color: var(--primary-dark);
+      border-left: 5px solid var(--primary);
+      padding-left: 14px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section h3 {
+      font-size: 1.25rem;
+      color: #0f172a;
+      margin: 26px 0 14px;
+      font-weight: 700;
+      border-bottom: 2px dashed #f1f5f9;
+      padding-bottom: 6px;
+    }
+    section h4 {
+      font-size: 1.05rem;
+      color: #1e293b;
+      margin: 18px 0 10px;
+      font-weight: 700;
+    }
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 10px 0 18px 24px; }
+    li { margin-bottom: 8px; }
+
+    .math-formula {
+      font-family: 'JetBrains Mono', monospace;
+      background: #f1f5f9;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      color: #0369a1;
+    }
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 0.9em;
+      padding: 0 2px;
+    }
+    .frac sup {
+      border-bottom: 1.5px solid currentColor;
+      padding-bottom: 1px;
+      font-size: inherit;
+      line-height: 1;
+    }
+    .frac sub {
+      font-size: inherit;
+      line-height: 1;
+    }
+
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin: 12px 0 16px;
+    }
+    .step-line {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .step-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 140px;
+    }
+    .step-conclusion {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-weight: 600;
+      color: #166534;
+    }
+
+    .callout {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      border-left: 5px solid;
+    }
+    .callout-title {
+      font-weight: 800;
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .callout-def { background: #f0f9ff; border-left-color: #0284c7; color: #0c4a6e; }
+    .callout-act { background: #f0fdfa; border-left-color: #0d9488; color: #115e59; }
+    .callout-pyq { background: #fffbeb; border-left-color: #f59e0b; color: #78350f; }
+    .callout-hack { background: #f5f3ff; border-left-color: #7c3aed; color: #4c1d95; }
+    .callout-warn { background: #fff1f2; border-left-color: #e11d48; color: #881337; }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.94rem;
+      text-align: left;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border);
+      padding: 11px 14px;
+    }
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    .data-table tr:nth-child(even) { background-color: #f8fafc; }
+
+    details.ans-box {
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.25s var(--ease-spring);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    details.ans-box summary {
+      list-style: none;
+      padding: 1rem 1.35rem;
+      background: #f8fafc;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    details.ans-box summary::-webkit-details-marker { display: none; }
+    details.ans-box summary::after {
+      content: "▾";
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      transition: transform 0.3s var(--ease-spring);
+    }
+    details.ans-box[open] summary::after {
+      transform: rotate(180deg);
+    }
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.08);
+    }
+    details.ans-box[open] summary {
+      background: #f0f9ff;
+      color: var(--primary-dark);
+      border-bottom: 1px solid #bae6fd;
+    }
+    details.ans-box .ans-content {
+      padding: 1.35rem;
+      background: #ffffff;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .diagram-container {
+      margin: 24px auto;
+      text-align: center;
+      background: #ffffff;
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 18px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .quiz-question {
+      font-weight: 700;
+      font-size: 1.02rem;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .quiz-opt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      background: #ffffff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .quiz-opt-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateX(4px);
+    }
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700;
+    }
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+      font-weight: 600;
+    }
+    .quiz-feedback {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .quiz-feedback.correct-fb { background: #f0fdf4; border: 1px solid #86efac; color: #166534; }
+    .quiz-feedback.incorrect-fb { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+    .quiz-score-board {
+      background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+      border: 1.5px solid #a7f3d0;
+      border-radius: 12px;
+      padding: 14px 22px;
+      text-align: center;
+      margin: 18px 0;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #065f46;
+    }
+
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: all 0.3s var(--ease-spring);
+      z-index: 9999;
+    }
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-to-top-btn:hover {
+      background: var(--primary-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress-bar"></div>
+
+  <header class="header">
+    <div class="badge-bar">
+      <span class="badge">ଓଡ଼ିଆ ମାଧ୍ୟମ (BSE Odisha / NEP ସଂସ୍କରଣ)</span>
+      <span class="badge">ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ &bull; ଅଧ୍ୟାୟ ୭</span>
+      <span class="badge">ଗଣିତ ପ୍ରକାଶ (Ganita Prakash)</span>
+    </div>
+    <h1>ଅଧ୍ୟାୟ ୭: ଭଗ୍ନାଂଶ</h1>
+    <p style="font-size: 1.15rem; font-weight: 600; opacity: 0.95;">Fractions &mdash; ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ଷ୍ଟଡି ନୋଟ୍ସ</p>
+    <p>ସମଭାଗ ବଣ୍ଟନ, ଏକକ, ପ୍ରକୃତ, ଅପ୍ରକୃତ, ମିଶ୍ର ଓ ସମତୁଲ୍ୟ ଭଗ୍ନାଂଶ, ସଂଖ୍ୟାରେଖା, ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ଯୋଗ ଓ ବିୟୋଗ ନିୟମ</p>
+    <div style="margin-top: 15px;">
+      <button class="btn btn-audio" onclick="toggleTeacherAudio()" id="teacherAudioBtn">
+        <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>
+      </button>
+    </div>
+  </header>
+
+  <div class="top-bar">
+    <div class="nav-links">
+      <a href="#section1">୧. ମାନସିକ ମାନଚିତ୍ର</a>
+      <a href="#section2">୨. ବିସ୍ତୃତ ଧାରଣା</a>
+      <a href="#section3">୩. ସୂତ୍ର ଓ ନିୟମ</a>
+      <a href="#section4">୪. NCERT ସମାଧାନ</a>
+      <a href="#section5">୫. ପ୍ରଶ୍ନୋତ୍ତର ଓ କୁଇଜ୍</a>
+      <a href="#section6">୬. ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା</a>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn btn-primary" onclick="toggleAllAnswers(true)">➕ ସମସ୍ତ ଉତ୍ତର ଖୋଲନ୍ତୁ</button>
+      <button class="btn" onclick="toggleAllAnswers(false)">➖ ସମସ୍ତ ବନ୍ଦ କରନ୍ତୁ</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="nav-breadcrumb">
+      <a href="../../index.html">ପୋର୍ଟାଲ୍ ମୁଖ୍ୟପୃଷ୍ଠା</a> &raquo; 
+      <a href="../../index.html#odia-medium">ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ (Odia Medium)</a> &raquo; 
+      <span>ଅଧ୍ୟାୟ ୭: ଭଗ୍ନାଂଶ (Fractions)</span>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section id="section1">
+      <h2>Section 1: ମାନସିକ ମାନଚିତ୍ର ଓ ଅଧ୍ୟାୟର ରୂପରେଖ (Visual Mind Map &amp; Blueprint)</h2>
+      <p>ଯେତେବେଳେ କୌଣସି ଏକ ସମ୍ପୂର୍ଣ୍ଣ ବସ୍ତୁ (Whole) କୁ ଏକାଧିକ ସମାନ ଭାଗରେ ବିଭକ୍ତ କରାଯାଏ, ସେହି ପ୍ରତ୍ୟେକ ଭାଗକୁ ଏକ <strong>ଭଗ୍ନାଂଶ (Fraction)</strong> କୁହାଯାଏ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ଏକକ ଭଗ୍ନାଂଶ (Unit Fractions), ପ୍ରକୃତ ଓ ଅପ୍ରକୃତ ଭଗ୍ନାଂଶ (Proper &amp; Improper Fractions), ମିଶ୍ର ଭଗ୍ନାଂଶ (Mixed Fractions), ସମତୁଲ୍ୟ ଭଗ୍ନାଂଶ (Equivalent Fractions) ଏବଂ ପ୍ରାଚୀନ ଭାରତୀୟ ଗଣିତଜ୍ଞ <strong>ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ଭଗ୍ନାଂଶ ଯୋଗ ଓ ବିୟୋଗ ନିୟମ</strong> ବିଷୟରେ ଜାଣିବା।</p>
+
+      <div class="diagram-container">
+        <!-- SVG 1: Mind Map for Fractions -->
+        <svg viewBox="0 0 900 440" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <!-- Central Hub -->
+          <rect x="360" y="180" width="180" height="70" rx="35" fill="#0284c7"/>
+          <text x="450" y="215" text-anchor="middle" fill="#ffffff" font-weight="800" font-size="16">ଭଗ୍ନାଂଶ</text>
+          <text x="450" y="235" text-anchor="middle" fill="#e0f2fe" font-weight="600" font-size="12">FRACTIONS</text>
+
+          <!-- Branch 1: Concept & Unit Fractions (Top-Left) -->
+          <line x1="380" y1="190" x2="200" y2="100" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="50" y="40" width="220" height="100" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.5"/>
+          <text x="160" y="68" text-anchor="middle" fill="#0369a1" font-weight="800" font-size="13.5">୧. ଭଗ୍ନାଂଶ ଧାରଣା ଓ ଏକକ</text>
+          <text x="160" y="92" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଲବ (ଉପର) ଓ ହର (ତଳ)</text>
+          <text x="160" y="112" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଏକକ ଭଗ୍ନାଂଶ: ଲବ = ୧</text>
+          <text x="160" y="130" text-anchor="middle" fill="#0284c7" font-weight="bold" font-size="11.5">ସମାନ ଭାଗରେ ବଣ୍ଟନ</text>
+
+          <!-- Branch 2: Classification (Top-Right) -->
+          <line x1="520" y1="190" x2="700" y2="100" stroke="#0d9488" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="630" y="40" width="220" height="100" rx="10" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+          <text x="740" y="68" text-anchor="middle" fill="#115e59" font-weight="800" font-size="13.5">୨. ଭଗ୍ନାଂଶର ପ୍ରକାରଭେଦ</text>
+          <text x="740" y="92" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ପ୍ରକୃତ: ଲବ &lt; ହର (୩/୪)</text>
+          <text x="740" y="112" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଅପ୍ରକୃତ: ଲବ &ge; ହର (୭/୪)</text>
+          <text x="740" y="130" text-anchor="middle" fill="#0d9488" font-weight="bold" font-size="11.5">ମିଶ୍ର ଭଗ୍ନାଂଶ: ୧ &frac34;</text>
+
+          <!-- Branch 3: Equivalent & Comparison (Bottom-Left) -->
+          <line x1="380" y1="240" x2="200" y2="330" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="50" y="290" width="220" height="110" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+          <text x="160" y="318" text-anchor="middle" fill="#b45309" font-weight="800" font-size="13.5">୩. ସମତୁଲ୍ୟ ଓ ତୁଳନା</text>
+          <text x="160" y="342" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ସମାନ ମୂଲ୍ୟ ବିଶିଷ୍ଟ ରୂପ</text>
+          <text x="160" y="362" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଲଘୁଷ୍ଠ ଆକାର (HCF ହରଣ)</text>
+          <text x="160" y="382" text-anchor="middle" fill="#b45309" font-weight="bold" font-size="11.5">ବଜ୍ରଗୁଣନ ଦ୍ୱାରା ତୁଳନା</text>
+
+          <!-- Branch 4: Operations & Brahmagupta (Bottom-Right) -->
+          <line x1="520" y1="240" x2="700" y2="330" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="630" y="290" width="220" height="110" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+          <text x="740" y="318" text-anchor="middle" fill="#6d28d9" font-weight="800" font-size="13.5">୪. ଯୋଗ, ବିୟୋଗ ଓ ବ୍ରହ୍ମଗୁପ୍ତ</text>
+          <text x="740" y="342" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ସଦୃଶ: ସିଧାସଳଖ ଲବ ଯୋଗ</text>
+          <text x="740" y="362" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ବିସଦୃଶ: ଲ.ସା.ଗୁ. ଦ୍ୱାରା ସମହର</text>
+          <text x="740" y="382" text-anchor="middle" fill="#6d28d9" font-weight="bold" font-size="11.5">ବ୍ରହ୍ମଗୁପ୍ତ ସୂତ୍ର ପ୍ରୟୋଗ</text>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୭.୧: ଭଗ୍ନାଂଶ, ସମତୁଲ୍ୟତା ଏବଂ ଗାଣିତିକ କ୍ରିୟାର ମାନସିକ ମାନଚିତ୍ର</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="section2">
+      <h2>Section 2: ବିସ୍ତୃତ ଧାରଣା ଓ ତତ୍ତ୍ୱ ବିଶ୍ଳେଷଣ (Line-by-Line Conceptual Notes)</h2>
+
+      <h3 class="topic-title">୨.୧ ଭଗ୍ନାଂଶ କ'ଣ? (Concept of Fraction as Fair Sharing)</h3>
+      <p>ଗୋଟିଏ ସମ୍ପୂର୍ଣ୍ଣ ବସ୍ତୁ ବା ସମାହାରକୁ କେତେକ <strong>ସମାନ ଭାଗରେ</strong> ବିଭକ୍ତ କଲେ ତାର କିଛି ନିର୍ଦ୍ଦିଷ୍ଟ ଭାଗକୁ ଗାଣିତିକ ଭାଷାରେ <strong>ଭଗ୍ନାଂଶ (Fraction)</strong> ଆକାରରେ ଲେଖାଯାଏ:</p>
+      <p style="text-align: center; font-size: 1.25rem; font-weight: 700; color: var(--primary-dark);">
+        ଭଗ୍ନାଂଶ = <span class="frac"><sup>ଲବ (Numerator)</sup><sub>ହର (Denominator)</sub></span>
+      </p>
+      <ul>
+        <li><strong>ହର (Denominator):</strong> ଏକ ସମ୍ପୂର୍ଣ୍ଣ ବସ୍ତୁକୁ ସମୁଦାୟ କେତୋଟି ସମାନ ଭାଗ କରାଯାଇଛି ତାହା ଦର୍ଶାଏ।</li>
+        <li><strong>ଲବ (Numerator):</strong> ସେହି ସମାନ ଭାଗଗୁଡ଼ିକ ମଧ୍ୟରୁ ଆମେ କେତୋଟି ଭାଗ ନେଇଛୁ ତାହା ଦର୍ଶାଏ।</li>
+      </ul>
+
+      <div class="callout callout-def">
+        <div class="callout-title">📌 ଭଗ୍ନାଂଶର ୫ଟି ମୁଖ୍ୟ ପ୍ରକାର</div>
+        <ul>
+          <li><strong>ଏକକ ଭଗ୍ନାଂଶ (Unit Fraction):</strong> ଯେଉଁ ଭଗ୍ନାଂଶର ଲବ ଠିକ୍ ୧ ଥାଏ (ଯଥା: <span class="frac"><sup>୧</sup><sub>୨</sub></span>, <span class="frac"><sup>୧</sup><sub>୩</sub></span>, <span class="frac"><sup>୧</sup><sub>୪</sub></span>, <span class="frac"><sup>୧</sup><sub>୭</sub></span>)।</li>
+          <li><strong>ପ୍ରକୃତ ଭଗ୍ନାଂଶ (Proper Fraction):</strong> ଯେଉଁଥିରେ ଲବ ସର୍ବଦା ହରଠାରୁ ଛୋଟ ଥାଏ (ଲବ &lt; ହର)। ଏହାର ମୂଲ୍ୟ ସର୍ବଦା ୧ ରୁ କମ୍ ଥାଏ (ଯଥା: <span class="frac"><sup>୨</sup><sub>୩</sub></span>, <span class="frac"><sup>୫</sup><sub>୮</sub></span>)।</li>
+          <li><strong>ଅପ୍ରକୃତ ଭଗ୍ନାଂଶ (Improper Fraction):</strong> ଯେଉଁଥିରେ ଲବ ହରଠାରୁ ବଡ଼ ବା ସମାନ ଥାଏ (ଲବ &ge; ହର)। ଏହାର ମୂଲ୍ୟ ୧ ବା ୧ ରୁ ଅଧିକ ଥାଏ (ଯଥା: <span class="frac"><sup>୭</sup><sub>୪</sub></span>, <span class="frac"><sup>୯</sup><sub>୫</sub></span>)।</li>
+          <li><strong>ମିଶ୍ର ଭଗ୍ନାଂଶ (Mixed Fraction):</strong> ଏକ ପୂର୍ଣ୍ଣ ସଂଖ୍ୟା ଏବଂ ଏକ ପ୍ରକୃତ ଭଗ୍ନାଂଶର ମିଳିତ ରୂପ (ଯଥା: ୧ <span class="frac"><sup>୩</sup><sub>୪</sub></span>, ୨ <span class="frac"><sup>୧</sup><sub>୨</sub></span>)।</li>
+          <li><strong>ସମତୁଲ୍ୟ ଭଗ୍ନାଂଶ (Equivalent Fractions):</strong> ଭିନ୍ନ ଲବ ଓ ହର ଥିଲେ ମଧ୍ୟ ଯେଉଁ ଭଗ୍ନାଂଶମାନଙ୍କର ପ୍ରକୃତ ମୂଲ୍ୟ ସମାନ ଥାଏ (ଯଥା: <span class="frac"><sup>୧</sup><sub>୨</sub></span> = <span class="frac"><sup>୨</sup><sub>୪</sub></span> = <span class="frac"><sup>୩</sup><sub>୬</sub></span> = <span class="frac"><sup>୪</sup><sub>୮</sub></span>)।</li>
+        </ul>
+      </div>
+
+      <div class="diagram-container">
+        <!-- SVG 2: Equivalent Fractions Visual Strip Model -->
+        <svg viewBox="0 0 850 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <text x="425" y="26" text-anchor="middle" fill="#0f172a" font-weight="800" font-size="14">ସମତୁଲ୍ୟ ଭଗ୍ନାଂଶର ଷ୍ଟ୍ରିପ୍ ମଡେଲ୍ (EQUIVALENT FRACTIONS: ୧/୨ = ୨/୪ = ୩/୬ = ୪/୮)</text>
+
+          <!-- Strip 1: 1 Whole -->
+          <g transform="translate(150, 45)">
+            <rect x="0" y="0" width="480" height="36" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+            <text x="240" y="23" text-anchor="middle" fill="#0f172a" font-weight="bold" font-size="12">୧ ସମ୍ପୂର୍ଣ୍ଣ (Whole = ୧)</text>
+          </g>
+
+          <!-- Strip 2: 1/2 -->
+          <g transform="translate(150, 90)">
+            <rect x="0" y="0" width="240" height="36" fill="#bae6fd" stroke="#0284c7" stroke-width="1.5"/>
+            <text x="120" y="23" text-anchor="middle" fill="#0369a1" font-weight="bold" font-size="12">୧/୨</text>
+            <rect x="240" y="0" width="240" height="36" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+            <text x="360" y="23" text-anchor="middle" fill="#64748b" font-size="12">୧/୨</text>
+          </g>
+
+          <!-- Strip 3: 2/4 -->
+          <g transform="translate(150, 135)">
+            <rect x="0" y="0" width="120" height="36" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/>
+            <text x="60" y="23" text-anchor="middle" fill="#065f46" font-weight="bold" font-size="12">୧/୪</text>
+            <rect x="120" y="0" width="120" height="36" fill="#a7f3d0" stroke="#059669" stroke-width="1.5"/>
+            <text x="180" y="23" text-anchor="middle" fill="#065f46" font-weight="bold" font-size="12">୧/୪</text>
+            <rect x="240" y="0" width="120" height="36" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+            <text x="300" y="23" text-anchor="middle" fill="#64748b" font-size="12">୧/୪</text>
+            <rect x="360" y="0" width="120" height="36" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+            <text x="420" y="23" text-anchor="middle" fill="#64748b" font-size="12">୧/୪</text>
+            <text x="500" y="23" fill="#065f46" font-weight="bold" font-size="13">&larr; ୨/୪ = ୧/୨</text>
+          </g>
+
+          <!-- Strip 4: 4/8 -->
+          <g transform="translate(150, 180)">
+            <rect x="0" y="0" width="60" height="36" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/><text x="30" y="23" text-anchor="middle" font-size="11">୧/୮</text>
+            <rect x="60" y="0" width="60" height="36" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/><text x="90" y="23" text-anchor="middle" font-size="11">୧/୮</text>
+            <rect x="120" y="0" width="60" height="36" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/><text x="150" y="23" text-anchor="middle" font-size="11">୧/୮</text>
+            <rect x="180" y="0" width="60" height="36" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/><text x="210" y="23" text-anchor="middle" font-size="11">୧/୮</text>
+            <rect x="240" y="0" width="240" height="36" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/><text x="360" y="23" text-anchor="middle" fill="#64748b" font-size="12">୪/୮</text>
+            <text x="500" y="23" fill="#ea580c" font-weight="bold" font-size="13">&larr; ୪/୮ = ୧/୨</text>
+          </g>
+
+          <line x1="390" y1="40" x2="390" y2="225" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,4"/>
+          <text x="425" y="255" text-anchor="middle" fill="#ef4444" font-weight="bold" font-size="12">ଲାଲ୍ ଗାର ଦର୍ଶାଉଛି ଯେ ସମସ୍ତଙ୍କର ରଙ୍ଗିନ ଅଂଶ ସମାନ ଦୈର୍ଘ୍ୟ ବିଶିଷ୍ଟ!</text>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୭.୨: ସମତୁଲ୍ୟ ଭଗ୍ନାଂଶ (୧/୨ = ୨/୪ = ୪/୮) ର ପ୍ରତ୍ୟକ୍ଷ ଦୃଶ୍ୟମାନ ତୁଳନା</div>
+      </div>
+
+      <div class="diagram-container">
+        <!-- SVG 3: Improper Fraction to Mixed Fraction (7/4 = 1 3/4) -->
+        <svg viewBox="0 0 850 250" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <text x="425" y="24" text-anchor="middle" fill="#0f172a" font-weight="800" font-size="14">ଅପ୍ରକୃତ ଭଗ୍ନାଂଶରୁ ମିଶ୍ର ଭଗ୍ନାଂଶରେ ରୂପାନ୍ତର: ୭/୪ = ୧ &frac34;</text>
+
+          <!-- Circle 1: Fully Shaded (4/4 = 1 Whole) -->
+          <g transform="translate(220, 120)">
+            <circle cx="0" cy="0" r="60" fill="#bae6fd" stroke="#0284c7" stroke-width="2.5"/>
+            <line x1="-60" y1="0" x2="60" y2="0" stroke="#0284c7" stroke-width="2"/>
+            <line x1="0" y1="-60" x2="0" y2="60" stroke="#0284c7" stroke-width="2"/>
+            <text x="0" y="85" text-anchor="middle" fill="#0369a1" font-weight="bold" font-size="13">୪/୪ = ୧ ପୂର୍ଣ୍ଣ (Whole)</text>
+          </g>
+
+          <!-- Plus Sign -->
+          <text x="360" y="128" font-size="28" font-weight="bold" fill="#0f172a">+</text>
+
+          <!-- Circle 2: 3/4 Shaded -->
+          <g transform="translate(480, 120)">
+            <!-- 3 shaded quadrants -->
+            <path d="M 0 0 L 0 -60 A 60 60 0 1 1 -60 0 Z" fill="#bae6fd"/>
+            <circle cx="0" cy="0" r="60" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+            <line x1="-60" y1="0" x2="60" y2="0" stroke="#0284c7" stroke-width="2"/>
+            <line x1="0" y1="-60" x2="0" y2="60" stroke="#0284c7" stroke-width="2"/>
+            <text x="0" y="85" text-anchor="middle" fill="#0369a1" font-weight="bold" font-size="13">୩/୪ ଅଂଶ</text>
+          </g>
+
+          <text x="680" y="125" fill="#0f172a" font-weight="bold" font-size="16">= ୧ &frac34; (୭/୪)</text>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୭.୩: ରୁଟି ମଡେଲ୍ ଦ୍ୱାରା ଅପ୍ରକୃତ ଭଗ୍ନାଂଶ (୭/୪) କୁ ମିଶ୍ର ଭଗ୍ନାଂଶ (୧ &frac34;) ରେ ପରିଣତ କରିବା</div>
+      </div>
+
+      <h3 class="topic-title">୨.୨ ଭଗ୍ନାଂଶର ଯୋଗ ଓ ବିୟୋଗ (Addition &amp; Subtraction)</h3>
+      <p>ଭଗ୍ନାଂଶ ଯୋଗ କରିବା ସମୟରେ ମୁଖ୍ୟତଃ ଦୁଇଟି ପରିସ୍ଥିତି ଥାଏ:</p>
+      <ul>
+        <li><strong>ସଦୃଶ ଭଗ୍ନାଂଶ (Like Fractions):</strong> ହର ସମାନ ଥିଲେ ହର ଅପରିବର୍ତ୍ତିତ ରହେ ଏବଂ କେବଳ ଲବଗୁଡ଼ିକ ଯୋଗ ବା ବିୟୋଗ ହୁଏ: <span class="math-formula"><span class="frac"><sup>a</sup><sub>c</sub></span> &plusmn; <span class="frac"><sup>b</sup><sub>c</sub></span> = <span class="frac"><sup>a &plusmn; b</sup><sub>c</sub></span></span>।</li>
+        <li><strong>ବିସଦୃଶ ଭଗ୍ନାଂଶ (Unlike Fractions):</strong> ହର ଅସମାନ ଥିଲେ ପ୍ରଥମେ ହରମାନଙ୍କର <strong>ଲ.ସା.ଗୁ. (LCM)</strong> ନେଇ ସମହର ବିଶିଷ୍ଟ କରାଯାଏ, ତା'ପରେ ଯୋଗ ବା ବିୟୋଗ କରାଯାଏ।</li>
+      </ul>
+
+      <div class="callout callout-hack">
+        <div class="callout-title">💡 ପ୍ରାଚୀନ ଭାରତୀୟ ଗଣିତଜ୍ଞ ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ସୂତ୍ର (Brahmagupta's Rule)</div>
+        <p>ଖ୍ରୀଷ୍ଟାବ୍ଦ ୬୨୮ ରେ ମହାନ ଭାରତୀୟ ଗଣିତଜ୍ଞ <strong>ବ୍ରହ୍ମଗୁପ୍ତ</strong> ତାଙ୍କର ପ୍ରସିଦ୍ଧ ପୁସ୍ତକ 'ବ୍ରାହ୍ମସ୍ଫୁଟ ସିଦ୍ଧାନ୍ତ' ରେ ଭଗ୍ନାଂଶ ଯୋଗ ପାଇଁ ଏକ ସୁନ୍ଦର ନିୟମ ଦେଇଥିଲେ:</p>
+        <p style="text-align: center; font-size: 1.15rem; font-weight: 700; color: var(--purple);">
+          <span class="frac"><sup>a</sup><sub>b</sub></span> + <span class="frac"><sup>c</sup><sub>d</sub></span> = <span class="frac"><sup>ad + bc</sup><sub>bd</sub></span>
+        </p>
+        <p>ଏହାକୁ ଆଜି ଆମେ ବଜ୍ରଗୁଣନ ପଦ୍ଧତି (Cross Multiplication) ଭାବେ ବ୍ୟବହାର କରୁ!</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="section3">
+      <h2>Section 3: ତ୍ୱରିତ ପୁନରାବୃତ୍ତି ସୂତ୍ର ଓ ନିୟମ ଭଣ୍ଡାର (Formula &amp; Law Bank)</h2>
+      <p>ଭଗ୍ନାଂଶର ଗାଣିତିକ ନିୟମ ଓ ସୂତ୍ରାବଳୀ:</p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>କ୍ରିୟା / ନିୟମ</th>
+              <th>ଗାଣିତିକ ସୂତ୍ର</th>
+              <th>ପଦ୍ଧତି / ବ୍ୟାଖ୍ୟା</th>
+              <th>ଉଦାହରଣ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ସମତୁଲ୍ୟ ଭଗ୍ନାଂଶ ଗଠନ</strong></td>
+              <td><span class="math-formula"><span class="frac"><sup>a</sup><sub>b</sub></span> = <span class="frac"><sup>a &times; k</sup><sub>b &times; k</sub></span></span></td>
+              <td>ଲବ ଓ ହର ଉଭୟଙ୍କୁ ସମାନ ଶୂନେତର ସଂଖ୍ୟା ଦ୍ୱାରା ଗୁଣନ ବା ଭାଗ କଲେ</td>
+              <td><span class="frac"><sup>୨</sup><sub>୩</sub></span> = <span class="frac"><sup>୨ &times; ୪</sup><sub>୩ &times; ୪</sub></span> = <span class="frac"><sup>୮</sup><sub>୧୨</sub></span></td>
+            </tr>
+            <tr>
+              <td><strong>ଲଘୁଷ୍ଠ ଆକାରରେ ପ୍ରକାଶ</strong></td>
+              <td><span class="math-formula"><span class="frac"><sup>a &divide; HCF</sup><sub>b &divide; HCF</sub></span></span></td>
+              <td>ଲବ ଓ ହରଙ୍କ ଗ.ସା.ଗୁ. (HCF) ଦ୍ୱାରା ଉଭୟଙ୍କୁ ଭାଗ କଲେ</td>
+              <td><span class="frac"><sup>୧୨</sup><sub>୧୮</sub></span> (HCF=୬) &rArr; <span class="frac"><sup>୨</sup><sub>୩</sub></span></td>
+            </tr>
+            <tr>
+              <td><strong>ମିଶ୍ରରୁ ଅପ୍ରକୃତ ରୂପାନ୍ତର</strong></td>
+              <td><span class="math-formula">A <span class="frac"><sup>b</sup><sub>c</sub></span> = <span class="frac"><sup>(A &times; c) + b</sup><sub>c</sub></span></span></td>
+              <td>ପୂର୍ଣ୍ଣସଂଖ୍ୟା &times; ହର + ଲବ</td>
+              <td>୩ <span class="frac"><sup>୨</sup><sub>୫</sub></span> = <span class="frac"><sup>(୩ &times; ୫) + ୨</sup><sub>୫</sub></span> = <span class="frac"><sup>୧୭</sup><sub>୫</sub></span></td>
+            </tr>
+            <tr>
+              <td><strong>ଅପ୍ରକୃତରୁ ମିଶ୍ର ରୂପାନ୍ତର</strong></td>
+              <td><span class="math-formula"><span class="frac"><sup>N</sup><sub>D</sub></span> = Q <span class="frac"><sup>R</sup><sub>D</sub></span></span></td>
+              <td>ଭାଗଫଳ (Q) ହେବ ପୂର୍ଣ୍ଣସଂଖ୍ୟା, ଭାଗଶେଷ (R) ହେବ ଲବ</td>
+              <td><span class="frac"><sup>୧୪</sup><sub>୩</sub></span> = ୪ <span class="frac"><sup>୨</sup><sub>୩</sub></span> (୧୪ &divide; ୩: Q=୪, R=୨)</td>
+            </tr>
+            <tr>
+              <td><strong>ଭଗ୍ନାଂଶର ତୁଳନା (Cross)</strong></td>
+              <td>ad > bc ହେଲେ <span class="frac"><sup>a</sup><sub>b</sub></span> > <span class="frac"><sup>c</sup><sub>d</sub></span></td>
+              <td>ବଜ୍ରଗୁଣନ କରି ତୁଳନା କରାଯାଏ</td>
+              <td><span class="frac"><sup>୩</sup><sub>୫</sub></span> ଓ <span class="frac"><sup>୪</sup><sub>୭</sub></span>: ୩&times;୭=୨୧ > ୫&times;୪=୨୦ &rArr; <span class="frac"><sup>୩</sup><sub>୫</sub></span> > <span class="frac"><sup>୪</sup><sub>୭</sub></span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="section4">
+      <h2>Section 4: ୧୦୦% ସମ୍ପୂର୍ଣ୍ଣ NCERT ପାଠ୍ୟପୁସ୍ତକ ସମାଧାନ (5-Step Topper Format)</h2>
+      <p>NEP ଗଣିତ ପ୍ରକାଶ ଅଧ୍ୟାୟ ୭ ର ସମସ୍ତ ଅଭ୍ୟାସ ପ୍ରଶ୍ନର ପଦକ୍ଷେପ-ୱାରୀ ଆଦର୍ଶ ସମାଧାନ:</p>
+
+      <!-- NCERT Q1 -->
+      <details class="ans-box" open>
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ରଙ୍ଗିନ ଅଂଶ ଓ ଭଗ୍ନାଂଶ ଚିହ୍ନଟ (Shaded Fractions)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୧:</strong> ନିମ୍ନଲିଖିତ ପ୍ରତ୍ୟେକ ପ୍ରଶ୍ନର ସଠିକ୍ ଭଗ୍ନାଂଶ ନିର୍ଣ୍ଣୟ କରନ୍ତୁ:<br>
+          (କ) ଏକ ଦିନର କେଉଁ ଭଗ୍ନାଂଶ ହେଉଛି ୮ ଘଣ୍ଟା?<br>
+          (ଖ) ଏକ ଘଣ୍ଟାର କେଉଁ ଭଗ୍ନାଂଶ ହେଉଛି ୪୦ ମିନିଟ୍?<br>
+          (ଗ) ୨ ରୁ ୧୨ ମଧ୍ୟରେ ଥିବା ସମସ୍ତ ଗଣନ ସଂଖ୍ୟା ମଧ୍ୟରୁ ମୌଳିକ ସଂଖ୍ୟାଗୁଡ଼ିକ କେଉଁ ଭଗ୍ନାଂଶ?</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (କ ର ଗଣନା):</span> ୧ ଦିନ = ୨୪ ଘଣ୍ଟା। ପ୍ରଦତ୍ତ = ୮ ଘଣ୍ଟା। ଭଗ୍ନାଂଶ = <span class="frac"><sup>୮</sup><sub>୨୪</sub></span> = <strong><span class="frac"><sup>୧</sup><sub>୩</sub></span></strong> (ଉଭୟଙ୍କୁ ୮ ଦ୍ୱାରା ଭାଗ କଲେ)।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଖ ର ଗଣନା):</span> ୧ ଘଣ୍ଟା = ୬୦ ମିନିଟ୍। ପ୍ରଦତ୍ତ = ୪୦ ମିନିଟ୍। ଭଗ୍ନାଂଶ = <span class="frac"><sup>୪୦</sup><sub>୬୦</sub></span> = <strong><span class="frac"><sup>୨</sup><sub>୩</sub></span></strong> (୨୦ ଦ୍ୱାରା ଲଘୁଷ୍ଠ କଲେ)।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ଗ ର ସଂଖ୍ୟା ସଂଗ୍ରହ):</span> ୨ ରୁ ୧୨ ପର୍ଯ୍ୟନ୍ତ ସଂଖ୍ୟା: ୨, ୩, ୪, ୫, ୬, ୭, ୮, ୯, ୧୦, ୧୧, ୧୨ &rArr; ସମୁଦାୟ ୧୧ ଟି ସଂଖ୍ୟା।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ମୌଳିକ ସଂଖ୍ୟା ବାଛିବା):</span> ଏହି ୧୧ଟି ସଂଖ୍ୟା ମଧ୍ୟରୁ ମୌଳିକ ସଂଖ୍ୟାଗୁଡ଼ିକ ହେଲା: ୨, ୩, ୫, ୭, ୧୧ &rArr; ସମୁଦାୟ ୫ ଟି ସଂଖ୍ୟା।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) <span class="frac"><sup>୧</sup><sub>୩</sub></span> &bull; (ଖ) <span class="frac"><sup>୨</sup><sub>୩</sub></span> &bull; (ଗ) <span class="frac"><sup>୫</sup><sub>୧୧</sub></span>।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Q2 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ସମତୁଲ୍ୟ ଭଗ୍ନାଂଶ ଓ ଲଘୁଷ୍ଠ ଆକାର</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୨:</strong><br>
+          (କ) <span class="frac"><sup>୩</sup><sub>୫</sub></span> ର ଏପରି ଏକ ସମତୁଲ୍ୟ ଭଗ୍ନାଂଶ ଖୋଜନ୍ତୁ ଯାହାର ହର ୨୦ ହୋଇଥିବ।<br>
+          (ଖ) <span class="frac"><sup>୩୬</sup><sub>୪୮</sub></span> ର ଏକ ସମତୁଲ୍ୟ ଭଗ୍ନାଂଶ ଖୋଜନ୍ତୁ ଯାହାର ଲବ ୯ ହୋଇଥିବ।<br>
+          (ଗ) <span class="frac"><sup>୮୪</sup><sub>୯୮</sub></span> କୁ ତାର ଲଘୁଷ୍ଠ ଆକାର (Simplest Form) ରେ ପ୍ରକାଶ କରନ୍ତୁ।</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (କ ର ସମାଧାନ):</span> ହର ୫ କୁ ୨୦ କରିବାକୁ ହେଲେ ୪ ଗୁଣନ କରିବାକୁ ପଡ଼ିବ। ତେଣୁ ଲବକୁ ମଧ୍ୟ ୪ ଗୁଣନ କରିବା: <span class="frac"><sup>୩ &times; ୪</sup><sub>୫ &times; ୪</sub></span> = <strong><span class="frac"><sup>୧୨</sup><sub>୨୦</sub></span></strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଖ ର ସମାଧାନ):</span> ଲବ ୩୬ କୁ ୯ କରିବାକୁ ହେଲେ ୪ ଦ୍ୱାରା ଭାଗ କରିବାକୁ ହେବ (୩୬ &divide; ୪ = ୯)। ତେଣୁ ହରକୁ ମଧ୍ୟ ୪ ଦ୍ୱାରା ଭାଗ କରିବା: ୪୮ &divide; ୪ = ୧୨। ତେଣୁ ଭଗ୍ନାଂଶ = <strong><span class="frac"><sup>୯</sup><sub>୧୨</sub></span></strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ଗ ପାଇଁ HCF ନିର୍ଣ୍ଣୟ):</span> ୮୪ ଏବଂ ୯୮ ର ଗ.ସା.ଗୁ. (HCF) ନିର୍ଣ୍ଣୟ କରିବା:<br>
+            ୮୪ = ୧୪ &times; ୬, ୯୮ = ୧୪ &times; ୭। HCF = ୧୪।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଲଘୁଷ୍ଠ ଆକାର):</span> ଉଭୟ ଲବ ଓ ହରକୁ ୧୪ ଦ୍ୱାରା ଭାଗ କଲେ: <span class="frac"><sup>୮୪ &divide; ୧୪</sup><sub>୯୮ &divide; ୧୪</sub></span> = <strong><span class="frac"><sup>୬</sup><sub>୭</sub></span></strong>।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) <span class="frac"><sup>୧୨</sup><sub>୨୦</sub></span> &bull; (ଖ) <span class="frac"><sup>୯</sup><sub>୧୨</sub></span> &bull; (ଗ) ଲଘୁଷ୍ଠ ଆକାର = <span class="frac"><sup>୬</sup><sub>୭</sub></span>।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Q3 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ଭଗ୍ନାଂଶର ଯୋଗ ଓ ବିୟୋଗ ସମାଧାନ</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୩:</strong> ସମାଧାନ କରନ୍ତୁ:<br>
+          (କ) <span class="frac"><sup>୫</sup><sub>୮</sub></span> + <span class="frac"><sup>୧</sup><sub>୮</sub></span><br>
+          (ଖ) <span class="frac"><sup>୩</sup><sub>୪</sub></span> + <span class="frac"><sup>୧</sup><sub>୩</sub></span><br>
+          (ଗ) ୪ <span class="frac"><sup>୨</sup><sub>୩</sub></span> &minus; ୨ <span class="frac"><sup>୧</sup><sub>୫</sub></span></p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (କ - ସଦୃଶ ଭଗ୍ନାଂଶ):</span> <span class="frac"><sup>୫</sup><sub>୮</sub></span> + <span class="frac"><sup>୧</sup><sub>୮</sub></span> = <span class="frac"><sup>୫ + ୧</sup><sub>୮</sub></span> = <span class="frac"><sup>୬</sup><sub>୮</sub></span> = <strong><span class="frac"><sup>୩</sup><sub>୪</sub></span></strong> (୨ ଦ୍ୱାରା ଲଘୁଷ୍ଠ କଲେ)।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଖ - ବିସଦୃଶ ଭଗ୍ନାଂଶ):</span> ହର ୪ ଓ ୩ ର ଲ.ସା.ଗୁ. = ୧୨।<br>
+            <span class="frac"><sup>୩</sup><sub>୪</sub></span> = <span class="frac"><sup>୩ &times; ୩</sup><sub>୪ &times; ୩</sub></span> = <span class="frac"><sup>୯</sup><sub>୧୨</sub></span> ଏବଂ <span class="frac"><sup>୧</sup><sub>୩</sub></span> = <span class="frac"><sup>୧ &times; ୪</sup><sub>୩ &times; ୪</sub></span> = <span class="frac"><sup>୪</sup><sub>୧୨</sub></span>।<br>
+            ଯୋଗଫଳ = <span class="frac"><sup>୯ + ୪</sup><sub>୧୨</sub></span> = <strong><span class="frac"><sup>୧୩</sup><sub>୧୨</sub></span></strong> = <strong>୧ <span class="frac"><sup>୧</sup><sub>୧୨</sub></span></strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ଗ - ମିଶ୍ର ଭଗ୍ନାଂଶ ବିୟୋଗ):</span> ପ୍ରଥମେ ଅପ୍ରକୃତ ଭଗ୍ନାଂଶରେ ପରିଣତ କରିବା:<br>
+            ୪ <span class="frac"><sup>୨</sup><sub>୩</sub></span> = <span class="frac"><sup>(୪&times;୩)+୨</sup><sub>୩</sub></span> = <span class="frac"><sup>୧୪</sup><sub>୩</sub></span><br>
+            ୨ <span class="frac"><sup>୧</sup><sub>୫</sub></span> = <span class="frac"><sup>(୨&times;୫)+୧</sup><sub>୫</sub></span> = <span class="frac"><sup>୧୧</sup><sub>୫</sub></span></div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ବ୍ରହ୍ମଗୁପ୍ତ ସୂତ୍ର ପ୍ରୟୋଗ):</span> <span class="frac"><sup>୧୪</sup><sub>୩</sub></span> &minus; <span class="frac"><sup>୧୧</sup><sub>୫</sub></span> = <span class="frac"><sup>(୧୪ &times; ୫) &minus; (୧୧ &times; ୩)</sup><sub>୩ &times; ୫</sub></span> = <span class="frac"><sup>୭୦ &minus; ୩୩</sup><sub>୧୫</sub></span> = <span class="frac"><sup>୩୭</sup><sub>୧୫</sub></span> = <strong>୨ <span class="frac"><sup>୭</sup><sub>୧୫</sub></span></strong>।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) <span class="frac"><sup>୩</sup><sub>୪</sub></span> &bull; (ଖ) ୧ <span class="frac"><sup>୧</sup><sub>୧୨</sub></span> &bull; (ଗ) ୨ <span class="frac"><sup>୭</sup><sub>୧୫</sub></span>।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Q4 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ସୁନୀତାଙ୍କ ଯାତ୍ରା ସମସ୍ୟା (Word Problem)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୪:</strong> ସୁନୀତା ତାଙ୍କ ବିଦ୍ୟାଳୟରେ ପହଞ୍ଚିବା ପାଇଁ ୧ <span class="frac"><sup>୧</sup><sub>୨</sub></span> କିମି ଚାଲିକରି ଗଲେ, ଏବଂ ତା'ପରେ ୩ <span class="frac"><sup>୩</sup><sub>୪</sub></span> କିମି ରିକ୍ସାରେ ଗଲେ। ସେ ସମୁଦାୟ କେତେ ଦୂରତା ଅତିକ୍ରମ କଲେ?</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ପାଦରେ ଚାଲିଥିବା ଦୂରତା = ୧ <span class="frac"><sup>୧</sup><sub>୨</sub></span> କିମି = <span class="frac"><sup>୩</sup><sub>୨</sub></span> କିମି। ରିକ୍ସାରେ ଯାଇଥିବା ଦୂରତା = ୩ <span class="frac"><sup>୩</sup><sub>୪</sub></span> କିମି = <span class="frac"><sup>୧୫</sup><sub>୪</sub></span> କିମି।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ମୋଟ ଦୂରତା ସୂତ୍ର):</span> ମୋଟ ଦୂରତା = <span class="frac"><sup>୩</sup><sub>୨</sub></span> + <span class="frac"><sup>୧୫</sup><sub>୪</sub></span>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ସମହର ବିଶିଷ୍ଟ କରିବା):</span> ହର ୨ ଏବଂ ୪ ର ଲ.ସା.ଗୁ. = ୪।<br>
+            <span class="frac"><sup>୩</sup><sub>୨</sub></span> = <span class="frac"><sup>୩ &times; ୨</sup><sub>୨ &times; ୨</sub></span> = <span class="frac"><sup>୬</sup><sub>୪</sub></span>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଯୋଗଫଳ ଗଣନା):</span> <span class="frac"><sup>୬</sup><sub>୪</sub></span> + <span class="frac"><sup>୧୫</sup><sub>୪</sub></span> = <span class="frac"><sup>୬ + ୧୫</sup><sub>୪</sub></span> = <span class="frac"><sup>୨୧</sup><sub>୪</sub></span> କିମି = <strong>୫ <span class="frac"><sup>୧</sup><sub>୪</sub></span> କିମି</strong>।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: ସୁନୀତା ସମୁଦାୟ <strong>୫ <span class="frac"><sup>୧</sup><sub>୪</sub></span> କିମି (ବା ୫.୨୫ କିମି)</strong> ଦୂରତା ଅତିକ୍ରମ କଲେ।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="section5">
+      <h2>Section 5: ପରୀକ୍ଷା ଉପଯୋଗୀ ପ୍ରଶ୍ନୋତ୍ତର ବ୍ୟାଙ୍କ ଓ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍ (Exam Question Bank &amp; Quiz Engine)</h2>
+      <p>ସମସ୍ତ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ପ୍ରଶ୍ନ ଏବଂ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍:</p>
+
+      <div class="quiz-score-board" id="quizScoreBoard">
+        🎯 ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍ ସ୍କୋର: <span id="currentScore">୦</span> / <span id="totalQuestions">୫</span> ସଠିକ୍
+      </div>
+
+      <!-- Part A: Interactive MCQs -->
+      <h3>ଭାଗ 'କ': ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନାବଳୀ (Interactive MCQs with Instant Feedback)</h3>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card" id="quiz-card-1">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୧: ଯେଉଁ ଭଗ୍ନାଂଶର ଲବ ତାର ହରଠାରୁ ଛୋଟ ଥାଏ (ଲବ &lt; ହର), ତାହାକୁ କି ପ୍ରକାର ଭଗ୍ନାଂଶ କୁହାଯାଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 0, true, 'ନିର୍ଭୁଲ! ଲବ < ହର ହେଲେ ତାହା ପ୍ରକୃତ ଭଗ୍ନାଂଶ (Proper Fraction) ଅଟେ।')">
+            <span>(A) ପ୍ରକୃତ ଭଗ୍ନାଂଶ (Proper)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 1, false, 'ଭୁଲ! ଅପ୍ରକୃତ ଭଗ୍ନାଂଶରେ ଲବ &ge; ହର ହୁଏ।')">
+            <span>(B) ଅପ୍ରକୃତ ଭଗ୍ନାଂଶ (Improper)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 2, false, 'ଭୁଲ! ମିଶ୍ର ଭଗ୍ନାଂଶରେ ଏକ ପୂର୍ଣ୍ଣ ସଂଖ୍ୟା ମଧ୍ୟ ଥାଏ।')">
+            <span>(C) ମିଶ୍ର ଭଗ୍ନାଂଶ (Mixed)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 3, false, 'ଭୁଲ! ଏକକ ଭଗ୍ନାଂଶର ଲବ କେବଳ ୧ ଥାଏ।')">
+            <span>(D) ଏକକ ଭଗ୍ନାଂଶ (Unit)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-1-fb"></div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card" id="quiz-card-2">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୨: ଅପ୍ରକୃତ ଭଗ୍ନାଂଶ ୧୭/୫ କୁ ମିଶ୍ର ଭଗ୍ନାଂଶରେ ରୂପାନ୍ତର କଲେ କେତେ ହେବ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 0, false, 'ଭୁଲ! ୨ ପୂର୍ଣ୍ଣ ୭/୫ ରେ ୭/୫ ପୁନର୍ବାର ଅପ୍ରକୃତ ରହିଯାଇଛି।')">
+            <span>(A) ୨ <span class="frac"><sup>୭</sup><sub>୫</sub></span></span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 1, true, 'ସଠିକ୍ ଉତ୍ତର! ୧୭ ÷ ୫ କଲେ ଭାଗଫଳ ୩ ଏବଂ ଭାଗଶେଷ ୨ ରହେ, ତେଣୁ ୩ ପୂର୍ଣ୍ଣ ୨/୫।')">
+            <span>(B) ୩ <span class="frac"><sup>୨</sup><sub>୫</sub></span></span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 2, false, 'ଭୁଲ! ୩ ପୂର୍ଣ୍ଣ ୧/୫ = ୧୬/୫ ହେବ।')">
+            <span>(C) ୩ <span class="frac"><sup>୧</sup><sub>୫</sub></span></span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 3, false, 'ଭୁଲ! ୪ ପୂର୍ଣ୍ଣ ହେଲେ ୨୦ ରୁ ଅଧିକ ହେବ।')">
+            <span>(D) ୪ <span class="frac"><sup>୨</sup><sub>୫</sub></span></span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-2-fb"></div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card" id="quiz-card-3">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୩: ୨/୩ ଏବଂ ୪/୫ ମଧ୍ୟରୁ କେଉଁ ଭଗ୍ନାଂଶଟି ବୃହତ୍ତର?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 0, false, 'ଭୁଲ! ବଜ୍ରଗୁଣନ ଯାଞ୍ଚ କରନ୍ତୁ: ୨ × ୫ = ୧୦।')">
+            <span>(A) ୨/୩</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 1, true, 'ଚମତ୍କାର! ବଜ୍ରଗୁଣନ: ୨ × ୫ = ୧୦ ଏବଂ ୩ × ୪ = ୧୨। ଯେହେତୁ ୧୨ > ୧୦, ତେଣୁ ୪/୫ ବୃହତ୍ତର।')">
+            <span>(B) ୪/୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 2, false, 'ଭୁଲ! ଏମାନେ ସମାନ ନୁହନ୍ତି।')">
+            <span>(C) ଉଭୟ ସମାନ</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 3, false, 'ଭୁଲ! ନିର୍ଣ୍ଣୟ ସମ୍ଭବ।')">
+            <span>(D) ନିର୍ଣ୍ଣୟ ଅସମ୍ଭବ</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-3-fb"></div>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="quiz-card" id="quiz-card-4">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୪: ଭଗ୍ନାଂଶ ୧୮/୨୪ ର ଲଘୁଷ୍ଠ ଆକାର (Simplest Form) କେଉଁଟି?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 0, false, 'ଭୁଲ! ୯/୧୨ ଏପର୍ଯ୍ୟନ୍ତ ୩ ଦ୍ୱାରା କଟିପାରିବ।')">
+            <span>(A) ୯/୧୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 1, true, 'ନିର୍ଭୁଲ! ୧୮ ଓ ୨୪ ର HCF = ୬। ୧୮ ÷ ୬ = ୩ ଏବଂ ୨୪ ÷ ୬ = ୪, ତେଣୁ ୩/୪।')">
+            <span>(B) ୩/୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 2, false, 'ଭୁଲ! ୨/୩ ନୁହେଁ।')">
+            <span>(C) ୨/୩</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 3, false, 'ଭୁଲ! ୬/୮ ମଧ୍ୟ ସମ୍ପୂର୍ଣ୍ଣ ଲଘୁଷ୍ଠ ନୁହେଁ।')">
+            <span>(D) ୬/୮</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-4-fb"></div>
+      </div>
+
+      <!-- Quiz 5 -->
+      <div class="quiz-card" id="quiz-card-5">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୫: ୨/୭ + ୩/୭ ର ସରଳ ମୂଲ୍ୟ କେତେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 0, true, 'ସଠିକ୍! ସଦୃଶ ଭଗ୍ନାଂଶ ହୋଇଥିବାରୁ ହର ୭ ରହିବ ଏବଂ ଲବ ଯୋଗ ହେବ: (୨+୩)/୭ = ୫/୭।')">
+            <span>(A) ୫/୭</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 1, false, 'ଭୁଲ! ହରକୁ କେବେବି ଯୋଗ କରାଯାଏ ନାହିଁ (୭+୭=୧୪ ଭୁଲ)।')">
+            <span>(B) ୫/୧୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 2, false, 'ଭୁଲ! ୬/୪୯ ଗୁଣନ ଫଳ ଅଟେ।')">
+            <span>(C) ୬/୪୯</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 3, false, 'ଭୁଲ! ୧ ନୁହେଁ।')">
+            <span>(D) ୧</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-5-fb"></div>
+      </div>
+
+      <!-- Part B: Subjective Questions -->
+      <h3 style="margin-top: 2rem;">ଭାଗ 'ଖ': ସଂକ୍ଷିପ୍ତ ଓ ଦୀର୍ଘ ଉତ୍ତରମୂଳକ ପରୀକ୍ଷା ପ୍ରଶ୍ନୋତ୍ତର (Subjective Question Bank)</h3>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୬ (୨ ମାର୍କ): ସଂଖ୍ୟାରେଖାରେ ୩/୫ କୁ କିପରି ସ୍ଥାପନ କରାଯାଏ ବୁଝାଅ।</summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong></p>
+          <ol>
+            <li>ପ୍ରଥମେ ଏକ ସିଧା ସଂଖ୍ୟାରେଖା ଟାଣି ସେଥିରେ ୦ ଏବଂ ୧ ବିନ୍ଦୁ ଚିହ୍ନିତ କରନ୍ତୁ।</li>
+            <li>ଯେହେତୁ ହର = ୫, ତେଣୁ ୦ ଏବଂ ୧ ମଧ୍ୟବର୍ତ୍ତୀ ଦୂରତାକୁ ସ୍କେଲ୍ ସାହାଯ୍ୟରେ <strong>୫ଟି ସମାନ ଭାଗରେ</strong> ବିଭକ୍ତ କରନ୍ତୁ।</li>
+            <li>ପ୍ରତ୍ୟେକ ଭାଗ <span class="frac"><sup>୧</sup><sub>୫</sub></span> କୁ ଦର୍ଶାଇବ।</li>
+            <li>୦ ରୁ ଡାହାଣକୁ ୩ୟ ବିନ୍ଦୁଟି ଠିକ୍ <strong><span class="frac"><sup>୩</sup><sub>୫</sub></span></strong> ସ୍ଥାନକୁ ନିର୍ଦ୍ଦେଶ କରିବ।</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୭ (୩ ମାର୍କ): ଭଗ୍ନାଂଶ ଯୋଗ କରିବା ସମୟରେ ହରଗୁଡ଼ିକୁ କାହିଁକି ସିଧାସଳଖ ଯୋଗ କରାଯାଏ ନାହିଁ?</summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong></p>
+          <p>ହର ହେଉଛି ଏକ ସମ୍ପୂର୍ଣ୍ଣ ବସ୍ତୁକୁ କେତେ ଭାଗ କରାଯାଇଛି ତାର ମାପକ (ଭାଗର ଆକାର)। ଉଦାହରଣ ସ୍ୱରୂପ, <span class="frac"><sup>୧</sup><sub>୨</sub></span> + <span class="frac"><sup>୧</sup><sub>୨</sub></span> କଲେ ଦୁଇଟି ଅର୍ଦ୍ଧେକ ମିଶି <strong>୧ ସମ୍ପୂର୍ଣ୍ଣ</strong> ହୁଏ (<span class="frac"><sup>୨</sup><sub>୨</sub></span> = ୧)।</p>
+          <p>ଯଦି ଆମେ ହରକୁ ଯୋଗ କରିଦେବା (<span class="frac"><sup>୧+୧</sup><sub>୨+୨</sub></span> = <span class="frac"><sup>୨</sup><sub>୪</sub></span> = <span class="frac"><sup>୧</sup><sub>୨</sub></span>), ତେବେ ଦୁଇଟି ଅଧା ରୁଟି ମିଶି ପୁଣି ଗୋଟିଏ ଅଧା ରୁଟି ହୋଇଯିବ, ଯାହା ସମ୍ପୂର୍ଣ୍ଣ ଅବାସ୍ତବ ଓ ଭୁଲ୍! ତେଣୁ ହର କେବଳ ଭାଗର ପ୍ରକାର ଦର୍ଶାଉଥିବାରୁ ତାହାକୁ ଯୋଗ କରାଯାଏ ନାହିଁ।</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୮ (୫ ମାର୍କ ଦକ୍ଷତା ଭିତ୍ତିକ): ଗୋଟିଏ କେକ୍ କୁ ତିନିଜଣ ସାଙ୍ଗଙ୍କ ମଧ୍ୟରେ ବଣ୍ଟାଗଲା। ରମେଶ ନେଲା ୧/୪ ଅଂଶ, ସୁରେଶ ନେଲା ୧/୩ ଅଂଶ ଏବଂ ଅବଶିଷ୍ଟ ଅଂଶ ମହେଶ ପାଇଲା। (କ) ରମେଶ ଓ ସୁରେଶ ମିଶି କେକ୍ ର କେତେ ଭଗ୍ନାଂଶ ଖାଇଲେ? (ଖ) ମହେଶ କେକ୍ ର କେତେ ଭଗ୍ନାଂଶ ପାଇଲା? (ଗ) କିଏ ସବୁଠାରୁ ବଡ଼ ଅଂଶ ପାଇଲା?</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ରମେଶ = <span class="frac"><sup>୧</sup><sub>୪</sub></span>, ସୁରେଶ = <span class="frac"><sup>୧</sup><sub>୩</sub></span>। ସମ୍ପୂର୍ଣ୍ଣ କେକ୍ = ୧।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (କ ର ସମାଧାନ):</span> ଉଭୟଙ୍କ ମୋଟ ଅଂଶ = <span class="frac"><sup>୧</sup><sub>୪</sub></span> + <span class="frac"><sup>୧</sup><sub>୩</sub></span>।<br>
+            ହର ୪ ଓ ୩ ର ଲ.ସା.ଗୁ. = ୧୨।<br>
+            <span class="frac"><sup>୩</sup><sub>୧୨</sub></span> + <span class="frac"><sup>୪</sup><sub>୧୨</sub></span> = <strong><span class="frac"><sup>୭</sup><sub>୧୨</sub></span> ଅଂଶ</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ଖ ର ସମାଧାନ):</span> ମହେଶ ପାଇଥିବା ଅଂଶ = ସମ୍ପୂର୍ଣ୍ଣ କେକ୍ &minus; (<span class="frac"><sup>୭</sup><sub>୧୨</sub></span>)<br>
+            = ୧ &minus; <span class="frac"><sup>୭</sup><sub>୧୨</sub></span> = <span class="frac"><sup>୧୨</sup><sub>୧୨</sub></span> &minus; <span class="frac"><sup>୭</sup><sub>୧୨</sub></span> = <strong><span class="frac"><sup>୫</sup><sub>୧୨</sub></span> ଅଂଶ</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଗ ର ତୁଳନା):</span> ସମସ୍ତଙ୍କ ଅଂଶକୁ ସମହର (୧୨) ବିଶିଷ୍ଟ କରି ତୁଳନା କରିବା:<br>
+            ରମେଶ = <span class="frac"><sup>୩</sup><sub>୧୨</sub></span> ; ସୁରେଶ = <span class="frac"><sup>୪</sup><sub>୧୨</sub></span> ; ମହେଶ = <span class="frac"><sup>୫</sup><sub>୧୨</sub></span>।<br>
+            ଯେହେତୁ ୫ > ୪ > ୩, ତେଣୁ ମହେଶ ସବୁଠାରୁ ବୃହତ୍ତମ ଅଂଶ ପାଇଲା।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ସିଦ୍ଧାନ୍ତ: (କ) ରମେଶ ଓ ସୁରେଶ = <span class="frac"><sup>୭</sup><sub>୧୨</sub></span> &bull; (ଖ) ମହେଶ = <span class="frac"><sup>୫</sup><sub>୧୨</sub></span> &bull; (ଗ) ମହେଶ ସର୍ବାଧିକ ଅଂଶ ପାଇଲା।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="section6">
+      <h2>Section 6: ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା ଓ ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ତଥ୍ୟ (Exam Hall Traps &amp; One-Liners)</h2>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">⚠️ ସାଧାରଣ ଭ୍ରାନ୍ତି ସତର୍କତା (Exam Hall Traps)</div>
+        <ul>
+          <li><strong>ଭୁଲ ୧:</strong> ଭଗ୍ନାଂଶ ଯୋଗରେ ହରକୁ ଯୋଗ କରିବା! ଉଦାହରଣ: ୧/୩ + ୧/୩ = ୨/୬ ଲେଖିବା ସମ୍ପୂର୍ଣ୍ଣ ଭୁଲ୍। ସଠିକ୍ ଉତ୍ତର ହେଉଛି <strong>୨/୩</strong>!</li>
+          <li><strong>ଭୁଲ ୨:</strong> ମିଶ୍ର ଭଗ୍ନାଂଶକୁ ଅପ୍ରକୃତରେ ରୂପାନ୍ତର ନକରି ସିଧାସଳଖ ଗୁଣନ ବା ଯୋଗ କରିବା। ସର୍ବଦା ପ୍ରଥମେ ଅପ୍ରକୃତ ଭଗ୍ନାଂଶରେ ପରିଣତ କରନ୍ତୁ।</li>
+          <li><strong>ଭୁଲ ୩:</strong> କୌଣସି ଉତ୍ତରକୁ ତାର ଲଘୁଷ୍ଠ ଆକାରରେ ନଲେଖିବା। ଉଦାହରଣ: ପରୀକ୍ଷାରେ ୮/୧୨ ଲେଖି ଛାଡ଼ିଦେଲେ ଅଧା ମାର୍କ କଟିଯାଏ, ସର୍ବଦା ଏହାକୁ <strong>୨/୩</strong> ଆକାରରେ ପ୍ରକାଶ କରନ୍ତୁ।</li>
+        </ul>
+      </div>
+
+      <h3 class="topic-title">📌 ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ଏକ-ପଦୀ ତଥ୍ୟ (15 Rapid Revision One-Liners)</h3>
+      <ol style="line-height: 2; margin-left: 1.5rem;">
+        <li>ଏକ ସମ୍ପୂର୍ଣ୍ଣ ବସ୍ତୁର ସମାନ ଅଂଶକୁ <strong>ଭଗ୍ନାଂଶ (Fraction)</strong> କୁହାଯାଏ।</li>
+        <li>ଭଗ୍ନାଂଶର ଉପର ସଂଖ୍ୟାକୁ <strong>ଲବ (Numerator)</strong> ଏବଂ ତଳ ସଂଖ୍ୟାକୁ <strong>ହର (Denominator)</strong> କୁହାଯାଏ।</li>
+        <li>ଯେଉଁ ଭଗ୍ନାଂଶର ଲବ ୧ ହୁଏ, ତାହାକୁ <strong>ଏକକ ଭଗ୍ନାଂଶ (Unit Fraction)</strong> କୁହାଯାଏ।</li>
+        <li>ଲବ &lt; ହର ହେଲେ ତାହାକୁ <strong>ପ୍ରକୃତ ଭଗ୍ନାଂଶ (Proper Fraction)</strong> କୁହାଯାଏ (ମୂଲ୍ୟ &lt; ୧)।</li>
+        <li>ଲବ &ge; ହର ହେଲେ ତାହାକୁ <strong>ଅପ୍ରକୃତ ଭଗ୍ନାଂଶ (Improper Fraction)</strong> କୁହାଯାଏ (ମୂଲ୍ୟ &ge; ୧)।</li>
+        <li>ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଏବଂ ପ୍ରକୃତ ଭଗ୍ନାଂଶର ମିଳିତ ରୂପକୁ <strong>ମିଶ୍ର ଭଗ୍ନାଂଶ (Mixed Fraction)</strong> କୁହାଯାଏ।</li>
+        <li>ସମାନ ମୂଲ୍ୟ ପ୍ରକାଶ କରୁଥିବା ଭିନ୍ନ ଭଗ୍ନାଂଶଗୁଡ଼ିକୁ <strong>ସମତୁଲ୍ୟ ଭଗ୍ନାଂଶ (Equivalent)</strong> କୁହାଯାଏ।</li>
+        <li>ଲବ ଓ ହରର HCF ୧ ହେଲେ ଭଗ୍ନାଂଶଟି ତାର <strong>ଲଘୁଷ୍ଠ ଆକାର (Simplest Form)</strong> ରେ ଥାଏ।</li>
+        <li>ସମାନ ହର ଥିବା ଭଗ୍ନାଂଶମାନଙ୍କୁ <strong>ସଦୃଶ ଭଗ୍ନାଂଶ (Like Fractions)</strong> କୁହାଯାଏ।</li>
+        <li>ଅସମାନ ହର ଥିବା ଭଗ୍ନାଂଶମାନଙ୍କୁ <strong>ବିସଦୃଶ ଭଗ୍ନାଂଶ (Unlike Fractions)</strong> କୁହାଯାଏ।</li>
+        <li>ସଦୃଶ ଭଗ୍ନାଂଶ ମଧ୍ୟରେ ଯାହାର <strong>ଲବ ବଡ଼, ସେହି ଭଗ୍ନାଂଶଟି ବୃହତ୍ତର</strong> ହୁଏ।</li>
+        <li>ସମାନ ଲବ ଥିବା ଭଗ୍ନାଂଶ ମଧ୍ୟରେ ଯାହାର <strong>ହର ଛୋଟ, ସେହି ଭଗ୍ନାଂଶଟି ବୃହତ୍ତର</strong> ହୁଏ।</li>
+        <li>ବିସଦୃଶ ଭଗ୍ନାଂଶ ଯୋଗ କରିବା ପାଇଁ ହରମାନଙ୍କର <strong>ଲ.ସା.ଗୁ. (LCM)</strong> ନେବା ଆବଶ୍ୟକ।</li>
+        <li>ମହାନ ଭାରତୀୟ ଗଣିତଜ୍ଞ <strong>ବ୍ରହ୍ମଗୁପ୍ତ</strong> ପ୍ରଥମେ ବଜ୍ରଗୁଣନ ଯୋଗ ସୂତ୍ର ପ୍ରଦାନ କରିଥିଲେ।</li>
+        <li>ଭଗ୍ନାଂଶ ଯୋଗ ବା ବିୟୋଗ ସମୟରେ <strong>ହର କେବେବି ଯୋଗ ବା ବିୟୋଗ ହୁଏ ନାହିଁ</strong>।</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      const btn = document.getElementById('backToTopBtn');
+      if (winScroll > 350) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+
+    function toggleAllAnswers(openState) {
+      document.querySelectorAll('details.ans-box').forEach(el => {
+        el.open = openState;
+      });
+    }
+
+    let quizScore = 0;
+    const answeredQuizzes = new Set();
+
+    function checkQuiz(cardId, optionIndex, isCorrect, explanation) {
+      const card = document.getElementById(cardId);
+      const buttons = card.querySelectorAll('.quiz-opt-btn');
+      const fb = document.getElementById(cardId + '-fb');
+
+      if (answeredQuizzes.has(cardId)) return;
+      answeredQuizzes.add(cardId);
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        const ind = btn.querySelector('.quiz-opt-indicator');
+        if (idx === optionIndex) {
+          if (isCorrect) {
+            btn.classList.add('correct-opt');
+            ind.innerHTML = ' &check; (ସଠିକ୍)';
+          } else {
+            btn.classList.add('wrong-opt');
+            ind.innerHTML = ' &cross; (ଭୁଲ)';
+          }
+        }
+      });
+
+      if (!isCorrect) {
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct-opt');
+            btn.querySelector('.quiz-opt-indicator').innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          }
+        });
+      }
+
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.className = 'quiz-feedback correct-fb';
+        fb.innerHTML = '<strong>ଠିକ୍ ଉତ୍ତର! 🎉</strong> ' + explanation;
+        quizScore++;
+      } else {
+        fb.className = 'quiz-feedback incorrect-fb';
+        fb.innerHTML = '<strong>ଭୁଲ ଉତ୍ତର! ⚠️</strong> ' + explanation;
+      }
+
+      document.getElementById('currentScore').innerText = quizScore;
+    }
+
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Text-to-Speech ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+      } else {
+        const text = "ନମସ୍କାର ପିଲାମାନେ! ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତର ସପ୍ତମ ଅଧ୍ୟାୟ 'ଭଗ୍ନାଂଶ' କୁ ସ୍ୱାଗତ। କୌଣସି ପୂର୍ଣ୍ଣ ବସ୍ତୁର ସମାନ ଭାଗକୁ ଭଗ୍ନାଂଶ କୁହାଯାଏ। ଉପର ସଂଖ୍ୟାକୁ ଲବ ଓ ତଳ ସଂଖ୍ୟାକୁ ହର କୁହାଯାଏ। ପ୍ରକୃତ ଭଗ୍ନାଂଶରେ ଲବ ସାନ ଥାଏ, ଅପ୍ରକୃତରେ ଲବ ବଡ଼ ଥାଏ। ସମତୁଲ୍ୟ ଭଗ୍ନାଂଶର ମୂଲ୍ୟ ସର୍ବଦା ସମାନ ରହେ। ଭଗ୍ନାଂଶ ଯୋଗ ବା ବିୟୋଗ କରିବା ସମୟରେ ହର କେବେବି ଯୋଗ ହୁଏ ନାହିଁ। ପ୍ରାଚୀନ ଭାରତୀୟ ଗଣିତଜ୍ଞ ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ନିୟମ ଅନୁସାରେ ଆମେ ବଜ୍ରଗୁଣନ ଦ୍ୱାରା ଯୋଗ କରିଥାଉ। ମନଦେଇ ଅଭ୍ୟାସ କରନ୍ତୁ!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'or-IN';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>";
+      }
+    }
+  </script>
+</body>
+</html>
