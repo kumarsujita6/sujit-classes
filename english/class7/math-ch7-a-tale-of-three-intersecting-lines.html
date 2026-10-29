@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 7 Mathematics Chapter 7: A Tale of Three Intersecting Lines - Master Study Notes (Ganita Prakash)</title>
+  <meta name="description" content="Comprehensive, zero-omission teacher notes for Class 7 Maths Chapter 7: A Tale of Three Intersecting Lines (NCERT Ganita Prakash). Master triangle inequality, angle sum property, medians, altitudes, types of triangles, and full NCERT solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #059669 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #0369a1;
+      border: none;
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    /* Callout Boxes */
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-def { background: #f0fdf4; border-color: #10b981; color: #065f46; }
+    .callout-def i { color: #059669; }
+
+    .callout-act { background: #eff6ff; border-color: #3b82f6; color: #1e3a8a; }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq { background: #fffbeb; border-color: #f59e0b; color: #78350f; }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack { background: #faf5ff; border-color: #a855f7; color: #581c87; }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn { background: #fef2f2; border-color: #ef4444; color: #7f1d1d; }
+    .callout-warn i { color: #dc2626; }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+
+    /* 5-Step Solution Box */
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.2rem 0;
+    }
+
+    .step-item {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .step-label {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 90px;
+    }
+
+    .step-ans {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      margin-top: 0.8rem;
+      font-weight: 700;
+      color: #166534;
+    }
+
+    /* Collapsible Details Answers */
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    /* Diagrams */
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    /* Quiz Engine */
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+    }
+
+    .correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700 !important;
+    }
+
+    .wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Overview &amp; Mind Map</a>
+      <a href="#sec2" class="nav-link">2. Core Concepts</a>
+      <a href="#sec3" class="nav-link">3. In-Text Activities</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Practice Quiz</a>
+      <a href="#sec6" class="nav-link">6. Teacher Hacks</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge"><i class="fa-solid fa-calculator"></i> Class 7 Mathematics &bull; Chapter 7</div>
+    <h1 class="hero-title">A Tale of Three Intersecting Lines</h1>
+    <p class="hero-sub">The Geometry of Triangles: Triangle Inequality Property, Angle Sum Property (180&deg;), Exterior Angles, Medians, Altitudes, and Pythagoras Property</p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> Textbook: Ganita Prakash</span>
+      <span><i class="fa-solid fa-layer-group"></i> NEP 2020 Aligned</span>
+      <span><i class="fa-solid fa-check-double"></i> Zero-Omission Guide</span>
+    </div>
+    <button class="audio-btn" id="audioSummaryBtn" onclick="toggleAudioSummary()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+    <!-- SECTION 1 -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1</span>
+        <h2>Chapter Overview &amp; Visual Mind Map</h2>
+        <p class="section-sub">A triangle is the most rigid, stable, and fundamental closed polygon in our universe.</p>
+      </div>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div class="callout-text">
+          <strong>Teacher's Welcome Note:</strong> When two lines intersect, they form angles. But when <strong>three lines intersect mutually</strong>, they enclose a region called a <strong>triangle</strong>! Can ANY three lengths form a triangle? No! The two shorter sides must together stretch farther than the longest side (Triangle Inequality). And inside any triangle, no matter how skinny or wide, the three angles always add up to exactly 180&deg;!
+        </div>
+      </div>
+
+      <!-- SVG Mind Map: Triangles -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 880 420" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="triGradCenter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0369a1"/>
+              <stop offset="100%" stop-color="#0284c7"/>
+            </linearGradient>
+            <linearGradient id="triNode1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#059669"/>
+            </linearGradient>
+            <linearGradient id="triNode2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <linearGradient id="triNode3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="100%" stop-color="#6d28d9"/>
+            </linearGradient>
+            <linearGradient id="triNode4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0891b2"/>
+              <stop offset="100%" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Branch curves -->
+          <path d="M 440 210 C 280 210, 180 100, 140 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 280 210, 180 320, 140 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 100, 740 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 320, 740 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+
+          <!-- Center Node -->
+          <circle cx="440" cy="210" r="82" fill="url(#triGradCenter)" filter="drop-shadow(0 4px 10px rgba(2,132,199,0.35))"/>
+          <text x="440" y="200" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">TRIANGLES</text>
+          <text x="440" y="222" fill="#e0f2fe" font-size="13" text-anchor="middle">3 Intersecting Lines</text>
+          <text x="440" y="242" fill="#bae6fd" font-size="11" text-anchor="middle">Chapter 7 Core Map</text>
+
+          <!-- Branch 1: Triangle Inequality -->
+          <rect x="20" y="55" width="240" height="90" rx="14" fill="url(#triNode1)" filter="drop-shadow(0 3px 8px rgba(16,185,129,0.25))"/>
+          <text x="140" y="85" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">1. Triangle Inequality</text>
+          <text x="140" y="108" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; a + b &gt; c (for all sides)</text>
+          <text x="140" y="126" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; Sum of 2 shorter sides &gt; longest</text>
+
+          <!-- Branch 2: Angle Properties -->
+          <rect x="20" y="275" width="240" height="90" rx="14" fill="url(#triNode2)" filter="drop-shadow(0 3px 8px rgba(245,158,11,0.25))"/>
+          <text x="140" y="305" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">2. Angle Properties</text>
+          <text x="140" y="328" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; Interior angle sum = 180&deg;</text>
+          <text x="140" y="346" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; Exterior angle = sum of opp. interiors</text>
+
+          <!-- Branch 3: Medians & Altitudes -->
+          <rect x="620" y="55" width="240" height="90" rx="14" fill="url(#triNode3)" filter="drop-shadow(0 3px 8px rgba(124,58,237,0.25))"/>
+          <text x="740" y="85" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">3. Medians &amp; Altitudes</text>
+          <text x="740" y="108" fill="#ede9fe" font-size="12" text-anchor="middle">&bull; Median to midpoint (Centroid)</text>
+          <text x="740" y="126" fill="#ede9fe" font-size="12" text-anchor="middle">&bull; Perpendicular height (Orthocenter)</text>
+
+          <!-- Branch 4: Types & Pythagoras -->
+          <rect x="620" y="275" width="240" height="90" rx="14" fill="url(#triNode4)" filter="drop-shadow(0 3px 8px rgba(8,145,178,0.25))"/>
+          <text x="740" y="305" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">4. Types &amp; Pythagoras</text>
+          <text x="740" y="328" fill="#cffafe" font-size="12" text-anchor="middle">&bull; Equilateral, Isosceles, Scalene</text>
+          <text x="740" y="346" fill="#cffafe" font-size="12" text-anchor="middle">&bull; Right triangle: a&sup2; + b&sup2; = c&sup2;</text>
+        </svg>
+        <p class="diagram-caption">Figure 7.1: Master geometric taxonomy and properties of triangles.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2</span>
+        <h2>Deep-Dive Core Concepts &amp; Teacher Explanations</h2>
+        <p class="section-sub">Comprehensive understanding of the triangle inequality, angle sum proof, and special lines.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-ruler-combined"></i> 7.1 The Triangle Inequality Property</h3>
+      <p>If you take three sticks of lengths 2 cm, 3 cm, and 6 cm, can you build a triangle? Try it with compasses: draw a base of 6 cm. From one end, draw an arc of radius 2 cm. From the other end, draw an arc of radius 3 cm. Even when stretched completely flat towards each other, 2 cm + 3 cm = 5 cm, which cannot even span the 6 cm gap! The arcs never touch!</p>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>The Golden Law of Triangle Existence:</strong> A triangle can exist if and only if the sum of the lengths of any two sides is strictly greater than the length of the third side:
+          <br><code>a + b &gt; c</code> &emsp; <code>b + c &gt; a</code> &emsp; <code>c + a &gt; b</code>.
+          <br><strong>Quick Test:</strong> Check only the two shortest sides! If <code>(Shortest + Medium) &gt; Longest</code>, the triangle exists!
+        </div>
+      </div>
+
+      <!-- SVG Compass Arcs Diagram -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 700 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Case A: Impossible (2 + 3 < 6) -->
+          <line x1="40" y1="120" x2="300" y2="120" stroke="#0f172a" stroke-width="4"/>
+          <text x="170" y="145" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">Base = 6 cm</text>
+          <!-- Arc from left (radius 80px ~ 2cm) -->
+          <path d="M 40 120 A 80 80 0 0 1 120 40" stroke="#ef4444" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+          <text x="75" y="80" font-size="11" font-weight="bold" fill="#dc2626">2 cm</text>
+          <!-- Arc from right (radius 120px ~ 3cm) -->
+          <path d="M 300 120 A 120 120 0 0 0 180 30" stroke="#ef4444" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+          <text x="245" y="70" font-size="11" font-weight="bold" fill="#dc2626">3 cm</text>
+          <text x="170" y="100" font-size="13" font-weight="bold" fill="#dc2626" text-anchor="middle">Gap! 2 + 3 = 5 &lt; 6</text>
+          <text x="170" y="170" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle">&cross; NO TRIANGLE POSSIBLE</text>
+
+          <!-- Divider -->
+          <line x1="350" y1="20" x2="350" y2="160" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+
+          <!-- Case B: Possible (4 + 5 > 6) -->
+          <polygon points="420,120 640,120 520,40" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+          <text x="530" y="145" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">Base = 6 cm</text>
+          <text x="455" y="75" font-size="11" font-weight="bold" fill="#0369a1">4 cm</text>
+          <text x="595" y="75" font-size="11" font-weight="bold" fill="#0369a1">5 cm</text>
+          <text x="530" y="170" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">&check; 4 + 5 = 9 &gt; 6 (TRIANGLE EXISTS!)</text>
+        </svg>
+        <p class="diagram-caption">Figure 7.2: Compass arcs show why 2 cm, 3 cm, 6 cm cannot form a triangle, while 4 cm, 5 cm, 6 cm intersect perfectly.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-shapes"></i> 7.2 Angle Sum Property &amp; Exterior Angle Theorem</h3>
+      <p>Inside any triangle, the sum of all three interior angles is always 180&deg;.
+      <br><strong>Exterior Angle Theorem:</strong> If one side of a triangle is extended, the exterior angle formed is equal to the sum of the two interior opposite angles:
+      <div class="math-block">
+        &ang;ACD (Exterior Angle) = &ang;A + &ang;B (Interior Opposite Angles)
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-arrows-to-dot"></i> 7.3 Medians and Altitudes</h3>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr><th>Feature</th><th>Median</th><th>Altitude</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Definition</strong></td>
+              <td>Line connecting a vertex to the <strong>midpoint</strong> of the opposite side.</td>
+              <td><strong>Perpendicular</strong> line dropped from a vertex to the opposite side.</td>
+            </tr>
+            <tr>
+              <td><strong>Point of Concurrence</strong></td>
+              <td><strong>Centroid (G)</strong> (Center of mass / balance point)</td>
+              <td><strong>Orthocenter (H)</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Location</strong></td>
+              <td>Always lies <strong>strictly inside</strong> the triangle.</td>
+              <td>Inside for acute; at vertex for right; <strong>outside</strong> for obtuse.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3</span>
+        <h2>In-Text Activities &amp; Classroom Explorations (Fully Solved)</h2>
+        <p class="section-sub">Step-by-step solutions to in-text exercises from pages 9, 14, 20, and 25.</p>
+      </div>
+
+      <h4 class="sub-topic">Activity 1: Existence of Triangles (Page 9)</h4>
+      <div class="solution-box">
+        <div class="step-item"><strong>(a) 10 km, 10 km, and 25 km:</strong>
+          <br>Check two shorter sides: 10 + 10 = 20 km.
+          <br>Since 20 km &lt; 25 km, <strong>no triangle can exist</strong>!
+        </div>
+        <div class="step-item"><strong>(b) 5 mm, 10 mm, and 20 mm:</strong>
+          <br>Check two shorter sides: 5 + 10 = 15 mm.
+          <br>Since 15 mm &lt; 20 mm, <strong>no triangle can exist</strong>!
+        </div>
+        <div class="step-item"><strong>(c) 3 cm, 4 cm, and 5 cm:</strong>
+          <br>Check two shorter sides: 3 + 4 = 7 cm.
+          <br>Since 7 cm &gt; 5 cm, <strong>a triangle exists</strong>! (In fact, it is a right-angled triangle since 3&sup2; + 4&sup2; = 5&sup2;).
+        </div>
+      </div>
+
+      <h4 class="sub-topic">Activity 2: Missing Angle Calculation (Page 20)</h4>
+      <div class="solution-box">
+        <p><strong>Problem:</strong> In &Delta;ABC, &ang;B = 50&deg; and &ang;C = 70&deg;. Find the measure of angle &ang;A.</p>
+        <div class="step-item"><span class="step-label">Rule:</span> &ang;A + &ang;B + &ang;C = 180&deg; (Angle Sum Property).</div>
+        <div class="step-item"><span class="step-label">Calculation:</span> &ang;A + 50&deg; + 70&deg; = 180&deg; &rArr; &ang;A + 120&deg; = 180&deg; &rArr; &ang;A = 180&deg; &minus; 120&deg; = 60&deg;.</div>
+        <div class="step-ans">&check; Answer: <strong>&ang;A = 60&deg;</strong>.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4</span>
+        <h2>Complete End-of-Chapter 'Figure it Out' Exercises (Solved Step-by-Step)</h2>
+        <p class="section-sub">Comprehensive solutions with zero omissions.</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>Q1. Exterior Angle and Remote Interior Angles</summary>
+        <div class="ans-content">
+          <p><strong>Problem:</strong> An exterior angle of a triangle is 115&deg;, and one of the interior opposite angles is 45&deg;. Find the other interior opposite angle and the third interior angle.</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">Step 1:</span> Exterior Angle = Interior Opposite 1 + Interior Opposite 2
+              <br>115&deg; = 45&deg; + x &rArr; x = 115&deg; &minus; 45&deg; = <strong>70&deg;</strong>.
+            </div>
+            <div class="step-item"><span class="step-label">Step 2:</span> Third interior angle (forming a linear pair with 115&deg;):
+              <br>180&deg; &minus; 115&deg; = <strong>65&deg;</strong>.
+            </div>
+            <div class="step-item"><span class="step-label">Check:</span> 45&deg; + 70&deg; + 65&deg; = 180&deg;. &check; (Verified!).</div>
+            <div class="step-ans">&check; Answer: Other interior opposite angle = <strong>70&deg;</strong>; third angle = <strong>65&deg;</strong>.</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q2. Right-Angled Triangle and Pythagoras Property</summary>
+        <div class="ans-content">
+          <p><strong>Problem:</strong> A 15 m long ladder reaches a window 12 m high on a wall. Find the distance of the foot of the ladder from the wall.</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">Given:</span> Ladder = Hypotenuse (c) = 15 m; Height of wall = Perpendicular (a) = 12 m; Distance from wall = Base (b).</div>
+            <div class="step-item"><span class="step-label">Pythagoras Property:</span> a&sup2; + b&sup2; = c&sup2; &rArr; 12&sup2; + b&sup2; = 15&sup2;</div>
+            <div class="step-item"><span class="step-label">Calculation:</span> 144 + b&sup2; = 225 &rArr; b&sup2; = 225 &minus; 144 = 81 &rArr; b = &radic;81 = <strong>9 m</strong>.</div>
+            <div class="step-ans">&check; Answer: The foot of the ladder is <strong>9 meters</strong> away from the wall.</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5</span>
+        <h2>Interactive Practice Quiz Engine</h2>
+        <p class="section-sub">Test your mastery of triangle properties and angle theorems.</p>
+      </div>
+
+      <div class="callout-box callout-pyq" id="scoreBanner" style="justify-content: space-between; align-items: center;">
+        <div><strong>Current Score:</strong> <span id="quizScoreCount">0</span> / 5 Correct</div>
+        <div id="quizTeacherMsg" style="font-size: 0.9rem; font-weight: 600;">Answer all questions to see your rank!</div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-card" id="qcard1">
+        <div class="quiz-question"><strong>Q1:</strong> Which of the following sets of side lengths CANNOT form a triangle?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(a) 6 cm, 8 cm, 10 cm</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(b) 3 cm, 5 cm, 9 cm</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(c) 7 cm, 7 cm, 7 cm</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(d) 5 cm, 12 cm, 13 cm</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b) 3 cm, 5 cm, 9 cm.</strong> Sum of the two shorter sides (3 + 5 = 8 cm) is less than 9 cm.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-card" id="qcard2">
+        <div class="quiz-question"><strong>Q2:</strong> An isosceles triangle has one angle measuring 100&deg;. What must the other two angles measure?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')"><span>(a) 40&deg; and 40&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')"><span>(b) 50&deg; and 50&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')"><span>(c) 80&deg; and 80&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')"><span>(d) 45&deg; and 45&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a) 40&deg; and 40&deg;.</strong> The base angles are equal. (180&deg; &minus; 100&deg;) &divide; 2 = 80&deg; &divide; 2 = 40&deg; each.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-card" id="qcard3">
+        <div class="quiz-question"><strong>Q3:</strong> The point where the three medians of a triangle intersect is called the:</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')"><span>(a) Orthocenter</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')"><span>(b) Circumcenter</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')"><span>(c) Centroid</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')"><span>(d) Incenter</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c) Centroid.</strong> The medians meet at the centroid, which is the physical center of gravity of the triangle.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-card" id="qcard4">
+        <div class="quiz-question"><strong>Q4:</strong> In an obtuse-angled triangle, where does the orthocenter (intersection of altitudes) lie?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')"><span>(a) Inside the triangle</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')"><span>(b) Outside the triangle</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')"><span>(c) On the longest side</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')"><span>(d) At the obtuse vertex</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b) Outside the triangle.</strong> Two of the altitudes fall outside the triangle, so their intersection lies in the exterior.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-card" id="qcard5">
+        <div class="quiz-question"><strong>Q5:</strong> In a right triangle with legs 6 cm and 8 cm, what is the length of the hypotenuse?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')"><span>(a) 10 cm</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')"><span>(b) 14 cm</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')"><span>(c) 12 cm</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')"><span>(d) 48 cm</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a) 10 cm.</strong> By Pythagoras theorem: c&sup2; = 6&sup2; + 8&sup2; = 36 + 64 = 100 &rArr; c = &radic;100 = 10 cm.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6</span>
+        <h2>Quick Revision Notes &amp; Common Pitfalls</h2>
+        <p class="section-sub">Essential exam tips and triangle formulas.</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Don't Make This Mistake in Geometry Exams:</strong><br>
+          &bull; <strong>Strict Inequality:</strong> <code>a + b &gt; c</code> must be strictly GREATER, not &ge;! If a + b = c, the three points form a straight line, NOT a triangle!<br>
+          &bull; <strong>Exterior Angle Trap:</strong> An exterior angle is equal to the sum of its TWO OPPOSITE interior angles, NOT the adjacent one!<br>
+          &bull; <strong>Pythagoras only in Right Triangles:</strong> Never apply a&sup2; + b&sup2; = c&sup2; unless the triangle has a 90&deg; right angle.
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div class="callout-text">
+          <strong>Teacher's Triangle Cheat-Sheet:</strong><br>
+          1. <strong>Existence Rule:</strong> Shortest + Middle &gt; Longest side.<br>
+          2. <strong>Angle Sum:</strong> &ang;A + &ang;B + &ang;C = 180&deg;.<br>
+          3. <strong>Exterior Angle:</strong> &ang;Ext = &ang;Opp1 + &ang;Opp2.<br>
+          4. <strong>Median:</strong> Connects vertex to opposite midpoint (Centroid).<br>
+          5. <strong>Altitude:</strong> Perpendicular from vertex to opposite side (Orthocenter).
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // 2. Audio Reader (Text-to-Speech)
+    var speechActive = false;
+    function toggleAudioSummary() {
+      var btn = document.getElementById('audioSummaryBtn');
+      if (!speechActive) {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          var text = "Welcome to Class 7 Mathematics, Chapter 7: A Tale of Three Intersecting Lines. In this chapter, we explore the wonderful geometry of triangles. For any triangle to exist, the sum of the two shorter sides must be strictly greater than the longest side. Inside any triangle, the three interior angles always add up to 180 degrees, and any exterior angle equals the sum of the two interior opposite angles. We also discover medians which meet at the centroid, altitudes which meet at the orthocenter, and the famous Pythagoras property in right-angled triangles.";
+          var utterance = new SpeechSynthesisUtterance(text);
+          utterance.rate = 0.95;
+          utterance.onend = function() {
+            speechActive = false;
+            if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+          };
+          window.speechSynthesis.speak(utterance);
+          speechActive = true;
+          if (btn) btn.innerHTML = '<span>⏹ Stop Audio</span>';
+        } else {
+          alert('Sorry, text-to-speech is not supported on this device.');
+        }
+      } else {
+        window.speechSynthesis.cancel();
+        speechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+      }
+    }
+
+    // 3. Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Perfect Score! You are a Triangle Master!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! You have a solid grasp of Triangle Properties!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Keep practicing! Review the teacher explanations above.";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
