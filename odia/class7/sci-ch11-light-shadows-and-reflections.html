@@ -1,0 +1,1387 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୧୧: ଆଲୋକ: ଛାଇ ଓ ପ୍ରତିଫଳନ (Light: Shadows and Reflections) | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ସପ୍ତମ ଶ୍ରେଣୀ ବିଜ୍ଞାନ ଅଧ୍ୟାୟ ୧୧: ଆଲୋକ, ଛାଇ ଓ ପ୍ରତିଫଳନ। ସରଳରୈଖିକ ଗତି, ସ୍ୱଚ୍ଛ-ଅସ୍ୱଚ୍ଛ ମାଧ୍ୟମ, ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା, ସମତଳ ଦର୍ପଣ, ପେରିସ୍କୋପ୍, NCERT ସମାଧାନ ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #3730a3;
+      --primary-light: #e0e7ff;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', 'Noto Sans Oriya', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.8;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #4f46e5, #0284c7, #f59e0b);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #1e1b4b 0%, #312e81 40%, #4338ca 100%);
+      color: white;
+      border-radius: 1.5rem;
+      padding: 3rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      opacity: 0.92;
+      max-width: 780px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      opacity: 0.85;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 1.25rem;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      margin-top: 1rem;
+      background: #ffffff;
+      color: #1e1b4b;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 9999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      box-shadow: var(--shadow-md);
+    }
+    .audio-btn:hover {
+      background: #f8fafc;
+      transform: translateY(-1px);
+    }
+
+    /* Section Headers */
+    .section-header {
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-num {
+      background: var(--primary);
+      color: white;
+      width: 2.25rem;
+      height: 2.25rem;
+      border-radius: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    /* Cards & Layout */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid;
+    }
+
+    .callout-def {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: #1e1b4b;
+    }
+
+    .callout-act {
+      background: var(--secondary-light);
+      border-color: var(--secondary);
+      color: #0c4a6e;
+    }
+
+    .callout-hack {
+      background: var(--accent-light);
+      border-color: var(--accent);
+      color: #78350f;
+    }
+
+    .callout-warn {
+      background: #fee2e2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    /* Collapsible Details */
+    details.ans-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      box-shadow: var(--shadow-md);
+      border-color: var(--primary);
+    }
+
+    summary.ans-header {
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #f8fafc;
+      transition: background 0.2s ease;
+    }
+
+    summary.ans-header:hover {
+      background: #f1f5f9;
+    }
+
+    details.ans-box[open] summary.ans-header {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+    }
+
+    /* Quiz Container */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .quiz-question {
+      font-weight: 700;
+      margin-bottom: 0.85rem;
+      color: var(--dark);
+    }
+
+    .quiz-option {
+      display: block;
+      padding: 0.65rem 1rem;
+      margin-bottom: 0.5rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.92rem;
+    }
+
+    .quiz-option:hover {
+      background: #f1f5f9;
+      border-color: var(--primary);
+    }
+
+    .quiz-option.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+
+    .quiz-option.incorrect {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+
+    .quiz-feedback {
+      margin-top: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.88rem;
+      display: none;
+    }
+
+    /* Diagram wrapper */
+    .diagram-container {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    .diagram-title {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--dark);
+    }
+
+    .diagram-desc {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    /* Badge Grid */
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1.5rem 0;
+    }
+
+    .badge-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .badge-label {
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 0.95rem;
+    }
+
+    .badge-text {
+      font-size: 0.88rem;
+      color: var(--text);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 1.7rem; }
+      .container { padding: 1.25rem 1rem; }
+      .badge-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Top Sticky Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-lightbulb text-warning"></i>
+      <span>ସୁଜିତ୍ କ୍ଲାସେସ୍</span>
+    </a>
+    <div class="nav-links">
+      <a href="#blueprint" class="nav-link">ଖସଡ଼ା (Map)</a>
+      <a href="#concepts" class="nav-link">ଧାରଣା (Concepts)</a>
+      <a href="#terms" class="nav-link">ଶବ୍ଦାବଳୀ (Terms)</a>
+      <a href="#ncert" class="nav-link">ପ୍ରଶ୍ନୋତ୍ତର (NCERT)</a>
+      <a href="#quiz" class="nav-link">କୁଇଜ୍ (Quiz)</a>
+      <a href="#revision" class="nav-link">ରିଭିଜନ୍ (Revision)</a>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- Hero Banner -->
+    <header class="hero-banner">
+      <div class="hero-badge">
+        <i class="fa-solid fa-graduation-cap"></i>
+        <span>NCERT Curiosity • ସପ୍ତମ ଶ୍ରେଣୀ ବିଜ୍ଞାନ (Class 7 Science)</span>
+      </div>
+      <h1 class="hero-title">ଅଧ୍ୟାୟ ୧୧: ଆଲୋକ: ଛାଇ ଓ ପ୍ରତିଫଳନ</h1>
+      <p class="hero-subtitle">
+        (Light: Shadows and Reflections) — ଆଲୋକର ସରଳରୈଖିକ ଗତି, ସ୍ୱଚ୍ଛ-ଅସ୍ୱଚ୍ଛ ମାଧ୍ୟମ, ଛାଇ ସୃଷ୍ଟିର ନିୟମ, ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା, ସମତଳ ଦର୍ପଣରେ ପ୍ରତିଫଳନ ଏବଂ ପେରିସ୍କୋପ୍-କ୍ୟାଲିଡୋସ୍କୋପ୍।
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><i class="fa-solid fa-book-open"></i> କୋଡ୍: gecu111</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-language"></i> ମାଧ୍ୟମ: ଓଡ଼ିଆ (Odia NEP)</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-award"></i> ପୂର୍ଣ୍ଣାଙ୍ଗ NCERT ସମାଧାନ (୧୨ଟି ପ୍ରଶ୍ନ) ଓ କୁଇଜ୍</div>
+      </div>
+      <button class="audio-btn" id="teacherAudioBtn" onclick="toggleTeacherAudio()">
+        <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>
+      </button>
+    </header>
+
+    <!-- SECTION 1: Visual Blueprint & Mind Map -->
+    <section id="blueprint" class="mb-5">
+      <div class="section-header">
+        <div class="section-num">୧</div>
+        <h2 class="section-title">ଦୃଶ୍ୟ ମାନସିକ ମାନଚିତ୍ର ଓ ଅଧ୍ୟାୟ ଖସଡ଼ା (Visual Blueprint & Mind Map)</h2>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title"><i class="fa-solid fa-sitemap text-primary"></i> ଆଲୋକ ବିଜ୍ଞାନର ସମ୍ପୂର୍ଣ୍ଣ ସଂରଚନା</h3>
+        <p>ଆଲୋକ ଏକ ପ୍ରକାର ଶକ୍ତି ଯାହା ଆମ ଆଖିରେ ଦୃଷ୍ଟିର ଅନୁଭୂତି ଜାଗ୍ରତ କରେ। ଏହି ଅଧ୍ୟାୟର ମୁଖ୍ୟ ବିଷୟବସ୍ତୁ ନିମ୍ନ ଚିତ୍ରରେ ସଂକ୍ଷେପରେ ବର୍ଣ୍ଣିତ:</p>
+
+        <!-- SVG 1: Light Mindmap & Optical Phenomena -->
+        <div class="diagram-container">
+          <div class="diagram-title">ଚିତ୍ର ୧୧.୧: ଆଲୋକ ବିଜ୍ଞାନର ମୁଖ୍ୟ ବିଭାଗ: ଉତ୍ସ, ଗତିପଥ, ମାଧ୍ୟମ, ଛାଇ ଓ ପ୍ରତିଫଳନ</div>
+          <div class="diagram-desc">ସରଳରୈଖିକ ଗମନରୁ ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା ଓ ସମତଳ ଦର୍ପଣରେ ପାର୍ଶ୍ୱୀୟ ପରିବର୍ତ୍ତନ ପର୍ଯ୍ୟନ୍ତ</div>
+          <svg viewBox="0 0 840 450" width="100%" height="auto" style="max-width:820px; font-family:sans-serif;">
+            <defs>
+              <linearGradient id="opticsGrad" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stop-color="#4f46e5"/>
+                <stop offset="100%" stop-color="#312e81"/>
+              </linearGradient>
+              <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#ffffff"/>
+                <stop offset="100%" stop-color="#f8fafc"/>
+              </linearGradient>
+            </defs>
+
+            <!-- Background Outer Box -->
+            <rect x="10" y="10" width="820" height="430" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="2"/>
+
+            <!-- Center Core Node: LIGHT -->
+            <rect x="330" y="30" width="180" height="60" rx="12" fill="url(#opticsGrad)" stroke="#6366f1" stroke-width="2"/>
+            <text x="420" y="58" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="bold">ଆଲୋକ (LIGHT)</text>
+            <text x="420" y="76" text-anchor="middle" fill="#c7d2fe" font-size="11">ଦୃଷ୍ଟି ଅନୁଭୂତି ଜଗାଉଥିବା ଶକ୍ତି</text>
+
+            <!-- 4 Branches -->
+            <!-- Branch 1: Sources (Left-Top) -->
+            <line x1="330" y1="60" x2="150" y2="130" stroke="#cbd5e1" stroke-width="2"/>
+            <g transform="translate(40, 130)">
+              <rect x="0" y="0" width="220" height="130" rx="10" fill="url(#cardGrad)" stroke="#38bdf8" stroke-width="1.5"/>
+              <rect x="0" y="0" width="220" height="28" rx="8" fill="#e0f2fe"/>
+              <text x="110" y="19" text-anchor="middle" fill="#0369a1" font-size="12" font-weight="bold">୧. ଆଲୋକର ଉତ୍ସ (Sources)</text>
+              <text x="12" y="50" fill="#1e293b" font-size="11"><strong>ଦୀପ୍ତିମାନ (Luminous):</strong> ନିଜ ଆଲୋକ ଅଛି</text>
+              <text x="24" y="68" fill="#64748b" font-size="10">ଯଥା: ସୂର୍ଯ୍ୟ, ତାରା, ଜୁଳୁଜୁଳିଆ ପୋକ, ବଲ୍ବ</text>
+              <text x="12" y="94" fill="#1e293b" font-size="11"><strong>ଅଦୀପ୍ତିମାନ (Non-luminous):</strong> ନିଜ ଆଲୋକ ନାହିଁ</text>
+              <text x="24" y="112" fill="#64748b" font-size="10">ଯଥା: ଚନ୍ଦ୍ର, ଗ୍ରହ, ପୃଥିବୀ, କାଠ, ଦର୍ପଣ</text>
+            </g>
+
+            <!-- Branch 2: Rectilinear Propagation & Media (Right-Top) -->
+            <line x1="510" y1="60" x2="690" y2="130" stroke="#cbd5e1" stroke-width="2"/>
+            <g transform="translate(580, 130)">
+              <rect x="0" y="0" width="220" height="130" rx="10" fill="url(#cardGrad)" stroke="#818cf8" stroke-width="1.5"/>
+              <rect x="0" y="0" width="220" height="28" rx="8" fill="#e0e7ff"/>
+              <text x="110" y="19" text-anchor="middle" fill="#3730a3" font-size="12" font-weight="bold">୨. ଗତିପଥ ଓ ମାଧ୍ୟମ (Media)</text>
+              <text x="12" y="50" fill="#1e293b" font-size="11"><strong>ସରଳରୈଖିକ ଗତି:</strong> ସିଧା ରେଖାରେ ଗତି</text>
+              <text x="12" y="72" fill="#15803d" font-size="10"><strong>ସ୍ୱଚ୍ଛ (Transparent):</strong> ଆଲୋକ ସମ୍ପୂର୍ଣ୍ଣ ଭେଦେ</text>
+              <text x="12" y="92" fill="#d97706" font-size="10"><strong>ଅର୍ଦ୍ଧସ୍ୱଚ୍ଛ (Translucent):</strong> ଆଂଶିକ ଭେଦେ</text>
+              <text x="12" y="112" fill="#b91c1c" font-size="10"><strong>ଅସ୍ୱଚ୍ଛ (Opaque):</strong> ଆଦୌ ଭେଦିପାରେ ନାହିଁ</text>
+            </g>
+
+            <!-- Branch 3: Shadow & Pinhole (Left-Bottom) -->
+            <line x1="370" y1="90" x2="150" y2="290" stroke="#cbd5e1" stroke-width="2"/>
+            <g transform="translate(40, 290)">
+              <rect x="0" y="0" width="220" height="130" rx="10" fill="url(#cardGrad)" stroke="#475569" stroke-width="1.5"/>
+              <rect x="0" y="0" width="220" height="28" rx="8" fill="#f1f5f9"/>
+              <text x="110" y="19" text-anchor="middle" fill="#1e293b" font-size="12" font-weight="bold">୩. ଛାଇ ଓ ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା</text>
+              <text x="12" y="50" fill="#1e293b" font-size="11"><strong>ଛାଇ (Shadow):</strong> ଅସ୍ୱଚ୍ଛ ବସ୍ତୁ ଆଲୋକ ଅଟକାଏ</text>
+              <text x="12" y="70" fill="#475569" font-size="10">&bull; ଉତ୍ସ, ଅସ୍ୱଚ୍ଛ ବସ୍ତୁ ଓ ପରଦା ଆବଶ୍ୟକ</text>
+              <text x="12" y="90" fill="#475569" font-size="10">&bull; ଛାଇ କେବଳ କଳା/ଅନ୍ଧକାରମୟ ହୁଏ</text>
+              <text x="12" y="112" fill="#0284c7" font-size="10"><strong>ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା:</strong> ବାସ୍ତବ ଓ ଓଲଟା ପ୍ରତିବିମ୍ବ</text>
+            </g>
+
+            <!-- Branch 4: Reflection & Mirrors (Right-Bottom) -->
+            <line x1="470" y1="90" x2="690" y2="290" stroke="#cbd5e1" stroke-width="2"/>
+            <g transform="translate(580, 290)">
+              <rect x="0" y="0" width="220" height="130" rx="10" fill="url(#cardGrad)" stroke="#f59e0b" stroke-width="1.5"/>
+              <rect x="0" y="0" width="220" height="28" rx="8" fill="#fef3c7"/>
+              <text x="110" y="19" text-anchor="middle" fill="#92400e" font-size="12" font-weight="bold">୪. ପ୍ରତିଫଳନ ଓ ଦର୍ପଣ (Reflection)</text>
+              <text x="12" y="48" fill="#1e293b" font-size="11"><strong>ସମତଳ ଦର୍ପଣର ପ୍ରତିବିମ୍ବ:</strong></text>
+              <text x="12" y="66" fill="#475569" font-size="10">&bull; ସମାନ ଆକାର, ସଳଖ ଓ ଆଭାସୀ</text>
+              <text x="12" y="84" fill="#b45309" font-size="10">&bull; ପାର୍ଶ୍ୱୀୟ ପରିବର୍ତ୍ତନ (ବାମ-ଦକ୍ଷିଣ ଓଲଟା)</text>
+              <text x="12" y="104" fill="#1e293b" font-size="11"><strong>ଉପକରଣ:</strong> ପେରିସ୍କୋପ୍ (୪୫°), କ୍ୟାଲିଡୋସ୍କୋପ୍</text>
+            </g>
+
+            <!-- Connecting Central Diagram in center -->
+            <g transform="translate(300, 160)">
+              <rect x="0" y="0" width="240" height="160" rx="10" fill="#ffffff" stroke="#cbd5e1" stroke-dasharray="4,3"/>
+              <!-- Torch -->
+              <polygon points="20 70, 50 60, 50 90, 20 80" fill="#475569"/>
+              <!-- Beam -->
+              <polygon points="50 65, 130 45, 130 105, 50 85" fill="#fef08a" opacity="0.6"/>
+              <!-- Ball (Opaque) -->
+              <circle cx="130" cy="75" r="18" fill="#3b82f6"/>
+              <!-- Shadow Screen -->
+              <line x1="210" y1="30" x2="210" y2="120" stroke="#0f172a" stroke-width="4"/>
+              <!-- Shadow on screen -->
+              <line x1="210" y1="52" x2="210" y2="98" stroke="#000000" stroke-width="6"/>
+              <text x="120" y="145" text-anchor="middle" fill="#334155" font-size="11" font-weight="bold">ଆଲୋକ ଅବରୋଧ &rarr; ଛାଇ ସୃଷ୍ଟି</text>
+            </g>
+          </svg>
+        </div>
+
+        <!-- SVG 2: Pinhole Camera Mechanics -->
+        <div class="diagram-container">
+          <div class="diagram-title">ଚିତ୍ର ୧୧.୨: ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରାରେ ବାସ୍ତବ ଓ ଓଲଟା ପ୍ରତିବିମ୍ବ ଗଠନ (Pinhole Camera Ray Diagram)</div>
+          <div class="diagram-desc">ସରଳରୈଖିକ ଗତି ହେତୁ ଗଛର ଶୀର୍ଷରୁ ଆସୁଥିବା ରଶ୍ମି ପରଦାର ତଳେ ଏବଂ ମୂଳରୁ ଆସୁଥିବା ରଶ୍ମି ପରଦାର ଉପରେ ପଡ଼େ</div>
+          <svg viewBox="0 0 760 260" width="100%" height="auto" style="max-width:740px; font-family:sans-serif;">
+            <rect x="10" y="10" width="740" height="240" rx="10" fill="#ffffff" stroke="#cbd5e1"/>
+
+            <!-- Object Tree (Left) -->
+            <!-- Trunk -->
+            <rect x="75" y="130" width="10" height="70" fill="#92400e"/>
+            <!-- Canopy -->
+            <path d="M 80 50 L 50 130 L 110 130 Z" fill="#22c55e"/>
+            <text x="80" y="220" text-anchor="middle" fill="#0f172a" font-size="12" font-weight="bold">ଗଛ (ବସ୍ତୁ A-B)</text>
+            <circle cx="80" cy="50" r="4" fill="#dc2626"/>
+            <text x="65" y="50" fill="#dc2626" font-weight="bold" font-size="11">A (ଶୀର୍ଷ)</text>
+            <circle cx="80" cy="200" r="4" fill="#2563eb"/>
+            <text x="65" y="200" fill="#2563eb" font-weight="bold" font-size="11">B (ମୂଳ)</text>
+
+            <!-- Pinhole Box -->
+            <rect x="290" y="40" width="280" height="170" rx="6" fill="#1e293b"/>
+            <!-- Pinhole on front wall -->
+            <line x1="290" y1="40" x2="290" y2="120" stroke="#f8fafc" stroke-width="4"/>
+            <circle cx="290" cy="125" r="4" fill="#ffffff"/>
+            <line x1="290" y1="130" x2="290" y2="210" stroke="#f8fafc" stroke-width="4"/>
+            <text x="290" y="230" text-anchor="middle" fill="#475569" font-size="11" font-weight="bold">ସୂଚୀରନ୍ଧ୍ର (Pinhole 'O')</text>
+
+            <!-- Tracing paper screen inside (Back wall) -->
+            <line x1="560" y1="45" x2="560" y2="205" stroke="#38bdf8" stroke-width="4" stroke-dasharray="4,2"/>
+            <text x="560" y="230" text-anchor="middle" fill="#0284c7" font-size="11" font-weight="bold">ଅର୍ଦ୍ଧସ୍ୱଚ୍ଛ ପରଦା (Screen)</text>
+
+            <!-- Light Rays -->
+            <!-- Ray from Top (A) through pinhole (O) to Screen (A') -->
+            <line x1="80" y1="50" x2="560" y2="185" stroke="#ef4444" stroke-width="2" stroke-dasharray="4,2"/>
+            <!-- Ray from Bottom (B) through pinhole (O) to Screen (B') -->
+            <line x1="80" y1="200" x2="560" y2="65" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4,2"/>
+
+            <!-- Inverted Image on screen -->
+            <circle cx="560" cy="185" r="4" fill="#dc2626"/>
+            <text x="580" y="190" fill="#dc2626" font-size="11" font-weight="bold">A' (ଓଲଟା ଶୀର୍ଷ)</text>
+            <circle cx="560" cy="65" r="4" fill="#2563eb"/>
+            <text x="580" y="70" fill="#2563eb" font-size="11" font-weight="bold">B' (ଓଲଟା ମୂଳ)</text>
+            <!-- Inverted Tree drawing -->
+            <rect x="535" y="65" width="8" height="45" fill="#92400e"/>
+            <path d="M 539 180 L 515 110 L 563 110 Z" fill="#4ade80"/>
+          </svg>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 2: Exhaustive Concept Explanations -->
+    <section id="concepts" class="mb-5">
+      <div class="section-header">
+        <div class="section-num">୨</div>
+        <h2 class="section-title">ସମ୍ପୂର୍ଣ୍ଣ ଧାରଣା ସ୍ପଷ୍ଟୀକରଣ (Exhaustive Concept Explanations)</h2>
+      </div>
+
+      <!-- 11.1 Sources of Light -->
+      <div class="card">
+        <h3 class="card-title"><i class="fa-solid fa-sun text-warning"></i> ୧୧.୧ ଆଲୋକର ଉତ୍ସ: ଦୀପ୍ତିମାନ ବନାମ ଅଦୀପ୍ତିମାନ ବସ୍ତୁ (Sources of Light)</h3>
+        <p>ଆମେ ଆମ ଆଖିରେ କୌଣସି ବସ୍ତୁକୁ ସେତେବେଳେ ଦେଖିପାରୁ, ଯେତେବେଳେ ସେହି ବସ୍ତୁରୁ ଆଲୋକ ବାହାରି କିମ୍ବା ବସ୍ତୁ ଉପରୁ ପ୍ରତିଫଳିତ ହୋଇ ଆମ ଆଖିରେ ପ୍ରବେଶ କରେ। ଆଲୋକ ପ୍ରଦାନ କ୍ଷମତା ଅନୁଯାୟୀ ବସ୍ତୁଗୁଡ଼ିକ ଦୁଇ ଭାଗରେ ବିଭକ୍ତ:</p>
+
+        <div class="badge-grid">
+          <div class="badge-item">
+            <span class="badge-label">୧. ଦୀପ୍ତିମାନ ବସ୍ତୁ (Luminous Objects)</span>
+            <span class="badge-text">ଯେଉଁ ବସ୍ତୁଗୁଡ଼ିକ ନିଜେ ଆଲୋକ ଉତ୍ସର୍ଜନ କରନ୍ତି। ଯଥା: ସୂର୍ଯ୍ୟ, ଧ୍ରୁବତାରା, ଜଳୁଥିବା ମହମବତୀ, ବିଜୁଳି ବଲ୍ବ ଏବଂ ପ୍ରାକୃତିକ ଜୈବ-ଦୀପ୍ତି ଦେଖାଉଥିବା ଜୁଳୁଜୁଳିଆ ପୋକ (Firefly)।</span>
+          </div>
+
+          <div class="badge-item">
+            <span class="badge-label">୨. ଅଦୀପ୍ତିମାନ ବସ୍ତୁ (Non-Luminous Objects)</span>
+            <span class="badge-text">ଯେଉଁ ବସ୍ତୁଗୁଡ଼ିକର ନିଜସ୍ୱ ଆଲୋକ ନ ଥାଏ; ଅନ୍ୟ ଉତ୍ସରୁ ଆଲୋକ ପାଇ ସେମାନେ ପ୍ରତିଫଳିତ କରନ୍ତି। ଯଥା: ଚନ୍ଦ୍ର, ଶୁକ୍ର ଓ ମଙ୍ଗଳ ଗ୍ରହ, ପଥର, କାଠ, ବହି ଏବଂ ଦର୍ପଣ। <strong>(ମନେରଖନ୍ତୁ: ଚନ୍ଦ୍ର ଏକ ଦୀପ୍ତିମାନ ବସ୍ତୁ ନୁହେଁ!)</strong></span>
+          </div>
+        </div>
+
+        <div class="callout callout-hack">
+          <div class="callout-title"><i class="fa-solid fa-bolt"></i> ସୂର୍ଯ୍ୟାଲୋକର ଗତିବେଗ ଓ ପୃଥିବୀରେ ପହଞ୍ଚିବା ସମୟ</div>
+          <p>ଶୂନ୍ୟସ୍ଥାନରେ ଆଲୋକର ବେଗ ପ୍ରତି ସେକେଣ୍ଡ୍‌ରେ ପ୍ରାୟ <strong>୩,୦୦,୦୦୦ କିଲୋମିଟର (3 &times; 10⁸ m/s)</strong>! ସୂର୍ଯ୍ୟଙ୍କଠାରୁ ଆଲୋକ ପୃଥିବୀ ପୃଷ୍ଠରେ ପହଞ୍ଚିବା ପାଇଁ ପ୍ରାୟ <strong>୮ ମିନିଟ୍ ୨୦ ସେକେଣ୍ଡ୍ (୫୦୦ ସେକେଣ୍ଡ୍)</strong> ସମୟ ଲାଗିଥାଏ। ତେଣୁ ଯଦି ସୂର୍ଯ୍ୟ ହଠାତ୍ ଲିଭିଯାଏ, ଆମେ ପରବର୍ତ୍ତୀ ୮ ମିନିଟ୍ ୨୦ ସେକେଣ୍ଡ୍ ପର୍ଯ୍ୟନ୍ତ ଏହା ଜାଣିପାରିବା ନାହିଁ!</p>
+        </div>
+      </div>
+
+      <!-- 11.2 Rectilinear Propagation -->
+      <div class="card">
+        <h3 class="card-title"><i class="fa-solid fa-arrows-left-right text-primary"></i> ୧୧.୨ ଆଲୋକର ସରଳରୈଖିକ ଗତି (Rectilinear Propagation of Light)</h3>
+        <p>ଆଲୋକ ସର୍ବଦା ଏକ ସରଳରେଖାରେ ଗତି କରିଥାଏ। ଏହା କୌଣସି ବାଧାବିଘ୍ନ ନ ଥିବା ପର୍ଯ୍ୟନ୍ତ ବଙ୍କେଇ ଯାଇପାରେ ନାହିଁ।</p>
+
+        <div class="callout callout-act">
+          <div class="callout-title"><i class="fa-solid fa-eye"></i> ପାଠ୍ୟପୁସ୍ତକ କାର୍ଯ୍ୟକଳାପ: ମହମବତୀ ଶିଖା ଦେଖିବା ପରୀକ୍ଷା (Activity 11.2)</div>
+          <p>ଗୋଟିଏ ଜଳନ୍ତା ମହମବତୀ ସାମ୍ନାରେ ଦୁଇଟି ପାଇପ୍ ନିଅ: ଗୋଟିଏ ସିଧା ପାଇପ୍ ଏବଂ ଅନ୍ୟଟି ମଝିରୁ ବଙ୍କା ପାଇପ୍।</p>
+          <ul style="margin-left:1.5rem; margin-top:0.5rem;">
+            <li><strong>ସିଧା ପାଇପ୍ ଦେଇ ଦେଖିଲେ:</strong> ମହମବତୀର ଶିଖା ସ୍ପଷ୍ଟ ଦେଖାଯାଏ।</li>
+            <li><strong>ବଙ୍କା ପାଇପ୍ ଦେଇ ଦେଖିଲେ:</strong> ମହମବତୀର ଶିଖା ଆଦୌ ଦେଖାଯାଏ ନାହିଁ, କାରଣ ଆଲୋକ ବଙ୍କା ବାଟ ଦେଇ ଗତି କରିପାରେ ନାହିଁ।</li>
+          </ul>
+          <p style="margin-top:0.5rem; font-weight:700; color:#1e1b4b;">ସିଦ୍ଧାନ୍ତ: ଆଲୋକ ସର୍ବଦା ସରଳରେଖାରେ ଗତି କରେ (Rectilinear Propagation)।</p>
+        </div>
+      </div>
+
+      <!-- 11.3 Optical Media -->
+      <div class="card">
+        <h3 class="card-title"><i class="fa-solid fa-layer-group text-secondary"></i> ୧୧.୩ ଆଲୋକୀୟ ମାଧ୍ୟମ: ସ୍ୱଚ୍ଛ, ଅର୍ଦ୍ଧସ୍ୱଚ୍ଛ ଓ ଅସ୍ୱଚ୍ଛ (Optical Media)</h3>
+        <p>ପଦାର୍ଥ ମଧ୍ୟଦେଇ ଆଲୋକର ପ୍ରବେଶ କ୍ଷମତା ଉପରେ ଆଧାର କରି ମାଧ୍ୟମଗୁଡ଼ିକୁ ୩ ଭାଗରେ ବର୍ଗୀକରଣ କରାଯାଇଛି:</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>ମାଧ୍ୟମ (Medium)</th>
+                <th>ଆଲୋକ ପ୍ରବେଶ ଗୁଣଧର୍ମ</th>
+                <th>ଉଦାହରଣ (Examples)</th>
+                <th>ଛାଇ ସୃଷ୍ଟି କ୍ଷମତା</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ସ୍ୱଚ୍ଛ (Transparent)</strong></td>
+                <td>ଆଲୋକ ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ ଅବାଧରେ ଗତି କରିପାରେ। ଅପରପାର୍ଶ୍ୱ ବସ୍ତୁ ସ୍ପଷ୍ଟ ଦିଶେ।</td>
+                <td>ସ୍ୱଚ୍ଛ କାଚ, ପରିଷ୍କାର ଜଳ, ବାୟୁ।</td>
+                <td>ଆଦୌ ଛାଇ ହୁଏ ନାହିଁ (ବା ଅତ୍ୟନ୍ତ କ୍ଷୀଣ ଛାଇ)।</td>
+              </tr>
+              <tr>
+                <td><strong>ଅର୍ଦ୍ଧସ୍ୱଚ୍ଛ (Translucent)</strong></td>
+                <td>ଆଲୋକ କେବଳ ଆଂଶିକ ଭାବେ ପ୍ରବେଶ କରିପାରେ। ଅପରପାର୍ଶ୍ୱ ଅସ୍ପଷ୍ଟ ଦିଶେ।</td>
+                <td>ତେଲିଆ କାଗଜ, ଘଷା କାଚ, ଟ୍ରେସିଂ ପେପର୍, ପତଳା ପ୍ଲାଷ୍ଟିକ୍।</td>
+                <td>ହାଲୁକା ଧୂସର ଛାଇ (Faint shadow) ସୃଷ୍ଟି ହୁଏ।</td>
+              </tr>
+              <tr>
+                <td><strong>ଅସ୍ୱଚ୍ଛ (Opaque)</strong></td>
+                <td>ଆଲୋକ ଆଦୌ ପ୍ରବେଶ କରିପାରେ ନାହିଁ। ଆଲୋକ ସମ୍ପୂର୍ଣ୍ଣ ଅଟକିଯାଏ।</td>
+                <td>କାଠ, ଧାତୁ ଚାଦର, କାନ୍ଥ, ଇଟା, ମାନବ ଶରୀର।</td>
+                <td>ଗାଢ଼ କଳା ଛାଇ (Dark, sharp shadow) ସୃଷ୍ଟି ହୁଏ।</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 11.4 Shadow Formation -->
+      <div class="card">
+        <h3 class="card-title"><i class="fa-solid fa-moon text-dark"></i> ୧୧.୪ ଛାଇ ସୃଷ୍ଟିର ନିୟମ ଓ ବୈଶିଷ୍ଟ୍ୟ (Physics of Shadow Formation)</h3>
+        <p>ଯେତେବେଳେ କୌଣସି ଅସ୍ୱଚ୍ଛ ବସ୍ତୁ ଆଲୋକର ସରଳରୈଖିକ ଗତିପଥରେ ବାଧା ସୃଷ୍ଟି କରେ, ସେତେବେଳେ ସେହି ବସ୍ତୁର ପଛପଟେ ଥିବା ପରଦା ଉପରେ ଏକ ଅନ୍ଧକାରମୟ କଳା କ୍ଷେତ୍ର ସୃଷ୍ଟି ହୁଏ, ଯାହାକୁ <strong>ଛାଇ ବା ଛାୟା (Shadow)</strong> କୁହାଯାଏ।</p>
+
+        <div class="callout callout-def">
+          <div class="callout-title"><i class="fa-solid fa-list-check"></i> ଛାଇ ସୃଷ୍ଟି ପାଇଁ ୩ଟି ଅପରିହାର୍ଯ୍ୟ ସର୍ତ୍ତ:</div>
+          <ol style="margin-left:1.5rem; margin-top:0.5rem;">
+            <li>ଏକ <strong>ଆଲୋକ ଉତ୍ସ (Source of Light)</strong> ରହିବା ଦରକାର।</li>
+            <li>ଗତିପଥରେ ଏକ <strong>ଅସ୍ୱଚ୍ଛ ବସ୍ତୁ (Opaque Object)</strong> ରହିବା ଦରକାର।</li>
+            <li>ଛାଇ ଧାରଣ କରିବା ପାଇଁ ପଛରେ ଏକ <strong>ପରଦା (Screen, ଯଥା କାନ୍ଥ ବା ଭୂମି)</strong> ରହିବା ନିତାନ୍ତ ଆବଶ୍ୟକ।</li>
+          </ol>
+        </div>
+
+        <div class="callout callout-warn">
+          <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> ଛାଇର ମୁଖ୍ୟ ବୈଶିଷ୍ଟ୍ୟ: ପ୍ରତିବିମ୍ବ ଓ ଛାଇ ମଧ୍ୟରେ ପାର୍ଥକ୍ୟ!</div>
+          <ul style="margin-left:1.5rem;">
+            <li><strong>ରଙ୍ଗହୀନତା:</strong> ବସ୍ତୁଟି ଯେତେ ରଙ୍ଗୀନ (ନାଲି, ହଳଦିଆ, ନୀଳ) ହେଲେ ବି, ତାର ଛାଇ <strong>ସବୁବେଳେ କଳା ବା ଧୂସର</strong> ହିଁ ହୁଏ। ଛାଇ ବସ୍ତୁର ରଙ୍ଗ ଦେଖାଏ ନାହିଁ।</li>
+            <li><strong>କେବଳ ବାହ୍ୟରୂପ (Silhouette):</strong> ଛାଇ କେବଳ ବସ୍ତୁର ବାହ୍ୟ ଆକାର ଦେଖାଏ, ବସ୍ତୁର ଭିତରର କୌଣସି ବିବରଣୀ (ଚେହେରା, ଆଖି, ପୋଷାକ ଡିଜାଇନ୍) ଦେଖାଏ ନାହିଁ।</li>
+            <li><strong>ଆକାର ପରିବର୍ତ୍ତନ:</strong> ଯେତେବେଳେ ବସ୍ତୁଟି ଆଲୋକ ଉତ୍ସର ନିକଟତର ହୁଏ, ଛାଇ ବଡ଼ ହୁଏ; ଯେତେବେଳେ ବସ୍ତୁଟି ପରଦାର ନିକଟତର ହୁଏ, ଛାଇ ଛୋଟ ହୁଏ।</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 11.5 Pinhole Camera -->
+      <div class="card">
+        <h3 class="card-title"><i class="fa-solid fa-camera text-primary"></i> ୧୧.୫ ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା (The Pinhole Camera)</h3>
+        <p>ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା ହେଉଛି ବିନା ଲେନ୍ସରେ କାର୍ଯ୍ୟ କରୁଥିବା ଏକ ଅତି ସରଳ ଆଲୋକୀୟ ଯନ୍ତ୍ର, ଯାହା ଆଲୋକର ସରଳରୈଖିକ ଗତି ନିୟମ ଉପରେ କାର୍ଯ୍ୟ କରେ।</p>
+        
+        <div class="callout callout-def">
+          <div class="callout-title"><i class="fa-solid fa-circle-info"></i> ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରାରେ ସୃଷ୍ଟି ପ୍ରତିବିମ୍ବର ବୈଶିଷ୍ଟ୍ୟ:</div>
+          <ul style="margin-left:1.5rem;">
+            <li><strong>ବାସ୍ତବ (Real):</strong> ପ୍ରତିବିମ୍ବଟିକୁ ଅର୍ଦ୍ଧସ୍ୱଚ୍ଛ ଟ୍ରେସିଂ ପେପର୍ ପରଦା ଉପରେ ଧରାଯାଇପାରେ।</li>
+            <li><strong>ଓଲଟା (Inverted):</strong> ଗଛ ବା ବସ୍ତୁର ଉପର ଭାଗ ତଳକୁ ଏବଂ ତଳ ଭାଗ ଉପରକୁ ଦେଖାଯାଏ (Upside down)।</li>
+            <li><strong>ରଙ୍ଗୀନ (Coloured):</strong> ଛାଇ ପରି କଳା ନୁହେଁ, ବରଂ ବସ୍ତୁର ପ୍ରକୃତ ରଙ୍ଗ ପ୍ରତିବିମ୍ବରେ ଦେଖାଯାଏ!</li>
+          </ul>
+        </div>
+
+        <div class="callout callout-hack">
+          <div class="callout-title"><i class="fa-solid fa-tree"></i> ପ୍ରକୃତିର ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା: ଘଞ୍ଚ ଗଛ ତଳେ ଗୋଲାକାର ଆଲୋକ ଚିପା!</div>
+          <p>ଗ୍ରୀଷ୍ମଦିନେ ଘଞ୍ଚ ପତ୍ର ଥିବା ଏକ ବଡ଼ ଗଛ ତଳେ ଚାଲିଲା ବେଳେ ଭୂମି ଉପରେ ଅସଂଖ୍ୟ ଛୋଟ ଛୋଟ ଗୋଲାକାର ଆଲୋକ ଛାପ ଦେଖିଛନ୍ତି? ଏହି ଗୋଲାକାର ଆଲୋକ ଚିହ୍ନଗୁଡ଼ିକ ହେଉଛି <strong>ସୂର୍ଯ୍ୟଙ୍କର ଓଲଟା ସୂଚୀରନ୍ଧ୍ର ପ୍ରତିବିମ୍ବ</strong>! ପତ୍ରଗୁଡ଼ିକ ମଧ୍ୟରେ ଥିବା ଅତି କ୍ଷୁଦ୍ର ଫାଙ୍କା ସ୍ଥାନଗୁଡ଼ିକ ସୂଚୀରନ୍ଧ୍ର (Pinhole) ପରି କାର୍ଯ୍ୟ କରେ।</p>
+        </div>
+      </div>
+
+      <!-- 11.6 Reflection and Plane Mirror -->
+      <div class="card">
+        <h3 class="card-title"><i class="fa-solid fa-wand-magic-sparkles text-accent"></i> ୧୧.୬ ଆଲୋକର ପ୍ରତିଫଳନ ଓ ସମତଳ ଦର୍ପଣ (Reflection & Plane Mirrors)</h3>
+        <p>ଆଲୋକ ରଶ୍ମି କୌଣସି ଚିକ୍କଣ ଓ ଚମକଦାର ପୃଷ୍ଠ (ଯଥା ଦର୍ପଣ ବା ସ୍ଥିର ଜଳ) ଉପରେ ପଡ଼ି ଦିଗ ପରିବର୍ତ୍ତନ କରି ଫେରିଆସିବା ପ୍ରକ୍ରିୟାକୁ <strong>ଆଲୋକର ପ୍ରତିଫଳନ (Reflection of Light)</strong> କୁହାଯାଏ।</p>
+
+        <div class="callout callout-def">
+          <div class="callout-title"><i class="fa-solid fa-star"></i> ସମତଳ ଦର୍ପଣ (Plane Mirror) ରେ ସୃଷ୍ଟି ପ୍ରତିବିମ୍ବର ୪ଟି ସୁନିଶ୍ଚିତ ବୈଶିଷ୍ଟ୍ୟ:</div>
+          <ol style="margin-left:1.5rem; margin-top:0.5rem;">
+            <li><strong>ସମାନ ଆକାର (Same Size):</strong> ପ୍ରତିବିମ୍ବର ଉଚ୍ଚତା ଓ ଆକାର ବସ୍ତୁର ଆକାର ସହିତ ସମ୍ପୂର୍ଣ୍ଣ ସମାନ ହୁଏ।</li>
+            <li><strong>ସଳଖ (Erect):</strong> ପ୍ରତିବିମ୍ବ ଓଲଟା ହୁଏ ନାହିଁ; ମୁଣ୍ଡ ଉପରକୁ ଏବଂ ଗୋଡ଼ ତଳକୁ ରହେ।</li>
+            <li><strong>ଆଭାସୀ (Virtual):</strong> ଏହି ପ୍ରତିବିମ୍ବକୁ ପରଦା ଉପରେ ଧରି ରଖାଯାଇ ପାରିବ ନାହିଁ। ଦର୍ପଣ ପଛରେ ବସ୍ତୁ ଯେତେ ଦୂରରେ ଥାଏ, ପ୍ରତିବିମ୍ବ ମଧ୍ୟ ସେତିକି ଦୂରରେ ସୃଷ୍ଟି ହୁଏ।</li>
+            <li><strong>ପାର୍ଶ୍ୱୀୟ ପରିବର୍ତ୍ତନ (Lateral Inversion):</strong> ବସ୍ତୁର ବାମ ପାର୍ଶ୍ୱ ପ୍ରତିବିମ୍ବରେ ଡାହାଣ ପରି ଏବଂ ଡାହାଣ ପାର୍ଶ୍ୱ ବାମ ପରି ଦେଖାଯାଏ। (ସେଥିପାଇଁ ଆମ୍ବୁଲାନ୍ସ ଆଗରେ AMBULANCE ଶବ୍ଦଟି ଓଲଟା ଲେଖାଥାଏ)।</li>
+          </ol>
+        </div>
+
+        <!-- Periscope and Kaleidoscope -->
+        <h4 style="margin: 1.5rem 0 0.75rem; color:var(--dark); font-size:1.15rem;"><i class="fa-solid fa-compass-drafting text-purple"></i> ପେରିସ୍କୋପ୍ ଓ କ୍ୟାଲିଡୋସ୍କୋପ୍ (Periscope & Kaleidoscope):</h4>
+
+        <div class="badge-grid">
+          <div class="badge-item">
+            <span class="badge-label">ପେରିସ୍କୋପ୍ (Periscope)</span>
+            <span class="badge-text">ଏକ Z-ଆକୃତିର ନଳୀରେ ଦୁଇଟି ସମତଳ ଦର୍ପଣକୁ ପରସ୍ପର ସମାନ୍ତରାଳ ଭାବରେ <strong>୪୫ ଡିଗ୍ରୀ (45°) କୋଣରେ</strong> ଖଞ୍ଜାଯାଏ। ଏହା ବଙ୍କରରେ ଥିବା ସୈନ୍ୟ ଏବଂ ପାଣି ଭିତରେ ବୁଡ଼ିଜାହାଜ (Submarine) ରୁ ପାଣି ଉପର ବସ୍ତୁ ଦେଖିବାରେ ବ୍ୟବହୃତ ହୁଏ।</span>
+          </div>
+
+          <div class="badge-item">
+            <span class="badge-label">କ୍ୟାଲିଡୋସ୍କୋପ୍ (Kaleidoscope)</span>
+            <span class="badge-text">ତିନୋଟି ଆୟତାକାର ସମତଳ ଦର୍ପଣକୁ <strong>୬୦ ଡିଗ୍ରୀ (60°) କୋଣରେ</strong> ଏକ ତ୍ରିକୋଣୀୟ ନଳୀ ଭିତରେ ଯୋଡ଼ାଯାଏ। ଭିତରେ ରଙ୍ଗୀନ କାଚ ଚୁଡ଼ି ଖଣ୍ଡ ରଖି ବୁଲାଇଲେ ବାରମ୍ବାର ପ୍ରତିଫଳନ (Multiple Reflections) ଯୋଗୁଁ ଅପୂର୍ବ ସୁନ୍ଦର ପ୍ୟାଟର୍ଣ୍ଣ ସୃଷ୍ଟି ହୁଏ।</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Scientific Term Bank -->
+    <section id="terms" class="mb-5">
+      <div class="section-header">
+        <div class="section-num">୩</div>
+        <h2 class="section-title">ମୁଖ୍ୟ ବୈଜ୍ଞାନିକ ଶବ୍ଦାବଳୀ ଓ ପରିଭାଷା (Scientific Term Bank)</h2>
+      </div>
+
+      <div class="card">
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th style="width:25%;">ଓଡ଼ିଆ ପାରିଭାଷିକ ଶବ୍ଦ</th>
+                <th style="width:25%;">ଇଂରାଜୀ ଶବ୍ଦ (English Term)</th>
+                <th>ବିଜ୍ଞାନସମ୍ମତ ସଂଜ୍ଞା ଓ ସାରାଂଶ</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ଦୀପ୍ତିମାନ ବସ୍ତୁ</strong></td>
+                <td>Luminous Object</td>
+                <td>ଯେଉଁ ବସ୍ତୁ ନିଜସ୍ୱ ଆଲୋକ ଉତ୍ପନ୍ନ ଓ ଉତ୍ସର୍ଜନ କରେ (ସୂର୍ଯ୍ୟ, ଜଳନ୍ତା ବଲ୍ବ)।</td>
+              </tr>
+              <tr>
+                <td><strong>ଅଦୀପ୍ତିମାନ ବସ୍ତୁ</strong></td>
+                <td>Non-luminous Object</td>
+                <td>ଯାହାର ନିଜ ଆଲୋକ ନାହିଁ ଏବଂ କେବଳ ଆଲୋକ ପ୍ରତିଫଳିତ କରେ (ଚନ୍ଦ୍ର, ବହି, ଦର୍ପଣ)।</td>
+              </tr>
+              <tr>
+                <td><strong>ସରଳରୈଖିକ ଗମନ</strong></td>
+                <td>Rectilinear Propagation</td>
+                <td>ସମଜାତୀୟ ମାଧ୍ୟମରେ ଆଲୋକ ସର୍ବଦା ଏକ ସଳଖ ରେଖାରେ ଗତି କରିବାର ଗୁଣ।</td>
+              </tr>
+              <tr>
+                <td><strong>ସ୍ୱଚ୍ଛ ମାଧ୍ୟମ</strong></td>
+                <td>Transparent Medium</td>
+                <td>ଯେଉଁ ପଦାର୍ଥ ମଧ୍ୟଦେଇ ଆଲୋକ ସମ୍ପୂର୍ଣ୍ଣ ଅବାଧରେ ପ୍ରବେଶ କରେ (କାଚ, ବାୟୁ)।</td>
+              </tr>
+              <tr>
+                <td><strong>ଅର୍ଦ୍ଧସ୍ୱଚ୍ଛ ମାଧ୍ୟମ</strong></td>
+                <td>Translucent Medium</td>
+                <td>ଯେଉଁ ପଦାର୍ଥ ମଧ୍ୟଦେଇ ଆଲୋକ କେବଳ ଆଂଶିକ ଭାବେ ଗତି କରିପାରେ (ତେଲିଆ କାଗଜ)।</td>
+              </tr>
+              <tr>
+                <td><strong>ଅସ୍ୱଚ୍ଛ ପଦାର୍ଥ</strong></td>
+                <td>Opaque Object</td>
+                <td>ଯେଉଁ ପଦାର୍ଥ ମଧ୍ୟଦେଇ ଆଲୋକ ଆଦୌ ଗତି କରିପାରେ ନାହିଁ (କାଠ, ଧାତୁ)।</td>
+              </tr>
+              <tr>
+                <td><strong>ଛାଇ / ଛାୟା</strong></td>
+                <td>Shadow</td>
+                <td>ଆଲୋକର ଗତିପଥରେ ଅସ୍ୱଚ୍ଛ ବସ୍ତୁ ରହିଲେ ପରଦା ଉପରେ ସୃଷ୍ଟି ହେଉଥିବା ଅନ୍ଧକାରମୟ କ୍ଷେତ୍ର।</td>
+              </tr>
+              <tr>
+                <td><strong>ପ୍ରତିଫଳନ</strong></td>
+                <td>Reflection</td>
+                <td>ଚିକ୍କଣ ପୃଷ୍ଠରେ ବାଧାପ୍ରାପ୍ତ ହୋଇ ଆଲୋକର ଦିଗ ପରିବର୍ତ୍ତନ ପୂର୍ବକ ଫେରିଆସିବା।</td>
+              </tr>
+              <tr>
+                <td><strong>ପାର୍ଶ୍ୱୀୟ ପରିବର୍ତ୍ତନ</strong></td>
+                <td>Lateral Inversion</td>
+                <td>ସମତଳ ଦର୍ପଣରେ ବସ୍ତୁର ବାମ ପାର୍ଶ୍ୱ ଡାହାଣ ଏବଂ ଡାହାଣ ପାର୍ଶ୍ୱ ବାମ ଦେଖାଯିବା।</td>
+              </tr>
+              <tr>
+                <td><strong>ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା</strong></td>
+                <td>Pinhole Camera</td>
+                <td>ବିନା ଲେନ୍ସରେ କ୍ଷୁଦ୍ର ଛିଦ୍ର ଦ୍ୱାରା ବାସ୍ତବ ଓ ଓଲଟା ପ୍ରତିବିମ୍ବ ଗଠନ କରୁଥିବା ଯନ୍ତ୍ର।</td>
+              </tr>
+              <tr>
+                <td><strong>ପେରିସ୍କୋପ୍</strong></td>
+                <td>Periscope</td>
+                <td>ଦୁଇଟି ସମତଳ ଦର୍ପଣକୁ ୪୫° ରେ ରଖି ଦୃଷ୍ଟିସୀମାର ଉପରେ ଥିବା ବସ୍ତୁ ଦେଖିବାର ଯନ୍ତ୍ର।</td>
+              </tr>
+              <tr>
+                <td><strong>କ୍ୟାଲିଡୋସ୍କୋପ୍</strong></td>
+                <td>Kaleidoscope</td>
+                <td>୬୦° କୋଣରେ ୩ଟି ଦର୍ପଣ ରଖି ବହୁଗୁଣିତ ପ୍ରତିଫଳନ ଦ୍ୱାରା ସୁନ୍ଦର ପ୍ୟାଟର୍ଣ୍ଣ ଦେଖାଉଥିବା ଯନ୍ତ୍ର।</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: Complete NCERT Solutions -->
+    <section id="ncert" class="mb-5">
+      <div class="section-header">
+        <div class="section-num">୪</div>
+        <h2 class="section-title">ପାଠ୍ୟପୁସ୍ତକ ଅଭ୍ୟାସ ପ୍ରଶ୍ନୋତ୍ତର ସମାଧାନ (100% NCERT Solutions)</h2>
+      </div>
+
+      <div class="card">
+        <p style="margin-bottom:1.5rem; color:var(--text-muted);">
+          NCERT 'Let Us Enhance Our Learning' ର ସମସ୍ତ ୧୨ ଟି ପ୍ରଶ୍ନର ପୂର୍ଣ୍ଣାଙ୍ଗ, ପଦ୍ଧତିଗତ ଓ ଗ୍ରାଫିକାଲ୍ ସମାଧାନ:
+        </p>
+
+        <!-- Q1 -->
+        <details class="ans-box" open>
+          <summary class="ans-header">
+            <span>ପ୍ରଶ୍ନ ୧: ନିମ୍ନଲିଖିତ ମଧ୍ୟରୁ କେଉଁଗୁଡ଼ିକ ଦୀପ୍ତିମାନ ବସ୍ତୁ (Luminous objects)? [ମଙ୍ଗଳ, ଚନ୍ଦ୍ର, ଧ୍ରୁବତାରା, ସୂର୍ଯ୍ୟ, ଶୁକ୍ର, ଦର୍ପଣ]</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+          <div class="ans-content">
+            <p><strong>ସମାଧାନ:</strong></p>
+            <p><strong>ଦୀପ୍ତିମାନ ବସ୍ତୁଗୁଡ଼ିକ ହେଲା:</strong></p>
+            <ul style="margin-left:1.5rem; color:#15803d; font-weight:700;">
+              <li>୧. ସୂର୍ଯ୍ୟ (Sun) — ଏହାର ନିଜସ୍ୱ ନାଭିକୀୟ ସଂଯୋଜନ ଆଲୋକ ଅଛି।</li>
+              <li>୨. ଧ୍ରୁବତାରା (Pole Star) — ଏକ ପ୍ରକୃତ ତାରକା ଯାହା ନିଜେ ଆଲୋକ ବିକିରଣ କରେ।</li>
+            </ul>
+            <p style="margin-top:0.75rem;"><strong>ଅଦୀପ୍ତିମାନ ବସ୍ତୁ (Non-luminous):</strong></p>
+            <p>ମଙ୍ଗଳ (Mars), ଚନ୍ଦ୍ର (Moon), ଶୁକ୍ର (Venus), ଏବଂ ଦର୍ପଣ (Mirror) — ଏମାନଙ୍କର ନିଜସ୍ୱ ଆଲୋକ ନାହିଁ; ଏମାନେ ସୂର୍ଯ୍ୟାଲୋକ ପ୍ରତିଫଳନ କରି ଦୃଶ୍ୟମାନ ହୁଅନ୍ତି।</p>
+          </div>
+        </details>
+
+        <!-- Q2 -->
+        <details class="ans-box">
+          <summary class="ans-header">
+            <span>ପ୍ରଶ୍ନ ୨: ସ୍ତମ୍ଭ 'A' ସହିତ ସ୍ତମ୍ଭ 'B' ର ଉପଯୁକ୍ତ ମିଳନ କର (Match Column A with Column B)।</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+          <div class="ans-content">
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ସ୍ତମ୍ଭ A (Column A)</th>
+                    <th>ସ୍ତମ୍ଭ B (Column B) - ସଠିକ୍ ମିଳନ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>(a) ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା (Pinhole camera)</strong></td>
+                    <td>ଓଲଟା ପ୍ରତିବିମ୍ବ ଗଠନ କରେ (Forms an inverted image)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>(b) ଅସ୍ୱଚ୍ଛ ବସ୍ତୁ (Opaque object)</strong></td>
+                    <td>ଆଲୋକକୁ ସମ୍ପୂର୍ଣ୍ଣ ଅଟକାଇ ଦିଏ (Blocks light completely)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>(c) ସ୍ୱଚ୍ଛ ବସ୍ତୁ (Transparent object)</strong></td>
+                    <td>ଆଲୋକ ପ୍ରାୟ ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ ଏହା ମଧ୍ୟଦେଇ ଗତି କରେ (Light passes almost completely through it)</td>
+                  </tr>
+                  <tr>
+                    <td><strong>(d) ଛାଇ / ଛାୟା (Shadow)</strong></td>
+                    <td>ବସ୍ତୁ ପଛପଟେ ସୃଷ୍ଟି ହେଉଥିବା ଅନ୍ଧକାରମୟ କ୍ଷେତ୍ର (The dark region formed behind the object)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <!-- Q3 -->
+        <details class="ans-box">
+          <summary class="ans-header">
+            <span>ପ୍ରଶ୍ନ ୩: ସାହିଲ୍, ରେଖା, ପାଟ୍ରିକ୍ ଓ କାସିମା ପାଇପ୍ ସାହାଯ୍ୟରେ ମହମବତୀ ଶିଖା ଦେଖିବାକୁ ଚେଷ୍ଟା କରୁଛନ୍ତି (ଚିତ୍ର ୧୧.୧୬)। ସେମାନଙ୍କ ମଧ୍ୟରୁ କିଏ ଶିଖାଟିକୁ ଦେଖିପାରିବ?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+          <div class="ans-content">
+            <p><strong>ସମାଧାନ:</strong></p>
+            <p>କେବଳ <strong>ସାହିଲ୍ (Sahil)</strong> ହିଁ ମହମବତୀ ଶିଖାଟିକୁ ଦେଖିପାରିବ।</p>
+            <p><strong>ବୈଜ୍ଞାନିକ କାରଣ:</strong> ସାହିଲ୍ ହାତରେ ଏକ ସିଧା ପାଇପ୍ (Straight pipe) ଅଛି। ଆଲୋକ ସର୍ବଦା ସରଳରେଖାରେ ଗତି କରେ (Rectilinear propagation)। ଅପରପକ୍ଷରେ, ରେଖା, ପାଟ୍ରିକ୍ ଓ କାସିମାଙ୍କ ପାଇପ୍ ବିଭିନ୍ନ ସ୍ଥାନରେ ବଙ୍କା ହୋଇଥିବାରୁ ଆଲୋକ ବଙ୍କା ବାଟ ଦେଇ ସେମାନଙ୍କ ଆଖିରେ ପହଞ୍ଚିପାରିବ ନାହିଁ।</p>
+          </div>
+        </details>
+
+        <!-- Q4 -->
+        <details class="ans-box">
+          <summary class="ans-header">
+            <span>ପ୍ରଶ୍ନ ୪: ଚିତ୍ର ୧୧.୧୭ ରେ ବାଳକଟିର ଛାଇ ଗଠନ ସମ୍ପର୍କରେ କେଉଁ ଚିତ୍ରଟି ସମ୍ପୂର୍ଣ୍ଣ ସଠିକ୍?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+          <div class="ans-content">
+            <p><strong>ସମାଧାନ:</strong></p>
+            <p><strong>ସଠିକ୍ ଚିତ୍ର ହେଉଛି ଚିତ୍ର (a)।</strong></p>
+            <p><strong>କାରଣ:</strong> ଛାଇ ସର୍ବଦା ଆଲୋକ ଉତ୍ସ (ସୂର୍ଯ୍ୟ ବା ଟର୍ଚ୍ଚ) ର ବିପରୀତ ଦିଗରେ ସୃଷ୍ଟି ହୁଏ। ଯଦି ଆଲୋକ ଉତ୍ସ ବାମ ପଟେ ଅଛି, ତେବେ ବାଳକଟିର ଛାଇ ଡାହାଣ ପଟେ ଭୂମି ଉପରେ ପଡ଼ିବ ଏବଂ ତାହା ବାଳକଟିର ପାଦ ସହିତ ସଂଲଗ୍ନ ହୋଇ ଆରମ୍ଭ ହେବ।</p>
+          </div>
+        </details>
+
+        <!-- Q5 -->
+        <details class="ans-box">
+          <summary class="ans-header">
+            <span>ପ୍ରଶ୍ନ ୫: ଟର୍ଚ୍ଚ ସାମ୍ନାରେ ବଲ୍ ରଖି କାନ୍ଥ ଉପରେ ଛାଇ ସୃଷ୍ଟି କରାଗଲା (ଚିତ୍ର ୧୧.୧୮)। ପରିସ୍ଥିତି (i) ରେ ବଲ୍ ଟର୍ଚ୍ଚ ନିକଟରେ ଅଛି, (ii) ରେ ବଲ୍ କାନ୍ଥ ନିକଟରେ ଅଛି। ସଠିକ୍ ବିକଳ୍ପ ବାଛ।</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+          <div class="ans-content">
+            <p><strong>ସମାଧାନ:</strong></p>
+            <ul style="margin-left:1.5rem;">
+              <li><strong>ପରିସ୍ଥିତି (i):</strong> ବଲ୍ ଟର୍ଚ୍ଚ (ଆଲୋକ ଉତ୍ସ) ର ଯେତେ ନିକଟକୁ ଆସିବ, ସେ ଅଧିକ ପରିମାଣର ଆଲୋକ ରଶ୍ମିକୁ ଅବରୋଧ କରିବ, ଫଳରେ କାନ୍ଥ ଉପରେ <strong>ଛାଇ ବହୁତ ବଡ଼ (Larger shadow)</strong> ହେବ।</li>
+              <li><strong>ପରିସ୍ଥିତି (ii):</strong> ବଲ୍ କାନ୍ଥ (ପରଦା) ର ଯେତେ ନିକଟକୁ ଯିବ ଏବଂ ଟର୍ଚ୍ଚଠାରୁ ଦୂରେଇବ, ତାର <strong>ଛାଇ ଛୋଟ (Smaller shadow)</strong> ହେବ ଏବଂ ଅଧିକ ସ୍ପଷ୍ଟ ହେବ।</li>
+            </ul>
+            <p style="margin-top:0.5rem; font-weight:700; color:#15803d;">ତେଣୁ ସଠିକ୍ ପ୍ରତିନିଧିତ୍ୱ ହେଉଛି: (i) ବଡ଼ ଛାଇ ଏବଂ (ii) ଛୋଟ ଛାଇ।</p>
+          </div>
+        </details>
+
+        <!-- Q6 -->
+        <details class="ans-box">
+          <summary class="ans-header">
+            <span>ପ୍ରଶ୍ନ ୬: ଚିତ୍ର ୧୧.୧୮ ଆଧାରରେ ସ୍ତମ୍ଭ A ସହ ସ୍ତମ୍ଭ B କୁ ମିଳାଅ (ଟର୍ଚ୍ଚର ସ୍ଥିତି ଓ ଛାଇର ବୈଶିଷ୍ଟ୍ୟ)।</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+          <div class="ans-content">
+            <div class="table-container">
+              <table>
+                <thead>
+                  <tr>
+                    <th>ସ୍ତମ୍ଭ A (ସ୍ଥିତି)</th>
+                    <th>ସ୍ତମ୍ଭ B (ଫଳାଫଳ)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>(a) ଯଦି ଟର୍ଚ୍ଚଟି ବଲ୍‌ର ନିକଟରେ ଥାଏ</td>
+                    <td><strong>ଛାଇ ବଡ଼ ହେବ (The shadow would be larger)</strong></td>
+                  </tr>
+                  <tr>
+                    <td>(b) ଯଦି ଟର୍ଚ୍ଚଟି ବହୁତ ଦୂରରେ ଥାଏ</td>
+                    <td><strong>ଛାଇ ଛୋଟ ହେବ (The shadow would be smaller)</strong></td>
+                  </tr>
+                  <tr>
+                    <td>(c) ଯଦି ବଲ୍‌ଟିକୁ ହଟାଇ ଦିଆଯାଏ</td>
+                    <td><strong>ପରଦା ଉପରେ ଏକ ଉଜ୍ଜ୍ୱଳ ଆଲୋକ ଚିହ୍ନ ପଡ଼ିବ (A bright spot appears)</strong></td>
+                  </tr>
+                  <tr>
+                    <td>(d) ଯଦି ବଲ୍‌ର ବାମ ପଟେ ଦୁଇଟି ଟର୍ଚ୍ଚ ରଖାଯାଏ</td>
+                    <td><strong>ପରଦା ଉପରେ ଦୁଇଟି ଛାଇ ଦୃଶ୍ୟମାନ ହେବ (Two shadows appear)</strong></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </details>
+
+        <!-- Q7 -->
+        <details class="ans-box">
+          <summary class="ans-header">
+            <span>ପ୍ରଶ୍ନ ୭: ଗୋଟିଏ ଗଛକୁ ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା (Pinhole camera) ମାଧ୍ୟମରେ ଦେଖିଲେ କିପରି ପ୍ରତିବିମ୍ବ ଗଠିତ ହେବ, ତାହାର ଏକ ଚିତ୍ର ଆଙ୍କ।</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+          <div class="ans-content">
+            <p><strong>ସମାଧାନ:</strong></p>
+            <p>ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରାରେ ଗଛର ପ୍ରତିବିମ୍ବ <strong>ବାସ୍ତବ (Real) ଏବଂ ସମ୍ପୂର୍ଣ୍ଣ ଓଲଟା (Inverted)</strong> ହୋଇ ପରଦା ଉପରେ ଦେଖାଯିବ:</p>
+            <ul style="margin-left:1.5rem; margin-top:0.5rem;">
+              <li>ଗଛର ସବୁଜ ଡାଳପତ୍ର ଥିବା ଉପର ଭାଗ ପରଦାର ତଳ ଅଂଶରେ ଦିଶିବ।</li>
+              <li>ଗଛର କାଣ୍ଡ ଓ ଚେର ଥିବା ତଳ ଭାଗ ପରଦାର ଉପର ଅଂଶରେ ଦିଶିବ।</li>
+              <li>ପ୍ରତିବିମ୍ବଟି ବସ୍ତୁର ପ୍ରକୃତ ରଙ୍ଗ (ସବୁଜ ପତ୍ର, ବାଦାମୀ କାଣ୍ଡ) ଧାରଣ କରିବ।</li>
+            </ul>
+            <p style="margin-top:0.5rem; font-style:italic;">(ଅଧ୍ୟାୟର ଦୃଶ୍ୟ ଖସଡ଼ା ବିଭାଗରେ ଥିବା ଚିତ୍ର ୧୧.୨ ଦେଖନ୍ତୁ)।</p>
+          </div>
+        </details>
+
+        <!-- Q8 -->
+        <details class="ans-box">
+          <summary class="ans-header">
+            <span>ପ୍ରଶ୍ନ ୮: ଏକ କାଗଜ ଖଣ୍ଡରେ ନିଜ ନାମ ଲେଖି ସମତଳ ଦର୍ପଣ ସାମ୍ନାରେ ଧର। ପ୍ରତିବିମ୍ବରେ କି ପାର୍ଥକ୍ୟ ଲକ୍ଷ୍ୟ କରୁଛ ଏବଂ ଏହାର କାରଣ କ'ଣ?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+          <div class="ans-content">
+            <p><strong>ପର୍ଯ୍ୟବେକ୍ଷଣ:</strong> ଦର୍ପଣରେ ନାମଟି ପାର୍ଶ୍ୱୀୟ ଭାବେ ଓଲଟା (Laterally inverted) ଦେଖାଯାଏ। ଉଦାହରଣ ସ୍ୱରୂପ, ଯଦି ଇଂରାଜୀରେ <strong>"RED"</strong> ଲେଖାଯାଏ, ତେବେ ତାହା ଦର୍ପଣରେ ଓଲଟା ଅକ୍ଷରରେ ଦେଖାଯାଏ।</p>
+            <p><strong>ବୈଜ୍ଞାନିକ କାରଣ:</strong> ସମତଳ ଦର୍ପଣରେ ଆଲୋକ ପ୍ରତିଫଳନର ଏକ ମୌଳିକ ନିୟମ ହେଉଛି <strong>ପାର୍ଶ୍ୱୀୟ ପରିବର୍ତ୍ତନ (Lateral Inversion)</strong>। ଏଥିରେ ବସ୍ତୁର ଡାହାଣ ପାର୍ଶ୍ୱ ପ୍ରତିବିମ୍ବର ବାମ ପାର୍ଶ୍ୱରେ ଏବଂ ବସ୍ତୁର ବାମ ପାର୍ଶ୍ୱ ପ୍ରତିବିମ୍ବର ଡାହାଣ ପାର୍ଶ୍ୱରେ ପ୍ରତିଫଳିତ ହୁଏ। କିନ୍ତୁ ପ୍ରତିବିମ୍ବର ଉପର-ତଳ ସ୍ଥିତି ସଳଖ ରହେ।</p>
+          </div>
+        </details>
+
+        <!-- Q9 -->
+        <details class="ans-box">
+          <summary class="ans-header">
+            <span>ପ୍ରଶ୍ନ ୯: ଦିନ ସକାଳ ୯ ଟା, ମଧ୍ୟାହ୍ନ ୧୨ ଟା ଓ ଅପରାହ୍ନ ୪ ଟାରେ ତୁମ ଛାଇର ଦୈର୍ଘ୍ୟ ମାପି ଲେଖ: (i) କେଉଁ ସମୟରେ ଛାଇ ସବୁଠାରୁ ଛୋଟ? (ii) ଏପରି କାହିଁକି ଘଟେ?</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+          <div class="ans-content">
+            <p><strong>ପର୍ଯ୍ୟବେକ୍ଷଣ ଫଳାଫଳ:</strong></p>
+            <ul style="margin-left:1.5rem;">
+              <li>ସକାଳ ୯:୦୦ ଟା: ଛାଇ ବହୁତ ଲମ୍ବା (Long shadow, ପଶ୍ଚିମ ଦିଗକୁ)।</li>
+              <li>ମଧ୍ୟାହ୍ନ ୧୨:୦୦ ଟା: <strong>ଛାଇ ସବୁଠାରୁ ଛୋଟ (Shortest shadow)</strong>।</li>
+              <li>ଅପରାହ୍ନ ୪:୦୦ ଟା: ଛାଇ ପୁଣି ବହୁତ ଲମ୍ବା (Long shadow, ପୂର୍ବ ଦିଗକୁ)।</li>
+            </ul>
+            <p style="margin-top:0.75rem;"><strong>(i) ସବୁଠାରୁ ଛୋଟ ଛାଇ:</strong> ମଧ୍ୟାହ୍ନ ୧୨:୦୦ ଟା ବେଳେ।</p>
+            <p><strong>(ii) କାରଣ:</strong> ମଧ୍ୟାହ୍ନ ୧୨ ଟା ବେଳେ ସୂର୍ଯ୍ୟ ଠିକ୍ ଆମ ମୁଣ୍ଡ ଉପରେ (Vertically overhead / Zenith) ଅବସ୍ଥାନ କରନ୍ତି। ଆଲୋକ ରଶ୍ମି ଭୂମି ସହିତ ପ୍ରାୟ ୯୦° କୋଣରେ ପଡୁଥିବାରୁ ଛାଇ ସର୍ବନିମ୍ନ ହୋଇ ପାଦ ତଳେ ହିଁ ସୀମିତ ରହେ। ସକାଳ ଓ ଅପରାହ୍ନରେ ସୂର୍ଯ୍ୟ ଦିଗନ୍ତ ନିକଟରେ ତିର୍ଯ୍ୟକ୍ ଭାବେ (Slanted angle) ଥିବାରୁ ଲମ୍ବା ଛାଇ ପଡ଼େ।</p>
+          </div>
+        </details>
+
+        <!-- Q10 -->
+        <details class="ans-box">
+          <summary class="ans-header">
+            <span>ପ୍ରଶ୍ନ ୧୦: ନିମ୍ନ ଉକ୍ତି ଦୁଇଟି ଆଧାରରେ ସଠିକ୍ ବିକଳ୍ପଟି ବାଛ:<br>ଉକ୍ତି A: ସମତଳ ଦର୍ପଣରେ ସୃଷ୍ଟି ପ୍ରତିବିମ୍ବ ପାର୍ଶ୍ୱୀୟ ଭାବେ ଓଲଟା ହୁଏ।<br>ଉକ୍ତି B: ଇଂରାଜୀ ବର୍ଣ୍ଣମାଳାର ‘T’ ଏବଂ ‘O’ ଅକ୍ଷରର ପ୍ରତିବିମ୍ବ ଦର୍ପଣରେ ଅବିକଳ ସମାନ ଦିଶେ।</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+          <div class="ans-content">
+            <p><strong>ସଠିକ୍ ବିକଳ୍ପ: (i) ଉଭୟ ଉକ୍ତି ସତ୍ୟ (Both statements are true)।</strong></p>
+            <p><strong>ବ୍ୟାଖ୍ୟା:</strong></p>
+            <ul style="margin-left:1.5rem;">
+              <li><strong>ଉକ୍ତି A ସତ୍ୟ:</strong> ସମତଳ ଦର୍ପଣ ସର୍ବଦା ପାର୍ଶ୍ୱୀୟ ପରିବର୍ତ୍ତନ (Lateral inversion) ଘଟାଏ।</li>
+              <li><strong>ଉକ୍ତି B ମଧ୍ୟ ସତ୍ୟ:</strong> 'T', 'O', 'A', 'H', 'I', 'M' ପରି ଅକ୍ଷରଗୁଡ଼ିକ <strong>ଉଲମ୍ବ ସମମିତି (Vertical line symmetry)</strong> ବିଶିଷ୍ଟ। ଏମାନଙ୍କର ବାମ ଓ ଡାହାଣ ପାର୍ଶ୍ୱ ଏକାଭଳି ହୋଇଥିବାରୁ ପାର୍ଶ୍ୱୀୟ ପରିବର୍ତ୍ତନ ହେବା ପରେ ବି ପ୍ରତିବିମ୍ବ ମୂଳ ଅକ୍ଷର ପରି ଅବିକଳ ଦେଖାଯାଏ!</li>
+            </ul>
+          </div>
+        </details>
+
+        <!-- Q11 -->
+        <details class="ans-box">
+          <summary class="ans-header">
+            <span>ପ୍ରଶ୍ନ ୧୧: ଗୋଟିଏ Z-ଆକୃତିର ନଳୀ ଓ ଦୁଇଟି ଛୋଟ ସମତଳ ଦର୍ପଣ ଦିଆଗଲା (ଚିତ୍ର ୧୧.୨୦)। ଏହାକୁ ବ୍ୟବହାର କରି ପେରିସ୍କୋପ୍ ତିଆରି କରାଯାଇ ପାରିବ କି? ଯଦି ହଁ, ଦର୍ପଣ ଦୁଇଟି କେଉଁଠି ଖଞ୍ଜିବ ଦର୍ଶାଅ।</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+          <div class="ans-content">
+            <p><strong>ସମାଧାନ: ହଁ, ନିଶ୍ଚିତ ଭାବରେ ପେରିସ୍କୋପ୍ ତିଆରି କରାଯାଇ ପାରିବ!</strong></p>
+            <p><strong>ଦର୍ପଣ ଖଞ୍ଜିବାର ପଦ୍ଧତି:</strong></p>
+            <ol style="margin-left:1.5rem; margin-top:0.5rem;">
+              <li>Z-ଆକୃତି ନଳୀର ଉପର ବାଙ୍କ (Upper bend) ରେ ପ୍ରଥମ ସମତଳ ଦର୍ପଣଟିକୁ ଠିକ୍ <strong>୪୫ ଡିଗ୍ରୀ (45°) କୋଣରେ</strong> ଏପରି ଖଞ୍ଜିବାକୁ ହେବ ଯେପରି ତାର ଚିକ୍କଣ ପୃଷ୍ଠ ସାମ୍ନା ଆଲୋକକୁ ତଳ ଆଡ଼କୁ ପ୍ରତିଫଳିତ କରିବ।</li>
+              <li>ନଳୀର ତଳ ବାଙ୍କ (Lower bend) ରେ ଦ୍ୱିତୀୟ ସମତଳ ଦର୍ପଣଟିକୁ ପ୍ରଥମ ଦର୍ପଣ ସହିତ ସମାନ୍ତରାଳ ଭାବରେ ପୁଣି <strong>୪୫ ଡିଗ୍ରୀ (45°) କୋଣରେ</strong> ଖଞ୍ଜିବାକୁ ହେବ, ଯାହା ଉପରୁ ଆସୁଥିବା ଆଲୋକକୁ ସିଧା ଦର୍ଶକଙ୍କ ଆଖି ଆଡ଼କୁ ଫେରାଇବ।</li>
+            </ol>
+            <p style="margin-top:0.5rem; font-weight:600; color:#15803d;">ଏହି ଦୁଇଟି ପ୍ରତିଫଳନ ଫଳରେ ଉଚ୍ଚ ସ୍ଥାନର ବସ୍ତୁ ତଳେ ଥାଇ ସ୍ପଷ୍ଟ ଦେଖିହେବ।</p>
+          </div>
+        </details>
+
+        <!-- Q12 -->
+        <details class="ans-box">
+          <summary class="ans-header">
+            <span>ପ୍ରଶ୍ନ ୧୨: ଆକାଶରେ ବହୁତ ଉଚ୍ଚରେ ଉଡ଼ୁଥିବା ପକ୍ଷୀର ଛାଇ ଭୂମି ଉପରେ ଦେଖାଯାଏ ନାହିଁ। କିନ୍ତୁ ଭୂମି ନିକଟରେ ଉଡ଼ିଲେ ଛାଇ ସ୍ପଷ୍ଟ ଦେଖାଯାଏ। ଏହାର କାରଣ ବୁଝାଅ।</span>
+            <i class="fa-solid fa-chevron-down"></i>
+          </summary>
+          <div class="ans-content">
+            <p><strong>ସମାଧାନ (ବୈଜ୍ଞାନିକ କାରଣ):</strong></p>
+            <p>ଏହା ଆଲୋକ ଉତ୍ସର ଆକାର ଏବଂ ପରଦା (ଭୂମି) ର ଦୂରତା ଉପରେ ନିର୍ଭର କରେ:</p>
+            <ul style="margin-left:1.5rem; margin-top:0.5rem;">
+              <li>ସୂର୍ଯ୍ୟ ଏକ ବିଶାଳ ଆଲୋକ ଉତ୍ସ। ଯେତେବେଳେ କୌଣସି ବସ୍ତୁ ଆଲୋକ ଅବରୋଧ କରେ, ସେତେବେଳେ ଦୁଇଟି ଅଞ୍ଚଳ ସୃଷ୍ଟି ହୁଏ: ଗାଢ଼ କଳା ଅଂଶ <strong>ପ୍ରଛାୟା (Umbra)</strong> ଏବଂ ବାହାର ହାଲୁକା ଅଂଶ <strong>ଉପଚ୍ଛାୟା (Penumbra)</strong>।</li>
+              <li><strong>ପକ୍ଷୀ ଉଚ୍ଚରେ ଉଡ଼ିଲେ:</strong> ପକ୍ଷୀର ଆକାର ତୁଳନାରେ ଭୂମି ବହୁତ ଦୂରରେ ଥାଏ। ତେଣୁ ଗାଢ଼ ପ୍ରଛାୟା (Umbra) ଶଙ୍କୁ ଭୂମିରେ ପହଞ୍ଚିବା ପୂର୍ବରୁ ହିଁ ଶେଷ ହୋଇଯାଏ! ବାୟୁମଣ୍ଡଳର ଚାରିପାଖରୁ ଆସୁଥିବା ସୂର୍ଯ୍ୟାଲୋକ ସେହି ଅଂଶକୁ ଭରିଦିଏ, ତେଣୁ ଭୂମିରେ କୌଣସି ଛାଇ ଦିଶେ ନାହିଁ।</li>
+              <li><strong>ପକ୍ଷୀ ଭୂମି ନିକଟରେ ଉଡ଼ିଲେ:</strong> ଭୂମି (ପରଦା) ପକ୍ଷୀର ନିକଟତର ହୋଇଥିବାରୁ ପ୍ରଛାୟା (Umbra) ସିଧାସଳଖ ଭୂମି ଉପରେ ପଡ଼େ ଏବଂ ଆମେ ଏକ କଳା ସ୍ପଷ୍ଟ ଛାଇ ଦେଖିପାରୁ।</li>
+            </ul>
+          </div>
+        </details>
+
+      </div>
+    </section>
+
+    <!-- SECTION 5: HOTS & Interactive Quiz -->
+    <section id="quiz" class="mb-5">
+      <div class="section-header">
+        <div class="section-num">୫</div>
+        <h2 class="section-title">ଉଚ୍ଚସ୍ତରୀୟ ଚିନ୍ତନ ଦକ୍ଷତା (HOTS) ଓ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍</h2>
+      </div>
+
+      <div class="card">
+        <p style="margin-bottom:1.5rem; color:var(--text-muted);">
+          ନିମ୍ନ ପ୍ରଶ୍ନଗୁଡ଼ିକର ସଠିକ୍ ବିକଳ୍ପ ଉପରେ କ୍ଲିକ୍ କରି ନିଜର ବୁଝାମଣା ପରଖନ୍ତୁ:
+        </p>
+
+        <!-- Quiz 1 -->
+        <div class="quiz-card" id="q1">
+          <div class="quiz-question">୧. ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରାରେ ସୃଷ୍ଟି ହେଉଥିବା ପ୍ରତିବିମ୍ବର ପ୍ରକୃତି କିପରି ହୋଇଥାଏ?</div>
+          <div class="quiz-option" onclick="checkAnswer('q1', this, false, 'ଭୁଲ୍। ଆଭାସୀ ପ୍ରତିବିମ୍ବ ପରଦାରେ ଧରାଯାଏ ନାହିଁ।')">A) ଆଭାସୀ ଓ ସଳଖ (Virtual and erect)</div>
+          <div class="quiz-option" onclick="checkAnswer('q1', this, true, 'ସଠିକ୍ ଉତ୍ତର! ଆଲୋକର ସରଳରୈଖିକ ଗତି ଯୋଗୁଁ ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରାରେ ବାସ୍ତବ ଓ ଓଲଟା (Real and inverted) ପ୍ରତିବିମ୍ବ ସୃଷ୍ଟି ହୁଏ।')">B) ବାସ୍ତବ ଓ ଓଲଟା (Real and inverted)</div>
+          <div class="quiz-option" onclick="checkAnswer('q1', this, false, 'ଭୁଲ୍। ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା ପ୍ରତିବିମ୍ବ ସଳଖ ହୁଏ ନାହିଁ।')">C) ବାସ୍ତବ ଓ ସଳଖ (Real and erect)</div>
+          <div class="quiz-option" onclick="checkAnswer('q1', this, false, 'ଭୁଲ୍।')">D) ଆଭାସୀ ଓ ଓଲଟା (Virtual and inverted)</div>
+          <div class="quiz-feedback" id="q1-fb"></div>
+        </div>
+
+        <!-- Quiz 2 -->
+        <div class="quiz-card" id="q2">
+          <div class="quiz-question">୨. ଯଦି ତୁମେ ଏକ ସମତଳ ଦର୍ପଣ ଆଗରେ ଛିଡ଼ା ହୋଇ ତୁମର ଡାହାଣ କାନ ଛୁଅଁ, ତେବେ ପ୍ରତିବିମ୍ବରେ କେଉଁ କାନ ଛୁଉଁଥିବାର ଦେଖାଯିବ?</div>
+          <div class="quiz-option" onclick="checkAnswer('q2', this, true, 'ସଠିକ୍ ଉତ୍ତର! ସମତଳ ଦର୍ପଣର ପାର୍ଶ୍ୱୀୟ ପରିବର୍ତ୍ତନ (Lateral inversion) ଯୋଗୁଁ ତୁମ ଡାହାଣ କାନ ପ୍ରତିବିମ୍ବର ବାମ କାନ ଦିଶିବ।')">A) ବାମ କାନ (Left ear)</div>
+          <div class="quiz-option" onclick="checkAnswer('q2', this, false, 'ଭୁଲ୍। ସମତଳ ଦର୍ପଣରେ ପାର୍ଶ୍ୱୀୟ ପରିବର୍ତ୍ତନ ଘଟେ।')">B) ଡାହାଣ କାନ (Right ear)</div>
+          <div class="quiz-option" onclick="checkAnswer('q2', this, false, 'ଭୁଲ୍।')">C) ଉଭୟ କାନ ଏକାସାଙ୍ଗରେ</div>
+          <div class="quiz-option" onclick="checkAnswer('q2', this, false, 'ଭୁଲ୍। କୌଣସି କାନ ନୁହେଁ।')">D) କୌଣସିଟି ନୁହେଁ</div>
+          <div class="quiz-feedback" id="q2-fb"></div>
+        </div>
+
+        <!-- Quiz 3 -->
+        <div class="quiz-card" id="q3">
+          <div class="quiz-question">୩. ଗୋଟିଏ ପେରିସ୍କୋପ୍ (Periscope) ରେ ଦୁଇଟି ସମତଳ ଦର୍ପଣକୁ କେଉଁ କୋଣରେ ଖଞ୍ଜା ଯାଇଥାଏ?</div>
+          <div class="quiz-option" onclick="checkAnswer('q3', this, false, 'ଭୁଲ୍। ୩୦ ଡିଗ୍ରୀ ନୁହେଁ।')">A) ୩୦ ଡିଗ୍ରୀ (30°)</div>
+          <div class="quiz-option" onclick="checkAnswer('q3', this, true, 'ଚମତ୍କାର! ଦୁଇଟି ସମତଳ ଦର୍ପଣ ପରସ୍ପର ସହ ସମାନ୍ତରାଳ ଭାବରେ ୪୫ ଡିଗ୍ରୀ (45°) କୋଣରେ ରଖାଯାଏ।')">B) ୪୫ ଡିଗ୍ରୀ (45°)</div>
+          <div class="quiz-option" onclick="checkAnswer('q3', this, false, 'ଭୁଲ୍। ୬୦ ଡିଗ୍ରୀ କ୍ୟାଲିଡୋସ୍କୋପ୍‌ରେ ବ୍ୟବହୃତ ହୁଏ।')">C) ୬୦ ଡିଗ୍ରୀ (60°)</div>
+          <div class="quiz-option" onclick="checkAnswer('q3', this, false, 'ଭୁଲ୍। ୯୦ ଡିଗ୍ରୀ ନୁହେଁ।')">D) ୯୦ ଡିଗ୍ରୀ (90°)</div>
+          <div class="quiz-feedback" id="q3-fb"></div>
+        </div>
+
+        <!-- Quiz 4 -->
+        <div class="quiz-card" id="q4">
+          <div class="quiz-question">୪. ଇଂରାଜୀ ବର୍ଣ୍ଣମାଳାର କେଉଁ ଅକ୍ଷରଟି ସମତଳ ଦର୍ପଣ ଆଗରେ ରଖିଲେ ପାର୍ଶ୍ୱୀୟ ପରିବର୍ତ୍ତନ ସତ୍ତ୍ୱେ ଅବିକଳ ସମାନ ଦେଖାଯିବ?</div>
+          <div class="quiz-option" onclick="checkAnswer('q4', this, false, 'ଭୁଲ୍। B ଓଲଟିଯିବ।')">A) B</div>
+          <div class="quiz-option" onclick="checkAnswer('q4', this, false, 'ଭୁଲ୍। P ଓଲଟିଯିବ।')">B) P</div>
+          <div class="quiz-option" onclick="checkAnswer('q4', this, true, 'ସଠିକ୍ ଉତ୍ତର! M ଅକ୍ଷରଟିର ଉଲମ୍ବ ସମମିତି (Vertical symmetry) ଥିବାରୁ ଏହା ଦର୍ପଣରେ ବି ଅବିକଳ ସମାନ ଦିଶେ।')">C) M</div>
+          <div class="quiz-option" onclick="checkAnswer('q4', this, false, 'ଭୁଲ୍। R ଓଲଟିଯିବ।')">D) R</div>
+          <div class="quiz-feedback" id="q4-fb"></div>
+        </div>
+
+        <!-- Quiz 5 -->
+        <div class="quiz-card" id="q5">
+          <div class="quiz-question">୫. ତେଲିଆ କାଗଜ (Oily paper) କେଉଁ ପ୍ରକାରର ଆଲୋକୀୟ ମାଧ୍ୟମ ଅଟେ?</div>
+          <div class="quiz-option" onclick="checkAnswer('q5', this, false, 'ଭୁଲ୍। ସ୍ୱଚ୍ଛ ନୁହେଁ।')">A) ସ୍ୱଚ୍ଛ ମାଧ୍ୟମ (Transparent)</div>
+          <div class="quiz-option" onclick="checkAnswer('q5', this, true, 'ଠିକ୍ ଉତ୍ତର! ତେଲିଆ କାଗଜ ଦେଇ ଆଲୋକ ଆଂଶିକ ଭାବେ ପ୍ରବେଶ କରେ, ତେଣୁ ଏହା ଏକ ଅର୍ଦ୍ଧସ୍ୱଚ୍ଛ ମାଧ୍ୟମ (Translucent)।')">B) ଅର୍ଦ୍ଧସ୍ୱଚ୍ଛ ମାଧ୍ୟମ (Translucent)</div>
+          <div class="quiz-option" onclick="checkAnswer('q5', this, false, 'ଭୁଲ୍। ଅସ୍ୱଚ୍ଛ ନୁହେଁ।')">C) ଅସ୍ୱଚ୍ଛ ପଦାର୍ଥ (Opaque)</div>
+          <div class="quiz-option" onclick="checkAnswer('q5', this, false, 'ଭୁଲ୍। ଦୀପ୍ତିମାନ ନୁହେଁ।')">D) ଦୀପ୍ତିମାନ ଉତ୍ସ (Luminous)</div>
+          <div class="quiz-feedback" id="q5-fb"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: Exam Traps & Revision Points -->
+    <section id="revision" class="mb-5">
+      <div class="section-header">
+        <div class="section-num">୬</div>
+        <h2 class="section-title">ପରୀକ୍ଷା ହଲ୍ ସାଧାରଣ ଭୁଲ୍ ଚେତାବନୀ ଓ ୧୫ଟି ମୁଖ୍ୟ ରିଭିଜନ୍ ପଏଣ୍ଟ୍</h2>
+      </div>
+
+      <div class="card">
+        <h3 class="card-title"><i class="fa-solid fa-triangle-exclamation text-danger"></i> ପରୀକ୍ଷାରେ ବାରମ୍ବାର ହେଉଥିବା ୩ଟି ମାରାତ୍ମକ ଭୁଲ୍ (Exam Traps):</h3>
+
+        <div class="callout callout-warn">
+          <div class="callout-title"><i class="fa-solid fa-ban"></i> ଟ୍ରାପ୍ ୧: ଛାଇ (Shadow) ଏବଂ ପ୍ରତିବିମ୍ବ (Image) କୁ ଏକା ଭାବିବା!</div>
+          <p><strong>ସଂଶୋଧନ:</strong> ଛାଇ କେବଳ ଆଲୋକ ଅଟକିବା ଯୋଗୁଁ ସୃଷ୍ଟି ହେଉଥିବା ଏକ କଳା ଅନ୍ଧକାରମୟ କ୍ଷେତ୍ର, ଯାହାର କୌଣସି ରଙ୍ଗ ବା ଭିତର ବିବରଣୀ ନ ଥାଏ। କିନ୍ତୁ ପ୍ରତିବିମ୍ବ ଆଲୋକ ପ୍ରତିଫଳନ ବା ପ୍ରତିସରଣ ଦ୍ୱାରା ସୃଷ୍ଟି ହୁଏ, ଯାହା ବସ୍ତୁର ପ୍ରକୃତ ରଙ୍ଗ, ଚେହେରା ଓ ସମସ୍ତ ବିବରଣୀ ଦର୍ଶାଏ।</p>
+        </div>
+
+        <div class="callout callout-warn">
+          <div class="callout-title"><i class="fa-solid fa-ban"></i> ଟ୍ରାପ୍ ୨: "ଚନ୍ଦ୍ର ଏକ ଦୀପ୍ତିମାନ ବସ୍ତୁ" ବୋଲି ଲେଖିବା!</div>
+          <p><strong>ସଂଶୋଧନ:</strong> ଚନ୍ଦ୍ରର ନିଜର କୌଣସି ଆଲୋକ ନାହିଁ। ଚନ୍ଦ୍ର ଏକ ଅଦୀପ୍ତିମାନ ପିଣ୍ଡ (Non-luminous)। ଏହା କେବଳ ସୂର୍ଯ୍ୟାଲୋକକୁ ପ୍ରତିଫଳିତ କରି ରାତିରେ ଚମକିଥାଏ।</p>
+        </div>
+
+        <div class="callout callout-warn">
+          <div class="callout-title"><i class="fa-solid fa-ban"></i> ଟ୍ରାପ୍ ୩: ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରାର ପ୍ରତିବିମ୍ବ କଳା ବୋଲି ଭାବିବା!</div>
+          <p><strong>ସଂଶୋଧନ:</strong> ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରାରେ ସୃଷ୍ଟି ହେଉଥିବା ପ୍ରତିବିମ୍ବ କଦାପି କଳା ନୁହେଁ। ଏହା ବସ୍ତୁର ଅବିକଳ ରଙ୍ଗୀନ ପ୍ରତିବିମ୍ବ ଦିଏ, କେବଳ ଏହା ବାସ୍ତବ ଓ ଓଲଟା (Inverted) ହୋଇଥାଏ।</p>
+        </div>
+
+        <h3 class="card-title" style="margin-top:2rem;"><i class="fa-solid fa-bolt text-accent"></i> ୧୫ଟି ବିଜୁଳି ବେଗ ରିଭିଜନ୍ ପଏଣ୍ଟ୍ (15 Lightning Revision Points):</h3>
+        <div class="badge-grid">
+          <div class="badge-item">
+            <span class="badge-label">୧. ଆଲୋକ ଏକ ଶକ୍ତି</span>
+            <span class="badge-text">ଏହା ଆଖିରେ ଦୃଷ୍ଟିର ଅନୁଭୂତି ଜାଗ୍ରତ କରାଏ।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୨. ଦୀପ୍ତିମାନ ବସ୍ତୁ</span>
+            <span class="badge-text">ନିଜସ୍ୱ ଆଲୋକ ଥାଏ (ସୂର୍ଯ୍ୟ, ତାରା, ବଲ୍ବ, ଜୁଳୁଜୁଳିଆ)।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୩. ଅଦୀପ୍ତିମାନ ବସ୍ତୁ</span>
+            <span class="badge-text">ନିଜ ଆଲୋକ ନ ଥାଏ (ଚନ୍ଦ୍ର, ଗ୍ରହ, ପୃଥିବୀ, କାଠ)।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୪. ସରଳରୈଖିକ ଗତି</span>
+            <span class="badge-text">ଆଲୋକ ସର୍ବଦା ସଳଖ ରେଖାରେ ଗତି କରିଥାଏ।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୫. ସ୍ୱଚ୍ଛ ମାଧ୍ୟମ</span>
+            <span class="badge-text">ଆଲୋକ ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ ଅବାଧରେ ପ୍ରବେଶ କରେ (କାଚ)।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୬. ଅର୍ଦ୍ଧସ୍ୱଚ୍ଛ ମାଧ୍ୟମ</span>
+            <span class="badge-text">ଆଲୋକ ଆଂଶିକ ଭାବେ ଗତି କରେ (ତେଲିଆ କାଗଜ)।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୭. ଅସ୍ୱଚ୍ଛ ବସ୍ତୁ</span>
+            <span class="badge-text">ଆଲୋକକୁ ସମ୍ପୂର୍ଣ୍ଣ ଅଟକାଇ ଦିଏ (କାଠ, ଧାତୁ)।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୮. ଛାଇ ଗଠନ</span>
+            <span class="badge-text">ଆଲୋକ ଉତ୍ସ + ଅସ୍ୱଚ୍ଛ ବସ୍ତୁ + ପରଦା ନିତାନ୍ତ ଆବଶ୍ୟକ।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୯. ଛାଇର ରଙ୍ଗ</span>
+            <span class="badge-text">ବସ୍ତୁ ଯେତେ ରଙ୍ଗୀନ ହେଲେ ବି ଛାଇ ସବୁବେଳେ କଳା ହୁଏ।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୧୦. ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା</span>
+            <span class="badge-text">ବାସ୍ତବ, ରଙ୍ଗୀନ ଓ ଓଲଟା ପ୍ରତିବିମ୍ବ ସୃଷ୍ଟି କରେ।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୧୧. ସମତଳ ଦର୍ପଣ</span>
+            <span class="badge-text">ସମାନ ଆକାର, ସଳଖ ଓ ଆଭାସୀ ପ୍ରତିବିମ୍ବ ଦିଏ।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୧୨. ପାର୍ଶ୍ୱୀୟ ପରିବର୍ତ୍ତନ</span>
+            <span class="badge-text">ଦର୍ପଣରେ ବାମ ପାର୍ଶ୍ୱ ଡାହାଣ ଏବଂ ଡାହାଣ ବାମ ଦିଶେ।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୧୩. ପେରିସ୍କୋପ୍</span>
+            <span class="badge-text">୪୫° କୋଣରେ ଦୁଇଟି ସମତଳ ଦର୍ପଣ ବ୍ୟବହୃତ ହୁଏ।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୧୪. କ୍ୟାଲିଡୋସ୍କୋପ୍</span>
+            <span class="badge-text">୬୦° କୋଣରେ ୩ଟି ଦର୍ପଣ ବହୁଗୁଣିତ ପ୍ରତିଫଳନ ସୃଷ୍ଟି କରେ।</span>
+          </div>
+          <div class="badge-item">
+            <span class="badge-label">୧୫. ସୂର୍ଯ୍ୟାଲୋକର ସମୟ</span>
+            <span class="badge-text">ପୃଥିବୀରେ ପହଞ୍ଚିବାକୁ ୮ ମିନିଟ୍ ୨୦ ସେକେଣ୍ଡ୍ ନିଏ।</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+    });
+
+    // Interactive Quiz Evaluation
+    function checkAnswer(cardId, optionElem, isCorrect, explanation) {
+      const card = document.getElementById(cardId);
+      const options = card.querySelectorAll('.quiz-option');
+      const feedback = document.getElementById(cardId + '-fb');
+
+      options.forEach(opt => {
+        opt.style.pointerEvents = 'none';
+        opt.classList.remove('correct', 'incorrect');
+      });
+
+      if (isCorrect) {
+        optionElem.classList.add('correct');
+        feedback.innerHTML = "<strong>✅ ସଠିକ୍!</strong> " + explanation;
+        feedback.style.display = 'block';
+        feedback.style.background = '#dcfce7';
+        feedback.style.color = '#15803d';
+        feedback.style.border = '1px solid #86efac';
+      } else {
+        optionElem.classList.add('incorrect');
+        feedback.innerHTML = "<strong>❌ ଭୁଲ୍!</strong> " + explanation;
+        feedback.style.display = 'block';
+        feedback.style.background = '#fee2e2';
+        feedback.style.color = '#b91c1c';
+        feedback.style.border = '1px solid #fca5a5';
+
+        options.forEach(opt => {
+          if (opt.getAttribute('onclick').includes('true')) {
+            opt.classList.add('correct');
+          }
+        });
+      }
+    }
+
+    // Teacher Audio Summary TTS
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Text-to-Speech ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+      } else {
+        const text = "ନମସ୍କାର ପିଲାମାନେ! ସପ୍ତମ ଶ୍ରେଣୀ ବିଜ୍ଞାନର ଏକାଦଶ ଅଧ୍ୟାୟ 'ଆଲୋକ: ଛାଇ ଓ ପ୍ରତିଫଳନ' କୁ ସ୍ୱାଗତ। ଆଲୋକ ସର୍ବଦା ଏକ ସରଳରେଖାରେ ଗତି କରିଥାଏ। ଅସ୍ୱଚ୍ଛ ବସ୍ତୁ ଆଲୋକକୁ ଅବରୋଧ କଲେ ଛାଇ ସୃଷ୍ଟି ହୁଏ। ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା ବାସ୍ତବ ଓ ଓଲଟା ପ୍ରତିବିମ୍ବ ଗଠନ କରେ। ସମତଳ ଦର୍ପଣରେ ପ୍ରତିବିମ୍ବ ସମାନ ଆକାରର, ସଳଖ ଏବଂ ପାର୍ଶ୍ୱୀୟ ଭାବେ ପରିବର୍ତ୍ତିତ ହୁଏ। ପେରିସ୍କୋପ୍‌ରେ ଦୁଇଟି ସମତଳ ଦର୍ପଣ ପଞ୍ଚଚାଳିଶ ଡିଗ୍ରୀ କୋଣରେ ଖଞ୍ଜାଯାଏ। ଧନ୍ୟବାଦ!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'or-IN';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>";
+      }
+    }
+  </script>
+</body>
+</html>
