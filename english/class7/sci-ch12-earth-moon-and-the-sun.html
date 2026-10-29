@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 12 - Earth, Moon, and the Sun (Class 7 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-light: #eef2ff;
+      --primary-dark: #3730a3;
+      --secondary: #f59e0b;
+      --secondary-light: #fef3c7;
+      --accent: #06b6d4;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #4f46e5, #06b6d4, #f59e0b);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+      color: #ffffff;
+      border-radius: 1.5rem;
+      padding: 3rem 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #4338ca;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #a5b4fc;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.3rem;
+      line-height: 1.25;
+      color: #f8fafc;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: #cbd5e1;
+      margin-bottom: 1.5rem;
+      max-width: 720px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      color: #94a3b8;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+      padding-top: 1.25rem;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Audio Bar */
+    .audio-bar {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .audio-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .audio-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .audio-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--surface);
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--light);
+    }
+
+    .section-tag {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    /* Typography */
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      color: #1e293b;
+      margin: 1.75rem 0 0.75rem;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      color: #334155;
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 1rem; }
+    ul, ol { margin: 0 0 1.25rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+
+    /* Callouts */
+    .callout {
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+
+    .callout-def {
+      background: #eef2ff;
+      border-left: 4px solid #4f46e5;
+      color: #3730a3;
+    }
+
+    .callout-act {
+      background: #ecfeff;
+      border-left: 4px solid #06b6d4;
+      color: #0e7490;
+    }
+
+    .callout-pyq {
+      background: #fefce8;
+      border-left: 4px solid #ca8a04;
+      color: #854d0e;
+    }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-left: 4px solid #9333ea;
+      color: #6b21a8;
+    }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: #f8fafc;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      color: #1e293b;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background-color: #fbfcfe; }
+
+    /* Collapsible Solutions */
+    .ans-box {
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      background: #ffffff;
+      transition: all 0.2s ease;
+    }
+
+    .ans-box summary {
+      padding: 1rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #f8fafc;
+      transition: background 0.2s;
+    }
+
+    .ans-box summary:hover {
+      background: #f1f5f9;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+      background: #ffffff;
+    }
+
+    .step-pill {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.375rem;
+      margin-right: 0.4rem;
+    }
+
+    /* Quiz Widget */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quiz-q {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .opt-btn {
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 0.6rem;
+      background: white;
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .opt-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+
+    .opt-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+
+    .quiz-feedback {
+      display: none;
+      padding: 0.85rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* Floating Back to Top */
+    #backToTopBtn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.2s ease;
+      z-index: 999;
+    }
+
+    #backToTopBtn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero { padding: 2rem 1.25rem; }
+      .section-card { padding: 1.5rem 1rem; }
+      .top-nav { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <!-- Sticky Top Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Deep Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Quiz Engine</a>
+      <a href="#sec6" class="nav-link">6. Exam Readiness</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Hero Banner -->
+    <header class="hero">
+      <div class="hero-badge">
+        <i class="fa-solid fa-globe"></i> Class 7 Science Curiosity • Chapter 12
+      </div>
+      <h1>Earth, Moon, and the Sun</h1>
+      <p class="hero-subtitle">
+        Embark on an astronomical odyssey uncovering Earth's diurnal rotation, axial tilt ($23.5^\circ$), seasonal dynamics, equinoxes &amp; solstices, and celestial solar and lunar eclipses!
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><i class="fa-solid fa-book-open"></i> NCERT NEP 2020 Code: gecu112</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-clock"></i> 38 Mins Capstone Master Read</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-certificate"></i> Class 7 Science Curriculum Final Masterpiece</div>
+      </div>
+    </header>
+
+    <!-- Teacher Audio Summary Widget -->
+    <div class="audio-bar">
+      <div class="audio-info">
+        <div class="audio-icon"><i class="fa-solid fa-headphones-simple"></i></div>
+        <div>
+          <strong style="font-size: 0.95rem; color: var(--dark);">Listen to Chapter Summary</strong>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Interactive 2-Minute Speech Synthesis Audio Lecture</p>
+        </div>
+      </div>
+      <button class="audio-btn" id="ttsBtn" onclick="toggleTeacherAudio()">
+        <i class="fa-solid fa-play" id="ttsIcon"></i> <span id="ttsText">Play Audio</span>
+      </button>
+    </div>
+
+    <!-- ==========================================
+         SECTION 1: VISUAL ARCHITECTURE & BLUEPRINT
+         ========================================== -->
+    <section class="section-card" id="sec1">
+      <div class="section-header">
+        <span class="section-tag">Section 1</span>
+        <h2 class="section-title">Visual Architecture &amp; Mind Map</h2>
+      </div>
+      <p>
+        Celestial mechanics governs life on planet Earth. The three cosmic bodies — <strong>Earth</strong>, <strong>Moon</strong>, and <strong>Sun</strong> — interact through rotation, axial tilt, and orbital revolution to produce day and night, changing seasons, and dramatic eclipses.
+      </p>
+
+      <!-- Inline SVG Concept Map -->
+      <div style="width: 100%; overflow-x: auto; background: #0f172a; border: 1px solid #334155; border-radius: 1rem; padding: 1.5rem; margin: 1.5rem 0;">
+        <svg viewBox="0 0 880 500" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="cosmicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#4f46e5"/>
+              <stop offset="100%" stop-color="#3730a3"/>
+            </linearGradient>
+            <linearGradient id="rotGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#06b6d4"/>
+              <stop offset="100%" stop-color="#0891b2"/>
+            </linearGradient>
+            <linearGradient id="revGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#059669"/>
+            </linearGradient>
+            <linearGradient id="eclGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <filter id="shadowCosmic" x="-10%" y="-10%" width="120%" height="120%">
+              <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.3"/>
+            </filter>
+          </defs>
+
+          <!-- Central Core Node -->
+          <rect x="290" y="20" width="300" height="60" rx="12" fill="url(#cosmicGrad)" filter="url(#shadowCosmic)"/>
+          <text x="440" y="46" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" text-anchor="middle">EARTH, MOON, AND THE SUN</text>
+          <text x="440" y="66" fill="#c7d2fe" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">Class 7 Curiosity Science • Chapter 12</text>
+
+          <!-- Branch 1: Earth's Rotation -->
+          <path d="M 330 80 L 160 150" stroke="#06b6d4" stroke-width="2.5"/>
+          <rect x="40" y="150" width="240" height="90" rx="10" fill="url(#rotGrad)" filter="url(#shadowCosmic)"/>
+          <text x="160" y="178" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" text-anchor="middle">1. ROTATION OF EARTH</text>
+          <text x="160" y="200" fill="#ecfeff" font-size="11" text-anchor="middle">&bull; Spins West &rarr; East (24 hours)</text>
+          <text x="160" y="216" fill="#ecfeff" font-size="11" text-anchor="middle">&bull; Causes Day &amp; Night cycles</text>
+          <text x="160" y="232" fill="#ecfeff" font-size="11" text-anchor="middle">&bull; Apparent East-West rise of Sun/Stars</text>
+
+          <!-- Branch 2: Revolution & Seasons -->
+          <path d="M 440 80 L 440 150" stroke="#10b981" stroke-width="2.5"/>
+          <rect x="320" y="150" width="240" height="90" rx="10" fill="url(#revGrad)" filter="url(#shadowCosmic)"/>
+          <text x="440" y="178" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" text-anchor="middle">2. REVOLUTION &amp; SEASONS</text>
+          <text x="440" y="200" fill="#ecfdf5" font-size="11" text-anchor="middle">&bull; Orbit around Sun (365.25 days)</text>
+          <text x="440" y="216" fill="#ecfdf5" font-size="11" text-anchor="middle">&bull; Axial Tilt of 23.5&deg; drives seasons</text>
+          <text x="440" y="232" fill="#ecfdf5" font-size="11" text-anchor="middle">&bull; Solstices (June/Dec) &amp; Equinoxes</text>
+
+          <!-- Branch 3: Eclipses -->
+          <path d="M 550 80 L 720 150" stroke="#f59e0b" stroke-width="2.5"/>
+          <rect x="600" y="150" width="240" height="90" rx="10" fill="url(#eclGrad)" filter="url(#shadowCosmic)"/>
+          <text x="720" y="178" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" text-anchor="middle">3. CELESTIAL ECLIPSES</text>
+          <text x="720" y="200" fill="#fffbeb" font-size="11" text-anchor="middle">&bull; Solar: Sun &mdash; Moon &mdash; Earth (Amavasya)</text>
+          <text x="720" y="216" fill="#fffbeb" font-size="11" text-anchor="middle">&bull; Lunar: Sun &mdash; Earth &mdash; Moon (Purnima)</text>
+          <text x="720" y="232" fill="#fffbeb" font-size="11" text-anchor="middle">&bull; Umbra vs Penumbra shadow optics</text>
+
+          <!-- Lower Details Flow -->
+          <!-- Box 1 -->
+          <path d="M 160 240 L 160 290" stroke="#06b6d4" stroke-width="1.5"/>
+          <rect x="35" y="290" width="250" height="160" rx="8" fill="#1e293b" stroke="#0891b2" stroke-width="1.5"/>
+          <text x="160" y="315" fill="#38bdf8" font-size="12" font-weight="700" text-anchor="middle">Rotational Dynamics</text>
+          <text x="45" y="340" fill="#cbd5e1" font-size="11">&bull; <tspan font-weight="700">Merry-go-round effect:</tspan> Relative motion</text>
+          <text x="45" y="360" fill="#cbd5e1" font-size="11">&bull; <tspan font-weight="700">Circle of illumination:</tspan> Day vs Night</text>
+          <text x="45" y="380" fill="#cbd5e1" font-size="11">&bull; <tspan font-weight="700">India vs USA:</tspan> Opposite hemispheres</text>
+          <text x="45" y="400" fill="#cbd5e1" font-size="11">&bull; <tspan font-weight="700">Eastern Sunrise:</tspan> Jharkhand &gt; Gujarat</text>
+          <text x="45" y="420" fill="#cbd5e1" font-size="11">&bull; Orion star overhead shifts ~4 min/day</text>
+
+          <!-- Box 2 -->
+          <path d="M 440 240 L 440 290" stroke="#10b981" stroke-width="1.5"/>
+          <rect x="315" y="290" width="250" height="160" rx="8" fill="#1e293b" stroke="#059669" stroke-width="1.5"/>
+          <text x="440" y="315" fill="#34d399" font-size="12" font-weight="700" text-anchor="middle">Seasonal Mechanics</text>
+          <text x="325" y="340" fill="#cbd5e1" font-size="11">&bull; <tspan font-weight="700">23.5&deg; Axial Tilt:</tspan> Fixed pointer to Polaris</text>
+          <text x="325" y="360" fill="#cbd5e1" font-size="11">&bull; <tspan font-weight="700">June 21 Solstice:</tspan> North Pole 24h Sun</text>
+          <text x="325" y="380" fill="#cbd5e1" font-size="11">&bull; <tspan font-weight="700">Dec 22 Solstice:</tspan> Australia peak summer</text>
+          <text x="325" y="400" fill="#cbd5e1" font-size="11">&bull; <tspan font-weight="700">Equinoxes (Mar/Sept):</tspan> Equal 12h worldwide</text>
+          <text x="325" y="420" fill="#cbd5e1" font-size="11">&bull; <tspan font-weight="700">No Tilt?</tspan> No seasons would ever exist!</text>
+
+          <!-- Box 3 -->
+          <path d="M 720 240 L 720 290" stroke="#f59e0b" stroke-width="1.5"/>
+          <rect x="595" y="290" width="250" height="160" rx="8" fill="#1e293b" stroke="#d97706" stroke-width="1.5"/>
+          <text x="720" y="315" fill="#fbbf24" font-size="12" font-weight="700" text-anchor="middle">Shadow Eclipse Geometry</text>
+          <text x="605" y="340" fill="#cbd5e1" font-size="11">&bull; <tspan font-weight="700">Why small Moon covers Sun:</tspan> 400x rule</text>
+          <text x="605" y="360" fill="#cbd5e1" font-size="11">&bull; <tspan font-weight="700">Total Solar Eclipse:</tspan> Narrow ~150km umbra</text>
+          <text x="605" y="380" fill="#cbd5e1" font-size="11">&bull; <tspan font-weight="700">Lunar Eclipse:</tspan> Huge Earth shadow seen by</text>
+          <text x="615" y="398" fill="#cbd5e1" font-size="11">entire night-side hemisphere!</text>
+          <text x="605" y="420" fill="#cbd5e1" font-size="11">&bull; 5&deg; orbital tilt prevents monthly eclipses</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: COMPREHENSIVE STUDY NOTES
+         ========================================== -->
+    <section class="section-card" id="sec2">
+      <div class="section-header">
+        <span class="section-tag">Section 2</span>
+        <h2 class="section-title">Comprehensive Line-by-Line Study Notes</h2>
+      </div>
+
+      <!-- Part 1: Rotation of the Earth -->
+      <h3>1. Rotation of the Earth: The Day-Night Clock</h3>
+      <p>
+        Every day, we observe the Sun rising in the East, climbing high across the sky, and setting in the West. Does the Sun physically move around the Earth? <strong>No!</strong> The apparent movement of the Sun and stars is an optical illusion caused by Earth's own rotation!
+      </p>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-arrows-spin"></i> Principle: Earth's Rotation</div>
+        The Earth continuously spins on an imaginary central axis connecting the North Pole and South Pole from <strong>West to East</strong> (anticlockwise when viewed from above the North Pole). One full rotation takes approximately <strong>24 hours</strong> (1 Solar Day).
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-child-reaching"></i> Activity 12.1: The Merry-Go-Round Analogy</div>
+        When you sit on a merry-go-round spinning in an <strong>anticlockwise direction</strong> (towards your left), the stationary trees, benches, and observers outside appear to spin rapidly in a <strong>clockwise direction</strong> (towards your right)!
+        <br>&bull; In exactly the same manner, because Earth spins from <strong>West to East</strong>, all distant stationary celestial bodies (the Sun, Moon, planets, and constellations) appear to sweep across our sky from <strong>East to West</strong>!
+      </div>
+
+      <h4>Why We Have Day and Night</h4>
+      <ul>
+        <li>The Earth is an <strong>opaque spherical body</strong> illuminated by a single distant source: the Sun.</li>
+        <li>At any given moment, the half of the Earth facing towards the Sun receives sunlight and experiences <strong>Daytime</strong>.</li>
+        <li>The opposite half, turned away from the Sun, is cast in Earth's own shadow and experiences <strong>Nighttime</strong>.</li>
+        <li>The imaginary circular boundary dividing the illuminated day-hemisphere from the dark night-hemisphere is known as the <strong>Circle of Illumination</strong>.</li>
+        <li>As the Earth steadily spins on its axis, every meridian continually transitions from night into day (at sunrise) and back into night (at sunset).</li>
+      </ul>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title"><i class="fa-solid fa-earth-americas"></i> Why is it Night in the USA when it is Day in India?</div>
+        India and the United States of America are located on nearly diametrically opposite sides of the globe (longitudinal difference of approximately $180^\circ$). When India is rotated towards the Sun, the American landmass is positioned on the shaded night-side. Twelve hours later, as Earth completes half a rotation, the USA turns towards the Sun while India plunges into night!
+      </div>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-sun"></i> Eastern Sunrise in India</div>
+        Because Earth rotates from West to East, the easternmost regions encounter the Sun first! Sunrise occurs roughly <strong>2 hours earlier</strong> in Dong Valley (Arunachal Pradesh) and Jharkhand compared to Dwarka in Gujarat on the western coast!
+      </div>
+
+      <!-- Part 2: Revolution & Seasons -->
+      <h3>2. Revolution of the Earth &amp; The Mechanism of Changing Seasons</h3>
+      <p>
+        While spinning on its axis, Earth simultaneously travels around the Sun along an elliptical orbit. One complete revolution requires <strong>365.25 days</strong> (1 Year).
+      </p>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-compass-drafting"></i> The Twin Drivers of Seasons</div>
+        Seasons are NOT caused by Earth being closer or farther from the Sun! (In fact, Earth is at perihelion — closest to the Sun — in early January during northern winter).
+        <br>Seasons are produced strictly by the interplay of two factors:
+        <ol>
+          <li><strong>The Axial Tilt of $23.5^\circ$:</strong> Earth's rotational axis is tilted at an angle of $23.5^\circ$ with respect to the perpendicular to its orbital plane (or $66.5^\circ$ to the orbital plane).</li>
+          <li><strong>Revolution around the Sun with Fixed Axial Orientation:</strong> The tilted axis constantly points in the exact same direction in deep space (towards Polaris, the North Star) as Earth orbits the Sun.</li>
+        </ol>
+      </div>
+
+      <h4>Why Does Axial Tilt Create Seasons?</h4>
+      <p>
+        As Earth revolves around the Sun, the hemisphere that leans <em>towards</em> the Sun experiences summer, while the hemisphere that leans <em>away</em> experiences winter:
+      </p>
+      <ol>
+        <li><strong>Angle of Sunrays (Concentration of Heat):</strong>
+          <br>&bull; When a hemisphere is tilted towards the Sun, solar rays strike at a steep, nearly vertical angle. The radiant energy is concentrated over a smaller surface area, delivering intense heat.
+          <br>&bull; In the opposite hemisphere tilted away, sunrays strike at a shallow slant angle. The same energy is spread thinly over a much wider area, resulting in cold conditions.</li>
+        <li><strong>Duration of Daylight (Hours of Sun):</strong>
+          <br>&bull; The hemisphere tilted towards the Sun enjoys longer daylight hours ($>12$ hours) and shorter nights, accumulating heat throughout the day.
+          <br>&bull; The hemisphere tilted away experiences short days ($<12$ hours) and long chilly nights, allowing heat to radiate away into space.</li>
+      </ol>
+
+      <!-- Solstices and Equinoxes Table -->
+      <h4>Solstices and Equinoxes: The Four Milestones of the Year</h4>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Event &amp; Date</th>
+              <th>Orientation of Earth's Axis</th>
+              <th>Northern Hemisphere Status</th>
+              <th>Southern Hemisphere Status</th>
+              <th>Polar Day/Night</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Summer Solstice (June 21)</strong></td>
+              <td>North Pole tilted towards Sun; Sun directly overhead at Tropic of Cancer ($23.5^\circ\text{ N}$).</td>
+              <td><strong>Peak Summer:</strong> Longest day and shortest night of the year.</td>
+              <td><strong>Peak Winter:</strong> Shortest day and longest night.</td>
+              <td>North Pole: 24h continuous sunlight (Midnight Sun). South Pole: 24h darkness.</td>
+            </tr>
+            <tr>
+              <td><strong>Autumnal Equinox (September 23)</strong></td>
+              <td>Neither pole tilted towards Sun; Sun directly overhead at the Equator.</td>
+              <td>Autumn / Fall. Equal day and night ($12\text{ h}$ each).</td>
+              <td>Spring. Equal day and night ($12\text{ h}$ each).</td>
+              <td>12 hours day and 12 hours night at all latitudes.</td>
+            </tr>
+            <tr>
+              <td><strong>Winter Solstice (December 22)</strong></td>
+              <td>South Pole tilted towards Sun; Sun directly overhead at Tropic of Capricorn ($23.5^\circ\text{ S}$).</td>
+              <td><strong>Peak Winter:</strong> Shortest day and longest night.</td>
+              <td><strong>Peak Summer (Australia, South Africa, Argentina):</strong> Longest day.</td>
+              <td>North Pole: 24h darkness. South Pole: 24h continuous sunlight.</td>
+            </tr>
+            <tr>
+              <td><strong>Vernal Equinox (March 21)</strong></td>
+              <td>Neither pole tilted towards Sun; Sun directly overhead at the Equator.</td>
+              <td>Spring / Vasant. Equal day and night ($12\text{ h}$ each).</td>
+              <td>Autumn. Equal day and night ($12\text{ h}$ each).</td>
+              <td>12 hours day and 12 hours night globally.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-shirt"></i> Why Australian Cricket Matches in December Require Summer Clothes!</div>
+        December is winter in India (Northern Hemisphere), but it is <strong>blazing summer in Australia</strong> (Southern Hemisphere) because the Southern Hemisphere is tilted directly towards the Sun on December 22! The Indian cricket team must pack lightweight summer kits and sunscreen for their Australian tours!
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Thought Experiment: What if Earth's Axis were NOT Tilted?</div>
+        If Earth's axis were completely upright ($0^\circ$ tilt):
+        <br>&bull; Both hemispheres would receive identical solar radiation every single day of the year.
+        <br>&bull; Every location on Earth would have an exact 12-hour day and 12-hour night all year round.
+        <br>&bull; <strong>There would be NO SEASONS!</strong> Weather at any given latitude would remain perpetually static forever — equatorial jungles perpetually hot, temperate zones in perpetual mild spring, and polar zones in perpetual frozen twilight.
+      </div>
+
+      <!-- Part 3: Eclipses -->
+      <h3>3. Celestial Eclipses: Cosmic Shadow Puppetry</h3>
+      <p>
+        An eclipse is an awe-inspiring astronomical event governed by the <strong>rectilinear propagation of light</strong>, occurring when the Sun, Earth, and Moon align in a straight line.
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Solar Eclipse (Surya Grahan)</th>
+              <th>Lunar Eclipse (Chandra Grahan)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Cosmic Alignment</strong></td>
+              <td><strong>Sun &mdash; Moon &mdash; Earth</strong> (Moon is in the middle).</td>
+              <td><strong>Sun &mdash; Earth &mdash; Moon</strong> (Earth is in the middle).</td>
+            </tr>
+            <tr>
+              <td><strong>Lunar Phase</strong></td>
+              <td>Occurs only on a <strong>New Moon Day (Amavasya)</strong>.</td>
+              <td>Occurs only on a <strong>Full Moon Day (Purnima)</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Physical Mechanism</strong></td>
+              <td>The Moon casts its shadow onto a narrow strip of Earth, blocking our view of the Sun.</td>
+              <td>The Earth casts its massive shadow onto the Moon, blocking sunlight from reaching the lunar surface.</td>
+            </tr>
+            <tr>
+              <td><strong>Visibility Range</strong></td>
+              <td>Visible only from a <strong>very narrow path (umbra ~100-200 km wide)</strong> on Earth.</td>
+              <td>Visible from the <strong>entire night hemisphere</strong> of Earth simultaneously!</td>
+            </tr>
+            <tr>
+              <td><strong>Safe Viewing Practice</strong></td>
+              <td><strong>NEVER view with naked eyes!</strong> Requires certified ISO 12312-2 solar eclipse glasses or indirect pinhole/mirror projection.</td>
+              <td><strong>100% Safe to view with naked eyes</strong> or binoculars (reflected moonlight is gentle and harmless).</td>
+            </tr>
+            <tr>
+              <td><strong>Appearance</strong></td>
+              <td>Sun's disk is blacked out; pearly-white outer <strong>Solar Corona</strong> shines brilliantly.</td>
+              <td>Moon dims and takes on a striking coppery-red tint (the <strong>"Blood Moon"</strong>).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-calculator"></i> The Cosmic Coincidence: The "400x Rule"</div>
+        How can the tiny Moon (diameter $\approx 3,474\text{ km}$) completely cover the colossal Sun (diameter $\approx 1,392,700\text{ km}$)?
+        <br>&bull; The Sun's physical diameter is roughly <strong>400 times larger</strong> than the Moon's diameter.
+        <br>&bull; By sheer cosmic coincidence, the Sun is also roughly <strong>400 times farther away</strong> from Earth ($150,000,000\text{ km}$ vs $384,400\text{ km}$)!
+        <br>&bull; Because $\frac{\text{Diameter}}{\text{Distance}}$ is nearly identical for both, they possess the exact same <strong>apparent angular size of $0.5^\circ$</strong> in our sky! This allows the Moon to fit snugly over the Sun's disk during a total solar eclipse!
+      </div>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title"><i class="fa-solid fa-ring"></i> Why Doesn't an Eclipse Occur Every Single Month?</div>
+        If eclipses happen on New Moon and Full Moon, why don't we have a solar eclipse every Amavasya and a lunar eclipse every Purnima?
+        <br>&bull; The Moon's orbital plane around Earth is <strong>tilted at an angle of approximately $5^\circ$</strong> with respect to Earth's orbital plane around the Sun (the ecliptic).
+        <br>&bull; During most New Moons, the Moon passes slightly above or below the Sun in the sky, casting its shadow into empty space.
+        <br>&bull; An eclipse can occur only when a New Moon or Full Moon happens precisely when the Moon crosses the plane of Earth's orbit at the intersection points (called <em>orbital nodes</em>).
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: HIGH-YIELD FACT & TERM BANK
+         ========================================== -->
+    <section class="section-card" id="sec3">
+      <div class="section-header">
+        <span class="section-tag">Section 3</span>
+        <h2 class="section-title">High-Yield Fact &amp; Scientific Term Bank</h2>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Scientific Term</th>
+              <th>Precise Definition</th>
+              <th>High-Yield Exam Context</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Rotation</strong></td>
+              <td>Spreading motion of Earth around its own internal polar axis (24 hours).</td>
+              <td>Causes diurnal cycle of day and night; spins West to East.</td>
+            </tr>
+            <tr>
+              <td><strong>Revolution</strong></td>
+              <td>Orbital movement of Earth around the Sun in an elliptical path (365.25 days).</td>
+              <td>Combined with axial tilt, produces the cycle of seasons.</td>
+            </tr>
+            <tr>
+              <td><strong>Axial Tilt ($23.5^\circ$)</strong></td>
+              <td>The fixed inclination of Earth's rotational axis to the orbital perpendicular.</td>
+              <td>Directs varying intensities of sunlight to Northern and Southern hemispheres.</td>
+            </tr>
+            <tr>
+              <td><strong>Summer Solstice</strong></td>
+              <td>Astronomical moment (June 21) when Northern Hemisphere has maximum tilt towards Sun.</td>
+              <td>Longest day and shortest night in Northern Hemisphere; 24h day at North Pole.</td>
+            </tr>
+            <tr>
+              <td><strong>Winter Solstice</strong></td>
+              <td>Astronomical moment (Dec 22) when Southern Hemisphere has maximum tilt towards Sun.</td>
+              <td>Shortest day in Northern Hemisphere; peak summer in Australia.</td>
+            </tr>
+            <tr>
+              <td><strong>Equinox</strong></td>
+              <td>Moments (March 21 &amp; Sept 23) when Sun is directly above the Equator.</td>
+              <td>Equal 12-hour day and 12-hour night everywhere on Earth.</td>
+            </tr>
+            <tr>
+              <td><strong>Solar Eclipse</strong></td>
+              <td>Occultation of Sun by Moon on a New Moon day (Sun-Moon-Earth alignment).</td>
+              <td>Reveals solar corona; visible only along a narrow umbral track.</td>
+            </tr>
+            <tr>
+              <td><strong>Lunar Eclipse</strong></td>
+              <td>Passage of Moon through Earth's shadow on Full Moon (Sun-Earth-Moon alignment).</td>
+              <td>Earth shadow covers Moon; visible from entire night-side hemisphere.</td>
+            </tr>
+            <tr>
+              <td><strong>Umbra</strong></td>
+              <td>Zone of complete darkness where light source is totally blocked.</td>
+              <td>Total eclipse experienced only within umbra.</td>
+            </tr>
+            <tr>
+              <td><strong>Penumbra</strong></td>
+              <td>Zone of partial shadow where light source is only partially blocked.</td>
+              <td>Partial eclipse experienced within penumbra.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: 100% COMPLETE NCERT SOLUTIONS
+         ========================================== -->
+    <section class="section-card" id="sec4">
+      <div class="section-header">
+        <span class="section-tag">Section 4</span>
+        <h2 class="section-title">100% Complete NCERT Solutions (Let Us Enhance Our Learning)</h2>
+      </div>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Question 1:</strong> In Fig. 12.17, how many hours of sunlight do the North Pole and the South Pole receive during one rotation of the Earth?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> In Fig. 12.17, the Northern Hemisphere is tilted directly towards the Sun (representing the Summer Solstice position in June):</p>
+          <ul>
+            <li><strong>North Pole (NP):</strong> Receives <strong>24 hours of continuous sunlight</strong>. As the Earth rotates on its axis, the entire Arctic polar region remains fully illuminated by the Sun, experiencing the phenomenon of the <em>"Midnight Sun"</em>.</li>
+            <li><strong>South Pole (SP):</strong> Receives <strong>0 hours of sunlight</strong> (24 hours of continuous darkness). The Antarctic polar region remains completely turned away in Earth's shadow throughout the entire 24-hour rotation.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 2:</strong> Fill in the blanks: (i) Stars rise in the _____ and set in the _____. (ii) Day and night are caused by the Earth’s _____. (iii) When the Moon fully covers the Sun from our view, it is called a _____ solar eclipse.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Completed Blanks</span></p>
+          <ol>
+            <li>(i) Stars rise in the <strong>East</strong> and set in the <strong>West</strong>.</li>
+            <li>(ii) Day and night are caused by the Earth’s <strong>rotation on its axis</strong>.</li>
+            <li>(iii) When the Moon fully covers the Sun from our view, it is called a <strong>total</strong> solar eclipse.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 3:</strong> State whether True or False with reasons: (i) to (vi).</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>(i) Lunar eclipse occurs when the Sun comes between the Earth and the Moon.</strong><br>
+          <span class="step-pill">Status</span> <strong>FALSE</strong><br>
+          <em>Reason:</em> In a lunar eclipse, the <strong>Earth comes between the Sun and the Moon</strong>. The Sun can never come between the Earth and the Moon (that would mean Earth and Moon are on opposite sides of the solar system!).</p>
+
+          <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed var(--border);">
+
+          <p><strong>(ii) Sunrise happens earlier in Gujarat than in Jharkhand.</strong><br>
+          <span class="step-pill">Status</span> <strong>FALSE</strong><br>
+          <em>Reason:</em> The Earth spins from West to East. Jharkhand is situated in Eastern India, while Gujarat is on the Western edge. Therefore, eastern states face the Sun earlier, and <strong>sunrise happens earlier in Jharkhand than in Gujarat</strong>.</p>
+
+          <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed var(--border);">
+
+          <p><strong>(iii) In Chennai, the longest day occurs on the summer solstice.</strong><br>
+          <span class="step-pill">Status</span> <strong>TRUE</strong><br>
+          <em>Reason:</em> Chennai is located in the Northern Hemisphere ($13^\circ\text{ N}$). On the Summer Solstice (June 21), the Northern Hemisphere has its maximum tilt towards the Sun, resulting in the longest duration of daylight of the entire year.</p>
+
+          <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed var(--border);">
+
+          <p><strong>(iv) We should watch the solar eclipse directly with our naked eye.</strong><br>
+          <span class="step-pill">Status</span> <strong>FALSE</strong><br>
+          <em>Reason:</em> Intense ultraviolet (UV) and infrared solar radiation will cause photochemical retinal burns (solar retinopathy), leading to permanent blindness. It must be viewed only using certified ISO solar filters or projection.</p>
+
+          <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed var(--border);">
+
+          <p><strong>(v) Seasons occur due to the tilt of Earth’s axis of rotation and its spherical shape.</strong><br>
+          <span class="step-pill">Status</span> <strong>TRUE</strong><br>
+          <em>Reason:</em> The $23.5^\circ$ axial tilt combined with Earth's revolution and spherical geometry causes varying angles of incident sunrays and varying lengths of daylight across the year.</p>
+
+          <hr style="margin: 0.75rem 0; border: none; border-top: 1px dashed var(--border);">
+
+          <p><strong>(vi) The Earth’s revolution around the Sun causes day and night.</strong><br>
+          <span class="step-pill">Status</span> <strong>FALSE</strong><br>
+          <em>Reason:</em> Day and night are caused by Earth's daily <strong>rotation on its axis</strong> (24 hours). The Earth's revolution around the Sun causes the cycle of <strong>seasons</strong> (365.25 days).</p>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 4:</strong> Padmashree saw the Orion constellation nearly overhead at 8 pm yesterday. When will she see Orion overhead today?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> Padmashree will see the Orion constellation overhead today at approximately <strong>7:56 PM (about 4 minutes earlier than yesterday)</strong>.</p>
+          <p><strong>Astronomical Explanation:</strong></p>
+          <ul>
+            <li>Earth takes 24 hours (a Solar Day) to rotate with respect to the Sun.</li>
+            <li>However, because Earth also advances roughly $1^\circ$ along its orbit around the Sun each day, a complete rotation with respect to distant fixed stars (called a <strong>Sidereal Day</strong>) takes only <strong>23 hours, 56 minutes, and 4 seconds</strong>.</li>
+            <li>Consequently, all stars and constellations rise and reach their highest overhead transit point approximately <strong>4 minutes earlier each subsequent night</strong>!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 5:</strong> Nandhini saw a group of stars rising at midnight on 21 June. When will she see the same group of stars rising at midnight next year?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> Nandhini will see the same group of stars rising at midnight on <strong>21 June next year</strong> (exactly one full year later).</p>
+          <p><strong>Reason:</strong> The Earth takes exactly <strong>one complete revolution (365.25 days)</strong> to return to the exact same position along its orbit around the Sun. Therefore, on the exact same date next year, the nighttime side of Earth will face in the identical cosmic direction towards that star group at midnight.</p>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 6:</strong> Abhay noticed that when it was daytime in India, his uncle who was in the USA was generally sleeping as it was nighttime there. What is the reason behind this difference?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Scientific Reason</span></p>
+          <ol>
+            <li>The Earth is an opaque sphere that continuously rotates on its axis from West to East.</li>
+            <li>India and the United States of America are located on nearly <strong>opposite hemispheres</strong> of the globe (separated by roughly 10.5 to 12.5 hours of longitudinal time difference).</li>
+            <li>When the Indian subcontinent faces the Sun, it receives direct sunlight (Daytime). At that exact moment, the American continent is rotated away on the opposite, unilluminated dark side of the globe, submerged in Earth's own shadow (Nighttime).</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 7:</strong> Four friends used different ways to see the solar eclipse: (i) Ravikiran used a solar eclipse goggle, (ii) Jyothi used a mirror to project Sun's image, (iii) Adithya saw Sun directly with eyes, (iv) Aruna attended a planetarium programme. Who among them was being careless?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> <strong>Adithya was being extremely careless and irresponsible.</strong></p>
+          <p><strong>Reason:</strong> Looking directly at the Sun during a solar eclipse with naked eyes focuses intense solar infrared and ultraviolet rays onto the retina of the eye. This causes painless, irreversible burns to photoreceptor cells (known as <em>solar retinopathy</em>), resulting in permanent blindness or dark blind spots in the field of view. Ravikiran, Jyothi, and Aruna used sanctioned, scientifically safe indirect or filtered observation methods.</p>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 8:</strong> Fill in the circles in Fig. 12.18 appropriately with: Sun, Moon, Earth.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Correct Celestial Arrangements</span></p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Eclipse Type</th>
+                  <th>Left Circle</th>
+                  <th>Middle Circle (Occluding Body)</th>
+                  <th>Right Circle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Solar Eclipse</strong></td>
+                  <td><strong>Sun</strong></td>
+                  <td style="color: #4f46e5; font-weight: 700;"><strong>Moon</strong></td>
+                  <td><strong>Earth</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Lunar Eclipse</strong></td>
+                  <td><strong>Sun</strong></td>
+                  <td style="color: #4f46e5; font-weight: 700;"><strong>Earth</strong></td>
+                  <td><strong>Moon</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 9:</strong> The Moon is much smaller than the Sun, yet it can block the Sun completely from our view during a total solar eclipse. Why is it possible?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Core Optical Explanation</span> This is possible because of the <strong>apparent angular size</strong> governed by the ratio of diameter to distance:</p>
+          <ul>
+            <li>The Sun's actual physical diameter is approximately <strong>400 times greater</strong> than that of the Moon.</li>
+            <li>However, the Sun is also coincidentally approximately <strong>400 times farther away</strong> from Earth ($150\text{ million km}$) than the Moon is ($384,400\text{ km}$).</li>
+            <li>Because distance offsets diameter in perspective optics, both celestial bodies subtend the exact same <strong>angular diameter of approximately $0.5^\circ$</strong> as viewed from the surface of Earth.</li>
+            <li>Consequently, when their centers align directly, the small nearby Moon can completely blot out the giant, distant Sun!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 10:</strong> The Indian cricket team matches in Australia are often held in December. Should they pack winter or summer clothes for their trip?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> They should pack <strong>summer clothes</strong> (lightweight breathable cotton wear, sunglasses, and hats).</p>
+          <p><strong>Scientific Reason:</strong> Australia is located entirely in the <strong>Southern Hemisphere</strong>. During the month of December, the Southern Hemisphere is tilted directly towards the Sun (reaching the Winter Solstice for the north, which is the <em>Summer Solstice for the south</em> on December 22). While India is experiencing chilly winter, Australia experiences hot, sunny <strong>peak summer</strong> with daytime temperatures frequently exceeding $35^\circ\text{C}$ to $40^\circ\text{C}$!</p>
+        </div>
+      </details>
+
+      <!-- Q11 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 11:</strong> Why do you think lunar eclipses can be seen from a large part of the Earth when they happen, but total solar eclipses can be seen by only a small part of the Earth?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Comprehensive Comparison</span></p>
+          <ul>
+            <li><strong>In a Lunar Eclipse:</strong> The Earth is roughly 4 times larger than the Moon. Earth casts a massive shadow cone into space. When the Moon passes into this huge shadow, it is physically darkened. Therefore, <strong>anyone on the night side of Earth</strong> (representing more than 50% of the globe's surface) who can see the Moon can witness the lunar eclipse simultaneously!</li>
+            <li><strong>In a Total Solar Eclipse:</strong> The Moon is small, so its dark shadow cone (the umbra) tapers down almost to a sharp point by the time it reaches Earth. This creates a tiny shadow footprint barely <strong>100 to 200 kilometres wide</strong> moving across the Earth's surface. Only people standing directly inside this narrow geographical path can see a total solar eclipse!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q12 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 12:</strong> If the Earth’s axis were not tilted with respect to the axis of revolution, explain what would be the effect on seasons?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Profound Ecological Impact</span> If the Earth's axis had zero tilt ($0^\circ$ inclination):</p>
+          <ol>
+            <li><strong>Complete Absence of Seasons:</strong> There would be no summer, winter, autumn, or spring. The weather at any given location on Earth would remain completely uniform and static throughout the entire year.</li>
+            <li><strong>Permanent Equal Day and Night:</strong> Every latitude on Earth — from the Equator to the Arctic and Antarctic circles — would experience an exact <strong>12-hour day and 12-hour night every single day</strong> of the year.</li>
+            <li><strong>Permanent Climate Belts:</strong>
+              <br>&bull; The Equator would continuously receive direct overhead sunrays and be perpetually hot.
+              <br>&bull; The Poles would receive perpetual horizontal grazing sunrays and remain permanently locked in extreme freezing twilight.
+              <br>&bull; Temperate zones would experience an unending mild climate without seasonal crop cycles.</li>
+          </ol>
+        </div>
+      </details>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: CBSE/BSE COMPETENCY BANK & QUIZ
+         ========================================== -->
+    <section class="section-card" id="sec5">
+      <div class="section-header">
+        <span class="section-tag">Section 5</span>
+        <h2 class="section-title">CBSE/BSE Competency Bank &amp; Interactive Quiz Engine</h2>
+      </div>
+      <p>Test your mastery of celestial mechanics with immediate diagnostic feedback, scientific rationales, and live score tracking!</p>
+
+      <!-- Scoreboard -->
+      <div style="background: var(--light); border: 1.5px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-weight: 700; color: var(--dark);"><i class="fa-solid fa-trophy" style="color: var(--accent);"></i> Scoreboard:</span>
+        <span id="quizScoreText" style="font-weight: 800; color: var(--primary); font-size: 1.05rem;">0 / 6 Answered</span>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-card" id="q1-box">
+        <div class="quiz-q">1. In which direction does the Earth spin on its axis, causing celestial bodies to apparently rise in the East?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q1', 0, false)">A) East to West</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 1, true)">B) West to East</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 2, false)">C) North to South</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 3, false)">D) Clockwise when viewed from North Pole</button>
+        </div>
+        <div class="quiz-feedback" id="q1-fb"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-card" id="q2-box">
+        <div class="quiz-q">2. At what angle is the Earth's rotational axis tilted with respect to the perpendicular to its orbital plane?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q2', 0, false)">A) 0 degrees</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 1, true)">B) 23.5 degrees</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 2, false)">C) 45 degrees</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 3, false)">D) 90 degrees</button>
+        </div>
+        <div class="quiz-feedback" id="q2-fb"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-card" id="q3-box">
+        <div class="quiz-q">3. During which celestial alignment does a Total Solar Eclipse take place?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q3', 0, true)">A) Sun — Moon — Earth (on New Moon / Amavasya)</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 1, false)">B) Sun — Earth — Moon (on Full Moon / Purnima)</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 2, false)">C) Earth — Sun — Moon</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 3, false)">D) Moon — Sun — Earth</button>
+        </div>
+        <div class="quiz-feedback" id="q3-fb"></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-card" id="q4-box">
+        <div class="quiz-q">4. On June 21 (Summer Solstice), how many hours of continuous sunlight does the North Pole experience?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q4', 0, false)">A) 0 hours</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 1, false)">B) 12 hours</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 2, false)">C) 18 hours</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 3, true)">D) 24 hours (Midnight Sun)</button>
+        </div>
+        <div class="quiz-feedback" id="q4-fb"></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-card" id="q5-box">
+        <div class="quiz-q">5. Why is a lunar eclipse visible to more than half the Earth, while a total solar eclipse is visible only along a narrow path?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q5', 0, false)">A) The Moon moves faster during a solar eclipse</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 1, true)">B) Earth is much larger than Moon, casting a giant shadow cone visible to the entire night hemisphere</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 2, false)">C) The Sun is smaller during a lunar eclipse</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 3, false)">D) Lunar eclipses only happen in the daytime</button>
+        </div>
+        <div class="quiz-feedback" id="q5-fb"></div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-card" id="q6-box">
+        <div class="quiz-q">6. What causes a group of stars to appear overhead approximately 4 minutes earlier each subsequent night?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q6', 0, false)">A) Stars are moving towards Earth</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 1, true)">B) Earth advances along its orbit around the Sun, making a sidereal day 4 minutes shorter than a solar day</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 2, false)">C) The Earth's rotation is slowing down</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 3, false)">D) Atmospheric refraction increases</button>
+        </div>
+        <div class="quiz-feedback" id="q6-fb"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: EXAM HALL READINESS
+         ========================================== -->
+    <section class="section-card" id="sec6">
+      <div class="section-header">
+        <span class="section-tag">Section 6</span>
+        <h2 class="section-title">Exam Hall Readiness: Traps &amp; Lightning Revision</h2>
+      </div>
+
+      <h3>Common Student Traps &amp; Misconceptions</h3>
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 1: "Summer occurs because Earth is closest to the Sun."</div>
+        <strong>Wrong!</strong> Earth is actually closest to the Sun ($147\text{ million km}$) in early <strong>January</strong> during the Northern Hemisphere winter! Distance variation is negligible; <strong>axial tilt ($23.5^\circ$)</strong> is the true cause of seasons.
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 2: Confusing Earth's middle position in eclipses</div>
+        Remember:
+        <br>&bull; <strong>S-M-E:</strong> Solar = Moon in middle.
+        <br>&bull; <strong>S-E-M:</strong> Lunar = Earth in middle. (The Sun is NEVER in the middle!).
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 3: "Rotation causes seasons and revolution causes day/night."</div>
+        <strong>Opposite!</strong>
+        <br>&bull; <strong>Rotation</strong> on axis (24 hours) causes <strong>Day &amp; Night</strong>.
+        <br>&bull; <strong>Revolution</strong> around Sun (365.25 days) + Axial Tilt causes <strong>Seasons</strong>.
+      </div>
+
+      <h3>15 Lightning Revision Key Takeaways</h3>
+      <ol style="column-count: 2; column-gap: 2rem; margin-left: 1.5rem;">
+        <li>Earth rotates West &rarr; East on its axis in 24 hours, causing day and night.</li>
+        <li>Merry-go-round effect explains why Sun and stars appear to rise East and set West.</li>
+        <li>Sunrise occurs earlier in Eastern states (Jharkhand, Assam) than Western states (Gujarat).</li>
+        <li>Circle of illumination separates the day hemisphere from the night hemisphere.</li>
+        <li>Earth revolves around the Sun in 365.25 days along an elliptical orbit.</li>
+        <li>Earth's axis is tilted at $23.5^\circ$ to the orbital perpendicular, pointing at Polaris.</li>
+        <li>Seasons are caused by $23.5^\circ$ axial tilt combined with revolution around the Sun.</li>
+        <li>Summer Solstice (June 21): Longest day in north; 24h sunlight at North Pole.</li>
+        <li>Winter Solstice (Dec 22): Shortest day in north; peak summer in Southern Hemisphere.</li>
+        <li>Equinoxes (March 21 &amp; Sept 23): Equal 12-hour day and night everywhere.</li>
+        <li>If Earth had no tilt ($0^\circ$), there would be no seasons and permanent 12h day/night.</li>
+        <li>Solar eclipse: Moon passes between Sun and Earth on New Moon (Amavasya).</li>
+        <li>The 400x rule explains why tiny Moon can completely occult the giant Sun.</li>
+        <li>Lunar eclipse: Earth passes between Sun and Moon on Full Moon (Purnima).</li>
+        <li>The $5^\circ$ tilt of the Moon's orbit prevents eclipses from occurring every single month.</li>
+      </ol>
+
+      <!-- Checklist -->
+      <h3 style="margin-top: 2rem;">Interactive Student Self-Assessment</h3>
+      <div style="background: var(--light); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem;">
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I know that Earth rotates West to East and can explain why celestial objects rise in the East.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can articulate the two true causes of seasons and bust the distance misconception.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can compare the June 21 and December 22 solstices between Northern and Southern hemispheres.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can diagram the exact alignments of Solar (S-M-E) and Lunar (S-E-M) eclipses.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I understand why lunar eclipses are visible from half the Earth while total solar eclipses are narrow tracks.</span>
+        </label>
+      </div>
+    </section>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" onclick="scrollToTop()" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      const btn = document.getElementById('backToTopBtn');
+      if (window.scrollY > 400) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Teacher Audio Summary (Web Speech API)
+    let isSpeaking = false;
+    let speechUtterance = null;
+
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('ttsBtn');
+      const icon = document.getElementById('ttsIcon');
+      const text = document.getElementById('ttsText');
+
+      if (!('speechSynthesis' in window)) {
+        alert('Sorry! Your browser does not support text-to-speech.');
+        return;
+      }
+
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        icon.className = 'fa-solid fa-play';
+        text.innerText = 'Play Audio';
+        btn.style.background = 'var(--primary)';
+      } else {
+        const scriptText = "Welcome to Sujit Classes Chapter Summary for Earth, Moon, and the Sun. " +
+          "Earth rotates on its axis from West to East every 24 hours, which causes day and night and makes the Sun and stars appear to rise in the East and set in the West. " +
+          "Earth revolves around the Sun in 365.25 days. " +
+          "Seasons are produced by Earth's 23.5-degree axial tilt combined with its revolution, causing changing angles of sunrays and changing day lengths throughout the year. " +
+          "On June 21, the Summer Solstice brings the longest day to the Northern Hemisphere and 24 hours of sunlight to the North Pole, while Australia experiences peak summer in December. " +
+          "In eclipses, a solar eclipse occurs when the Moon passes between the Sun and Earth on a New Moon day, completely occulting the Sun thanks to the 400 times size-and-distance ratio. " +
+          "A lunar eclipse occurs when Earth passes between the Sun and Moon on a Full Moon day, casting a giant shadow visible to the entire night-side hemisphere. " +
+          "Congratulations on completing all 12 chapters of Class 7 Science Curiosity! Explore the interactive quiz below to finish with flying colours!";
+
+        speechUtterance = new SpeechSynthesisUtterance(scriptText);
+        speechUtterance.rate = 0.95;
+        speechUtterance.pitch = 1.0;
+
+        speechUtterance.onend = () => {
+          isSpeaking = false;
+          icon.className = 'fa-solid fa-play';
+          text.innerText = 'Play Audio';
+          btn.style.background = 'var(--primary)';
+        };
+
+        window.speechSynthesis.speak(speechUtterance);
+        isSpeaking = true;
+        icon.className = 'fa-solid fa-pause';
+        text.innerText = 'Pause Audio';
+        btn.style.background = '#dc2626';
+      }
+    }
+
+    // Interactive Quiz Engine
+    let quizScore = 0;
+    const answeredQuestions = new Set();
+
+    const explanations = {
+      q1: "Correct! Earth spins on its axis from West to East, which creates the apparent illusion of celestial objects rising in the East and setting in the West.",
+      q2: "Correct! Earth's rotational axis is inclined at an angle of 23.5 degrees to the perpendicular of its orbital plane.",
+      q3: "Correct! A solar eclipse occurs when the Moon passes directly between the Sun and Earth on a New Moon (Amavasya) day.",
+      q4: "Correct! On June 21 (Summer Solstice), the entire Arctic polar circle remains continuously illuminated, giving the North Pole 24 hours of daylight.",
+      q5: "Correct! The Earth is much larger than the Moon, casting a huge shadow cone into space that darkens the Moon for anyone on Earth's night side.",
+      q6: "Correct! Earth advances along its orbit around the Sun while rotating, so a star reaches the same overhead point 4 minutes earlier each day (the sidereal day)."
+    };
+
+    function checkQuiz(qId, selectedIdx, isCorrect) {
+      const qBox = document.getElementById(qId + '-box');
+      const buttons = qBox.querySelectorAll('.opt-btn');
+      const fb = document.getElementById(qId + '-fb');
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        buttons[selectedIdx].classList.add('correct');
+        fb.style.display = 'block';
+        fb.style.background = '#dcfce7';
+        fb.style.color = '#15803d';
+        fb.innerHTML = '<strong><i class=\"fa-solid fa-circle-check\"></i> Correct!</strong> ' + explanations[qId];
+        if (!answeredQuestions.has(qId)) {
+          quizScore++;
+        }
+      } else {
+        buttons[selectedIdx].classList.add('wrong');
+        fb.style.display = 'block';
+        fb.style.background = '#fee2e2';
+        fb.style.color = '#b91c1c';
+        fb.innerHTML = '<strong><i class=\"fa-solid fa-circle-xmark\"></i> Not quite.</strong> ' + explanations[qId];
+      }
+
+      answeredQuestions.add(qId);
+      document.getElementById('quizScoreText').innerText = quizScore + ' / 6 Correct';
+    }
+  </script>
+</body>
+</html>
