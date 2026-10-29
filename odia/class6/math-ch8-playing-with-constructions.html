@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୮: ଜ୍ୟାମିତିକ ଅଙ୍କନ ସହିତ ଖେଳ (Playing with Constructions) | ଶ୍ରେଣୀ ୬ ଗଣିତ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kalinga:wght@400;700&family=Noto+Sans+Oriya:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-light: #e0f2fe;
+      --primary-dark: #0369a1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --border: #e2e8f0;
+      --success: #10b981;
+      --success-light: #d1fae5;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --radius: 12px;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Noto Sans Oriya', 'Kalinga', 'Outfit', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.8;
+      font-size: 1.05rem;
+      padding-bottom: 60px;
+    }
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #0284c7, #38bdf8, #f59e0b);
+      width: 0%;
+      z-index: 1000;
+      transition: width 0.1s ease;
+    }
+    .header-hero {
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #38bdf8 100%);
+      color: white;
+      padding: 50px 20px 40px;
+      text-align: center;
+      position: relative;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 6px 16px;
+      border-radius: 30px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      margin-bottom: 15px;
+    }
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+    .hero-subtitle {
+      font-size: 1.15rem;
+      max-width: 800px;
+      margin: 0 auto 20px;
+      opacity: 0.95;
+    }
+    .audio-btn {
+      background: white;
+      color: var(--primary-dark);
+      border: none;
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      transition: all 0.2s ease;
+    }
+    .audio-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+    }
+    .sticky-nav {
+      position: sticky;
+      top: 5px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 100;
+      padding: 10px 15px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .nav-btn {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover, .nav-btn.active {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+    .action-btn {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    .section-card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 35px;
+      margin-bottom: 35px;
+      border: 1px solid var(--border);
+    }
+    .sec-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 12px;
+      margin-bottom: 25px;
+    }
+    .sec-header h2 {
+      color: var(--primary-dark);
+      font-size: 1.6rem;
+      font-weight: 700;
+    }
+    .sec-badge {
+      background: var(--primary);
+      color: white;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    .callout-def {
+      background: #f0fdf4;
+      border-left: 5px solid var(--success);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 20px 0;
+    }
+    .callout-act {
+      background: #f0f9ff;
+      border-left: 5px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 20px 0;
+    }
+    .callout-hack {
+      background: #fefce8;
+      border-left: 5px solid var(--accent);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 20px 0;
+    }
+    .callout-warn {
+      background: #fef2f2;
+      border-left: 5px solid var(--danger);
+      padding: 16px 20px;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      margin: 20px 0;
+    }
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .svg-container {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 15px;
+      margin: 25px 0;
+      text-align: center;
+      overflow-x: auto;
+    }
+    .svg-container svg {
+      max-width: 100%;
+      height: auto;
+    }
+    .svg-caption {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      font-size: 0.98rem;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      text-align: left;
+    }
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+    .data-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      padding: 0 4px;
+      font-size: 0.9em;
+      line-height: 1;
+    }
+    .frac sup {
+      border-bottom: 1px solid currentColor;
+      padding-bottom: 1px;
+    }
+    .frac sub {
+      padding-top: 1px;
+    }
+    details.ans-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      margin: 18px 0;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+    details.ans-box[open] {
+      background: #ffffff;
+      border-color: #38bdf8;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+    }
+    details.ans-box summary {
+      padding: 14px 20px;
+      font-weight: 700;
+      cursor: pointer;
+      background: #f1f5f9;
+      color: var(--primary-dark);
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    details.ans-box summary::-webkit-details-marker {
+      display: none;
+    }
+    details.ans-box summary::after {
+      content: "➕ ସମାଧାନ ଦେଖନ୍ତୁ";
+      font-size: 0.85rem;
+      background: white;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+    details.ans-box[open] summary::after {
+      content: "➖ ସମାଧାନ ଲୁଚାନ୍ତୁ";
+      background: var(--primary-light);
+    }
+    .ans-content {
+      padding: 20px;
+      line-height: 1.8;
+    }
+    .step-box {
+      margin-bottom: 12px;
+      padding-left: 14px;
+      border-left: 3px solid #38bdf8;
+    }
+    .step-title {
+      font-weight: 700;
+      color: #0369a1;
+      font-size: 0.95rem;
+    }
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .quiz-question {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 15px;
+      color: #1e293b;
+    }
+    .quiz-opts {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+    @media (min-width: 640px) {
+      .quiz-opts { grid-template-columns: 1fr 1fr; }
+    }
+    .quiz-opt-btn {
+      background: white;
+      border: 1px solid var(--border);
+      padding: 12px 16px;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 0.95rem;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .quiz-opt-btn:hover {
+      background: #f1f5f9;
+      border-color: #94a3b8;
+    }
+    .quiz-opt-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+    .quiz-opt-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+    .quiz-feedback {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .one-liner-list {
+      list-style: none;
+      counter-reset: one-liner;
+    }
+    .one-liner-list li {
+      counter-increment: one-liner;
+      position: relative;
+      padding-left: 36px;
+      margin-bottom: 12px;
+    }
+    .one-liner-list li::before {
+      content: counter(one-liner);
+      position: absolute;
+      left: 0;
+      top: 2px;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #backToTopBtn {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      z-index: 99;
+      transition: all 0.3s;
+    }
+    #backToTopBtn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress-bar"></div>
+
+  <header class="header-hero">
+    <div class="hero-badge">NCERT ଗଣିତ ପ୍ରକାଶ • ଶ୍ରେଣୀ ୬ • ଅଧ୍ୟାୟ ୮</div>
+    <h1 class="hero-title">ଜ୍ୟାମିତିକ ଅଙ୍କନ ସହିତ ଖେଳ<br><span style="font-size: 1.4rem; font-weight: 500;">(Playing with Constructions)</span></h1>
+    <p class="hero-subtitle">କମ୍ପାସ୍ ଓ ସ୍କେଲ୍ ସାହାଯ୍ୟରେ ବୃତ୍ତ, ଆୟତକ୍ଷେତ୍ର, କର୍ଣ୍ଣ, ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ, କୋଣ ଦ୍ୱିଖଣ୍ଡକ ଓ ରମ୍ବସ୍ ଅଙ୍କନର ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ନୋଟ୍ସ</p>
+    <button class="audio-btn" onclick="toggleTeacherAudio()">
+      <span id="audio-icon">🔊</span> <span id="audio-text">ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ</span>
+    </button>
+  </header>
+
+  <nav class="sticky-nav">
+    <a href="#sec-1" class="nav-btn active">୧. ମାଇଣ୍ଡ୍ ମ୍ୟାପ୍</a>
+    <a href="#sec-2" class="nav-btn">୨. ଧାରଣାଗତ ନୋଟ୍ସ</a>
+    <a href="#sec-3" class="nav-btn">୩. ସୂତ୍ର ଓ ଧର୍ମ ବ୍ୟାଙ୍କ</a>
+    <a href="#sec-4" class="nav-btn">୪. NCERT ସମାଧାନ</a>
+    <a href="#sec-5" class="nav-btn">୫. ପରୀକ୍ଷା ପ୍ରଶ୍ନୋତ୍ତର</a>
+    <a href="#sec-6" class="nav-btn">୬. ପରୀକ୍ଷା ହଲ୍ ଟ୍ରାପ୍</a>
+    <button class="action-btn" onclick="toggleAllAnswers(true)">ସବୁ ଖୋଲନ୍ତୁ</button>
+    <button class="action-btn" onclick="toggleAllAnswers(false)">ସବୁ ବନ୍ଦ କରନ୍ତୁ</button>
+  </nav>
+
+  <main class="container">
+
+    <!-- SECTION 1 -->
+    <section id="sec-1" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୧</span>
+        <h2>ଭିଜୁଆଲ୍ ମାଇଣ୍ଡ୍ ମ୍ୟାପ୍ ଓ ଅଧ୍ୟାୟ ସାରସଂକ୍ଷେପ (Visual Mind Map &amp; Blueprint)</h2>
+      </div>
+      <p>ଜ୍ୟାମିତିରେ ଅଙ୍କନ କେବଳ ଛବି ଆଙ୍କିବା ନୁହେଁ, ବରଂ ନିର୍ଦ୍ଦିଷ୍ଟ ଜ୍ୟାମିତିକ ଧର୍ମ ଓ ସୂତ୍ରର ବ୍ୟବହାରିକ ପ୍ରମାଣ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ କମ୍ପାସ୍ (କଣ୍ଟା କମ୍ପାସ୍) ଏବଂ ସ୍କେଲ୍ (ରୁଲର୍) ବ୍ୟବହାର କରି ବୃତ୍ତ, ଆୟତକ୍ଷେତ୍ର, ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ ଓ ରମ୍ବସ୍ ଅଙ୍କନର ପ୍ରତ୍ୟେକଟି ସୋପାନ ଶିଖିବା।</p>
+
+      <!-- SVG 1: Mind Map -->
+      <div class="svg-container">
+        <svg viewBox="0 0 880 440" xmlns="http://www.w3.org/2000/svg">
+          <rect width="880" height="440" fill="#f8fafc" rx="12"/>
+          <rect x="330" y="20" width="220" height="70" rx="10" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+          <text x="440" y="48" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">ଜ୍ୟାମିତିକ ଅଙ୍କନ</text>
+          <text x="440" y="70" font-size="13" fill="#e0f2fe" text-anchor="middle">Playing with Constructions</text>
+
+          <!-- Branch 1: Circles & Arcs -->
+          <line x1="330" y1="55" x2="160" y2="150" stroke="#0284c7" stroke-width="2.5"/>
+          <rect x="50" y="150" width="220" height="110" rx="8" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+          <text x="160" y="175" font-size="15" font-weight="bold" fill="#0369a1" text-anchor="middle">୧. ବୃତ୍ତ ଓ ଚାପ (Circles &amp; Arcs)</text>
+          <text x="65" y="200" font-size="12" fill="#334155">• କେନ୍ଦ୍ରଠାରୁ ସମଦୂରବର୍ତ୍ତୀ ବିନ୍ଦୁ ସମୂହ</text>
+          <text x="65" y="220" font-size="12" fill="#334155">• ବ୍ୟାସାର୍ଦ୍ଧ (r) ଓ ବ୍ୟାସ (d = 2r)</text>
+          <text x="65" y="240" font-size="12" fill="#334155">• ଅର୍ଦ୍ଧବୃତ୍ତ ଓ କଳାକୃତିର ତରଙ୍ଗ</text>
+
+          <!-- Branch 2: Rectangles & Squares -->
+          <line x1="440" y1="90" x2="440" y2="150" stroke="#0284c7" stroke-width="2.5"/>
+          <rect x="330" y="150" width="220" height="110" rx="8" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+          <text x="440" y="175" font-size="15" font-weight="bold" fill="#0369a1" text-anchor="middle">୨. ଆୟତକ୍ଷେତ୍ର ଓ ବର୍ଗକ୍ଷେତ୍ର</text>
+          <text x="345" y="200" font-size="12" fill="#334155">• ୪ଟି କୋଣ = ୯୦° (ସମକୋଣ)</text>
+          <text x="345" y="220" font-size="12" fill="#334155">• ବିପରୀତ ବାହୁ ସମାନ ଓ ସମାନ୍ତର</text>
+          <text x="345" y="240" font-size="12" fill="#334155">• କ୍ରମିକ ନାମକରଣ (ABCD / PQRS)</text>
+
+          <!-- Branch 3: Diagonals & Center -->
+          <line x1="550" y1="55" x2="720" y2="150" stroke="#0284c7" stroke-width="2.5"/>
+          <rect x="610" y="150" width="220" height="110" rx="8" fill="#ffffff" stroke="#38bdf8" stroke-width="2"/>
+          <text x="720" y="175" font-size="15" font-weight="bold" fill="#0369a1" text-anchor="middle">୩. କର୍ଣ୍ଣ ଓ କେନ୍ଦ୍ର ବିନ୍ଦୁ</text>
+          <text x="625" y="200" font-size="12" fill="#334155">• କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପରକୁ ସମଦ୍ୱିଖଣ୍ଡ କରନ୍ତି</text>
+          <text x="625" y="220" font-size="12" fill="#334155">• କେନ୍ଦ୍ର O ସବୁ ଶୀର୍ଷଠାରୁ ସମଦୂରବର୍ତ୍ତୀ</text>
+          <text x="625" y="240" font-size="12" fill="#334155">• ବର୍ଗକ୍ଷେତ୍ରରେ କର୍ଣ୍ଣ ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ</text>
+
+          <!-- Bottom: Equidistant Points & Rhombus -->
+          <line x1="440" y1="260" x2="440" y2="310" stroke="#0284c7" stroke-width="2.5"/>
+          <rect x="240" y="310" width="400" height="105" rx="10" fill="#fef3c7" stroke="#f59e0b" stroke-width="2"/>
+          <text x="440" y="338" font-size="15" font-weight="bold" fill="#b45309" text-anchor="middle">୪. ସମଦୂରବର୍ତ୍ତୀ ବିନ୍ଦୁ ଓ ରମ୍ବସ୍ (Rhombus)</text>
+          <text x="260" y="365" font-size="13" fill="#78350f">• ଦୁଇଟି ବିନ୍ଦୁରୁ ସମଦୂରବର୍ତ୍ତୀ ବିନ୍ଦୁମାନଙ୍କ ସଂଯୋଗରେ ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ ସୃଷ୍ଟି ହୁଏ।</text>
+          <text x="260" y="390" font-size="13" fill="#78350f">• ରମ୍ବସ୍ର ଚାରୋଟି ବାହୁ ସମାନ ଏବଂ କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପରକୁ ୯୦° କୋଣରେ ସମଦ୍ୱିଖଣ୍ଡ କରନ୍ତି।</text>
+        </svg>
+        <div class="svg-caption">ଚିତ୍ର ୮.୧: ଅଧ୍ୟାୟର ମୁଖ୍ୟ ଜ୍ୟାମିତିକ ବିଭାଗ ଓ ସଂପର୍କ ମାନଚିତ୍ର (Conceptual Flow)</div>
+      </div>
+
+      <!-- SVG 2: Step-by-Step Construction of Rectangle -->
+      <div class="svg-container">
+        <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg">
+          <rect width="880" height="320" fill="#ffffff" rx="12" stroke="#e2e8f0" stroke-width="1.5"/>
+          <text x="440" y="30" font-size="16" font-weight="bold" fill="#0369a1" text-anchor="middle">ପଦକ୍ଷେପ ଅନୁଯାୟୀ ଅଙ୍କନ: ୪ ସେମି ବାହୁ ଓ ୮ ସେମି କର୍ଣ୍ଣ ବିଶିଷ୍ଟ ଆୟତକ୍ଷେତ୍ର</text>
+
+          <!-- Step 1 -->
+          <g transform="translate(60, 60)">
+            <rect width="220" height="220" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+            <text x="110" y="28" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle">ସୋପାନ ୧: ଭୂମି AB ଅଙ୍କନ</text>
+            <line x1="40" y1="160" x2="160" y2="160" stroke="#0284c7" stroke-width="3"/>
+            <circle cx="40" cy="160" r="4" fill="#0369a1"/>
+            <circle cx="160" cy="160" r="4" fill="#0369a1"/>
+            <text x="40" y="185" font-size="13" font-weight="bold" fill="#0369a1" text-anchor="middle">A</text>
+            <text x="160" y="185" font-size="13" font-weight="bold" fill="#0369a1" text-anchor="middle">B</text>
+            <text x="100" y="150" font-size="12" fill="#64748b" text-anchor="middle">୪ ସେମି</text>
+          </g>
+
+          <!-- Step 2 -->
+          <g transform="translate(330, 60)">
+            <rect width="220" height="220" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+            <text x="110" y="28" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle">ସୋପାନ ୨: ୯୦° ରଶ୍ମି ଓ ୮ ସେମି ଚାପ</text>
+            <line x1="40" y1="160" x2="160" y2="160" stroke="#0284c7" stroke-width="3"/>
+            <line x1="40" y1="160" x2="40" y2="50" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4"/>
+            <circle cx="40" cy="70" r="4" fill="#ef4444"/>
+            <path d="M 160 160 L 40 70" stroke="#10b981" stroke-width="2"/>
+            <path d="M 45 65 A 120 120 0 0 0 35 75" stroke="#ef4444" stroke-width="2"/>
+            <text x="25" y="70" font-size="13" font-weight="bold" fill="#ef4444" text-anchor="middle">D</text>
+            <text x="40" y="185" font-size="13" font-weight="bold" fill="#0369a1" text-anchor="middle">A</text>
+            <text x="160" y="185" font-size="13" font-weight="bold" fill="#0369a1" text-anchor="middle">B</text>
+            <text x="110" y="110" font-size="11" fill="#10b981" transform="rotate(-36 110 110)">କର୍ଣ୍ଣ = ୮ ସେମି</text>
+          </g>
+
+          <!-- Step 3 -->
+          <g transform="translate(600, 60)">
+            <rect width="220" height="220" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+            <text x="110" y="28" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle">ସୋପାନ ୩: ଆୟତକ୍ଷେତ୍ର ABCD ସମ୍ପୂର୍ଣ୍ଣ</text>
+            <polygon points="40,160 160,160 160,70 40,70" fill="#e0f2fe" fill-opacity="0.5" stroke="#0284c7" stroke-width="3"/>
+            <line x1="40" y1="70" x2="160" y2="160" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3"/>
+            <line x1="40" y1="160" x2="160" y2="70" stroke="#10b981" stroke-width="1.5" stroke-dasharray="3"/>
+            <circle cx="40" cy="160" r="3" fill="#0369a1"/>
+            <circle cx="160" cy="160" r="3" fill="#0369a1"/>
+            <circle cx="160" cy="70" r="3" fill="#0369a1"/>
+            <circle cx="40" cy="70" r="3" fill="#0369a1"/>
+            <text x="30" y="180" font-size="12" font-weight="bold" fill="#0369a1">A</text>
+            <text x="165" y="180" font-size="12" font-weight="bold" fill="#0369a1">B</text>
+            <text x="165" y="65" font-size="12" font-weight="bold" fill="#0369a1">C</text>
+            <text x="30" y="65" font-size="12" font-weight="bold" fill="#0369a1">D</text>
+            <text x="100" y="120" font-size="11" font-weight="bold" fill="#0369a1">କେନ୍ଦ୍ର O</text>
+          </g>
+        </svg>
+        <div class="svg-caption">ଚିତ୍ର ୮.୨: ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ବାହୁ ଏବଂ କର୍ଣ୍ଣ ଦିଆଥିଲେ ଆୟତକ୍ଷେତ୍ର ଅଙ୍କନ ପ୍ରଣାଳୀ</div>
+      </div>
+
+      <!-- SVG 3: Center of rectangle via Diagonals -->
+      <div class="svg-container">
+        <svg viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg">
+          <rect width="880" height="260" fill="#ffffff" rx="12" stroke="#e2e8f0" stroke-width="1.5"/>
+          <text x="440" y="28" font-size="16" font-weight="bold" fill="#0369a1" text-anchor="middle">କର୍ଣ୍ଣଦ୍ୱୟର ଛେଦବିନ୍ଦୁ ଦ୍ୱାରା ପ୍ରକୃତ କେନ୍ଦ୍ର ବିନ୍ଦୁ ନିର୍ଦ୍ଧାରଣ (Center O)</text>
+
+          <g transform="translate(100, 50)">
+            <polygon points="0,160 300,160 300,30 0,30" fill="#f0f9ff" stroke="#0284c7" stroke-width="3"/>
+            <line x1="0" y1="160" x2="300" y2="30" stroke="#ef4444" stroke-width="2"/>
+            <line x1="0" y1="30" x2="300" y2="160" stroke="#ef4444" stroke-width="2"/>
+            <circle cx="150" cy="95" r="5" fill="#f59e0b"/>
+            <text x="-15" y="175" font-size="14" font-weight="bold" fill="#0369a1">A</text>
+            <text x="310" y="175" font-size="14" font-weight="bold" fill="#0369a1">B</text>
+            <text x="310" y="25" font-size="14" font-weight="bold" fill="#0369a1">C</text>
+            <text x="-15" y="25" font-size="14" font-weight="bold" fill="#0369a1">D</text>
+            <text x="150" y="80" font-size="13" font-weight="bold" fill="#b45309" text-anchor="middle">କେନ୍ଦ୍ର O</text>
+          </g>
+
+          <g transform="translate(480, 60)">
+            <rect width="340" height="150" rx="8" fill="#f8fafc" stroke="#cbd5e1"/>
+            <text x="20" y="30" font-size="14" font-weight="bold" fill="#0f172a">କେନ୍ଦ୍ର O ର ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ଧର୍ମ:</text>
+            <text x="20" y="60" font-size="13" fill="#334155">• କର୍ଣ୍ଣ AC ଓ BD ପରସ୍ପରକୁ O ବିନ୍ଦୁରେ ଛେଦ କରନ୍ତି।</text>
+            <text x="20" y="88" font-size="13" fill="#334155">• O ବିନ୍ଦୁ ସମସ୍ତ ୪ଟି ଶୀର୍ଷଠାରୁ ସମାନ ଦୂରତାରେ ଥାଏ:</text>
+            <text x="20" y="115" font-size="14" font-weight="bold" fill="#0284c7">  OA = OB = OC = OD</text>
+            <text x="20" y="138" font-size="12" fill="#64748b">• ଯେକୌଣସି ଆୟତାକାର ପୃଷ୍ଠାର କେନ୍ଦ୍ର ଠିକ୍ ଏହି ବିନ୍ଦୁ ଅଟେ।</text>
+          </g>
+        </svg>
+        <div class="svg-caption">ଚିତ୍ର ୮.୩: ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣଦ୍ୱୟର ଛେଦବିନ୍ଦୁ ହିଁ ତାର ସମମିତିକ କେନ୍ଦ୍ର ବିନ୍ଦୁ (Exact Center)</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec-2" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୨</span>
+        <h2>ଧାରଣାଗତ ନୋଟ୍ସ ଓ ଅଙ୍କନ ନିୟମ (Conceptual Notes &amp; Construction Principles)</h2>
+      </div>
+
+      <!-- 8.1 -->
+      <h3 style="color: var(--primary-dark); margin: 25px 0 10px;">୮.୧ ବୃତ୍ତର କଳାକୃତି ଓ ଗାଣିତିକ ସଂଜ୍ଞା (Artwork &amp; Definition of a Circle)</h3>
+      <p>ପ୍ରକୃତି ଓ କଳାକୃତିରେ ଆମେ ବହୁ ସୁନ୍ଦର ବକ୍ରରେଖା ଦେଖିଥାଉ। ଜ୍ୟାମିତିରେ ବୃତ୍ତ (Circle) ହେଉଛି ସବୁଠାରୁ ସମମିତିକ ଓ ନିର୍ଭୁଲ ଚିତ୍ର।</p>
+      <div class="callout-def">
+        <div class="callout-title">📌 ଗାଣିତିକ ସଂଜ୍ଞା: ବୃତ୍ତ (Circle)</div>
+        ସମତଳରେ ଥିବା ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ସ୍ଥିର ବିନ୍ଦୁଠାରୁ ସମାନ ଦୂରତାରେ (Equidistant) ଅବସ୍ଥିତ ସମସ୍ତ ବିନ୍ଦୁମାନଙ୍କ ସେଟ୍ ବା ସଂଗ୍ରହକୁ ଏକ <strong>ବୃତ୍ତ (Circle)</strong> କୁହାଯାଏ।
+        <ul style="margin: 8px 0 0 20px;">
+          <li><strong>କେନ୍ଦ୍ର (Center, O):</strong> ସେହି ନିର୍ଦ୍ଦିଷ୍ଟ ସ୍ଥିର ବିନ୍ଦୁ।</li>
+          <li><strong>ବ୍ୟାସାର୍ଦ୍ଧ (Radius, r):</strong> କେନ୍ଦ୍ରଠାରୁ ବୃତ୍ତ ଉପରିସ୍ଥ ଯେକୌଣସି ବିନ୍ଦୁର ସ୍ଥିର ଦୂରତା।</li>
+          <li><strong>ବ୍ୟାସ (Diameter, d):</strong> କେନ୍ଦ୍ର ଦେଇ ଯାଇଥିବା ଏବଂ ବୃତ୍ତର ଦୁଇଟି ବିନ୍ଦୁକୁ ସଂଯୋଗ କରୁଥିବା ରେଖାଖଣ୍ଡ (<span style="font-family: monospace;">d = 2r</span>)।</li>
+          <li><strong>ଜ୍ୟା (Chord):</strong> ବୃତ୍ତର ଯେକୌଣସି ଦୁଇଟି ବିନ୍ଦୁକୁ ସଂଯୋଗ କରୁଥିବା ରେଖାଖଣ୍ଡ। ବ୍ୟାସ ହିଁ ବୃତ୍ତର ବୃହତ୍ତମ ଜ୍ୟା।</li>
+          <li><strong>ଅର୍ଦ୍ଧବୃତ୍ତ (Semicircle):</strong> ବ୍ୟାସ ବୃତ୍ତକୁ ଦୁଇଟି ସମାନ ଭାଗରେ ବିଭକ୍ତ କରେ, ପ୍ରତ୍ୟେକ ଭାଗକୁ ଅର୍ଦ୍ଧବୃତ୍ତ କୁହାଯାଏ।</li>
+        </ul>
+      </div>
+
+      <div class="callout-act">
+        <div class="callout-title">🧪 କାର୍ଯ୍ୟକଳାପ: କମ୍ପାସ୍ ସାହାଯ୍ୟରେ କଳାକୃତି (Wave Patterns)</div>
+        ଯେତେବେଳେ ଆମେ ଏକ ସରଳରେଖା ଉପରେ କ୍ରମାଗତ ଭାବରେ ଉପର ଓ ତଳ ପାର୍ଶ୍ୱରେ ଅର୍ଦ୍ଧବୃତ୍ତମାନ ଆଙ୍କୁ, ସେତେବେଳେ ଏକ ସୁନ୍ଦର ତରଙ୍ଗ (Wave) ସୃଷ୍ଟି ହୁଏ। ଯଦି ଚାପଟି ଅର୍ଦ୍ଧବୃତ୍ତଠାରୁ କ୍ଷୁଦ୍ରତର ହୁଏ, ତେବେ ବୃତ୍ତର କେନ୍ଦ୍ର ସେହି ରେଖାଖଣ୍ଡ ଉପରେ ନରହି ରେଖାର ବାହାରେ ରହିବ।
+      </div>
+
+      <!-- 8.2 -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 10px;">୮.୨ ବର୍ଗକ୍ଷେତ୍ର, ଆୟତକ୍ଷେତ୍ର ଓ କ୍ରମିକ ନାମକରଣ ନିୟମ (Quadrilaterals &amp; Cyclic Naming Rules)</h3>
+      <p>ଚାରୋଟି ବାହୁ ଦ୍ୱାରା ଆବଦ୍ଧ ସମତଳ ଚିତ୍ରକୁ ଚତୁର୍ଭୁଜ (Quadrilateral) କୁହାଯାଏ। ଏହାର ଦୁଇଟି ପ୍ରମୁଖ ରୂପ ହେଉଛି ଆୟତକ୍ଷେତ୍ର ଓ ବର୍ଗକ୍ଷେତ୍ର।</p>
+      
+      <div class="callout-def">
+        <div class="callout-title">📐 ଆୟତକ୍ଷେତ୍ର ଓ ବର୍ଗକ୍ଷେତ୍ରର ଧର୍ମ</div>
+        <ol style="margin-left: 20px;">
+          <li><strong>ଆୟତକ୍ଷେତ୍ର (Rectangle):</strong> ଯେଉଁ ଚତୁର୍ଭୁଜର ପ୍ରତ୍ୟେକ କୋଣ ୯୦° (ସମକୋଣ) ଏବଂ ବିପରୀତ ବାହୁଗୁଡ଼ିକ ପରସ୍ପର ସମାନ ଓ ସମାନ୍ତର।</li>
+          <li><strong>ବର୍ଗକ୍ଷେତ୍ର (Square):</strong> ଏକ ସ୍ୱତନ୍ତ୍ର ଆୟତକ୍ଷେତ୍ର ଯାହାର ସମସ୍ତ ଚାରୋଟି ବାହୁ ସମାନ ଏବଂ ସମସ୍ତ ଚାରୋଟି କୋଣ ୯୦°।</li>
+        </ol>
+      </div>
+
+      <div class="callout-warn">
+        <div class="callout-title">⚠️ ସତର୍କତା: କ୍ରମିକ ନାମକରଣ ନିୟମ (Cyclic Naming Rule Trap)</div>
+        ଏକ ଚତୁର୍ଭୁଜର ନାମକରଣ କଲାବେଳେ ଶୀର୍ଷ ବିନ୍ଦୁଗୁଡ଼ିକୁ କ୍ରମାନ୍ୱୟରେ (Cyclic order: ଘଣ୍ଟାକଣ୍ଟାର ଦିଗରେ କିମ୍ବା ବିପରୀତ ଦିଗରେ) ଲେଖିବା ବାଧ୍ୟତାମୂଳକ।
+        <br>
+        ଯଥା: ଯଦି ଶୀର୍ଷଗୁଡ଼ିକ କ୍ରମରେ P, Q, R, S ଅଟନ୍ତି:
+        <ul style="margin: 6px 0 0 20px;">
+          <li>✅ ସଠିକ୍ ନାମ: <strong>PQRS, QRSP, RSPQ, SPQR, SRQP, RQPS, QPSR, PSRQ</strong></li>
+          <li>❌ ଭୁଲ୍ ନାମ: <strong>PQSR କିମ୍ବା PRQS</strong> (କାରଣ କର୍ଣ୍ଣକୁ ଡେଇଁ ନାମକରଣ କରାଯାଇ ପାରିବ ନାହିଁ!)</li>
+        </ul>
+      </div>
+
+      <!-- 8.3 -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 10px;">୮.୩ ଆୟତକ୍ଷେତ୍ର ଓ ଲମ୍ବ ରଶ୍ମି (୯୦° କୋଣ) ଅଙ୍କନ (Constructing 90° Rays)</h3>
+      <p>କମ୍ପାସ୍ ଓ ସ୍କେଲ୍ ସାହାଯ୍ୟରେ ୯୦° କୋଣ ଅଙ୍କନ କରିବା ଜ୍ୟାମିତିର ଏକ ମୌଳିକ କୌଶଳ ଅଟେ:</p>
+      <div class="callout-hack">
+        <div class="callout-title">💡 ୯୦° କୋଣ ଅଙ୍କନ ପ୍ରଣାଳୀ (Construction Protocol)</div>
+        <ol style="margin-left: 20px;">
+          <li>ଏକ ସରଳରେଖା ଉପରେ ବିନ୍ଦୁ A ନିଅନ୍ତୁ।</li>
+          <li>A କୁ କେନ୍ଦ୍ର କରି ଯେକୌଣସି ବ୍ୟାସାର୍ଦ୍ଧରେ ଏକ ଅର୍ଦ୍ଧବୃତ୍ତାକାର ଚାପ ଆଙ୍କନ୍ତୁ ଯାହା ରେଖାକୁ ଛେଦ କରେ।</li>
+          <li>ସମାନ ବ୍ୟାସାର୍ଦ୍ଧରେ ପ୍ରଥମ ଛେଦବିନ୍ଦୁରୁ ଚାପ କାଟିଲେ ୬୦° ଏବଂ ସେଠାରୁ ଆଉ ଏକ ଚାପ କାଟିଲେ ୧୨୦° ବିନ୍ଦୁ ମିଳେ।</li>
+          <li>୬୦° ଓ ୧୨୦° ଚାପ ଦ୍ୱୟରୁ ସମାନ ବ୍ୟାସାର୍ଦ୍ଧ ନେଇ ଉପରକୁ ଦୁଇଟି ଚାପ ଆଙ୍କନ୍ତୁ, ଯାହା ପରସ୍ପରକୁ ଛେଦ କରେ।</li>
+          <li>ଛେଦବିନ୍ଦୁ ସହିତ A କୁ ସଂଯୋଗ କଲେ ଠିକ୍ <strong>୯୦° ଲମ୍ବ ରଶ୍ମି</strong> ମିଳିଥାଏ।</li>
+        </ol>
+      </div>
+
+      <!-- 8.4 -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 10px;">୮.୪ ଆୟତକ୍ଷେତ୍ରକୁ ବର୍ଗକ୍ଷେତ୍ରରେ ବିଭାଜନ (Partitioning Rectangles into Squares)</h3>
+      <p>ପ୍ରାଚୀନ ଗ୍ରୀକ୍ ଗଣିତଜ୍ଞ ୟୁକ୍ଲିଡ୍ (Euclid) ପ୍ରମାଣ କରିଥିଲେ ଯେ ଯେକୌଣସି ଆୟତକ୍ଷେତ୍ରକୁ ତାର ପ୍ରସ୍ଥ ସହିତ ସମାନ ବାହୁ ବିଶିଷ୍ଟ ବର୍ଗକ୍ଷେତ୍ରରେ କ୍ରମାଗତ ଭାବରେ କାଟି ବିଭାଜିତ କରାଯାଇପାରେ। ଏହା ଗ.ସା.ଗୁ. (HCF) ନିର୍ଣ୍ଣୟ କରିବାର ଜ୍ୟାମିତିକ ପ୍ରଣାଳୀ ଅଟେ।</p>
+      <div class="callout-act">
+        <div class="callout-title">🔍 ବିଭାଜନ ନିୟମ ଓ ଅନୁପାତ</div>
+        <ul>
+          <li>ଯଦି ଦୈର୍ଘ୍ୟ : ପ୍ରସ୍ଥ = ୨ : ୧ ହୁଏ, ତେବେ ତାହା ଠିକ୍ ୨ଟି ସର୍ବସମ ବର୍ଗକ୍ଷେତ୍ରରେ ବିଭକ୍ତ ହୋଇପାରିବ।</li>
+          <li>ଯଦି ଅନୁପାତ ୩ : ୧ ହୁଏ, ତେବେ ତାହା ଠିକ୍ ୩ଟି ସର୍ବସମ ବର୍ଗକ୍ଷେତ୍ରରେ ବିଭକ୍ତ ହେବ।</li>
+          <li>କିନ୍ତୁ ଯଦି ଦୈର୍ଘ୍ୟ ଓ ପ୍ରସ୍ଥର ଅନୁପାତ ଅନ୍ୟ କିଛି ହୁଏ (ଯଥା ୫ : ୩), ତେବେ ତାହା କେବଳ ୨ଟି କିମ୍ବା ୩ଟି <em>ସର୍ବସମ</em> ବର୍ଗକ୍ଷେତ୍ରରେ ସମ୍ପୂର୍ଣ୍ଣ ବିଭାଜିତ ହୋଇପାରିବ ନାହିଁ।</li>
+        </ul>
+      </div>
+
+      <!-- 8.5 -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 10px;">୮.୫ କର୍ଣ୍ଣର ଧର୍ମ ଓ କୋଣ ସମଦ୍ୱିଖଣ୍ଡନ ପରୀକ୍ଷା (Diagonals &amp; Angle Bisection)</h3>
+      <p>ଆୟତକ୍ଷେତ୍ର ଓ ବର୍ଗକ୍ଷେତ୍ରର କର୍ଣ୍ଣ ମଧ୍ୟରେ ଥିବା ତାରତମ୍ୟ ପରୀକ୍ଷା ପାଇଁ ଅତ୍ୟନ୍ତ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ:</p>
+      <div class="callout-def">
+        <div class="callout-title">⭐ କର୍ଣ୍ଣର ଧର୍ମ ତୁଳନାତ୍ମକ ସାରଣୀ</div>
+        <ul style="margin-left: 20px;">
+          <li><strong>ଆୟତକ୍ଷେତ୍ର (Rectangle):</strong>
+            <ul>
+              <li>କର୍ଣ୍ଣଦ୍ୱୟର ଦୈର୍ଘ୍ୟ ସମାନ (AC = BD)।</li>
+              <li>କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପରକୁ ସମଦ୍ୱିଖଣ୍ଡ (Bisect) କରନ୍ତି (OA = OC, OB = OD)।</li>
+              <li><strong>ସତର୍କତା:</strong> ଆୟତକ୍ଷେତ୍ରରେ କର୍ଣ୍ଣ ଶୀର୍ଷ କୋଣକୁ ସମଦ୍ୱିଖଣ୍ଡ <strong>କରେ ନାହିଁ</strong> (କୋଣ ଦୁଇଟି ୪୫°-୪୫° ହୁଅନ୍ତି ନାହିଁ, ଯଥା ୩୦°-୬୦° କିମ୍ବା ଅନ୍ୟ କିଛି ହୁଅନ୍ତି)।</li>
+              <li>କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପରକୁ ସମକୋଣରେ (୯୦°) ଛେଦ କରନ୍ତି ନାହିଁ।</li>
+            </ul>
+          </li>
+          <li><strong>ବର୍ଗକ୍ଷେତ୍ର (Square):</strong>
+            <ul>
+              <li>କର୍ଣ୍ଣଦ୍ୱୟ ସମାନ (AC = BD)।</li>
+              <li>କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପରକୁ <strong>ସମକୋଣରେ (୯୦°) ସମଦ୍ୱିଖଣ୍ଡ</strong> କରନ୍ତି।</li>
+              <li>କର୍ଣ୍ଣ ଶୀର୍ଷ କୋଣ ୯୦° କୁ ଠିକ୍ ସମଦ୍ୱିଖଣ୍ଡ କରି <strong>୪୫° ଓ ୪୫°</strong> ରେ ଭାଗ କରେ।</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!-- 8.6 -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 10px;">୮.୬ ସମଦୂରବର୍ତ୍ତୀ ବିନ୍ଦୁ, ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ ଓ ରମ୍ବସ୍ (Equidistant Points &amp; Rhombus)</h3>
+      <p>ଦୁଇଟି ସ୍ଥିର ବିନ୍ଦୁ A ଓ B ଦିଆଯାଇଥିଲେ:</p>
+      <div class="callout-hack">
+        <div class="callout-title">✨ ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ ସିଦ୍ଧାନ୍ତ (Perpendicular Bisector Theorem)</div>
+        ଦୁଇଟି ବିନ୍ଦୁ A ଏବଂ B ଠାରୁ ସମାନ ଦୂରତାରେ (Equidistant) ଥିବା ସମସ୍ତ ବିନ୍ଦୁଗୁଡ଼ିକ AB ରେଖାଖଣ୍ଡର <strong>ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ (Perpendicular Bisector)</strong> ଉପରେ ଅବସ୍ଥିତ ଥାଆନ୍ତି।
+        <br><br>
+        <strong>ରମ୍ବସ୍ (Rhombus) ଅଙ୍କନ:</strong><br>
+        ଯଦି ଆମେ ଏକ ରେଖାଖଣ୍ଡର ଉଭୟ ପାର୍ଶ୍ୱରେ ଥିବା ଦୁଇଟି ସମଦୂରବର୍ତ୍ତୀ ବିନ୍ଦୁ P ଏବଂ Q କୁ ସଂଯୋଗ କରୁ ଏବଂ ଚାରୋଟି ବାହୁକୁ ସଂଯୋଗ କରୁ, ତେବେ ଏକ <strong>ରମ୍ବସ୍</strong> ଗଠିତ ହୁଏ।
+        <br>
+        <strong>ରମ୍ବସ୍ର ବୈଶିଷ୍ଟ୍ୟ:</strong>
+        <ol style="margin-left: 20px;">
+          <li>ସମସ୍ତ ଚାରୋଟି ବାହୁ ସମାନ।</li>
+          <li>ବିପରୀତ କୋଣଗୁଡ଼ିକ ସମାନ, କିନ୍ତୁ କୋଣଗୁଡ଼ିକ ୯୦° ନୁହଁନ୍ତି (୯୦° ହେଲେ ତାହା ବର୍ଗକ୍ଷେତ୍ର ହୋଇଯିବ)।</li>
+          <li>କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପରକୁ <strong>ସମକୋଣରେ (୯୦°) ସମଦ୍ୱିଖଣ୍ଡ</strong> କରନ୍ତି।</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec-3" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୩</span>
+        <h2>ଦ୍ରୁତ ପୁନରାବୃତ୍ତି ସୂତ୍ର, ଧର୍ମ ଓ ନିୟମ ବ୍ୟାଙ୍କ (Formula &amp; Law Bank)</h2>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin-bottom: 12px;">ସାରଣୀ ୮.୧: ଚତୁର୍ଭୁଜମାନଙ୍କର ତୁଳନାତ୍ମକ ଧର୍ମ ବିଶ୍ଳେଷଣ</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ଜ୍ୟାମିତିକ ଚିତ୍ର</th>
+            <th>ବାହୁର ଧର୍ମ</th>
+            <th>କୋଣର ମାପ</th>
+            <th>କର୍ଣ୍ଣର ଦୈର୍ଘ୍ୟ</th>
+            <th>କର୍ଣ୍ଣର ଛେଦକୋଣ</th>
+            <th>କୋଣ ସମଦ୍ୱିଖଣ୍ଡନ?</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ଆୟତକ୍ଷେତ୍ର (Rectangle)</strong></td>
+            <td>ବିପରୀତ ବାହୁ ସମାନ</td>
+            <td>ସବୁ କୋଣ = ୯୦°</td>
+            <td>ସମାନ (AC = BD)</td>
+            <td>୯୦° ନୁହେଁ</td>
+            <td>ନାହିଁ (≠ ୪୫°)</td>
+          </tr>
+          <tr>
+            <td><strong>ବର୍ଗକ୍ଷେତ୍ର (Square)</strong></td>
+            <td>୪ଟି ଯାକ ବାହୁ ସମାନ</td>
+            <td>ସବୁ କୋଣ = ୯୦°</td>
+            <td>ସମାନ (AC = BD)</td>
+            <td>୯୦° (ଲମ୍ବ)</td>
+            <td>ହଁ (୪୫° - ୪୫°)</td>
+          </tr>
+          <tr>
+            <td><strong>ରମ୍ବସ୍ (Rhombus)</strong></td>
+            <td>୪ଟି ଯାକ ବାହୁ ସମାନ</td>
+            <td>ବିପରୀତ କୋଣ ସମାନ (≠୯୦°)</td>
+            <td>ଅସମାନ</td>
+            <td>୯୦° (ଲମ୍ବ)</td>
+            <td>ହଁ</td>
+          </tr>
+          <tr>
+            <td><strong>ସାମାନ୍ତରିକ ଚିତ୍ର (Parallelogram)</strong></td>
+            <td>ବିପରୀତ ବାହୁ ସମାନ</td>
+            <td>ବିପରୀତ କୋଣ ସମାନ</td>
+            <td>ଅସମାନ</td>
+            <td>୯୦° ନୁହେଁ</td>
+            <td>ନାହିଁ</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 style="color: var(--primary-dark); margin: 25px 0 12px;">ସାରଣୀ ୮.୨: ଜ୍ୟାମିତିକ ଅଙ୍କନ ସରଞ୍ଜାମ ଓ ସେମାନଙ୍କର କାର୍ଯ୍ୟ</h3>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>ଉପକରଣ (Tool)</th>
+            <th>ଜ୍ୟାମିତିକ କାର୍ଯ୍ୟ (Function)</th>
+            <th>ସଠିକ୍ ବ୍ୟବହାର ନିୟମ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ସ୍କେଲ୍ / ରୁଲର୍ (Ruler)</strong></td>
+            <td>ସରଳରେଖା ଅଙ୍କନ ଓ ଦୈର୍ଘ୍ୟ ମାପିବା</td>
+            <td>ଶୂନ (0) ଦାଗରୁ ଆରମ୍ଭ କରନ୍ତୁ, କୋଣଠିଆ କରି ଦେଖନ୍ତୁ ନାହିଁ।</td>
+          </tr>
+          <tr>
+            <td><strong>କମ୍ପାସ୍ (Compass)</strong></td>
+            <td>ବୃତ୍ତ, ଚାପ ଅଙ୍କନ ଓ ସମାନ ଦୂରତା ମାପିବା</td>
+            <td>ପେନ୍ସିଲ୍ ମୁନ ତୀକ୍ଷ୍ଣ ରହିବ ଏବଂ କଣ୍ଟା ସହିତ ସମତଳ ରହିବ।</td>
+          </tr>
+          <tr>
+            <td><strong>ପ୍ରୋଟ୍ରାକ୍ଟର (Protractor)</strong></td>
+            <td>କୋଣ ମାପିବା ଓ ଯାଞ୍ଚ କରିବା</td>
+            <td>କେନ୍ଦ୍ର ବିନ୍ଦୁ ଶୀର୍ଷ ଉପରେ ଏବଂ ଆଧାର ରେଖା ବାହୁ ସହ ମିଶିବ।</td>
+          </tr>
+          <tr>
+            <td><strong>ଡିଭାଇଡର୍ (Divider)</strong></td>
+            <td>ରେଖାଖଣ୍ଡର ଦୈର୍ଘ୍ୟ ତୁଳନା କରିବା</td>
+            <td>ସ୍କେଲ୍ ଉପରେ ରଖି ନିର୍ଭୁଲ ଦୈର୍ଘ୍ୟ ମାପ ନିଆଯାଏ।</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec-4" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୪</span>
+        <h2>ସମସ୍ତ NCERT ପାଠ୍ୟପୁସ୍ତକ ପ୍ରଶ୍ନୋତ୍ତର (100% Complete NCERT Solutions)</h2>
+      </div>
+      <p style="margin-bottom: 20px;">ପାଠ୍ୟପୁସ୍ତକର ସମସ୍ତ ଅଭ୍ୟାସ ଓ କାର୍ଯ୍ୟକଳାପର ସମ୍ପୂର୍ଣ୍ଣ ୫-ସୋପାନ ବିଶିଷ୍ଟ ଟପର୍ ସମାଧାନ:</p>
+
+      <!-- Q1 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୧ (ବିଭାଗ ୮.୧): ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ସ୍ଥିର ବିନ୍ଦୁ P ଠାରୁ ୪ ସେମି ଦୂରତାରେ ଥିବା ସମସ୍ତ ବିନ୍ଦୁଗୁଡ଼ିକୁ ଚିହ୍ନଟ କଲେ ତାହା କିପରି ଦେଖାଯିବ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ପ୍ରଦତ୍ତ ତଥ୍ୟ (Given Data)</span>
+              <p>ସ୍ଥିର ବିନ୍ଦୁ = P, ନିର୍ଦ୍ଦିଷ୍ଟ ସ୍ଥିର ଦୂରତା = ୪ ସେମି।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ଜ୍ୟାମିତିକ ସିଦ୍ଧାନ୍ତ (Geometric Concept)</span>
+              <p>ଏକ ସମତଳରେ ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ସ୍ଥିର ବିନ୍ଦୁଠାରୁ ସମଦୂରବର୍ତ୍ତୀ ବିନ୍ଦୁମାନଙ୍କ ସେଟ୍ ଏକ ବୃତ୍ତ (Circle) ଗଠନ କରେ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ଅଙ୍କନ ପ୍ରଣାଳୀ (Construction)</span>
+              <p>କମ୍ପାସ୍ରେ ୪ ସେମି ବ୍ୟାସାର୍ଦ୍ଧ ମାପି P ବିନ୍ଦୁକୁ କେନ୍ଦ୍ର କରି ଏକ ପୂର୍ଣ୍ଣ ବୃତ୍ତ ଅଙ୍କନ କରନ୍ତୁ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୪: ଫଳାଫଳ (Observation)</span>
+              <p>ସମସ୍ତ ଚିହ୍ନିତ ବିନ୍ଦୁଗୁଡ଼ିକ ମିଶି P କୁ କେନ୍ଦ୍ର କରି ୪ ସେମି ବ୍ୟାସାର୍ଦ୍ଧ ବିଶିଷ୍ଟ ଏକ ସୁନ୍ଦର <strong>ବୃତ୍ତ (Circle)</strong> ସୃଷ୍ଟି କରନ୍ତି।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୫: ଶେଷ ନିଷ୍କର୍ଷ (Conclusion)</span>
+              <p>ଏହା ହିଁ ବୃତ୍ତର ମୌଳିକ ସଂଜ୍ଞା ଅଟେ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୨ (ବିଭାଗ ୮.୧): ଏକ ଅର୍ଦ୍ଧବୃତ୍ତ ଆଙ୍କିବା ପାଇଁ କମ୍ପାସ୍ରେ କେଉଁ ବ୍ୟାସାର୍ଦ୍ଧ ନେବାକୁ ହେବ? ଯଦି ବ୍ୟାସ AB ହୁଏ, ତେବେ କେନ୍ଦ୍ର X ର ସ୍ଥିତି ଓ AX ର ଦୈର୍ଘ୍ୟ କେତେ ହେବ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ସିଦ୍ଧାନ୍ତ</span>
+              <p>ଅର୍ଦ୍ଧବୃତ୍ତର ସରଳ ଧାରଟି ହେଉଛି ବୃତ୍ତର ବ୍ୟାସ (Diameter AB)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: କେନ୍ଦ୍ର ନିର୍ଣ୍ଣୟ</span>
+              <p>ବ୍ୟାସ AB ର ମଧ୍ୟବିନ୍ଦୁ X ହିଁ ହେଉଛି ଅର୍ଦ୍ଧବୃତ୍ତର ପ୍ରକୃତ କେନ୍ଦ୍ର।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ଗାଣିତିକ ହିସାବ</span>
+              <p>କମ୍ପାସ୍ରେ ନିଆଯିବା ବ୍ୟାସାର୍ଦ୍ଧ <span class="frac"><sup>AB</sup><sub>୨</sub></span> ହେବ। ଅତଏବ, AX ର ଦୈର୍ଘ୍ୟ = <span class="frac"><sup>AB</sup><sub>୨</sub></span> (ବ୍ୟାସାର୍ଦ୍ଧ r)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୪: ଶେଷ ଉତ୍ତର</span>
+              <p>କମ୍ପାସ୍ରେ ବ୍ୟାସର ଅଧା (<span class="frac"><sup>୧</sup><sub>୨</sub></span> AB) ବ୍ୟାସାର୍ଦ୍ଧ ନେବାକୁ ହେବ ଏବଂ AX = XB = r ହେବ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୩ (ବିଭାଗ ୮.୧): ଯଦି ଏକ କଳାକୃତିରେ ତରଙ୍ଗଟି ଅର୍ଦ୍ଧବୃତ୍ତଠାରୁ କ୍ଷୁଦ୍ରତର ହୁଏ, ତେବେ ତାହା ଅଙ୍କନ କରିବାରେ ଜ୍ୟାମିତିକ ଆହ୍ୱାନ କ’ଣ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ବିଶ୍ଳେଷଣ</span>
+              <p>ଅର୍ଦ୍ଧବୃତ୍ତରେ କେନ୍ଦ୍ରଟି ରେଖାଖଣ୍ଡ (ବ୍ୟାସ) ଉପରେ ଅବସ୍ଥିତ ଥାଏ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ଆହ୍ୱାନ</span>
+              <p>ଯେତେବେଳେ ଚାପଟି ଅର୍ଦ୍ଧବୃତ୍ତଠାରୁ କ୍ଷୁଦ୍ରତର ହୁଏ, ସେତେବେଳେ ରେଖାଖଣ୍ଡଟି ବ୍ୟାସ ନହୋଇ ଏକ <strong>ଜ୍ୟା (Chord)</strong> ରେ ପରିଣତ ହୁଏ। ତେଣୁ କେନ୍ଦ୍ରଟି ସେହି ରେଖାଖଣ୍ଡ ଉପରେ ନରହି, ରେଖାଖଣ୍ଡର ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ ଉପରେ ରେଖାର ବାହାରେ ରହିବ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ସମାଧାନ ପଦ୍ଧତି</span>
+              <p>ପ୍ରଥମେ ରେଖାଖଣ୍ଡର ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ ଆଙ୍କି ତା’ ଉପରେ ଉପଯୁକ୍ତ କେନ୍ଦ୍ର ବିନ୍ଦୁ ଖୋଜିବାକୁ ହେବ, ଯାହା ଅଧିକ ସଠିକତା ଦାବି କରେ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୪ (ବିଭାଗ ୮.୨): ଶୀର୍ଷ ବିନ୍ଦୁ P, Q, R, S କ୍ରମରେ ଥିବା ଏକ ବର୍ଗକ୍ଷେତ୍ର ପାଇଁ ନିମ୍ନଲିଖିତ ମଧ୍ୟରୁ କେଉଁଟି ସଠିକ୍ ନାମ ନୁହେଁ? (୧) PQSR (୨) SPQR (୩) RSPQ (୪) QRSP</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ନିୟମ</span>
+              <p>ଚତୁର୍ଭୁଜର ନାମକରଣ ସର୍ବଦା ପରିଧି କ୍ରମରେ (Cyclic order: ଘଣ୍ଟାକଣ୍ଟାର ଦିଗ ବା ବିପରୀତ ଦିଗରେ) ହେବା ଉଚିତ। କର୍ଣ୍ଣ ଅତିକ୍ରମ କରି ନାମ ଲେଖାଯାଇ ପାରିବ ନାହିଁ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ବିକଳ୍ପ ଯାଞ୍ଚ</span>
+              <p>SPQR, RSPQ, QRSP ସମସ୍ତେ କ୍ରମିକ ଶୀର୍ଷ ଅଟନ୍ତି। କିନ୍ତୁ PQSR ରେ Q ପରେ S ଆସିଛି, ଯାହାକି କର୍ଣ୍ଣ QS ଦେଇ ଯାଉଛି ଏବଂ କ୍ରମ ଭଙ୍ଗ କରୁଛି।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ଉତ୍ତର</span>
+              <p><strong>(୧) PQSR</strong> ଏକ ଭୁଲ୍ ନାମ ଅଟେ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୫ (ବିଭାଗ ୮.୨): ଡଟ୍ ଗ୍ରିଡ୍ (Dot Grid) ଉପରେ କୌଣସି ମାପକ ଯନ୍ତ୍ର ବ୍ୟବହାର ନକରି କିପରି ଯୁକ୍ତିଯୁକ୍ତ ଭାବରେ ପ୍ରମାଣ କରାଯାଇପାରିବ ଯେ ଏକ ଚିତ୍ରର ବାହୁଗୁଡ଼ିକ ସମାନ ଓ କୋଣଗୁଡ଼ିକ ୯୦°?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ଗ୍ରିଡ୍ ଏକକ ଗଣନା</span>
+              <p>ଡଟ୍ ଗ୍ରିଡ୍ରେ ପ୍ରତ୍ୟେକ ବିନ୍ଦୁ ମଧ୍ୟରେ ଭୂସମାନ୍ତର ଓ ଭୂଲମ୍ବ ଦୂରତା ସମାନ (୧ ୟୁନିଟ୍) ଥାଏ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ବାହୁ ସମାନତାର ପ୍ରମାଣ</span>
+              <p>ପ୍ରତ୍ୟେକ ବାହୁ କେତୋଟି ଗ୍ରିଡ୍ ୟୁନିଟ୍ (ଯଥା: ୪ ଘର ଡାହାଣ, ୩ ଘର ଉପର) ଦେଇ ଯାଇଛି ତାହା ଗଣି ପାଇଥାଗୋରାସ୍ ସିଦ୍ଧାନ୍ତ ଅନୁସାରେ ପ୍ରମାଣ କରାଯାଇପାରିବ ଯେ ସମସ୍ତ ବାହୁର ଦୈର୍ଘ୍ୟ ସମାନ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ୯୦° କୋଣ ପ୍ରମାଣ</span>
+              <p>ଗ୍ରିଡ୍ ଧାଡ଼ି ଭୂସମାନ୍ତର ଓ ଭୂଲମ୍ବ ଥିବାରୁ ଏବଂ ସମକୋଣୀ ତ୍ରିଭୁଜର ଢାଲୁ (Slope) ର ଗୁଣନଫଳ -୧ ହେଉଥିବାରୁ କୋଣ ଠିକ୍ ୯୦° ହେବ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q6 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୬ (ବିଭାଗ ୮.୩): (କ) ୫ ସେମି ଓ ୩ ସେମି ବାହୁ ବିଶିଷ୍ଟ ଏକ ଆୟତକ୍ଷେତ୍ର ଅଙ୍କନ କରନ୍ତୁ। (ଖ) ୨ ସେମି ଓ ୧୦ ସେମି ବାହୁ ବିଶିଷ୍ଟ ଆୟତକ୍ଷେତ୍ର ଅଙ୍କନ କରି ଏହାର ଧର୍ମ ଯାଞ୍ଚ କରନ୍ତୁ।</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: (କ) ର ଅଙ୍କନ ପ୍ରଣାଳୀ</span>
+              <p>୧. ସ୍କେଲ୍ ସାହାଯ୍ୟରେ AB = ୫ ସେମି ଆଙ୍କନ୍ତୁ।<br>
+                 ୨. A ଏବଂ B ଠାରେ କମ୍ପାସ୍ ସାହାଯ୍ୟରେ ୯୦° ଲମ୍ବ ରଶ୍ମି ଆଙ୍କନ୍ତୁ।<br>
+                 ୩. A ରୁ ୩ ସେମି କାଟି D ଏବଂ B ରୁ ୩ ସେମି କାଟି C ଚିହ୍ନଟ କରନ୍ତୁ।<br>
+                 ୪. CD କୁ ଯୋଡ଼ନ୍ତୁ। ABCD ଏକ ୫ ସେମି × ୩ ସେମି ଆୟତକ୍ଷେତ୍ର।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: (ଖ) ର ଅଙ୍କନ ଓ ଯାଞ୍ଚ</span>
+              <p>ଠିକ୍ ସେହିପରି ୨ ସେମି ଓ ୧୦ ସେମି ନେଇ ଅଙ୍କନ କରନ୍ତୁ। ଯାଞ୍ଚ କଲେ ଦେଖାଯିବ: ବିପରୀତ ବାହୁ ସମାନ (୧୦ ସେମି = ୧୦ ସେମି, ୨ ସେମି = ୨ ସେମି) ଏବଂ ସମସ୍ତ ୪ଟି କୋଣ ପ୍ରୋଟ୍ରାକ୍ଟରରେ ମାପିଲେ ଠିକ୍ ୯୦° ହେଉଛି।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q7 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୭ (ବିଭାଗ ୮.୩): ଏପରି ଏକ ଚତୁର୍ଭୁଜ ଅଙ୍କନ କରିବା ସମ୍ଭବ କି ଯାହାର ସମସ୍ତ ୪ଟି କୋଣ ୯୦° ହେବ, କିନ୍ତୁ ବିପରୀତ ବାହୁଗୁଡ଼ିକ ସମାନ ହେବେ ନାହିଁ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ଉତ୍ତର</span>
+              <p><strong>ନାଁ, ଏହା ଆଦୌ ସମ୍ଭବ ନୁହେଁ।</strong></p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ଜ୍ୟାମିତିକ କାରଣ</span>
+              <p>ୟୁକ୍ଲିଡୀୟ ସମତଳ ଜ୍ୟାମିତି ଅନୁସାରେ, ଯଦି ଏକ ଚତୁର୍ଭୁଜର ସମସ୍ତ ୪ଟି କୋଣ ୯୦° ହୁଏ, ତେବେ ପରସ୍ପର ସମ୍ମୁଖୀନ ବାହୁଗୁଡ଼ିକ ସମାନ୍ତର ହେବା ବାଧ୍ୟତାମୂଳକ। ଦୁଇଟି ସମାନ୍ତର ରେଖା ମଧ୍ୟବର୍ତ୍ତୀ ଲମ୍ବ ଦୂରତା ସର୍ବଦା ସ୍ଥିର ଥାଏ। ତେଣୁ ବିପରୀତ ବାହୁଦ୍ୱୟ ସ୍ୱତଃ ପ୍ରବୃତ୍ତ ଭାବରେ ସମାନ ହୋଇଯିବେ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q8 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୮ (ବିଭାଗ ୮.୪): ଯଦି ଏକ ଆୟତକ୍ଷେତ୍ରକୁ ତାର ପ୍ରସ୍ଥ ଅନୁଯାୟୀ ଭାଙ୍ଗି ଏକ ବର୍ଗକ୍ଷେତ୍ର କାଟି ନିଆଯାଏ, ଅବଶିଷ୍ଟ ଆୟତକ୍ଷେତ୍ରର ଦୈର୍ଘ୍ୟ ଓ ପ୍ରସ୍ଥ କିପରି ବଦଳିବ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ପ୍ରାରମ୍ଭିକ ମାପ</span>
+              <p>ଧରାଯାଉ ଆୟତକ୍ଷେତ୍ରର ଦୈର୍ଘ୍ୟ L ଏବଂ ପ୍ରସ୍ଥ W (ଯେଉଁଠାରେ L &gt; W)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ବର୍ଗକ୍ଷେତ୍ର କାଟିବା ପରେ</span>
+              <p>W × W ମାପର ଏକ ବର୍ଗକ୍ଷେତ୍ର କାଟି ନେବା ପରେ ଅବଶିଷ୍ଟ ଅଂଶର ନୂତନ ଦୈର୍ଘ୍ୟ ହେବ W ଏବଂ ନୂତନ ପ୍ରସ୍ଥ ହେବ (L - W)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ସିଦ୍ଧାନ୍ତ</span>
+              <p>ଏହି ପ୍ରକ୍ରିୟାକୁ କ୍ରମାଗତ ଭାବରେ ଦୋହରାଇଲେ ଶେଷରେ ଏକ କ୍ଷୁଦ୍ର ବର୍ଗକ୍ଷେତ୍ର ବଳକା ରହିବ, ଯାହା ମୂଳ ଆୟତକ୍ଷେତ୍ରର ଦୈର୍ଘ୍ୟ ଓ ପ୍ରସ୍ଥର ଗ.ସା.ଗୁ. (HCF) ଅଟେ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q9 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୯ (ବିଭାଗ ୮.୪): ଏପରି ଏକ ଆୟତକ୍ଷେତ୍ରର ଉଦାହରଣ ଦିଅନ୍ତୁ ଯାହାକୁ (କ) ଠିକ୍ ୨ଟି ସର୍ବସମ ବର୍ଗକ୍ଷେତ୍ରରେ ବିଭକ୍ତ କରାଯାଇ ପାରିବ ନାହିଁ ଏବଂ (ଖ) ୩ଟି ସର୍ବସମ ବର୍ଗକ୍ଷେତ୍ରରେ ବିଭକ୍ତ କରାଯାଇ ପାରିବ ନାହିଁ।</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ସର୍ତ୍ତ ବିଶ୍ଳେଷଣ</span>
+              <p>ଏକ ଆୟତକ୍ଷେତ୍ର n ଟି ସର୍ବସମ ବର୍ଗକ୍ଷେତ୍ରରେ ବିଭକ୍ତ ହେବା ପାଇଁ ଏହାର ବାହୁର ଅନୁପାତ n : ୧ ହେବା ଆବଶ୍ୟକ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ଉଦାହରଣ</span>
+              <p>ଗୋଟିଏ ୫ ସେମି × ୩ ସେମି କିମ୍ବା ୪ ସେମି × ୩ ସେମି ଆୟତକ୍ଷେତ୍ର ନିଅନ୍ତୁ।<br>
+                 ଏହାର ଅନୁପାତ ୨:୧ ନୁହେଁ, ତେଣୁ ଏହାକୁ ୨ଟି ସର୍ବସମ ବର୍ଗକ୍ଷେତ୍ରରେ ଭାଗ କରାଯାଇ ପାରିବ ନାହିଁ।<br>
+                 ଏହାର ଅନୁପାତ ୩:୧ ମଧ୍ୟ ନୁହେଁ, ତେଣୁ ଏହାକୁ ୩ଟି ସର୍ବସମ ବର୍ଗକ୍ଷେତ୍ରରେ ମଧ୍ୟ ଭାଗ କରାଯାଇ ପାରିବ ନାହିଁ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q10 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୧୦ (ବିଭାଗ ୮.୫): ଏକ ବର୍ଗାକାର କିମ୍ବା ଆୟତାକାର କାଗଜ ପତ୍ରର ଠିକ୍ କେନ୍ଦ୍ର ବିନ୍ଦୁରେ ଏକ ଗୋଲାକାର ଛିଦ୍ର କରିବାକୁ ହେଲେ କେନ୍ଦ୍ରଟିକୁ କିପରି ନିର୍ଦ୍ଧାରଣ କରାଯିବ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: କର୍ଣ୍ଣ ଅଙ୍କନ</span>
+              <p>ସ୍କେଲ୍ ସାହାଯ୍ୟରେ ବିପରୀତ ଶୀର୍ଷ ବିନ୍ଦୁଗୁଡ଼ିକୁ ସଂଯୋଗ କରି କର୍ଣ୍ଣ AC ଏବଂ କର୍ଣ୍ଣ BD ଅଙ୍କନ କରନ୍ତୁ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ଛେଦବିନ୍ଦୁ ଚିହ୍ନଟ</span>
+              <p>କର୍ଣ୍ଣଦ୍ୱୟର ଛେଦବିନ୍ଦୁକୁ O ନାମିତ କରନ୍ତୁ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ଜ୍ୟାମିତିକ ଯଥାର୍ଥତା</span>
+              <p>O ବିନ୍ଦୁ ହିଁ ହେଉଛି ଆୟତକ୍ଷେତ୍ର ବା ବର୍ଗକ୍ଷେତ୍ରର ସମମିତିକ କେନ୍ଦ୍ର ବିନ୍ଦୁ (Exact Geometric Center), ଯାହା ଚାରୋଟି ଯାକ ଶୀର୍ଷ ବିନ୍ଦୁ A, B, C, D ଠାରୁ ସମାନ ଦୂରତାରେ (OA = OB = OC = OD) ଅବସ୍ଥିତ ଥାଏ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q11 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୧୧ (ବିଭାଗ ୮.୫): ଏକ ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣ ଏହାର ଶୀର୍ଷ କୋଣ ୯୦° କୁ ସମଦ୍ୱିଖଣ୍ଡ କରିବା ପାଇଁ ଆୟତକ୍ଷେତ୍ରର ବାହୁଗୁଡ଼ିକ ମଧ୍ୟରେ କେଉଁ ସମ୍ପର୍କ ରହିବା ବାଧ୍ୟତାମୂଳକ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ସମଦ୍ୱିଖଣ୍ଡନର ଅର୍ଥ</span>
+              <p>ଯଦି କର୍ଣ୍ଣ ୯୦° କୋଣକୁ ସମଦ୍ୱିଖଣ୍ଡ କରେ, ତେବେ ଉତ୍ପନ୍ନ ପ୍ରତ୍ୟେକ କୋଣ = ୪୫° ହେବ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ତ୍ରିଭୁଜର ଧର୍ମ</span>
+              <p>ତ୍ରିଭୁଜ ABC ରେ, ∠B = ୯୦°, ∠CAB = ୪୫°, ତେଣୁ ∠BCA = ୧୮୦° - (୯୦° + ୪୫°) = ୪୫° ହେବ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ବାହୁ ସମ୍ପର୍କ</span>
+              <p>ଯେହେତୁ ଦୁଇଟି କୋଣ ସମାନ (୪୫° = ୪୫°), ତେଣୁ ସେମାନଙ୍କ ସମ୍ମୁଖ ବାହୁ ସମାନ ହେବ: <strong>AB = BC</strong>।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୪: ଶେଷ ନିଷ୍କର୍ଷ</span>
+              <p>ଆୟତକ୍ଷେତ୍ରର ସଂଲଗ୍ନ ବାହୁଦ୍ୱୟ ସମାନ (ଦୈର୍ଘ୍ୟ = ପ୍ରସ୍ଥ) ହେବା ବାଧ୍ୟତାମୂଳକ। ଅର୍ଥାତ୍ <strong>ସେହି ଆୟତକ୍ଷେତ୍ରଟି ନିଶ୍ଚିତ ଭାବରେ ଏକ ବର୍ଗକ୍ଷେତ୍ର (Square) ହେବ</strong>।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q12 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୧୨ (ବିଭାଗ ୮.୫): ଏକ ଆୟତକ୍ଷେତ୍ର ଅଙ୍କନ କରନ୍ତୁ ଯେଉଁଥିରେ କର୍ଣ୍ଣ କୋଣଗୁଡ଼ିକୁ ୪୫° ଓ ୪୫° ରେ ବିଭକ୍ତ କରେ। ଏହାର ବାହୁଗୁଡ଼ିକ ବିଷୟରେ ଆପଣ କ’ଣ ଲକ୍ଷ୍ୟ କରୁଛନ୍ତି?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ଅଙ୍କନ</span>
+              <p>ପ୍ରୋଟ୍ରାକ୍ଟର ସାହାଯ୍ୟରେ ଶୀର୍ଷ A ଠାରେ ୪୫° କୋଣ ଆଙ୍କି କର୍ଣ୍ଣ ଟାଣନ୍ତୁ ଏବଂ ଚିତ୍ର ସମ୍ପୂର୍ଣ୍ଣ କରନ୍ତୁ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ପର୍ଯ୍ୟବେକ୍ଷଣ</span>
+              <p>ସ୍କେଲ୍ ଦ୍ୱାରା ବାହୁଗୁଡ଼ିକୁ ମାପିଲେ ଦେଖାଯାଏ ଯେ ପ୍ରତ୍ୟେକ ବାହୁର ଦୈର୍ଘ୍ୟ ସମାନ (AB = BC = CD = DA)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ନିଷ୍କର୍ଷ</span>
+              <p>ଯେତେବେଳେ କର୍ଣ୍ଣ କୋଣକୁ ୪୫° ରେ ବିଭକ୍ତ କରେ, ସେତେବେଳେ ଆୟତକ୍ଷେତ୍ରଟି ଏକ ବର୍ଗକ୍ଷେତ୍ରରେ ପରିଣତ ହୁଏ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q13 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୧୩ (ବିଭାଗ ୮.୫): କମ୍ପାସ୍ ଓ ସ୍କେଲ୍ ସାହାଯ୍ୟରେ ଏକ ଆୟତକ୍ଷେତ୍ର ଅଙ୍କନ କରନ୍ତୁ ଯାହାର ଏକ ବାହୁ ୪ ସେମି ଏବଂ କର୍ଣ୍ଣ ୮ ସେମି। ଅନ୍ୟ ଏକ ଆୟତକ୍ଷେତ୍ର ଅଙ୍କନ କରନ୍ତୁ ଯାହାର ବାହୁ ୩ ସେମି ଓ କର୍ଣ୍ଣ ୭ ସେମି।</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ୪ ସେମି ବାହୁ ଓ ୮ ସେମି କର୍ଣ୍ଣ ବିଶିଷ୍ଟ ଆୟତକ୍ଷେତ୍ର</span>
+              <p>୧. AB = ୪ ସେମି ରେଖାଖଣ୍ଡ ଆଙ୍କନ୍ତୁ।<br>
+                 ୨. A ବିନ୍ଦୁରେ କମ୍ପାସ୍ ସାହାଯ୍ୟରେ ୯୦° ଲମ୍ବ ରଶ୍ମି AX ଟାଣନ୍ତୁ।<br>
+                 ୩. B କୁ କେନ୍ଦ୍ର କରି କମ୍ପାସ୍ରେ ୮ ସେମି ବ୍ୟାସାର୍ଦ୍ଧ ନେଇ ଏକ ଚାପ ଆଙ୍କନ୍ତୁ ଯାହା AX ରଶ୍ମିକୁ D ବିନ୍ଦୁରେ ଛେଦ କରିବ। (AD ପ୍ରସ୍ଥ ମିଳିଗଲା)<br>
+                 ୪. D କୁ କେନ୍ଦ୍ର କରି ୪ ସେମି ବ୍ୟାସାର୍ଦ୍ଧ ଏବଂ B କୁ କେନ୍ଦ୍ର କରି AD ର ସମାନ ବ୍ୟାସାର୍ଦ୍ଧ ନେଇ ଦୁଇଟି ଚାପ ଆଙ୍କନ୍ତୁ, ଯାହାର ଛେଦବିନ୍ଦୁ C ହେବ।<br>
+                 ୫. BC ଓ CD ଯୋଡ଼ିଲେ ABCD ନିର୍ଦ୍ଦିଷ୍ଟ ଆୟତକ୍ଷେତ୍ର ମିଳିବ।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ୩ ସେମି ବାହୁ ଓ ୭ ସେମି କର୍ଣ୍ଣ ବିଶିଷ୍ଟ ଆୟତକ୍ଷେତ୍ର</span>
+              <p>ଠିକ୍ ଏହି ସମାନ ପ୍ରଣାଳୀ ଅନୁସରଣ କରି ଭୂମି = ୩ ସେମି, ୯୦° ରଶ୍ମି ଏବଂ କର୍ଣ୍ଣ = ୭ ସେମି ନେଇ ଅଙ୍କନ ସମ୍ପୂର୍ଣ୍ଣ କରାଯିବ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q14 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୧୪ (ବିଭାଗ ୮.୬): ଏକ ବୃହତ୍ ଘର (House) ର ଚିତ୍ର ଅଙ୍କନ କରନ୍ତୁ ଯାହାର କାନ୍ଥ ଏବଂ ଛାତର ସମସ୍ତ ବାହୁର ଦୈର୍ଘ୍ୟ ୭ ସେମି ହେବ।</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: କାନ୍ଥ (ବର୍ଗକ୍ଷେତ୍ର) ଅଙ୍କନ</span>
+              <p>୧. ଭୂମି AB = ୭ ସେମି ଆଙ୍କନ୍ତୁ।<br>
+                 ୨. A ଏବଂ B ଠାରେ ୯୦° କୋଣ ଆଙ୍କି ୭ ସେମି କାଟି C ଏବଂ D ବିନ୍ଦୁ ଚିହ୍ନଟ କରନ୍ତୁ। ABCD ଏକ ୭ ସେମି ବାହୁ ବିଶିଷ୍ଟ ବର୍ଗକ୍ଷେତ୍ର ହେଲା।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ଛାତ (ସମବାହୁ ତ୍ରିଭୁଜ) ଅଙ୍କନ</span>
+              <p>୩. ଉପର ବାହୁ CD = ୭ ସେମି ଅଟେ।<br>
+                 ୪. C କୁ କେନ୍ଦ୍ର କରି ୭ ସେମି ବ୍ୟାସାର୍ଦ୍ଧ ଏବଂ D କୁ କେନ୍ଦ୍ର କରି ୭ ସେମି ବ୍ୟାସାର୍ଦ୍ଧର ଦୁଇଟି ଚାପ ଉପର ପାର୍ଶ୍ୱରେ ଆଙ୍କନ୍ତୁ। ସେମାନଙ୍କ ଛେଦବିନ୍ଦୁ E ହେବ।<br>
+                 ୫. CE ଏବଂ DE କୁ ଯୋଡ଼ନ୍ତୁ। CDE ଏକ ସମବାହୁ ତ୍ରିଭୁଜ ହେଲା ଯାହାର ବାହୁ ୭ ସେମି।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ଶେଷ ଫଳାଫଳ</span>
+              <p>ଏହା ଦ୍ୱାରା ସମସ୍ତ ବାହୁ ୭ ସେମି ବିଶିଷ୍ଟ ଏକ ସୁନ୍ଦର ଘରର ଚିତ୍ର ପ୍ରସ୍ତୁତ ହେଲା।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q15 -->
+      <div style="margin-bottom: 25px;">
+        <h4 style="color: #1e293b; font-size: 1.1rem; margin-bottom: 8px;">ପ୍ରଶ୍ନ ୧୫ (ବିଭାଗ ୮.୬): ଏପରି ଏକ ଚତୁର୍ଭୁଜ ଅଙ୍କନ କରିବା ସମ୍ଭବ କି ଯାହାର ସମସ୍ତ ଚାରୋଟି ବାହୁର ଦୈର୍ଘ୍ୟ ସମାନ, କିନ୍ତୁ ତାହା ଏକ ବର୍ଗକ୍ଷେତ୍ର ନୁହେଁ? ଏହା କିପରି ଅଙ୍କନ କରାଯିବ?</h4>
+        <details class="ans-box">
+          <summary>💡 ସୋପାନ ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୧: ଚିତ୍ରର ପରିଚୟ</span>
+              <p><strong>ହଁ, ଏହା ନିଶ୍ଚିତ ଭାବରେ ସମ୍ଭବ। ସେହି ଚିତ୍ରଟି ହେଉଛି ଏକ ରମ୍ବସ୍ (Rhombus)।</strong></p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୨: ରମ୍ବସ୍ ଓ ବର୍ଗକ୍ଷେତ୍ର ମଧ୍ୟରେ ପାର୍ଥକ୍ୟ</span>
+              <p>ବର୍ଗକ୍ଷେତ୍ରର ପ୍ରତ୍ୟେକ କୋଣ ୯୦° ହୋଇଥିବା ବେଳେ ରମ୍ବସ୍ର କୋଣଗୁଡ଼ିକ ୯୦° ନୁହଁନ୍ତି (ବିପରୀତ କୋଣ ସମାନ ଥାଆନ୍ତି, ଯଥା ୬୦° ଓ ୧୨୦°)।</p>
+            </div>
+            <div class="step-box">
+              <span class="step-title">ସୋପାନ ୩: ଅଙ୍କନ ପ୍ରଣାଳୀ</span>
+              <p>୧. ଏକ ରେଖାଖଣ୍ଡ AB (ଯଥା ୫ ସେମି) ଆଙ୍କନ୍ତୁ।<br>
+                 ୨. A ବିନ୍ଦୁରେ ୯୦° ବଦଳରେ ୬୦° କୋଣ ଆଙ୍କନ୍ତୁ ଏବଂ ୫ ସେମି କାଟି D ବିନ୍ଦୁ ଚିହ୍ନଟ କରନ୍ତୁ।<br>
+                 ୩. B ଏବଂ D ଉଭୟଙ୍କଠାରୁ ୫ ସେମି ବ୍ୟାସାର୍ଦ୍ଧରେ ଦୁଇଟି ଚାପ ଆଙ୍କି ଛେଦବିନ୍ଦୁ C ନିର୍ଣ୍ଣୟ କରନ୍ତୁ।<br>
+                 ୪. BC ଓ CD ଯୋଡ଼ିଲେ ଏକ ସୁନ୍ଦର ରମ୍ବସ୍ ମିଳିବ ଯାହାର ସମସ୍ତ ବାହୁ ୫ ସେମି, କିନ୍ତୁ କୋଣ ୯୦° ନୁହେଁ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec-5" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୫</span>
+        <h2>ପରୀକ୍ଷା ଉପଯୋଗୀ ପ୍ରଶ୍ନୋତ୍ତର ବ୍ୟାଙ୍କ (Competency Question Bank)</h2>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin-bottom: 15px;">୫.୧ ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନୋତ୍ତର (Interactive MCQs with Trap Analysis)</h3>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="q1">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୧: ଏକ ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣଦ୍ୱୟ ବିଷୟରେ ନିମ୍ନୋକ୍ତ ମଧ୍ୟରୁ କେଉଁ ଉକ୍ତିଟି ସତ୍ୟ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 0, false, 'ଭୁଲ୍! ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣଦ୍ୱୟ ସର୍ବଦା ପରସ୍ପର ସମାନ ଥାଆନ୍ତି।')">କର୍ଣ୍ଣଦ୍ୱୟର ଦୈର୍ଘ୍ୟ ସର୍ବଦା ଅସମାନ</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 1, true, 'ସଠିକ୍! ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣଦ୍ୱୟ ସମାନ ଏବଂ ପରସ୍ପରକୁ ସମଦ୍ୱିଖଣ୍ଡ କରନ୍ତି।')">କର୍ଣ୍ଣଦ୍ୱୟ ସମାନ ଏବଂ ପରସ୍ପରକୁ ସମଦ୍ୱିଖଣ୍ଡ କରନ୍ତି</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 2, false, 'ଭୁଲ୍! କେବଳ ବର୍ଗକ୍ଷେତ୍ର ଓ ରମ୍ବସ୍ରେ କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପରକୁ ୯୦° ରେ ଛେଦ କରନ୍ତି, ସାଧାରଣ ଆୟତକ୍ଷେତ୍ରରେ ନୁହେଁ।')">କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପରକୁ ୯୦° କୋଣରେ ଛେଦ କରନ୍ତି</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 3, false, 'ଭୁଲ୍! ଆୟତକ୍ଷେତ୍ରରେ କର୍ଣ୍ଣ ଶୀର୍ଷ କୋଣକୁ ସମଦ୍ୱିଖଣ୍ଡ କରେ ନାହିଁ।')">କର୍ଣ୍ଣ ଶୀର୍ଷ କୋଣ ୯୦° କୁ ସମଦ୍ୱିଖଣ୍ଡ କରେ</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q1"></div>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="q2">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୨: ବୃତ୍ତର କେନ୍ଦ୍ର ଦେଇ ଯାଇଥିବା ଏବଂ ବୃତ୍ତର ଦୁଇଟି ବିନ୍ଦୁକୁ ସଂଯୋଗ କରୁଥିବା ରେଖାଖଣ୍ଡକୁ କ’ଣ କୁହାଯାଏ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 0, false, 'ଭୁଲ୍! ବ୍ୟାସାର୍ଦ୍ଧ କେନ୍ଦ୍ରରୁ ପରିଧି ପର୍ଯ୍ୟନ୍ତ ଏକ ବିନ୍ଦୁକୁ ଯୋଡ଼େ।')">ବ୍ୟାସାର୍ଦ୍ଧ (Radius)</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 1, true, 'ସଠିକ୍! ବୃତ୍ତର କେନ୍ଦ୍ର ଦେଇ ଯାଇଥିବା ବୃହତ୍ତମ ଜ୍ୟାକୁ ବ୍ୟାସ (Diameter) କୁହାଯାଏ।')">ବ୍ୟାସ (Diameter)</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 2, false, 'ଭୁଲ୍! ସ୍ପର୍ଶକ ବୃତ୍ତକୁ କେବଳ ଗୋଟିଏ ବିନ୍ଦୁରେ ବାହାରୁ ସ୍ପର୍ଶ କରେ।')">ସ୍ପର୍ଶକ (Tangent)</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 3, false, 'ଭୁଲ୍! ଚାପ ଏକ ବକ୍ର ଅଂଶ, ରେଖାଖଣ୍ଡ ନୁହେଁ।')">ଚାପ (Arc)</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q2"></div>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="q3">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୩: ଚତୁର୍ଭୁଜ KLMN ପାଇଁ ନିମ୍ନୋକ୍ତ ମଧ୍ୟରୁ କେଉଁ ନାମକରଣଟି ଅବୈଧ (Invalid)?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 0, false, 'ଏହା ବୈଧ କାରଣ ଏହା ଘଣ୍ଟାକଣ୍ଟାର ଦିଗରେ କ୍ରମିକ।')">LMNK</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 1, true, 'ସଠିକ୍! KNLM ରେ N ପରେ L କୁ ଯାଇ କର୍ଣ୍ଣ ଅତିକ୍ରମ କରାଯାଇଛି, ଯାହା ଅବୈଧ।')">KNLM</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 2, false, 'ଏହା ବୈଧ କାରଣ ଏହା ବିପରୀତ କ୍ରମରେ ଶୀର୍ଷଗୁଡ଼ିକୁ ସୂଚାଉଛି।')">NMLK</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 3, false, 'ଏହା ବୈଧ।')">MNKL</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q3"></div>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="q4">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୪: ଦୁଇଟି ବିନ୍ଦୁ A ଓ B ଠାରୁ ସମଦୂରବର୍ତ୍ତୀ ବିନ୍ଦୁମାନଙ୍କ ସେଟ୍ କେଉଁ ରେଖା ଉପରେ ଅବସ୍ଥିତ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 0, false, 'ଭୁଲ୍! ସମାନ୍ତର ରେଖା ନୁହେଁ।')">AB ସହିତ ସମାନ୍ତର ରେଖା</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 1, false, 'ଭୁଲ୍! କୋଣ ସମଦ୍ୱିଖଣ୍ଡକ କୋଣ ପାଇଁ ଥାଏ।')">କୋଣ ସମଦ୍ୱିଖଣ୍ଡକ</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 2, true, 'ସଠିକ୍! A ଓ B ଠାରୁ ସମଦୂରବର୍ତ୍ତୀ ବିନ୍ଦୁମାନେ AB ର ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ ଉପରେ ରହନ୍ତି।')">AB ର ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ (Perpendicular Bisector)</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 3, false, 'ଭୁଲ୍! ଏହା କୌଣସି ବୃତ୍ତର ପରିଧି ନୁହେଁ।')">A କେନ୍ଦ୍ର ବିଶିଷ୍ଟ ବୃତ୍ତ</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q4"></div>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="q5">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୫: ଯଦି ଏକ ରମ୍ବସ୍ର ଗୋଟିଏ କୋଣ ୯୦° ହୋଇଯାଏ, ତେବେ ସେହି ରମ୍ବସ୍ଟି କେଉଁ ଚିତ୍ରରେ ପରିଣତ ହୁଏ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 0, false, 'ଭୁଲ୍! ଆୟତକ୍ଷେତ୍ରର ସବୁ ବାହୁ ସମାନ ହୋଇନଥାଏ।')">ସାଧାରଣ ଆୟତକ୍ଷେତ୍ର</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 1, true, 'ସଠିକ୍! ସମସ୍ତ ବାହୁ ସମାନ ଏବଂ କୋଣ ୯୦° ହେଲେ ତାହା ଏକ ବର୍ଗକ୍ଷେତ୍ର (Square) ହୋଇଯାଏ।')">ବର୍ଗକ୍ଷେତ୍ର (Square)</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 2, false, 'ଭୁଲ୍! ଟ୍ରାପିଜିୟମ୍ ନୁହେଁ।')">ଟ୍ରାପିଜିୟମ୍</button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 3, false, 'ଭୁଲ୍! ସାମାନ୍ତରିକ ଚିତ୍ର ଏକ ବ୍ୟାପକ ଶ୍ରେଣୀ।')">ସାମାନ୍ତରିକ ଚିତ୍ର</button>
+        </div>
+        <div class="quiz-feedback" id="fb-q5"></div>
+      </div>
+
+      <!-- 5.2 Assertion & Reasoning -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 15px;">୫.୨ ନିଶ୍ଚିତୋକ୍ତି ଓ ଯୁକ୍ତିମୂଳକ ପ୍ରଶ୍ନୋତ୍ତର (Assertion &amp; Reasoning)</h3>
+      <p style="margin-bottom: 15px; font-size: 0.95rem; color: #475569;">
+        <strong>ନିର୍ଦ୍ଦେଶାବଳୀ:</strong> (A) ନିଶ୍ଚିତୋକ୍ତି (A) ଓ ଯୁକ୍ତି (R) ଉଭୟ ସତ୍ୟ ଏବଂ R ହେଉଛି A ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା। (B) A ଓ R ଉଭୟ ସତ୍ୟ, କିନ୍ତୁ R ସଠିକ୍ ବ୍ୟାଖ୍ୟା ନୁହେଁ। (C) A ସତ୍ୟ କିନ୍ତୁ R ମିଥ୍ୟା। (D) A ମିଥ୍ୟା କିନ୍ତୁ R ସତ୍ୟ।
+      </p>
+
+      <div class="step-box" style="margin-bottom: 20px;">
+        <p><strong>ପ୍ରଶ୍ନ ୧:</strong><br>
+           <strong>ନିଶ୍ଚିତୋକ୍ତି (A):</strong> ପ୍ରତ୍ୟେକ ବର୍ଗକ୍ଷେତ୍ର ଏକ ଆୟତକ୍ଷେତ୍ର ଅଟେ।<br>
+           <strong>ଯୁକ୍ତି (R):</strong> ଏକ ଚତୁର୍ଭୁଜର ସମସ୍ତ ଚାରୋଟି କୋଣ ୯୦° ହେଲେ ତାହା ଆୟତକ୍ଷେତ୍ର ହୁଏ, ଏବଂ ବର୍ଗକ୍ଷେତ୍ର ଏହି ସର୍ତ୍ତ ପୂରଣ କରେ।</p>
+        <p style="color: var(--success); font-weight: 700;">ଉତ୍ତର: (A) A ଏବଂ R ଉଭୟ ସତ୍ୟ ଏବଂ R ହେଉଛି A ର ସଠିକ୍ ବ୍ୟାଖ୍ୟା।</p>
+      </div>
+
+      <div class="step-box" style="margin-bottom: 20px;">
+        <p><strong>ପ୍ରଶ୍ନ ୨:</strong><br>
+           <strong>ନିଶ୍ଚିତୋକ୍ତି (A):</strong> ଏକ ସାଧାରଣ ଆୟତକ୍ଷେତ୍ରରେ କର୍ଣ୍ଣ ଶୀର୍ଷ କୋଣକୁ ସମଦ୍ୱିଖଣ୍ଡ (୪୫°-୪୫°) କରେ।<br>
+           <strong>ଯୁକ୍ତି (R):</strong> ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣଦ୍ୱୟର ଦୈର୍ଘ୍ୟ ପରସ୍ପର ସମାନ।</p>
+        <p style="color: var(--danger); font-weight: 700;">ଉତ୍ତର: (D) A ମିଥ୍ୟା କିନ୍ତୁ R ସତ୍ୟ। (କେବଳ ବର୍ଗକ୍ଷେତ୍ରରେ କର୍ଣ୍ଣ ଶୀର୍ଷ କୋଣକୁ ସମଦ୍ୱିଖଣ୍ଡ କରେ, ଆୟତକ୍ଷେତ୍ରରେ ନୁହେଁ)।</p>
+      </div>
+
+      <div class="step-box" style="margin-bottom: 20px;">
+        <p><strong>ପ୍ରଶ୍ନ ୩:</strong><br>
+           <strong>ନିଶ୍ଚିତୋକ୍ତି (A):</strong> ରମ୍ବସ୍ର କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପରକୁ ସମକୋଣରେ (୯୦°) ସମଦ୍ୱିଖଣ୍ଡ କରନ୍ତି।<br>
+           <strong>ଯୁକ୍ତି (R):</strong> ରମ୍ବସ୍ର ସମସ୍ତ ଚାରୋଟି ବାହୁର ଦୈର୍ଘ୍ୟ ସମାନ।</p>
+        <p style="color: var(--success); font-weight: 700;">ଉତ୍ତର: (A) A ଏବଂ R ଉଭୟ ସତ୍ୟ ଏବଂ R ହେଉଛି A ର ସଠିକ୍ କାରଣ (ବାହୁଗୁଡ଼ିକ ସମାନ ଥିବାରୁ କର୍ଣ୍ଣଦ୍ୱୟ ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ ହୁଅନ୍ତି)।</p>
+      </div>
+
+      <div class="step-box" style="margin-bottom: 20px;">
+        <p><strong>ପ୍ରଶ୍ନ ୪:</strong><br>
+           <strong>ନିଶ୍ଚିତୋକ୍ତି (A):</strong> କମ୍ପାସ୍ ସାହାଯ୍ୟରେ ୬୦° କୋଣ ଅଙ୍କନ ନକରି ସିଧାସଳଖ ୯୦° କୋଣ ଅଙ୍କନ କରାଯାଇ ପାରିବ।<br>
+           <strong>ଯୁକ୍ତି (R):</strong> ସରଳ କୋଣ (୧୮୦°) କୁ ସମଦ୍ୱିଖଣ୍ଡ କଲେ ସିଧାସଳଖ ୯୦° ଲମ୍ବ ମିଳିଥାଏ।</p>
+        <p style="color: var(--success); font-weight: 700;">ଉତ୍ତର: (A) A ଏବଂ R ଉଭୟ ସତ୍ୟ ଏବଂ R ସଠିକ୍ ବ୍ୟାଖ୍ୟା (ରେଖା ଉପରେ ଦୁଇ ପାର୍ଶ୍ୱରେ ଚାପ କାଟି ୧୮୦° କୁ ସମଦ୍ୱିଖଣ୍ଡ କଲେ ୯୦° ମିଳେ)।</p>
+      </div>
+
+      <!-- 5.3 Short Answer Questions -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 15px;">୫.୩ ସଂକ୍ଷିପ୍ତ ଉତ୍ତରମୂଳକ ପ୍ରଶ୍ନୋତ୍ତର (Short Answer Questions — 2M / 3M)</h3>
+      <div class="step-box" style="margin-bottom: 15px;">
+        <strong>ପ୍ରଶ୍ନ ୧: ଏକ ଆୟତକ୍ଷେତ୍ରର ଦୁଇଟି ମୁଖ୍ୟ ବୈଶିଷ୍ଟ୍ୟ ଲେଖନ୍ତୁ ଯାହା ଏହାକୁ ସାଧାରଣ ଚତୁର୍ଭୁଜଠାରୁ ପୃଥକ କରେ।</strong>
+        <p><strong>ଉତ୍ତର:</strong> ୧. ଏହାର ସମସ୍ତ ଚାରୋଟି କୋଣ ସମକୋଣ (୯୦°) ଅଟନ୍ତି।<br>
+           ୨. ଏହାର କର୍ଣ୍ଣଦ୍ୱୟର ଦୈର୍ଘ୍ୟ ସର୍ବଦା ପରସ୍ପର ସମାନ ଏବଂ ସେମାନେ ପରସ୍ପରକୁ ସମଦ୍ୱିଖଣ୍ଡ କରନ୍ତି।</p>
+      </div>
+      <div class="step-box" style="margin-bottom: 15px;">
+        <strong>ପ୍ରଶ୍ନ ୨: ବୃତ୍ତର ବ୍ୟାସ ଓ ବ୍ୟାସାର୍ଦ୍ଧ ମଧ୍ୟରେ ସମ୍ପର୍କ କ’ଣ? ଯଦି ଏକ ବୃତ୍ତର ବ୍ୟାସାର୍ଦ୍ଧ ୪.୫ ସେମି ହୁଏ, ତେବେ ଏହାର ବୃହତ୍ତମ ଜ୍ୟାର ଦୈର୍ଘ୍ୟ କେତେ?</strong>
+        <p><strong>ଉତ୍ତର:</strong> ବ୍ୟାସ = ୨ × ବ୍ୟାସାର୍ଦ୍ଧ (<span style="font-family: monospace;">d = 2r</span>)।<br>
+           ବୃତ୍ତର ବୃହତ୍ତମ ଜ୍ୟା ହିଁ ଏହାର ବ୍ୟାସ ଅଟେ।<br>
+           ଅତଏବ, ବୃହତ୍ତମ ଜ୍ୟା = ୨ × ୪.୫ ସେମି = <strong>୯.୦ ସେମି</strong>।</p>
+      </div>
+      <div class="step-box" style="margin-bottom: 15px;">
+        <strong>ପ୍ରଶ୍ନ ୩: ଏକ ସ୍କୁଲ୍ ଖେଳପଡ଼ିଆ ଆୟତାକାର। ଜଣେ ଶିକ୍ଷକ ଠିକ୍ ମଝିରେ ଏକ ଧ୍ୱଜା ସ୍ଥାପନ କରିବାକୁ ଚାହାଁନ୍ତି। ସେ କିପରି ସ୍କେଲ୍ ବା ଦଉଡ଼ି ସାହାଯ୍ୟରେ ସେହି କେନ୍ଦ୍ର ବିନ୍ଦୁ ଖୋଜିବେ?</strong>
+        <p><strong>ଉତ୍ତର:</strong> ଶିକ୍ଷକ ପଡ଼ିଆର ଦୁଇଟି ବିପରୀତ କୋଣ ମଧ୍ୟରେ ଦଉଡ଼ି ଟାଣି କର୍ଣ୍ଣ ୧ ଚିହ୍ନଟ କରିବେ, ଏବଂ ଅନ୍ୟ ଦୁଇ କୋଣ ମଧ୍ୟରେ ଦଉଡ଼ି ଟାଣି କର୍ଣ୍ଣ ୨ ଚିହ୍ନଟ କରିବେ। ଯେଉଁ ବିନ୍ଦୁରେ ଦୁଇଟି ଦଉଡ଼ି ପରସ୍ପରକୁ ଛେଦ କରିବେ, ସେହି ଛେଦବିନ୍ଦୁ ହିଁ ପଡ଼ିଆର ଠିକ୍ କେନ୍ଦ୍ର ବିନ୍ଦୁ ହେବ।</p>
+      </div>
+
+      <!-- 5.4 Competency Case Studies -->
+      <h3 style="color: var(--primary-dark); margin: 30px 0 15px;">୫.୪ ବ୍ୟବହାରିକ କେସ୍ ଷ୍ଟଡି (Real-World Case Studies)</h3>
+      <div class="callout-act">
+        <div class="callout-title">📋 କେସ୍ ଷ୍ଟଡି: ମନ୍ଦିର ଚଟାଣର ଟାଇଲ୍ସ ଡିଜାଇନ୍</div>
+        ଓଡ଼ିଶାର ଏକ ପ୍ରସିଦ୍ଧ ମନ୍ଦିରର ନାଟମଣ୍ଡପ ଚଟାଣରେ କାରିଗରମାନେ ୬ ସେମି ବାହୁ ବିଶିଷ୍ଟ ବର୍ଗାକାର ପଥର ଟାଇଲ୍ସ ବ୍ୟବହାର କରୁଛନ୍ତି। ପ୍ରତ୍ୟେକ ଟାଇଲ୍ସ ମଝିରେ ଏକ ସୁନ୍ଦର ରମ୍ବସ୍ ଚିତ୍ର ଖୋଦେଇ କରାଯାଇଛି, ଯାହାର ଶୀର୍ଷଗୁଡ଼ିକ ବର୍ଗକ୍ଷେତ୍ରର ବାହୁମାନଙ୍କର ଠିକ୍ ମଧ୍ୟବିନ୍ଦୁ ଅଟନ୍ତି।
+        <ol style="margin: 10px 0 0 20px;">
+          <li><strong>ପ୍ରଶ୍ନ (କ):</strong> ଉକ୍ତ ରମ୍ବସ୍ର କର୍ଣ୍ଣଦ୍ୱୟର ଦୈର୍ଘ୍ୟ କେତେ ହେବ?</li>
+          <li><strong>ପ୍ରଶ୍ନ (ଖ):</strong> ରମ୍ବସ୍ର କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପରକୁ କେଉଁ କୋଣରେ ଛେଦ କରିବେ?</li>
+          <li><strong>ପ୍ରଶ୍ନ (ଗ):</strong> ବର୍ଗକ୍ଷେତ୍ରର କ୍ଷେତ୍ରଫଳ ସହିତ ଖୋଦେଇ ହୋଇଥିବା ରମ୍ବସ୍ର କ୍ଷେତ୍ରଫଳର ଅନୁପାତ କେତେ?</li>
+        </ol>
+        <div style="margin-top: 10px; background: white; padding: 12px; border-radius: 8px;">
+          <strong>ସମାଧାନ:</strong><br>
+          (କ) ରମ୍ବସ୍ର କର୍ଣ୍ଣଦ୍ୱୟ ବର୍ଗକ୍ଷେତ୍ରର ବାହୁ ସହିତ ସମାନ୍ତର ଓ ସମାନ ହେବେ, ତେଣୁ କର୍ଣ୍ଣଦ୍ୱୟର ଦୈର୍ଘ୍ୟ = <strong>୬ ସେମି ଏବଂ ୬ ସେମି</strong>।<br>
+          (ଖ) ରମ୍ବସ୍ର କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପରକୁ <strong>୯୦° (ସମକୋଣ)</strong> ରେ ସମଦ୍ୱିଖଣ୍ଡ କରିବେ।<br>
+          (ଗ) ବର୍ଗକ୍ଷେତ୍ର କ୍ଷେତ୍ରଫଳ = ୬ × ୬ = ୩୬ ବର୍ଗ ସେମି। ରମ୍ବସ୍ କ୍ଷେତ୍ରଫଳ = <span class="frac"><sup>୧</sup><sub>୨</sub></span> × d₁ × d₂ = <span class="frac"><sup>୧</sup><sub>୨</sub></span> × ୬ × ୬ = ୧୮ ବର୍ଗ ସେମି। ଅନୁପାତ = ୩୬ : ୧୮ = <strong>୨ : ୧</strong> (ରମ୍ବସ୍ଟି ବର୍ଗକ୍ଷେତ୍ରର ଠିକ୍ ଅଧା କ୍ଷେତ୍ରଫଳ ଅଧିକାର କରେ)।
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec-6" class="section-card">
+      <div class="sec-header">
+        <span class="sec-badge">ଭାଗ ୬</span>
+        <h2>ପରୀକ୍ଷା ହଲ୍ ଟ୍ରାପ୍ ଆଲର୍ଟ ଓ ୧୫ ଦ୍ରୁତ ୱାନ୍-ଲାଇନର୍ (Exam Traps &amp; One-Liners)</h2>
+      </div>
+
+      <div class="callout-warn">
+        <div class="callout-title">⚠️ ପରୀକ୍ଷା ହଲ୍ରେ ହେଉଥିବା ୩ଟି ସାଂଘାତିକ ଭୁଲ୍ (Top 3 Exam Hall Traps)</div>
+        <ol style="margin-left: 20px;">
+          <li><strong>ଟ୍ରାପ୍ ୧ (କ୍ରମିକ ନାମକରଣ ଭୁଲ୍):</strong> ଚତୁର୍ଭୁଜର ନାମ ଲେଖିବା ବେଳେ ଶୀର୍ଷ ଡେଇଁ ଲେଖିବା (ଯଥା PQRS ବଦଳରେ PQSR ଲେଖିବା)। ପରୀକ୍ଷକ ଏଥିରେ ସିଧା ଶୂନ ମାର୍କ ଦିଅନ୍ତି। ସର୍ବଦା ଚକ୍ରାକାର କ୍ରମ ମନେ ରଖନ୍ତୁ।</li>
+          <li><strong>ଟ୍ରାପ୍ ୨ (ଆୟତକ୍ଷେତ୍ର କର୍ଣ୍ଣ ସମଦ୍ୱିଖଣ୍ଡନ ଭ୍ରାନ୍ତି):</strong> ଅନେକ ଛାତ୍ର ଭାବନ୍ତି ଯେ ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣ ଏହାର ୯୦° କୋଣକୁ ୪୫°-୪୫° ରେ ଭାଗ କରେ। ଏହା ସମ୍ପୂର୍ଣ୍ଣ ଭୁଲ୍! କେବଳ ବର୍ଗକ୍ଷେତ୍ରରେ ହିଁ କର୍ଣ୍ଣ କୋଣକୁ ୪୫° ରେ ସମଦ୍ୱିଖଣ୍ଡ କରେ।</li>
+          <li><strong>ଟ୍ରାପ୍ ୩ (ଅଙ୍କନ ଚାପ ଲିଭାଇବା ଭୁଲ୍):</strong> ପରୀକ୍ଷାରେ ଚିତ୍ର ସଫା ଦେଖାଯିବା ପାଇଁ ଛାତ୍ରମାନେ କମ୍ପାସ୍ ଚାପ (Construction Arcs) କୁ ଲିଭାଇ ଦିଅନ୍ତି। ଏହା କଦାପି କରନ୍ତୁ ନାହିଁ! ଚାପ ହିଁ ପ୍ରମାଣ କରେ ଯେ ଆପଣ ସ୍କେଲ୍ରେ ନମାପି ଜ୍ୟାମିତିକ ପଦ୍ଧତିରେ ଅଙ୍କନ କରିଛନ୍ତି।</li>
+        </ol>
+      </div>
+
+      <h3 style="color: var(--primary-dark); margin: 25px 0 15px;">🚀 ୧୫ ଦ୍ରୁତ ପରୀକ୍ଷା ୱାନ୍-ଲାଇନର୍ (15 Rapid Revision One-Liners)</h3>
+      <ol class="one-liner-list">
+        <li>ବୃତ୍ତର ସମସ୍ତ ବିନ୍ଦୁ ଏହାର କେନ୍ଦ୍ରଠାରୁ ସର୍ବଦା ସମଦୂରବର୍ତ୍ତୀ (Equidistant) ହୋଇଥାଆନ୍ତି।</li>
+        <li>ବ୍ୟାସ ହିଁ ବୃତ୍ତର ଦୀର୍ଘତମ ଜ୍ୟା ଅଟେ ଏବଂ ଏହାର ଦୈର୍ଘ୍ୟ ବ୍ୟାସାର୍ଦ୍ଧର ଦୁଇଗୁଣ (<span style="font-family: monospace;">d = 2r</span>)।</li>
+        <li>ଏକ ଅର୍ଦ୍ଧବୃତ୍ତର କେନ୍ଦ୍ର ତାର ବ୍ୟାସର ଠିକ୍ ମଧ୍ୟବିନ୍ଦୁରେ ଅବସ୍ଥିତ ଥାଏ।</li>
+        <li>ଆୟତକ୍ଷେତ୍ରର ପ୍ରତ୍ୟେକ କୋଣ ଠିକ୍ ୯୦° ଏବଂ ବିପରୀତ ବାହୁଦ୍ୱୟ ସମାନ ଓ ସମାନ୍ତର।</li>
+        <li>ବର୍ଗକ୍ଷେତ୍ର ହେଉଛି ଏକ ସ୍ୱତନ୍ତ୍ର ଆୟତକ୍ଷେତ୍ର ଯାହାର ସମସ୍ତ ଚାରୋଟି ବାହୁ ପରସ୍ପର ସମାନ।</li>
+        <li>ଚତୁର୍ଭୁଜର ନାମକରଣ ସର୍ବଦା ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ପରିଧି କ୍ରମରେ (Cyclic order) ହେବା ଉଚିତ।</li>
+        <li>ଦୁଇଟି ସମାନ୍ତର ରେଖା ମଧ୍ୟରେ ଲମ୍ବ ଦୂରତା ସବୁ ସ୍ଥାନରେ ଏକାଭଳି ସ୍ଥିର ଥାଏ।</li>
+        <li>ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପର ସମାନ ଏବଂ ସେମାନେ ପରସ୍ପରକୁ ସମଦ୍ୱିଖଣ୍ଡ କରନ୍ତି।</li>
+        <li>ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣଦ୍ୱୟର ଛେଦବିନ୍ଦୁ ହିଁ ଏହାର ପ୍ରକୃତ ସମମିତିକ କେନ୍ଦ୍ର ବିନ୍ଦୁ (Exact Center)।</li>
+        <li>ସାଧାରଣ ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣ ଏହାର ଶୀର୍ଷ କୋଣକୁ ସମଦ୍ୱିଖଣ୍ଡ କରେ ନାହିଁ।</li>
+        <li>ଯଦି ଏକ ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣ ଏହାର କୋଣକୁ ୪୫° ରେ ସମଦ୍ୱିଖଣ୍ଡ କରେ, ତେବେ ତାହା ନିଶ୍ଚିତ ଏକ ବର୍ଗକ୍ଷେତ୍ର।</li>
+        <li>ଦୁଇଟି ସ୍ଥିର ବିନ୍ଦୁଠାରୁ ସମଦୂରବର୍ତ୍ତୀ ବିନ୍ଦୁମାନେ ସେହି ଦୁଇ ବିନ୍ଦୁ ସଂଯୋଜକ ରେଖାର ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ ଉପରେ ରହନ୍ତି।</li>
+        <li>ରମ୍ବସ୍ର ସମସ୍ତ ଚାରୋଟି ବାହୁ ସମାନ ଏବଂ ଏହାର କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପରକୁ ୯୦° ରେ ସମଦ୍ୱିଖଣ୍ଡ କରନ୍ତି।</li>
+        <li>କମ୍ପାସ୍ ସାହାଯ୍ୟରେ ୯୦° କୋଣ ଅଙ୍କନ କରିବା ପାଇଁ ୬୦° ଓ ୧୨୦° ଚାପର ସମଦ୍ୱିଖଣ୍ଡନ କରାଯାଏ।</li>
+        <li>ଜ୍ୟାମିତିକ ଅଙ୍କନରେ କମ୍ପାସ୍ ଦ୍ୱାରା ଅଙ୍କିତ ଚାପଗୁଡ଼ିକୁ କେବେହେଲେ ରବର୍ରେ ଲିଭାଇବା ଉଚିତ ନୁହେଁ।</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <button id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="ଉପରକୁ ଯାଆନ୍ତୁ">↑</button>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      // Back to top button
+      const btn = document.getElementById('backToTopBtn');
+      if (winScroll > 300) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+
+    // Expand/Collapse All
+    function toggleAllAnswers(open) {
+      document.querySelectorAll('details.ans-box').forEach(d => d.open = open);
+    }
+
+    // Interactive Quiz Engine
+    function checkQuiz(cardId, optIdx, isCorrect, feedbackText) {
+      const card = document.getElementById(cardId);
+      const btns = card.querySelectorAll('.quiz-opt-btn');
+      const fb = document.getElementById('fb-' + cardId);
+
+      btns.forEach((b, idx) => {
+        b.disabled = true;
+        if (idx === optIdx) {
+          if (isCorrect) {
+            b.classList.add('correct');
+          } else {
+            b.classList.add('wrong');
+          }
+        }
+      });
+
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.style.background = '#dcfce7';
+        fb.style.color = '#15803d';
+        fb.innerHTML = '<strong>ଠିକ୍ ଉତ୍ତର!</strong> ' + feedbackText;
+      } else {
+        fb.style.background = '#fee2e2';
+        fb.style.color = '#b91c1c';
+        fb.innerHTML = '<strong>ଭୁଲ୍ ଉତ୍ତର!</strong> ' + feedbackText;
+      }
+    }
+
+    // Audio Speech Synthesis
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      if ('speechSynthesis' in window) {
+        if (isSpeaking) {
+          window.speechSynthesis.cancel();
+          isSpeaking = false;
+          document.getElementById('audio-text').textContent = 'ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ';
+          document.getElementById('audio-icon').textContent = '🔊';
+        } else {
+          const text = "ନମସ୍କାର ପିଲାମାନେ! ଆଜି ଆମେ ଶ୍ରେଣୀ ୬ ଗଣିତର ଅଷ୍ଟମ ଅଧ୍ୟାୟ 'ଜ୍ୟାମିତିକ ଅଙ୍କନ ସହିତ ଖେଳ' ବିଷୟରେ ଶିଖିବା। ଏହି ଅଧ୍ୟାୟରେ କମ୍ପାସ୍ ଓ ସ୍କେଲ୍ ସାହାଯ୍ୟରେ ବୃତ୍ତ, ଆୟତକ୍ଷେତ୍ର, ବର୍ଗକ୍ଷେତ୍ର ଓ ରମ୍ବସ୍ କିପରି ସଠିକ୍ ଭାବରେ ଅଙ୍କନ କରାଯାଏ ତାହା ବର୍ଣ୍ଣନା କରାଯାଇଛି। ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣଦ୍ୱୟ ସମାନ ଏବଂ ପରସ୍ପରକୁ ସମଦ୍ୱିଖଣ୍ଡ କରନ୍ତି। ରମ୍ବସ୍ର ସମସ୍ତ ବାହୁ ସମାନ ଏବଂ କର୍ଣ୍ଣଦ୍ୱୟ ପରସ୍ପରକୁ ସମକୋଣରେ ସମଦ୍ୱିଖଣ୍ଡ କରନ୍ତି। ଧ୍ୟାନରଖନ୍ତୁ, ଚତୁର୍ଭୁଜର ନାମ ସର୍ବଦା କ୍ରମାନ୍ୱୟରେ ଲେଖିବା ଆବଶ୍ୟକ। ମନଧ୍ୟାନ ଦେଇ ସମସ୍ତ ଅଙ୍କନ ଅଭ୍ୟାସ କରନ୍ତୁ!";
+          const utter = new SpeechSynthesisUtterance(text);
+          utter.lang = 'or-IN';
+          utter.rate = 0.95;
+          utter.onend = () => {
+            isSpeaking = false;
+            document.getElementById('audio-text').textContent = 'ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ';
+            document.getElementById('audio-icon').textContent = '🔊';
+          };
+          window.speechSynthesis.speak(utter);
+          isSpeaking = true;
+          document.getElementById('audio-text').textContent = 'ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ';
+          document.getElementById('audio-icon').textContent = '⏹️';
+        }
+      } else {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Speech Synthesis ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+      }
+    }
+  </script>
+</body>
+</html>
