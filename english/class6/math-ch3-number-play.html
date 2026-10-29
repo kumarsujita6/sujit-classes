@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 6 Mathematics Chapter 3: Number Play &mdash; Complete Master Study Notes (Ganita Prakash)</title>
+  <meta name="description" content="100% comprehensive, zero-omission study guide for Class 6 Maths Chapter 3: Number Play (NEP Ganita Prakash). Includes 5-step solved NCERT exercises, SVG diagrams, Kaprekar constant, Collatz conjecture, supercells, and practice bank.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+      --primary-gradient: linear-gradient(90deg, #0284c7 0%, #38bdf8 50%, #10b981 100%);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.68;
+      font-size: 15.5px;
+      padding-bottom: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: var(--primary-gradient);
+      z-index: 999999;
+      transition: width 0.1s ease-out;
+      box-shadow: 0 1px 4px rgba(2, 132, 199, 0.3);
+    }
+
+    header.header {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0369a1 100%);
+      color: #ffffff;
+      padding: 50px 20px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header-content {
+      max-width: 960px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .badge {
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 5px 12px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .badge-primary { background: rgba(56, 189, 248, 0.2); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.4); }
+    .badge-nep { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid rgba(16, 185, 129, 0.4); }
+    .badge-math { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid rgba(245, 158, 11, 0.4); }
+
+    .header h1 {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+
+    .header-subtitle {
+      font-size: 16px;
+      color: #94a3b8;
+      max-width: 760px;
+      margin-bottom: 22px;
+    }
+
+    .nav-jumps {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .jump-chip {
+      background: rgba(255, 255, 255, 0.1);
+      color: #e2e8f0;
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .jump-chip:hover {
+      background: var(--primary);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 32px auto;
+      padding: 0 20px;
+    }
+
+    .section-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 34px;
+      margin-bottom: 32px;
+    }
+
+    .section-header {
+      border-bottom: 2px solid #f1f5f9;
+      padding-bottom: 16px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+    }
+
+    h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1e293b;
+      margin: 22px 0 10px;
+    }
+
+    h4 {
+      font-size: 16px;
+      font-weight: 600;
+      color: #334155;
+      margin: 16px 0 8px;
+    }
+
+    p { margin-bottom: 14px; }
+
+    /* Callout styles */
+    .callout {
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 20px 0;
+      border-left: 5px solid;
+    }
+
+    .callout-def {
+      background-color: var(--primary-light);
+      border-left-color: var(--primary);
+      color: #034f78;
+    }
+
+    .callout-act {
+      background-color: var(--secondary-light);
+      border-left-color: var(--secondary);
+      color: #065f46;
+    }
+
+    .callout-pyq {
+      background-color: var(--accent-light);
+      border-left-color: var(--accent);
+      color: #92400e;
+    }
+
+    .callout-warn {
+      background-color: var(--danger-light);
+      border-left-color: var(--danger);
+      color: #9f1239;
+    }
+
+    .callout-hack {
+      background-color: var(--purple-light);
+      border-left-color: var(--purple);
+      color: #5b21b6;
+    }
+
+    .callout strong {
+      display: block;
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 15px;
+    }
+
+    /* Math Table */
+    .math-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 20px 0;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .math-table th {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 12px 16px;
+      text-align: left;
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .math-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 14.5px;
+      background: #ffffff;
+    }
+
+    .math-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .math-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    /* Collapsible Details */
+    details.ans-box {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin: 18px 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: #38bdf8;
+      box-shadow: 0 4px 14px -2px rgba(2, 132, 199, 0.12);
+    }
+
+    details.ans-box summary {
+      padding: 15px 18px;
+      background: #f8fafc;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      font-size: 15px;
+      color: #1e293b;
+      list-style: none;
+    }
+
+    details.ans-box summary::-webkit-details-marker {
+      display: none;
+    }
+
+    details.ans-box summary::after {
+      content: "➕";
+      font-size: 14px;
+      transition: transform 0.2s ease;
+    }
+
+    details.ans-box[open] summary::after {
+      content: "➖";
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #bae6fd;
+    }
+
+    .ans-content {
+      padding: 20px;
+      background: #ffffff;
+    }
+
+    .step-box {
+      margin-bottom: 12px;
+      padding-left: 14px;
+      border-left: 3px solid #cbd5e1;
+    }
+
+    .step-title {
+      font-weight: 700;
+      color: #0369a1;
+      font-size: 13.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 4px;
+    }
+
+    .final-ans {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      color: #065f46;
+      font-weight: 700;
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-top: 12px;
+      display: inline-block;
+    }
+
+    .svg-container {
+      margin: 24px 0;
+      text-align: center;
+      background: #f8fafc;
+      padding: 20px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .svg-caption {
+      margin-top: 10px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .grid-supercell {
+      display: inline-grid;
+      grid-template-columns: repeat(3, 50px);
+      gap: 6px;
+      margin: 10px 0;
+      background: #e2e8f0;
+      padding: 6px;
+      border-radius: 8px;
+    }
+
+    .cell {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      border-radius: 6px;
+      background: white;
+      font-size: 16px;
+    }
+
+    .cell.super {
+      background: #fef08a;
+      color: #854d0e;
+      border: 2px solid #eab308;
+    }
+
+    .number-line {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 20px;
+      background: #f1f5f9;
+      border-radius: 8px;
+      margin: 10px 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+    }
+
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 16px;
+    }
+
+    li { margin-bottom: 6px; }
+
+    .tts-container {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .tts-btn {
+      background: linear-gradient(135deg, #0284c7, #0d9488);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .tts-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top-fixed reading scroll progress bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="badge-bar">
+        <span class="badge badge-nep">NEP 2020 Aligned</span>
+        <span class="badge badge-primary">Class 6 Mathematics</span>
+        <span class="badge badge-math">Ganita Prakash Chapter 3</span>
+      </div>
+      <h1>Chapter 3: Number Play</h1>
+      <p class="header-subtitle">
+        Explore the playful magic of numbers &mdash; from Supercells in 2D grids, Palindromic symmetries, D.R. Kaprekar's mysterious constant 6174, Lothar Collatz's 3n + 1 cosmic loop, consecutive sums, to unbreakable winning strategies in matchstick games.
+      </p>
+      <div class="nav-jumps">
+        <a class="jump-chip" href="#sec-1">1. Visual Mind Map</a>
+        <a class="jump-chip" href="#sec-2">2. Conceptual Notes</a>
+        <a class="jump-chip" href="#sec-3">3. Rapid Revision Formulas</a>
+        <a class="jump-chip" href="#sec-4">4. Complete NCERT Solutions</a>
+        <a class="jump-chip" href="#sec-5">5. Competency Question Bank</a>
+        <a class="jump-chip" href="#sec-6">6. Exam Hall Traps & Tips</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+
+    <!-- SECTION 1: VISUAL MIND MAP & CHAPTER BLUEPRINT -->
+    <section id="sec-1" class="section-card">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <h2 class="section-title">Visual Mind Map & Chapter Blueprint</h2>
+      </div>
+
+      <p>
+        Welcome to <strong>Number Play</strong>! In this chapter, mathematics transforms into an exhilarating playground of patterns, symmetries, algorithms, and tactical games. Numbers are not merely counting tools; they hold hidden identities, cosmic cycles, and deep mathematical structures.
+      </p>
+
+      <div class="callout callout-def">
+        <strong>🗺️ Chapter Conceptual Architecture</strong>
+        Number Play is structured into four core mathematical dimensions:
+        <ol style="margin-top: 8px; margin-bottom: 0;">
+          <li><strong>Grid Patterns & Supercells:</strong> Spatial relationships, local maxima in numeric grids, and boundary constraints.</li>
+          <li><strong>Digit Symmetries & Constants:</strong> Palindromes, Reverse-and-Add algorithms, and D.R. Kaprekar's magic numbers (6174 and 495).</li>
+          <li><strong>Arithmetic Patterns & The Unknown:</strong> Consecutive number sums, calendar magic squares, and Lothar Collatz's unproven 3n + 1 hailstone conjecture.</li>
+          <li><strong>Tactical Games & Estimation:</strong> Modular arithmetic invariants in matchstick games (Nim) and real-life Fermi estimation.</li>
+        </ol>
+      </div>
+
+      <!-- SVG 1: Concept Mind Map -->
+      <div class="svg-container">
+        <svg viewBox="0 0 900 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <!-- Central Hub -->
+          <rect x="350" y="200" width="200" height="70" rx="35" fill="#0284c7" filter="drop-shadow(0 4px 6px rgba(2,132,199,0.3))"/>
+          <text x="450" y="235" text-anchor="middle" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="16">NUMBER PLAY</text>
+          <text x="450" y="255" text-anchor="middle" fill="#e0f2fe" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="12">Ganita Prakash Ch 3</text>
+
+          <!-- Branch 1: Supercells (Top-Left) -->
+          <path d="M 380 200 C 300 130, 240 100, 180 90" stroke="#0ea5e9" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="70" y="60" width="180" height="65" rx="12" fill="#f0f9ff" stroke="#0ea5e9" stroke-width="2"/>
+          <text x="160" y="88" text-anchor="middle" fill="#0369a1" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13">1. Supercells in Grids</text>
+          <text x="160" y="108" text-anchor="middle" fill="#0284c7" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">Cells > all 4 neighbours</text>
+
+          <!-- Branch 2: Palindromes (Top-Right) -->
+          <path d="M 520 200 C 600 130, 660 100, 720 90" stroke="#8b5cf6" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="650" y="60" width="180" height="65" rx="12" fill="#faf5ff" stroke="#8b5cf6" stroke-width="2"/>
+          <text x="740" y="88" text-anchor="middle" fill="#6d28d9" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13">2. Palindromic Patterns</text>
+          <text x="740" y="108" text-anchor="middle" fill="#7c3aed" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">Reverse & Add algorithm</text>
+
+          <!-- Branch 3: Kaprekar's 6174 (Bottom-Left) -->
+          <path d="M 380 270 C 300 340, 240 370, 180 380" stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="70" y="350" width="180" height="65" rx="12" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+          <text x="160" y="378" text-anchor="middle" fill="#047857" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13">3. Kaprekar's Constant</text>
+          <text x="160" y="398" text-anchor="middle" fill="#059669" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">6174 (4-digit) & 495 (3-digit)</text>
+
+          <!-- Branch 4: Collatz Conjecture (Bottom-Right) -->
+          <path d="M 520 270 C 600 340, 660 370, 720 380" stroke="#f59e0b" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="650" y="350" width="180" height="65" rx="12" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+          <text x="740" y="378" text-anchor="middle" fill="#b45309" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="13">4. Collatz 3n + 1</text>
+          <text x="740" y="398" text-anchor="middle" fill="#d97706" font-family="'Plus Jakarta Sans', sans-serif" font-size="11">Hailstone loop: 4 → 2 → 1</text>
+
+          <!-- Branch 5: Calendar & Consecutive Sums (Top-Center) -->
+          <path d="M 450 200 L 450 70" stroke="#ec4899" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="360" y="20" width="180" height="50" rx="10" fill="#fdf2f8" stroke="#ec4899" stroke-width="2"/>
+          <text x="450" y="45" text-anchor="middle" fill="#be185d" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12">Consecutive Sums & Calendar</text>
+          <text x="450" y="60" text-anchor="middle" fill="#db2777" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">Sum of 3 = 3 × middle</text>
+
+          <!-- Branch 6: Winning Game Strategies (Bottom-Center) -->
+          <path d="M 450 270 L 450 410" stroke="#6366f1" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <rect x="360" y="410" width="180" height="50" rx="10" fill="#eef2ff" stroke="#6366f1" stroke-width="2"/>
+          <text x="450" y="433" text-anchor="middle" fill="#4338ca" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12">Game Theory & Winning</text>
+          <text x="450" y="449" text-anchor="middle" fill="#4f46e5" font-family="'Plus Jakarta Sans', sans-serif" font-size="10">21-Counter Modulo 4 Rule</text>
+        </svg>
+        <div class="svg-caption">Figure 3.1: Visual Mind Map of Grade 6 Number Play Architecture.</div>
+      </div>
+
+      <!-- SVG 2: Kaprekar's Routine & Collatz Hailstone Visualizer -->
+      <div class="svg-container">
+        <svg viewBox="0 0 900 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <!-- Left Panel: Kaprekar Routine -->
+          <rect x="20" y="20" width="410" height="280" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+          <text x="225" y="48" text-anchor="middle" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="14">D.R. KAPREKAR'S ROUTINE (6174)</text>
+
+          <!-- Flow steps -->
+          <rect x="40" y="70" width="170" height="36" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+          <text x="125" y="93" text-anchor="middle" fill="#0369a1" font-weight="700" font-size="12">Start: 5238</text>
+
+          <path d="M 210 88 L 245 88" stroke="#0284c7" stroke-width="2" marker-end="url(#arrow)"/>
+          <text x="230" y="82" text-anchor="middle" fill="#64748b" font-size="10">Sort digits</text>
+
+          <rect x="250" y="70" width="160" height="36" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+          <text x="330" y="93" text-anchor="middle" fill="#334155" font-size="11">8532 − 2358 = 6174</text>
+
+          <!-- Step 2 -->
+          <rect x="40" y="125" width="170" height="36" rx="6" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+          <text x="125" y="148" text-anchor="middle" fill="#0369a1" font-weight="700" font-size="12">Start: 3524</text>
+
+          <path d="M 210 143 L 245 143" stroke="#0284c7" stroke-width="2"/>
+          <rect x="250" y="125" width="160" height="36" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+          <text x="330" y="148" text-anchor="middle" fill="#334155" font-size="11">5432 − 2345 = 3087</text>
+
+          <!-- Step 2 cont -->
+          <path d="M 330 161 L 330 180" stroke="#0284c7" stroke-width="2"/>
+          <rect x="245" y="180" width="170" height="36" rx="6" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+          <text x="330" y="203" text-anchor="middle" fill="#334155" font-size="11">8730 − 0378 = 8352</text>
+
+          <path d="M 330 216 L 330 235" stroke="#0284c7" stroke-width="2"/>
+          <rect x="235" y="235" width="190" height="42" rx="8" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+          <text x="330" y="256" text-anchor="middle" fill="#065f46" font-weight="800" font-size="12">8532 − 2358 = 6174 ✨</text>
+          <text x="330" y="270" text-anchor="middle" fill="#047857" font-size="10">(Fixed Point Reached!)</text>
+
+          <!-- Right Panel: Collatz Conjecture -->
+          <rect x="470" y="20" width="410" height="280" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+          <text x="675" y="48" text-anchor="middle" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="14">THE COLLATZ CONJECTURE (3n + 1)</text>
+
+          <rect x="500" y="70" width="160" height="32" rx="6" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+          <text x="580" y="91" text-anchor="middle" fill="#b45309" font-weight="700" font-size="12">If n is Even: n ÷ 2</text>
+
+          <rect x="700" y="70" width="160" height="32" rx="6" fill="#fed7aa" stroke="#ea580c" stroke-width="1.5"/>
+          <text x="780" y="91" text-anchor="middle" fill="#c2410c" font-weight="700" font-size="12">If n is Odd: 3n + 1</text>
+
+          <rect x="500" y="125" width="350" height="75" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+          <text x="515" y="148" fill="#334155" font-family="'JetBrains Mono', monospace" font-size="11.5">Example n = 6:</text>
+          <text x="515" y="170" fill="#0284c7" font-family="'JetBrains Mono', monospace" font-weight="700" font-size="12">6 → 3 → 10 → 5 → 16 → 8 → 4 → 2 → 1</text>
+          <text x="515" y="188" fill="#64748b" font-size="10.5">(8 steps to collapse to 1)</text>
+
+          <!-- The Infinite Loop -->
+          <rect x="520" y="220" width="310" height="60" rx="10" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+          <text x="675" y="244" text-anchor="middle" fill="#5b21b6" font-weight="800" font-size="13">The Cosmic Loop: 4 → 2 → 1 → 4</text>
+          <text x="675" y="264" text-anchor="middle" fill="#6d28d9" font-size="11">1 is odd: 3(1)+1 = 4 &nbsp;|&nbsp; 4 is even: 4÷2 = 2 &nbsp;|&nbsp; 2÷2 = 1</text>
+        </svg>
+        <div class="svg-caption">Figure 3.2: Algorithmic dynamics of Kaprekar's 6174 routine and the Lothar Collatz 3n + 1 sequence.</div>
+      </div>
+
+      <!-- SVG 3: Supercell Grid Model -->
+      <div class="svg-container">
+        <svg viewBox="0 0 900 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <!-- 3x3 Grid 1 -->
+          <g transform="translate(150, 25)">
+            <text x="90" y="0" text-anchor="middle" fill="#0f172a" font-weight="800" font-size="13">3×3 Grid: Finding Supercells</text>
+            <!-- Cells -->
+            <!-- Row 1 -->
+            <rect x="0" y="15" width="55" height="55" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" rx="6"/>
+            <text x="27.5" y="48" text-anchor="middle" font-weight="700" font-size="16" fill="#334155">12</text>
+
+            <rect x="62" y="15" width="55" height="55" fill="#fef08a" stroke="#eab308" stroke-width="2.5" rx="6"/>
+            <text x="89.5" y="48" text-anchor="middle" font-weight="800" font-size="16" fill="#854d0e">45 ⭐</text>
+
+            <rect x="124" y="15" width="55" height="55" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" rx="6"/>
+            <text x="151.5" y="48" text-anchor="middle" font-weight="700" font-size="16" fill="#334155">19</text>
+
+            <!-- Row 2 -->
+            <rect x="0" y="77" width="55" height="55" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" rx="6"/>
+            <text x="27.5" y="110" text-anchor="middle" font-weight="700" font-size="16" fill="#334155">28</text>
+
+            <rect x="62" y="77" width="55" height="55" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" rx="6"/>
+            <text x="89.5" y="110" text-anchor="middle" font-weight="700" font-size="16" fill="#334155">31</text>
+
+            <rect x="124" y="77" width="55" height="55" fill="#fef08a" stroke="#eab308" stroke-width="2.5" rx="6"/>
+            <text x="151.5" y="110" text-anchor="middle" font-weight="800" font-size="16" fill="#854d0e">64 ⭐</text>
+
+            <!-- Row 3 -->
+            <rect x="0" y="139" width="55" height="55" fill="#fef08a" stroke="#eab308" stroke-width="2.5" rx="6"/>
+            <text x="27.5" y="172" text-anchor="middle" font-weight="800" font-size="16" fill="#854d0e">53 ⭐</text>
+
+            <rect x="62" y="139" width="55" height="55" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" rx="6"/>
+            <text x="89.5" y="172" text-anchor="middle" font-weight="700" font-size="16" fill="#334155">22</text>
+
+            <rect x="124" y="139" width="55" height="55" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.5" rx="6"/>
+            <text x="151.5" y="172" text-anchor="middle" font-weight="700" font-size="16" fill="#334155">15</text>
+          </g>
+
+          <!-- Explanatory Legend -->
+          <g transform="translate(430, 45)">
+            <rect x="0" y="0" width="360" height="150" rx="10" fill="#f1f5f9" stroke="#cbd5e1"/>
+            <text x="20" y="30" font-weight="800" font-size="13" fill="#0f172a">Rule of a Supercell:</text>
+            <text x="20" y="55" font-size="12" fill="#334155">• Must be strictly GREATER than its 4 cardinal neighbours</text>
+            <text x="20" y="75" font-size="12" fill="#334155">&nbsp;&nbsp;(Up, Down, Left, Right). Diagonals are NOT neighbours.</text>
+            <text x="20" y="100" font-size="12" fill="#0369a1">• Cell 45 has neighbours: Left=12, Right=19, Down=31. (45 > all 3!)</text>
+            <text x="20" y="120" font-size="12" fill="#0369a1">• Cell 64 has neighbours: Up=19, Left=31, Down=15. (64 > all 3!)</text>
+            <text x="20" y="140" font-size="12" fill="#0369a1">• Cell 53 has neighbours: Up=28, Right=22. (53 > both!)</text>
+          </g>
+        </svg>
+        <div class="svg-caption">Figure 3.3: Visualizing local maxima (Supercells marked with ⭐) in a 2D integer grid.</div>
+      </div>
+    </section>
+
+
+    <!-- SECTION 2: LINE-BY-LINE CONCEPTUAL NOTES -->
+    <section id="sec-2" class="section-card">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <h2 class="section-title">Line-by-Line Conceptual Notes</h2>
+      </div>
+
+      <!-- 3.1 Numbers can Tell us Things -->
+      <h3>3.1 Numbers can Tell us Things</h3>
+      <p>
+        Numbers in daily life do not only quantify "how many" items exist; they function as <strong>compact data carriers, identifiers, coordinates, and ranking systems</strong>.
+      </p>
+      <ul>
+        <li><strong>PIN Codes (Postal Index Number):</strong> A 6-digit code where Digit 1 represents the Postal Region (e.g., 7 for Eastern India), Digit 2 is the Sub-region, Digit 3 is the Sorting District, and Digits 4–6 identify the specific Delivery Post Office.</li>
+        <li><strong>Vehicle Registration Plates:</strong> State code (e.g., OD for Odisha, DL for Delhi) followed by district code and a unique sequential number.</li>
+        <li><strong>Aadhaar & Bank Accounts:</strong> Unique 12-digit random identification numbers containing built-in checksum algorithms to prevent clerical errors.</li>
+        <li><strong>Train Coaches & Train Numbers:</strong> 5-digit train numbers indicate train type, zone, and direction. Coach numbers (e.g., B2, S4) represent air-conditioned or sleeper compartments.</li>
+      </ul>
+
+      <div class="callout callout-act">
+        <strong>🧩 Decoded Classroom Riddle: The 5 Children Line-Up</strong>
+        Imagine five children of different distinct heights standing in a straight queue facing front. Each child looks ahead and counts how many children taller than them are standing ahead of them:
+        <ul style="margin-top: 6px; margin-bottom: 0;">
+          <li><strong>The Child at the Very Front:</strong> Always counts <code>0</code>, because there is nobody in front of them!</li>
+          <li><strong>Can the Tallest Child count 1?</strong> If the tallest child is anywhere in the queue, no one ahead can possibly be taller than them. Hence, the tallest child <em>always counts 0</em>, regardless of where they stand!</li>
+          <li><strong>Can the sequence be 0, 0, 0, 0, 0?</strong> Yes! If they are arranged in descending order of height (tallest at front, shortest at back). Each child sees only shorter children ahead.</li>
+        </ul>
+      </div>
+
+      <!-- 3.2 Supercells -->
+      <h3>3.2 Supercells in Numeric Grids</h3>
+      <p>
+        A <strong>Supercell</strong> is a cell in a numeric grid whose value is <em>strictly greater</em> than all of its horizontally and vertically adjacent neighbors (Up, Down, Left, Right). Diagonal cells are <strong>not</strong> considered neighbors.
+      </p>
+
+      <div class="callout callout-def">
+        <strong>📐 Neighbor Rules Based on Grid Position</strong>
+        In any rectangular grid:
+        <ul style="margin-top: 6px; margin-bottom: 0;">
+          <li><strong>Corner Cells:</strong> Have exactly <strong>2 neighbors</strong> (e.g., top-left has Right and Down).</li>
+          <li><strong>Edge Cells (Non-corner boundary):</strong> Have exactly <strong>3 neighbors</strong>.</li>
+          <li><strong>Interior Cells:</strong> Have exactly <strong>4 neighbors</strong> (Up, Down, Left, Right).</li>
+        </ul>
+      </div>
+
+      <h4>Fundamental Theorems of Supercells:</h4>
+      <ol>
+        <li><strong>The Global Maximum Theorem:</strong> In any grid with distinct numbers, the cell containing the <em>largest number</em> in the entire grid is <strong>always</strong> a supercell. Because it is greater than every number in the grid, it must be greater than its immediate neighbors.</li>
+        <li><strong>The Global Minimum Theorem:</strong> In any grid with distinct numbers and size &ge; 2, the cell containing the <em>smallest number</em> can <strong>never</strong> be a supercell, because all of its neighbors are strictly greater than it.</li>
+        <li><strong>Maximum Possible Supercells in a 3×3 Grid:</strong> Since two adjacent cells can never both be supercells (one must be greater than the other!), supercells can at most occupy an alternating "checkerboard" pattern. For a 3×3 grid, the 4 corners and the 1 center can simultaneously be supercells &mdash; giving a maximum of <strong>5 supercells</strong> out of 9 cells.</li>
+      </ol>
+
+      <!-- 3.3 Patterns of Numbers on the Number Line -->
+      <h3>3.3 Patterns of Numbers on the Number Line</h3>
+      <p>
+        A number line visualizes order, distance, and arithmetic intervals. To identify unknown points:
+      </p>
+      <div class="callout callout-hack">
+        <strong>Step-by-Step Number Line Interpolation Rule:</strong>
+        <ol style="margin-top: 6px; margin-bottom: 0;">
+          <li>Find two known marked values on the line, say A and B.</li>
+          <li>Count the number of equal sub-divisions (intervals) n between them.</li>
+          <li>Calculate the <strong>Step Size</strong>: Step = (B − A) / n.</li>
+          <li>Add the step size iteratively to determine intermediate unknown tick marks.</li>
+        </ol>
+      </div>
+
+      <!-- 3.4 Playing with Digits -->
+      <h3>3.4 Playing with Digits: Counting & Digit Sums</h3>
+      <p>
+        How many numbers exist with a given number of digits?
+      </p>
+      <table class="math-table">
+        <thead>
+          <tr>
+            <th>Number of Digits</th>
+            <th>Smallest Number</th>
+            <th>Largest Number</th>
+            <th>Formula: 9 &times; 10<sup>n−1</sup></th>
+            <th>Total Count</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1-digit</strong></td>
+            <td>1</td>
+            <td>9</td>
+            <td>9 &times; 10<sup>0</sup> = 9 &times; 1</td>
+            <td><strong>9</strong></td>
+          </tr>
+          <tr>
+            <td><strong>2-digit</strong></td>
+            <td>10</td>
+            <td>99</td>
+            <td>9 &times; 10<sup>1</sup> = 9 &times; 10</td>
+            <td><strong>90</strong></td>
+          </tr>
+          <tr>
+            <td><strong>3-digit</strong></td>
+            <td>100</td>
+            <td>999</td>
+            <td>9 &times; 10<sup>2</sup> = 9 &times; 100</td>
+            <td><strong>900</strong></td>
+          </tr>
+          <tr>
+            <td><strong>4-digit</strong></td>
+            <td>1,000</td>
+            <td>9,999</td>
+            <td>9 &times; 10<sup>3</sup> = 9 &times; 1,000</td>
+            <td><strong>9,000</strong></td>
+          </tr>
+          <tr>
+            <td><strong>5-digit</strong></td>
+            <td>10,000</td>
+            <td>99,999</td>
+            <td>9 &times; 10<sup>4</sup> = 9 &times; 10,000</td>
+            <td><strong>90,000</strong></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h4>The Consecutive Digit Sum Theorem:</h4>
+      <p>
+        Consider any 3-digit number whose three digits are consecutive integers, e.g., d, d + 1, d + 2.<br>
+        The sum of its digits is:
+        <br>
+        <strong>Digit Sum = d + (d + 1) + (d + 2) = 3d + 3 = 3 &times; (d + 1)</strong>
+        <br>
+        Since 3 &times; (d + 1) is explicitly a multiple of 3, <strong>the digit sum of any three consecutive digits is ALWAYS divisible by 3!</strong>
+      </p>
+
+      <!-- 3.5 Pretty Palindromic Patterns -->
+      <h3>3.5 Pretty Palindromic Patterns & The Reverse-and-Add Algorithm</h3>
+      <p>
+        A <strong>palindromic number</strong> reads identically from left to right as it does from right to left (e.g., 11, 121, 1331, 12321).
+      </p>
+      <ul>
+        <li><strong>3-digit Palindromes:</strong> Have the algebraic form <code>ABA</code>, where A is in {1, ..., 9} and B is in {0, ..., 9}. Total = 9 &times; 10 = <strong>90</strong>.</li>
+        <li><strong>4-digit Palindromes:</strong> Have the form <code>ABBA</code>. Total = 9 &times; 10 = <strong>90</strong>.</li>
+        <li><strong>5-digit Palindromes:</strong> Have the form <code>ABCBA</code>. Total = 9 &times; 10 &times; 10 = <strong>900</strong>.</li>
+      </ul>
+
+      <div class="callout callout-act">
+        <strong>🔄 The Reverse-and-Add Algorithm:</strong>
+        Pick any positive integer. Reverse its digits and add it to the original number. If the resulting sum is not a palindrome, repeat the process.
+        <br><strong>Example with 57:</strong>
+        <br>Step 1: 57 + 75 = 132 (Not palindromic)
+        <br>Step 2: 132 + 231 = <strong>363</strong> (Palindromic! Reached in 2 steps).
+      </div>
+
+      <!-- 3.6 Kaprekar's Constant -->
+      <h3>3.6 The Magic Number of Kaprekar (6174 & 495)</h3>
+      <p>
+        <strong>Dattatreya Ramchandra Kaprekar</strong> (1905–1981) was an Indian schoolteacher from Devlali, Maharashtra, who discovered astonishing recreational properties of numbers.
+      </p>
+      <div class="callout callout-def">
+        <strong>✨ Kaprekar's 4-Digit Routine:</strong>
+        <ol style="margin-top: 6px; margin-bottom: 0;">
+          <li>Choose any 4-digit number that has at least two different digits.</li>
+          <li>Arrange the digits in <strong>descending order</strong> to form the largest possible number.</li>
+          <li>Arrange the digits in <strong>ascending order</strong> to form the smallest possible number (leading zeros are kept!).</li>
+          <li>Subtract the smallest number from the largest.</li>
+          <li>Repeat the routine with the difference.</li>
+        </ol>
+        <p style="margin-top: 8px; margin-bottom: 0;">
+          <strong>Universal Result:</strong> Within at most <strong>7 iterations</strong>, the routine reaches <strong>6174</strong>! Once at 6174:
+          <br><strong>7641 − 1467 = 6174</strong>
+          <br>It loops upon itself forever. <strong>6174 is known worldwide as Kaprekar's Constant.</strong>
+        </p>
+      </div>
+
+      <div class="callout callout-hack">
+        <strong>💡 3-Digit Kaprekar Constant: 495</strong>
+        If you apply the same descending minus ascending routine to any 3-digit number (not all digits identical), it reaches <strong>495</strong> in at most 6 iterations!
+        <br><strong>954 − 459 = 495</strong>
+      </div>
+
+      <!-- 3.7 Clock and Calendar Numbers -->
+      <h3>3.7 Clock and Calendar Numbers</h3>
+      <h4>1. Palindromic Clock Times (12-Hour Digital Display):</h4>
+      <ul>
+        <li><strong>Single-digit Hours (1 to 9):</strong> Pattern <code>H:0H</code> &rarr; 1:01, 2:02, 3:03, 4:04, 5:05, 6:06, 7:07, 8:08, 9:09 (9 occurrences).</li>
+        <li><strong>Double-digit Hours (10, 11, 12):</strong>
+          <br>&bull; 10:01
+          <br>&bull; 11:11
+          <br>&bull; 12:21 (3 occurrences).
+        </li>
+        <li><strong>Total Palindromic Times in a 12-Hour Cycle:</strong> 9 + 3 = <strong>12 times</strong> (or 24 times in a 24-hour day).</li>
+      </ul>
+
+      <h4>2. Calendar 3×3 Magic Grid Property:</h4>
+      <p>
+        Select any 3×3 square block of dates on a standard calendar page:
+      </p>
+      <table class="math-table" style="max-width: 320px; text-align: center;">
+        <tbody>
+          <tr><td>x − 8</td><td>x − 7</td><td>x − 6</td></tr>
+          <tr><td>x − 1</td><td><strong>x</strong></td><td>x + 1</td></tr>
+          <tr><td>x + 6</td><td>x + 7</td><td>x + 8</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Notice that for every offset +k, there is a corresponding −k symmetrically across the center x.
+        <br>
+        <strong>Sum of all 9 dates = 9 &times; (Center Date x)</strong>
+      </p>
+
+      <!-- 3.8 Mental Math & Arithmetic Estimation -->
+      <h3>3.8 Mental Math & Digit Bounds</h3>
+      <p>
+        Understanding digit bounds is crucial for rapid mental arithmetic and error detection:
+      </p>
+      <ul>
+        <li><strong>Two 4-digit numbers added together:</strong> Maximum possible sum = 9,999 + 9,999 = 19,998 (at most 5 digits). It can <em>never</em> produce a 6-digit number.</li>
+        <li><strong>Two 5-digit numbers added together:</strong> Maximum possible sum = 99,999 + 99,999 = 199,998 (can easily produce a 6-digit number, e.g., 60,000 + 40,000 = 100,000).</li>
+        <li><strong>A 5-digit number plus a 3-digit number:</strong> Maximum possible sum = 99,999 + 999 = 100,998. This <em>can</em> indeed cross into a 6-digit number!</li>
+        <li><strong>Minimum sum of two 5-digit numbers:</strong> 10,000 + 10,000 = 20,000. Therefore, the sum of two 5-digit numbers can <em>never</em> be less than 20,000 (e.g., 18,500 is impossible).</li>
+      </ul>
+
+      <!-- 3.9 Playing with Number Patterns -->
+      <h3>3.9 Consecutive Number Sum Patterns</h3>
+      <p>
+        When consecutive numbers are added, the sum displays elegant algebraic symmetries:
+      </p>
+      <ul>
+        <li><strong>Sum of 3 consecutive integers:</strong>
+          <br>(n − 1) + n + (n + 1) = 3n
+          <br>The sum is always <strong>3 times the middle number</strong>. Thus, any integer divisible by 3 can be written as the sum of 3 consecutive integers!
+        </li>
+        <li><strong>Sum of 5 consecutive integers:</strong>
+          <br>(n − 2) + (n − 1) + n + (n + 1) + (n + 2) = 5n
+          <br>The sum is always <strong>5 times the middle number</strong>. Thus, any integer divisible by 5 can be written as the sum of 5 consecutive integers!
+        </li>
+      </ul>
+
+      <!-- 3.10 Collatz Conjecture -->
+      <h3>3.10 An Unsolved Mystery: The Collatz Conjecture (3n + 1 Problem)</h3>
+      <p>
+        Proposed by German mathematician <strong>Lothar Collatz</strong> in 1937, this deceptively simple arithmetic sequence remains one of the most famous unsolved problems in modern mathematics.
+      </p>
+      <div class="callout callout-def">
+        <strong>The Rule:</strong>
+        Start with any positive integer n:
+        <ul style="margin-top: 6px; margin-bottom: 0;">
+          <li>If n is <strong>even</strong>: compute n &divide; 2.</li>
+          <li>If n is <strong>odd</strong>: compute 3n + 1.</li>
+        </ul>
+        <p style="margin-top: 8px; margin-bottom: 0;">
+          <strong>The Conjecture:</strong> Regardless of the starting number, the sequence will always eventually reach <strong>1</strong>. Once it hits 1, it enters the infinite 3-step loop:
+          <br><strong>1 &rarr; 3(1)+1 = 4 &rarr; 4 &divide; 2 = 2 &rarr; 2 &divide; 2 = 1</strong>
+        </p>
+      </div>
+
+      <!-- 3.11 Simple Estimation -->
+      <h3>3.11 Simple Estimation (Fermi Problems)</h3>
+      <p>
+        In real life, exact numbers are often unnecessary or unobtainable; we rely on <strong>order-of-magnitude estimation</strong>:
+      </p>
+      <ul>
+        <li><strong>Lifetime Sleep Estimation:</strong> An average person sleeps &approx; 8 hours per day = 1/3 of a day. Over a lifespan of 75 years:
+          <br>75 &times; 365.25 &times; 8 &approx; 219,150 hours &approx; 2.2 &times; 10<sup>5</sup> hours.
+        </li>
+        <li><strong>Grade 6 School Hours Verification:</strong> If a student has attended school for 6 years (Grades 1 to 6), with &approx; 220 working days per year and 6 hours per school day:
+          <br>6 &times; 220 &times; 6 = 7,920 hours.
+          <br>Therefore, claiming to have spent 13,000 hours in school is a significant overestimate!
+        </li>
+      </ul>
+
+      <!-- 3.12 Games and Winning Strategies -->
+      <h3>3.12 Games and Winning Strategies (The 21-Counter Game)</h3>
+      <p>
+        Mathematical games are governed by <strong>invariants</strong> and <strong>backward induction</strong>.
+      </p>
+      <div class="callout callout-act">
+        <strong>🎮 The Alternate Addition Game (Target: 20 or 21):</strong>
+        Two players take turns adding 1, 2, or 3 to a running total starting from 0. The first player to reach 20 (or 21) wins.
+        <br>
+        <strong>Winning Secret (Modulo 4 Invariant):</strong>
+        Since the permissible choices are 1, 2, and 3, notice that:
+        <br>1 + 3 = 4, &nbsp; 2 + 2 = 4, &nbsp; 3 + 1 = 4
+        <br>The second player can <em>always complement</em> Player 1's move so that the sum of the two players' moves is exactly 4!
+        <br>
+        By consistently landing on multiples of 4 (4, 8, 12, 16, 20), Player 2 is mathematically guaranteed to reach the target 20 and win every single time!
+      </div>
+    </section>
+
+
+    <!-- SECTION 3: RAPID REVISION FORMULA, PROPERTY & LAW BANK -->
+    <section id="sec-3" class="section-card">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <h2 class="section-title">Rapid Revision Formula, Property & Law Bank</h2>
+      </div>
+
+      <p>
+        Quick reference tables summarizing all fundamental laws, algebraic identities, routines, and game strategies from Chapter 3.
+      </p>
+
+      <h3>Table 3.1: Core Formulas & Mathematical Laws</h3>
+      <table class="math-table">
+        <thead>
+          <tr>
+            <th>Concept / Rule</th>
+            <th>Mathematical Formula / Principle</th>
+            <th>Key Condition / Example</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Total n-Digit Numbers</strong></td>
+            <td>Total = 9 &times; 10<sup>n−1</sup></td>
+            <td>For n = 4: 9 &times; 1000 = 9,000 numbers (1000 to 9999)</td>
+          </tr>
+          <tr>
+            <td><strong>Consecutive 3-Digit Sum</strong></td>
+            <td>d + (d + 1) + (d + 2) = 3(d + 1)</td>
+            <td>Always divisible by 3 (e.g., 4+5+6 = 15 = 3 &times; 5)</td>
+          </tr>
+          <tr>
+            <td><strong>Sum of 3 Consecutive Integers</strong></td>
+            <td>(m − 1) + m + (m + 1) = 3m</td>
+            <td>Sum = 3 &times; (Middle Number m)</td>
+          </tr>
+          <tr>
+            <td><strong>Sum of 5 Consecutive Integers</strong></td>
+            <td>(m − 2) + (m − 1) + m + (m + 1) + (m + 2) = 5m</td>
+            <td>Sum = 5 &times; (Middle Number m)</td>
+          </tr>
+          <tr>
+            <td><strong>Calendar 3×3 Box Sum</strong></td>
+            <td>Sum = 9 &times; C</td>
+            <td>C is the center date in the 3&times;3 grid</td>
+          </tr>
+          <tr>
+            <td><strong>4-Digit Kaprekar Constant</strong></td>
+            <td>Descending − Ascending &rarr; <strong>6174</strong></td>
+            <td>At least 2 distinct digits; reached in &le; 7 steps</td>
+          </tr>
+          <tr>
+            <td><strong>3-Digit Kaprekar Constant</strong></td>
+            <td>Descending − Ascending &rarr; <strong>495</strong></td>
+            <td>At least 2 distinct digits; reached in &le; 6 steps</td>
+          </tr>
+          <tr>
+            <td><strong>Collatz Hailstone Rule</strong></td>
+            <td>Even: n &divide; 2 &nbsp;|&nbsp; Odd: 3n + 1</td>
+            <td>Loops infinitely at 4 &rarr; 2 &rarr; 1</td>
+          </tr>
+          <tr>
+            <td><strong>21-Game Modular Invariant</strong></td>
+            <td>Complement choice to sum to (k + 1) = 4</td>
+            <td>Player 2 secures multiples of 4: 4, 8, 12, 16, 20</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Table 3.2: Arithmetic Bounds & Digit Extreme Values</h3>
+      <table class="math-table">
+        <thead>
+          <tr>
+            <th>Operation</th>
+            <th>Minimum Bound</th>
+            <th>Maximum Bound</th>
+            <th>Digit Length Outcome</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>4-digit + 4-digit</strong></td>
+            <td>1,000 + 1,000 = 2,000</td>
+            <td>9,999 + 9,999 = 19,998</td>
+            <td>4 or 5 digits (<strong>Never 6 digits</strong>)</td>
+          </tr>
+          <tr>
+            <td><strong>5-digit + 5-digit</strong></td>
+            <td>10,000 + 10,000 = 20,000</td>
+            <td>99,999 + 99,999 = 199,998</td>
+            <td>5 or 6 digits (<strong>Never &lt; 20,000</strong>)</td>
+          </tr>
+          <tr>
+            <td><strong>5-digit + 3-digit</strong></td>
+            <td>10,000 + 100 = 10,100</td>
+            <td>99,999 + 999 = 100,998</td>
+            <td>5 or 6 digits (Possible to cross 100,000!)</td>
+          </tr>
+          <tr>
+            <td><strong>5-digit − 5-digit</strong></td>
+            <td>10,000 − 10,000 = 0</td>
+            <td>99,999 − 10,000 = 89,999</td>
+            <td>Any value from 0 up to 89,999</td>
+          </tr>
+          <tr>
+            <td><strong>5-digit − 3-digit</strong></td>
+            <td>10,000 − 999 = 9,001</td>
+            <td>99,999 − 100 = 99,899</td>
+            <td>4 or 5 digits</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Table 3.3: Supercell Topology & Neighbor Constraints</h3>
+      <table class="math-table">
+        <thead>
+          <tr>
+            <th>Cell Location in Grid</th>
+            <th>Number of Cardinal Neighbors</th>
+            <th>Diagonals Counted?</th>
+            <th>Max Possible Supercells</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Corner Cell</strong></td>
+            <td>2 (Horizontal + Vertical)</td>
+            <td>No</td>
+            <td>Corner can be a supercell if > 2 neighbors</td>
+          </tr>
+          <tr>
+            <td><strong>Edge Boundary Cell</strong></td>
+            <td>3 (1 perpendicular, 2 parallel)</td>
+            <td>No</td>
+            <td>Can be supercell if > 3 neighbors</td>
+          </tr>
+          <tr>
+            <td><strong>Interior Center Cell</strong></td>
+            <td>4 (Up, Down, Left, Right)</td>
+            <td>No</td>
+            <td>Can be supercell if > all 4 neighbors</td>
+          </tr>
+          <tr>
+            <td><strong>Entire 3×3 Grid</strong></td>
+            <td>Total 9 cells</td>
+            <td>No</td>
+            <td><strong>Maximum 5 supercells</strong> (Checkerboard)</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4: 100% COMPLETE NCERT SOLUTIONS -->
+    <section id="sec-4" class="section-card">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <h2 class="section-title">100% Complete NCERT Solutions (5-Step Topper Method)</h2>
+      </div>
+
+      <p>
+        Every single in-text prompt, "Figure it Out" challenge, classroom activity, and end-of-chapter exercise from the NCERT textbook <em>Ganita Prakash</em> is solved below following the official CBSE 5-step presentation.
+      </p>
+
+      <!-- 3.1 In-text Questions -->
+      <h3>Section 3.1: Numbers can Tell us Things (In-Text Questions)</h3>
+
+      <!-- 3.1 Q1 -->
+      <details class="ans-box" open>
+        <summary>Q1. List five different real-world situations in which numbers are used as identifiers or data carriers.</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> Daily life applications of numbers.<br><strong>To find:</strong> Five distinct situations where numbers function beyond simple counting.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Principle / Concept used</div>
+            <p>Numbers act as codes, spatial addresses, chronological markers, and identity tags.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Clear step-by-step working</div>
+            <ol>
+              <li><strong>Postal Index Number (PIN Code):</strong> Identifies the exact delivery post office (e.g., 751001 for Bhubaneswar).</li>
+              <li><strong>Vehicle Registration Number:</strong> Encodes the state, district RTO, and vehicle sequential ID (e.g., OD-02-AB-1234).</li>
+              <li><strong>Railway Train & Coach Numbers:</strong> 5-digit train numbers designate zone and route; coach codes (e.g., S3, B1) specify car location.</li>
+              <li><strong>Aadhaar / National ID:</strong> 12-digit unique biographical and biometric identity string.</li>
+              <li><strong>Clocks & Calendars:</strong> Encodes temporal position in hours, minutes, day, month, and year.</li>
+            </ol>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">PIN Codes, Vehicle Plates, Train Numbers, Aadhaar Numbers, and Calendar Dates.</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Therefore, numbers in modern society serve crucially as universal information storage and addressing codes.</p>
+          </div>
+        </div>
+      </details>
+
+      <!-- 3.1 Height Ordering Riddles -->
+      <details class="ans-box">
+        <summary>Q2 (Classroom Height Riddle): Five children of distinct heights stand in a line facing forward. Can they rearrange themselves so that the children standing at the ends say '0'?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> 5 children of distinct heights in a queue facing forward. Each child counts how many children taller than them are standing ahead.<br><strong>To find:</strong> Can the child at the front and the child at the very back both say '0'?</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Principle / Theorem used</div>
+            <p>The first person in line always sees 0 people ahead. The last person sees 0 taller people ahead if and only if no one ahead of them is taller than them &mdash; meaning the last person must be the <em>tallest of all 5 children</em>.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Clear step-by-step working</div>
+            <p>
+              1. Child 1 (front) has nobody in front &rarr; always says <code>0</code>.<br>
+              2. For Child 5 (rear) to say <code>0</code>, there must be 0 taller people in front of Child 5.<br>
+              3. This means Child 5 must be taller than Child 1, Child 2, Child 3, and Child 4.<br>
+              4. Thus, placing the tallest child at the very back satisfies the condition!
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">Yes, it is possible by placing the tallest child at the end of the line.</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Hence, the front child trivially says 0, and the rear child says 0 because they are the tallest in the group.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q3: Can we arrange the five children in a line so that all five children say only '0'?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> 5 children of distinct heights.<br><strong>To find:</strong> Is the sequence <code>0, 0, 0, 0, 0</code> possible?</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Principle / Theorem used</div>
+            <p>For any child to count 0, no child standing ahead of them can be taller than them.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Clear step-by-step working</div>
+            <p>
+              Arrange the children in <strong>strictly descending order of height</strong> from front to back:<br>
+              Child 1 (Tallest) &rarr; Child 2 &rarr; Child 3 &rarr; Child 4 &rarr; Child 5 (Shortest).<br>
+              &bull; Child 1 sees 0 people ahead &rarr; says <code>0</code>.<br>
+              &bull; Child 2 sees only Child 1 (who is taller), wait! If Child 1 is tallest, Child 2 sees 1 person taller!<br>
+              &bull; Wait! Let's re-verify: who is "ahead"? The queue faces FRONT. Child 1 is at the front. Child 2 is behind Child 1.<br>
+              If arranged in <strong>ascending order of height</strong> (Shortest at front, Tallest at back):<br>
+              &bull; Child 1 (Shortest): sees nobody ahead &rarr; <code>0</code>.<br>
+              &bull; Child 2 (Taller than Child 1): sees Child 1 ahead. But Child 1 is shorter than Child 2! So Child 2 sees 0 taller people ahead &rarr; says <code>0</code>!<br>
+              &bull; Child 3 (Taller than 1 and 2): sees Child 1 & 2 ahead. Both are shorter! So Child 3 sees 0 taller people &rarr; says <code>0</code>!<br>
+              &bull; Child 4 (Taller than 1, 2, 3): sees only shorter people &rarr; says <code>0</code>!<br>
+              &bull; Child 5 (Tallest of all): sees everyone ahead shorter &rarr; says <code>0</code>!
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">Yes, by arranging the children in ascending order of height (shortest at front, tallest at back).</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Therefore, when lined up from shortest to tallest, every single child sees only shorter children ahead and counts 0.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q4: For this group of 5 children, is the sequence 1, 1, 1, 1, 1 possible? Why or why not?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> Sequence of counts: 1, 1, 1, 1, 1 for 5 children in line.<br><strong>To find:</strong> Is this sequence mathematically possible?</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Principle used</div>
+            <p>Boundary condition: The child standing at the very first position (front of the line) has exactly zero children ahead of them.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Clear step-by-step working</div>
+            <p>
+              1. The first child in the sequence has no one standing ahead.<br>
+              2. Therefore, the number of children taller than them standing ahead MUST be 0.<br>
+              3. The first number in any such sequence must always be 0.<br>
+              4. Since the sequence starts with 1, it contradicts the physical queue rule.
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">No, 1, 1, 1, 1, 1 is impossible because the first child must always say 0.</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Hence, the sequence is impossible due to the front boundary constraint.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q5: Is the sequence 0, 1, 2, 1, 0 possible? Why or why not?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> Sequence 0, 1, 2, 1, 0 for children C1, C2, C3, C4, C5.<br><strong>To find:</strong> Whether this configuration is possible.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Principle used</div>
+            <p>Assign heights h1, h2, h3, h4, h5 such that the count of taller predecessors matches the sequence.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Clear step-by-step working</div>
+            <p>
+              Let distinct heights be chosen from {1, 2, 3, 4, 5}:<br>
+              &bull; C1 says 0 &rarr; C1 can have height 3.<br>
+              &bull; C2 says 1 &rarr; C2 must be shorter than C1. Let C2 have height 2 (sees C1=3 ahead &rarr; 1 taller).<br>
+              &bull; C3 says 2 &rarr; C3 must be shorter than both C1 and C2. Let C3 have height 1 (sees C1=3 and C2=2 ahead &rarr; 2 taller).<br>
+              &bull; C4 says 1 &rarr; C4 must see exactly 1 taller person ahead. Since C1=3, C2=2, C3=1, let C4 have height 4! Ahead of C4 are heights 3, 2, 1. Wait, if C4=4, none is taller! That would give 0. Instead, let C1=5, C2=2, C3=1, C4=3, C5=4.<br>
+              Let us check heights: <strong>[4, 2, 1, 3, 5]</strong>:<br>
+              - Position 1 (height 4): 0 ahead &rarr; <strong>0</strong>.<br>
+              - Position 2 (height 2): ahead is [4], which is taller &rarr; <strong>1</strong>.<br>
+              - Position 3 (height 1): ahead are [4, 2], both taller &rarr; <strong>2</strong>.<br>
+              - Position 4 (height 3): ahead are [4, 2, 1]. Only 4 is taller &rarr; <strong>1</strong>.<br>
+              - Position 5 (height 5): ahead are [4, 2, 1, 3]. None is taller &rarr; <strong>0</strong>.<br>
+              The sequence obtained is exactly: <strong>0, 1, 2, 1, 0</strong>!
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">Yes, it is completely possible with relative heights [4, 2, 1, 3, 5].</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Hence, the sequence 0, 1, 2, 1, 0 represents a valid, realizable height distribution.</p>
+          </div>
+        </div>
+      </details>
+
+      <!-- 3.2 Supercells NCERT Solutions -->
+      <h3>Section 3.2: Supercells (In-Text & Figure it Out)</h3>
+
+      <details class="ans-box">
+        <summary>Q6: Will the cell having the largest number in a table always be a supercell? Can the cell having the smallest number be a supercell?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> A numeric grid with distinct numbers.<br><strong>To find:</strong> (a) Is the largest number always a supercell? (b) Can the smallest number ever be a supercell?</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Definition of Supercell</div>
+            <p>A cell is a supercell if its value is strictly greater than all of its cardinal neighbors (Up, Down, Left, Right).</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Clear step-by-step reasoning</div>
+            <p>
+              (a) <strong>For the Largest Number:</strong><br>
+              Let M be the largest number in the entire grid. Since all numbers are distinct, for every other cell x in the grid, M &gt; x. In particular, M is greater than its immediate neighbors. Therefore, <strong>the cell with the largest number is ALWAYS a supercell</strong>.<br><br>
+              (b) <strong>For the Smallest Number:</strong><br>
+              Let m be the smallest number in a grid with at least 2 cells. Cell m has at least one neighbor, say y. Since m is the global minimum, y &gt; m. Thus, m is NOT strictly greater than its neighbor. Therefore, <strong>the smallest number can NEVER be a supercell</strong>.
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">Largest number: Always a supercell. Smallest number: Never a supercell (for grid size &ge; 2).</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>This establishes the fundamental extreme value property of supercell networks.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q7: Can you fill a supercell table without repeating numbers such that there are NO supercells at all?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> A finite grid filled with distinct non-repeating numbers.<br><strong>To find:</strong> Can a grid have zero supercells?</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Mathematical Theorem (Global Maximum)</div>
+            <p>In any non-empty finite set of numbers, there exists a unique maximum element.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Proof by Contradiction</div>
+            <p>
+              1. Suppose there are no supercells in the grid.<br>
+              2. Consider the maximum number M in the grid.<br>
+              3. By definition of maximum, M &ge; x for every cell x in the grid.<br>
+              4. Since numbers are not repeated, M &gt; x for all neighbors x of M.<br>
+              5. Thus, cell M satisfies the exact definition of a supercell.<br>
+              6. This contradicts our assumption that there are no supercells!
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">No, it is impossible. Every table of distinct numbers must contain at least ONE supercell.</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Hence, the existence of at least one supercell is mathematically guaranteed by the global maximum.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q8: Fill a 3×3 table such that we get as many supercells as possible using the digits 1 to 9. What is the maximum number of supercells?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> 3×3 grid using digits {1, 2, 3, 4, 5, 6, 7, 8, 9}.<br><strong>To find:</strong> Maximum number of supercells possible and an arrangement.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Constraint Analysis</div>
+            <p>Two horizontally or vertically adjacent cells can never both be supercells (one must be larger than the other). Thus, supercells must form an independent set in the grid graph (a checkerboard pattern).</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Arrangement Construction</div>
+            <p>
+              In a 3×3 checkerboard, the maximum independent set has 5 cells (the 4 corners and the center cell).<br>
+              Place the 5 largest numbers {5, 6, 7, 8, 9} in the supercell positions, and the 4 smallest numbers {1, 2, 3, 4} in the edge positions:
+              <br><br>
+              Row 1: [ <strong>9</strong> ] [ 1 ] [ <strong>8</strong> ]<br>
+              Row 2: [ 2 ] [ <strong>7</strong> ] [ 3 ]<br>
+              Row 3: [ <strong>6</strong> ] [ 4 ] [ <strong>5</strong> ]<br><br>
+              Verification of all 5 marked cells:<br>
+              &bull; 9: neighbors are 1 and 2 (9 > 1, 9 > 2) &rarr; Supercell!<br>
+              &bull; 8: neighbors are 1 and 3 (8 > 1, 8 > 3) &rarr; Supercell!<br>
+              &bull; 7: neighbors are 1, 2, 3, 4 (7 > all four) &rarr; Supercell!<br>
+              &bull; 6: neighbors are 2 and 4 (6 > 2, 6 > 4) &rarr; Supercell!<br>
+              &bull; 5: neighbors are 3 and 4 (5 > 3, 5 > 4) &rarr; Supercell!
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">Maximum Supercells = 5 (out of 9 cells).</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Therefore, the maximum number of supercells in a 3×3 grid is 5.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q9: Out of 9 numbers in a single 1×9 row table, how many supercells are possible?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> A 1×9 row of 9 cells.<br><strong>To find:</strong> Maximum number of supercells possible.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Principle used</div>
+            <p>No two consecutive cells in a row can both be supercells. For a path of length n, the maximum number of mutually non-adjacent vertices is ceil(n / 2).</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Step-by-step working</div>
+            <p>
+              For n = 9 cells:<br>
+              Positions: 1, 2, 3, 4, 5, 6, 7, 8, 9.<br>
+              Supercells can be at odd positions: 1, 3, 5, 7, 9.<br>
+              Count = 5 supercells.<br>
+              Example arrangement: [9, 1, 8, 2, 7, 3, 6, 4, 5].<br>
+              Positions 1, 3, 5, 7, 9 are all greater than their respective neighbors!
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">Maximum Supercells in 1×9 row = 5.</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Hence, exactly 5 supercells can be accommodated in a 9-cell row.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q10 (Table 2 Digit Challenges): Using the digits '1', '0', '6', '3', and '9' exactly once, find: (a) The biggest number, (b) The smallest even number, (c) The smallest number greater than 50,000.</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given digits:</strong> {0, 1, 3, 6, 9}.<br><strong>To find:</strong><br>(a) Largest 5-digit number.<br>(b) Smallest 5-digit even number.<br>(c) Smallest 5-digit number &gt; 50,000.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Place Value Rules</div>
+            <p>
+              - For largest number, arrange digits in descending order.<br>
+              - For even number, units digit must be even (0 or 6). To make it smallest, leading digit must be the smallest non-zero digit.<br>
+              - For smallest &gt; 50,000, ten-thousands digit must be the smallest available digit &ge; 5 (which is 6), followed by the remaining digits in ascending order.
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Clear step-by-step construction</div>
+            <p>
+              <strong>Part (a): Largest Number</strong><br>
+              Digits in descending order: 9, 6, 3, 1, 0 &rarr; <strong>96,310</strong>.<br><br>
+              <strong>Part (b): Smallest Even Number</strong><br>
+              Even digits available: 0 and 6.<br>
+              Option 1: End in 6 &rarr; remaining digits {0, 1, 3, 9}. Smallest non-zero leading digit is 1. Ascending order for middle digits: 0, 3, 9 &rarr; <strong>10,396</strong>.<br>
+              Option 2: End in 0 &rarr; remaining digits {1, 3, 6, 9}. Leading digit 1 &rarr; 13,690.<br>
+              Comparing: 10,396 &lt; 13,690. Hence, smallest even number is <strong>10,396</strong>.<br><br>
+              <strong>Part (c): Smallest Number Greater than 50,000</strong><br>
+              Digits &ge; 5 are 6 and 9. Choose 6 as first digit. Arrange remaining digits {0, 1, 3, 9} in ascending order: 0, 1, 3, 9 &rarr; <strong>60,139</strong>.
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final values</div>
+            <div class="final-ans">
+              (a) Biggest: 96,310<br>
+              (b) Smallest Even: 10,396<br>
+              (c) Smallest &gt; 50,000: 60,139
+            </div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>All values precisely obey the place-value optimality criteria.</p>
+          </div>
+        </div>
+      </details>
+
+      <!-- 3.4 Playing with Digits Solutions -->
+      <h3>Section 3.4: Playing with Digits (NCERT Solutions)</h3>
+
+      <details class="ans-box">
+        <summary>Q11: (a) Write numbers whose digits add up to 14. (b) What is the smallest number with digit sum 14? (c) What is the largest 5-digit number with digit sum 14? (d) How big a number can you form with digit sum 14?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> Target digit sum = 14.<br><strong>To find:</strong> Examples, smallest number, largest 5-digit number, and theoretical upper bound.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Mathematical Principles</div>
+            <p>
+              - To minimize a number, minimize the number of digits by maximizing the lowest place-value digits (units digit = 9).<br>
+              - To maximize an n-digit number, maximize the highest place-value digits (put 9 in first position).<br>
+              - A number can be made arbitrarily large by increasing its number of digits (using 1s).
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Step-by-step arithmetic</div>
+            <p>
+              <strong>(a) Examples:</strong> 59 (5+9=14), 68 (6+8=14), 77 (7+7=14), 248 (2+4+8=14), 653 (6+5+3=14), 95000 (9+5+0+0+0=14).<br><br>
+              <strong>(b) Smallest Number with Digit Sum 14:</strong><br>
+              Can it be 1 digit? Max digit is 9 &lt; 14 &rarr; No.<br>
+              Can it be 2 digits? Max units digit = 9. Tens digit = 14 − 9 = 5. Smallest number is <strong>59</strong>.<br><br>
+              <strong>(c) Largest 5-digit Number with Digit Sum 14:</strong><br>
+              We want 5 digits: d1, d2, d3, d4, d5.<br>
+              Maximize d1: set d1 = 9. Remaining sum = 14 − 9 = 5.<br>
+              Maximize d2: set d2 = 5. Remaining sum = 0.<br>
+              Remaining digits must be 0: d3 = 0, d4 = 0, d5 = 0.<br>
+              Number = <strong>95,000</strong>.<br><br>
+              <strong>(d) How big a number can be formed?</strong><br>
+              We can make the number as large as we want by adding more digits! For instance, fourteen 1s: 11,111,111,111,111 has digit sum 14. We can also add as many zeros as we want after the leading digit (e.g., 500,000...009). Thus, there is NO upper bound; the number can be arbitrarily large.
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final values</div>
+            <div class="final-ans">
+              (b) Smallest: 59<br>
+              (c) Largest 5-digit: 95,000<br>
+              (d) Can be made infinitely large by increasing digit count.
+            </div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Hence, the place-value allocation completely determines extremal digit-sum numbers.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q12: Prove that the digit sum of any 3-digit number formed by consecutive digits is always a multiple of 3.</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> A 3-digit number whose digits are consecutive integers.<br><strong>To find:</strong> Prove that the digit sum is always divisible by 3.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Algebraic Representation</div>
+            <p>Let the three consecutive digits be represented as k, k + 1, and k + 2, where k is an integer from 0 to 7.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Step-by-step proof</div>
+            <p>
+              1. Compute the sum of the three digits:<br>
+              Sum = k + (k + 1) + (k + 2)<br>
+              2. Combine like terms:<br>
+              Sum = 3k + 3<br>
+              3. Factor out the common factor 3:<br>
+              Sum = 3(k + 1)<br>
+              4. Since (k + 1) is an integer, 3(k + 1) is strictly a multiple of 3.
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">Sum = 3(k + 1), which is identically divisible by 3. Q.E.D.</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Therefore, any number composed of consecutive digits inherently has a digit sum divisible by 3.</p>
+          </div>
+        </div>
+      </details>
+
+      <!-- 3.5 Palindromes Solutions -->
+      <h3>Section 3.5 & 3.7: Palindromic Numbers & Clocks</h3>
+
+      <details class="ans-box">
+        <summary>Q13: What is the sum and difference of the smallest and largest 5-digit palindromes?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> Set of all 5-digit palindromes.<br><strong>To find:</strong> (a) Sum of smallest and largest, (b) Difference between largest and smallest.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Palindrome Definition</div>
+            <p>A 5-digit palindrome has the format ABCBA. The smallest non-zero leading digit is 1, and the largest is 9.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Arithmetic calculation</div>
+            <p>
+              &bull; Smallest 5-digit palindrome: A = 1, B = 0, C = 0 &rarr; <strong>10,001</strong>.<br>
+              &bull; Largest 5-digit palindrome: A = 9, B = 9, C = 9 &rarr; <strong>99,999</strong>.<br><br>
+              1. <strong>Sum:</strong><br>
+              99,999 + 10,001 = <strong>110,000</strong>.<br><br>
+              2. <strong>Difference:</strong><br>
+              99,999 − 10,001 = <strong>89,998</strong>.
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">Sum = 110,000 &nbsp;|&nbsp; Difference = 89,998.</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Thus, the sum produces a neat 6-digit number 110,000 and the difference is 89,998.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q14: The time now is 10:01. How many minutes until the clock shows the next palindromic time? What about the one after that?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> Current time = 10:01.<br><strong>To find:</strong> Minutes to next palindromic time, and minutes to the subsequent one.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: 12-Hour Digital Palindrome Table</div>
+            <p>Palindromes in the 10, 11, 12 range are: 10:01, 11:11, and 12:21.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Step-by-step elapsed time computation</div>
+            <p>
+              1. <strong>Next Palindromic Time:</strong><br>
+              The immediate next palindrome after 10:01 is <strong>11:11</strong>.<br>
+              From 10:01 to 11:01 = 60 minutes.<br>
+              From 11:01 to 11:11 = 10 minutes.<br>
+              Total elapsed minutes = 60 + 10 = <strong>70 minutes</strong>.<br><br>
+              2. <strong>Subsequent Palindromic Time:</strong><br>
+              The palindrome after 11:11 is <strong>12:21</strong>.<br>
+              From 11:11 to 12:11 = 60 minutes.<br>
+              From 12:11 to 12:21 = 10 minutes.<br>
+              Total elapsed minutes from 11:11 = 60 + 10 = <strong>70 minutes</strong> (or 140 minutes from 10:01).
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">Next: 70 minutes (at 11:11). Subsequent: 70 minutes later (at 12:21).</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Remarkably, the interval between consecutive double-digit palindromic clock times is exactly 70 minutes.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q15: How many rounds does the number 5683 take to reach the Kaprekar constant 6174?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> Starting number = 5683.<br><strong>To find:</strong> Number of Kaprekar iterations to reach 6174.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Kaprekar's Algorithm</div>
+            <p>Arrange digits descending − Arrange digits ascending = New Difference.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Step-by-step arithmetic rounds</div>
+            <ol>
+              <li><strong>Round 1:</strong> Digits of 5683 &rarr; Descending: 8653, Ascending: 3568.<br>
+              8653 − 3568 = <strong>5085</strong>.</li>
+              <li><strong>Round 2:</strong> Digits of 5085 &rarr; Descending: 8550, Ascending: 0558.<br>
+              8550 − 0558 = <strong>7992</strong>.</li>
+              <li><strong>Round 3:</strong> Digits of 7992 &rarr; Descending: 9972, Ascending: 2799.<br>
+              9972 − 2799 = <strong>7173</strong>.</li>
+              <li><strong>Round 4:</strong> Digits of 7173 &rarr; Descending: 7731, Ascending: 1377.<br>
+              7731 − 1377 = <strong>6354</strong>.</li>
+              <li><strong>Round 5:</strong> Digits of 6354 &rarr; Descending: 6543, Ascending: 3456.<br>
+              6543 − 3456 = <strong>3087</strong>.</li>
+              <li><strong>Round 6:</strong> Digits of 3087 &rarr; Descending: 8730, Ascending: 0378.<br>
+              8730 − 0378 = <strong>8352</strong>.</li>
+              <li><strong>Round 7:</strong> Digits of 8352 &rarr; Descending: 8532, Ascending: 2358.<br>
+              8532 − 2358 = <strong>6174</strong>! (Kaprekar Constant reached).</li>
+            </ol>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">Total Rounds = 7 rounds (the theoretical maximum possible!).</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>5683 represents a maximal-chain number taking exactly 7 steps to collapse to 6174.</p>
+          </div>
+        </div>
+      </details>
+
+      <!-- 3.8 Mental Math Bounds Solutions -->
+      <h3>Section 3.8: Mental Math Scenarios (Always, Sometimes, Never)</h3>
+
+      <details class="ans-box">
+        <summary>Q16: Classify each arithmetic scenario as Possible or Impossible, and provide an example: (a) 4-digit + 4-digit = 6-digit sum, (b) 5-digit + 3-digit = 6-digit sum, (c) 5-digit + 5-digit = 18,500.</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> Three arithmetic digit-sum propositions.<br><strong>To find:</strong> Validity and counterexamples / proofs.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Extreme Bound Analysis</div>
+            <p>Evaluate strictly using minimum and maximum bounds for n-digit numbers.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Step-by-step verification</div>
+            <p>
+              <strong>(a) 4-digit + 4-digit = 6-digit sum:</strong><br>
+              Maximum 4-digit number is 9,999.<br>
+              Max Sum = 9,999 + 9,999 = 19,998 (which has 5 digits).<br>
+              The smallest 6-digit number is 100,000.<br>
+              Since 19,998 &lt; 100,000, this is <strong>NEVER POSSIBLE</strong>.<br><br>
+              <strong>(b) 5-digit + 3-digit = 6-digit sum:</strong><br>
+              Maximum 5-digit is 99,999; maximum 3-digit is 999.<br>
+              Max Sum = 99,999 + 999 = 100,998 &ge; 100,000.<br>
+              Example: 99,500 + 600 = 100,100 (6 digits!).<br>
+              This is <strong>SOMETIMES POSSIBLE</strong>.<br><br>
+              <strong>(c) 5-digit + 5-digit = 18,500:</strong><br>
+              Minimum 5-digit number is 10,000.<br>
+              Min Sum = 10,000 + 10,000 = 20,000.<br>
+              Since 18,500 &lt; 20,000, this is <strong>NEVER POSSIBLE</strong>.
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">
+              (a) Never Possible<br>
+              (b) Sometimes Possible (e.g., 99,500 + 600 = 100,100)<br>
+              (c) Never Possible
+            </div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Strict bounding principles easily determine the feasibility of multi-digit additions.</p>
+          </div>
+        </div>
+      </details>
+
+      <!-- 3.10 Collatz Conjecture Solutions -->
+      <h3>Section 3.10 & 3.12: Collatz Conjecture & Game Theory</h3>
+
+      <details class="ans-box">
+        <summary>Q17: Trace the Collatz sequence starting at number 100. How many steps does it take to reach 1?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> Starting integer n = 100.<br><strong>To find:</strong> Full step-by-step hailstone trajectory until it reaches 1.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Collatz Rule</div>
+            <p>If n is even &rarr; n &divide; 2. If n is odd &rarr; 3n + 1.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Step-by-step arithmetic steps</div>
+            <p>
+              1. 100 (even) &rarr; 50<br>
+              2. 50 (even) &rarr; 25<br>
+              3. 25 (odd) &rarr; 3(25)+1 = 76<br>
+              4. 76 (even) &rarr; 38<br>
+              5. 38 (even) &rarr; 19<br>
+              6. 19 (odd) &rarr; 3(19)+1 = 58<br>
+              7. 58 (even) &rarr; 29<br>
+              8. 29 (odd) &rarr; 3(29)+1 = 88<br>
+              9. 88 (even) &rarr; 44<br>
+              10. 44 (even) &rarr; 22<br>
+              11. 22 (even) &rarr; 11<br>
+              12. 11 (odd) &rarr; 3(11)+1 = 34<br>
+              13. 34 (even) &rarr; 17<br>
+              14. 17 (odd) &rarr; 3(17)+1 = 52<br>
+              15. 52 (even) &rarr; 26<br>
+              16. 26 (even) &rarr; 13<br>
+              17. 13 (odd) &rarr; 3(13)+1 = 40<br>
+              18. 40 (even) &rarr; 20<br>
+              19. 20 (even) &rarr; 10<br>
+              20. 10 (even) &rarr; 5<br>
+              21. 5 (odd) &rarr; 3(5)+1 = 16<br>
+              22. 16 (even) &rarr; 8<br>
+              23. 8 (even) &rarr; 4<br>
+              24. 4 (even) &rarr; 2<br>
+              25. 2 (even) &rarr; <strong>1</strong>!
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">Starting at 100, the sequence takes exactly 25 steps to reach 1.</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>The Collatz Conjecture holds verified for n = 100.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q18: Why is the Collatz sequence particularly simple for powers of 2 (e.g., 2, 4, 8, 16, 32, 64...)?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> Any power of 2, represented as 2<sup>k</sup> for positive integer k.<br><strong>To find:</strong> Explain the behavior of the Collatz sequence.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Collatz Rule for Even Numbers</div>
+            <p>For any even integer n, the next number is n &divide; 2.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Algebraic deduction</div>
+            <p>
+              1. Any power of 2 is strictly even: 2<sup>k</sup>.<br>
+              2. Applying the rule: 2<sup>k</sup> &divide; 2 = 2<sup>k−1</sup>, which is still even (for k &gt; 1).<br>
+              3. Thus, the rule is applied repeatedly without EVER invoking the odd rule (3n + 1):<br>
+              2<sup>k</sup> &rarr; 2<sup>k−1</sup> &rarr; 2<sup>k−2</sup> &rarr; ... &rarr; 4 &rarr; 2 &rarr; 1<br>
+              4. It takes exactly k halving steps to reach 1.
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">Powers of 2 collapse strictly by successive division by 2 in exactly k steps without any odd branch.</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Hence, powers of 2 act as the "direct downward highways" of the Collatz tree.</p>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q19 (Game Strategy): Two players alternate adding a number from {1, 2, 3} starting from 0. The player who says '20' wins. What is the guaranteed winning strategy?</summary>
+        <div class="ans-content">
+          <div class="step-box">
+            <div class="step-title">Step 1: Given data & What to find</div>
+            <p><strong>Given:</strong> Starting sum = 0. Moves allowed: +1, +2, or +3. Target to win = 20.<br><strong>To find:</strong> Winning player and strategy.</p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 2: Backward Induction & Modulo Arithmetic</div>
+            <p>
+              Target = 20.<br>
+              Step size range = [1, 3]. The sum of min and max move is 1 + 3 = 4.<br>
+              Key target positions to control are: 20, 16, 12, 8, 4.
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 3: Step-by-step game strategy</div>
+            <p>
+              1. <strong>Target 20:</strong> If you reach 16, whatever Player 1 adds (1, 2, or 3), you can add (4 − their move) to reach 20!<br>
+              2. <strong>Target 16:</strong> To guarantee reaching 16, you must reach 12.<br>
+              3. <strong>Target 12:</strong> To guarantee reaching 12, you must reach 8.<br>
+              4. <strong>Target 8:</strong> To guarantee reaching 8, you must reach 4.<br>
+              5. <strong>Starting from 0:</strong> Player 1 must move first. Player 1 adds x &isin; {1, 2, 3}.<br>
+              6. Player 2 immediately adds (4 − x), reaching exactly <strong>4</strong>!<br>
+              7. Player 2 maintains this invariant at every turn, landing on 4, 8, 12, 16, and finally <strong>20</strong>.
+            </p>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 4: Final value / result</div>
+            <div class="final-ans">Player 2 (Second Player) has a 100% winning strategy by complementing Player 1's moves to multiples of 4.</div>
+          </div>
+          <div class="step-box">
+            <div class="step-title">Step 5: Concluding statement</div>
+            <p>Therefore, Player 2 always wins by enforcing the Modulo 4 invariant.</p>
+          </div>
+        </div>
+      </details>
+    </section>
+
+
+    <!-- SECTION 5: EXHAUSTIVE EXAM & PRACTICE QUESTION BANK -->
+    <section id="sec-5" class="section-card">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <h2 class="section-title">Exhaustive Exam & Practice Question Bank</h2>
+      </div>
+
+      <!-- Part A: 5 MCQs -->
+      <h3>Part A: Multiple Choice Questions (with Conceptual Traps Decoded)</h3>
+
+      <div class="callout callout-def">
+        <p><strong>Q1. In a 3×3 grid of 9 distinct positive integers, what is the theoretical maximum number of supercells that can exist?</strong></p>
+        <p>
+          (a) 3<br>
+          (b) 4<br>
+          (c) 5<br>
+          (d) 9
+        </p>
+        <details class="ans-box">
+          <summary>💡 View Correct Option & Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (c) 5</strong></p>
+            <p><strong>Mathematical Explanation:</strong> Two cells sharing a common vertical or horizontal edge cannot both be supercells (one must be strictly greater than the other). The maximum independent set on a 3×3 grid graph is achieved via an alternating checkerboard pattern containing the 4 corners and the 1 center cell, giving 4 + 1 = 5 supercells.</p>
+            <p><strong>Conceptual Trap Alert:</strong> Option (d) 9 is the trap for students who forget the definition of supercell. No two neighbors can both be strictly greater than each other!</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-def">
+        <p><strong>Q2. What is Kaprekar's Constant for 4-digit numbers with at least two distinct digits?</strong></p>
+        <p>
+          (a) 495<br>
+          (b) 6174<br>
+          (c) 1089<br>
+          (d) 9999
+        </p>
+        <details class="ans-box">
+          <summary>💡 View Correct Option & Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (b) 6174</strong></p>
+            <p><strong>Mathematical Explanation:</strong> 7641 − 1467 = 6174. Every eligible 4-digit number collapses to 6174 in at most 7 rounds.</p>
+            <p><strong>Conceptual Trap Alert:</strong> 495 is the Kaprekar constant for <em>3-digit</em> numbers, not 4-digit numbers!</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-def">
+        <p><strong>Q3. Which of the following numbers can NEVER be written as the sum of three consecutive integers?</strong></p>
+        <p>
+          (a) 33<br>
+          (b) 45<br>
+          (c) 50<br>
+          (d) 66
+        </p>
+        <details class="ans-box">
+          <summary>💡 View Correct Option & Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (c) 50</strong></p>
+            <p><strong>Mathematical Explanation:</strong> The sum of three consecutive integers is (n − 1) + n + (n + 1) = 3n, which must be a multiple of 3. Since 33 (3&times;11), 45 (3&times;15), and 66 (3&times;22) are all divisible by 3, they can be written as consecutive sums. 50 is not divisible by 3 (50 &divide; 3 = 16.67), so it is impossible.</p>
+            <p><strong>Conceptual Trap Alert:</strong> Students often try random trial-and-error instead of checking divisibility by 3.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-def">
+        <p><strong>Q4. How many total palindromic times appear on a standard 12-hour digital clock display (from 1:00 to 12:59)?</strong></p>
+        <p>
+          (a) 9<br>
+          (b) 12<br>
+          (c) 15<br>
+          (d) 24
+        </p>
+        <details class="ans-box">
+          <summary>💡 View Correct Option & Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (b) 12</strong></p>
+            <p><strong>Mathematical Explanation:</strong> Single-digit hours (1:01 to 9:09) produce 9 palindromes. Double-digit hours produce 10:01, 11:11, and 12:21 (3 palindromes). Total in 12 hours = 9 + 3 = 12.</p>
+            <p><strong>Conceptual Trap Alert:</strong> 24 is the count for a full 24-hour day (AM + PM), but the question specifically asks for a 12-hour cycle display.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-def">
+        <p><strong>Q5. In the Collatz sequence, if the current term is 13, what will be the next two terms in order?</strong></p>
+        <p>
+          (a) 26, 13<br>
+          (b) 40, 20<br>
+          (c) 39, 40<br>
+          (d) 40, 80
+        </p>
+        <details class="ans-box">
+          <summary>💡 View Correct Option & Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer: (b) 40, 20</strong></p>
+            <p><strong>Mathematical Explanation:</strong> 13 is odd &rarr; next term = 3(13) + 1 = 40. 40 is even &rarr; next term = 40 &divide; 2 = 20.</p>
+            <p><strong>Conceptual Trap Alert:</strong> Students often multiply by 3 and forget to add 1 (getting 39).</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Part B: 4 Assertion & Reasoning -->
+      <h3>Part B: Assertion & Reasoning Questions</h3>
+      <p><em>Directions: Choose (A) Both A and R are true and R is correct explanation of A; (B) Both A and R are true but R is NOT correct explanation; (C) A is true but R is false; (D) A is false but R is true.</em></p>
+
+      <div class="callout callout-pyq">
+        <p><strong>Q6.</strong><br>
+        <strong>Assertion (A):</strong> In any rectangular table filled with distinct numbers, there is always at least one supercell.<br>
+        <strong>Reason (R):</strong> The cell containing the largest number in the entire grid is strictly greater than all of its neighbors.</p>
+        <details class="ans-box">
+          <summary>💡 View Answer & Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer: (A) Both A and R are true, and R is the correct explanation of A.</strong></p>
+            <p><strong>Explanation:</strong> Because all numbers are distinct and finite, there must exist a unique maximum element M. Since M &gt; x for all other cells, M is greater than all its adjacent neighbors, guaranteeing that M is a supercell.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-pyq">
+        <p><strong>Q7.</strong><br>
+        <strong>Assertion (A):</strong> The sum of any two 4-digit numbers can never be a 6-digit number.<br>
+        <strong>Reason (R):</strong> The greatest 4-digit number is 9,999, and 9,999 + 9,999 = 19,998, which has only 5 digits.</p>
+        <details class="ans-box">
+          <summary>💡 View Answer & Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer: (A) Both A and R are true, and R is the correct explanation of A.</strong></p>
+            <p><strong>Explanation:</strong> The maximum possible sum of two 4-digit numbers is 19,998. The smallest 6-digit number is 100,000. Since 19,998 &lt; 100,000, two 4-digit numbers can never total 6 digits.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-pyq">
+        <p><strong>Q8.</strong><br>
+        <strong>Assertion (A):</strong> Kaprekar's routine applied to 1111 reaches 6174 in 1 step.<br>
+        <strong>Reason (R):</strong> If all digits of a 4-digit number are identical, descending and ascending arrangements are identical, resulting in 0.</p>
+        <details class="ans-box">
+          <summary>💡 View Answer & Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer: (D) Assertion (A) is false, but Reason (R) is true.</strong></p>
+            <p><strong>Explanation:</strong> For 1111: 1111 − 1111 = 0, so it collapses to 0 and NEVER reaches 6174. Kaprekar's routine strictly requires that the starting number must have <em>at least two different digits</em>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-pyq">
+        <p><strong>Q9.</strong><br>
+        <strong>Assertion (A):</strong> The sum of any 3×3 square block of dates on a calendar is always divisible by 9.<br>
+        <strong>Reason (R):</strong> The dates in the 3×3 block are symmetrically distributed around the central date C, making the total sum equal to 9 &times; C.</p>
+        <details class="ans-box">
+          <summary>💡 View Answer & Explanation</summary>
+          <div class="ans-content">
+            <p><strong>Answer: (A) Both A and R are true, and R is the correct explanation of A.</strong></p>
+            <p><strong>Explanation:</strong> The 8 surrounding dates cancel out their positive and negative offsets relative to the center date C, giving Total Sum = 9C, which is strictly divisible by 9.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Part C: 5 Short Answer Questions (2M/3M) -->
+      <h3>Part C: Short Answer Questions (2M / 3M)</h3>
+
+      <details class="ans-box">
+        <summary>Q10 (2 Marks): How many 3-digit palindromes can be formed using only the digits 2, 5, and 8?</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Digits set {2, 5, 8}.<br><strong>To find:</strong> Total number of 3-digit palindromes formed using these digits.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Formula / Principle</div>
+          <p>A 3-digit palindrome has the form ABA. The first digit A can be chosen from the set, and the middle digit B can be chosen from the set. The units digit is automatically determined by A.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Calculation</div>
+          <p>
+            Choices for A (hundreds digit) = 3 (2, 5, or 8).<br>
+            Choices for B (tens digit) = 3 (2, 5, or 8).<br>
+            Total combinations = 3 &times; 3 = 9.<br>
+            Listing: 222, 252, 282, 525, 555, 585, 828, 858, 888.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Total = 9 palindromes.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>Exactly 9 distinct 3-digit palindromes can be formed.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q11 (2 Marks): Express 75 as the sum of three consecutive integers.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Sum = 75.<br><strong>To find:</strong> Three consecutive integers (n − 1), n, (n + 1).</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Formula</div>
+          <p>Sum = 3n &rarr; Middle number n = Sum &divide; 3.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Arithmetic working</div>
+          <p>
+            n = 75 &divide; 3 = 25.<br>
+            Previous integer = 25 − 1 = 24.<br>
+            Next integer = 25 + 1 = 26.<br>
+            Check: 24 + 25 + 26 = 75.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">24, 25, and 26.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>75 is expressed as 24 + 25 + 26.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q12 (3 Marks): Find the Kaprekar sequence for the 3-digit number 371. Show all steps until the constant 495 is reached.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> 3-digit starting number = 371.<br><strong>To find:</strong> Step-by-step Kaprekar routine to reach 495.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Routine rule</div>
+          <p>Arrange digits descending − arrange digits ascending = difference.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Arithmetic steps</div>
+          <p>
+            Round 1: Digits {1, 3, 7} &rarr; 731 − 137 = <strong>594</strong>.<br>
+            Round 2: Digits of 594 {4, 5, 9} &rarr; 954 − 459 = <strong>495</strong>.<br>
+            Round 3: Digits of 495 {4, 5, 9} &rarr; 954 − 459 = <strong>495</strong> (Self-reproducing loop).
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Reached 495 in exactly 2 rounds.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>371 reaches 495 rapidly in just two subtraction rounds.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q13 (3 Marks): A student performs the Reverse-and-Add algorithm starting with 89. Show the first three iterations of the algorithm.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Starting number = 89.<br><strong>To find:</strong> First three iterations of Reverse-and-Add.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Principle</div>
+          <p>At each step, reverse the digits of the current number and add to the number itself.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Iterations</div>
+          <p>
+            Iteration 1: 89 + 98 = <strong>187</strong> (Not palindrome).<br>
+            Iteration 2: 187 + 781 = <strong>968</strong> (Not palindrome).<br>
+            Iteration 3: 968 + 869 = <strong>1,837</strong> (Not palindrome).
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">187, 968, and 1,837.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>The first three numbers generated are 187, 968, and 1,837.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q14 (3 Marks): Find how many times the digit '7' appears in all the numbers from 1 to 100.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Range 1 to 100.<br><strong>To find:</strong> Frequency of digit '7'.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Place Value Counting Principle</div>
+          <p>Count occurrences of 7 in the units place and tens place separately.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Detailed counting</div>
+          <p>
+            1. <strong>Units place:</strong> 7, 17, 27, 37, 47, 57, 67, 77, 87, 97 &rarr; <strong>10 times</strong>.<br>
+            2. <strong>Tens place:</strong> 70, 71, 72, 73, 74, 75, 76, 77, 78, 79 &rarr; <strong>10 times</strong>.<br>
+            3. (Note that in 77, the digit 7 appears twice and has been counted once in each list).<br>
+            4. Total occurrences = 10 + 10 = <strong>20 times</strong>.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Total occurrences = 20 times.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>The digit 7 appears exactly 20 times between 1 and 100.</p></div>
+        </div>
+      </details>
+
+      <!-- Part D: 3 Long Answer Multi-Step Problems (5M) -->
+      <h3>Part D: Long Answer Multi-Step Problems (5M)</h3>
+
+      <details class="ans-box">
+        <summary>Q15 (5 Marks): (a) What is the sum of all dates in a 3×3 calendar block whose center date is 18? (b) Prove algebraically why the sum of any 3×3 calendar block is always 9 times the center number.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Center date C = 18.<br><strong>To find:</strong> (a) Sum of the block, (b) Algebraic proof for general center date C.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Calendar 7-Day Week Matrix Structure</div>
+          <p>In a standard monthly calendar, moving down one row adds 7 days; moving right one column adds 1 day.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Clear step-by-step working</div>
+          <p>
+            <strong>Part (a): Numerical calculation [2 Marks]</strong><br>
+            Sum = 9 &times; C = 9 &times; 18 = <strong>162</strong>.<br>
+            Let us verify by listing the 9 dates around 18:<br>
+            Row 1: 10, 11, 12<br>
+            Row 2: 17, 18, 19<br>
+            Row 3: 24, 25, 26<br>
+            Sum = (10+11+12) + (17+18+19) + (24+25+26) = 33 + 54 + 75 = 162.<br><br>
+            <strong>Part (b): Algebraic Proof [3 Marks]</strong><br>
+            Let the center date be C.<br>
+            Row 1: (C − 8) + (C − 7) + (C − 6) = 3C − 21<br>
+            Row 2: (C − 1) + C + (C + 1) = 3C<br>
+            Row 3: (C + 6) + (C + 7) + (C + 8) = 3C + 21<br>
+            Total Sum = (3C − 21) + 3C + (3C + 21) = 9C.<br>
+            Since 9C = 9 &times; C, the sum is identically 9 times the center date.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div><div class="final-ans">Part (a) Sum = 162 &nbsp;|&nbsp; Part (b) Total Sum = 9C.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>Hence, the algebraic symmetry of the 7-day grid strictly proves the 9C theorem.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q16 (5 Marks): A number puzzle requires finding a 5-digit number N with distinct non-zero digits such that: (i) N is a palindrome, (ii) The sum of all its digits is 16, (iii) The product of its first two digits is 6. Find all possible numbers satisfying these conditions.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> 5-digit palindrome N = ABCBA with non-zero digits. Digit sum = 16. A &times; B = 6.<br><strong>To find:</strong> All possible numbers N.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: System of Equations</div>
+          <p>
+            1. Form: ABCBA.<br>
+            2. Digit sum: 2A + 2B + C = 16.<br>
+            3. Product condition: A &times; B = 6.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 3: Detailed Case Analysis</div>
+          <p>
+            Since A and B are single non-zero digits with A &times; B = 6, possible pairs (A, B) are:<br>
+            Case 1: A = 1, B = 6<br>
+            Case 2: A = 2, B = 3<br>
+            Case 3: A = 3, B = 2<br>
+            Case 4: A = 6, B = 1<br><br>
+            Now substitute each pair into 2A + 2B + C = 16 &rarr; 2(A + B) + C = 16 &rarr; C = 16 − 2(A + B):<br><br>
+            &bull; For Cases 1 & 4 (A + B = 7):<br>
+            C = 16 − 2(7) = 16 − 14 = 2.<br>
+            - Pair (1, 6): Number = <strong>16261</strong>.<br>
+            - Pair (6, 1): Number = <strong>61216</strong>.<br><br>
+            &bull; For Cases 2 & 3 (A + B = 5):<br>
+            C = 16 − 2(5) = 16 − 10 = 6.<br>
+            - Pair (2, 3): Number = <strong>23632</strong>.<br>
+            - Pair (3, 2): Number = <strong>32623</strong>.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div><div class="final-ans">Four numbers: 16261, 61216, 23632, and 32623.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>All four solutions strictly fulfill every given constraint.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q17 (5 Marks): A nim-style matchstick game starts with 21 matchsticks on the table. Two players take turns removing 1, 2, or 3 matchsticks. The player who picks up the LAST matchstick LOSES (Normal Misere Rule). Derive the complete winning strategy and specify who wins.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Initial pile = 21 matchsticks. Allowed moves: 1, 2, or 3. Last person to pick loses.<br><strong>To find:</strong> Winning player and winning positions.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Backward Induction & Losing Positions</div>
+          <p>
+            Since picking the last stick loses, leaving exactly <strong>1 matchstick</strong> forces the opponent to take it and lose! Thus, 1 is a "winning target to leave".
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 3: Strategic Derivation</div>
+          <p>
+            Target safe states to leave for the opponent:<br>
+            - Target 1: Leave <strong>1</strong> stick (opponent must take 1 and lose).<br>
+            - Target 2: If opponent faces <strong>5</strong> sticks, whether they take 1, 2, or 3, you can respond by leaving 1 stick!<br>
+            - Target 3: Leave <strong>9</strong> sticks (opponent takes x &rarr; you take 4 − x &rarr; leaves 5).<br>
+            - Target 4: Leave <strong>13</strong> sticks.<br>
+            - Target 5: Leave <strong>17</strong> sticks.<br>
+            - Target 6: Leave <strong>21</strong> sticks.<br><br>
+            <strong>Starting State:</strong> There are 21 matchsticks already on the table!<br>
+            Because 21 is of the form 4k + 1 (21 = 4&times;5 + 1), the starting state itself is a safe state!<br>
+            Therefore, <strong>Player 1 is forced to move from 21</strong>, and Player 2 can always complement Player 1's move so that the sum of each round is 4:<br>
+            &bull; Round 1: P1 takes x &rarr; P2 takes (4 − x) &rarr; Leaves 17.<br>
+            &bull; Round 2: P1 takes y &rarr; P2 takes (4 − y) &rarr; Leaves 13.<br>
+            &bull; Round 3: P1 takes z &rarr; P2 takes (4 − z) &rarr; Leaves 9.<br>
+            &bull; Round 4: P1 takes w &rarr; P2 takes (4 − w) &rarr; Leaves 5.<br>
+            &bull; Round 5: P1 takes v &rarr; P2 takes (4 − v) &rarr; Leaves <strong>1</strong> stick for P1!<br>
+            Player 1 is forced to take the final stick and loses!
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value / result</div><div class="final-ans">Player 2 (Second Player) has a guaranteed winning strategy by maintaining the 4k + 1 invariant.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>Thus, by enforcing 4k + 1, Player 2 wins unconditionally.</p></div>
+        </div>
+      </details>
+
+      <!-- Part E: 2 Case Studies -->
+      <h3>Part E: Competency-Based Case & Data Interpretation Studies</h3>
+
+      <div class="callout callout-act">
+        <h4>Case Study 1: The Devlali Mathematical Enigma (D.R. Kaprekar's Discovery)</h4>
+        <p>
+          In 1949, at a mathematical conference in Madras, a humble schoolteacher named D.R. Kaprekar introduced a mathematical operation: take any 4-digit number with at least two distinct digits, arrange its digits in descending order to form the largest number, arrange them in ascending order to form the smallest number, and subtract. Repeating this process always leads to 6174 in 7 or fewer steps.
+        </p>
+        <p><strong>Sub-question 1.1:</strong> Apply Kaprekar's routine to the year of India's independence, 1947. How many rounds does it take to reach 6174?<br>
+        <strong>Sub-question 1.2:</strong> Why does Kaprekar's routine fail for numbers like 2222 or 7777?</p>
+        <details class="ans-box">
+          <summary>💡 View Full Solution for Case Study 1</summary>
+          <div class="ans-content">
+            <p><strong>Solution 1.1:</strong><br>
+            - Start: 1947. Digits {1, 4, 7, 9}.<br>
+            - Round 1: 9741 − 1479 = <strong>8262</strong>.<br>
+            - Round 2: 8622 − 2268 = <strong>6354</strong>.<br>
+            - Round 3: 6543 − 3456 = <strong>3087</strong>.<br>
+            - Round 4: 8730 − 0378 = <strong>8352</strong>.<br>
+            - Round 5: 8532 − 2358 = <strong>6174</strong>!<br>
+            It takes exactly <strong>5 rounds</strong> to reach 6174.</p>
+            <p><strong>Solution 1.2:</strong><br>
+            For numbers with identical digits like 2222, descending arrangement (2222) and ascending arrangement (2222) are identical. Their difference is 2222 − 2222 = 0. Once 0 is reached, the routine degenerates to 0000 − 0000 = 0 and can never produce 6174.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="callout callout-act">
+        <h4>Case Study 2: The School Exhibition Mystery Grid</h4>
+        <p>
+          At a mathematics exhibition, Ananya displays a 3×3 grid populated with numbers representing scores in a brain game. Her teacher asks the class to identify the supercells and verify if the grid obeys local peak rules. The grid entries are:
+        </p>
+        <table class="math-table" style="max-width: 280px; text-align: center;">
+          <tbody>
+            <tr><td>24</td><td>15</td><td>38</td></tr>
+            <tr><td>19</td><td>42</td><td>21</td></tr>
+            <tr><td>55</td><td>30</td><td>17</td></tr>
+          </tbody>
+        </table>
+        <p><strong>Sub-question 2.1:</strong> Identify all supercells in this grid.<br>
+        <strong>Sub-question 2.2:</strong> If the number 30 in the bottom row is replaced by 60, how does the number of supercells change?</p>
+        <details class="ans-box">
+          <summary>💡 View Full Solution for Case Study 2</summary>
+          <div class="ans-content">
+            <p><strong>Solution 2.1:</strong> Let us test every candidate cell against its cardinal neighbors:<br>
+            - 24 (Corner): Neighbors are 15 and 19. (24 > 15, 24 > 19) &rarr; <strong>Supercell 1</strong>!<br>
+            - 38 (Corner): Neighbors are 15 and 21. (38 > 15, 38 > 21) &rarr; <strong>Supercell 2</strong>!<br>
+            - 42 (Center): Neighbors are 15, 19, 21, 30. (42 > 15, 42 > 19, 42 > 21, 42 > 30) &rarr; <strong>Supercell 3</strong>!<br>
+            - 55 (Corner): Neighbors are 19 and 30. (55 > 19, 55 > 30) &rarr; <strong>Supercell 4</strong>!<br>
+            Total Supercells = <strong>4</strong> (cells 24, 38, 42, 55).</p>
+            <p><strong>Solution 2.2:</strong> If 30 becomes 60:<br>
+            - 60 has neighbors 42, 55, 17. Since 60 > 42, 60 > 55, and 60 > 17, 60 becomes a supercell!<br>
+            - However, cell 42 has neighbor 60 &rarr; 42 is no longer greater than all neighbors &rarr; 42 loses supercell status.<br>
+            - Cell 55 has neighbor 60 &rarr; 55 is no longer greater than all neighbors &rarr; 55 loses supercell status.<br>
+            New supercells are: 24, 38, and 60 (Total = <strong>3 supercells</strong>). The supercell count decreases from 4 to 3.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Part F: 10 Graded Extra Practice Questions -->
+      <h3>Part F: Extra Practice & Speed Drill Bank (10 Questions)</h3>
+
+      <!-- Practice Q1 to Q5: Beginner/Intermediate Drills -->
+      <h4>Beginner & Intermediate Speed Drills (Direct Application)</h4>
+
+      <details class="ans-box">
+        <summary>P1. Find the sum of all 2-digit palindromic numbers.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> All 2-digit palindromes.<br><strong>To find:</strong> Their sum.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Formula</div>
+          <p>2-digit palindromes have the form AA: 11, 22, 33, 44, 55, 66, 77, 88, 99.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Calculation</div>
+          <p>
+            Sum = 11 &times; (1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9)<br>
+            Sum of 1 to 9 = 45.<br>
+            Total = 11 &times; 45 = <strong>495</strong>! (Notice: 495 is also the 3-digit Kaprekar constant!).
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Sum = 495.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>The sum of all two-digit palindromes is exactly 495.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P2. Find the smallest 4-digit number whose digit sum is 12.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> 4-digit number, digit sum = 12.<br><strong>To find:</strong> The smallest such number.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Minimization Rule</div>
+          <p>Minimize thousands digit (d1 = 1). Maximize lowest place value digits (units d4 = 9).</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Construction</div>
+          <p>
+            Set d1 = 1. Remaining sum = 12 − 1 = 11.<br>
+            Set d4 = 9. Remaining sum = 11 − 9 = 2.<br>
+            To minimize, put 0 in hundreds place: d2 = 0.<br>
+            Put remaining 2 in tens place: d3 = 2.<br>
+            Number = <strong>1,029</strong>.<br>
+            Check: 1 + 0 + 2 + 9 = 12.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">1,029.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>1,029 is the smallest 4-digit number with digit sum 12.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P3. Can the number 105 be represented as the sum of 5 consecutive integers? If yes, find them.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Sum = 105, number of consecutive integers = 5.<br><strong>To find:</strong> Feasibility and the 5 integers.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: 5-Consecutive Sum Formula</div>
+          <p>Sum = 5m &rarr; Middle number m = Sum &divide; 5.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Calculation</div>
+          <p>
+            m = 105 &divide; 5 = 21.<br>
+            The 5 consecutive integers are (21 − 2), (21 − 1), 21, (21 + 1), (21 + 2):<br>
+            <strong>19, 20, 21, 22, 23</strong>.<br>
+            Check: 19 + 20 + 21 + 22 + 23 = 105.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Yes: 19, 20, 21, 22, and 23.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>105 is successfully expressed as the sum of 5 consecutive integers centered at 21.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P4. Trace the Collatz sequence starting at number 12.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> n = 12.<br><strong>To find:</strong> Full Collatz path to 1.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Rule</div>
+          <p>Even &rarr; divide by 2; Odd &rarr; 3n + 1.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Step-by-step</div>
+          <p>
+            12 (even) &rarr; 6<br>
+            6 (even) &rarr; 3<br>
+            3 (odd) &rarr; 3(3)+1 = 10<br>
+            10 (even) &rarr; 5<br>
+            5 (odd) &rarr; 3(5)+1 = 16<br>
+            16 (even) &rarr; 8<br>
+            8 (even) &rarr; 4<br>
+            4 (even) &rarr; 2<br>
+            2 (even) &rarr; 1!
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">12 &rarr; 6 &rarr; 3 &rarr; 10 &rarr; 5 &rarr; 16 &rarr; 8 &rarr; 4 &rarr; 2 &rarr; 1 (9 steps).</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>12 reaches 1 in 9 steps.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P5. What is the difference between the largest 4-digit number and the smallest 4-digit number that can be formed using digits 8, 0, 3, 5 without repetition?</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given digits:</strong> {0, 3, 5, 8}.<br><strong>To find:</strong> Largest − Smallest 4-digit number.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Place Value Rules</div>
+          <p>Largest: descending order. Smallest: smallest non-zero leading digit, followed by ascending order.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Calculation</div>
+          <p>
+            Largest = 8,530.<br>
+            Smallest = 3,058.<br>
+            Difference = 8,530 − 3,058 = <strong>5,472</strong>.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">5,472.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>The difference between the two numbers is 5,472.</p></div>
+        </div>
+      </details>
+
+      <!-- Practice Q6 to Q10: HOTS & Real-World Competency -->
+      <h4>Higher-Order Thinking Skills (HOTS) & Competency Problems</h4>
+
+      <details class="ans-box">
+        <summary>P6 (HOTS): Prove that the difference between any 2-digit number and the number formed by reversing its digits is always divisible by 9.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> A 2-digit number N = 10a + b (with a &gt; b).<br><strong>To find:</strong> Prove that N − Reversed(N) is a multiple of 9.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Algebraic formulation</div>
+          <p>Original = 10a + b; Reversed = 10b + a.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Algebraic simplification</div>
+          <p>
+            Difference = (10a + b) − (10b + a)<br>
+            = 10a − a + b − 10b<br>
+            = 9a − 9b<br>
+            = 9(a − b).<br>
+            Since (a − b) is an integer, 9(a − b) is strictly divisible by 9!
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Difference = 9(a − b), identically divisible by 9. Q.E.D.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>The difference between any two-digit number and its reverse is universally a multiple of 9.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P7 (HOTS): In a 4×4 grid of 16 distinct numbers, what is the maximum number of supercells possible?</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> 4×4 grid (16 cells).<br><strong>To find:</strong> Maximum number of supercells possible.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Graph Theory & Checkerboard Independence</div>
+          <p>In any grid graph of dimensions m &times; n, the maximum number of independent (non-neighboring) cells is ceil(mn / 2) = 16 / 2 = 8.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Construction Verification</div>
+          <p>
+            Color the 4×4 grid like a chessboard with black and white squares.<br>
+            There are 8 black cells and 8 white cells.<br>
+            No two black cells share a common horizontal or vertical edge!<br>
+            Assign the 8 largest numbers to all the black cells, and the 8 smaller numbers to all the white cells.<br>
+            Every black cell is greater than all its white neighbors &rarr; All 8 black cells are supercells!
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Maximum Supercells = 8.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>Exactly 8 supercells can be realized in a 4×4 grid.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P8 (HOTS): A digital clock shows hours and minutes in 24-hour format (00:00 to 23:59). What is the total number of palindromic times in a full 24-hour day?</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> 24-hour clock format HH:MM (from 00:00 to 23:59).<br><strong>To find:</strong> Total palindromic times.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Structure of a 24-Hour Palindrome</div>
+          <p>Format is AB:BA. For each valid hour AB (00 to 23), the minutes must be BA. But minutes must be less than 60, meaning B &le; 5!</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Systematic enumeration by hour</div>
+          <p>
+            - Hour 00 to 05: B &isin; {0, 1, 2, 3, 4, 5} &rarr; 00:00, 01:10, 02:20, 03:30, 04:40, 05:50 (6 times).<br>
+            - Hour 06 to 09: B &isin; {6, 7, 8, 9} &rarr; Minutes BA would be 60, 70, 80, 90 &rarr; Invalid!<br>
+            - Hour 10 to 15: B &isin; {0, 1, 2, 3, 4, 5} &rarr; 10:01, 11:11, 12:21, 13:31, 14:41, 15:51 (6 times).<br>
+            - Hour 16 to 19: B &isin; {6, 7, 8, 9} &rarr; Invalid minutes &ge; 60.<br>
+            - Hour 20 to 23: B &isin; {0, 1, 2, 3} &rarr; 20:02, 21:12, 22:22, 23:32 (4 times).<br>
+            Total = 6 + 6 + 4 = <strong>16 palindromic times</strong>.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Total = 16 palindromic times.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>In 24-hour format, exactly 16 palindromic times occur daily.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P9 (Real-World Estimation): Estimate the total number of breaths a Class 6 student has taken in their lifetime.</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Average age of a Class 6 student &approx; 11 years.<br><strong>To find:</strong> Lifetime total breath estimate.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Estimation Parameters</div>
+          <p>
+            - Average breathing rate of a child &approx; 15 to 20 breaths per minute.<br>
+            - 1 hour = 60 minutes.<br>
+            - 1 day = 24 hours.<br>
+            - 1 year &approx; 365 days.
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 3: Step-by-step arithmetic</div>
+          <p>
+            1. Breaths per hour &approx; 16 &times; 60 = 960 &approx; 1,000 breaths/hour.<br>
+            2. Breaths per day &approx; 1,000 &times; 24 = 24,000 breaths/day.<br>
+            3. Breaths per year &approx; 24,000 &times; 365 &approx; 8,760,000 breaths/year.<br>
+            4. Breaths in 11 years &approx; 11 &times; 8,760,000 &approx; <strong>96,000,000 breaths</strong> &approx; <strong>10<sup>8</sup> breaths</strong> (around 100 million breaths!).
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Approximately 9.6 &times; 10<sup>7</sup> to 10<sup>8</sup> breaths (~100 million).</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>A Class 6 student has taken roughly one hundred million breaths.</p></div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>P10 (HOTS Game Variation): In the 21-counter game, the rules are modified: each player may take 1, 2, 3, or 4 counters on their turn. The player who takes the last counter WINS. Who has the winning strategy?</summary>
+        <div class="ans-content">
+          <div class="step-box"><div class="step-title">Step 1: Given data & What to find</div>
+          <p><strong>Given:</strong> Total counters = 21. Allowed moves: {1, 2, 3, 4}. Last player to pick wins.<br><strong>To find:</strong> Winning player and strategy.</p></div>
+          <div class="step-box"><div class="step-title">Step 2: Modulo (k + 1) Principle</div>
+          <p>Here max move k = 4. The magic base is k + 1 = 4 + 1 = 5. The winning positions are multiples of 5.</p></div>
+          <div class="step-box"><div class="step-title">Step 3: Deduction</div>
+          <p>
+            1. 21 divided by 5 gives remainder 1 (21 = 4 &times; 5 + 1).<br>
+            2. <strong>Player 1's First Move:</strong> Player 1 takes exactly <strong>1 counter</strong>, leaving exactly 20 counters (a multiple of 5) on the table!<br>
+            3. On subsequent turns, whenever Player 2 takes y counters (where y &isin; {1, 2, 3, 4}), Player 1 takes (5 − y) counters!<br>
+            4. This maintains the running total at multiples of 5: leaving 15, then 10, then 5, and finally taking the remaining counters to win!
+          </p></div>
+          <div class="step-box"><div class="step-title">Step 4: Final value</div><div class="final-ans">Player 1 (First Player) has a 100% winning strategy by taking 1 counter first, then complementing to 5.</div></div>
+          <div class="step-box"><div class="step-title">Step 5: Concluding statement</div><p>Player 1 wins by capturing the multiple of 5 invariant.</p></div>
+        </div>
+      </details>
+    </section>
+
+
+    <!-- SECTION 6: EXAM HALL TRAPS & RAPID REVISION -->
+    <section id="sec-6" class="section-card">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <h2 class="section-title">Exam Hall Trap Alerts & 15 Rapid Revision One-Liners</h2>
+      </div>
+
+      <!-- 5 Common Calculation Traps -->
+      <h3>Top 5 Exam Hall Conceptual & Calculation Traps</h3>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 1: Counting Diagonal Neighbors in Supercell Problems</strong>
+        <p>In standard textbook grid problems, <em>diagonal cells are NEVER neighbors</em>. A cell only compares against cells sharing a complete horizontal or vertical edge (Up, Down, Left, Right). If an interior cell is 50, and its diagonal cell is 99, 50 can still be a supercell as long as its cardinal 4 neighbors are strictly less than 50!</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 2: Dropping the Leading Zero in Kaprekar's Routine</strong>
+        <p>When digits include a zero (e.g., 5085 &rarr; digits {0, 5, 5, 8}), students often write the ascending number as 558 instead of <strong>0558</strong>. Subtracting 558 instead of 0558 completely corrupts the difference and derails the entire Kaprekar sequence. Always keep 4-digit width by retaining leading zeros: <code>8550 − 0558 = 7992</code>.</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 3: Applying Kaprekar's Routine to All-Identical Digits</strong>
+        <p>Numbers like 1111, 2222, 5555 cannot undergo Kaprekar's routine because <code>2222 − 2222 = 0</code>. Always verify first that the 4-digit number possesses <em>at least two different digits</em>.</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 4: Forgetting the "+ 1" in Lothar Collatz's Rule</strong>
+        <p>For an odd number n, students often compute <code>3n</code> instead of <code>3n + 1</code>. Without adding 1, the product remains odd and cannot be halved, completely breaking the hailstone cycle.</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 5: Misjudging Maximum Digit Sum Bounds</strong>
+        <p>Two 4-digit numbers can <em>never</em> produce a 6-digit sum: <code>9,999 + 9,999 = 19,998</code> (max 5 digits). Similarly, two 5-digit numbers can <em>never</em> add up to less than <code>20,000</code>.</p>
+      </div>
+
+      <!-- 15 Rapid Revision One-Liners -->
+      <h3>15 Rapid Revision One-Liners (Pre-Exam Checklist)</h3>
+      <ol style="margin-left: 20px; line-height: 1.8;">
+        <li>A <strong>supercell</strong> is strictly greater than all of its cardinal (up, down, left, right) neighbors.</li>
+        <li>The <strong>largest distinct number</strong> in any finite grid is guaranteed to be a supercell.</li>
+        <li>The <strong>smallest distinct number</strong> in any grid of size &ge; 2 can never be a supercell.</li>
+        <li>The theoretical maximum number of supercells in a 3×3 grid is <strong>5</strong> (corners + center).</li>
+        <li>The total number of n-digit positive integers is given by the formula <strong>9 &times; 10<sup>n−1</sup></strong>.</li>
+        <li>There are <strong>90</strong> 2-digit numbers, <strong>900</strong> 3-digit numbers, and <strong>9,000</strong> 4-digit numbers.</li>
+        <li>The digit sum of any three consecutive integers is always a <strong>multiple of 3</strong> (3d + 3).</li>
+        <li>A <strong>palindromic number</strong> reads identically forwards and backwards (e.g., 121, 1331).</li>
+        <li>In a 12-hour digital clock display, there are exactly <strong>12 palindromic times</strong>.</li>
+        <li>The sum of all 9 dates in any 3×3 calendar block is always <strong>9 &times; (Center Date)</strong>.</li>
+        <li><strong>6174</strong> is Kaprekar's Constant for 4-digit numbers, reached in at most 7 rounds.</li>
+        <li><strong>495</strong> is Kaprekar's Constant for 3-digit numbers, reached in at most 6 rounds.</li>
+        <li>The sum of 3 consecutive integers is <strong>3 &times; middle number</strong>; sum of 5 consecutive integers is <strong>5 &times; middle number</strong>.</li>
+        <li>The <strong>Collatz Conjecture</strong> (3n + 1) always collapses to the invariant cosmic loop: <strong>4 &rarr; 2 &rarr; 1</strong>.</li>
+        <li>In the 21-counter game (taking 1 to 3 counters), Player 2 wins unconditionally by maintaining the <strong>Modulo 4 invariant</strong>.</li>
+      </ol>
+
+      <!-- Teacher Voice Summary & Interactive TTS -->
+      <div class="tts-container">
+        <button id="tts-btn" class="tts-btn" onclick="toggleTeacherSummary()">
+          <span>🔊 Listen to Teacher's Summary</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+    });
+
+    // 2. Audio TTS Teacher Summary
+    let isSpeaking = false;
+    function toggleTeacherSummary() {
+      const btn = document.getElementById('tts-btn');
+      if (!('speechSynthesis' in window)) {
+        alert('Text-to-speech is not supported in this browser.');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 Listen to Teacher's Summary</span>";
+      } else {
+        const text = "Welcome to Class 6 Mathematics Chapter 3, Number Play. In this chapter, you learned four big concepts: First, supercells in 2D grids, where a cell is strictly greater than its cardinal neighbors, with a maximum of 5 supercells in a 3 by 3 grid. Second, digit symmetries and palindromes, including D.R. Kaprekar's magic constant 6174 for 4-digit numbers and 495 for 3-digit numbers. Third, consecutive number sums and the unproven Collatz 3n plus 1 conjecture that always loops at 4, 2, and 1. And fourth, winning matchstick game strategies governed by modulo 4 arithmetic. Always remember to retain leading zeros in Kaprekar's routine and disregard diagonal cells in supercell problems. Practice daily, and have fun playing with numbers!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 Listen to Teacher's Summary</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ Stop Audio Summary</span>";
+      }
+    }
+  </script>
+</body>
+</html>
+
