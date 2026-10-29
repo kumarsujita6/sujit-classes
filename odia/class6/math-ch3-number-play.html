@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୩: ସଂଖ୍ୟା ଖେଳ (Number Play) &mdash; ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ ମାଷ୍ଟର ନୋଟ୍ସ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ (NEP ଗଣିତ ପ୍ରକାଶ) ଅଧ୍ୟାୟ ୩: ସଂଖ୍ୟା ଖେଳ (Number Play) ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ନୋଟ୍ସ, ସୁପରସେଲ୍, ପାଲିଣ୍ଡ୍ରୋମ୍, କାପ୍ରେକର ଧ୍ରୁବକ ୬୧୭୪, କୋଲାଟ୍ଜ୍ ଅନୁମାନ, ୫-ସ୍ତରୀୟ NCERT ସମାଧାନ।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+      --primary-gradient: linear-gradient(90deg, #0284c7 0%, #38bdf8 50%, #10b981 100%);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.75;
+      font-size: 15.5px;
+      padding-bottom: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: var(--primary-gradient);
+      z-index: 999999;
+      transition: width 0.1s ease-out;
+      box-shadow: 0 1px 4px rgba(2, 132, 199, 0.3);
+    }
+
+    header.header {
+      background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 55%, #0d9488 100%);
+      color: #ffffff;
+      padding: 42px 24px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 12px 30px -8px rgba(2, 132, 199, 0.35);
+    }
+    header.header h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    header.header p {
+      font-size: 1.05rem;
+      opacity: 0.94;
+      max-width: 860px;
+      margin: 0 auto 16px;
+    }
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      transition: all 0.2s var(--ease-spring);
+    }
+    .nav-links a:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.84rem;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    .btn-audio {
+      background: #ffffff;
+      color: var(--primary-dark);
+      font-weight: 700;
+      border: 2px solid var(--primary-light);
+    }
+    .btn-audio:hover {
+      background: var(--primary-light);
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+    .nav-breadcrumb {
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .nav-breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-breadcrumb a:hover { text-decoration: underline; }
+
+    section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+    }
+    section h2 {
+      font-size: 1.55rem;
+      color: var(--primary-dark);
+      border-left: 5px solid var(--primary);
+      padding-left: 14px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section h3 {
+      font-size: 1.25rem;
+      color: #0f172a;
+      margin: 26px 0 14px;
+      font-weight: 700;
+      border-bottom: 2px dashed #f1f5f9;
+      padding-bottom: 6px;
+    }
+    section h4 {
+      font-size: 1.05rem;
+      color: #1e293b;
+      margin: 18px 0 10px;
+      font-weight: 700;
+    }
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 10px 0 18px 24px; }
+    li { margin-bottom: 8px; }
+
+    .math-formula {
+      font-family: 'JetBrains Mono', monospace;
+      background: #f1f5f9;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      color: #0369a1;
+    }
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 0.9em;
+      padding: 0 2px;
+    }
+    .frac sup {
+      border-bottom: 1.5px solid currentColor;
+      padding-bottom: 1px;
+      font-size: inherit;
+      line-height: 1;
+    }
+    .frac sub {
+      font-size: inherit;
+      line-height: 1;
+    }
+
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin: 12px 0 16px;
+    }
+    .step-line {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .step-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 140px;
+    }
+    .step-conclusion {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-weight: 600;
+      color: #166534;
+    }
+
+    .callout {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      border-left: 5px solid;
+    }
+    .callout-title {
+      font-weight: 800;
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .callout-def { background: #f0f9ff; border-left-color: #0284c7; color: #0c4a6e; }
+    .callout-act { background: #f0fdfa; border-left-color: #0d9488; color: #115e59; }
+    .callout-pyq { background: #fffbeb; border-left-color: #f59e0b; color: #78350f; }
+    .callout-hack { background: #f5f3ff; border-left-color: #7c3aed; color: #4c1d95; }
+    .callout-warn { background: #fff1f2; border-left-color: #e11d48; color: #881337; }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.94rem;
+      text-align: left;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border);
+      padding: 11px 14px;
+    }
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    .data-table tr:nth-child(even) { background-color: #f8fafc; }
+
+    details.ans-box {
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.25s var(--ease-spring);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    details.ans-box summary {
+      list-style: none;
+      padding: 1rem 1.35rem;
+      background: #f8fafc;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    details.ans-box summary::-webkit-details-marker { display: none; }
+    details.ans-box summary::after {
+      content: "▾";
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      transition: transform 0.3s var(--ease-spring);
+    }
+    details.ans-box[open] summary::after {
+      transform: rotate(180deg);
+    }
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.08);
+    }
+    details.ans-box[open] summary {
+      background: #f0f9ff;
+      color: var(--primary-dark);
+      border-bottom: 1px solid #bae6fd;
+    }
+    details.ans-box .ans-content {
+      padding: 1.35rem;
+      background: #ffffff;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .diagram-container {
+      margin: 24px auto;
+      text-align: center;
+      background: #ffffff;
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 18px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .quiz-question {
+      font-weight: 700;
+      font-size: 1.02rem;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .quiz-opt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      background: #ffffff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .quiz-opt-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateX(4px);
+    }
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700;
+    }
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+      font-weight: 600;
+    }
+    .quiz-feedback {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .quiz-feedback.correct-fb { background: #f0fdf4; border: 1px solid #86efac; color: #166534; }
+    .quiz-feedback.incorrect-fb { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+    .quiz-score-board {
+      background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+      border: 1.5px solid #a7f3d0;
+      border-radius: 12px;
+      padding: 14px 22px;
+      text-align: center;
+      margin: 18px 0;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #065f46;
+    }
+
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: all 0.3s var(--ease-spring);
+      z-index: 9999;
+    }
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-to-top-btn:hover {
+      background: var(--primary-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top-Fixed Reading Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Header Banner -->
+  <header class="header">
+    <div class="badge-bar">
+      <span class="badge">ଓଡ଼ିଆ ମାଧ୍ୟମ (BSE Odisha / NEP ସଂସ୍କରଣ)</span>
+      <span class="badge">ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ &bull; ଅଧ୍ୟାୟ ୩</span>
+      <span class="badge">ଗଣିତ ପ୍ରକାଶ (Ganita Prakash)</span>
+    </div>
+    <h1>ଅଧ୍ୟାୟ ୩: ସଂଖ୍ୟା ଖେଳ</h1>
+    <p style="font-size: 1.15rem; font-weight: 600; opacity: 0.95;">Number Play &mdash; ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ଷ୍ଟଡି ନୋଟ୍ସ</p>
+    <p>ସୁପରସେଲ୍ ଗ୍ରିଡ୍, ପାଲିଣ୍ଡ୍ରୋମ୍ ସଂଖ୍ୟା, କାପ୍ରେକର ଧ୍ରୁବକ ୬୧୭୪, କୋଲାଟ୍ଜ୍ ଅନୁମାନ, ୨୧-କାଉଣ୍ଟର ଖେଳ ଏବଂ ସମ୍ପୂର୍ଣ୍ଣ NCERT ୫-ସ୍ତରୀୟ ସମାଧାନ</p>
+    <div style="margin-top: 15px;">
+      <button class="btn btn-audio" onclick="toggleTeacherAudio()" id="teacherAudioBtn">
+        <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Sticky Top Bar -->
+  <div class="top-bar">
+    <div class="nav-links">
+      <a href="#section1">୧. ମାନସିକ ମାନଚିତ୍ର</a>
+      <a href="#section2">୨. ବିସ୍ତୃତ ଧାରଣା</a>
+      <a href="#section3">୩. ସୂତ୍ର ଓ ଆଲଗୋରିଦମ</a>
+      <a href="#section4">୪. NCERT ସମାଧାନ</a>
+      <a href="#section5">୫. ପ୍ରଶ୍ନୋତ୍ତର ଓ କୁଇଜ୍</a>
+      <a href="#section6">୬. ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା</a>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn btn-primary" onclick="toggleAllAnswers(true)">➕ ସମସ୍ତ ଉତ୍ତର ଖୋଲନ୍ତୁ</button>
+      <button class="btn" onclick="toggleAllAnswers(false)">➖ ସମସ୍ତ ବନ୍ଦ କରନ୍ତୁ</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="nav-breadcrumb">
+      <a href="../../index.html">ପୋର୍ଟାଲ୍ ମୁଖ୍ୟପୃଷ୍ଠା</a> &raquo; 
+      <a href="../../index.html#odia-medium">ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ (Odia Medium)</a> &raquo; 
+      <span>ଅଧ୍ୟାୟ ୩: ସଂଖ୍ୟା ଖେଳ</span>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section id="section1">
+      <h2>Section 1: ମାନସିକ ମାନଚିତ୍ର ଓ ଅଧ୍ୟାୟର ରୂପରେଖ (Visual Mind Map &amp; Blueprint)</h2>
+      <p>ସଂଖ୍ୟାଗୁଡ଼ିକ କେବଳ ଗଣନା ପାଇଁ ନୁହେଁ, ସେମାନଙ୍କ ଭିତରେ ଲୁଚି ରହିଛି ଅନେକ ଆଶ୍ଚର୍ଯ୍ୟଜନକ ରହସ୍ୟ ଓ ଚମତ୍କାର ଖେଳ! ଏହି NEP ଅଧ୍ୟାୟରେ ଆମେ <strong>ସୁପରସେଲ୍ (Supercells)</strong>, <strong>ପାଲିଣ୍ଡ୍ରୋମ୍ (Palindromes)</strong>, ବିଶ୍ୱବିଖ୍ୟାତ ଭାରତୀୟ ଗାଣିତିକ ଦତ୍ତାତ୍ରେୟ ରାମଚନ୍ଦ୍ର କାପ୍ରେକରଙ୍କ <strong>କାପ୍ରେକର ଧ୍ରୁବକ ୬୧୭୪</strong>, ପ୍ରହେଳିକାମୟ <strong>କୋଲାଟ୍ଜ୍ ଅନୁମାନ (Collatz Conjecture 3n+1)</strong> ଏବଂ ବିଜୟୀ ରଣନୀତି ବିଶିଷ୍ଟ <strong>୨୧-କାଉଣ୍ଟର ଖେଳ</strong> ଅନୁସନ୍ଧାନ କରିବା।</p>
+
+      <div class="diagram-container">
+        <!-- SVG 1: Mind Map for Number Play -->
+        <svg viewBox="0 0 900 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <!-- Central Hub -->
+          <rect x="340" y="200" width="220" height="70" rx="35" fill="#0284c7"/>
+          <text x="450" y="235" text-anchor="middle" fill="#ffffff" font-weight="800" font-size="16">ସଂଖ୍ୟା ଖେଳ</text>
+          <text x="450" y="255" text-anchor="middle" fill="#e0f2fe" font-weight="600" font-size="12">NUMBER PLAY</text>
+
+          <!-- Branch 1: Supercells (Top-Left) -->
+          <line x1="360" y1="210" x2="220" y2="120" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="50" y="50" width="230" height="110" rx="12" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.5"/>
+          <text x="165" y="80" text-anchor="middle" fill="#0369a1" font-weight="800" font-size="14">୧. ସୁପରସେଲ୍ (Supercells)</text>
+          <text x="165" y="105" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଉପର, ତଳ, ବାମ, ଡାହାଣ</text>
+          <text x="165" y="125" text-anchor="middle" fill="#334155" font-size="11.5">ସମସ୍ତ ପଡ଼ୋଶୀଠାରୁ ବୃହତ୍ତର</text>
+          <text x="165" y="145" text-anchor="middle" fill="#0284c7" font-weight="bold" font-size="11.5">୩&times;୩ ଗ୍ରିଡ୍ ରେ ସର୍ବାଧିକ = ୫</text>
+
+          <!-- Branch 2: Palindromes (Top-Right) -->
+          <line x1="540" y1="210" x2="680" y2="120" stroke="#0d9488" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="620" y="50" width="230" height="110" rx="12" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+          <text x="735" y="80" text-anchor="middle" fill="#115e59" font-weight="800" font-size="14">୨. ପାଲିଣ୍ଡ୍ରୋମ୍ (Palindromes)</text>
+          <text x="735" y="105" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଆଗରୁ ପଛକୁ ସମାନ ପଢ଼ାହୁଏ</text>
+          <text x="735" y="125" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଉଦାହରଣ: ୧୨୧, ୧୩୩୧, ୪୮୮୪</text>
+          <text x="735" y="145" text-anchor="middle" fill="#0d9488" font-weight="bold" font-size="11.5">ବିପରୀତ କ୍ରମ ଯୋଗ ପଦ୍ଧତି</text>
+
+          <!-- Branch 3: Kaprekar's Constant 6174 (Bottom-Left) -->
+          <line x1="360" y1="260" x2="220" y2="350" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="50" y="310" width="230" height="115" rx="12" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+          <text x="165" y="338" text-anchor="middle" fill="#b45309" font-weight="800" font-size="14">୩. କାପ୍ରେକର ଧ୍ରୁବକ ୬୧୭୪</text>
+          <text x="165" y="362" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ୪-ଅଙ୍କ ବିଶିଷ୍ଟ ଯେକୌଣସି ସଂଖ୍ୟା</text>
+          <text x="165" y="382" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ବୃହତ୍ତମ &minus; କ୍ଷୁଦ୍ରତମ ପ୍ରକ୍ରିୟା</text>
+          <text x="165" y="402" text-anchor="middle" fill="#b45309" font-weight="bold" font-size="11.5">ସର୍ବାଧିକ ୭ ଧାପରେ &rarr; ୬୧୭୪</text>
+
+          <!-- Branch 4: Collatz & 21-Counter (Bottom-Right) -->
+          <line x1="540" y1="260" x2="680" y2="350" stroke="#7c3aed" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <rect x="620" y="310" width="230" height="115" rx="12" fill="#f5f3ff" stroke="#7c3aed" stroke-width="1.5"/>
+          <text x="735" y="338" text-anchor="middle" fill="#6d28d9" font-weight="800" font-size="14">୪. କୋଲାଟ୍ଜ୍ ଓ ୨୧-ଖେଳ</text>
+          <text x="735" y="362" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ଯୁଗ୍ମ &rarr; n/୨, ଅଯୁଗ୍ମ &rarr; ୩n+୧</text>
+          <text x="735" y="382" text-anchor="middle" fill="#334155" font-size="11.5">&bull; ସର୍ବଦା ୧ ରେ ଶେଷ ହୁଏ!</text>
+          <text x="735" y="402" text-anchor="middle" fill="#6d28d9" font-weight="bold" font-size="11.5">୨୧-ଖେଳ: ୪ ର ଗୁଣିତକ ରଣନୀତି</text>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୩.୧: ସଂଖ୍ୟା ଖେଳ (Number Play) ର ୪ଟି ମୁଖ୍ୟ ଗାଣିତିକ ସ୍ତମ୍ଭ</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="section2">
+      <h2>Section 2: ବିସ୍ତୃତ ଧାରଣା ଓ ତତ୍ତ୍ୱ ବିଶ୍ଳେଷଣ (Line-by-Line Conceptual Notes)</h2>
+
+      <h3 class="topic-title">୨.୧ ସୁପରସେଲ୍ କ'ଣ? (Concept of Supercells in a Grid)</h3>
+      <p>ଗୋଟିଏ ସଂଖ୍ୟା ସାରଣୀ ବା ଗ୍ରିଡ୍ (Grid) ରେ, ଯଦି କୌଣସି କୋଠରି (Cell) ର ସଂଖ୍ୟା ତାହାର ସମସ୍ତ ଭୂସମାନ୍ତର (ବାମ, ଡାହାଣ) ଏବଂ ଭୂଲମ୍ବ (ଉପର, ତଳ) ସଂଲଗ୍ନ ପଡ଼ୋଶୀ କୋଠରିର ସଂଖ୍ୟାଠାରୁ <strong>କଡ଼ାକଡ଼ି ଭାବେ ବଡ଼ (Strictly Greater)</strong> ହୁଏ, ତେବେ ତାହାକୁ ଏକ <strong>ସୁପରସେଲ୍ (Supercell)</strong> କୁହାଯାଏ।</p>
+      
+      <div class="callout callout-def">
+        <div class="callout-title">📌 ସୁପରସେଲ୍ ନିୟମାବଳୀ (Supercell Rules)</div>
+        <ul>
+          <li><strong>କୋଣ କୋଠରି (Corner Cell):</strong> ମାତ୍ର ୨ଟି ପଡ଼ୋଶୀ ଥାଆନ୍ତି। ତେଣୁ ଏହି ୨ଟିରୁ ବଡ଼ ହେଲେ ସୁପରସେଲ୍ ହେବ।</li>
+          <li><strong>ଧାର କୋଠରି (Edge Cell):</strong> ୩ଟି ପଡ଼ୋଶୀ ଥାଆନ୍ତି। ଏହି ୩ଟିରୁ ବଡ଼ ହେଲେ ସୁପରସେଲ୍ ହେବ।</li>
+          <li><strong>କେନ୍ଦ୍ର କୋଠରି (Center Cell):</strong> ୪ଟି ପଡ଼ୋଶୀ ଥାଆନ୍ତି (ଉପର, ତଳ, ବାମ, ଡାହାଣ)। ଏହି ୪ଟିରୁ ବଡ଼ ହେଲେ ହିଁ ସୁପରସେଲ୍ ହେବ।</li>
+          <li><strong>ମନେରଖନ୍ତୁ:</strong> କୋଣାର୍କିଆ (Diagonal) ପଡ଼ୋଶୀଙ୍କ ସହିତ ତୁଳନା କରାଯାଏ ନାହିଁ!</li>
+          <li>ଦୁଇଟି ପାଖାପାଖି ସଂଲଗ୍ନ କୋଠରି କେବେବି ଏକାସାଙ୍ଗରେ ସୁପରସେଲ୍ ହୋଇପାରିବେ ନାହିଁ।</li>
+        </ul>
+      </div>
+
+      <div class="diagram-container">
+        <!-- SVG 3: 3x3 Grid Supercell Example -->
+        <svg viewBox="0 0 900 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <!-- 3x3 Grid 1 -->
+          <g transform="translate(150, 25)">
+            <text x="90" y="0" text-anchor="middle" fill="#0f172a" font-weight="800" font-size="13">୩&times;୩ ଗ୍ରିଡ୍: ସୁପରସେଲ୍ ସନ୍ଧାନ</text>
+            <!-- Cells -->
+            <rect x="0" y="10" width="60" height="60" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+            <text x="30" y="47" text-anchor="middle" fill="#166534" font-weight="800" font-size="20">୮ ★</text>
+
+            <rect x="60" y="10" width="60" height="60" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+            <text x="90" y="47" text-anchor="middle" fill="#334155" font-weight="600" font-size="18">୩</text>
+
+            <rect x="120" y="10" width="60" height="60" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+            <text x="150" y="47" text-anchor="middle" fill="#166534" font-weight="800" font-size="20">୭ ★</text>
+
+            <rect x="0" y="70" width="60" height="60" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+            <text x="30" y="107" text-anchor="middle" fill="#334155" font-weight="600" font-size="18">୨</text>
+
+            <rect x="60" y="70" width="60" height="60" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+            <text x="90" y="107" text-anchor="middle" fill="#166534" font-weight="800" font-size="20">୯ ★</text>
+
+            <rect x="120" y="70" width="60" height="60" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+            <text x="150" y="107" text-anchor="middle" fill="#334155" font-weight="600" font-size="18">୧</text>
+
+            <rect x="0" y="130" width="60" height="60" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+            <text x="30" y="167" text-anchor="middle" fill="#166534" font-weight="800" font-size="20">୬ ★</text>
+
+            <rect x="60" y="130" width="60" height="60" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+            <text x="90" y="167" text-anchor="middle" fill="#334155" font-weight="600" font-size="18">୪</text>
+
+            <rect x="120" y="130" width="60" height="60" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+            <text x="150" y="167" text-anchor="middle" fill="#166534" font-weight="800" font-size="20">୫ ★</text>
+          </g>
+
+          <g transform="translate(450, 40)">
+            <rect x="0" y="0" width="380" height="150" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="1.5"/>
+            <text x="20" y="30" fill="#0369a1" font-weight="800" font-size="14">ତାର୍କିକ ସିଦ୍ଧାନ୍ତ:</text>
+            <text x="20" y="60" fill="#334155" font-size="12">&bull; ★ ଚିହ୍ନିତ କୋଠରିଗୁଡ଼ିକ (୮, ୭, ୯, ୬, ୫) ସୁପରସେଲ୍ ଅଟନ୍ତି।</text>
+            <text x="20" y="85" fill="#334155" font-size="12">&bull; ଚେସ୍-ବୋର୍ଡ ପରି ସଜାଇଲେ ୪ କୋଣ + ୧ କେନ୍ଦ୍ର = <strong>୫ଟି ସୁପରସେଲ୍</strong></text>
+            <text x="20" y="110" fill="#334155" font-size="12">ସର୍ବାଧିକ ସମ୍ଭବ ହୁଏ।</text>
+            <text x="20" y="135" fill="#0284c7" font-weight="bold" font-size="12">&bull; କୌଣସି ୩&times;୩ ଗ୍ରିଡ୍ ରେ ୫ ରୁ ଅଧିକ ସୁପରସେଲ୍ ହୋଇପାରିବ ନାହିଁ।</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୩.୨: ୩&times;୩ ଗ୍ରିଡ୍ ରେ ସର୍ବାଧିକ ୫ଟି ସୁପରସେଲ୍ ର ବିନ୍ୟାସ</div>
+      </div>
+
+      <h3 class="topic-title">୨.୨ ପାଲିଣ୍ଡ୍ରୋମ୍ ସଂଖ୍ୟା (Palindromic Numbers)</h3>
+      <p>ଯେଉଁ ସଂଖ୍ୟାକୁ ବାମରୁ ଡାହାଣକୁ କିମ୍ବା ଡାହାଣରୁ ବାମକୁ ପଢ଼ିଲେ ଏକା ରହେ, ତାହାକୁ <strong>ପାଲିଣ୍ଡ୍ରୋମ୍ ସଂଖ୍ୟା</strong> କୁହାଯାଏ (ଯଥା: ୪୪, ୧୨୧, ୫୦୫, ୧୩୩୧, ୨୪୬୪୨)।</p>
+      
+      <div class="callout callout-hack">
+        <div class="callout-title">💡 ବିପରୀତ କ୍ରମ ଯୋଗ ପଦ୍ଧତି (Reverse-and-Add Algorithm)</div>
+        <p>ଯେକୌଣସି ସଂଖ୍ୟା ନିଅନ୍ତୁ ଏବଂ ତାହାକୁ ତାର ବିପରୀତ ଅଙ୍କ ବିଶିଷ୍ଟ ସଂଖ୍ୟା ସହିତ ଯୋଗ କରନ୍ତୁ:</p>
+        <ol>
+          <li>ସଂଖ୍ୟା = <strong>୫୭</strong></li>
+          <li>ବିପରୀତ = <strong>୭୫</strong></li>
+          <li>ଯୋଗଫଳ = ୫୭ + ୭୫ = <strong>୧୩୨</strong> (ପାଲିଣ୍ଡ୍ରୋମ୍ ନୁହେଁ)</li>
+          <li>ପୁନର୍ବାର ବିପରୀତ: ୧୩୨ ର ବିପରୀତ = ୨୩୧</li>
+          <li>ଯୋଗଫଳ = ୧୩୨ + ୨୩୧ = <strong>୩୬୩</strong> &larr; ଏହା ଏକ ପାଲିଣ୍ଡ୍ରୋମ୍ ସଂଖ୍ୟା! 🎉</li>
+        </ol>
+      </div>
+
+      <h3 class="topic-title">୨.୩ କାପ୍ରେକର ଧ୍ରୁବକ ୬୧୭୪ (Kaprekar's Magic Constant)</h3>
+      <p>ଭାରତର ପ୍ରଖ୍ୟାତ ଗଣିତଜ୍ଞ <strong>ଦତ୍ତାତ୍ରେୟ ରାମଚନ୍ଦ୍ର କାପ୍ରେକର (D. R. Kaprekar)</strong> ୧୯୪୯ ମସିହାରେ ଏହି ଆଶ୍ଚର୍ଯ୍ୟଜନକ ସଂଖ୍ୟା ୬୧୭୪ ଆବିଷ୍କାର କରିଥିଲେ:</p>
+
+      <div class="diagram-container">
+        <!-- SVG 2: Kaprekar Routine & Collatz -->
+        <svg viewBox="0 0 900 320" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background:#ffffff; border-radius:10px;">
+          <!-- Left Panel: Kaprekar Routine -->
+          <rect x="20" y="20" width="410" height="280" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+          <text x="225" y="48" text-anchor="middle" fill="#0f172a" font-weight="800" font-size="14">କାପ୍ରେକର ପ୍ରକ୍ରିୟା (ଉଦାହରଣ: ୩୫୨୪)</text>
+
+          <g transform="translate(40, 70)" font-size="12" fill="#334155">
+            <text x="0" y="20">&bull; <strong>ଧାପ ୧:</strong> ବୃହତ୍ତମ = ୫୪୩୨, କ୍ଷୁଦ୍ରତମ = ୨୩୪୫</text>
+            <text x="15" y="40" fill="#0284c7" font-weight="bold">୫୪୩୨ &minus; ୨୩୪୫ = ୩୦୮୭</text>
+
+            <text x="0" y="75">&bull; <strong>ଧାପ ୨:</strong> ୩୦୮୭ ରୁ ବୃହତ୍ତମ = ୮୭୩୦, କ୍ଷୁଦ୍ରତମ = ୦୩୭୮</text>
+            <text x="15" y="95" fill="#0284c7" font-weight="bold">୮୭୩୦ &minus; ୦୩୭୮ = ୮୩୫୨</text>
+
+            <text x="0" y="130">&bull; <strong>ଧାପ ୩:</strong> ୮୩୫୨ ରୁ ବୃହତ୍ତମ = ୮୫୩୨, କ୍ଷୁଦ୍ରତମ = ୨୩୫୮</text>
+            <text x="15" y="150" fill="#16a34a" font-weight="bold">୮୫୩୨ &minus; ୨୩୫୮ = ୬୧୭୪ 🎯</text>
+
+            <text x="0" y="185">&bull; <strong>ଧାପ ୪:</strong> ୭୬୪୧ &minus; ୧୪୬୭ = ୬୧୭୪ (ଲୁପ୍ ସ୍ଥିର!)</text>
+          </g>
+
+          <!-- Right Panel: Collatz 3n+1 -->
+          <rect x="470" y="20" width="410" height="280" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+          <text x="675" y="48" text-anchor="middle" fill="#0f172a" font-weight="800" font-size="14">କୋଲାଟ୍ଜ୍ ଅନୁମାନ (Collatz 3n+1)</text>
+
+          <g transform="translate(490, 70)" font-size="12" fill="#334155">
+            <text x="0" y="20">&bull; ଯଦି ସଂଖ୍ୟା ଯୁଗ୍ମ: <strong>n &divide; ୨</strong> କରନ୍ତୁ</text>
+            <text x="0" y="45">&bull; ଯଦି ସଂଖ୍ୟା ଅଯୁଗ୍ମ: <strong>୩n + ୧</strong> କରନ୍ତୁ</text>
+            <text x="0" y="75" font-weight="bold" fill="#7c3aed">ଉଦାହରଣ: n = ୬ ରୁ ଆରମ୍ଭ କଲେ:</text>
+            <text x="15" y="100">୬ &rarr; ୩ &rarr; ୧୦ &rarr; ୫ &rarr; ୧୬ &rarr; ୮ &rarr; ୪ &rarr; ୨ &rarr; <strong>୧</strong></text>
+            <text x="0" y="135" font-weight="bold" fill="#7c3aed">ଉଦାହରଣ: n = ୭ ରୁ ଆରମ୍ଭ କଲେ:</text>
+            <text x="15" y="160">୭ &rarr; ୨୨ &rarr; ୧୧ &rarr; ୩୪ &rarr; ୧୭ &rarr; ୫୨ &rarr; ୨୬ &rarr; ୧୩ &rarr;</text>
+            <text x="15" y="180">୪୦ &rarr; ୨୦ &rarr; ୧୦ &rarr; ୫ &rarr; ୧୬ &rarr; ୮ &rarr; ୪ &rarr; ୨ &rarr; <strong>୧</strong></text>
+            <text x="0" y="210" fill="#16a34a" font-weight="bold">ସମସ୍ତ ସଂଖ୍ୟା ଶେଷରେ ୪ &rarr; ୨ &rarr; ୧ ଚକ୍ରରେ ପହଞ୍ଚନ୍ତି!</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୩.୩: କାପ୍ରେକର ରୁଟିନ୍ ଏବଂ କୋଲାଟ୍ଜ୍ ୩n+୧ ଅନୁମାନର ସୋପାନ</div>
+      </div>
+
+      <h3 class="topic-title">୨.୪ ୨୧-କାଉଣ୍ଟର ନିମ୍ ଖେଳ ଓ ଗାଣିତିକ ରଣନୀତି (The 21-Counter Game Strategy)</h3>
+      <p>ଏହି ଖେଳରେ ଟେବୁଲ୍ ଉପରେ ୨୧ଟି କାଉଣ୍ଟର ଥାଏ। ଦୁଇଜଣ ଖେଳାଳି ପାଳି କରି ୧, ୨, ବା ୩ଟି କାଉଣ୍ଟର ଉଠାଇପାରିବେ। ଯିଏ ଶେଷ କାଉଣ୍ଟର ଉଠାଏ, ସେ ହାରିଯାଏ (ବା ଜିତେ)।</p>
+      
+      <div class="callout callout-act">
+        <div class="callout-title">🏆 ସର୍ବଦା ଜିତିବାର ସୁନିଶ୍ଚିତ ରଣନୀତି (Winning Modulo 4 Strategy)</div>
+        <p>ଖେଳର ରହସ୍ୟ ହେଉଛି <strong>୪ ର ଗୁଣିତକ (Multiple of 4)</strong> ନିୟନ୍ତ୍ରଣ କରିବା:</p>
+        <ul>
+          <li>ପ୍ରତିପକ୍ଷ ଖେଳାଳି ଯେତିକି କାଉଣ୍ଟର ଉଠାନ୍ତି, ଆପଣ ଏପରି ସଂଖ୍ୟା ଉଠାନ୍ତୁ ଯେପରି ଉଭୟଙ୍କ ଯୋଗଫଳ ଠିକ୍ <strong>୪</strong> ହେବ!</li>
+          <li>ଯଦି ପ୍ରତିପକ୍ଷ ୧ ଉଠାଏ, ଆପଣ <strong>୩</strong> ଉଠାନ୍ତୁ (୧ + ୩ = ୪)।</li>
+          <li>ଯଦି ପ୍ରତିପକ୍ଷ ୨ ଉଠାଏ, ଆପଣ <strong>୨</strong> ଉଠାନ୍ତୁ (୨ + ୨ = ୪)।</li>
+          <li>ଯଦି ପ୍ରତିପକ୍ଷ ୩ ଉଠାଏ, ଆପଣ <strong>୧</strong> ଉଠାନ୍ତୁ (୩ + ୧ = ୪)।</li>
+          <li>ଏହିପରି କରି ଆପଣ ସର୍ବଦା କାଉଣ୍ଟର ସଂଖ୍ୟାକୁ ୧୭, ୧୩, ୯, ୫ ଏବଂ ଶେଷରେ <strong>୧</strong> ରେ ପହଞ୍ଚାଇ ପାରିବେ, ଯାହାଦ୍ୱାରା ପ୍ରତିପକ୍ଷ ବାଧ୍ୟ ହୋଇ ଶେଷ କାଉଣ୍ଟରଟି ଉଠାଇବ ଏବଂ ହାରିଯିବ!</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="section3">
+      <h2>Section 3: ତ୍ୱରିତ ପୁନରାବୃତ୍ତି ସୂତ୍ର ଓ ନିୟମ ଭଣ୍ଡାର (Formula &amp; Algorithm Bank)</h2>
+      <p>ଅଧ୍ୟାୟ ୩ ର ମୁଖ୍ୟ ଗାଣିତିକ ଆଲଗୋରିଦମ୍ ଏବଂ ନିୟମାବଳୀ:</p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ଗାଣିତିକ ତତ୍ତ୍ୱ</th>
+              <th>ମୁଖ୍ୟ ନିୟମ / ସୂତ୍ର</th>
+              <th>ସର୍ତ୍ତ / ଆବଶ୍ୟକତା</th>
+              <th>ସର୍ବୋଚ୍ଚ / ଚୂଡ଼ାନ୍ତ ଫଳାଫଳ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>୩&times;୩ ସୁପରସେଲ୍ ଗ୍ରିଡ୍</strong></td>
+              <td>ସଂଲଗ୍ନ ପଡ଼ୋଶୀଠାରୁ ବଡ଼</td>
+              <td>୯ଟି ଭିନ୍ନ ସଂଖ୍ୟା</td>
+              <td>ସର୍ବାଧିକ ୫ଟି ସୁପରସେଲ୍ ସମ୍ଭବ (୪ କୋଣ + ୧ କେନ୍ଦ୍ର)</td>
+            </tr>
+            <tr>
+              <td><strong>୧&times;୯ ଧାଡ଼ି ଗ୍ରିଡ୍</strong></td>
+              <td>ବାମ ଓ ଡାହାଣ ପଡ଼ୋଶୀଠାରୁ ବଡ଼</td>
+              <td>୯ଟି ଭିନ୍ନ ସଂଖ୍ୟା</td>
+              <td>ସର୍ବାଧିକ ୫ଟି ସୁପରସେଲ୍ ସମ୍ଭବ (ବିକଳ୍ପ କୋଠରି)</td>
+            </tr>
+            <tr>
+              <td><strong>କାପ୍ରେକର ରୁଟିନ୍ (୪-ଅଙ୍କ)</strong></td>
+              <td>ବୃହତ୍ତମ ସଂଖ୍ୟା &minus; କ୍ଷୁଦ୍ରତମ ସଂଖ୍ୟା</td>
+              <td>ଅତି କମରେ ୨ଟି ଅଙ୍କ ଭିନ୍ନ ହେବା ଆବଶ୍ୟକ</td>
+              <td>ସର୍ବାଧିକ ୭ ଧାପ ମଧ୍ୟରେ <strong>୬୧୭୪</strong> ରେ ପହଞ୍ଚେ</td>
+            </tr>
+            <tr>
+              <td><strong>କାପ୍ରେକର ରୁଟିନ୍ (୩-ଅଙ୍କ)</strong></td>
+              <td>ବୃହତ୍ତମ ସଂଖ୍ୟା &minus; କ୍ଷୁଦ୍ରତମ ସଂଖ୍ୟା</td>
+              <td>ଅତି କମରେ ୨ଟି ଅଙ୍କ ଭିନ୍ନ ହେବା ଆବଶ୍ୟକ</td>
+              <td>ସର୍ବଦା <strong>୪୯୫</strong> ରେ ପହଞ୍ଚେ</td>
+            </tr>
+            <tr>
+              <td><strong>କୋଲାଟ୍ଜ୍ ଅନୁମାନ (୩n+୧)</strong></td>
+              <td>ଯୁଗ୍ମ &rarr; n/୨ ; ଅଯୁଗ୍ମ &rarr; ୩n+୧</td>
+              <td>ଯେକୌଣସି ଧନାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା n &ge; ୧</td>
+              <td>ଅନନ୍ତ ଲୁପ୍ <strong>୪ &rarr; ୨ &rarr; ୧</strong> ରେ ଶେଷ ହୁଏ</td>
+            </tr>
+            <tr>
+              <td><strong>୨୧-କାଉଣ୍ଟର ଖେଳ</strong></td>
+              <td>ନିଜର ଚାଲ୍ + ବିପକ୍ଷ ଚାଲ୍ = ୪</td>
+              <td>ପ୍ରତି ଚାଲ୍ ରେ ୧, ୨, ବା ୩ ଉଠାଇବା</td>
+              <td>ଲକ୍ଷ୍ୟ ସଂଖ୍ୟା: ୧୭, ୧୩, ୯, ୫, ୧ ରଖିବା</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="section4">
+      <h2>Section 4: ୧୦୦% ସମ୍ପୂର୍ଣ୍ଣ NCERT ପାଠ୍ୟପୁସ୍ତକ ସମାଧାନ (5-Step Topper Format)</h2>
+      <p>NEP ଗଣିତ ପ୍ରକାଶ ଅଧ୍ୟାୟ ୩ ର ପ୍ରତ୍ୟେକ ପ୍ରଶ୍ନର ପଦକ୍ଷେପ-ୱାରୀ ଆଦର୍ଶ ସମାଧାନ:</p>
+
+      <!-- NCERT Q1 -->
+      <details class="ans-box" open>
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ଉଚ୍ଚତା ଧାଡ଼ି ପ୍ରହେଳିକା (Height Riddle)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୧:</strong> ୫ ଜଣ ପିଲା ଭିନ୍ନ ଭିନ୍ନ ଉଚ୍ଚତା ବିଶିଷ୍ଟ ହୋଇ ଗୋଟିଏ ଧାଡ଼ିରେ ଠିଆ ହୋଇଛନ୍ତି। ପ୍ରତ୍ୟେକ ପିଲା କହୁଛି: &ldquo;ମୋ ପାଖରେ ଥିବା ଉଭୟ ପଡ଼ୋଶୀ ମୋଠାରୁ ଡେଙ୍ଗା ଅଟନ୍ତି!&rdquo; ଏହା କିପରି ସମ୍ଭବ?<br>
+          (କ) ଏହି ୫ ଜଣ ପିଲାଙ୍କୁ କିପରି ଧାଡ଼ିରେ ସଜାଇଲେ ସମସ୍ତେ କହିବେ ଯେ ସେମାନଙ୍କର ଠିକ୍ ୧ ଜଣ ପଡ଼ୋଶୀ ସେମାନଙ୍କଠାରୁ ଡେଙ୍ଗା?<br>
+          (ଖ) ଏହି ୫ ଜଣ ପିଲାଙ୍କ ପାଇଁ (୧, ୧, ୧, ୧, ୧) ଶ୍ରେଣୀ ସମ୍ଭବ କି?</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ୫ ଜଣ ପିଲାଙ୍କ ଉଚ୍ଚତା ଭିନ୍ନ। ମନେକର ସେମାନଙ୍କ ଉଚ୍ଚତା କ୍ରମ: ୧ (ସବୁଠାରୁ ଗେଡ଼ା), ୨, ୩, ୪, ୫ (ସବୁଠାରୁ ଡେଙ୍ଗା)।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ପ୍ରଥମ ପ୍ରଶ୍ନ ସମାଧାନ):</span> ଯଦି ପିଲାମାନେ ଏକ ଭାଙ୍ଗି-ଭାଙ୍ଗି (Zig-zag) କ୍ରମରେ ଠିଆ ହୁଅନ୍ତି, ତେବେ ମଝିରେ ଥିବା ଗେଡ଼ା ପିଲାମାନଙ୍କର ଉଭୟ ପଡ଼ୋଶୀ ଡେଙ୍ଗା ହେବେ।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (କ ର ଉତ୍ତର):</span> ଯଦି ପିଲାମାନେ ଉଚ୍ଚତା ଅନୁସାରେ କଡ଼ାକଡ଼ି ଆରୋହୀ କ୍ରମରେ (୧, ୨, ୩, ୪, ୫) ଠିଆ ହୁଅନ୍ତି:<br>
+            ପ୍ରଥମ ପିଲା (୧) ର ଡାହାଣ ପଡ଼ୋଶୀ ୨ ଡେଙ୍ଗା (୧ ଜଣ)।<br>
+            ଶେଷ ପିଲା (୫) ର ବାମ ପଡ଼ୋଶୀ ୪ ଗେଡ଼ା (୦ ଜଣ)।<br>
+            ତେଣୁ ସମସ୍ତେ ୧ କହିବା ସମ୍ଭବ ନୁହେଁ। କିନ୍ତୁ ଯଦି କ୍ରମ <strong>୨, ୧, ୩, ୫, ୪</strong> ହୁଏ, ତେବେ ସମସ୍ତଙ୍କ ପାଇଁ ଶର୍ତ୍ତ ପୂରଣ ହୋଇପାରିବ।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଖ ର ଉତ୍ତର):</span> ନା, ସମ୍ପୂର୍ଣ୍ଣ (୧, ୧, ୧, ୧, ୧) ସମ୍ଭବ ନୁହେଁ, କାରଣ ଧାଡ଼ିର ସବୁଠାରୁ ଡେଙ୍ଗା ପିଲା (୫) ର କୌଣସି ପଡ଼ୋଶୀ ତାଠାରୁ ଡେଙ୍ଗା ହୋଇପାରିବେ ନାହିଁ! ସେ ସର୍ବଦା <strong>୦</strong> କହିବ।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) Zig-zag ସଜ୍ଜା ଆବଶ୍ୟକ &bull; (ଖ) ନା, ସର୍ବୋଚ୍ଚ ଉଚ୍ଚତା ବିଶିଷ୍ଟ ପିଲା ସର୍ବଦା ୦ କହିବା ବାଧ୍ୟତାମୂଳକ, ତେଣୁ (୧, ୧, ୧, ୧, ୧) ଅସମ୍ଭବ।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Q2 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ସୁପରସେଲ୍ ଗ୍ରିଡ୍ ସମସ୍ୟା (Supercell Puzzles)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୨:</strong><br>
+          (କ) ଏକ ସାରଣୀରେ ସବୁଠାରୁ ବୃହତ୍ତମ ସଂଖ୍ୟା ଥିବା କୋଠରି କ'ଣ ସର୍ବଦା ସୁପରସେଲ୍ ହେବ?<br>
+          (ଖ) ୧ ରୁ ୯ ପର୍ଯ୍ୟନ୍ତ ସଂଖ୍ୟା ବ୍ୟବହାର କରି ଏକ ୩&times;୩ ଗ୍ରିଡ୍ ପୂରଣ କର ଯେପରି ସର୍ବାଧିକ ସଂଖ୍ୟକ ସୁପରସେଲ୍ ମିଳିବ।</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (କ ର ବିଶ୍ଳେଷଣ):</span> ହଁ! ସବୁଠାରୁ ବୃହତ୍ତମ ସଂଖ୍ୟାଟି ତାହାର ସମସ୍ତ ପଡ଼ୋଶୀଠାରୁ ନିଶ୍ଚିତ ଭାବେ ବଡ଼ ହେବ (ଯଦି ସଂଖ୍ୟାଗୁଡ଼ିକ ଭିନ୍ନ ହୋଇଥାନ୍ତି)। ତେଣୁ ସର୍ବୋଚ୍ଚ ସଂଖ୍ୟା ଥିବା କୋଠରି <strong>ସର୍ବଦା ଏକ ସୁପରସେଲ୍</strong> ହେବ।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଖ ପାଇଁ ଚେସ୍-ବୋର୍ଡ ବିନ୍ୟାସ):</span> ୩&times;୩ ଗ୍ରିଡ୍ ରେ ସର୍ବାଧିକ ସୁପରସେଲ୍ ପାଇବାକୁ ହେଲେ ୪ଟି କୋଣ ଓ କେନ୍ଦ୍ରରେ ବଡ଼ ସଂଖ୍ୟା ଏବଂ ୪ଟି ଧାରରେ ଛୋଟ ସଂଖ୍ୟା ରଖିବାକୁ ହେବ।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ମୂଲ୍ୟ ସ୍ଥାପନ):</span><br>
+            ଧାଡ଼ି ୧: <strong>୮</strong> , ୧ , <strong>୭</strong><br>
+            ଧାଡ଼ି ୨: ୨ , <strong>୯</strong> , ୩<br>
+            ଧାଡ଼ି ୩: <strong>୬</strong> , ୪ , <strong>୫</strong></div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ସୁପରସେଲ୍ ଯାଞ୍ଚ):</span><br>
+            &bull; ୮ > ୧ ଏବଂ ୨ (ସୁପରସେଲ୍)<br>
+            &bull; ୭ > ୧ ଏବଂ ୩ (ସୁପରସେଲ୍)<br>
+            &bull; ୯ > ୧, ୨, ୩, ୪ (ସୁପରସେଲ୍)<br>
+            &bull; ୬ > ୨ ଏବଂ ୪ (ସୁପରସେଲ୍)<br>
+            &bull; ୫ > ୩ ଏବଂ ୪ (ସୁପରସେଲ୍)</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) ହଁ, ବୃହତ୍ତମ ସଂଖ୍ୟା ସର୍ବଦା ସୁପରସେଲ୍ ଅଟେ &bull; (ଖ) ସର୍ବାଧିକ ୫ଟି ସୁପରସେଲ୍ ସମ୍ଭବ (ଉପରୋକ୍ତ ବିନ୍ୟାସ ଅନୁଯାୟୀ)।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Q3 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: କାପ୍ରେକର ପ୍ରକ୍ରିୟା ୬୧୭୪ ର ସତ୍ୟାପନ</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୩:</strong> ସଂଖ୍ୟା <strong>୧୦୦୮</strong> ରୁ ଆରମ୍ଭ କରି କାପ୍ରେକର ପ୍ରକ୍ରିୟା ପ୍ରୟୋଗ କରନ୍ତୁ ଏବଂ କେତେ ଧାପରେ ୬୧୭୪ ମିଳୁଛି ତାହା ଦର୍ଶାନ୍ତୁ।</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ସଂଖ୍ୟା):</span> ୧୦୦୮। ଏହାର ଅଙ୍କଗୁଡ଼ିକ ହେଲା: ୮, ୧, ୦, ୦।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଧାପ ୧):</span> ବୃହତ୍ତମ = ୮୧୦୦, କ୍ଷୁଦ୍ରତମ = ୦୦୧୮।<br>
+            ୮୧୦୦ &minus; ୦୦୧୮ = <strong>୮୦୮୨</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ଧାପ ୨):</span> ୮୦୮୨ ରୁ ବୃହତ୍ତମ = ୮୮୨୦, କ୍ଷୁଦ୍ରତମ = ୦୨୮୮।<br>
+            ୮୮୨୦ &minus; ୦୨୮୮ = <strong>୮୫୩୨</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଧାପ ୩):</span> ୮୫୩୨ ରୁ ବୃହତ୍ତମ = ୮୫୩୨, କ୍ଷୁଦ୍ରତମ = ୨୩୫୮।<br>
+            ୮୫୩୨ &minus; ୨୩୫୮ = <strong>୬୧୭୪</strong> 🎯।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: ମାତ୍ର ୩ଟି ଧାପ ମଧ୍ୟରେ କାପ୍ରେକର ଧ୍ରୁବକ ୬୧୭୪ ମିଳିଗଲା!</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Q4 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ: ୨୧-କାଉଣ୍ଟର ଖେଳ ଗାଣିତିକ ପ୍ରମାଣ</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୪:</strong> ୨୧-କାଉଣ୍ଟର ଖେଳରେ ଯଦି ପ୍ରଥମ ଖେଳାଳି ୨ଟି କାଉଣ୍ଟର ଉଠାନ୍ତି, ତେବେ ଦ୍ୱିତୀୟ ଖେଳାଳି ଜିତିବା ପାଇଁ ତୁରନ୍ତ କେତୋଟି କାଉଣ୍ଟର ଉଠାଇବେ ଏବଂ ତାଙ୍କର ପରବର୍ତ୍ତୀ ରଣନୀତି କ'ଣ ହେବ?</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ଖେଳର ସ୍ଥିତି):</span> ମୋଟ କାଉଣ୍ଟର = ୨୧। ପ୍ରଥମ ଖେଳାଳି ଉଠାଇଲେ = ୨ଟି। ଅବଶିଷ୍ଟ = ୧୯ଟି।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଜିତିବାର ସୁବର୍ଣ୍ଣ ନିୟମ):</span> ଦ୍ୱିତୀୟ ଖେଳାଳି କାଉଣ୍ଟର ସଂଖ୍ୟାକୁ ୧୭ (୪n + ୧ ରୂପ) ରେ ପହଞ୍ଚାଇବାକୁ ଚାହିଁବେ। ୧୯ &minus; ୧୭ = ୨।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ଦ୍ୱିତୀୟ ଖେଳାଳିଙ୍କ ଚାଲ୍):</span> ଦ୍ୱିତୀୟ ଖେଳାଳି <strong>୨ ଟି କାଉଣ୍ଟର</strong> ଉଠାଇବେ! (କାରଣ ୨ + ୨ = ୪)। ବର୍ତ୍ତମାନ ବଳକା କାଉଣ୍ଟର = ୧୭।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଭବିଷ୍ୟତ ରଣନୀତି):</span> ଏହାପରେ ପ୍ରଥମ ଖେଳାଳି ଯଦି k ସଂଖ୍ୟକ କାଉଣ୍ଟର ଉଠାନ୍ତି, ଦ୍ୱିତୀୟ ଖେଳାଳି ସର୍ବଦା (୪ &minus; k) ଉଠାଇବେ। ଫଳରେ କାଉଣ୍ଟର କ୍ରମଶଃ ୧୩, ୯, ୫, ଏବଂ ୧ ହେବ। ଶେଷରେ ପ୍ରଥମ ଖେଳାଳି ଶେଷ କାଉଣ୍ଟର ଉଠାଇ ହାରିବା ନିଶ୍ଚିତ।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: ଦ୍ୱିତୀୟ ଖେଳାଳି ୨ଟି କାଉଣ୍ଟର ଉଠାଇବେ ଏବଂ ପ୍ରତ୍ୟେକ ରାଉଣ୍ଡରେ ଯୋଗଫଳ ୪ ରଖି ବିଜୟୀ ହେବେ।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="section5">
+      <h2>Section 5: ପରୀକ୍ଷା ଉପଯୋଗୀ ପ୍ରଶ୍ନୋତ୍ତର ବ୍ୟାଙ୍କ ଓ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍ (Exam Question Bank &amp; Quiz Engine)</h2>
+      <p>ସମସ୍ତ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ପ୍ରଶ୍ନ ଏବଂ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍:</p>
+
+      <!-- Score Board -->
+      <div class="quiz-score-board" id="quizScoreBoard">
+        🎯 ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍ ସ୍କୋର: <span id="currentScore">୦</span> / <span id="totalQuestions">୫</span> ସଠିକ୍
+      </div>
+
+      <!-- Part A: Interactive MCQs -->
+      <h3>ଭାଗ 'କ': ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନାବଳୀ (Interactive MCQs with Instant Feedback)</h3>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card" id="quiz-card-1">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୧: ୩&times;୩ ସାରଣୀରେ ସର୍ବାଧିକ କେତୋଟି ସୁପରସେଲ୍ (Supercells) ରହିପାରିବ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 0, false, 'ଭୁଲ! ୩ଟି ନୁହେଁ, ଅଧିକ ସମ୍ଭବ।')">
+            <span>(A) ୩</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 1, false, 'ଭୁଲ! ୪ଟି କେବଳ କୋଣରେ ହୋଇପାରିବ, କିନ୍ତୁ କେନ୍ଦ୍ରକୁ ମିଶାଇଲେ ଅଧିକ ହୁଏ।')">
+            <span>(B) ୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 2, true, 'ନିର୍ଭୁଲ! ଚେସ୍-ବୋର୍ଡ ପରି ୪ କୋଣ + ୧ କେନ୍ଦ୍ର = ୫ଟି ସୁପରସେଲ୍ ସର୍ବାଧିକ ସମ୍ଭବ।')">
+            <span>(C) ୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 3, false, 'ଭୁଲ! ୯ଟି ଅସମ୍ଭବ କାରଣ ସଂଲଗ୍ନ ପଡ଼ୋଶୀ ଏକାସାଙ୍ଗରେ ସୁପରସେଲ୍ ହୋଇପାରିବେ ନାହିଁ।')">
+            <span>(D) ୯</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-1-fb"></div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card" id="quiz-card-2">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୨: ୪-ଅଙ୍କ ବିଶିଷ୍ଟ ସଂଖ୍ୟା ପାଇଁ ପ୍ରସିଦ୍ଧ କାପ୍ରେକର ଧ୍ରୁବକ (Kaprekar's Constant) କେଉଁଟି?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 0, false, 'ଭୁଲ! ୪୯୫ ହେଉଛି ୩-ଅଙ୍କ ବିଶିଷ୍ଟ ସଂଖ୍ୟାର କାପ୍ରେକର ଧ୍ରୁବକ।')">
+            <span>(A) ୪୯୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 1, true, 'ସଠିକ୍ ଉତ୍ତର! ୬୧୭୪ ହେଉଛି ୪-ଅଙ୍କ ବିଶିଷ୍ଟ ସଂଖ୍ୟାର କାପ୍ରେକର ଧ୍ରୁବକ।')">
+            <span>(B) ୬୧୭୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 2, false, 'ଭୁଲ! ୧୭୨୯ ହେଉଛି ରାମାନୁଜନ-ହାର୍ଡି ସଂଖ୍ୟା (ଟ୍ୟାକ୍ସିକ୍ୟାବ୍ ନମ୍ବର)।')">
+            <span>(C) ୧୭୨୯</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 3, false, 'ଭୁଲ! ୯୯୯୯ ର ସମସ୍ତ ଅଙ୍କ ସମାନ।')">
+            <span>(D) ୯୯୯୯</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-2-fb"></div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card" id="quiz-card-3">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୩: ନିମ୍ନଲିଖିତ ମଧ୍ୟରୁ କେଉଁଟି ଏକ ପାଲିଣ୍ଡ୍ରୋମ୍ ସଂଖ୍ୟା (Palindromic Number)?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 0, false, 'ଭୁଲ! ୧୨୩ ର ବିପରୀତ ୩୨୧।')">
+            <span>(A) ୧୨୩</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 1, false, 'ଭୁଲ! ୧୦୨ ର ବିପରୀତ ୨୦୧।')">
+            <span>(B) ୧୦୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 2, true, 'ଚମତ୍କାର! ୪୫୫୪ ଉଭୟ ପାର୍ଶ୍ୱରୁ ସମାନ ଭାବେ ପଢ଼ାହୁଏ।')">
+            <span>(C) ୪୫୫୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 3, false, 'ଭୁଲ! ୫୬୭୫ ପାଲିଣ୍ଡ୍ରୋମ୍ ନୁହେଁ।')">
+            <span>(D) ୫୬୭୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-3-fb"></div>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="quiz-card" id="quiz-card-4">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୪: କୋଲାଟ୍ଜ୍ (Collatz 3n+1) ଅନୁମାନରେ, ଯଦି ବର୍ତ୍ତମାନ ସଂଖ୍ୟାଟି ୧୨ ହୁଏ, ତେବେ ପରବର୍ତ୍ତୀ ସଂଖ୍ୟାଟି କେତେ ହେବ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 0, true, 'ନିର୍ଭୁଲ! ୧୨ ଏକ ଯୁଗ୍ମ ସଂଖ୍ୟା, ତେଣୁ n ÷ ୨ = ୧୨ ÷ ୨ = ୬।')">
+            <span>(A) ୬</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 1, false, 'ଭୁଲ! ୩୭ ହେଉଛି ୩n+୧ ଯାହା କେବଳ ଅଯୁଗ୍ମ ସଂଖ୍ୟା ପାଇଁ ପ୍ରଯୁଜ୍ୟ।')">
+            <span>(B) ୩୭</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 2, false, 'ଭୁଲ! ୨୪ ଗୁଣନ ୨ ନୁହେଁ।')">
+            <span>(C) ୨୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 3, false, 'ଭୁଲ! ନିୟମଟି ପୁନର୍ବାର ଦେଖନ୍ତୁ।')">
+            <span>(D) ୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-4-fb"></div>
+      </div>
+
+      <!-- Quiz 5 -->
+      <div class="quiz-card" id="quiz-card-5">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୫: ୨୧-କାଉଣ୍ଟର ଖେଳରେ ଜିତିବା ପାଇଁ ଆପଣଙ୍କୁ ପ୍ରତ୍ୟେକ ରାଉଣ୍ଡରେ କେଉଁ ସଂଖ୍ୟାର ଯୋଗଫଳ ନିୟନ୍ତ୍ରଣ କରିବାକୁ ହେବ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 0, false, 'ଭୁଲ! ୩ ନୁହେଁ।')">
+            <span>(A) ୩</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 1, true, 'ସଠିକ୍! ପ୍ରତିପକ୍ଷର ଚାଲ୍ + ଆପଣଙ୍କ ଚାଲ୍ = ୪ ରଖିଲେ ସର୍ବଦା ବିଜୟ ସୁନିଶ୍ଚିତ।')">
+            <span>(B) ୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 2, false, 'ଭୁଲ! ୫ ନୁହେଁ।')">
+            <span>(C) ୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 3, false, 'ଭୁଲ! ୭ ନୁହେଁ।')">
+            <span>(D) ୭</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-5-fb"></div>
+      </div>
+
+      <!-- Part B: Subjective Questions -->
+      <h3 style="margin-top: 2rem;">ଭାଗ 'ଖ': ସଂକ୍ଷିପ୍ତ ଓ ଦୀର୍ଘ ଉତ୍ତରମୂଳକ ପରୀକ୍ଷା ପ୍ରଶ୍ନୋତ୍ତର (Subjective Question Bank)</h3>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୬ (୨ ମାର୍କ): କାପ୍ରେକର ପ୍ରକ୍ରିୟା କେଉଁ ପ୍ରକାରର ୪-ଅଙ୍କ ବିଶିଷ୍ଟ ସଂଖ୍ୟା ପାଇଁ କାର୍ଯ୍ୟ କରେ ନାହିଁ ଏବଂ କାହିଁକି?</summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong></p>
+          <p>ଯେଉଁ ୪-ଅଙ୍କ ବିଶିଷ୍ଟ ସଂଖ୍ୟାର <strong>ଚାରୋଟିଯାକ ଅଙ୍କ ସମାନ</strong> ଥାଏ (ଯଥା: ୧୧୧୧, ୨୨୨୨, ୩୩୩୩, ୯୯୯୯), ସେମାନଙ୍କ ପାଇଁ କାପ୍ରେକର ପ୍ରକ୍ରିୟା କାର୍ଯ୍ୟ କରେ ନାହିଁ।</p>
+          <p><strong>କାରଣ:</strong> ବୃହତ୍ତମ ସଂଖ୍ୟା ଏବଂ କ୍ଷୁଦ୍ରତମ ସଂଖ୍ୟା ଉଭୟ ସମାନ ହୋଇଯିବେ। ଫଳରେ ବିୟୋଗଫଳ <strong>୦୦୦୦</strong> ହୋଇଯିବ, ଏବଂ ପ୍ରକ୍ରିୟାଟି ଆଗକୁ ବଢ଼ିପାରିବ ନାହିଁ।</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୭ (୩ ମାର୍କ): ସଂଖ୍ୟା ୭୩ ରୁ ଆରମ୍ଭ କରି ବିପରୀତ କ୍ରମ ଯୋଗ ପଦ୍ଧତି ଦ୍ୱାରା ପାଲିଣ୍ଡ୍ରୋମ୍ ସଂଖ୍ୟା ନିର୍ଣ୍ଣୟ କର।</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରାରମ୍ଭିକ ସଂଖ୍ୟା):</span> ୭୩। ଏହାର ବିପରୀତ ସଂଖ୍ୟା = ୩୭।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ପ୍ରଥମ ଯୋଗ):</span> ୭୩ + ୩୭ = <strong>୧୧୦</strong> (ପାଲିଣ୍ଡ୍ରୋମ୍ ନୁହେଁ)।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ଦ୍ୱିତୀୟ ଯୋଗ):</span> ୧୧୦ ର ବିପରୀତ = ୦୧୧ (୧୧)।<br>
+            ୧୧୦ + ୧୧ = <strong>୧୨୧</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ସତ୍ୟାପନ):</span> ୧୨୧ କୁ ଉଭୟ ବାମ ଓ ଡାହାଣରୁ ପଢ଼ିଲେ ୧୨୧ ହିଁ ହୁଏ। ତେଣୁ ଏହା ଏକ ପାଲିଣ୍ଡ୍ରୋମ୍ ସଂଖ୍ୟା।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: ୭୩ ରୁ ୨ଟି ଧାପ ମଧ୍ୟରେ ପାଲିଣ୍ଡ୍ରୋମ୍ ସଂଖ୍ୟା ୧୨୧ ପ୍ରାପ୍ତ ହେଲା।</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୮ (୫ ମାର୍କ ଦକ୍ଷତା ଭିତ୍ତିକ): ୧&times;୯ ମାପର ଏକ ସରଳ ଧାଡ଼ି ସାରଣୀରେ ୧ ରୁ ୯ ପର୍ଯ୍ୟନ୍ତ ସଂଖ୍ୟା ଥରେ ଲେଖାଏଁ ବ୍ୟବହାର କରି ସର୍ବାଧିକ କେତୋଟି ସୁପରସେଲ୍ ସୃଷ୍ଟି କରାଯାଇପାରିବ? ଚିତ୍ର ସହ ବୁଝାଅ।</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ସମସ୍ୟା ବିଶ୍ଳେଷଣ):</span> ୧&times;୯ ଧାଡ଼ିରେ ୯ଟି କୋଠରି ପାଖାପାଖି ଅଛି। ଏକ ସୁପରସେଲ୍ ତାର ବାମ ଓ ଡାହାଣ ପଡ଼ୋଶୀଠାରୁ ବଡ଼ ହେବା ଆବଶ୍ୟକ। ଦୁଇଟି ପାଖାପାଖି କୋଠରି ଏକାସାଙ୍ଗରେ ସୁପରସେଲ୍ ହୋଇପାରିବେ ନାହିଁ।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ବିକଳ୍ପ ବିନ୍ୟାସ):</span> ସର୍ବାଧିକ ସୁପରସେଲ୍ ପାଇବା ପାଇଁ ବିକଳ୍ପ (Alternating) କୋଠରିଗୁଡ଼ିକରେ ବଡ଼ ସଂଖ୍ୟା ରଖିବାକୁ ହେବ: ୧ମ, ୩ୟ, ୫ମ, ୭ମ, ଏବଂ ୯ମ କୋଠରି।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ନିର୍ଦ୍ଦିଷ୍ଟ ସଂଖ୍ୟା ସ୍ଥାପନ):</span><br>
+            [ <strong>୯</strong> , ୧ , <strong>୮</strong> , ୨ , <strong>୭</strong> , ୩ , <strong>୬</strong> , ୪ , <strong>୫</strong> ]</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ସୁପରସେଲ୍ ପରୀକ୍ଷା):</span><br>
+            &bull; ୯ମ ପଦ ୯ > ୧ (ସୁପରସେଲ୍)<br>
+            &bull; ୮ > ୧ ଏବଂ ୨ (ସୁପରସେଲ୍)<br>
+            &bull; ୭ > ୨ ଏବଂ ୩ (ସୁପରସେଲ୍)<br>
+            &bull; ୬ > ୩ ଏବଂ ୪ (ସୁପରସେଲ୍)<br>
+            &bull; ୫ > ୪ (ସୁପରସେଲ୍)</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ସିଦ୍ଧାନ୍ତ: ୧&times;୯ ଗ୍ରିଡ୍ ରେ ସର୍ବାଧିକ <strong>୫ ଟି ସୁପରସେଲ୍</strong> ସମ୍ଭବ (କୋଠରି ୧, ୩, ୫, ୭, ୯)।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="section6">
+      <h2>Section 6: ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା ଓ ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ତଥ୍ୟ (Exam Hall Traps &amp; One-Liners)</h2>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">⚠️ ସାଧାରଣ ଭ୍ରାନ୍ତି ସତର୍କତା (Exam Hall Traps)</div>
+        <ul>
+          <li><strong>ଭୁଲ ୧:</strong> ସୁପରସେଲ୍ ଯାଞ୍ଚ କରିବା ସମୟରେ କୋଣାର୍କିଆ (Diagonal) କୋଠରି ସହିତ ତୁଳନା କରିବା। ମନେରଖନ୍ତୁ: କେବଳ ଭୂସମାନ୍ତର ଓ ଭୂଲମ୍ବ ପଡ଼ୋଶୀ ହିଁ ଗ୍ରହଣୀୟ!</li>
+          <li><strong>ଭୁଲ ୨:</strong> କାପ୍ରେକର ପ୍ରକ୍ରିୟାରେ ବିୟୋଗ ଫଳରେ ଯଦି ୩-ଅଙ୍କ ଆସେ, ତେବେ ବାମ ପାର୍ଶ୍ୱରେ '୦' ଲଗାଇବାକୁ ଭୁଲନ୍ତୁ ନାହିଁ। ଉଦାହରଣ: ୪୯୫ ଆସିଲେ ଏହାକୁ ୦୪୯୫ ଧରି ବୃହତ୍ତମ ୯୫୪୦ ଓ କ୍ଷୁଦ୍ରତମ ୦୪୫୯ କରିବାକୁ ହେବ।</li>
+          <li><strong>ଭୁଲ ୩:</strong> କୋଲାଟ୍ଜ୍ ଅନୁମାନରେ ଅଯୁଗ୍ମ ସଂଖ୍ୟା ଆସିଲେ କେବଳ ୩ ଗୁଣ କଲେ ହେବ ନାହିଁ, ସର୍ବଦା +୧ ଯୋଗ କରିବାକୁ ମନେରଖନ୍ତୁ (୩n + ୧)।</li>
+        </ul>
+      </div>
+
+      <h3 class="topic-title">📌 ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ଏକ-ପଦୀ ତଥ୍ୟ (15 Rapid Revision One-Liners)</h3>
+      <ol style="line-height: 2; margin-left: 1.5rem;">
+        <li>ଏକ କୋଠରି ତାହାର ସମସ୍ତ ସଂଲଗ୍ନ ପଡ଼ୋଶୀଠାରୁ ବଡ଼ ହେଲେ ତାହାକୁ <strong>ସୁପରସେଲ୍ (Supercell)</strong> କୁହାଯାଏ।</li>
+        <li>ଗୋଟିଏ ସାରଣୀରେ ସବୁଠାରୁ ବୃହତ୍ତମ ସଂଖ୍ୟା ଥିବା କୋଠରି ସର୍ବଦା ଏକ <strong>ସୁପରସେଲ୍</strong> ହୁଏ।</li>
+        <li>୩&times;୩ ସାରଣୀରେ ସର୍ବାଧିକ <strong>୫ ଟି ସୁପରସେଲ୍</strong> ରହିପାରିବ।</li>
+        <li>୧&times;୯ ଧାଡ଼ି ବିଶିଷ୍ଟ ସାରଣୀରେ ମଧ୍ୟ ସର୍ବାଧିକ <strong>୫ ଟି ସୁପରସେଲ୍</strong> ସମ୍ଭବ।</li>
+        <li>ଦୁଇଟି ପରସ୍ପର ଲାଗିରହିଥିବା କୋଠରି କେବେବି ଏକାସାଙ୍ଗରେ <strong>ସୁପରସେଲ୍ ହୋଇପାରିବେ ନାହିଁ</strong>।</li>
+        <li>ବାମ ଓ ଡାହାଣ ଉଭୟ ପାର୍ଶ୍ୱରୁ ସମାନ ପଢ଼ାଯାଉଥିବା ସଂଖ୍ୟାକୁ <strong>ପାଲିଣ୍ଡ୍ରୋମ୍ (Palindrome)</strong> କୁହାଯାଏ।</li>
+        <li>ଭାରତୀୟ ଗଣିତଜ୍ଞ <strong>ଡି. ଆର୍. କାପ୍ରେକର</strong> ୧୯୪୯ ରେ ୬୧୭୪ ଧ୍ରୁବକ ଆବିଷ୍କାର କରିଥିଲେ।</li>
+        <li>୪-ଅଙ୍କ ବିଶିଷ୍ଟ ସଂଖ୍ୟା ପାଇଁ କାପ୍ରେକର ଧ୍ରୁବକ ହେଉଛି <strong>୬୧୭୪</strong>।</li>
+        <li>୩-ଅଙ୍କ ବିଶିଷ୍ଟ ସଂଖ୍ୟା ପାଇଁ କାପ୍ରେକର ଧ୍ରୁବକ ହେଉଛି <strong>୪୯୫</strong>।</li>
+        <li>ଚାରୋଟିଯାକ ଅଙ୍କ ସମାନ ଥିବା ସଂଖ୍ୟା (ଯଥା: ୨୨୨୨) ପାଇଁ କାପ୍ରେକର ପ୍ରକ୍ରିୟା <strong>କାର୍ଯ୍ୟ କରେ ନାହିଁ</strong>।</li>
+        <li>ଯେକୌଣସି ଯୋଗ୍ୟ ୪-ଅଙ୍କ ବିଶିଷ୍ଟ ସଂଖ୍ୟା ସର୍ବାଧିକ <strong>୭ ଟି ଧାପ</strong> ମଧ୍ୟରେ ୬୧୭୪ ରେ ପହଞ୍ଚେ।</li>
+        <li><strong>କୋଲାଟ୍ଜ୍ ଅନୁମାନ</strong> କୁ '୩n + ୧ ସମସ୍ୟା' ବା 'ହେଲଷ୍ଟୋନ୍ ସିକ୍ୱେନ୍ସ' ମଧ୍ୟ କୁହାଯାଏ।</li>
+        <li>କୋଲାଟ୍ଜ୍ ଶ୍ରେଣୀରେ ସମସ୍ତ ଧନାତ୍ମକ ସଂଖ୍ୟା ଶେଷରେ <strong>୪ &rarr; ୨ &rarr; ୧</strong> ଲୁପ୍ ରେ ପହଞ୍ଚନ୍ତି।</li>
+        <li>୨୧-କାଉଣ୍ଟର ଖେଳରେ ଜିତିବାର ଚାବିକାଠି ହେଉଛି ପ୍ରତି ରାଉଣ୍ଡରେ <strong>୪ ର ଯୋଗଫଳ</strong> ବଜାୟ ରଖିବା।</li>
+        <li>ଧାଡ଼ିରେ ଠିଆ ହୋଇଥିବା ଡେଙ୍ଗା ପିଲା କେବେବି ତାର ପଡ଼ୋଶୀ ଡେଙ୍ଗା ବୋଲି କହିପାରିବ ନାହିଁ।</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      const btn = document.getElementById('backToTopBtn');
+      if (winScroll > 350) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+
+    function toggleAllAnswers(openState) {
+      document.querySelectorAll('details.ans-box').forEach(el => {
+        el.open = openState;
+      });
+    }
+
+    let quizScore = 0;
+    const answeredQuizzes = new Set();
+
+    function checkQuiz(cardId, optionIndex, isCorrect, explanation) {
+      const card = document.getElementById(cardId);
+      const buttons = card.querySelectorAll('.quiz-opt-btn');
+      const fb = document.getElementById(cardId + '-fb');
+
+      if (answeredQuizzes.has(cardId)) return;
+      answeredQuizzes.add(cardId);
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        const ind = btn.querySelector('.quiz-opt-indicator');
+        if (idx === optionIndex) {
+          if (isCorrect) {
+            btn.classList.add('correct-opt');
+            ind.innerHTML = ' &check; (ସଠିକ୍)';
+          } else {
+            btn.classList.add('wrong-opt');
+            ind.innerHTML = ' &cross; (ଭୁଲ)';
+          }
+        }
+      });
+
+      if (!isCorrect) {
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct-opt');
+            btn.querySelector('.quiz-opt-indicator').innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          }
+        });
+      }
+
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.className = 'quiz-feedback correct-fb';
+        fb.innerHTML = '<strong>ଠିକ୍ ଉତ୍ତର! 🎉</strong> ' + explanation;
+        quizScore++;
+      } else {
+        fb.className = 'quiz-feedback incorrect-fb';
+        fb.innerHTML = '<strong>ଭୁଲ ଉତ୍ତର! ⚠️</strong> ' + explanation;
+      }
+
+      document.getElementById('currentScore').innerText = quizScore;
+    }
+
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Text-to-Speech ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+      } else {
+        const text = "ନମସ୍କାର ପିଲାମାନେ! ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତର ତୃତୀୟ ଅଧ୍ୟାୟ 'ସଂଖ୍ୟା ଖେଳ' କୁ ସ୍ୱାଗତ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ସୁପରସେଲ୍, ପାଲିଣ୍ଡ୍ରୋମ୍ ସଂଖ୍ୟା, ଭାରତୀୟ ଗଣିତଜ୍ଞ ଡକ୍ଟର କାପ୍ରେକରଙ୍କ ଆଶ୍ଚର୍ଯ୍ୟଜନକ ଧ୍ରୁବକ ୬୧୭୪, କୋଲାଟ୍ଜ୍ ଅନୁମାନ ଏବଂ ୨୧-କାଉଣ୍ଟର ଖେଳ ବିଷୟରେ ଜାଣିଲେ। ୩ ଗୁଣନ ୩ ସାରଣୀରେ ସର୍ବାଧିକ ୫ଟି ସୁପରସେଲ୍ ରହିପାରିବ। ୪ ଅଙ୍କ ବିଶିଷ୍ଟ ସଂଖ୍ୟା ସର୍ବାଧିକ ୭ ଧାପରେ ୬୧୭୪ ରେ ପହଞ୍ଚେ। ସଂଖ୍ୟା ସହିତ ଖେଳିବା ବହୁତ ମଜାଦାର। ମନଦେଇ ଅଭ୍ୟାସ କରନ୍ତୁ!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'or-IN';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>";
+      }
+    }
+  </script>
+</body>
+</html>
