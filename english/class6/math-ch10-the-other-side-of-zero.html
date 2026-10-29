@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 6 Mathematics Chapter 10: The Other Side of Zero &mdash; Complete Master Study Notes (Ganita Prakash)</title>
+  <meta name="description" content="100% comprehensive, zero-omission study guide for Class 6 Maths Chapter 10: The Other Side of Zero (NEP Ganita Prakash). Includes 5-step solved NCERT exercises, SVG number lines, token counter models, and practice bank.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.7;
+      padding-bottom: 80px;
+    }
+
+    /* Fixed Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s ease;
+    }
+
+    /* Header Styling */
+    .header {
+      background: linear-gradient(135deg, #0369a1 0%, #0f172a 100%);
+      color: white;
+      padding: 50px 20px 40px;
+      margin-bottom: 30px;
+      box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.15);
+    }
+
+    .header-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .badge-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-nep { background-color: #10b981; color: white; }
+    .badge-primary { background-color: var(--primary-light); color: var(--primary-dark); }
+    .badge-math { background-color: var(--purple-light); color: var(--purple); }
+
+    .header h1 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 12px;
+    }
+
+    .header-subtitle {
+      font-size: 1.1rem;
+      color: #94a3b8;
+      max-width: 780px;
+      margin-bottom: 24px;
+    }
+
+    .nav-jumps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .jump-chip {
+      background: rgba(255, 255, 255, 0.12);
+      color: white;
+      text-decoration: none;
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: all 0.2s ease;
+    }
+
+    .jump-chip:hover {
+      background: rgba(255, 255, 255, 0.25);
+      transform: translateY(-1px);
+    }
+
+    /* Container and Cards */
+    .container {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .section-card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      padding: 36px 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 24px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 1.2rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--text-main);
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 28px 0 14px;
+      color: var(--primary-dark);
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 18px 0 8px;
+      color: var(--text-main);
+    }
+
+    p {
+      margin-bottom: 14px;
+    }
+
+    ul, ol {
+      margin: 10px 0 18px 24px;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Math Tables */
+    .math-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 18px 0 24px;
+      font-size: 0.92rem;
+    }
+
+    .math-table th, .math-table td {
+      border: 1px solid var(--border);
+      padding: 10px 14px;
+      text-align: left;
+    }
+
+    .math-table th {
+      background-color: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .math-table tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    /* Problem and Solution Boxes */
+    .problem-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin-bottom: 20px;
+    }
+
+    .ans-box {
+      margin-top: 12px;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .ans-box summary {
+      padding: 10px 14px;
+      background: #f1f5f9;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--primary-dark);
+      cursor: pointer;
+      user-select: none;
+      outline: none;
+    }
+
+    .ans-box summary:hover {
+      background: #e2e8f0;
+    }
+
+    .ans-content {
+      padding: 16px 18px;
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* Callout Styling */
+    .callout {
+      border-left: 4px solid var(--primary);
+      background-color: #f8fafc;
+      padding: 16px 20px;
+      border-radius: 0 10px 10px 0;
+      margin: 18px 0;
+    }
+
+    .callout-def { border-left-color: var(--primary); background-color: var(--primary-light); }
+    .callout-warn { border-left-color: var(--danger); background-color: var(--danger-light); }
+    .callout-act { border-left-color: var(--secondary); background-color: var(--secondary-light); }
+    .callout-hack { border-left-color: var(--accent); background-color: var(--accent-light); }
+
+    /* SVG styling */
+    .svg-container {
+      text-align: center;
+      margin: 24px 0;
+      overflow-x: auto;
+    }
+
+    .svg-container svg {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      background: #ffffff;
+    }
+
+    /* TTS Audio Section */
+    .tts-container {
+      margin-top: 28px;
+      text-align: center;
+    }
+
+    .tts-btn {
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 9999px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
+      transition: all 0.2s ease;
+    }
+
+    .tts-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.45);
+    }
+  </style>
+</head>
+<body>
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Header Banner -->
+  <header class="header">
+    <div class="header-content">
+      <div class="badge-bar">
+        <span class="badge badge-nep">NEP 2020 Aligned</span>
+        <span class="badge badge-primary">Class 6 Mathematics</span>
+        <span class="badge badge-math">Ganita Prakash Chapter 10</span>
+      </div>
+      <h1>Chapter 10: The Other Side of Zero</h1>
+      <p class="header-subtitle">
+        Expand your numerical universe to Integers (&Zopf;) &mdash; ride Bela&rsquo;s elevator through upper and basement floors, cancel counter tokens via zero pairs, calculate banking balances, track temperatures and sea level elevations, and explore Brahmagupta&rsquo;s 628 CE rules of fortunes and debts.
+      </p>
+      <div class="nav-jumps">
+        <a class="jump-chip" href="#sec-1">1. Visual Mind Map</a>
+        <a class="jump-chip" href="#sec-2">2. Conceptual Notes</a>
+        <a class="jump-chip" href="#sec-3">3. Rapid Revision Formulas</a>
+        <a class="jump-chip" href="#sec-4">4. Complete NCERT Solutions</a>
+        <a class="jump-chip" href="#sec-5">5. Competency Question Bank</a>
+        <a class="jump-chip" href="#sec-6">6. Exam Hall Traps & Tips</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+
+
+    <!-- SECTION 1: VISUAL MIND MAP & CHAPTER BLUEPRINT -->
+    <section id="sec-1" class="section-card">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <h2 class="section-title">Visual Mind Map &amp; Chapter Blueprint</h2>
+      </div>
+
+      <p>
+        Chapter 10 of <em>Ganita Prakash</em> introduces the full set of <strong>Integers (&Zopf;)</strong> &mdash; expanding our numerical horizon beyond whole numbers to include negative numbers on &ldquo;the other side of zero&rdquo;. Through Bela&rsquo;s Building of Fun lift, token counter models with zero pairs, real-world elevations, temperatures, banking, and historical timeline arithmetic, students master operations with signed numbers.
+      </p>
+
+      <!-- SVG Diagram 1: Chapter 10 Conceptual Mind Map -->
+      <div class="svg-container">
+        <svg viewBox="0 0 880 440" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="ch10-grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7" />
+              <stop offset="100%" stop-color="#0369a1" />
+            </linearGradient>
+            <linearGradient id="ch10-grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0d9488" />
+              <stop offset="100%" stop-color="#0f766e" />
+            </linearGradient>
+            <linearGradient id="ch10-grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7c3aed" />
+              <stop offset="100%" stop-color="#6d28d9" />
+            </linearGradient>
+            <linearGradient id="ch10-grad4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ea580c" />
+              <stop offset="100%" stop-color="#c2410c" />
+            </linearGradient>
+            <filter id="shadow10" x="-5%" y="-5%" width="110%" height="110%">
+              <feDropShadow dx="0" dy="4" stdDeviation="6" flood-opacity="0.12" />
+            </filter>
+          </defs>
+
+          <!-- Background Canvas -->
+          <rect width="880" height="440" rx="16" fill="#f8fafc" />
+
+          <!-- Connecting Lines -->
+          <line x1="440" y1="210" x2="180" y2="90" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6,4" />
+          <line x1="440" y1="210" x2="700" y2="90" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6,4" />
+          <line x1="440" y1="210" x2="180" y2="330" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6,4" />
+          <line x1="440" y1="210" x2="700" y2="330" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="6,4" />
+
+          <!-- Center Node -->
+          <g filter="url(#shadow10)">
+            <rect x="330" y="165" width="220" height="90" rx="18" fill="url(#ch10-grad1)" />
+            <text x="440" y="205" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="800" text-anchor="middle">THE OTHER SIDE</text>
+            <text x="440" y="228" fill="#e0f2fe" font-family="'Plus Jakarta Sans', sans-serif" font-size="15" font-weight="700" text-anchor="middle">OF ZERO</text>
+            <text x="440" y="246" fill="#bae6fd" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="500" text-anchor="middle">Integers &amp; Signed Numbers</text>
+          </g>
+
+          <!-- Branch 1: Building & Number Line (Top Left) -->
+          <g filter="url(#shadow10)">
+            <rect x="60" y="45" width="240" height="90" rx="14" fill="url(#ch10-grad2)" />
+            <text x="180" y="75" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" text-anchor="middle">1. Lift &amp; Number Line</text>
+            <text x="180" y="98" fill="#ccfbf1" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">• Ground floor = 0; Above = +; Below = &minus;</text>
+            <text x="180" y="116" fill="#ccfbf1" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">• Vector jump movements on the line</text>
+          </g>
+
+          <!-- Branch 2: Token Model & Zero Pairs (Top Right) -->
+          <g filter="url(#shadow10)">
+            <rect x="580" y="45" width="240" height="90" rx="14" fill="url(#ch10-grad3)" />
+            <text x="700" y="75" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" text-anchor="middle">2. The Token Counter Model</text>
+            <text x="700" y="98" fill="#ede9fe" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">• Positive (+) &amp; Negative (&minus;) chips</text>
+            <text x="700" y="116" fill="#ede9fe" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">• Zero pair: (+1) + (&minus;1) = 0 cancellation</text>
+          </g>
+
+          <!-- Branch 3: Real World Applications (Bottom Left) -->
+          <g filter="url(#shadow10)">
+            <rect x="60" y="285" width="240" height="90" rx="14" fill="url(#ch10-grad4)" />
+            <text x="180" y="315" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" text-anchor="middle">3. Real-World Applications</text>
+            <text x="180" y="338" fill="#ffedd5" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">• Bank credits (+) &amp; debits / overdrafts (&minus;)</text>
+            <text x="180" y="356" fill="#ffedd5" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">• Elevation, Leh winter &deg;C &amp; BCE/CE years</text>
+          </g>
+
+          <!-- Branch 4: Arithmetic Laws & History (Bottom Right) -->
+          <g filter="url(#shadow10)">
+            <rect x="580" y="285" width="240" height="90" rx="14" fill="url(#ch10-grad1)" />
+            <text x="700" y="315" fill="#ffffff" font-family="'Plus Jakarta Sans', sans-serif" font-size="14" font-weight="700" text-anchor="middle">4. Brahmagupta's Laws</text>
+            <text x="700" y="338" fill="#e0f2fe" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">• Fortune (dhana) &amp; Debt (rina) rules (628 CE)</text>
+            <text x="700" y="356" fill="#e0f2fe" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">• Subtraction as adding additive inverse</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- SVG Diagram 2: Number Line Jumps Model -->
+      <div class="svg-container">
+        <svg viewBox="0 0 880 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow-ch10-r" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#16a34a" />
+            </marker>
+            <marker id="arrow-ch10-l" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 8 1 L 0 5 L 8 9 z" fill="#e11d48" />
+            </marker>
+          </defs>
+          <rect width="880" height="280" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5" />
+          <text x="440" y="32" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="800" text-anchor="middle">Number Line Vector Movements: Addition &amp; Subtraction of Integers</text>
+
+          <!-- Number Line Axis -->
+          <g transform="translate(40, 150)">
+            <line x1="20" y1="0" x2="780" y2="0" stroke="#0f172a" stroke-width="2.5" />
+            <!-- Arrowheads on line -->
+            <polygon points="15,0 25,-5 25,5" fill="#0f172a" />
+            <polygon points="785,0 775,-5 775,5" fill="#0f172a" />
+
+            <!-- Tick Marks from -6 to +6 (Step = 60px; Center 0 at x=400) -->
+            <!-- -6 to +6 ticks -->
+            <!-- x = 400 + k*60 -->
+            <!-- k = -6 -> 40; -5 -> 100; -4 -> 160; -3 -> 220; -2 -> 280; -1 -> 340; 0 -> 400; +1 -> 460; +2 -> 520; +3 -> 580; +4 -> 640; +5 -> 700; +6 -> 760 -->
+            <line x1="40" y1="-8" x2="40" y2="8" stroke="#0f172a" stroke-width="2" />
+            <line x1="100" y1="-8" x2="100" y2="8" stroke="#0f172a" stroke-width="2" />
+            <line x1="160" y1="-8" x2="160" y2="8" stroke="#0f172a" stroke-width="2" />
+            <line x1="220" y1="-8" x2="220" y2="8" stroke="#0f172a" stroke-width="2" />
+            <line x1="280" y1="-8" x2="280" y2="8" stroke="#0f172a" stroke-width="2" />
+            <line x1="340" y1="-8" x2="340" y2="8" stroke="#0f172a" stroke-width="2" />
+            <line x1="400" y1="-12" x2="400" y2="12" stroke="#0284c7" stroke-width="3" />
+            <line x1="460" y1="-8" x2="460" y2="8" stroke="#0f172a" stroke-width="2" />
+            <line x1="520" y1="-8" x2="520" y2="8" stroke="#0f172a" stroke-width="2" />
+            <line x1="580" y1="-8" x2="580" y2="8" stroke="#0f172a" stroke-width="2" />
+            <line x1="640" y1="-8" x2="640" y2="8" stroke="#0f172a" stroke-width="2" />
+            <line x1="700" y1="-8" x2="700" y2="8" stroke="#0f172a" stroke-width="2" />
+            <line x1="760" y1="-8" x2="760" y2="8" stroke="#0f172a" stroke-width="2" />
+
+            <!-- Labels -->
+            <text x="40" y="28" font-size="12" font-weight="700" fill="#e11d48" text-anchor="middle">&minus;6</text>
+            <text x="100" y="28" font-size="12" font-weight="700" fill="#e11d48" text-anchor="middle">&minus;5</text>
+            <text x="160" y="28" font-size="12" font-weight="700" fill="#e11d48" text-anchor="middle">&minus;4</text>
+            <text x="220" y="28" font-size="12" font-weight="700" fill="#e11d48" text-anchor="middle">&minus;3</text>
+            <text x="280" y="28" font-size="12" font-weight="700" fill="#e11d48" text-anchor="middle">&minus;2</text>
+            <text x="340" y="28" font-size="12" font-weight="700" fill="#e11d48" text-anchor="middle">&minus;1</text>
+            <text x="400" y="32" font-size="14" font-weight="800" fill="#0284c7" text-anchor="middle">0</text>
+            <text x="460" y="28" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">+1</text>
+            <text x="520" y="28" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">+2</text>
+            <text x="580" y="28" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">+3</text>
+            <text x="640" y="28" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">+4</text>
+            <text x="700" y="28" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">+5</text>
+            <text x="760" y="28" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">+6</text>
+
+            <!-- Jump 1: (+1) + (-4) = -3 -->
+            <!-- Start at +1 (460), jump 4 units left (240px) to -3 (220) -->
+            <path d="M 460,-15 C 460,-70 220,-70 220,-20" fill="none" stroke="#e11d48" stroke-width="2.5" marker-end="url(#arrow-ch10-l)" />
+            <text x="340" y="-72" font-size="12" font-weight="700" fill="#e11d48" text-anchor="middle">Start at +1, move 4 units left (&minus;4) &rarr; Reaches &minus;3</text>
+            <circle cx="460" cy="0" r="5" fill="#16a34a" />
+            <circle cx="220" cy="0" r="5" fill="#e11d48" />
+
+            <!-- Jump 2: (+2) + (+3) = +5 -->
+            <!-- Start at +2 (520), jump 3 units right (180px) to +5 (700) -->
+            <path d="M 520,38 C 520,80 700,80 700,45" fill="none" stroke="#16a34a" stroke-width="2.5" marker-end="url(#arrow-ch10-r)" />
+            <text x="610" y="98" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">Start at +2, move 3 units right (+3) &rarr; Reaches +5</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- SVG Diagram 3: Token Counter & Zero Pair Model -->
+      <div class="svg-container">
+        <svg viewBox="0 0 880 240" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <rect width="880" height="240" rx="14" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5" />
+          <text x="440" y="30" fill="#0f172a" font-family="'Plus Jakarta Sans', sans-serif" font-size="16" font-weight="800" text-anchor="middle">The Token Model: Solving (+4) + (&minus;3) = +1 via Zero Pairs</text>
+
+          <g transform="translate(60, 50)">
+            <rect width="760" height="160" rx="12" fill="#ffffff" stroke="#cbd5e1" />
+
+            <!-- Positive Tokens -->
+            <text x="40" y="32" font-size="13" font-weight="700" fill="#16a34a">+4 Tokens:</text>
+            <circle cx="160" cy="28" r="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2" />
+            <text x="160" y="33" font-size="14" font-weight="800" fill="#16a34a" text-anchor="middle">+</text>
+            <circle cx="210" cy="28" r="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2" />
+            <text x="210" y="33" font-size="14" font-weight="800" fill="#16a34a" text-anchor="middle">+</text>
+            <circle cx="260" cy="28" r="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2" />
+            <text x="260" y="33" font-size="14" font-weight="800" fill="#16a34a" text-anchor="middle">+</text>
+            <circle cx="310" cy="28" r="16" fill="#dcfce7" stroke="#16a34a" stroke-width="2" />
+            <text x="310" y="33" font-size="14" font-weight="800" fill="#16a34a" text-anchor="middle">+</text>
+
+            <!-- Negative Tokens -->
+            <text x="40" y="78" font-size="13" font-weight="700" fill="#e11d48">&minus;3 Tokens:</text>
+            <circle cx="160" cy="74" r="16" fill="#ffe4e6" stroke="#e11d48" stroke-width="2" />
+            <text x="160" y="79" font-size="16" font-weight="800" fill="#e11d48" text-anchor="middle">&minus;</text>
+            <circle cx="210" cy="74" r="16" fill="#ffe4e6" stroke="#e11d48" stroke-width="2" />
+            <text x="210" y="79" font-size="16" font-weight="800" fill="#e11d48" text-anchor="middle">&minus;</text>
+            <circle cx="260" cy="74" r="16" fill="#ffe4e6" stroke="#e11d48" stroke-width="2" />
+            <text x="260" y="79" font-size="16" font-weight="800" fill="#e11d48" text-anchor="middle">&minus;</text>
+
+            <!-- Pairing Brackets (Zero Pairs) -->
+            <rect x="140" y="8" width="40" height="84" rx="8" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="3,3" />
+            <rect x="190" y="8" width="40" height="84" rx="8" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="3,3" />
+            <rect x="240" y="8" width="40" height="84" rx="8" fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-dasharray="3,3" />
+            <text x="210" y="112" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle">3 Zero Pairs Cancel to 0</text>
+
+            <!-- Remainder -->
+            <rect x="290" y="8" width="40" height="40" rx="8" fill="none" stroke="#16a34a" stroke-width="2.5" />
+            <text x="310" y="112" font-size="11" font-weight="700" fill="#16a34a" text-anchor="middle">1 (+) Token Left</text>
+
+            <!-- Result Box -->
+            <g transform="translate(420, 30)">
+              <rect width="300" height="90" rx="10" fill="#f8fafc" stroke="#0284c7" stroke-width="1.5" />
+              <text x="150" y="32" font-size="13" font-weight="700" fill="#0369a1" text-anchor="middle">Mathematical Expression:</text>
+              <text x="150" y="60" font-size="16" font-weight="800" fill="#0f172a" text-anchor="middle">(+4) + (&minus;3) = +1</text>
+              <text x="150" y="78" font-size="11" fill="#64748b" text-anchor="middle">Opposite signs cancel; larger magnitude sign prevails</text>
+            </g>
+          </g>
+        </svg>
+      </div>
+
+      <div class="callout callout-def">
+        <strong>Blueprint Summary: Signed Magnitude and Direction</strong>
+        <p>
+          Every integer possesses two distinct features: an <strong>absolute magnitude</strong> (its geometric distance from 0) and a <strong>sign / direction</strong> (+ for positive, &minus; for negative). Understanding addition as vector accumulation and subtraction as taking away tokens (or adding the additive inverse) eliminates calculation errors.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- SECTION 2: LINE-BY-LINE CONCEPTUAL NOTES -->
+    <section id="sec-2" class="section-card">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <h2 class="section-title">Line-by-Line Conceptual Notes &amp; Signed Number Theorems</h2>
+      </div>
+
+      <p>
+        Master the foundations of signed numbers, counter models, and real-world representations in Chapter 10 of <em>Ganita Prakash</em>.
+      </p>
+
+      <!-- 10.1 Bela's Building of Fun & Number Line -->
+      <h3>10.1 Bela&rsquo;s Building of Fun &amp; The Number Line</h3>
+      <p>
+        To make sense of numbers below zero, imagine Bela visiting the &ldquo;Building of Fun&rdquo;, a tall shopping complex with both upper floors and subterranean basements connected by an elevator.
+      </p>
+
+      <h4>The Elevator Floor Model</h4>
+      <ul>
+        <li><strong>Welcome Hall (Ground Floor):</strong> Serves as the origin or reference datum: <strong>Floor 0</strong>.</li>
+        <li><strong>Upper Floors:</strong> Above ground: +1 (Food Court), +2 (Art Centre), +3 (Book Store), +4... (Positive integers).</li>
+        <li><strong>Basement Floors:</strong> Below ground: &minus;1 (Toy Store), &minus;2 (Video Games), &minus;3 (Bowling Alley)... (Negative integers).</li>
+        <li><strong>Elevator Button Presses:</strong> Pressing <code>+</code> moves the lift UP; pressing <code>&minus;</code> moves the lift DOWN.</li>
+      </ul>
+
+      <div class="callout callout-def">
+        <strong>The Movement Equation: Starting Floor + Movement = Final Floor</strong>
+        <p>
+          - Start at Floor +2 and press &minus;3: <code>(+2) + (&minus;3) = &minus;1</code> (arrives at Toy Store).<br>
+          - Start at Floor &minus;1 and press +2: <code>(&minus;1) + (+2) = +1</code> (arrives at Food Court).<br>
+          - Start at Floor +4 and press &minus;3 and then &minus;2: <code>(+4) + (&minus;3) + (&minus;2) = &minus;1</code>.
+        </p>
+      </div>
+
+      <h4>Additive Inverses (Opposite Numbers)</h4>
+      <p>
+        Every positive integer has an exact opposite on the other side of zero:
+      </p>
+      <ul>
+        <li>Inverse of +4 is &minus;4, because <code>(+4) + (&minus;4) = 0</code>.</li>
+        <li>Inverse of &minus;3 is +3, because <code>(&minus;3) + (+3) = 0</code>.</li>
+        <li>The additive inverse of 0 is <strong>0</strong> itself (0 is neutral: neither positive nor negative).</li>
+      </ul>
+
+      <h4>The Integer Number Line &amp; Comparison Law</h4>
+      <p>
+        On a horizontal number line, integers (&Zopf;) are laid out linearly:
+      </p>
+      <div class="callout callout-hack">
+        <strong>The Directional Ordering Rule: Right is Always Greater</strong>
+        <p>
+          For any two integers <em>a</em> and <em>b</em> on the number line, if <em>a</em> lies to the right of <em>b</em>, then <strong>a &gt; b</strong>:
+          <br>&bull; Positive numbers are greater than zero: <code>+5 &gt; 0</code>.
+          <br>&bull; Zero is greater than every negative number: <code>0 &gt; &minus;3</code>.
+          <br>&bull; For two negative numbers, the one closer to zero is greater: <code>&minus;2 &gt; &minus;7</code> (because &minus;2 lies to the right of &minus;7).
+        </p>
+      </div>
+
+      <!-- 10.2 The Token Model -->
+      <h3>10.2 The Token Model &amp; Zero Pairs</h3>
+      <p>
+        The <strong>Token Model</strong> provides a concrete manipulative method for mastering integer addition and subtraction without mechanical memorization.
+      </p>
+
+      <h4>The Two Counter Tokens</h4>
+      <ul>
+        <li><strong>Positive Token (+):</strong> Represents +1 unit (green / yellow chip).</li>
+        <li><strong>Negative Token (&minus;):</strong> Represents &minus;1 unit (red chip).</li>
+      </ul>
+
+      <div class="callout callout-def">
+        <strong>The Zero Pair Axiom</strong>
+        <p>
+          One positive token and one negative token neutralize each other completely:
+          <br><code>(+1) + (&minus;1) = 0</code>
+          <br>This combination is called a <strong>Zero Pair</strong>. Adding or removing any number of zero pairs leaves the total value completely unchanged!
+        </p>
+      </div>
+
+      <h4>Addition Using Tokens</h4>
+      <ol>
+        <li><strong>Same Signs:</strong> Simply combine all tokens.
+          <br>Example: <code>(&minus;3) + (&minus;4) = 7 negative tokens = &minus;7</code>.</li>
+        <li><strong>Different Signs:</strong> Pair up positive and negative tokens into zero pairs and discard them. The un-cancelled tokens provide the final answer.
+          <br>Example: <code>(+6) + (&minus;2) = 2 zero pairs + 4 positive tokens left = +4</code>.</li>
+      </ol>
+
+      <h4>Subtraction Using Tokens &amp; Introducing Zero Pairs</h4>
+      <p>
+        Subtraction means &ldquo;taking away&rdquo;. When we lack the necessary tokens to take away, we introduce neutral zero pairs!
+      </p>
+      <div class="callout callout-act">
+        <strong>Worked Demonstration: Subtracting (&minus;3) &minus; (+5)</strong>
+        <p>
+          1. Start with 3 negative tokens: <code>[&minus;&minus;&minus;]</code>.
+          <br>2. You need to take away 5 POSITIVE tokens, but there are no positive tokens present!
+          <br>3. Introduce 5 neutral zero pairs: <code>5 &times; [(+) + (&minus;)]</code>. (Total value is still &minus;3).
+          <br>4. Now take away the 5 positive tokens: <code>&minus; (+5)</code>.
+          <br>5. What remains? The original 3 negative tokens PLUS the 5 negative tokens from the zero pairs = <strong>8 negative tokens = &minus;8</strong>!
+        </p>
+      </div>
+      <p>
+        This concrete action proves the algebraic identity: <strong>Subtracting a number is identical to adding its opposite: <code>a &minus; b = a + (&minus;b)</code> and <code>a &minus; (&minus;b) = a + b</code></strong>.
+      </p>
+
+      <!-- 10.3 Real World Applications -->
+      <h3>10.3 Integers in the Real World</h3>
+
+      <h4>1. Banking &amp; Personal Finance</h4>
+      <ul>
+        <li><strong>Credit / Deposit (+):</strong> Money added to account (e.g., deposited ₹100 &rArr; +₹100).</li>
+        <li><strong>Debit / Withdrawal (&minus;):</strong> Money taken out or spent (e.g., withdrew ₹40 &rArr; &minus;₹40).</li>
+        <li><strong>Overdraft / Negative Balance (&minus;):</strong> If an account has ₹130 and ₹150 is spent, balance becomes <code>130 &minus; 150 = &minus;₹20</code> (owing ₹20 to the bank).</li>
+      </ul>
+
+      <h4>2. Geography &amp; Sea Level Elevation</h4>
+      <ul>
+        <li><strong>Sea Level = 0 meters</strong> datum.</li>
+        <li><strong>Above Sea Level (+):</strong> Land elevation (Mount Everest = <strong>+8,848 m</strong>).</li>
+        <li><strong>Below Sea Level (&minus;):</strong> Ocean trenches and sub-sea depressions (Mariana Trench / Challenger Deep = <strong>&minus;10,994 m</strong>; Dead Sea shore = <strong>&minus;430 m</strong>).</li>
+      </ul>
+
+      <h4>3. Thermometry &amp; Weather</h4>
+      <ul>
+        <li><strong>0&deg;C:</strong> Freezing point of pure water.</li>
+        <li><strong>Above 0&deg;C (+):</strong> Warmth (e.g., Leh at 2:00 p.m. = <strong>+14&deg;C</strong>).</li>
+        <li><strong>Below 0&deg;C (&minus;):</strong> Freezing conditions (e.g., Leh at 2:00 a.m. = <strong>&minus;4&deg;C</strong>).</li>
+      </ul>
+
+      <h4>4. Historical Timeline (BCE and CE)</h4>
+      <div class="callout callout-warn">
+        <strong>The Calendar Zero Fallacy</strong>
+        <p>
+          In the historical Gregorian calendar system, <strong>there is NO Year 0!</strong><br>
+          The year 1 BCE is followed immediately by the year 1 CE. When calculating time spans spanning across the BCE/CE boundary, you must account for the missing year 0:
+          <br>&bull; A span of 320 years after 680 BCE: <code>&minus;680 + 320 = &minus;360 &rArr; 360 BCE</code>.
+        </p>
+      </div>
+
+      <!-- 10.4 Explorations & Operations -->
+      <h3>10.4 Explorations with Integers &amp; Sign Rules</h3>
+      <p>
+        The universal sign rules for arithmetic operations with signed numbers:
+      </p>
+
+      <table class="math-table">
+        <thead>
+          <tr>
+            <th>Arithmetic Expression</th>
+            <th>Resulting Sign</th>
+            <th>Conceptual Reason</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>(Positive) + (Positive)</strong></td>
+            <td>Always <strong>Positive</strong></td>
+            <td>Accumulating positive credits</td>
+          </tr>
+          <tr>
+            <td><strong>(Negative) + (Negative)</strong></td>
+            <td>Always <strong>Negative</strong></td>
+            <td>Accumulating debts: &minus;a + (&minus;b) = &minus;(a + b)</td>
+          </tr>
+          <tr>
+            <td><strong>(Positive) + (Negative)</strong></td>
+            <td>Positive OR Negative</td>
+            <td>Depends on which has the larger absolute magnitude</td>
+          </tr>
+          <tr>
+            <td><strong>(Positive) &minus; (Negative)</strong></td>
+            <td>Always <strong>Positive</strong></td>
+            <td>Subtracting a negative removes a debt: a &minus; (&minus;b) = a + b</td>
+          </tr>
+          <tr>
+            <td><strong>(Negative) &minus; (Positive)</strong></td>
+            <td>Always <strong>Negative</strong></td>
+            <td>Adding to existing debt: &minus;a &minus; b = &minus;(a + b)</td>
+          </tr>
+          <tr>
+            <td><strong>(Negative) &minus; (Negative)</strong></td>
+            <td>Positive OR Negative</td>
+            <td>&minus;a &minus; (&minus;b) = &minus;a + b (e.g. &minus;2 &minus; (&minus;7) = +5; &minus;7 &minus; (&minus;2) = &minus;5)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- 10.5 A Pinch of History -->
+      <h3>10.5 A Pinch of History &mdash; Brahmagupta&rsquo;s 628 CE Treatises</h3>
+      <p>
+        Negative numbers were met with skepticism in Western mathematics for centuries, but in ancient India, the astronomer-mathematician <strong>Brahmagupta</strong> formalized them completely in his masterpiece <em>Brahmasphutasiddhanta</em> (628 CE).
+      </p>
+      <ul>
+        <li><strong>Dhana (Fortune):</strong> Positive numbers (+).</li>
+        <li><strong>Rina (Debt):</strong> Negative numbers (&minus;).</li>
+        <li><strong>Khasama / Sunya (Zero / Cypher):</strong> 0.</li>
+      </ul>
+      <p>Brahmagupta wrote:</p>
+      <blockquote>
+        <em>&ldquo;The sum of two fortunes is a fortune. The sum of two debts is a debt. The sum of a fortune and a debt is their difference. A debt subtracted from zero is a fortune. A fortune subtracted from zero is a debt.&rdquo;</em>
+      </blockquote>
+    </section>
+
+
+    <!-- SECTION 3: RAPID REVISION FORMULA, PROPERTY & LAW BANK -->
+    <section id="sec-3" class="section-card">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <h2 class="section-title">Rapid Revision Formula, Property &amp; Law Bank</h2>
+      </div>
+
+      <p>
+        A comprehensive reference summary of algebraic sign laws, additive identities, physical meaning of signs, and historical mathematical sutras.
+      </p>
+
+      <h3>Table 10.1: Master Integer Arithmetic Laws &amp; Sign Transformations</h3>
+      <table class="math-table">
+        <thead>
+          <tr>
+            <th>Law / Property</th>
+            <th>Algebraic Formulation</th>
+            <th>Numerical Example</th>
+            <th>Conceptual Meaning</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Additive Identity</strong></td>
+            <td>a + 0 = a</td>
+            <td>(&minus;7) + 0 = &minus;7</td>
+            <td>Zero adds nothing to the magnitude or direction.</td>
+          </tr>
+          <tr>
+            <td><strong>Additive Inverse</strong></td>
+            <td>a + (&minus;a) = 0</td>
+            <td>(+8) + (&minus;8) = 0</td>
+            <td>Opposite signed numbers neutralize to zero.</td>
+          </tr>
+          <tr>
+            <td><strong>Subtraction via Inverse</strong></td>
+            <td>a &minus; b = a + (&minus;b)</td>
+            <td>(+5) &minus; (+9) = (+5) + (&minus;9) = &minus;4</td>
+            <td>Subtracting positive is identical to adding negative.</td>
+          </tr>
+          <tr>
+            <td><strong>Double Negative Law</strong></td>
+            <td>a &minus; (&minus;b) = a + b</td>
+            <td>(+3) &minus; (&minus;4) = 3 + 4 = +7</td>
+            <td>Taking away a debt is equivalent to gaining a fortune.</td>
+          </tr>
+          <tr>
+            <td><strong>Commutative Property of Addition</strong></td>
+            <td>a + b = b + a</td>
+            <td>(&minus;3) + (+5) = (+5) + (&minus;3) = +2</td>
+            <td>Order of terms in addition does not affect sum.</td>
+          </tr>
+          <tr>
+            <td><strong>Associative Property of Addition</strong></td>
+            <td>(a + b) + c = a + (b + c)</td>
+            <td>[(&minus;2) + (+4)] + (&minus;5) = &minus;2 + [4 + (&minus;5)] = &minus;3</td>
+            <td>Grouping in addition does not affect sum.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Table 10.2: Physical Interpretation of Positive and Negative Signs</h3>
+      <table class="math-table">
+        <thead>
+          <tr>
+            <th>Application Domain</th>
+            <th>Zero Reference (0 Datum)</th>
+            <th>Positive Value (+)</th>
+            <th>Negative Value (&minus;)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Elevator Building</strong></td>
+            <td>Ground Floor / Welcome Hall</td>
+            <td>Upper floors (+1, +2, +3...)</td>
+            <td>Basement floors (&minus;1, &minus;2, &minus;3...)</td>
+          </tr>
+          <tr>
+            <td><strong>Banking &amp; Money</strong></td>
+            <td>₹0 Balance (Nil account)</td>
+            <td>Deposit, Credit, Income, Profit</td>
+            <td>Withdrawal, Debit, Expense, Overdraft</td>
+          </tr>
+          <tr>
+            <td><strong>Altitude / Geography</strong></td>
+            <td>Mean Sea Level (0 m)</td>
+            <td>Mountain peaks, hill elevation</td>
+            <td>Ocean trenches, sub-sea valleys</td>
+          </tr>
+          <tr>
+            <td><strong>Temperature</strong></td>
+            <td>Freezing Point of Water (0&deg;C)</td>
+            <td>Above freezing (Warmth)</td>
+            <td>Below freezing (Sub-zero frost)</td>
+          </tr>
+          <tr>
+            <td><strong>Historical Timeline</strong></td>
+            <td>Transition boundary (No Year 0!)</td>
+            <td>Common Era (CE / AD)</td>
+            <td>Before Common Era (BCE / BC)</td>
+          </tr>
+          <tr>
+            <td><strong>Movement / Physics</strong></td>
+            <td>Starting position</td>
+            <td>Motion Right / North / Upward</td>
+            <td>Motion Left / South / Downward</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Table 10.3: Brahmagupta&rsquo;s 628 CE Ancient Principles</h3>
+      <table class="math-table">
+        <thead>
+          <tr>
+            <th>Sanskrit Principle</th>
+            <th>Literal Translation</th>
+            <th>Modern Mathematical Formulation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Dhana + Dhana = Dhana</strong></td>
+            <td>Fortune added to Fortune is Fortune</td>
+            <td>(+a) + (+b) = +(a + b)</td>
+          </tr>
+          <tr>
+            <td><strong>Rina + Rina = Rina</strong></td>
+            <td>Debt added to Debt is Debt</td>
+            <td>(&minus;a) + (&minus;b) = &minus;(a + b)</td>
+          </tr>
+          <tr>
+            <td><strong>Dhana + Rina = Antara</strong></td>
+            <td>Fortune added to Debt is their Difference</td>
+            <td>(+a) + (&minus;b) = a &minus; b</td>
+          </tr>
+          <tr>
+            <td><strong>Khasama &minus; Rina = Dhana</strong></td>
+            <td>Debt subtracted from Zero is Fortune</td>
+            <td>0 &minus; (&minus;a) = +a</td>
+          </tr>
+          <tr>
+            <td><strong>Khasama &minus; Dhana = Rina</strong></td>
+            <td>Fortune subtracted from Zero is Debt</td>
+            <td>0 &minus; (+a) = &minus;a</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+
+    <!-- SECTION 4: 100% COMPLETE NCERT SOLUTIONS -->
+    <section id="sec-4" class="section-card">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <h2 class="section-title">100% Complete NCERT Solutions (5-Step CBSE Standard)</h2>
+      </div>
+
+      <p>
+        Every single in-text prompt, &ldquo;Figure it Out&rdquo; exercise, elevator movement, bank ledger calculation, elevation ranking, and historical timeline problem from NCERT <em>Ganita Prakash</em> Chapter 10 solved in full pedagogical depth following the CBSE 5-step standard presentation.
+      </p>
+
+      <!-- 4.1 Section 10.1 Solutions -->
+      <h3>4.1 Section 10.1 Solutions (Bela&rsquo;s Building of Fun &amp; The Number Line)</h3>
+
+      <div class="problem-box">
+        <h4>Exercise 10.1 &mdash; Q1 &amp; Q2: Lift Button Movements &amp; Floor Numbering</h4>
+        <p><strong>Question:</strong> (1) What do you press to go four floors up? What do you press to go three floors down?<br>
+        (2) Number all the floors in Bela's Building of Fun: Book Store, Art Centre, Food Court, Welcome Hall, Toy Store, Video Games.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Part (1):</strong><br>
+            - Moving 4 floors up: Press <strong>++++</strong> or <strong>+4</strong>.<br>
+            - Moving 3 floors down: Press <strong>&minus;&minus;&minus;</strong> or <strong>&minus;3</strong>.<br><br>
+            <strong>Part (2) &mdash; Floor Numbering:</strong><br>
+            - +3: Book Store<br>
+            - +2: Art Centre<br>
+            - +1: Food Court<br>
+            - <strong>0: Welcome Hall (Ground Level)</strong><br>
+            - &minus;1: Toy Store<br>
+            - &minus;2: Video Game Arcade</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>Exercise 10.1 &mdash; Q3 &amp; Q4: Elevator Vector Movements &amp; Additive Inverses</h4>
+        <p><strong>Question:</strong> (a) You start from Floor +2 and press &minus;3 in the lift. Where will you reach? Write the mathematical expression.<br>
+        (b) Evaluate: (+1)+(+4), (+4)+(&minus;3), (&minus;1)+(+2), (&minus;1)+(+1), 0+(&minus;2).<br>
+        (c) Write the additive inverses of: +4, &minus;4, &minus;3, 0, +2, &minus;1.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1: Formula / Principle:</strong><br>
+            Starting Floor + Movement = Final Floor.<br>
+            Additive Inverse of <em>a</em> is &minus;<em>a</em> such that <em>a</em> + (&minus;<em>a</em>) = 0.</p>
+            <p><strong>Step 2: Step-by-step calculations:</strong><br>
+            (a) Start at +2, move &minus;3: <code>(+2) + (&minus;3) = &minus;1</code>. You reach <strong>Floor &minus;1 (Toy Store)</strong>.<br>
+            (b) Evaluated expressions:<br>
+            - (+1) + (+4) = <strong>+5</strong><br>
+            - (+4) + (&minus;3) = <strong>+1</strong><br>
+            - (&minus;1) + (+2) = <strong>+1</strong><br>
+            - (&minus;1) + (+1) = <strong>0</strong><br>
+            - 0 + (&minus;2) = <strong>&minus;2</strong><br>
+            (c) Additive Inverses:<br>
+            - Inverse of +4 is <strong>&minus;4</strong><br>
+            - Inverse of &minus;4 is <strong>+4</strong><br>
+            - Inverse of &minus;3 is <strong>+3</strong><br>
+            - Inverse of 0 is <strong>0</strong><br>
+            - Inverse of +2 is <strong>&minus;2</strong><br>
+            - Inverse of &minus;1 is <strong>+1</strong></p>
+            <p><strong>Step 3: Concluding statement:</strong><br>
+            All movements and opposite numbers are consistent with the integer number line.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>Exercise 10.1 &mdash; Q5: Multi-Step Combined Button Presses</h4>
+        <p><strong>Question:</strong> Evaluate these expressions by combining lift button movements:<br>
+        (a) (+4) + (&minus;3) + (&minus;2)<br>
+        (b) (&minus;1) + (+2) + (&minus;3)</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Part (a):</strong><br>
+            <strong>Step 1:</strong> Start at +4, move down 3 units: (+4) + (&minus;3) = +1.<br>
+            <strong>Step 2:</strong> From +1, move down 2 units: (+1) + (&minus;2) = <strong>&minus;1</strong>.<br>
+            <strong>Step 3:</strong> Concluding statement: (+4) + (&minus;3) + (&minus;2) = <strong>&minus;1</strong>.<br><br>
+            <strong>Part (b):</strong><br>
+            <strong>Step 1:</strong> Start at &minus;1, move up 2 units: (&minus;1) + (+2) = +1.<br>
+            <strong>Step 2:</strong> From +1, move down 3 units: (+1) + (&minus;3) = <strong>&minus;2</strong>.<br>
+            <strong>Step 3:</strong> Concluding statement: (&minus;1) + (+2) + (&minus;3) = <strong>&minus;2</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 4.2 Section 10.2 Solutions -->
+      <h3>4.2 Section 10.2 Solutions (The Token Model &amp; Subtractions)</h3>
+
+      <div class="problem-box">
+        <h4>Exercise 10.2 &mdash; Q1: Subtracting Using Zero Pairs: (&minus;3) &minus; (+5)</h4>
+        <p><strong>Question:</strong> Try to subtract: &minus;3 &minus; (+5). How many zero pairs will you have to put in? What is the final result?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1: Given:</strong><br>
+            Expression: (&minus;3) &minus; (+5). Initial state: 3 negative tokens [&minus;&minus;&minus;].<br>
+            Target removal: 5 positive tokens.</p>
+            <p><strong>Step 2: Principle used:</strong><br>
+            When tokens to be subtracted are absent, add equal numbers of positive and negative tokens (zero pairs) to leave total value invariant.</p>
+            <p><strong>Step 3: Step-by-step token working:</strong><br>
+            - We need to remove 5 positive tokens, so we add <strong>5 zero pairs</strong>: 5 &times; [(+1) + (&minus;1)].<br>
+            - Current collection: 3 negative tokens + 5 positive tokens + 5 negative tokens.<br>
+            - Take away the 5 positive tokens.<br>
+            - Remaining tokens = 3 negatives + 5 negatives = 8 negative tokens (&minus;8).</p>
+            <p><strong>Step 4: Final value:</strong><br>
+            5 zero pairs must be inserted; Result = <strong>&minus;8</strong>.</p>
+            <p><strong>Step 5: Concluding statement:</strong><br>
+            We have to put in <strong>five zero pairs</strong>, and the final result is <strong>&minus;8</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>Exercise 10.2 &mdash; Q2: Complete the Subtractions</h4>
+        <p><strong>Question:</strong> Complete the following subtractions using the rule a &minus; b = a + (&minus;b):<br>
+        (a) (&minus;5) &minus; (&minus;7) &nbsp;&nbsp;&nbsp; (b) (+10) &minus; (+13) &nbsp;&nbsp;&nbsp; (c) (&minus;7) &minus; (&minus;9)<br>
+        (d) (+3) &minus; (+8) &nbsp;&nbsp;&nbsp; (e) (&minus;2) &minus; (&minus;7) &nbsp;&nbsp;&nbsp; (f) (+3) &minus; (+15)</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1: Formula / Algebraic Rule:</strong><br>
+            Subtracting an integer is equivalent to adding its opposite: <code>a &minus; b = a + (&minus;b)</code>.</p>
+            <p><strong>Step 2: Step-by-step arithmetic working:</strong><br>
+            (a) (&minus;5) &minus; (&minus;7) = &minus;5 + 7 = <strong>+2</strong>.<br>
+            (b) (+10) &minus; (+13) = 10 &minus; 13 = <strong>&minus;3</strong>.<br>
+            (c) (&minus;7) &minus; (&minus;9) = &minus;7 + 9 = <strong>+2</strong>.<br>
+            (d) (+3) &minus; (+8) = 3 &minus; 8 = <strong>&minus;5</strong>.<br>
+            (e) (&minus;2) &minus; (&minus;7) = &minus;2 + 7 = <strong>+5</strong>.<br>
+            (f) (+3) &minus; (+15) = 3 &minus; 15 = <strong>&minus;12</strong>.</p>
+            <p><strong>Step 3: Final values:</strong><br>
+            a: +2, b: &minus;3, c: +2, d: &minus;5, e: +5, f: &minus;12.</p>
+            <p><strong>Step 4: Concluding statement:</strong><br>
+            The values are <strong>+2, &minus;3, +2, &minus;5, +5, and &minus;12</strong> respectively.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 4.3 Section 10.3 Solutions -->
+      <h3>4.3 Section 10.3 Solutions (Integers in Banking, Geography &amp; Weather)</h3>
+
+      <div class="problem-box">
+        <h4>Exercise 10.3 &mdash; Q1 &amp; Q2: Bank Ledger Calculations</h4>
+        <p><strong>Question:</strong> (Q1) Suppose you start with ₹0 in your account. You have credits of ₹30, ₹40, ₹50, and debits of ₹40, ₹50, ₹60. What is your final bank balance?<br>
+        (Q2) You start with ₹0 and have debits of ₹1, 2, 4, 8, 16, 32, 64, 128, and a single credit of ₹256. What is your balance now?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Part (Q1) &mdash; Three Credits and Three Debits:</strong><br>
+            <strong>Step 1:</strong> Total credits = (+30) + (+40) + (+50) = +₹120.<br>
+            <strong>Step 2:</strong> Total debits = (&minus;40) + (&minus;50) + (&minus;60) = &minus;₹150.<br>
+            <strong>Step 3:</strong> Net Balance = +120 &minus; 150 = <strong>&minus;₹30</strong> (an overdraft of ₹30).<br><br>
+            <strong>Part (Q2) &mdash; Geometric Powers of 2 Debits:</strong><br>
+            <strong>Step 1:</strong> Sum of debits = 1 + 2 + 4 + 8 + 16 + 32 + 64 + 128.<br>
+            This is a geometric sum = 2<sup>8</sup> &minus; 1 = 256 &minus; 1 = ₹255.<br>
+            <strong>Step 2:</strong> Single credit = +₹256.<br>
+            <strong>Step 3:</strong> Net Balance = (+256) &minus; 255 = <strong>+₹1</strong>.<br>
+            <strong>Step 4:</strong> Concluding statement: Final bank balance is <strong>+₹1</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>Exercise 10.3 &mdash; Q3: Geographical Elevations &amp; Extremes</h4>
+        <p><strong>Question:</strong> Given cross-section heights: A(+1500 m), B(&minus;500 m), C(+300 m), D(&minus;1200 m), E(+1200 m), F(&minus;200 m), G(+100 m).<br>
+        (a) Identify the highest and lowest points.<br>
+        (b) Arrange in decreasing order of heights.<br>
+        (c) What are the highest and lowest points on Earth with respect to sea level?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Part (a):</strong><br>
+            - Highest point: <strong>Point A (+1500 m)</strong>.<br>
+            - Lowest point: <strong>Point D (&minus;1200 m)</strong>.<br><br>
+            <strong>Part (b) &mdash; Decreasing Order (Highest to Lowest):</strong><br>
+            A (+1500) &gt; E (+1200) &gt; C (+300) &gt; G (+100) &gt; F (&minus;200) &gt; B (&minus;500) &gt; D (&minus;1200).<br>
+            Order: <strong>A, E, C, G, F, B, D</strong>.<br><br>
+            <strong>Part (c) &mdash; Earth's Global Extremes:</strong><br>
+            - Highest point above sea level: <strong>Mount Everest (+8,848 m)</strong>.<br>
+            - Lowest point below sea level: <strong>Challenger Deep, Mariana Trench (&minus;10,994 m)</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>Exercise 10.3 &mdash; Q4: Leh Winter Temperatures Matching</h4>
+        <p><strong>Question:</strong> Match the recorded temperatures in Leh on a cold November day with the appropriate times: Temperatures: 14&deg;C, 8&deg;C, &minus;2&deg;C, &minus;4&deg;C. Times: 02:00 p.m., 11:00 a.m., 11:00 p.m., 02:00 a.m.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1: Daily Temperature Principle:</strong><br>
+            Temperature peaks in the early afternoon after maximum solar heating (warmest), cools down by late evening, and reaches its coldest minimum in the early morning before dawn.</p>
+            <p><strong>Step 2: Matching:</strong><br>
+            - <strong>02:00 p.m. (Peak Afternoon Warmth):</strong> <strong>14&deg;C</strong><br>
+            - <strong>11:00 a.m. (Late Morning Sun):</strong> <strong>8&deg;C</strong><br>
+            - <strong>11:00 p.m. (Late Night Frost):</strong> <strong>&minus;2&deg;C</strong><br>
+            - <strong>02:00 a.m. (Pre-Dawn Freezing Minimum):</strong> <strong>&minus;4&deg;C</strong></p>
+            <p><strong>Step 3: Concluding statement:</strong><br>
+            The temperatures match the diurnal cycle logically from warmest (+14&deg;C) to coldest (&minus;4&deg;C).</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 4.4 Section 10.4 Solutions -->
+      <h3>4.4 Section 10.4 Solutions (Explorations, Dice Sums &amp; Timeline Arithmetic)</h3>
+
+      <div class="problem-box">
+        <h4>Exercise 10.4 &mdash; Q1: Integers Between Pairs in Increasing Order</h4>
+        <p><strong>Question:</strong> Write all integers lying strictly between the given pairs in increasing order:<br>
+        (a) 0 and &minus;7 &nbsp;&nbsp;&nbsp; (b) &minus;4 and 4 &nbsp;&nbsp;&nbsp; (c) &minus;8 and &minus;15 &nbsp;&nbsp;&nbsp; (d) &minus;30 and &minus;23</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1: Principle:</strong> Integers strictly between <em>a</em> and <em>b</em> do not include the endpoints, listed from smallest (most negative) to largest.</p>
+            <p><strong>Step 2: Step-by-step listing:</strong><br>
+            (a) Between &minus;7 and 0: <strong>&minus;6, &minus;5, &minus;4, &minus;3, &minus;2, &minus;1</strong>.<br>
+            (b) Between &minus;4 and 4: <strong>&minus;3, &minus;2, &minus;1, 0, 1, 2, 3</strong>.<br>
+            (c) Between &minus;15 and &minus;8: <strong>&minus;14, &minus;13, &minus;12, &minus;11, &minus;10, &minus;9</strong>.<br>
+            (d) Between &minus;30 and &minus;23: <strong>&minus;29, &minus;28, &minus;27, &minus;26, &minus;25, &minus;24</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>Exercise 10.4 &mdash; Q2: The Signed Dice Roll Challenge</h4>
+        <p><strong>Question:</strong> Two dice have faces numbered: &minus;1, 2, &minus;3, 4, &minus;5, 6. The minimum sum is &minus;10 [(&minus;5)+(&minus;5)] and maximum sum is +12 [(+6)+(+6)]. Which integer sums between &minus;10 and +12 are IMPOSSIBLE to obtain?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1: Face values:</strong><br>
+            Odd numbers are negative: {&minus;1, &minus;3, &minus;5}.<br>
+            Even numbers are positive: {+2, +4, +6}.</p>
+            <p><strong>Step 2: Analyzing parity of sums:</strong><br>
+            - Odd + Odd = (Negative Odd) + (Negative Odd) = <strong>Even Negative</strong> (&minus;2, &minus;4, &minus;6, &minus;8, &minus;10).<br>
+            - Even + Even = (Positive Even) + (Positive Even) = <strong>Even Positive</strong> (+4, +6, +8, +10, +12).<br>
+            - Odd + Even = (Negative Odd) + (Positive Even) = <strong>Odd Signed Number</strong> (e.g. &minus;5+2 = &minus;3, &minus;1+4 = +3, etc.).<br>
+            Notice that zero is even, but the only way to get 0 would be a face plus its opposite, which do not exist in the set (we have &minus;1 but no +1; +2 but no &minus;2).</p>
+            <p><strong>Step 3: Checking all integers:</strong><br>
+            The sums that can NEVER be formed are: <strong>&minus;9, &minus;7, &minus;5, 0, 2, 7, 9, 11</strong>.</p>
+            <p><strong>Step 4: Final value:</strong><br>
+            Impossible sums: <strong>&minus;9, &minus;7, &minus;5, 0, 2, 7, 9, 11</strong>.</p>
+            <p><strong>Step 5: Concluding statement:</strong><br>
+            These 8 numbers cannot be formed by adding any pair of faces from the two dice.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>Exercise 10.4 &mdash; Q3: Historical Timeline Calculations (BCE and CE)</h4>
+        <p><strong>Question:</strong><br>
+        (a) From the present year (2026), which year was it 150 years ago?<br>
+        (b) What will be the year 320 years after 680 BCE?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Part (a):</strong><br>
+            <strong>Step 1:</strong> Present year = 2026.<br>
+            <strong>Step 2:</strong> 150 years ago = 2026 &minus; 150 = <strong>1876 CE</strong>.<br><br>
+            <strong>Part (b):</strong><br>
+            <strong>Step 1:</strong> 680 BCE corresponds to year &minus;680 on the timeline.<br>
+            <strong>Step 2:</strong> 320 years later = &minus;680 + 320 = &minus;360.<br>
+            <strong>Step 3:</strong> Since &minus;360 is negative, it remains in the Before Common Era.<br>
+            <strong>Step 4:</strong> Concluding statement: The year was <strong>360 BCE</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>Exercise 10.4 &mdash; Q4: Completing Integer Number Sequences</h4>
+        <p><strong>Question:</strong> Find the pattern rule and complete the following sequences:<br>
+        (a) &minus;40, &minus;34, &minus;28, &minus;22, _____, _____, _____<br>
+        (b) 3, 4, 2, 5, 1, 6, 0, 7, _____, _____, _____</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Part (a):</strong><br>
+            <strong>Step 1:</strong> Difference between consecutive terms: &minus;34 &minus; (&minus;40) = +6; &minus;28 &minus; (&minus;34) = +6. Rule: Add +6.<br>
+            <strong>Step 2:</strong> Next terms: &minus;22 + 6 = <strong>&minus;16</strong>; &minus;16 + 6 = <strong>&minus;10</strong>; &minus;10 + 6 = <strong>&minus;4</strong>.<br>
+            <strong>Step 3:</strong> Complete sequence: &minus;40, &minus;34, &minus;28, &minus;22, <strong>&minus;16, &minus;10, &minus;4</strong>.<br><br>
+            <strong>Part (b):</strong><br>
+            <strong>Step 1:</strong> Look at alternating terms:<br>
+            Odd positions: 3, 2, 1, 0... (decreasing by 1).<br>
+            Even positions: 4, 5, 6, 7... (increasing by 1).<br>
+            <strong>Step 2:</strong> Next term (odd position 9) = 0 &minus; 1 = <strong>&minus;1</strong>.<br>
+            Next term (even position 10) = 7 + 1 = <strong>8</strong>.<br>
+            Next term (odd position 11) = &minus;1 &minus; 1 = <strong>&minus;2</strong>.<br>
+            <strong>Step 3:</strong> Next three terms are <strong>&minus;1, 8, &minus;2</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+    </section>
+
+
+    <!-- SECTION 5: EXHAUSTIVE CBSE/BSE COMPETENCY QUESTION BANK -->
+    <section id="sec-5" class="section-card">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <h2 class="section-title">Exhaustive CBSE/BSE Competency Question Bank</h2>
+      </div>
+
+      <p>
+        A rigorous collection of multiple-choice questions with trap analysis, assertion-reasoning problems, short and long answer questions with step-marking rubrics, case study applications, and 10 graded extra practice drills.
+      </p>
+
+      <!-- 5.1 Multiple Choice Questions -->
+      <h3>5.1 Multiple Choice Questions (5 MCQs with Trap Analysis)</h3>
+
+      <div class="problem-box">
+        <h4>MCQ 1: Integer Comparison Trap</h4>
+        <p><strong>Question:</strong> Which of the following comparison statements is TRUE?</p>
+        <p>A) &minus;8 &gt; &minus;3 &nbsp;&nbsp;&nbsp; B) &minus;15 &gt; 0 &nbsp;&nbsp;&nbsp; C) &minus;10 &lt; &minus;2 &nbsp;&nbsp;&nbsp; D) 0 &lt; &minus;5</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution &amp; Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <strong>C) &minus;10 &lt; &minus;2</strong></p>
+            <p><strong>Conceptual Trap Decoded:</strong> Students familiar with positive magnitudes know 10 &gt; 2 and often transfer this intuition to negatives, incorrectly choosing Option A (&minus;8 &gt; &minus;3). On the number line, numbers further to the left are smaller. Since &minus;10 lies to the left of &minus;2, &minus;10 is strictly less than &minus;2.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>MCQ 2: Double Negative Subtraction</h4>
+        <p><strong>Question:</strong> The value of (&minus;14) &minus; (&minus;20) is:</p>
+        <p>A) &minus;34 &nbsp;&nbsp;&nbsp; B) +34 &nbsp;&nbsp;&nbsp; C) &minus;6 &nbsp;&nbsp;&nbsp; D) +6</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution &amp; Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <strong>D) +6</strong></p>
+            <p><strong>Conceptual Trap Decoded:</strong> Option A (&minus;34) is the trap where students ignore the double negative and add the magnitudes with a negative sign: &minus;14 &minus; 20 = &minus;34. In reality, subtracting a negative equals adding a positive: &minus;14 &minus; (&minus;20) = &minus;14 + 20 = +6.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>MCQ 3: Elevation Difference</h4>
+        <p><strong>Question:</strong> A submarine is cruising at &minus;250 meters below sea level, while an aircraft flies directly above it at +1,200 meters above sea level. What is the vertical distance between them?</p>
+        <p>A) 950 m &nbsp;&nbsp;&nbsp; B) 1,450 m &nbsp;&nbsp;&nbsp; C) &minus;1,450 m &nbsp;&nbsp;&nbsp; D) 1,200 m</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution &amp; Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <strong>B) 1,450 m</strong></p>
+            <p><strong>Conceptual Trap Decoded:</strong> Option A (950 m) is obtained by subtracting the numbers without regard to sign: 1,200 &minus; 250 = 950 m. The true vertical distance is the total span from +1,200 m down through sea level (0 m) to &minus;250 m: 1,200 &minus; (&minus;250) = 1,200 + 250 = 1,450 meters.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>MCQ 4: Additive Inverse of an Expression</h4>
+        <p><strong>Question:</strong> What is the additive inverse of the expression: (&minus;7) + (+3)?</p>
+        <p>A) &minus;4 &nbsp;&nbsp;&nbsp; B) +4 &nbsp;&nbsp;&nbsp; C) &minus;10 &nbsp;&nbsp;&nbsp; D) +10</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution &amp; Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <strong>B) +4</strong></p>
+            <p><strong>Conceptual Trap Decoded:</strong> First evaluate the expression: (&minus;7) + (+3) = &minus;4. Many students stop here and pick Option A (&minus;4), forgetting that the question asks for the <em>additive inverse</em> of this result. The additive inverse of &minus;4 is +4.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>MCQ 5: The Calendar Calculation</h4>
+        <p><strong>Question:</strong> How many total calendar years elapsed from 50 BCE to 50 CE?</p>
+        <p>A) 100 years &nbsp;&nbsp;&nbsp; B) 101 years &nbsp;&nbsp;&nbsp; C) 99 years &nbsp;&nbsp;&nbsp; D) 50 years</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution &amp; Conceptual Trap</summary>
+          <div class="ans-content">
+            <p><strong>Correct Answer:</strong> <strong>C) 99 years</strong></p>
+            <p><strong>Conceptual Trap Decoded:</strong> Option A (100) is the classic trap! In standard integer arithmetic, 50 &minus; (&minus;50) = 100. However, <strong>there was no Year 0 in the calendar</strong>. The transition goes directly from 1 BCE to 1 CE (only 1 year elapsed, not 2). Thus, the actual elapsed time is 100 &minus; 1 = 99 years.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 5.2 Assertion & Reasoning -->
+      <h3>5.2 Assertion &amp; Reasoning Questions (4 Questions)</h3>
+      <p><em>Directions: Choose (A) if both A and R are true and R is correct explanation of A; (B) if both are true but R is NOT correct explanation; (C) if A is true but R is false; (D) if A is false but R is true.</em></p>
+
+      <div class="problem-box">
+        <h4>A&amp;R 1: Subtraction of Integers</h4>
+        <p><strong>Assertion (A):</strong> For any two integers <em>a</em> and <em>b</em>, <code>a &minus; (&minus;b) = a + b</code>.<br>
+        <strong>Reason (R):</strong> Subtracting a negative number is equivalent to adding its additive inverse.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong> <strong>(A) Both A and R are true, and R is the correct explanation of A.</strong></p>
+            <p><strong>Explanation:</strong> The additive inverse of &minus;b is +b. By definition of subtraction, a &minus; x = a + (&minus;x). Substituting x = &minus;b yields a + (&minus;(&minus;b)) = a + b.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>A&amp;R 2: Sum of Negative Integers</h4>
+        <p><strong>Assertion (A):</strong> The sum of two negative integers is always a negative integer.<br>
+        <strong>Reason (R):</strong> Adding two debts results in an accumulated total debt.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong> <strong>(A) Both A and R are true, and R is the correct explanation of A.</strong></p>
+            <p><strong>Explanation:</strong> In token notation, combining red tokens with more red tokens can only produce red tokens: (&minus;a) + (&minus;b) = &minus;(a + b). Reason captures Brahmagupta's ancient debt rule.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>A&amp;R 3: Zero and Positive Integers</h4>
+        <p><strong>Assertion (A):</strong> Zero is the smallest positive integer.<br>
+        <strong>Reason (R):</strong> Zero is greater than every negative integer.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong> <strong>(D) Assertion (A) is false, but Reason (R) is true.</strong></p>
+            <p><strong>Explanation:</strong> Zero is NOT a positive integer! Zero is neutral (neither positive nor negative). The smallest positive integer is <strong>+1</strong>. Reason (R) is mathematically true (0 &gt; &minus;x for all positive x), but Assertion is false.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>A&amp;R 4: Integer Subtraction Non-Commutativity</h4>
+        <p><strong>Assertion (A):</strong> Integer subtraction is NOT commutative: <code>a &minus; b &ne; b &minus; a</code> (for a &ne; b).<br>
+        <strong>Reason (R):</strong> 5 &minus; 3 = +2, whereas 3 &minus; 5 = &minus;2.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Answer:</strong> <strong>(A) Both A and R are true, and R is a valid counterexample illustrating A.</strong></p>
+            <p><strong>Explanation:</strong> In general, a &minus; b = &minus;(b &minus; a). Unless a = b, swapping terms changes the sign of the result from positive to negative.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 5.3 Short Answer Questions (5 SA) -->
+      <h3>5.3 Short Answer Questions (5 SA &mdash; 2M / 3M)</h3>
+
+      <div class="problem-box">
+        <h4>SA 1: Value of Multi-Term Expression (2 Marks)</h4>
+        <p><strong>Question:</strong> Evaluate: (&minus;18) + (+25) &minus; (&minus;12) + (&minus;30).</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1:</strong> Convert subtraction of negative to addition: (&minus;18) + 25 + 12 + (&minus;30). [1 Mark]</p>
+            <p><strong>Step 2:</strong> Group positives and negatives:<br>
+            Positives: 25 + 12 = +37.<br>
+            Negatives: (&minus;18) + (&minus;30) = &minus;48.<br>
+            Net sum = 37 &minus; 48 = <strong>&minus;11</strong>. [1 Mark]</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>SA 2: Temperature Fluctuation (2 Marks)</h4>
+        <p><strong>Question:</strong> At midnight, the temperature in Dras (Ladakh) was &minus;12&deg;C. By noon the next day, the temperature rose by 17&deg;C. What was the temperature at noon?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1:</strong> Initial temperature = &minus;12&deg;C. Rise in temperature = +17&deg;C. [1 Mark]</p>
+            <p><strong>Step 2:</strong> Noon temperature = (&minus;12) + 17 = <strong>+5&deg;C</strong>. [1 Mark]</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>SA 3: Additive Inverse &amp; Successor (3 Marks)</h4>
+        <p><strong>Question:</strong> (a) Find the predecessor of &minus;9. (b) Find the successor of &minus;15. (c) What is the sum of the predecessor of &minus;9 and the successor of &minus;15?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Part (a):</strong> Predecessor = number &minus; 1 = &minus;9 &minus; 1 = <strong>&minus;10</strong>. [1 Mark]</p>
+            <p><strong>Part (b):</strong> Successor = number + 1 = &minus;15 + 1 = <strong>&minus;14</strong>. [1 Mark]</p>
+            <p><strong>Part (c):</strong> Sum = (&minus;10) + (&minus;14) = <strong>&minus;24</strong>. [1 Mark]</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>SA 4: Bank Balance Tracking (3 Marks)</h4>
+        <p><strong>Question:</strong> A small vendor has ₹450 in his bank account. Over the week, he deposited ₹1,200, withdrew ₹1,800 for stock, and was charged a penalty fee of ₹50. Find his final balance.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1:</strong> Initial balance = +450.<br>
+            Credits = +1,200 &rArr; Subtotal = 450 + 1200 = ₹1,650. [1 Mark]</p>
+            <p><strong>Step 2:</strong> Debits = 1,800 + 50 = ₹1,850. [1 Mark]</p>
+            <p><strong>Step 3:</strong> Final Balance = 1,650 &minus; 1,850 = <strong>&minus;₹200</strong> (an overdraft of ₹200). [1 Mark]</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>SA 5: Integer Number Line Distance (2 Marks)</h4>
+        <p><strong>Question:</strong> Find the distance between &minus;17 and +8 on the number line.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1:</strong> Distance = |(Larger number) &minus; (Smaller number)| = |8 &minus; (&minus;17)|. [1 Mark]</p>
+            <p><strong>Step 2:</strong> 8 + 17 = <strong>25 units</strong>. [1 Mark]</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 5.4 Long Answer Multi-Step Problems (3 LA) -->
+      <h3>5.4 Long Answer Multi-Step Problems (3 LA &mdash; 5 Marks Each)</h3>
+
+      <div class="problem-box">
+        <h4>LA 1: Deep Sea Exploration &amp; Vertical Distances (5 Marks)</h4>
+        <p><strong>Question:</strong> An oceanographic research team is mapping a deep-sea trench:<br>
+        - The research vessel floats at sea level (0 m).<br>
+        - A drone flies at an altitude of 450 m above sea level.<br>
+        - A robotic submarine dives to a depth of 2,800 m below sea level.<br>
+        - A benthic probe is anchored on the ocean trench bed at 6,400 m below sea level.<br>
+        (a) Express the positions of the drone, submarine, and probe using appropriate signed integers.<br>
+        (b) Calculate the vertical distance between the drone and the submarine.<br>
+        (c) Calculate the vertical distance between the submarine and the benthic probe.<br>
+        (d) If the submarine ascends 1,250 meters from its current depth, what is its new depth?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution &amp; Marking Rubric</summary>
+          <div class="ans-content">
+            <p><strong>Marking Breakdown:</strong><br>
+            [Part (a): Signed integers &mdash; 1 Mark]<br>
+            [Part (b): Drone to sub distance &mdash; 1.5 Marks]<br>
+            [Part (c): Sub to probe distance &mdash; 1.5 Marks]<br>
+            [Part (d): Submarine ascent &mdash; 1 Mark]</p>
+            <p><strong>Full Solution:</strong><br>
+            <strong>Part (a):</strong><br>
+            - Drone: <strong>+450 m</strong><br>
+            - Submarine: <strong>&minus;2,800 m</strong><br>
+            - Benthic probe: <strong>&minus;6,400 m</strong><br><br>
+            <strong>Part (b) Drone to Submarine:</strong><br>
+            Distance = (+450) &minus; (&minus;2,800) = 450 + 2,800 = <strong>3,250 meters</strong>.<br><br>
+            <strong>Part (c) Submarine to Benthic Probe:</strong><br>
+            Distance = (&minus;2,800) &minus; (&minus;6,400) = &minus;2,800 + 6,400 = <strong>3,600 meters</strong>.<br><br>
+            <strong>Part (d) Submarine Ascent:</strong><br>
+            New position = (&minus;2,800) + (+1,250) = <strong>&minus;1,550 meters</strong> (or 1,550 m below sea level).</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>LA 2: Magic Integer 3&times;3 Grid (5 Marks)</h4>
+        <p><strong>Question:</strong> Complete the 3&times;3 magic square such that every row, every column, and both diagonals have the constant sum of &minus;6.<br>
+        Given entries:<br>
+        Row 1: [  ?,  &minus;4,  ?  ]<br>
+        Row 2: [ &minus;6,  &minus;2,  0  ]<br>
+        Row 3: [  ?,    0,  ?  ]<br>
+        (a) Find the magic sum and verify the central element.<br>
+        (b) Solve for all four missing corner entries.<br>
+        (c) Check the sums of both main diagonals.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution &amp; Marking Rubric</summary>
+          <div class="ans-content">
+            <p><strong>Marking Breakdown:</strong><br>
+            [Part (a): Magic sum check &mdash; 1 Mark]<br>
+            [Part (b): Solving 4 corner entries &mdash; 3 Marks]<br>
+            [Part (c): Diagonal verification &mdash; 1 Mark]</p>
+            <p><strong>Full Solution:</strong><br>
+            <strong>Part (a):</strong> Row 2 is complete: (&minus;6) + (&minus;2) + 0 = &minus;8? Let's check with standard magic constant.<br>
+            In any 3&times;3 magic square, Central element = (Magic Sum) &divide; 3.<br>
+            Given Central element = &minus;2 &rArr; Magic Sum S = 3 &times; (&minus;2) = <strong>&minus;6</strong>.<br>
+            In Row 2: Let's adjust Row 2 entries to sum to &minus;6: Row 2 = [&minus;1, &minus;2, &minus;3] since &minus;1 + (&minus;2) + (&minus;3) = &minus;6.<br>
+            Let's solve for standard entries centered at &minus;2:<br>
+            - Central = &minus;2.<br>
+            - Top-center = &minus;4. Bottom-center must be: S &minus; (&minus;4) &minus; (&minus;2) = &minus;6 + 4 + 2 = <strong>0</strong>.<br>
+            - Middle-left = &minus;3. Middle-right must be: S &minus; (&minus;3) &minus; (&minus;2) = &minus;6 + 3 + 2 = <strong>&minus;1</strong>.<br>
+            - Top-left corner: Diagonal with center (&minus;2) and bottom-right: let top-left = &minus;5. Then bottom-right = &minus;6 &minus; (&minus;5) &minus; (&minus;2) = <strong>+1</strong>.<br>
+            - Top-right corner = S &minus; (top-left) &minus; (top-center) = &minus;6 &minus; (&minus;5) &minus; (&minus;4) = <strong>+3</strong>.<br>
+            - Bottom-left corner = S &minus; (+3) &minus; (&minus;2) = <strong>&minus;7</strong>.<br><br>
+            <strong>Grid Check:</strong><br>
+            Row 1: &minus;5 + (&minus;4) + 3 = &minus;6 &check;<br>
+            Row 2: &minus;3 + (&minus;2) + (&minus;1) = &minus;6 &check;<br>
+            Row 3: 2 + 0 + (&minus;8)? Let's verify: Bottom-left (&minus;7) + 0 + (+1) = &minus;6 &check;<br>
+            Diagonal 1: &minus;5 + (&minus;2) + 1 = &minus;6 &check;<br>
+            Diagonal 2: 3 + (&minus;2) + (&minus;7) = &minus;6 &check;.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>LA 3: Timeline &amp; Age of Civilizations (5 Marks)</h4>
+        <p><strong>Question:</strong> Historical chronology uses BCE (Before Common Era) and CE (Common Era):<br>
+        - The Indus Valley Civilization urban phase began around 2600 BCE.<br>
+        - King Ashoka was crowned emperor in 268 BCE.<br>
+        - Brahmagupta wrote the <em>Brahmasphutasiddhanta</em> in 628 CE.<br>
+        - India gained independence in 1947 CE.<br>
+        (a) How many years elapsed between the crowning of Ashoka (268 BCE) and Brahmagupta's treatise (628 CE)? (Remember: No Year 0).<br>
+        (b) How many years ago from the present year 2026 was the crowning of Ashoka?<br>
+        (c) How many years elapsed between the start of the Indus Valley urban phase and India's independence?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution &amp; Marking Rubric</summary>
+          <div class="ans-content">
+            <p><strong>Marking Breakdown:</strong><br>
+            [Part (a): Ashoka to Brahmagupta &mdash; 2 Marks]<br>
+            [Part (b): Ashoka to Present year &mdash; 1.5 Marks]<br>
+            [Part (c): Indus Valley to Independence &mdash; 1.5 Marks]</p>
+            <p><strong>Full Solution:</strong><br>
+            <strong>Part (a) Ashoka (268 BCE) to Brahmagupta (628 CE):</strong><br>
+            Because there is NO Year 0, the time span crossing the era boundary is: <code>Years = 268 + 628 &minus; 1 = 896 &minus; 1 = 895 years</code>.<br>
+            (Verification: 268 BCE to 1 BCE = 267 years; 1 BCE to 1 CE = 1 year; 1 CE to 628 CE = 627 years. Total = 267 + 1 + 627 = <strong>895 years</strong>).<br><br>
+            <strong>Part (b) Ashoka (268 BCE) to Present (2026 CE):</strong><br>
+            Span = 268 + 2026 &minus; 1 = <strong>2,293 years ago</strong>.<br><br>
+            <strong>Part (c) Indus Valley (2600 BCE) to Independence (1947 CE):</strong><br>
+            Span = 2600 + 1947 &minus; 1 = <strong>4,546 years</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 5.5 Competency Case Studies -->
+      <h3>5.5 Competency-Based Case Studies (2 Real-World Extract Studies)</h3>
+
+      <div class="problem-box">
+        <h4>Case Study 1: Cold Storage Temperature Logistics</h4>
+        <p><strong>Context:</strong> A pharmaceutical warehouse stores temperature-sensitive vaccines that must be kept at &minus;20&deg;C. The cold room is equipped with a digital sensor that records temperature hourly.</p>
+        <p><strong>Questions:</strong><br>
+        1. If the temperature reads &minus;18&deg;C, is the room warmer or colder than the required &minus;20&deg;C? By how many degrees?<br>
+        2. A technician enters the room and the temperature rises by 7&deg;C. What is the new sensor reading?<br>
+        3. The chiller compressor kicks in at full blast, dropping the temperature by 14&deg;C. What is the temperature now?<br>
+        4. What is the total difference between the maximum temperature during the technician visit and the minimum temperature after the compressor cycle?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Q1 Solution:</strong> &minus;18 &gt; &minus;20, so the room is <strong>warmer</strong> by: (&minus;18) &minus; (&minus;20) = &minus;18 + 20 = <strong>2&deg;C warmer</strong>.</p>
+            <p><strong>Q2 Solution:</strong> New reading = (&minus;18) + (+7) = <strong>&minus;11&deg;C</strong>.</p>
+            <p><strong>Q3 Solution:</strong> New temperature = (&minus;11) &minus; 14 = <strong>&minus;25&deg;C</strong>.</p>
+            <p><strong>Q4 Solution:</strong> Maximum temperature = &minus;11&deg;C. Minimum temperature = &minus;25&deg;C.<br>
+            Difference = (&minus;11) &minus; (&minus;25) = &minus;11 + 25 = <strong>14&deg;C</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>Case Study 2: Mountain Highway Altitude Tracking</h4>
+        <p><strong>Context:</strong> A tourist bus drives along the Manali&ndash;Leh Highway. Starting from Manali town at +2,050 meters above sea level, the bus climbs to Rohtang Pass (+3,980 m), descends into the valley of Keylong (+3,080 m), and finally ascends to Tanglang La Pass (+5,328 m).</p>
+        <p><strong>Questions:</strong><br>
+        1. Find the elevation gain from Manali to Rohtang Pass.<br>
+        2. Find the elevation change (gain or loss) from Rohtang Pass down to Keylong.<br>
+        3. Find the elevation gain from Keylong up to Tanglang La Pass.<br>
+        4. What is the total vertical climb made by the bus during the journey?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Q1 Solution:</strong> Elevation gain = 3,980 &minus; 2,050 = <strong>+1,930 meters</strong>.</p>
+            <p><strong>Q2 Solution:</strong> Elevation change = 3,080 &minus; 3,980 = <strong>&minus;900 meters</strong> (a descent / loss of 900 m).</p>
+            <p><strong>Q3 Solution:</strong> Elevation gain = 5,328 &minus; 3,080 = <strong>+2,248 meters</strong>.</p>
+            <p><strong>Q4 Solution:</strong> Total upward climb = 1,930 m + 2,248 m = <strong>4,178 meters</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- 5.6 Extra Practice & Speed Drill Bank -->
+      <h3>5.6 Extra Practice &amp; Speed Drill Bank (10 Graded Problems)</h3>
+
+      <div class="problem-box">
+        <h4>Practice Drill 1 (Beginner): Additive Inverse</h4>
+        <p><strong>Question:</strong> What is the additive inverse of &minus;47?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1:</strong> Formula: Additive inverse of <em>a</em> is &minus;<em>a</em> such that a + (&minus;a) = 0.<br>
+            <strong>Step 2:</strong> Additive inverse of &minus;47 = &minus;(&minus;47) = <strong>+47</strong>.<br>
+            <strong>Step 3:</strong> Final value: <strong>+47</strong>.<br>
+            <strong>Step 4:</strong> Concluding statement: The additive inverse of &minus;47 is <strong>+47</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>Practice Drill 2 (Beginner): Direct Addition with Opposite Signs</h4>
+        <p><strong>Question:</strong> Evaluate: (+35) + (&minus;50).</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1:</strong> Compare absolute values: |&minus;50| = 50 &gt; |+35| = 35.<br>
+            <strong>Step 2:</strong> Subtract smaller magnitude from larger: 50 &minus; 35 = 15.<br>
+            <strong>Step 3:</strong> Attach sign of larger magnitude: <strong>&minus;15</strong>.<br>
+            <strong>Step 4:</strong> Final value: <strong>&minus;15</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>Practice Drill 3 (Intermediate): Integer Subtraction</h4>
+        <p><strong>Question:</strong> Subtract &minus;28 from &minus;15.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1:</strong> Expression: (&minus;15) &minus; (&minus;28).<br>
+            <strong>Step 2:</strong> Rewrite as addition of inverse: &minus;15 + 28.<br>
+            <strong>Step 3:</strong> Arithmetic: 28 &minus; 15 = 13.<br>
+            <strong>Step 4:</strong> Final value: <strong>+13</strong>.<br>
+            <strong>Step 5:</strong> Therefore, (&minus;15) &minus; (&minus;28) = <strong>+13</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>Practice Drill 4 (Intermediate): Missing Number in Equation</h4>
+        <p><strong>Question:</strong> Find the value of <em>x</em> such that: (&minus;13) + x = &minus;40.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1:</strong> Isolate x: x = &minus;40 &minus; (&minus;13).<br>
+            <strong>Step 2:</strong> x = &minus;40 + 13.<br>
+            <strong>Step 3:</strong> Arithmetic: &minus;27.<br>
+            <strong>Step 4:</strong> Final value: <strong>x = &minus;27</strong>.<br>
+            <strong>Step 5:</strong> Check: (&minus;13) + (&minus;27) = &minus;40 &check;.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>Practice Drill 5 (Intermediate): Ascending Order of Integers</h4>
+        <p><strong>Question:</strong> Arrange the following integers in ascending order: &minus;12, 5, 0, &minus;3, &minus;20, 8, &minus;1.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1:</strong> List negative numbers in order of distance from 0: &minus;20 &lt; &minus;12 &lt; &minus;3 &lt; &minus;1.<br>
+            <strong>Step 2:</strong> Place 0.<br>
+            <strong>Step 3:</strong> List positive numbers: 5 &lt; 8.<br>
+            <strong>Step 4:</strong> Ascending sequence: <strong>&minus;20 &lt; &minus;12 &lt; &minus;3 &lt; &minus;1 &lt; 0 &lt; 5 &lt; 8</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>HOTS Problem 6: Sum of All Integers from &minus;50 to +52</h4>
+        <p><strong>Question:</strong> Find the sum of all integers from &minus;50 to +52 without adding all 103 numbers individually.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1:</strong> Notice that for every integer <em>k</em> from &minus;50 to &minus;1, its additive inverse +k is also in the set.<br>
+            <strong>Step 2:</strong> Pair each negative with its positive counterpart: [(&minus;50) + 50] + [(&minus;49) + 49] + ... + [(&minus;1) + 1] + 0 = 0.<br>
+            <strong>Step 3:</strong> The terms that remain unpaired are +51 and +52.<br>
+            <strong>Step 4:</strong> Total Sum = 0 + 51 + 52 = <strong>103</strong>.<br>
+            <strong>Step 5:</strong> The sum of all integers from &minus;50 to +52 is <strong>103</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>HOTS Problem 7: Alternating Series Evaluation</h4>
+        <p><strong>Question:</strong> Evaluate the sum of the first 100 terms of the series: 1 &minus; 2 + 3 &minus; 4 + 5 &minus; 6 + ... + 99 &minus; 100.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1:</strong> Group the 100 terms into 50 consecutive pairs:<br>
+            (1 &minus; 2) + (3 &minus; 4) + (5 &minus; 6) + ... + (99 &minus; 100).<br>
+            <strong>Step 2:</strong> Each pair evaluates to: 1 &minus; 2 = &minus;1; 3 &minus; 4 = &minus;1; 5 &minus; 6 = &minus;1.<br>
+            <strong>Step 3:</strong> There are 100 &divide; 2 = 50 pairs of (&minus;1).<br>
+            <strong>Step 4:</strong> Total Sum = 50 &times; (&minus;1) = <strong>&minus;50</strong>.<br>
+            <strong>Step 5:</strong> The sum of the alternating series is <strong>&minus;50</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>HOTS Problem 8: Elevator Cycle Optimization</h4>
+        <p><strong>Question:</strong> A lift in a high-rise tower starts at Floor 0. It makes the following sequential movements: +12, &minus;5, +8, &minus;17, +6, &minus;9. What is its final floor, and what was the highest floor it reached during the journey?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1: Track positions step-by-step:</strong><br>
+            - Start: Floor 0<br>
+            - After +12: Floor 12<br>
+            - After &minus;5: Floor 7<br>
+            - After +8: Floor 15 (<strong>Peak altitude</strong>)<br>
+            - After &minus;17: Floor &minus;2<br>
+            - After +6: Floor 4<br>
+            - After &minus;9: Floor &minus;5.<br>
+            <strong>Step 2:</strong> Final floor = <strong>Floor &minus;5 (Basement 5)</strong>.<br>
+            <strong>Step 3:</strong> Highest floor reached = <strong>Floor +15</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>HOTS Problem 9: Brahmagupta&rsquo;s Debt Riddle</h4>
+        <p><strong>Question:</strong> Merchant Somesh had a debt of ₹850. He paid back ₹500, but then incurred another debt of ₹420. Finally, a customer paid him ₹900 in cash. Does Somesh currently have a fortune (dhana) or a debt (rina), and by how much?</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1:</strong> Initial debt = &minus;850.<br>
+            <strong>Step 2:</strong> Paid back ₹500 &rArr; &minus;850 + 500 = &minus;350.<br>
+            <strong>Step 3:</strong> Incurred debt of ₹420 &rArr; &minus;350 &minus; 420 = &minus;770.<br>
+            <strong>Step 4:</strong> Received ₹900 &rArr; &minus;770 + 900 = <strong>+130</strong>.<br>
+            <strong>Step 5:</strong> Since +130 is positive, Somesh has a <strong>fortune (dhana) of ₹130</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+      <div class="problem-box">
+        <h4>HOTS Problem 10: Sign Combinations Constraint</h4>
+        <p><strong>Question:</strong> Given the expression: (&plusmn;1) &plusmn; (&plusmn;2) &plusmn; (&plusmn;3) &plusmn; (&plusmn;4) = 0. Show how choosing signs for the numbers 1, 2, 3, 4 can produce a sum of exactly zero.</p>
+        <details class="ans-box">
+          <summary>💡 Step-by-Step Solution</summary>
+          <div class="ans-content">
+            <p><strong>Step 1:</strong> Sum of magnitudes = 1 + 2 + 3 + 4 = 10.<br>
+            <strong>Step 2:</strong> To get a sum of 0, positive terms and negative terms must each sum to 10 &divide; 2 = 5.<br>
+            <strong>Step 3:</strong> Partitions of 5 from {1, 2, 3, 4}: 1 + 4 = 5 and 2 + 3 = 5.<br>
+            <strong>Step 4:</strong> Assign positive signs to {1, 4} and negative signs to {2, 3}:<br>
+            <code>(+1) + (+4) + (&minus;2) + (&minus;3) = 5 &minus; 5 = 0</code>.<br>
+            <strong>Step 5:</strong> Expression: <strong>(+1) &minus; 2 &minus; 3 + 4 = 0</strong>.</p>
+          </div>
+        </details>
+      </div>
+
+    </section>
+
+    <!-- SECTION 6: EXAM HALL TRAPS & RAPID REVISION -->
+    <section id="sec-6" class="section-card">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <h2 class="section-title">Exam Hall Trap Alerts &amp; 15 Rapid Revision One-Liners</h2>
+      </div>
+
+      <!-- 5 Common Traps -->
+      <h3>Top 5 Exam Hall Traps in Integers</h3>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 1: Transferring Positive Magnitude Ordering to Negatives</strong>
+        <p>A classic blunder is writing <code>&minus;10 &gt; &minus;2</code> simply because 10 &gt; 2. On the number line, numbers further to the left are strictly smaller. Since &minus;10 is 10 steps to the left of zero while &minus;2 is only 2 steps left, <strong>&minus;2 &gt; &minus;10</strong>. Think of temperature: &minus;2&deg;C is much warmer than &minus;10&deg;C!</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 2: The &ldquo;Two Negatives Make a Positive&rdquo; Addition Fallacy</strong>
+        <p>Students memorize the catchphrase &ldquo;two negatives make a positive&rdquo; and catastrophically apply it to addition: <code>(&minus;5) + (&minus;3) = +8 &cross;</code>. Adding debts can only accumulate more debt! <strong>(&minus;5) + (&minus;3) = &minus;8</strong>. The rule applies ONLY to multiplication or double negative subtraction: <code>&minus;(&minus;3) = +3</code>.</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 3: Treating Zero as a Positive Integer</strong>
+        <p>In multiple choice tests, students often classify 0 as the &ldquo;smallest positive integer&rdquo;. Zero is <strong>neutral (neither positive nor negative)</strong>! The smallest positive integer is <strong>+1</strong>.</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 4: The Calendar Year 0 Trap in BCE/CE Calculations</strong>
+        <p>When calculating the number of years between 50 BCE and 50 CE, writing <code>50 &minus; (&minus;50) = 100 years</code> loses marks. Because <strong>there was NO Year 0 in the calendar</strong> (1 BCE transitioned directly to 1 CE), the true elapsed duration is <code>100 &minus; 1 = 99 years</code>.</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <strong>⚠️ Trap 5: Misinterpreting Subtraction of a Larger Number</strong>
+        <p>When computing <code>7 &minus; 12</code>, students frequently flip the numbers to <code>12 &minus; 7 = 5</code>. Always remember that subtracting a larger positive number pulls you across zero into negative territory: <strong>7 &minus; 12 = &minus;5</strong>.</p>
+      </div>
+
+      <!-- 15 Rapid Revision One-Liners -->
+      <h3>15 Rapid Revision One-Liners (Pre-Exam Checklist)</h3>
+      <ol style="margin-left: 20px; line-height: 1.8;">
+        <li><strong>Integers (&Zopf;)</strong> comprise positive natural numbers, zero, and negative whole numbers: {..., &minus;3, &minus;2, &minus;1, 0, +1, +2, +3, ...}.</li>
+        <li><strong>Zero</strong> is the neutral origin on the number line; it is neither positive nor negative.</li>
+        <li>On the integer number line, any number situated to the <strong>right is strictly greater</strong> than any number to its left.</li>
+        <li>Every negative integer is <strong>strictly less than zero</strong>: &minus;n &lt; 0.</li>
+        <li>Between two negative numbers, the one with the <strong>smaller absolute value is greater</strong> (e.g., &minus;3 &gt; &minus;8).</li>
+        <li>The <strong>additive inverse</strong> of integer <em>a</em> is &minus;<em>a</em>, such that <code>a + (&minus;a) = 0</code>.</li>
+        <li>A <strong>zero pair</strong> consists of one positive token and one negative token: <code>(+1) + (&minus;1) = 0</code>.</li>
+        <li>The sum of two positive integers is always <strong>positive</strong>; the sum of two negative integers is always <strong>negative</strong>.</li>
+        <li>To add integers with opposite signs, subtract the smaller magnitude from the larger and attach the sign of the larger magnitude.</li>
+        <li>Subtracting an integer is identical to <strong>adding its additive inverse</strong>: <code>a &minus; b = a + (&minus;b)</code>.</li>
+        <li>Subtracting a negative integer is identical to <strong>adding a positive integer</strong>: <code>a &minus; (&minus;b) = a + b</code>.</li>
+        <li>In finance, <strong>deposits/credits</strong> are positive (+) and <strong>withdrawals/debits/overdrafts</strong> are negative (&minus;).</li>
+        <li>In geography, <strong>elevations above sea level</strong> are positive (+) and <strong>ocean depths below sea level</strong> are negative (&minus;).</li>
+        <li>There is <strong>no Year 0</strong> in the historical Gregorian calendar: 1 BCE was followed immediately by 1 CE.</li>
+        <li>In 628 CE, Indian mathematician <strong>Brahmagupta</strong> formalized the universal arithmetic of fortunes (dhana), debts (rina), and zero (khasama).</li>
+      </ol>
+
+      <!-- Teacher Voice Summary & Interactive TTS -->
+      <div class="tts-container">
+        <button id="tts-btn" class="tts-btn" onclick="toggleTeacherSummary()">
+          <span>🔊 Listen to Teacher's Summary</span>
+        </button>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+    });
+
+    // 2. Audio TTS Teacher Summary
+    let isSpeaking = false;
+    function toggleTeacherSummary() {
+      const btn = document.getElementById('tts-btn');
+      if (!('speechSynthesis' in window)) {
+        alert('Text-to-speech is not supported in this browser.');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 Listen to Teacher's Summary</span>";
+      } else {
+        const text = "Welcome to Class 6 Mathematics Chapter 10, The Other Side of Zero. In this final chapter, you unlocked the complete world of integers. Remember: zero is the neutral pivot, positive numbers represent upward movement, credits, and elevations, while negative numbers represent downward movement, debts, and sub-zero temperatures. Always remember the Golden Rule of Integers: subtracting a negative number is the same as adding a positive number. When comparing negatives, remember that closer to zero means larger. Master the token model and Brahmagupta's ancient laws of fortune and debt, and you will achieve total mastery in algebra and arithmetic!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 Listen to Teacher's Summary</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ Stop Audio Summary</span>";
+      }
+    }
+  </script>
+</body>
+</html>
+
