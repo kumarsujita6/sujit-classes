@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୨: ରେଖା ଓ କୋଣ (Lines and Angles) &mdash; ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ ମାଷ୍ଟର ନୋଟ୍ସ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ (NEP ଗଣିତ ପ୍ରକାଶ) ଅଧ୍ୟାୟ ୨: ରେଖା ଓ କୋଣ (Lines and Angles) ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ନୋଟ୍ସ, ସମକୋଣ, ସୂକ୍ଷ୍ମକୋଣ, ସ୍ଥୂଳକୋଣ, ପ୍ରୋଟ୍ରାକ୍ଟର ବ୍ୟବହାର, NCERT ୫-ସ୍ତରୀୟ ସମାଧାନ ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+      --primary-gradient: linear-gradient(90deg, #0284c7 0%, #38bdf8 50%, #10b981 100%);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.75;
+      font-size: 15.5px;
+      padding-bottom: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: var(--primary-gradient);
+      z-index: 999999;
+      transition: width 0.1s ease-out;
+      box-shadow: 0 1px 4px rgba(2, 132, 199, 0.3);
+    }
+
+    header.header {
+      background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 55%, #0d9488 100%);
+      color: #ffffff;
+      padding: 42px 24px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 12px 30px -8px rgba(2, 132, 199, 0.35);
+    }
+    header.header h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    header.header p {
+      font-size: 1.05rem;
+      opacity: 0.94;
+      max-width: 860px;
+      margin: 0 auto 16px;
+    }
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      transition: all 0.2s var(--ease-spring);
+    }
+    .nav-links a:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.84rem;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    .btn-audio {
+      background: #ffffff;
+      color: var(--primary-dark);
+      font-weight: 700;
+      border: 2px solid var(--primary-light);
+    }
+    .btn-audio:hover {
+      background: var(--primary-light);
+    }
+
+    .container {
+      max-width: 1080px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+    .nav-breadcrumb {
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .nav-breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-breadcrumb a:hover { text-decoration: underline; }
+
+    section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+    }
+    section h2 {
+      font-size: 1.55rem;
+      color: var(--primary-dark);
+      border-left: 5px solid var(--primary);
+      padding-left: 14px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section h3 {
+      font-size: 1.25rem;
+      color: #0f172a;
+      margin: 26px 0 14px;
+      font-weight: 700;
+      border-bottom: 2px dashed #f1f5f9;
+      padding-bottom: 6px;
+    }
+    section h4 {
+      font-size: 1.05rem;
+      color: #1e293b;
+      margin: 18px 0 10px;
+      font-weight: 700;
+    }
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 10px 0 18px 24px; }
+    li { margin-bottom: 8px; }
+
+    .math-formula {
+      font-family: 'JetBrains Mono', monospace;
+      background: #f1f5f9;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      color: #0369a1;
+    }
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 0.9em;
+      padding: 0 2px;
+    }
+    .frac sup {
+      border-bottom: 1.5px solid currentColor;
+      padding-bottom: 1px;
+      font-size: inherit;
+      line-height: 1;
+    }
+    .frac sub {
+      font-size: inherit;
+      line-height: 1;
+    }
+
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin: 12px 0 16px;
+    }
+    .step-line {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .step-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 140px;
+    }
+    .step-conclusion {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-weight: 600;
+      color: #166534;
+    }
+
+    .callout {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      border-left: 5px solid;
+    }
+    .callout-title {
+      font-weight: 800;
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .callout-def { background: #f0f9ff; border-left-color: #0284c7; color: #0c4a6e; }
+    .callout-act { background: #f0fdfa; border-left-color: #0d9488; color: #115e59; }
+    .callout-pyq { background: #fffbeb; border-left-color: #f59e0b; color: #78350f; }
+    .callout-hack { background: #f5f3ff; border-left-color: #7c3aed; color: #4c1d95; }
+    .callout-warn { background: #fff1f2; border-left-color: #e11d48; color: #881337; }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.94rem;
+      text-align: left;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border);
+      padding: 11px 14px;
+    }
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    .data-table tr:nth-child(even) { background-color: #f8fafc; }
+
+    details.ans-box {
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.25s var(--ease-spring);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    details.ans-box summary {
+      list-style: none;
+      padding: 1rem 1.35rem;
+      background: #f8fafc;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    details.ans-box summary::-webkit-details-marker { display: none; }
+    details.ans-box summary::after {
+      content: "▾";
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      transition: transform 0.3s var(--ease-spring);
+    }
+    details.ans-box[open] summary::after {
+      transform: rotate(180deg);
+    }
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.08);
+    }
+    details.ans-box[open] summary {
+      background: #f0f9ff;
+      color: var(--primary-dark);
+      border-bottom: 1px solid #bae6fd;
+    }
+    details.ans-box .ans-content {
+      padding: 1.35rem;
+      background: #ffffff;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .diagram-container {
+      margin: 24px auto;
+      text-align: center;
+      background: #ffffff;
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 18px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .quiz-question {
+      font-weight: 700;
+      font-size: 1.02rem;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .quiz-opt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      background: #ffffff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .quiz-opt-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateX(4px);
+    }
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700;
+    }
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+      font-weight: 600;
+    }
+    .quiz-feedback {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .quiz-feedback.correct-fb { background: #f0fdf4; border: 1px solid #86efac; color: #166534; }
+    .quiz-feedback.incorrect-fb { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+    .quiz-score-board {
+      background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+      border: 1.5px solid #a7f3d0;
+      border-radius: 12px;
+      padding: 14px 22px;
+      text-align: center;
+      margin: 18px 0;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #065f46;
+    }
+
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: all 0.3s var(--ease-spring);
+      z-index: 9999;
+    }
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-to-top-btn:hover {
+      background: var(--primary-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top-Fixed Reading Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Header Banner -->
+  <header class="header">
+    <div class="badge-bar">
+      <span class="badge">ଓଡ଼ିଆ ମାଧ୍ୟମ (BSE Odisha / NEP ସଂସ୍କରଣ)</span>
+      <span class="badge">ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ &bull; ଅଧ୍ୟାୟ ୨</span>
+      <span class="badge">ଗଣିତ ପ୍ରକାଶ (Ganita Prakash)</span>
+    </div>
+    <h1>ଅଧ୍ୟାୟ ୨: ରେଖା ଓ କୋଣ</h1>
+    <p style="font-size: 1.15rem; font-weight: 600; opacity: 0.95;">Lines and Angles &mdash; ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ଷ୍ଟଡି ନୋଟ୍ସ</p>
+    <p>ବିନ୍ଦୁ, ସରଳରେଖା, ରେଖାଖଣ୍ଡ, ରଶ୍ମି, କୋଣର ପ୍ରକାରଭେଦ, ପ୍ରୋଟ୍ରାକ୍ଟର ବ୍ୟବହାର, ଘଣ୍ଟା କଣ୍ଟାର କୋଣ ଏବଂ ସମ୍ପୂର୍ଣ୍ଣ NCERT ୫-ସ୍ତରୀୟ ସମାଧାନ</p>
+    <div style="margin-top: 15px;">
+      <button class="btn btn-audio" onclick="toggleTeacherAudio()" id="teacherAudioBtn">
+        <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Sticky Top Bar -->
+  <div class="top-bar">
+    <div class="nav-links">
+      <a href="#section1">୧. ମାନସିକ ମାନଚିତ୍ର</a>
+      <a href="#section2">୨. ବିସ୍ତୃତ ଧାରଣା</a>
+      <a href="#section3">୩. ସୂତ୍ର ଓ ନିୟମ</a>
+      <a href="#section4">୪. NCERT ସମାଧାନ</a>
+      <a href="#section5">୫. ପ୍ରଶ୍ନୋତ୍ତର ଓ କୁଇଜ୍</a>
+      <a href="#section6">୬. ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା</a>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn btn-primary" onclick="toggleAllAnswers(true)">➕ ସମସ୍ତ ଉତ୍ତର ଖୋଲନ୍ତୁ</button>
+      <button class="btn" onclick="toggleAllAnswers(false)">➖ ସମସ୍ତ ବନ୍ଦ କରନ୍ତୁ</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="nav-breadcrumb">
+      <a href="../../index.html">ପୋର୍ଟାଲ୍ ମୁଖ୍ୟପୃଷ୍ଠା</a> &raquo; 
+      <a href="../../index.html#odia-medium">ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ (Odia Medium)</a> &raquo; 
+      <span>ଅଧ୍ୟାୟ ୨: ରେଖା ଓ କୋଣ</span>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section id="section1">
+      <h2>Section 1: ମାନସିକ ମାନଚିତ୍ର ଓ ଅଧ୍ୟାୟର ରୂପରେଖ (Visual Mind Map &amp; Blueprint)</h2>
+      <p>ଜ୍ୟାମିତି (Geometry) ର ମୂଳଦୁଆ ହେଉଛି <strong>ବିନ୍ଦୁ (Point)</strong>, <strong>ସରଳରେଖା (Line)</strong>, <strong>ରେଖାଖଣ୍ଡ (Line Segment)</strong>, <strong>ରଶ୍ମି (Ray)</strong> ଏବଂ <strong>କୋଣ (Angle)</strong>। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ଜାଣିବା କିପରି ଦୁଇଟି ରଶ୍ମି ଗୋଟିଏ ସାଧାରଣ ଶୀର୍ଷବିନ୍ଦୁରୁ ବାହାରି କୋଣ ସୃଷ୍ଟି କରନ୍ତି ଏବଂ ପ୍ରୋଟ୍ରାକ୍ଟର (Protractor) ସାହାଯ୍ୟରେ ସେଗୁଡ଼ିକୁ କିପରି ନିର୍ଭୁଲ ଭାବରେ ମାପ କରାଯାଏ।</p>
+
+      <div class="diagram-container">
+        <!-- SVG 1: Mind Map Blueprint of Lines and Angles -->
+        <svg viewBox="0 0 940 360" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#0284c7"/>
+            </marker>
+            <marker id="arrowDark" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#0f172a"/>
+            </marker>
+            <linearGradient id="gBlue2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Core Title Node -->
+          <rect x="340" y="20" width="260" height="55" rx="10" fill="url(#gBlue2)"/>
+          <text x="470" y="44" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">ରେଖା ଓ କୋଣ</text>
+          <text x="470" y="62" font-size="12" font-weight="bold" fill="#e0f2fe" text-anchor="middle">(LINES AND ANGLES)</text>
+
+          <!-- Branch 1: Geometric Primitives -->
+          <path d="M 390 75 L 180 130" stroke="#0284c7" stroke-width="2.5" marker-end="url(#arrow)"/>
+          <g>
+            <rect x="50" y="135" width="260" height="180" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
+            <text x="180" y="160" font-size="14" font-weight="bold" fill="#0369a1" text-anchor="middle">୧. ମୌଳିକ ଜ୍ୟାମିତିକ ଉପାଦାନ</text>
+            <text x="70" y="188" font-size="12" fill="#334155">&bull; <strong>ବିନ୍ଦୁ (Point):</strong> ସ୍ଥିତି ଅଛି, ମାପ ନାହିଁ</text>
+            <text x="70" y="210" font-size="12" fill="#334155">&bull; <strong>ରେଖାଖଣ୍ଡ (Line Segment):</strong> ୨ଟି ପ୍ରାନ୍ତବିନ୍ଦୁ</text>
+            <text x="70" y="232" font-size="12" fill="#334155">&bull; <strong>ସରଳରେଖା (Line):</strong> ଉଭୟ ପାର୍ଶ୍ୱରେ ଅସୀମ</text>
+            <text x="70" y="254" font-size="12" fill="#334155">&bull; <strong>ରଶ୍ମି (Ray):</strong> ୧ଟି ପ୍ରାନ୍ତବିନ୍ଦୁ, ଅନ୍ୟଟି ଅସୀମ</text>
+            <text x="70" y="276" font-size="12" fill="#0284c7">&bull; <strong>କୋଣ (Angle):</strong> ସାଧାରଣ ଶୀର୍ଷବିନ୍ଦୁରୁ ୨ ରଶ୍ମି</text>
+          </g>
+
+          <!-- Branch 2: Angle Classification -->
+          <path d="M 470 75 L 470 130" stroke="#0d9488" stroke-width="2.5" marker-end="url(#arrow)"/>
+          <g>
+            <rect x="340" y="135" width="260" height="180" rx="10" fill="#f0fdfa" stroke="#0d9488" stroke-width="2"/>
+            <text x="470" y="160" font-size="14" font-weight="bold" fill="#115e59" text-anchor="middle">୨. କୋଣର ପ୍ରକାରଭେଦ (୦&deg; ରୁ ୩୬୦&deg;)</text>
+            <text x="360" y="188" font-size="12" fill="#334155">&bull; <strong>ସୂକ୍ଷ୍ମକୋଣ (Acute):</strong> ୦&deg; &lt; &theta; &lt; ୯୦&deg;</text>
+            <text x="360" y="210" font-size="12" fill="#334155">&bull; <strong>ସମକୋଣ (Right):</strong> &theta; = ୯୦&deg; (L-ଆକାର)</text>
+            <text x="360" y="232" font-size="12" fill="#334155">&bull; <strong>ସ୍ଥୂଳକୋଣ (Obtuse):</strong> ୯୦&deg; &lt; &theta; &lt; ୧୮୦&deg;</text>
+            <text x="360" y="254" font-size="12" fill="#334155">&bull; <strong>ସରଳକୋଣ (Straight):</strong> &theta; = ୧୮୦&deg;</text>
+            <text x="360" y="276" font-size="12" fill="#334155">&bull; <strong>ପ୍ରବୃଦ୍ଧ କୋଣ (Reflex):</strong> ୧୮୦&deg; &lt; &theta; &lt; ୩୬୦&deg;</text>
+            <text x="360" y="298" font-size="12" fill="#0d9488">&bull; <strong>ପୂର୍ଣ୍ଣ କୋଣ (Complete):</strong> &theta; = ୩୬୦&deg;</text>
+          </g>
+
+          <!-- Branch 3: Angle Relationships & Clock -->
+          <path d="M 550 75 L 760 130" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#arrow)"/>
+          <g>
+            <rect x="630" y="135" width="260" height="180" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+            <text x="760" y="160" font-size="14" font-weight="bold" fill="#b45309" text-anchor="middle">୩. କୋଣ ସମ୍ପର୍କ ଓ ଘଣ୍ଟା କଣ୍ଟା</text>
+            <text x="650" y="188" font-size="12" fill="#334155">&bull; <strong>ଅନୁପୂରକ (Complementary):</strong> ଯୋଗ = ୯୦&deg;</text>
+            <text x="650" y="210" font-size="12" fill="#334155">&bull; <strong>ପରିପୂରକ (Supplementary):</strong> ଯୋଗ = ୧୮୦&deg;</text>
+            <text x="650" y="232" font-size="12" fill="#334155">&bull; <strong>ଘଣ୍ଟା କଣ୍ଟା ୧ ଘଣ୍ଟା:</strong> ୩୦&deg; ଘୂର୍ଣ୍ଣନ</text>
+            <text x="650" y="254" font-size="12" fill="#334155">&bull; <strong>ମିନିଟ୍ କଣ୍ଟା ୧ ମିନିଟ୍:</strong> ୬&deg; ଘୂର୍ଣ୍ଣନ</text>
+            <text x="650" y="276" font-size="12" fill="#b45309">&bull; ୩:୦୦ ବା ୯:୦୦ ରେ ସମକୋଣ (୯୦&deg;)</text>
+            <text x="650" y="298" font-size="12" fill="#b45309">&bull; ୬:୦୦ ରେ ସରଳକୋଣ (୧୮୦&deg;)</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୨.୧: ରେଖା, କୋଣ ଓ କୋଣମାପର ସମ୍ପୂର୍ଣ୍ଣ ଶ୍ରେଣୀବିଭାଗ ମାନସିକ ମାନଚିତ୍ର</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="section2">
+      <h2>Section 2: ବିସ୍ତୃତ ଧାରଣା ଓ ତତ୍ତ୍ୱ ବିଶ୍ଳେଷଣ (Line-by-Line Conceptual Notes)</h2>
+
+      <h3 class="topic-title">୨.୧ ବିନ୍ଦୁ, ରେଖାଖଣ୍ଡ, ସରଳରେଖା ଓ ରଶ୍ମି ମଧ୍ୟରେ ପାର୍ଥକ୍ୟ</h3>
+      <p>ଜ୍ୟାମିତିର ସମସ୍ତ ଚିତ୍ର ଏହି ୪ଟି ମୌଳିକ ଧାରଣା ଉପରେ ଆଧାରିତ:</p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ଉପାଦାନ (Element)</th>
+              <th>ଚିହ୍ନ/ସଙ୍କେତ</th>
+              <th>ପ୍ରାନ୍ତବିନ୍ଦୁ ସଂଖ୍ୟା</th>
+              <th>ଦୈର୍ଘ୍ୟ ମପାଯାଇପାରିବ କି?</th>
+              <th>ବାସ୍ତବ ଜୀବନର ଉଦାହରଣ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ବିନ୍ଦୁ (Point)</strong></td>
+              <td>A, B, P</td>
+              <td>୦ (କେବଳ ଏକ ଅବସ୍ଥିତି)</td>
+              <td>ନାହିଁ (ମାପଶୂନ୍ୟ)</td>
+              <td>କାଗଜ ଉପରେ ପେନ୍ସିଲ୍ ମୁନର ଚିହ୍ନ</td>
+            </tr>
+            <tr>
+              <td><strong>ରେଖାଖଣ୍ଡ (Line Segment)</strong></td>
+              <td><span style="border-top: 1.5px solid currentColor;">AB</span></td>
+              <td>୨ଟି ନିର୍ଦ୍ଦିଷ୍ଟ ପ୍ରାନ୍ତବିନ୍ଦୁ</td>
+              <td>ହଁ (ନିର୍ଦ୍ଦିଷ୍ଟ ଦୈର୍ଘ୍ୟ ଅଛି)</td>
+              <td>ସ୍କେଲ୍ ର ଧାର, ଟ୍ୟୁବ୍-ଲାଇଟ୍ ର ଲମ୍ବ</td>
+            </tr>
+            <tr>
+              <td><strong>ସରଳରେଖା (Line)</strong></td>
+              <td><span style="border-top: 1.5px solid currentColor;">&harr;AB</span></td>
+              <td>୦ (ଉଭୟ ପାର୍ଶ୍ୱକୁ ଅସୀମ)</td>
+              <td>ନାହିଁ (ଅସୀମ ବିସ୍ତାର)</td>
+              <td>ରେଳ ଧାରଣା (କଳ୍ପିତ ଅନନ୍ତ ଦୂରତା)</td>
+            </tr>
+            <tr>
+              <td><strong>ରଶ୍ମି (Ray)</strong></td>
+              <td><span style="border-top: 1.5px solid currentColor;">&rarr;AB</span></td>
+              <td>୧ଟି ଆଦ୍ୟବିନ୍ଦୁ (Starting point)</td>
+              <td>ନାହିଁ (ଗୋଟିଏ ପାର୍ଶ୍ୱକୁ ଅସୀମ)</td>
+              <td>ସୂର୍ଯ୍ୟକିରଣ, ଟର୍ଚ୍ଚ ଲାଇଟ୍ ର ଆଲୋକ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="topic-title">୨.୨ କୋଣ କ'ଣ ଏବଂ ଏହାର ଅଙ୍ଗ (What is an Angle?)</h3>
+      <p>ଯେତେବେଳେ ଦୁଇଟି ରଶ୍ମି ଗୋଟିଏ ନିର୍ଦ୍ଦିଷ୍ଟ ସାଧାରଣ ଆଦ୍ୟବିନ୍ଦୁରୁ ନିର୍ଗତ ହୁଅନ୍ତି, ସେମାନଙ୍କ ମଧ୍ୟବର୍ତ୍ତୀ ଫାଙ୍କ ବା ଘୂର୍ଣ୍ଣନକୁ <strong>କୋଣ (Angle)</strong> କୁହାଯାଏ।</p>
+      <ul>
+        <li>ସାଧାରଣ ପ୍ରାରମ୍ଭିକ ବିନ୍ଦୁକୁ କୋଣର <strong>ଶୀର୍ଷବିନ୍ଦୁ (Vertex)</strong> କୁହାଯାଏ।</li>
+        <li>ଦୁଇଟି ରଶ୍ମିକୁ କୋଣର <strong>ବାହୁ (Arms)</strong> କୁହାଯାଏ।</li>
+        <li>କୋଣର ନାମକରଣ ସର୍ବଦା ତିନୋଟି ଅକ୍ଷରରେ କରାଯାଏ, ଯେଉଁଥିରେ ଶୀର୍ଷବିନ୍ଦୁ ସର୍ବଦା ମଝିରେ ରହେ (ଯଥା: &ang;ABC ରେ B ହେଉଛି ଶୀର୍ଷବିନ୍ଦୁ)।</li>
+      </ul>
+
+      <div class="callout callout-def">
+        <div class="callout-title">📐 ସଂଜ୍ଞା: ପ୍ରୋଟ୍ରାକ୍ଟର ଓ ଡିଗ୍ରୀ ମାପ (Protractor &amp; Degrees)</div>
+        <p>କୋଣ ମାପ କରିବାର ଏକକ ହେଉଛି <strong>ଡିଗ୍ରୀ (&deg;)</strong>। ଗୋଟିଏ ସମ୍ପୂର୍ଣ୍ଣ ବୃତ୍ତାକାର ଘୂର୍ଣ୍ଣନ ହେଉଛି ୩୬୦&deg;।</p>
+        <p>କୋଣ ମାପିବା ପାଇଁ ବ୍ୟବହୃତ ଅର୍ଦ୍ଧବୃତ୍ତାକାର ଯନ୍ତ୍ରକୁ <strong>ପ୍ରୋଟ୍ରାକ୍ଟର (Protractor / କୋଣମାପକ)</strong> କୁହାଯାଏ, ଯାହା ୦&deg; ରୁ ୧୮୦&deg; ପର୍ଯ୍ୟନ୍ତ ଅଙ୍କିତ ଥାଏ।</p>
+      </div>
+
+      <div class="diagram-container">
+        <!-- SVG 2: Angles in Clock Hands -->
+        <svg viewBox="0 0 880 200" xmlns="http://www.w3.org/2000/svg">
+          <text x="440" y="24" font-size="15" font-weight="bold" fill="#0369a1" text-anchor="middle">ଦୈନନ୍ଦିନ ଜୀବନରେ କୋଣ &bull; ଘଣ୍ଟା କଣ୍ଟାର ଘୂର୍ଣ୍ଣନ (Clock Rotations)</text>
+
+          <!-- Clock 1: 3:00 (Right Angle) -->
+          <g transform="translate(70, 40)">
+            <circle cx="50" cy="50" r="42" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
+            <circle cx="50" cy="50" r="3" fill="#0f172a"/>
+            <!-- 12 o'clock and 3 o'clock -->
+            <line x1="50" y1="50" x2="50" y2="18" stroke="#0284c7" stroke-width="3"/>
+            <line x1="50" y1="50" x2="80" y2="50" stroke="#0d9488" stroke-width="3"/>
+            <rect x="50" y="42" width="8" height="8" fill="none" stroke="#e11d48" stroke-width="1.5"/>
+            <text x="50" y="112" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">୩:୦୦ ବଜେ</text>
+            <text x="50" y="128" font-size="11" fill="#16a34a" text-anchor="middle">ସମକୋଣ (୯୦&deg;)</text>
+          </g>
+
+          <!-- Clock 2: 2:00 (Acute Angle) -->
+          <g transform="translate(280, 40)">
+            <circle cx="50" cy="50" r="42" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
+            <circle cx="50" cy="50" r="3" fill="#0f172a"/>
+            <!-- 12 and 2 (60 deg) -->
+            <line x1="50" y1="50" x2="50" y2="18" stroke="#0284c7" stroke-width="3"/>
+            <line x1="50" y1="50" x2="74" y2="34" stroke="#0d9488" stroke-width="3"/>
+            <path d="M 50 32 A 18 18 0 0 1 63 40" fill="none" stroke="#f59e0b" stroke-width="2"/>
+            <text x="50" y="112" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">୨:୦୦ ବଜେ</text>
+            <text x="50" y="128" font-size="11" fill="#0284c7" text-anchor="middle">ସୂକ୍ଷ୍ମକୋଣ (୬୦&deg;)</text>
+          </g>
+
+          <!-- Clock 3: 5:00 (Obtuse Angle) -->
+          <g transform="translate(490, 40)">
+            <circle cx="50" cy="50" r="42" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
+            <circle cx="50" cy="50" r="3" fill="#0f172a"/>
+            <!-- 12 and 5 (150 deg) -->
+            <line x1="50" y1="50" x2="50" y2="18" stroke="#0284c7" stroke-width="3"/>
+            <line x1="50" y1="50" x2="72" y2="78" stroke="#0d9488" stroke-width="3"/>
+            <path d="M 50 32 A 18 18 0 0 1 61 64" fill="none" stroke="#f59e0b" stroke-width="2"/>
+            <text x="50" y="112" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">୫:୦୦ ବଜେ</text>
+            <text x="50" y="128" font-size="11" fill="#7c3aed" text-anchor="middle">ସ୍ଥୂଳକୋଣ (୧୫୦&deg;)</text>
+          </g>
+
+          <!-- Clock 4: 6:00 (Straight Angle) -->
+          <g transform="translate(700, 40)">
+            <circle cx="50" cy="50" r="42" fill="#f8fafc" stroke="#0f172a" stroke-width="2.5"/>
+            <circle cx="50" cy="50" r="3" fill="#0f172a"/>
+            <!-- 12 and 6 (180 deg) -->
+            <line x1="50" y1="50" x2="50" y2="18" stroke="#0284c7" stroke-width="3"/>
+            <line x1="50" y1="50" x2="50" y2="82" stroke="#0d9488" stroke-width="3"/>
+            <path d="M 50 36 A 14 14 0 0 1 50 64" fill="none" stroke="#e11d48" stroke-width="2"/>
+            <text x="50" y="112" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">୬:୦୦ ବଜେ</text>
+            <text x="50" y="128" font-size="11" fill="#e11d48" text-anchor="middle">ସରଳକୋଣ (୧୮୦&deg;)</text>
+          </g>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୨.୨: ଘଣ୍ଟା କଣ୍ଟା ଦ୍ୱାରା ନିର୍ମିତ କୋଣ (୯୦&deg;, ୬୦&deg;, ୧୫୦&deg;, ୧୮୦&deg;)</div>
+      </div>
+
+      <h3 class="topic-title">୨.୩ କୋଣ ଯୁଗଳ: ଅନୁପୂରକ ଓ ପରିପୂରକ କୋଣ</h3>
+      <div class="callout callout-act">
+        <div class="callout-title">💡 ଦୁଇଟି ମୁଖ୍ୟ କୋଣ ଯୋଡ଼ି (Special Angle Pairs)</div>
+        <p><strong>୧. ଅନୁପୂରକ କୋଣ (Complementary Angles):</strong> ଯଦି ଦୁଇଟି କୋଣର ପରିମାଣର ଯୋଗଫଳ <strong>୯୦&deg;</strong> ହୁଏ, ତେବେ ସେମାନଙ୍କୁ ପରସ୍ପରର ଅନୁପୂରକ କୋଣ କୁହାଯାଏ।<br>
+        <em>ଉଦାହରଣ:</em> ୩୦&deg; ର ଅନୁପୂରକ = ୯୦&deg; &minus; ୩୦&deg; = ୬୦&deg;।</p>
+        <p><strong>୨. ପରିପୂରକ କୋଣ (Supplementary Angles):</strong> ଯଦି ଦୁଇଟି କୋଣର ପରିମାଣର ଯୋଗଫଳ <strong>୧୮୦&deg;</strong> ହୁଏ, ତେବେ ସେମାନଙ୍କୁ ପରସ୍ପରର ପରିପୂରକ କୋଣ କୁହାଯାଏ।<br>
+        <em>ଉଦାହରଣ:</em> ୧୧୦&deg; ର ପରିପୂରକ = ୧୮୦&deg; &minus; ୧୧୦&deg; = ୭୦&deg;।</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="section3">
+      <h2>Section 3: ତ୍ୱରିତ ପୁନରାବୃତ୍ତି ସୂତ୍ର ଓ ନିୟମ ଭଣ୍ଡାର (Formula &amp; Law Bank)</h2>
+      <p>କୋଣର ପ୍ରକାରଭେଦ ଏବଂ ଗାଣିତିକ ସମ୍ପର୍କର ସଂକ୍ଷିପ୍ତ ସାରଣୀ:</p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>କୋଣର ପ୍ରକାର</th>
+              <th>ମାପ/ସୀମା (&deg;)</th>
+              <th>ବିଶେଷ ଚିହ୍ନ/ଲକ୍ଷଣ</th>
+              <th>ଦୈନନ୍ଦିନ ଉଦାହରଣ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ଶୂନ କୋଣ (Zero Angle)</strong></td>
+              <td>୦&deg;</td>
+              <td>ଦୁଇ ବାହୁ ପରସ୍ପର ଉପରେ ରହିଥାନ୍ତି</td>
+              <td>୧୨:୦୦ ବଜେ ଦୁଇ କଣ୍ଟା ଏକାଠି ଥିବା ଅବସ୍ଥା</td>
+            </tr>
+            <tr>
+              <td><strong>ସୂକ୍ଷ୍ମକୋଣ (Acute Angle)</strong></td>
+              <td>୦&deg; ରୁ ଅଧିକ କିନ୍ତୁ ୯୦&deg; ରୁ କମ୍</td>
+              <td>ଇଂରାଜୀ 'V' ଅକ୍ଷର ପରି ଚିପି ହୋଇ ରହେ</td>
+              <td>ଖୋଲା କତୁରୀର ଦୁଇ ଧାର, ୨:୦୦ ବଜେ ଘଣ୍ଟା କଣ୍ଟା (୬୦&deg;)</td>
+            </tr>
+            <tr>
+              <td><strong>ସମକୋଣ (Right Angle)</strong></td>
+              <td>ଠିକ୍ ୯୦&deg;</td>
+              <td>ପରଫେକ୍ଟ 'L' ଆକାର, ବର୍ଗ ଚିହ୍ନ (&ang;) ଦ୍ୱାରା ଚିହ୍ନିତ</td>
+              <td>ପୁସ୍ତକର କୋଣ, କୋଠରୀ କାନ୍ଥ ଓ ଚଟାଣ, ୩:୦୦ ବଜେ (୯୦&deg;)</td>
+            </tr>
+            <tr>
+              <td><strong>ସ୍ଥୂଳକୋଣ (Obtuse Angle)</strong></td>
+              <td>୯୦&deg; ରୁ ଅଧିକ କିନ୍ତୁ ୧୮୦&deg; ରୁ କମ୍</td>
+              <td>ସମକୋଣଠାରୁ ଅଧିକ ଖୋଲା ଥାଏ</td>
+              <td>ଖୋଲା ଛତା, ୫:୦୦ ବଜେ ଘଣ୍ଟା କଣ୍ଟା (୧୫୦&deg;)</td>
+            </tr>
+            <tr>
+              <td><strong>ସରଳକୋଣ (Straight Angle)</strong></td>
+              <td>ଠିକ୍ ୧୮୦&deg;</td>
+              <td>ଏକ ସରଳରେଖା ଗଠନ କରେ</td>
+              <td>ସିଧା ସ୍କେଲ୍, ୬:୦୦ ବଜେ ଘଣ୍ଟା କଣ୍ଟା (୧୮୦&deg;)</td>
+            </tr>
+            <tr>
+              <td><strong>ପ୍ରବୃଦ୍ଧ କୋଣ (Reflex Angle)</strong></td>
+              <td>୧୮୦&deg; ରୁ ଅଧିକ କିନ୍ତୁ ୩୬୦&deg; ରୁ କମ୍</td>
+              <td>କୋଣର ବାହ୍ୟ ପାର୍ଶ୍ୱ ଘୂର୍ଣ୍ଣନ</td>
+              <td>ଘଣ୍ଟାରେ ୮:୦୦ ବଜେ ଉପର ପାର୍ଶ୍ୱ କୋଣ (୨୪୦&deg;)</td>
+            </tr>
+            <tr>
+              <td><strong>ପୂର୍ଣ୍ଣ କୋଣ (Complete Angle)</strong></td>
+              <td>ଠିକ୍ ୩୬୦&deg;</td>
+              <td>ଏକ ସମ୍ପୂର୍ଣ୍ଣ ଚକ୍ର ଘୂର୍ଣ୍ଣନ</td>
+              <td>ଗୋଟିଏ ସମ୍ପୂର୍ଣ୍ଣ ଘୂର୍ଣ୍ଣାୟମାନ ଚକ୍ର</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="section4">
+      <h2>Section 4: ୧୦୦% ସମ୍ପୂର୍ଣ୍ଣ NCERT ପାଠ୍ୟପୁସ୍ତକ ସମାଧାନ (5-Step Topper Format)</h2>
+      <p>NEP ଗଣିତ ପ୍ରକାଶ ଅଧ୍ୟାୟ ୨ ର ସମସ୍ତ ଅଭ୍ୟାସ ପ୍ରଶ୍ନର ପଦକ୍ଷେପ-ୱାରୀ ଆଦର୍ଶ ସମାଧାନ:</p>
+
+      <!-- Question 1 -->
+      <details class="ans-box" open>
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ (Figure it Out - ପୃଷ୍ଠା ୩–୫): ରେଖାଖଣ୍ଡ, ସରଳରେଖା ଓ ରଶ୍ମିର ଚିହ୍ନଟ</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୧:</strong> ନିମ୍ନଲିଖିତ ଚିତ୍ର ଏବଂ ବିବରଣୀରୁ ପ୍ରତ୍ୟେକର ଜ୍ୟାମିତିକ ନାମ ଏବଂ ସଠିକ୍ ସଙ୍କେତ ଲେଖ:<br>
+          (କ) ଦୁଇଟି ନିର୍ଦ୍ଦିଷ୍ଟ ବିନ୍ଦୁ P ଏବଂ Q ମଧ୍ୟରେ ଥିବା ସିଧା ରାସ୍ତା।<br>
+          (ଖ) ସୂର୍ଯ୍ୟଙ୍କଠାରୁ ଆସୁଥିବା ଆଲୋକ ରେଖା।<br>
+          (ଗ) ଉଭୟ ଦିଗରେ ଅନନ୍ତ କାଳ ପର୍ଯ୍ୟନ୍ତ ବିସ୍ତାରିତ ହୋଇପାରୁଥିବା ଏକ ସରଳ ପଥ।</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ତିନୋଟି ଜ୍ୟାମିତିକ ଅବସ୍ଥା ଦିଆଯାଇଛି: ୨ ପ୍ରାନ୍ତବିନ୍ଦୁ, ୧ ପ୍ରାରମ୍ଭିକ ବିନ୍ଦୁ, ଏବଂ କୌଣସି ପ୍ରାନ୍ତବିନ୍ଦୁ ନଥିବା।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ସଂଜ୍ଞା ମିଳନ):</span><br>
+            &bull; ୨ଟି ପ୍ରାନ୍ତବିନ୍ଦୁ ଥିବା ପଥ ହେଉଛି <strong>ରେଖାଖଣ୍ଡ (Line Segment)</strong>।<br>
+            &bull; ୧ଟି ଆଦ୍ୟବିନ୍ଦୁରୁ ଅନନ୍ତକୁ ଯାଉଥିବା ପଥ ହେଉଛି <strong>ରଶ୍ମି (Ray)</strong>।<br>
+            &bull; ଉଭୟ ଦିଗରେ ଅସୀମ ବିସ୍ତାରିତ ପଥ ହେଉଛି <strong>ସରଳରେଖା (Line)</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ସଠିକ୍ ସଙ୍କେତ):</span><br>
+            &bull; (କ) ରେଖାଖଣ୍ଡ PQ ବା <span style="border-top: 1.5px solid currentColor;">PQ</span><br>
+            &bull; (ଖ) ରଶ୍ମି AB ବା <span style="border-top: 1.5px solid currentColor;">&rarr;AB</span><br>
+            &bull; (ଗ) ସରଳରେଖା XY ବା <span style="border-top: 1.5px solid currentColor;">&harr;XY</span></div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ବୈଶିଷ୍ଟ୍ୟ ଯାଞ୍ଚ):</span> କେବଳ ରେଖାଖଣ୍ଡର ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ମାପ (ଦୈର୍ଘ୍ୟ) ଥାଏ ଯାହାକୁ ସେଣ୍ଟିମିଟରରେ ମପାଯାଇପାରେ।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) ରେଖାଖଣ୍ଡ PQ &bull; (ଖ) ରଶ୍ମି &bull; (ଗ) ସରଳରେଖା XY।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Question 2 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ (Figure it Out - ପୃଷ୍ଠା ୭–୧୧): ପ୍ରୋଟ୍ରାକ୍ଟର ସାହାଯ୍ୟରେ କୋଣ ମାପ ଓ ବର୍ଗୀକରଣ</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୨:</strong> ନିମ୍ନୋକ୍ତ କୋଣଗୁଡ଼ିକୁ ସେମାନଙ୍କର ମାପ ଅନୁସାରେ ବର୍ଗୀକରଣ କରନ୍ତୁ:<br>
+          ୩୫&deg;, ୯୦&deg;, ୧୨୫&deg;, ୧୮୦&deg;, ୭୨&deg;, ୨15&deg;, ୮୯&deg;, ୧୭୯&deg;।</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ କୋଣ):</span> ୩୫&deg;, ୯୦&deg;, ୧୨୫&deg;, ୧୮୦&deg;, ୭୨&deg;, ୨୧୫&deg;, ୮୯&deg;, ୧୭୯&deg;।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ବର୍ଗୀକରଣ ସର୍ତ୍ତ):</span><br>
+            &bull; ସୂକ୍ଷ୍ମକୋଣ: ୦&deg; ରୁ ୯୦&deg; ମଧ୍ୟରେ<br>
+            &bull; ସମକୋଣ: ଠିକ୍ ୯୦&deg;<br>
+            &bull; ସ୍ଥୂଳକୋଣ: ୯୦&deg; ରୁ ୧୮୦&deg; ମଧ୍ୟରେ<br>
+            &bull; ସରଳକୋଣ: ଠିକ୍ ୧୮୦&deg;<br>
+            &bull; ପ୍ରବୃଦ୍ଧ କୋଣ: ୧୮୦&deg; ରୁ ୩୬୦&deg; ମଧ୍ୟରେ</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ବର୍ଗୀକରଣ ତାଲିକା):</span><br>
+            &bull; ସୂକ୍ଷ୍ମକୋଣ (Acute): ୩୫&deg;, ୭୨&deg;, ୮୯&deg;<br>
+            &bull; ସମକୋଣ (Right): ୯୦&deg;<br>
+            &bull; ସ୍ଥୂଳକୋଣ (Obtuse): ୧୨୫&deg;, ୧୭୯&deg;<br>
+            &bull; ସରଳକୋଣ (Straight): ୧୮୦&deg;<br>
+            &bull; ପ୍ରବୃଦ୍ଧ କୋଣ (Reflex): ୨୧୫&deg;</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ସତର୍କତା ଯାଞ୍ଚ):</span> ୮୯&deg; ହେଉଛି ସୂକ୍ଷ୍ମକୋଣ (କାରଣ ୯୦&deg; ରୁ କମ୍) ଏବଂ ୧୭୯&deg; ହେଉଛି ସ୍ଥୂଳକୋଣ (କାରଣ ୧୮୦&deg; ରୁ କମ୍)।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: ସୂକ୍ଷ୍ମକୋଣ = {୩୫&deg;, ୭୨&deg;, ୮୯&deg;}, ସମକୋଣ = {୯୦&deg;}, ସ୍ଥୂଳକୋଣ = {୧୨୫&deg;, ୧୭୯&deg;}, ସରଳକୋଣ = {୧୮୦&deg;}, ପ୍ରବୃଦ୍ଧ କୋଣ = {୨୧୫&deg;}।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Question 3 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ (Figure it Out - ପୃଷ୍ଠା ୧୯–୨୦): ଘଣ୍ଟା କଣ୍ଟା ଓ କୋଣ ସମସ୍ୟା</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୩:</strong> ଗୋଟିଏ ଘଣ୍ଟାରେ ମିନିଟ୍ କଣ୍ଟା ଏବଂ ଘଣ୍ଟା କଣ୍ଟା ମଧ୍ୟରେ ନିମ୍ନଲିଖିତ ସମୟରେ କେଉଁ କୋଣ ସୃଷ୍ଟି ହୁଏ ଏବଂ କୋଣର ମାପ କେତେ?<br>
+          (କ) ଅପରାହ୍ନ ୩:୦୦ ବଜେ<br>
+          (ଖ) ପ୍ରାତଃ ୬:୦୦ ବଜେ<br>
+          (ଗ) ଅପରାହ୍ନ ୧:୦୦ ବଜେ<br>
+          (ଘ) ଅପରାହ୍ନ ୪:୦୦ ବଜେ</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ଘଣ୍ଟାର ସମ୍ପୂର୍ଣ୍ଣ ଡାଏଲ୍ = ୩୬୦&deg; ଏବଂ ୧୨ଟି ସମାନ ଭାଗରେ ବିଭକ୍ତ। ପ୍ରତି ଘଣ୍ଟା ବ୍ୟବଧାନ = ୩୬୦&deg; &divide; ୧୨ = <strong>୩୦&deg;</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (କୋଣ ଗଣନା):</span><br>
+            &bull; (କ) ୩:୦୦ ବଜେ: ୩ଟି ବ୍ୟବଧାନ &rArr; ୩ &times; ୩୦&deg; = ୯୦&deg; (ସମକୋଣ)।<br>
+            &bull; (ଖ) ୬:୦୦ ବଜେ: ୬ଟି ବ୍ୟବଧାନ &rArr; ୬ &times; ୩୦&deg; = ୧୮୦&deg; (ସରଳକୋଣ)।<br>
+            &bull; (ଗ) ୧:୦୦ ବଜେ: ୧ଟି ବ୍ୟବଧାନ &rArr; ୧ &times; ୩୦&deg; = ୩୦&deg; (ସୂକ୍ଷ୍ମକୋଣ)।<br>
+            &bull; (ଘ) ୪:୦୦ ବଜେ: ୪ଟି ବ୍ୟବଧାନ &rArr; ୪ &times; ୩୦&deg; = ୧୨୦&deg; (ସ୍ଥୂଳକୋଣ)।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ଜ୍ୟାମିତିକ ଚିତ୍ରାଙ୍କନ):</span> ୩:୦୦ ଏବଂ ୯:୦୦ ବଜେ ପରସ୍ପର ଲମ୍ବ (L-ଆକାର), ୬:୦୦ ବଜେ ଏକ ସିଧା ସରଳରେଖା।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) ୯୦&deg; (ସମକୋଣ) &bull; (ଖ) ୧୮୦&deg; (ସରଳକୋଣ) &bull; (ଗ) ୩୦&deg; (ସୂକ୍ଷ୍ମକୋଣ) &bull; (ଘ) ୧୨୦&deg; (ସ୍ଥୂଳକୋଣ)।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Question 4 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ (Figure it Out - ପୃଷ୍ଠା ୪୨–୪୩): ଅନୁପୂରକ ଓ ପରିପୂରକ କୋଣ ଗଣନା</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୪:</strong><br>
+          (କ) ଏକ କୋଣ ନିଜର ଅନୁପୂରକ କୋଣ ସହିତ ସମାନ। କୋଣଟିର ମାପ କେତେ?<br>
+          (ଖ) ଦୁଇଟି ପରିପୂରକ କୋଣ ମଧ୍ୟରୁ ବୃହତ୍ତର କୋଣଟି କ୍ଷୁଦ୍ରତର କୋଣଠାରୁ ୩୬&deg; ଅଧିକ। ପ୍ରତ୍ୟେକ କୋଣର ମାପ ନିର୍ଣ୍ଣୟ କର।</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (କ ପାଇଁ ସମୀକରଣ):</span> ମନେକର କୋଣଟି = x&deg;। ଅନୁପୂରକ କୋଣ = x&deg;। ଆମେ ଜାଣୁ x + x = ୯୦&deg; &rArr; ୨x = ୯୦&deg; &rArr; x = ୪୫&deg;।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଖ ପାଇଁ ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ମନେକର କ୍ଷୁଦ୍ରତର କୋଣ = y&deg;। ବୃହତ୍ତର କୋଣ = (y + ୩୬)&deg;।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ପରିପୂରକ ସୂତ୍ର ପ୍ରୟୋଗ):</span> ଯୋଗଫଳ = ୧୮୦&deg;:<br>
+            y + (y + ୩୬) = ୧୮୦ &rArr; ୨y + ୩୬ = ୧୮୦ &rArr; ୨y = ୧୮୦ &minus; ୩୬ = ୧୪୪ &rArr; y = ୭୨&deg;।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ବୃହତ୍ତର କୋଣ ନିର୍ଣ୍ଣୟ):</span> ବୃହତ୍ତର କୋଣ = ୭୨&deg; + ୩୬&deg; = ୧୦୮&deg;। (ଯାଞ୍ଚ: ୭୨&deg; + ୧୦୮&deg; = ୧୮୦&deg;)।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) କୋଣଟିର ମାପ = ୪୫&deg; &bull; (ଖ) କ୍ଷୁଦ୍ରତର କୋଣ = ୭୨&deg; ଏବଂ ବୃହତ୍ତର କୋଣ = ୧୦୮&deg;।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="section5">
+      <h2>Section 5: ପରୀକ୍ଷା ଉପଯୋଗୀ ପ୍ରଶ୍ନୋତ୍ତର ବ୍ୟାଙ୍କ ଓ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍ (Exam Question Bank &amp; Quiz Engine)</h2>
+      <p>ସମସ୍ତ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ପ୍ରଶ୍ନ ଏବଂ ଇଣ୍ଟରାକ୍ଟିଭ୍ ମଲ୍ଟିପ୍ଲ-ଚଏସ୍ କୁଇଜ୍:</p>
+
+      <!-- Score Board -->
+      <div class="quiz-score-board" id="quizScoreBoard">
+        🎯 ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍ ସ୍କୋର: <span id="currentScore">୦</span> / <span id="totalQuestions">୫</span> ସଠିକ୍
+      </div>
+
+      <!-- Part A: Interactive MCQs -->
+      <h3>ଭାଗ 'କ': ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନାବଳୀ (Interactive MCQs with Instant Feedback)</h3>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card" id="quiz-card-1">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୧: ୬୫&deg; ପରିମିତ ଏକ କୋଣର ଅନୁପୂରକ କୋଣ (Complementary Angle) ର ମାପ କେତେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 0, true, 'ନିର୍ଭୁଲ! ଅନୁପୂରକ କୋଣ = ୯୦° − ୬୫° = ୨୫°।')">
+            <span>(A) ୨୫&deg;</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 1, false, 'ଭୁଲ! ୩୫° ଯୋଗ କଲେ ୧୦୦° ହେବ। ଅନୁପୂରକ ଯୋଗଫଳ ୯୦°।')">
+            <span>(B) ୩୫&deg;</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 2, false, 'ଭୁଲ! ୧୧୫° ହେଉଛି ଏହାର ପରିପୂରକ କୋଣ (୧୮୦° − ୬୫°)।')">
+            <span>(C) ୧୧୫&deg;</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 3, false, 'ଭୁଲ! ଗଣନା ପୁନର୍ବାର ଯାଞ୍ଚ କରନ୍ତୁ।')">
+            <span>(D) ୧୨୫&deg;</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-1-fb"></div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card" id="quiz-card-2">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୨: ଅପରାହ୍ନ ୨:୦୦ ବଜେ ଘଣ୍ଟା କଣ୍ଟା ଏବଂ ମିନିଟ୍ କଣ୍ଟା ମଧ୍ୟରେ କେଉଁ କୋଣ ସୃଷ୍ଟି ହୁଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 0, false, 'ଭୁଲ! ୩୦° କେବଳ ୧:୦୦ ବଜେ ହୁଏ।')">
+            <span>(A) ୩୦&deg; (ସୂକ୍ଷ୍ମକୋଣ)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 1, true, 'ସଠିକ୍! ୨ ଘଣ୍ଟା ବ୍ୟବଧାନ = ୨ × ୩୦° = ୬୦° (ସୂକ୍ଷ୍ମକୋଣ)।')">
+            <span>(B) ୬୦&deg; (ସୂକ୍ଷ୍ମକୋଣ)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 2, false, 'ଭୁଲ! ୯୦° ସମକୋଣ ୩:୦୦ ବଜେ ହୁଏ।')">
+            <span>(C) ୯୦&deg; (ସମକୋଣ)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 3, false, 'ଭୁଲ! ୧୨୦° ସ୍ଥୂଳକୋଣ ୪:୦୦ ବଜେ ହୁଏ।')">
+            <span>(D) ୧୨୦&deg; (ସ୍ଥୂଳକୋଣ)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-2-fb"></div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card" id="quiz-card-3">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୩: ୨୪୦&deg; ପରିମିତ ଏକ କୋଣକୁ କେଉଁ ଶ୍ରେଣୀରେ ଅନ୍ତର୍ଭୁକ୍ତ କରାଯିବ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 0, false, 'ଭୁଲ! ସ୍ଥୂଳକୋଣ ୯୦° ରୁ ୧୮୦° ମଧ୍ୟରେ ଥାଏ।')">
+            <span>(A) ସ୍ଥୂଳକୋଣ (Obtuse)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 1, false, 'ଭୁଲ! ସରଳକୋଣ ଠିକ୍ ୧୮୦°।')">
+            <span>(B) ସରଳକୋଣ (Straight)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 2, true, 'ଚମତ୍କାର! ୧୮୦° ରୁ ଅଧିକ ଏବଂ ୩୬୦° ରୁ କମ୍ କୋଣକୁ ପ୍ରବୃଦ୍ଧ କୋଣ (Reflex Angle) କୁହାଯାଏ।')">
+            <span>(C) ପ୍ରବୃଦ୍ଧ କୋଣ (Reflex)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 3, false, 'ଭୁଲ! ପୂର୍ଣ୍ଣ କୋଣ ଠିକ୍ ୩୬୦°।')">
+            <span>(D) ପୂର୍ଣ୍ଣ କୋଣ (Complete)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-3-fb"></div>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="quiz-card" id="quiz-card-4">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୪: ଗୋଟିଏ ରଶ୍ମି (Ray) ର କେତୋଟି ନିର୍ଦ୍ଦିଷ୍ଟ ପ୍ରାନ୍ତବିନ୍ଦୁ (Endpoints) ଥାଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 0, false, 'ଭୁଲ! ସରଳରେଖାର ୦ଟି ପ୍ରାନ୍ତବିନ୍ଦୁ ଥାଏ।')">
+            <span>(A) ୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 1, true, 'ନିର୍ଭୁଲ! ରଶ୍ମିର କେବଳ ୧ଟି ଆଦ୍ୟ ପ୍ରାନ୍ତବିନ୍ଦୁ ଥାଏ ଏବଂ ଅନ୍ୟ ପାର୍ଶ୍ୱଟି ଅସୀମ ପର୍ଯ୍ୟନ୍ତ ବଢ଼ିଥାଏ।')">
+            <span>(B) ୧</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 2, false, 'ଭୁଲ! ରେଖାଖଣ୍ଡର ୨ଟି ପ୍ରାନ୍ତବିନ୍ଦୁ ଥାଏ।')">
+            <span>(C) ୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 3, false, 'ଭୁଲ! ଅସଂଖ୍ୟ ପ୍ରାନ୍ତବିନ୍ଦୁ ହୋଇପାରିବ ନାହିଁ।')">
+            <span>(D) ଅସଂଖ୍ୟ</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-4-fb"></div>
+      </div>
+
+      <!-- Quiz 5 -->
+      <div class="quiz-card" id="quiz-card-5">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୫: ଏକ ସରଳରେଖା ଉପରେ ଥିବା ଦୁଇଟି ସଂଲଗ୍ନ କୋଣର ଯୋଗଫଳ ସର୍ବଦା କେତେ ଡିଗ୍ରୀ ହୁଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 0, false, 'ଭୁଲ! ୯୦° ଅନୁପୂରକ କୋଣ ପାଇଁ ହୁଏ।')">
+            <span>(A) ୯୦&deg;</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 1, true, 'ସଠିକ୍! ସରଳରୈଖିକ ଯୁଗଳ (Linear Pair) ର କୋଣଦ୍ୱୟର ଯୋଗଫଳ ସର୍ବଦା ୧୮୦° (ପରିପୂରକ) ହୁଏ।')">
+            <span>(B) ୧୮୦&deg;</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 2, false, 'ଭୁଲ! ୨୭୦° ନୁହେଁ।')">
+            <span>(C) ୨୭୦&deg;</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 3, false, 'ଭୁଲ! ୩୬୦° ସମ୍ପୂର୍ଣ୍ଣ ଚକ୍ର ପାଇଁ ହୁଏ।')">
+            <span>(D) ୩୬୦&deg;</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-5-fb"></div>
+      </div>
+
+      <!-- Part B: Subjective Questions -->
+      <h3 style="margin-top: 2rem;">ଭାଗ 'ଖ': ସଂକ୍ଷିପ୍ତ ଓ ଦୀର୍ଘ ଉତ୍ତରମୂଳକ ପରୀକ୍ଷା ପ୍ରଶ୍ନୋତ୍ତର (Subjective Question Bank)</h3>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୬ (୨ ମାର୍କ): ରେଖାଖଣ୍ଡ ଏବଂ ସରଳରେଖା ମଧ୍ୟରେ ୨ଟି ମୁଖ୍ୟ ପାର୍ଥକ୍ୟ ଲେଖ।</summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong></p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ବିଷୟ</th>
+                <th>ରେଖାଖଣ୍ଡ (Line Segment)</th>
+                <th>ସରଳରେଖା (Line)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ପ୍ରାନ୍ତବିନ୍ଦୁ</strong></td>
+                <td>ଏହାର ୨ଟି ନିର୍ଦ୍ଦିଷ୍ଟ ପ୍ରାନ୍ତବିନ୍ଦୁ ଥାଏ।</td>
+                <td>ଏହାର କୌଣସି ପ୍ରାନ୍ତବିନ୍ଦୁ ନଥାଏ।</td>
+              </tr>
+              <tr>
+                <td><strong>ଦୈର୍ଘ୍ୟ ଓ ମାପ</strong></td>
+                <td>ଏହାର ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ଦୈର୍ଘ୍ୟ ଥାଏ ଯାହାକୁ ସ୍କେଲ୍ ସାହାଯ୍ୟରେ ମପାଯାଇପାରେ।</td>
+                <td>ଏହା ଉଭୟ ଦିଗରେ ଅସୀମ ବିସ୍ତାରିତ, ତେଣୁ ଏହାର ଦୈର୍ଘ୍ୟ ମପାଯାଇପାରିବ ନାହିଁ।</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୭ (୩ ମାର୍କ): ଗୋଟିଏ କୋଣର ପରିମାଣ ତାର ଅନୁପୂରକ କୋଣର ଚାରିଗୁଣ। କୋଣ ଦୁଇଟିର ପରିମାଣ ନିର୍ଣ୍ଣୟ କର।</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ସର୍ତ୍ତ):</span> ମନେକର କ୍ଷୁଦ୍ରତର କୋଣଟି = x&deg;। ତେଣୁ ଅନ୍ୟ କୋଣଟି = ୪x&deg;।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଅନୁପୂରକ ସୂତ୍ର):</span> ଦୁଇ ଅନୁପୂରକ କୋଣର ଯୋଗଫଳ = ୯୦&deg;।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ସମୀକରଣ ସମାଧାନ):</span> x + ୪x = ୯୦&deg; &rArr; ୫x = ୯୦&deg; &rArr; x = ୯୦&deg; &divide; ୫ = ୧୮&deg;।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଅନ୍ୟ କୋଣ ନିର୍ଣ୍ଣୟ):</span> ବୃହତ୍ତର କୋଣ = ୪ &times; ୧୮&deg; = ୭୨&deg;। (ଯାଞ୍ଚ: ୧୮&deg; + ୭୨&deg; = ୯୦&deg;)।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: କୋଣ ଦୁଇଟି ହେଲା ୧୮&deg; ଏବଂ ୭୨&deg;।</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୮ (୫ ମାର୍କ ଦକ୍ଷତା ଭିତ୍ତିକ): ଗୋଟିଏ ଘଣ୍ଟାରେ ସକାଳ ୮:୦୦ ରୁ ଅପରାହ୍ନ ୨:୦୦ ମଧ୍ୟରେ ଘଣ୍ଟା କଣ୍ଟା କେତେ ଡିଗ୍ରୀ ଘୂର୍ଣ୍ଣନ କରିବ? ଏହି ଘୂର୍ଣ୍ଣନ କେତୋଟି ସମକୋଣ ସହିତ ସମାନ?</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ସମୟ ବ୍ୟବଧାନ):</span> ସକାଳ ୮:୦୦ ରୁ ଅପରାହ୍ନ ୨:୦୦ ମଧ୍ୟରେ ଅତିବାହିତ ସମୟ = ୬ ଘଣ୍ଟା (କାରଣ ୧୪ &minus; ୮ = ୬)।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ପ୍ରତି ଘଣ୍ଟାରେ ଘୂର୍ଣ୍ଣନ):</span> ଘଣ୍ଟା କଣ୍ଟା ୧ ଘଣ୍ଟାରେ ୩୦&deg; ଘୂର୍ଣ୍ଣନ କରେ (୩୬୦&deg; &divide; ୧୨ = ୩୦&deg;)।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ମୋଟ କୋଣ ନିର୍ଣ୍ଣୟ):</span> ୬ ଘଣ୍ଟାରେ ମୋଟ ଘୂର୍ଣ୍ଣନ = ୬ &times; ୩୦&deg; = <strong>୧୮୦&deg;</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ସମକୋଣ ସହିତ ତୁଳନା):</span> ୧ ସମକୋଣ = ୯୦&deg;। ଅତଏବ ସମକୋଣ ସଂଖ୍ୟା = ୧୮୦&deg; &divide; ୯୦&deg; = <strong>୨ ଟି ସମକୋଣ</strong> (ବା ୧ଟି ସରଳକୋଣ)।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ସିଦ୍ଧାନ୍ତ: ଘଣ୍ଟା କଣ୍ଟା ୧୮୦&deg; ଘୂର୍ଣ୍ଣନ କରିବ, ଯାହା ଠିକ୍ ୨ଟି ସମକୋଣ (Straight Angle) ସହିତ ସମାନ।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="section6">
+      <h2>Section 6: ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା ଓ ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ତଥ୍ୟ (Exam Hall Traps &amp; One-Liners)</h2>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">⚠️ ସାଧାରଣ ଭ୍ରାନ୍ତି ସତର୍କତା (Exam Hall Traps)</div>
+        <ul>
+          <li><strong>ଭୁଲ ୧:</strong> ପ୍ରୋଟ୍ରାକ୍ଟରର ଦୁଇଟି ସ୍କେଲ୍ ଥାଏ (ଭିତର ଓ ବାହାର ସ୍କେଲ୍)। ଯଦି କୋଣର ଆଧାର ବାହୁ ଡାହାଣ ଦିଗକୁ ଥାଏ ତେବେ ଡାହାଣ ପାର୍ଶ୍ୱ ୦&deg; ରୁ ଆରମ୍ଭ କରନ୍ତୁ। ଭୁଲ ସ୍କେଲ୍ ପଢ଼ି ୬୦&deg; ବଦଳରେ ୧୨୦&deg; ଲେଖିବା ଏକ ସାଧାରଣ ତ୍ରୁଟି!</li>
+          <li><strong>ଭୁଲ ୨:</strong> ଅନୁପୂରକ (Complementary) ଓ ପରିପୂରକ (Supplementary) ମଧ୍ୟରେ ଦ୍ୱନ୍ଦ୍ୱ: ମନେରଖନ୍ତୁ ଇଂରାଜୀ ବର୍ଣ୍ଣମାଳାରେ 'C' ଆଗରୁ ଆସେ ତେଣୁ ୯୦&deg;, 'S' ପରେ ଆସେ ତେଣୁ ୧୮୦&deg;।</li>
+          <li><strong>ଭୁଲ ୩:</strong> କୋଣ ଲେଖିବା ସମୟରେ ଶୀର୍ଷବିନ୍ଦୁ (Vertex) କୁ ସର୍ବଦା ମଝିରେ ରଖନ୍ତୁ। &ang;ABC ରେ B ହିଁ ଶୀର୍ଷବିନ୍ଦୁ। &ang;BAC ଲେଖିଲେ ଅର୍ଥ ବଦଳିଯିବ।</li>
+        </ul>
+      </div>
+
+      <h3 class="topic-title">📌 ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ଏକ-ପଦୀ ତଥ୍ୟ (15 Rapid Revision One-Liners)</h3>
+      <ol style="line-height: 2; margin-left: 1.5rem;">
+        <li>ଜ୍ୟାମିତିରେ ଏକ <strong>ବିନ୍ଦୁ (Point)</strong> ର କେବଳ ଅବସ୍ଥିତି ଥାଏ, ଦୈର୍ଘ୍ୟ କିମ୍ବା ପ୍ରସ୍ଥ ନଥାଏ।</li>
+        <li><strong>ରେଖାଖଣ୍ଡ (Line Segment)</strong> ର ଦୁଇଟି ନିର୍ଦ୍ଦିଷ୍ଟ ପ୍ରାନ୍ତବିନ୍ଦୁ ଥାଏ ଏବଂ ଏହାର ଦୈର୍ଘ୍ୟ ମପାଯାଇପାରେ।</li>
+        <li><strong>ସରଳରେଖା (Line)</strong> ଉଭୟ ଦିଗକୁ ଅସୀମ ଭାବେ ବିସ୍ତାରିତ ହୁଏ ଏବଂ ଏହାର ପ୍ରାନ୍ତବିନ୍ଦୁ ନଥାଏ।</li>
+        <li><strong>ରଶ୍ମି (Ray)</strong> ର କେବଳ ଗୋଟିଏ ପ୍ରାରମ୍ଭିକ ବିନ୍ଦୁ ଥାଏ।</li>
+        <li>ଗୋଟିଏ ସାଧାରଣ ଶୀର୍ଷବିନ୍ଦୁରୁ ଦୁଇଟି ରଶ୍ମି ବାହାରିଲେ <strong>କୋଣ (Angle)</strong> ସୃଷ୍ଟି ହୁଏ।</li>
+        <li>କୋଣ ମାପିବାର ମାନକ ଏକକ ହେଉଛି <strong>ଡିଗ୍ରୀ (&deg;)</strong>।</li>
+        <li>୦&deg; ରୁ ଅଧିକ ଏବଂ ୯୦&deg; ରୁ କମ୍ କୋଣକୁ <strong>ସୂକ୍ଷ୍ମକୋଣ (Acute Angle)</strong> କୁହାଯାଏ।</li>
+        <li>ଠିକ୍ ୯୦&deg; ପରିମିତ କୋଣକୁ <strong>ସମକୋଣ (Right Angle)</strong> କୁହାଯାଏ।</li>
+        <li>୯୦&deg; ରୁ ଅଧିକ ଏବଂ ୧୮୦&deg; ରୁ କମ୍ କୋଣକୁ <strong>ସ୍ଥୂଳକୋଣ (Obtuse Angle)</strong> କୁହାଯାଏ।</li>
+        <li>ଠିକ୍ ୧୮୦&deg; ପରିମିତ କୋଣକୁ <strong>ସରଳକୋଣ (Straight Angle)</strong> କୁହାଯାଏ।</li>
+        <li>୧୮୦&deg; ରୁ ଅଧିକ ଏବଂ ୩୬୦&deg; ରୁ କମ୍ କୋଣକୁ <strong>ପ୍ରବୃଦ୍ଧ କୋଣ (Reflex Angle)</strong> କୁହାଯାଏ।</li>
+        <li>ଦୁଇଟି କୋଣର ଯୋଗଫଳ ୯୦&deg; ହେଲେ ସେମାନଙ୍କୁ <strong>ଅନୁପୂରକ କୋଣ (Complementary)</strong> କୁହାଯାଏ।</li>
+        <li>ଦୁଇଟି କୋଣର ଯୋଗଫଳ ୧୮୦&deg; ହେଲେ ସେମାନଙ୍କୁ <strong>ପରିପୂରକ କୋଣ (Supplementary)</strong> କୁହାଯାଏ।</li>
+        <li>ଘଣ୍ଟାରେ ପ୍ରତ୍ୟେକ ଘଣ୍ଟା ବ୍ୟବଧାନରେ ଘଣ୍ଟା କଣ୍ଟା <strong>୩୦&deg;</strong> କୋଣ ଅତିକ୍ରମ କରେ।</li>
+        <li>ମିନିଟ୍ କଣ୍ଟା ପ୍ରତି ୧ ମିନିଟ୍ ରେ <strong>୬&deg;</strong> କୋଣ ଘୂର୍ଣ୍ଣନ କରେ (୩୬୦&deg; &divide; ୬୦ = ୬&deg;)।</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      const btn = document.getElementById('backToTopBtn');
+      if (winScroll > 350) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+
+    function toggleAllAnswers(openState) {
+      document.querySelectorAll('details.ans-box').forEach(el => {
+        el.open = openState;
+      });
+    }
+
+    let quizScore = 0;
+    const answeredQuizzes = new Set();
+
+    function checkQuiz(cardId, optionIndex, isCorrect, explanation) {
+      const card = document.getElementById(cardId);
+      const buttons = card.querySelectorAll('.quiz-opt-btn');
+      const fb = document.getElementById(cardId + '-fb');
+
+      if (answeredQuizzes.has(cardId)) return;
+      answeredQuizzes.add(cardId);
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        const ind = btn.querySelector('.quiz-opt-indicator');
+        if (idx === optionIndex) {
+          if (isCorrect) {
+            btn.classList.add('correct-opt');
+            ind.innerHTML = ' &check; (ସଠିକ୍)';
+          } else {
+            btn.classList.add('wrong-opt');
+            ind.innerHTML = ' &cross; (ଭୁଲ)';
+          }
+        }
+      });
+
+      if (!isCorrect) {
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct-opt');
+            btn.querySelector('.quiz-opt-indicator').innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          }
+        });
+      }
+
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.className = 'quiz-feedback correct-fb';
+        fb.innerHTML = '<strong>ଠିକ୍ ଉତ୍ତର! 🎉</strong> ' + explanation;
+        quizScore++;
+      } else {
+        fb.className = 'quiz-feedback incorrect-fb';
+        fb.innerHTML = '<strong>ଭୁଲ ଉତ୍ତର! ⚠️</strong> ' + explanation;
+      }
+
+      document.getElementById('currentScore').innerText = quizScore;
+    }
+
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Text-to-Speech ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+      } else {
+        const text = "ନମସ୍କାର ପିଲାମାନେ! ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତର ଦ୍ୱିତୀୟ ଅଧ୍ୟାୟ 'ରେଖା ଓ କୋଣ' କୁ ସ୍ୱାଗତ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ବିନ୍ଦୁ, ରେଖାଖଣ୍ଡ, ସରଳରେଖା ଓ ରଶ୍ମି ବିଷୟରେ ଜାଣିଲେ। କୋଣକୁ ଆମେ ପ୍ରୋଟ୍ରାକ୍ଟର ସାହାଯ୍ୟରେ ଡିଗ୍ରୀରେ ମାପିଥାଉ। ମନେରଖନ୍ତୁ: ୯୦ ଡିଗ୍ରୀରୁ କମ୍ ହେଲେ ସୂକ୍ଷ୍ମକୋଣ, ଠିକ୍ ୯୦ ଡିଗ୍ରୀ ହେଲେ ସମକୋଣ, ୯୦ ରୁ ୧୮୦ ମଧ୍ୟରେ ସ୍ଥୂଳକୋଣ ଏବଂ ୧୮୦ ଡିଗ୍ରୀ ହେଲେ ସରଳକୋଣ। ଦୁଇଟି କୋଣର ଯୋଗଫଳ ୯୦ ଡିଗ୍ରୀ ହେଲେ ଅନୁପୂରକ ଏବଂ ୧୮୦ ଡିଗ୍ରୀ ହେଲେ ପରିପୂରକ କୋଣ କୁହାଯାଏ। ଘଣ୍ଟାରେ ପ୍ରତି ୧ ଘଣ୍ଟାରେ ୩୦ ଡିଗ୍ରୀ କୋଣ ସୃଷ୍ଟି ହୁଏ। ଉତ୍ତମ ଭାବେ ଅଭ୍ୟାସ କରନ୍ତୁ!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'or-IN';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>";
+      }
+    }
+  </script>
+</body>
+</html>
