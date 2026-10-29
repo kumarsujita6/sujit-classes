@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୧: ଗଣିତରେ ସଂରଚନା ଓ ପାଟର୍ଣ୍ଣ (Patterns in Mathematics) &mdash; ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ ମାଷ୍ଟର ନୋଟ୍ସ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ (NEP ଗଣିତ ପ୍ରକାଶ) ଅଧ୍ୟାୟ ୧: ଗଣିତରେ ସଂରଚନା ଓ ପାଟର୍ଣ୍ଣ (Patterns in Mathematics) ର ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ନୋଟ୍ସ, ୫-ସ୍ତରୀୟ NCERT ସମାଧାନ, ଚିତ୍ରାତ୍ମକ SVG ଏବଂ ଅଭ୍ୟାସ ପ୍ରଶ୍ନ ବ୍ୟାଙ୍କ।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --danger: #e11d48;
+      --danger-light: #ffe4e6;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
+      --radius: 14px;
+      --primary-gradient: linear-gradient(90deg, #0284c7 0%, #38bdf8 50%, #10b981 100%);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text-main);
+      line-height: 1.75;
+      font-size: 15.5px;
+      padding-bottom: 60px;
+    }
+
+    /* Top Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: var(--primary-gradient);
+      z-index: 999999;
+      transition: width 0.1s ease-out;
+      box-shadow: 0 1px 4px rgba(2, 132, 199, 0.3);
+    }
+
+    /* Header */
+    header.header {
+      background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 55%, #0d9488 100%);
+      color: #ffffff;
+      padding: 42px 24px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 12px 30px -8px rgba(2, 132, 199, 0.35);
+    }
+    header.header h1 {
+      font-size: 2.1rem;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+    header.header p {
+      font-size: 1.05rem;
+      opacity: 0.94;
+      max-width: 860px;
+      margin: 0 auto 16px;
+    }
+    .badge-bar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 14px;
+    }
+    .badge {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(6px);
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+
+    /* Top Bar & Sticky Nav */
+    .top-bar {
+      position: sticky;
+      top: 0;
+      z-index: 10000;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 0.85rem;
+      padding: 6px 14px;
+      border-radius: 9999px;
+      transition: all 0.2s var(--ease-spring);
+    }
+    .nav-links a:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+    .toolbar-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .btn {
+      border: 1px solid var(--border);
+      background: var(--bg-card);
+      color: var(--text-main);
+      font-family: inherit;
+      font-weight: 600;
+      font-size: 0.84rem;
+      padding: 7px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+    .btn-audio {
+      background: #ffffff;
+      color: var(--primary-dark);
+      font-weight: 700;
+      border: 2px solid var(--primary-light);
+    }
+    .btn-audio:hover {
+      background: var(--primary-light);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1080px;
+      margin: 28px auto;
+      padding: 0 20px;
+    }
+    .nav-breadcrumb {
+      margin-bottom: 24px;
+      font-size: 0.88rem;
+      color: var(--text-muted);
+    }
+    .nav-breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .nav-breadcrumb a:hover { text-decoration: underline; }
+
+    /* Section Cards */
+    section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px;
+      margin-bottom: 32px;
+      box-shadow: var(--shadow);
+    }
+    section h2 {
+      font-size: 1.55rem;
+      color: var(--primary-dark);
+      border-left: 5px solid var(--primary);
+      padding-left: 14px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    section h3 {
+      font-size: 1.25rem;
+      color: #0f172a;
+      margin: 26px 0 14px;
+      font-weight: 700;
+      border-bottom: 2px dashed #f1f5f9;
+      padding-bottom: 6px;
+    }
+    section h4 {
+      font-size: 1.05rem;
+      color: #1e293b;
+      margin: 18px 0 10px;
+      font-weight: 700;
+    }
+    p { margin-bottom: 14px; }
+    ul, ol { margin: 10px 0 18px 24px; }
+    li { margin-bottom: 8px; }
+
+    /* Math Formulas and Fractions */
+    .math-formula {
+      font-family: 'JetBrains Mono', monospace;
+      background: #f1f5f9;
+      padding: 4px 8px;
+      border-radius: 6px;
+      font-weight: 600;
+      color: #0369a1;
+    }
+    .frac {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 0.9em;
+      padding: 0 2px;
+    }
+    .frac sup {
+      border-bottom: 1.5px solid currentColor;
+      padding-bottom: 1px;
+      font-size: inherit;
+      line-height: 1;
+    }
+    .frac sub {
+      font-size: inherit;
+      line-height: 1;
+    }
+
+    /* 5-Step Solution Box */
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 16px 18px;
+      margin: 12px 0 16px;
+    }
+    .step-line {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .step-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 140px;
+    }
+    .step-conclusion {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 8px 12px;
+      border-radius: 4px;
+      margin-top: 10px;
+      font-weight: 600;
+      color: #166534;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 12px;
+      padding: 16px 20px;
+      margin: 18px 0;
+      border-left: 5px solid;
+    }
+    .callout-title {
+      font-weight: 800;
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .callout-def { background: #f0f9ff; border-left-color: #0284c7; color: #0c4a6e; }
+    .callout-act { background: #f0fdfa; border-left-color: #0d9488; color: #115e59; }
+    .callout-pyq { background: #fffbeb; border-left-color: #f59e0b; color: #78350f; }
+    .callout-hack { background: #f5f3ff; border-left-color: #7c3aed; color: #4c1d95; }
+    .callout-warn { background: #fff1f2; border-left-color: #e11d48; color: #881337; }
+
+    /* Tables */
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.94rem;
+      text-align: left;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border);
+      padding: 11px 14px;
+    }
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--text-main);
+      font-weight: 700;
+    }
+    .data-table tr:nth-child(even) { background-color: #f8fafc; }
+
+    /* Collapsible Question Cards (<details class="ans-box">) */
+    details.ans-box {
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.25s var(--ease-spring);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+    details.ans-box summary {
+      list-style: none;
+      padding: 1rem 1.35rem;
+      background: #f8fafc;
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      transition: all 0.2s ease;
+    }
+    details.ans-box summary::-webkit-details-marker { display: none; }
+    details.ans-box summary::after {
+      content: "▾";
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--primary);
+      transition: transform 0.3s var(--ease-spring);
+    }
+    details.ans-box[open] summary::after {
+      transform: rotate(180deg);
+    }
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 6px 18px rgba(2, 132, 199, 0.08);
+    }
+    details.ans-box[open] summary {
+      background: #f0f9ff;
+      color: var(--primary-dark);
+      border-bottom: 1px solid #bae6fd;
+    }
+    details.ans-box .ans-content {
+      padding: 1.35rem;
+      background: #ffffff;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* Diagram Container */
+    .diagram-container {
+      margin: 24px auto;
+      text-align: center;
+      background: #ffffff;
+      padding: 22px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+    .diagram-container svg {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+    }
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    /* Quiz Engine */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 18px 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+    }
+    .quiz-question {
+      font-weight: 700;
+      font-size: 1.02rem;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .quiz-opt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1.5px solid #cbd5e1;
+      background: #ffffff;
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .quiz-opt-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+      transform: translateX(4px);
+    }
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700;
+    }
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+      font-weight: 600;
+    }
+    .quiz-feedback {
+      display: none;
+      margin-top: 12px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .quiz-feedback.correct-fb { background: #f0fdf4; border: 1px solid #86efac; color: #166534; }
+    .quiz-feedback.incorrect-fb { background: #fef2f2; border: 1px solid #fca5a5; color: #991b1b; }
+    .quiz-score-board {
+      background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+      border: 1.5px solid #a7f3d0;
+      border-radius: 12px;
+      padding: 14px 22px;
+      text-align: center;
+      margin: 18px 0;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: #065f46;
+    }
+
+    /* Back to Top */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: all 0.3s var(--ease-spring);
+      z-index: 9999;
+    }
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-to-top-btn:hover {
+      background: var(--primary-dark);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top-Fixed Reading Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Header Banner -->
+  <header class="header">
+    <div class="badge-bar">
+      <span class="badge">ଓଡ଼ିଆ ମାଧ୍ୟମ (BSE Odisha / NEP ସଂସ୍କରଣ)</span>
+      <span class="badge">ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ &bull; ଅଧ୍ୟାୟ ୧</span>
+      <span class="badge">ଗଣିତ ପ୍ରକାଶ (Ganita Prakash)</span>
+    </div>
+    <h1>ଅଧ୍ୟାୟ ୧: ଗଣିତରେ ସଂରଚନା ଓ ପାଟର୍ଣ୍ଣ</h1>
+    <p style="font-size: 1.15rem; font-weight: 600; opacity: 0.95;">Patterns in Mathematics &mdash; ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ଷ୍ଟଡି ନୋଟ୍ସ</p>
+    <p>ସଂଖ୍ୟା ଶ୍ରେଣୀ, ଦୃଶ୍ୟମାନ ଜ୍ୟାମିତିକ ଆକୃତି, ବର୍ଗ ସଂଖ୍ୟା, ତ୍ରିଭୁଜ ସଂଖ୍ୟା, ବୀଜଗାଣିତିକ ନିୟମ ଓ ସମ୍ପୂର୍ଣ୍ଣ NCERT ୫-ସ୍ତରୀୟ ସମାଧାନ</p>
+    <div style="margin-top: 15px;">
+      <button class="btn btn-audio" onclick="toggleTeacherAudio()" id="teacherAudioBtn">
+        <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Sticky Top Bar -->
+  <div class="top-bar">
+    <div class="nav-links">
+      <a href="#section1">୧. ମାନସିକ ମାନଚିତ୍ର</a>
+      <a href="#section2">୨. ବିସ୍ତୃତ ଧାରଣା</a>
+      <a href="#section3">୩. ସୂତ୍ର ଓ ନିୟମ</a>
+      <a href="#section4">୪. NCERT ସମାଧାନ</a>
+      <a href="#section5">୫. ପ୍ରଶ୍ନୋତ୍ତର ଓ କୁଇଜ୍</a>
+      <a href="#section6">୬. ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା</a>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn btn-primary" onclick="toggleAllAnswers(true)">➕ ସମସ୍ତ ଉତ୍ତର ଖୋଲନ୍ତୁ</button>
+      <button class="btn" onclick="toggleAllAnswers(false)">➖ ସମସ୍ତ ବନ୍ଦ କରନ୍ତୁ</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="nav-breadcrumb">
+      <a href="../../index.html">ପୋର୍ଟାଲ୍ ମୁଖ୍ୟପୃଷ୍ଠା</a> &raquo; 
+      <a href="../../index.html#odia-medium">ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତ (Odia Medium)</a> &raquo; 
+      <span>ଅଧ୍ୟାୟ ୧: ଗଣିତରେ ସଂରଚନା ଓ ପାଟର୍ଣ୍ଣ</span>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section id="section1">
+      <h2>Section 1: ମାନସିକ ମାନଚିତ୍ର ଓ ଅଧ୍ୟାୟର ରୂପରେଖ (Visual Mind Map &amp; Blueprint)</h2>
+      <p>ଗଣିତ ହେଉଛି ମୁଖ୍ୟତଃ ବିଭିନ୍ନ <strong>ସଂରଚନା ବା ପାଟର୍ଣ୍ଣ (Patterns)</strong> ର ଅନୁସନ୍ଧାନ ଏବଂ ସେହି ପାଟର୍ଣ୍ଣଗୁଡ଼ିକ <strong>କାହିଁକି</strong> ଘଟୁଛି ତାହାର ବୈଜ୍ଞାନିକ ଓ ତାର୍କିକ ବ୍ୟାଖ୍ୟା। ଏହି NEP ଅଧ୍ୟାୟରେ ଆମେ ଗାଣିତିକ ପାଟର୍ଣ୍ଣର ଦୁଇଟି ମୁଖ୍ୟ ବିଭାଗ ବିଷୟରେ ଜାଣିବା: <strong>ସଂଖ୍ୟା ଶ୍ରେଣୀ (Number Sequences)</strong> ଏବଂ <strong>ଜ୍ୟାମିତିକ ଆକୃତି ଶ୍ରେଣୀ (Shape Sequences)</strong>, ଏବଂ ଏହି ଦୁଇଟି ମଧ୍ୟରେ ଥିବା ଆଶ୍ଚର୍ଯ୍ୟଜନକ ସମ୍ପର୍କକୁ ଉନ୍ମୋଚନ କରିବା।</p>
+
+      <div class="diagram-container">
+        <!-- SVG 1: Mind Map Blueprint of Chapter 1 -->
+        <svg viewBox="0 0 940 400" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gBlue" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+            <linearGradient id="gTeal" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0d9488"/>
+              <stop offset="100%" stop-color="#115e59"/>
+            </linearGradient>
+            <linearGradient id="gAmber" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <linearGradient id="gPurple" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="100%" stop-color="#5b21b6"/>
+            </linearGradient>
+            <marker id="mapArrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <path d="M 0 1 L 8 5 L 0 9 z" fill="#0284c7"/>
+            </marker>
+          </defs>
+
+          <!-- Central Core Node -->
+          <rect x="340" y="20" width="260" height="60" rx="12" fill="url(#gBlue)"/>
+          <text x="470" y="45" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">ଗଣିତରେ ସଂରଚନା ଓ ପାଟର୍ଣ୍ଣ</text>
+          <text x="470" y="65" font-size="13" font-weight="bold" fill="#e0f2fe" text-anchor="middle">(PATTERNS IN MATHEMATICS)</text>
+
+          <!-- Connecting Lines -->
+          <path d="M 380 80 L 160 140" stroke="#0284c7" stroke-width="2.5" marker-end="url(#mapArrow)"/>
+          <path d="M 430 80 L 370 140" stroke="#0d9488" stroke-width="2.5" marker-end="url(#mapArrow)"/>
+          <path d="M 510 80 L 570 140" stroke="#f59e0b" stroke-width="2.5" marker-end="url(#mapArrow)"/>
+          <path d="M 560 80 L 780 140" stroke="#7c3aed" stroke-width="2.5" marker-end="url(#mapArrow)"/>
+
+          <!-- Pillar 1: Number Sequences -->
+          <g>
+            <rect x="40" y="145" width="240" height="110" rx="10" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
+            <text x="160" y="172" font-size="14" font-weight="bold" fill="#0369a1" text-anchor="middle">୧. ସଂଖ୍ୟା ଶ୍ରେଣୀ (Sequences)</text>
+            <text x="160" y="195" font-size="11.5" fill="#334155" text-anchor="middle">&bull; ଗଣନ ସଂଖ୍ୟା: ୧, ୨, ୩, ୪, ୫...</text>
+            <text x="160" y="213" font-size="11.5" fill="#334155" text-anchor="middle">&bull; ଯୁଗ୍ମ (୨n) ଓ ଅଯୁଗ୍ମ (୨n−୧)</text>
+            <text x="160" y="231" font-size="11.5" fill="#334155" text-anchor="middle">&bull; ବର୍ଗ ସଂଖ୍ୟା: ୧, ୪, ୯, ୧୬, ୨୫...</text>
+            <text x="160" y="249" font-size="11.5" fill="#0284c7" text-anchor="middle">&bull; ତ୍ରିଭୁଜ ସଂଖ୍ୟା: ୧, ୩, ୬, ୧୦, ୧୫...</text>
+          </g>
+
+          <!-- Pillar 2: Visual Representations -->
+          <g>
+            <rect x="290" y="145" width="200" height="110" rx="10" fill="#f0fdfa" stroke="#0d9488" stroke-width="2"/>
+            <text x="390" y="172" font-size="14" font-weight="bold" fill="#115e59" text-anchor="middle">୨. ଦୃଶ୍ୟମାନ ମଡେଲ୍</text>
+            <text x="390" y="195" font-size="11.5" fill="#334155" text-anchor="middle">&bull; ବିନ୍ଦୁ ଗ୍ରିଡ୍ (Dot Grids)</text>
+            <text x="390" y="213" font-size="11.5" fill="#334155" text-anchor="middle">&bull; ଜିଓବୋର୍ଡ ସଂରଚନା</text>
+            <text x="390" y="231" font-size="11.5" fill="#334155" text-anchor="middle">&bull; ଦିଆସିଲି କାଠି ପାଟର୍ଣ୍ଣ</text>
+            <text x="390" y="249" font-size="11.5" fill="#0d9488" text-anchor="middle">&bull; ଆକୃତିର ବୃଦ୍ଧି ନିୟମ</text>
+          </g>
+
+          <!-- Pillar 3: Relations Between Sequences -->
+          <g>
+            <rect x="500" y="145" width="200" height="110" rx="10" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"/>
+            <text x="600" y="172" font-size="14" font-weight="bold" fill="#b45309" text-anchor="middle">୩. ଶ୍ରେଣୀ ମଧ୍ୟରେ ସମ୍ପର୍କ</text>
+            <text x="600" y="195" font-size="11.5" fill="#334155" text-anchor="middle">&bull; କ୍ରମିକ ଅଯୁଗ୍ମ ଯୋଗଫଳ = ବର୍ଗ</text>
+            <text x="600" y="213" font-size="11.5" fill="#334155" text-anchor="middle">&bull; ୨ଟି ତ୍ରିଭୁଜ ସଂଖ୍ୟା ଯୋଗ = ବର୍ଗ</text>
+            <text x="600" y="231" font-size="11.5" fill="#334155" text-anchor="middle">&bull; ଘାତ ଶ୍ରେଣୀ (୨ ର ଘାତ)</text>
+            <text x="600" y="249" font-size="11.5" fill="#b45309" text-anchor="middle">&bull; ଧାପ ପାର୍ଥକ୍ୟ ତତ୍ତ୍ୱ</text>
+          </g>
+
+          <!-- Pillar 4: Algebraic Rules -->
+          <g>
+            <rect x="710" y="145" width="200" height="110" rx="10" fill="#f5f3ff" stroke="#7c3aed" stroke-width="2"/>
+            <text x="810" y="172" font-size="14" font-weight="bold" fill="#6d28d9" text-anchor="middle">୪. ସାଧାରଣ ନିୟମ (ବୀଜଗଣିତ)</text>
+            <text x="810" y="195" font-size="11.5" fill="#334155" text-anchor="middle">&bull; ଚଳରାଶି 'n' ର ପରିଚୟ</text>
+            <text x="810" y="213" font-size="11.5" fill="#334155" text-anchor="middle">&bull; n-ତମ ପଦ ନିର୍ଣ୍ଣୟ</text>
+            <text x="810" y="231" font-size="11.5" fill="#334155" text-anchor="middle">&bull; ପୂର୍ବାନୁମାନ ଓ ସତ୍ୟାପନ</text>
+            <text x="810" y="249" font-size="11.5" fill="#6d28d9" text-anchor="middle">&bull; ଜ୍ୟାମିତିକ ପ୍ରମାଣ</text>
+          </g>
+
+          <!-- Interconnection Flow -->
+          <path d="M 160 255 L 160 320 L 780 320 L 780 255" fill="none" stroke="#64748b" stroke-width="2" stroke-dasharray="6,4"/>
+          <rect x="360" y="300" width="220" height="40" rx="20" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+          <text x="470" y="325" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">ସଂରଚନା &harr; ସୂତ୍ର &harr; ଜ୍ୟାମିତିକ ପ୍ରମାଣ</text>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୧.୧: ଅଧ୍ୟାୟ ୧ ର ସମ୍ପୂର୍ଣ୍ଣ ସଂରଚନାତ୍ମକ ମାନସିକ ମାନଚିତ୍ର (Conceptual Blueprint)</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="section2">
+      <h2>Section 2: ବିସ୍ତୃତ ଧାରଣା ଓ ତତ୍ତ୍ୱ ବିଶ୍ଳେଷଣ (Line-by-Line Conceptual Notes)</h2>
+
+      <h3 class="topic-title">୨.୧ ସଂଖ୍ୟା ଶ୍ରେଣୀ କ'ଣ? (What is a Number Sequence?)</h3>
+      <p>ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ଗାଣିତିକ ନିୟମ ଅନୁସାରେ ସଜ୍ଜିତ ହୋଇଥିବା ସଂଖ୍ୟାମାନଙ୍କର ତାଲିକାକୁ <strong>ସଂଖ୍ୟା ଶ୍ରେଣୀ (Number Sequence)</strong> କୁହାଯାଏ। ଏହି ଶ୍ରେଣୀରେ ଥିବା ପ୍ରତ୍ୟେକ ସଂଖ୍ୟାକୁ ଗୋଟିଏ ଗୋଟିଏ <strong>ପଦ (Term)</strong> କୁହାଯାଏ।</p>
+      
+      <div class="callout callout-def">
+        <div class="callout-title">📌 ସଂଜ୍ଞା: ସଂଖ୍ୟା ଶ୍ରେଣୀ ଓ ପଦ (Sequence and Term)</div>
+        <p>ଗୋଟିଏ ନିର୍ଦ୍ଦିଷ୍ଟ କ୍ରମ ଓ ସୁନିର୍ଦ୍ଦିଷ୍ଟ ନିୟମରେ ରଖାଯାଇଥିବା ସଂଖ୍ୟାଗୁଡ଼ିକ ହେଉଛି <strong>ଶ୍ରେଣୀ (Sequence)</strong>।</p>
+        <p>ପ୍ରଥମ ସଂଖ୍ୟାଟିକୁ ପ୍ରଥମ ପଦ (T<sub>1</sub>), ଦ୍ୱିତୀୟଟିକୁ ଦ୍ୱିତୀୟ ପଦ (T<sub>2</sub>), ଏବଂ n-ତମ ସ୍ଥାନରେ ଥିବା ସଂଖ୍ୟାଟିକୁ <strong>n-ତମ ପଦ (T<sub>n</sub>)</strong> କୁହାଯାଏ।</p>
+      </div>
+
+      <p>ଆସନ୍ତୁ ୪ଟି ମୌଳିକ ସଂଖ୍ୟା ଶ୍ରେଣୀ ବିଷୟରେ ବୁଝିବା:</p>
+      <ol>
+        <li><strong>ଗଣନ ସଂଖ୍ୟା (Counting Numbers):</strong> ୧, ୨, ୩, ୪, ୫, ୬... (ପ୍ରତ୍ୟେକ ପରବର୍ତ୍ତୀ ପଦ ପୂର୍ବ ପଦରେ +୧ ଯୋଗ କରି ମିଳେ। ସାଧାରଣ ନିୟମ = <span class="math-formula">n</span>)</li>
+        <li><strong>ଯୁଗ୍ମ ସଂଖ୍ୟା (Even Numbers):</strong> ୨, ୪, ୬, ୮, ୧୦, ୧୨... (୨ ଦ୍ୱାରା ବିଭାଜ୍ୟ ସଂଖ୍ୟା। ପ୍ରତ୍ୟେକ ପଦ ପୂର୍ବ ପଦରେ +୨ ଯୋଗ କରି ମିଳେ। ସାଧାରଣ ନିୟମ = <span class="math-formula">୨n</span>)</li>
+        <li><strong>ଅଯୁଗ୍ମ ସଂଖ୍ୟା (Odd Numbers):</strong> ୧, ୩, ୫, ୭, ୯, ୧୧... (ଯେଉଁ ସଂଖ୍ୟାଗୁଡ଼ିକୁ ୨ ଦ୍ୱାରା ଭାଗ କଲେ ଭାଗଶେଷ ୧ ରହେ। ସାଧାରଣ ନିୟମ = <span class="math-formula">୨n &minus; ୧</span>)</li>
+        <li><strong>ବର୍ଗ ସଂଖ୍ୟା (Square Numbers):</strong> ୧, ୪, ୯, ୧୬, ୨୫, ୩୬... (ଗୋଟିଏ ସଂଖ୍ୟାକୁ ସେହି ସଂଖ୍ୟା ଦ୍ୱାରା ଗୁଣନ କଲେ ଯେଉଁ ଫଳ ମିଳେ। ୧&times;୧=୧, ୨&times;୨=୪, ୩&times;୩=୯। ସାଧାରଣ ନିୟମ = <span class="math-formula">n<sup>୨</sup></span>)</li>
+      </ol>
+
+      <h3 class="topic-title">୨.୨ ତ୍ରିଭୁଜ ସଂଖ୍ୟା କ'ଣ? (Triangular Numbers)</h3>
+      <p>ଯେଉଁ ସଂଖ୍ୟାଗୁଡ଼ିକୁ ବିନ୍ଦୁ (dots) ମାଧ୍ୟମରେ ସଜାଇଲେ ଏକ ସମବାହୁ ତ୍ରିଭୁଜ (Equilateral Triangle) ଗଠନ କରିହୁଏ, ସେଗୁଡ଼ିକୁ <strong>ତ୍ରିଭୁଜ ସଂଖ୍ୟା (Triangular Numbers)</strong> କୁହାଯାଏ।</p>
+      <ul>
+        <li>T<sub>1</sub> = ୧ (ଗୋଟିଏ ବିନ୍ଦୁ)</li>
+        <li>T<sub>2</sub> = ୧ + ୨ = ୩ (ଉପରେ ୧ ବିନ୍ଦୁ, ତଳେ ୨ ବିନ୍ଦୁ)</li>
+        <li>T<sub>3</sub> = ୧ + ୨ + ୩ = ୬ (ଉପରେ ୧, ମଝିରେ ୨, ତଳେ ୩ ବିନ୍ଦୁ)</li>
+        <li>T<sub>4</sub> = ୧ + ୨ + ୩ + ୪ = ୧୦</li>
+        <li>T<sub>5</sub> = ୧ + ୨ + ୩ + ୪ + ୫ = ୧୫</li>
+      </ul>
+
+      <div class="callout callout-hack">
+        <div class="callout-title">💡 ଯାଦୁକରୀ ସୂତ୍ର: ତ୍ରିଭୁଜ ସଂଖ୍ୟାର ସୂତ୍ର (Gauss Formula)</div>
+        <p>ପ୍ରଥମ 'n' ଟି କ୍ରମିକ ଗଣନ ସଂଖ୍ୟାର ଯୋଗଫଳ ହିଁ n-ତମ ତ୍ରିଭୁଜ ସଂଖ୍ୟା:</p>
+        <p style="font-size: 1.15rem; font-weight: 700; text-align: center; color: var(--purple);">
+          T<sub>n</sub> = <span class="frac"><sup>n(n + ୧)</sup><sub>୨</sub></span>
+        </p>
+        <p>ଉଦାହରଣ ସ୍ୱରୂପ, ୧୦ମ ତ୍ରିଭୁଜ ସଂଖ୍ୟା ହେବ = <span class="frac"><sup>୧୦ &times; ୧୧</sup><sub>୨</sub></span> = <span class="frac"><sup>୧୧୦</sup><sub>୨</sub></span> = <strong>୫୫</strong>।</p>
+      </div>
+
+      <div class="diagram-container">
+        <!-- SVG 2: Visual Representation of Square vs Triangular Numbers -->
+        <svg viewBox="0 0 880 260" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background Box -->
+          <rect x="10" y="10" width="860" height="240" rx="12" fill="#fafafa" stroke="#e2e8f0" stroke-width="1.5"/>
+          
+          <!-- Left: Square Numbers Dot Models -->
+          <text x="220" y="36" font-size="15" font-weight="bold" fill="#0369a1" text-anchor="middle">ବର୍ଗ ସଂଖ୍ୟା (Square Numbers: ୧, ୪, ୯, ୧୬)</text>
+          
+          <!-- n=1 -->
+          <circle cx="60" cy="110" r="7" fill="#0284c7"/>
+          <text x="60" y="145" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">୧&times;୧ = ୧</text>
+
+          <!-- n=2 (2x2) -->
+          <circle cx="130" cy="98" r="6" fill="#0284c7"/>
+          <circle cx="150" cy="98" r="6" fill="#0284c7"/>
+          <circle cx="130" cy="118" r="6" fill="#0284c7"/>
+          <circle cx="150" cy="118" r="6" fill="#0284c7"/>
+          <text x="140" y="145" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">୨&times;୨ = ୪</text>
+
+          <!-- n=3 (3x3) -->
+          <circle cx="210" cy="88" r="5" fill="#0284c7"/>
+          <circle cx="230" cy="88" r="5" fill="#0284c7"/>
+          <circle cx="250" cy="88" r="5" fill="#0284c7"/>
+          <circle cx="210" cy="108" r="5" fill="#0284c7"/>
+          <circle cx="230" cy="108" r="5" fill="#0284c7"/>
+          <circle cx="250" cy="108" r="5" fill="#0284c7"/>
+          <circle cx="210" cy="128" r="5" fill="#0284c7"/>
+          <circle cx="230" cy="128" r="5" fill="#0284c7"/>
+          <circle cx="250" cy="128" r="5" fill="#0284c7"/>
+          <text x="230" y="152" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">୩&times;୩ = ୯</text>
+
+          <!-- n=4 (4x4) -->
+          <g transform="translate(300, 75)">
+            <circle cx="10" cy="10" r="4.5" fill="#0284c7"/><circle cx="26" cy="10" r="4.5" fill="#0284c7"/><circle cx="42" cy="10" r="4.5" fill="#0284c7"/><circle cx="58" cy="10" r="4.5" fill="#0284c7"/>
+            <circle cx="10" cy="26" r="4.5" fill="#0284c7"/><circle cx="26" cy="26" r="4.5" fill="#0284c7"/><circle cx="42" cy="26" r="4.5" fill="#0284c7"/><circle cx="58" cy="26" r="4.5" fill="#0284c7"/>
+            <circle cx="10" cy="42" r="4.5" fill="#0284c7"/><circle cx="26" cy="42" r="4.5" fill="#0284c7"/><circle cx="42" cy="42" r="4.5" fill="#0284c7"/><circle cx="58" cy="42" r="4.5" fill="#0284c7"/>
+            <circle cx="10" cy="58" r="4.5" fill="#0284c7"/><circle cx="26" cy="58" r="4.5" fill="#0284c7"/><circle cx="42" cy="58" r="4.5" fill="#0284c7"/><circle cx="58" cy="58" r="4.5" fill="#0284c7"/>
+            <text x="34" y="80" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">୪&times;୪ = ୧୬</text>
+          </g>
+
+          <!-- Divider -->
+          <line x1="430" y1="25" x2="430" y2="235" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+
+          <!-- Right: Triangular Numbers Dot Models -->
+          <text x="650" y="36" font-size="15" font-weight="bold" fill="#0d9488" text-anchor="middle">ତ୍ରିଭୁଜ ସଂଖ୍ୟା (Triangular Numbers: ୧, ୩, ୬, ୧୦)</text>
+
+          <!-- T1 -->
+          <circle cx="490" cy="110" r="7" fill="#0d9488"/>
+          <text x="490" y="145" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">T<sub>୧</sub> = ୧</text>
+
+          <!-- T2 -->
+          <circle cx="560" cy="100" r="6" fill="#0d9488"/>
+          <circle cx="550" cy="118" r="6" fill="#0d9488"/>
+          <circle cx="570" cy="118" r="6" fill="#0d9488"/>
+          <text x="560" y="145" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">T<sub>୨</sub> = ୩</text>
+
+          <!-- T3 -->
+          <circle cx="650" cy="90" r="5" fill="#0d9488"/>
+          <circle cx="640" cy="108" r="5" fill="#0d9488"/>
+          <circle cx="660" cy="108" r="5" fill="#0d9488"/>
+          <circle cx="630" cy="126" r="5" fill="#0d9488"/>
+          <circle cx="650" cy="126" r="5" fill="#0d9488"/>
+          <circle cx="670" cy="126" r="5" fill="#0d9488"/>
+          <text x="650" y="152" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">T<sub>୩</sub> = ୬</text>
+
+          <!-- T4 -->
+          <g transform="translate(730, 75)">
+            <circle cx="36" cy="10" r="4.5" fill="#0d9488"/>
+            <circle cx="26" cy="26" r="4.5" fill="#0d9488"/><circle cx="46" cy="26" r="4.5" fill="#0d9488"/>
+            <circle cx="16" cy="42" r="4.5" fill="#0d9488"/><circle cx="36" cy="42" r="4.5" fill="#0d9488"/><circle cx="56" cy="42" r="4.5" fill="#0d9488"/>
+            <circle cx="6" cy="58" r="4.5" fill="#0d9488"/><circle cx="26" cy="58" r="4.5" fill="#0d9488"/><circle cx="46" cy="58" r="4.5" fill="#0d9488"/><circle cx="66" cy="58" r="4.5" fill="#0d9488"/>
+            <text x="36" y="80" font-size="12" font-weight="bold" fill="#334155" text-anchor="middle">T<sub>୪</sub> = ୧୦</text>
+          </g>
+
+          <text x="440" y="225" font-size="13" font-weight="bold" fill="#475569" text-anchor="middle">ଆଶ୍ଚର୍ଯ୍ୟଜନକ ସମ୍ପର୍କ: ଦୁଇଟି କ୍ରମିକ ତ୍ରିଭୁଜ ସଂଖ୍ୟାର ଯୋଗଫଳ = ଏକ ବର୍ଗ ସଂଖ୍ୟା! (ଉଦାହରଣ: ୧+୩=୪, ୩+୬=୯, ୬+୧୦=୧୬)</text>
+        </svg>
+        <div class="diagram-caption">ଚିତ୍ର ୧.୨: ବର୍ଗ ସଂଖ୍ୟା ଏବଂ ତ୍ରିଭୁଜ ସଂଖ୍ୟାର ବିନ୍ଦୁ ମଡେଲ୍ ଏବଂ ସେମାନଙ୍କର ଗାଣିତିକ ଯୋଗସୂତ୍ର</div>
+      </div>
+
+      <h3 class="topic-title">୨.୩ ଶ୍ରେଣୀ ମଧ୍ୟରେ ଗୁପ୍ତ ସମ୍ପର୍କ (Hidden Relations Between Sequences)</h3>
+      <p>ଏହି ଅଧ୍ୟାୟର ସବୁଠାରୁ ଆକର୍ଷଣୀୟ ଦିଗ ହେଉଛି ଭିନ୍ନ ଭିନ୍ନ ସଂଖ୍ୟା ଶ୍ରେଣୀ ପରସ୍ପର ସହିତ କିପରି ସୁନ୍ଦର ଭାବରେ ଯୋଡ଼ି ହୋଇ ରହିଛନ୍ତି:</p>
+
+      <h4>ନିୟମ ୧: କ୍ରମିକ ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଯୋଗଫଳ ସର୍ବଦା ଏକ ବର୍ଗ ସଂଖ୍ୟା (Sum of Consecutive Odd Numbers)</h4>
+      <ul>
+        <li>ପ୍ରଥମ ୧ ଟି ଅଯୁଗ୍ମ ସଂଖ୍ୟା = ୧ = ୧<sup>୨</sup></li>
+        <li>ପ୍ରଥମ ୨ ଟି ଅଯୁଗ୍ମ ସଂଖ୍ୟା = ୧ + ୩ = ୪ = ୨<sup>୨</sup></li>
+        <li>ପ୍ରଥମ ୩ ଟି ଅଯୁଗ୍ମ ସଂଖ୍ୟା = ୧ + ୩ + ୫ = ୯ = ୩<sup>୨</sup></li>
+        <li>ପ୍ରଥମ ୪ ଟି ଅଯୁଗ୍ମ ସଂଖ୍ୟା = ୧ + ୩ + ୫ + ୭ = ୧୬ = ୪<sup>୨</sup></li>
+        <li>ପ୍ରଥମ 'n' ଟି ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଯୋଗଫଳ = <span class="math-formula">n<sup>୨</sup></span></li>
+      </ul>
+
+      <h4>ନିୟମ ୨: ଦୁଇଟି କ୍ରମିକ ତ୍ରିଭୁଜ ସଂଖ୍ୟାର ଯୋଗଫଳ ଏକ ବର୍ଗ ସଂଖ୍ୟା (Sum of Two Consecutive Triangular Numbers)</h4>
+      <p>ଯଦି ଆମେ ପାଖାପାଖି ଥିବା ଦୁଇଟି ତ୍ରିଭୁଜ ସଂଖ୍ୟାକୁ ମିଶାଇବା, ତେବେ ଉତ୍ତରଟି ଏକ ପୂର୍ଣ୍ଣ ବର୍ଗ ସଂଖ୍ୟା ହେବ:</p>
+      <ul>
+        <li>T<sub>1</sub> + T<sub>2</sub> = ୧ + ୩ = ୪ = ୨<sup>୨</sup></li>
+        <li>T<sub>2</sub> + T<sub>3</sub> = ୩ + ୬ = ୯ = ୩<sup>୨</sup></li>
+        <li>T<sub>3</sub> + T<sub>4</sub> = ୬ + ୧୦ = ୧୬ = ୪<sup>୨</sup></li>
+        <li>T<sub>4</sub> + T<sub>5</sub> = ୧୦ + ୧୫ = ୨୫ = ୫<sup>୨</sup></li>
+        <li>ସାଧାରଣ ନିୟମ: <span class="math-formula">T<sub>n&minus;1</sub> + T<sub>n</sub> = n<sup>୨</sup></span></li>
+      </ul>
+
+      <h3 class="topic-title">୨.୪ ୨ ର ଘାତ ଶ୍ରେଣୀ (Sequence of Powers of 2)</h3>
+      <p>ଯେତେବେଳେ ପ୍ରତ୍ୟେକ ଧାପରେ ସଂଖ୍ୟା ଦ୍ୱିଗୁଣିତ ହୁଏ, ତାହାକୁ ୨ ର ଘାତ ଶ୍ରେଣୀ କୁହାଯାଏ:</p>
+      <p style="text-align: center; font-size: 1.1rem; font-weight: 700; color: var(--primary-dark);">
+        ୧, ୨, ୪, ୮, ୧୬, ୩୨, ୬୪, ୧୨୮, ୨୫୬...
+      </p>
+      <div class="callout callout-act">
+        <div class="callout-title">✂️ କାର୍ଯ୍ୟକଳାପ: କାଗଜ ଭାଙ୍ଗିବା ପରୀକ୍ଷା (Paper Folding Activity)</div>
+        <p>ଗୋଟିଏ କାଗଜ ନିଅନ୍ତୁ:</p>
+        <ol>
+          <li>୦ ଥର ଭାଙ୍ଗିଲେ: ୧ ଟି ଅଂଶ (୨<sup>୦</sup> = ୧)</li>
+          <li>୧ ଥର ଅଧା ଭାଙ୍ଗିଲେ: ୨ ଟି ଅଂଶ (୨<sup>୧</sup> = ୨)</li>
+          <li>୨ ଥର ଅଧା ଭାଙ୍ଗିଲେ: ୪ ଟି ଅଂଶ (୨<sup>୨</sup> = ୪)</li>
+          <li>୩ ଥର ଅଧା ଭାଙ୍ଗିଲେ: ୮ ଟି ଅଂଶ (୨<sup>୩</sup> = ୮)</li>
+          <li>n ଥର ଅଧା ଭାଙ୍ଗିଲେ: <strong>୨<sup>n</sup></strong> ଟି ଅଂଶ ସୃଷ୍ଟି ହୁଏ।</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="section3">
+      <h2>Section 3: ତ୍ୱରିତ ପୁନରାବୃତ୍ତି ସୂତ୍ର ଓ ନିୟମ ଭଣ୍ଡାର (Formula &amp; Law Bank)</h2>
+      <p>ପରୀକ୍ଷା ପୂର୍ବରୁ ଦ୍ରୁତ ପୁନରାବୃତ୍ତି ପାଇଁ ସମସ୍ତ ମୁଖ୍ୟ ସଂଖ୍ୟା ଶ୍ରେଣୀ, ସେମାନଙ୍କର ବୀଜଗାଣିତିକ ନିୟମ ଏବଂ ଉଦାହରଣ ଏହି ସାରଣୀରେ ସଂକ୍ଷେପରେ ଦିଆଗଲା:</p>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>କ୍ରମିକ ନଂ</th>
+              <th>ଶ୍ରେଣୀର ନାମ (Sequence Name)</th>
+              <th>ପ୍ରଥମ ୫ଟି ପଦ</th>
+              <th>n-ତମ ପଦ ନିୟମ (nth Term)</th>
+              <th>୧୦ମ ପଦ (10th Term)</th>
+              <th>ବିଶେଷ ଗାଣିତିକ ଧର୍ମ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>୧</td>
+              <td><strong>ଗଣନ ସଂଖ୍ୟା</strong> (Natural/Counting)</td>
+              <td>୧, ୨, ୩, ୪, ୫</td>
+              <td><span class="math-formula">n</span></td>
+              <td>୧୦</td>
+              <td>ପ୍ରତି ଧାପରେ +୧ ବୃଦ୍ଧି ହୁଏ</td>
+            </tr>
+            <tr>
+              <td>୨</td>
+              <td><strong>ଯୁଗ୍ମ ସଂଖ୍ୟା</strong> (Even Numbers)</td>
+              <td>୨, ୪, ୬, ୮, ୧୦</td>
+              <td><span class="math-formula">୨n</span></td>
+              <td>୨୦</td>
+              <td>ସମସ୍ତେ ୨ ଦ୍ୱାରା ବିଭାଜ୍ୟ; ଶେଷ ଅଙ୍କ ୦, ୨, ୪, ୬, ୮</td>
+            </tr>
+            <tr>
+              <td>୩</td>
+              <td><strong>ଅଯୁଗ୍ମ ସଂଖ୍ୟା</strong> (Odd Numbers)</td>
+              <td>୧, ୩, ୫, ୭, ୯</td>
+              <td><span class="math-formula">୨n &minus; ୧</span></td>
+              <td>୧୯</td>
+              <td>୨ ଦ୍ୱାରା ଅବିଭାଜ୍ୟ; ଶେଷ ଅଙ୍କ ୧, ୩, ୫, ୭, ୯</td>
+            </tr>
+            <tr>
+              <td>୪</td>
+              <td><strong>ବର୍ଗ ସଂଖ୍ୟା</strong> (Square Numbers)</td>
+              <td>୧, ୪, ୯, ୧୬, ୨୫</td>
+              <td><span class="math-formula">n<sup>୨</sup></span></td>
+              <td>୧୦୦</td>
+              <td>ପ୍ରଥମ n ଟି କ୍ରମିକ ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଯୋଗଫଳ ସହିତ ସମାନ</td>
+            </tr>
+            <tr>
+              <td>୫</td>
+              <td><strong>ତ୍ରିଭୁଜ ସଂଖ୍ୟା</strong> (Triangular Numbers)</td>
+              <td>୧, ୩, ୬, ୧୦, ୧୫</td>
+              <td><span class="math-formula"><span class="frac"><sup>n(n+୧)</sup><sub>୨</sub></span></span></td>
+              <td>୫୫</td>
+              <td>ପ୍ରଥମ n ଟି ଗଣନ ସଂଖ୍ୟାର ଯୋଗଫଳ (୧ + ୨ + ... + n)</td>
+            </tr>
+            <tr>
+              <td>୬</td>
+              <td><strong>୨ ର ଘାତ ଶ୍ରେଣୀ</strong> (Powers of 2)</td>
+              <td>୧, ୨, ୪, ୮, ୧୬</td>
+              <td><span class="math-formula">୨<sup>n&minus;୧</sup></span></td>
+              <td>୫୧୨</td>
+              <td>ପ୍ରତି ଧାପରେ ସଂଖ୍ୟା ଦ୍ୱିଗୁଣିତ ହୁଏ</td>
+            </tr>
+            <tr>
+              <td>୭</td>
+              <td><strong>ଦିଆସିଲି କାଠି ତ୍ରିଭୁଜ ଶ୍ରେଣୀ</strong></td>
+              <td>୩, ୫, ୭, ୯, ୧୧</td>
+              <td><span class="math-formula">୨n + ୧</span></td>
+              <td>୨୧</td>
+              <td>ପ୍ରଥମ ତ୍ରିଭୁଜ ପାଇଁ ୩ଟି କାଠି, ପରେ ପ୍ରତିଟି ପାଇଁ ୨ଟି ଲେଖାଏଁ ଯୋଗ ହୁଏ</td>
+            </tr>
+            <tr>
+              <td>୮</td>
+              <td><strong>ଦିଆସିଲି କାଠି ବର୍ଗ ଶ୍ରେଣୀ</strong></td>
+              <td>୪, ୭, ୧୦, ୧୩, ୧୬</td>
+              <td><span class="math-formula">୩n + ୧</span></td>
+              <td>୩୧</td>
+              <td>ପ୍ରଥମ ବର୍ଗ ପାଇଁ ୪ଟି କାଠି, ପରେ ପ୍ରତିଟି ପାଇଁ ୩ଟି ଲେଖାଏଁ ଯୋଗ ହୁଏ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="section4">
+      <h2>Section 4: ୧୦୦% ସମ୍ପୂର୍ଣ୍ଣ NCERT ପାଠ୍ୟପୁସ୍ତକ ସମାଧାନ (5-Step Topper Format)</h2>
+      <p>NEP ପାଠ୍ୟପୁସ୍ତକ 'ଗଣିତ ପ୍ରକାଶ' ର ପ୍ରତ୍ୟେକ ପ୍ରଶ୍ନର ପଦକ୍ଷେପ-ୱାରୀ (Step-by-Step) ଆଦର୍ଶ ସମାଧାନ। ପରୀକ୍ଷାରେ ପୂର୍ଣ୍ଣ ନମ୍ବର ରଖିବା ପାଇଁ ଏହି ୫-ସ୍ତରୀୟ ପଦ୍ଧତି ଅନୁସରଣ କରନ୍ତୁ:</p>
+
+      <!-- NCERT Question 1 -->
+      <details class="ans-box" open>
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ (Figure it Out - ପୃଷ୍ଠା ୨–୩): ବାସ୍ତବ ଜୀବନର ପାଟର୍ଣ୍ଣ ଓ ଶ୍ରେଣୀ ସମ୍ପ୍ରସାରଣ</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୧:</strong> ନିମ୍ନଲିଖିତ ଶ୍ରେଣୀଗୁଡ଼ିକର ପରବର୍ତ୍ତୀ ୩ଟି ପଦ ନିର୍ଣ୍ଣୟ କରନ୍ତୁ ଏବଂ ସେମାନଙ୍କର ଗାଣିତିକ ନିୟମ ଲେଖନ୍ତୁ:<br>
+          (କ) ୫, ୧୦, ୧୫, ୨୦, ___ , ___ , ___<br>
+          (ଖ) ୧, ୮, ୨୭, ୬୪, ___ , ___ , ___<br>
+          (ଗ) ୨, ୬, ୧୨, ୨୦, ୩୦, ___ , ___ , ___</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ପ୍ରଦତ୍ତ ଶ୍ରେଣୀଗୁଡ଼ିକ ଯଥାକ୍ରମେ (କ) ୫, ୧୦, ୧୫, ୨୦... (ଖ) ୧, ୮, ୨୭, ୬୪... (ଗ) ୨, ୬, ୧୨, ୨୦, ୩୦...।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ନିୟମ ସନ୍ଧାନ):</span><br>
+              &bull; (କ) ପାଇଁ: ପ୍ରତ୍ୟେକ ପଦରେ ୫ ଯୋଗ ହେଉଛି (୫ ର ଗୁଣିତକ, ୫n)।<br>
+              &bull; (ଖ) ପାଇଁ: ପଦଗୁଡ଼ିକ ହେଉଛି ପୂର୍ଣ୍ଣ ଘନ ସଂଖ୍ୟା (Cubes: ୧<sup>୩</sup>, ୨<sup>୩</sup>, ୩<sup>୩</sup>, ୪<sup>୩</sup>... n<sup>୩</sup>)।<br>
+              &bull; (ଗ) ପାଇଁ: ଦୁଇଟି କ୍ରମିକ ସଂଖ୍ୟାର ଗୁଣନଫଳ (n(n+୧) ଯଥା: ୧&times;୨=୨, ୨&times;୩=୬, ୩&times;୪=୧୨, ୪&times;୫=୨୦, ୫&times;୬=୩୦)।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ମୂଲ୍ୟ ସ୍ଥାପନ):</span><br>
+              &bull; (କ) ୫ମ ପଦ = ୨୦+୫ = ୨୫; ୬ଷ୍ଠ ପଦ = ୨୫+୫ = ୩୦; ୭ମ ପଦ = ୩୦+୫ = ୩୫।<br>
+              &bull; (ଖ) ୫ମ ପଦ = ୫<sup>୩</sup> = ୧୨୫; ୬ଷ୍ଠ ପଦ = ୬<sup>୩</sup> = ୨୧୬; ୭ମ ପଦ = ୭<sup>୩</sup> = ୩୪୩।<br>
+              &bull; (ଗ) ୬ଷ୍ଠ ପଦ = ୬&times;୭ = ୪୨; ୭ମ ପଦ = ୭&times;୮ = ୫୬; ୮ମ ପଦ = ୮&times;୯ = ୭୨।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଗଣନା ଯାଞ୍ଚ):</span> (ଗ) ର ଧାପ ପାର୍ଥକ୍ୟ: ୬&minus;୨=୪, ୧୨&minus;୬=୬, ୨୦&minus;୧୨=୮, ୩୦&minus;୨୦=୧୦, ୪୨&minus;୩୦=୧୨, ୫୬&minus;୪୨=୧୪, ୭୨&minus;୫୬=୧୬। ପାର୍ଥକ୍ୟ ଯୁଗ୍ମ ସଂଖ୍ୟା ଭାବେ ବଢ଼ୁଛି, ତେଣୁ ଗଣନା ନିର୍ଭୁଲ।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) ୨୫, ୩୦, ୩୫ &bull; (ଖ) ୧୨୫, ୨୧୬, ୩୪୩ &bull; (ଗ) ୪୨, ୫୬, ୭୨।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Question 2 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ (Figure it Out - ପୃଷ୍ଠା ୫–୬): ଦିଆସିଲି କାଠି ପାଟର୍ଣ୍ଣ ଓ ବୀଜଗାଣିତିକ ନିୟମ</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୨:</strong> ସଲମା ଦିଆସିଲି କାଠି ବ୍ୟବହାର କରି ପରସ୍ପର ସଂଲଗ୍ନ ବର୍ଗ ଗଠନ କରୁଛି।<br>
+          ୧ ଟି ବର୍ଗ ପାଇଁ ୪ଟି କାଠି, ୨ଟି ସଂଲଗ୍ନ ବର୍ଗ ପାଇଁ ୭ଟି କାଠି, ୩ଟି ପାଇଁ ୧୦ଟି କାଠି ଆବଶ୍ୟକ ହୁଏ।<br>
+          (କ) 'n' ଟି ସଂଲଗ୍ନ ବର୍ଗ ପାଇଁ କେତୋଟି କାଠି ଆବଶ୍ୟକ ହେବ ତାହାର ସାଧାରଣ ନିୟମ ଲେଖନ୍ତୁ।<br>
+          (ଖ) ୧୨ଟି ବର୍ଗ ଗଠନ କରିବା ପାଇଁ କେତୋଟି ଦିଆସିଲି କାଠି ଆବଶ୍ୟକ ହେବ?<br>
+          (ଗ) ୬୧ଟି ଦିଆସିଲି କାଠିରେ କେତୋଟି ସଂଲଗ୍ନ ବର୍ଗ ଗଠନ କରିହେବ?</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ୧ମ ପଦ (୧ ବର୍ଗ) = ୪ କାଠି, ୨ୟ ପଦ (୨ ବର୍ଗ) = ୭ କାଠି, ୩ୟ ପଦ (୩ ବର୍ଗ) = ୧୦ କାଠି।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ନିୟମ ସୂତ୍ର ନିର୍ଦ୍ଧାରଣ):</span> ପ୍ରତ୍ୟେକ ନୂତନ ବର୍ଗ ପାଇଁ ୩ଟି ଲେଖାଏଁ ନୂଆ କାଠି ଯୋଡ଼ି ହେଉଛି। ପ୍ରଥମ ବର୍ଗଟି ହେଉଛି ୧ + ୩(୧) = ୪। ତେଣୁ n ଟି ବର୍ଗ ପାଇଁ ଆବଶ୍ୟକ କାଠି ସଂଖ୍ୟା = <strong>୩n + ୧</strong>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (୧୨ଟି ବର୍ଗ ପାଇଁ ମୂଲ୍ୟ ସ୍ଥାପନ):</span> n = ୧୨ ସ୍ଥାପନ କଲେ: କାଠି ସଂଖ୍ୟା = ୩(୧୨) + ୧ = ୩୬ + ୧ = ୩୭।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (୬୧ଟି କାଠି ପାଇଁ ବର୍ଗ ସଂଖ୍ୟା ନିର୍ଣ୍ଣୟ):</span> ୩n + ୧ = ୬୧ &rArr; ୩n = ୬୧ &minus; ୧ = ୬୦ &rArr; n = ୬୦ &divide; ୩ = ୨୦।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) ସାଧାରଣ ନିୟମ = ୩n + ୧ &bull; (ଖ) ୧୨ଟି ବର୍ଗ ପାଇଁ ୩୭ଟି କାଠି &bull; (ଗ) ୬୧ଟି କାଠିରେ ୨୦ଟି ସଂଲଗ୍ନ ବର୍ଗ ତିଆରି ହୋଇପାରିବ।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Question 3 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ (Figure it Out - ପୃଷ୍ଠା ୮–୯): ତ୍ରିଭୁଜ ସଂଖ୍ୟା ଓ ବର୍ଗ ସଂଖ୍ୟାର ଗାଣିତିକ ଯାଦୁ</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୩:</strong><br>
+          (କ) ୭ମ ତ୍ରିଭୁଜ ସଂଖ୍ୟା (T<sub>7</sub>) ଏବଂ ୮ମ ତ୍ରିଭୁଜ ସଂଖ୍ୟା (T<sub>8</sub>) ନିର୍ଣ୍ଣୟ କରନ୍ତୁ।<br>
+          (ଖ) ଦର୍ଶାନ୍ତୁ ଯେ T<sub>7</sub> + T<sub>8</sub> ଏକ ପୂର୍ଣ୍ଣ ବର୍ଗ ସଂଖ୍ୟା ଅଟେ।<br>
+          (ଗ) କୌଣସି ଯୋଗ ନକରି ପ୍ରଥମ ୧୫ଟି କ୍ରମିକ ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଯୋଗଫଳ ନିର୍ଣ୍ଣୟ କରନ୍ତୁ।</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ତ୍ରିଭୁଜ ସଂଖ୍ୟା ସୂତ୍ର T<sub>n</sub> = <span class="frac"><sup>n(n+୧)</sup><sub>୨</sub></span>। କ୍ରମିକ ଅଯୁଗ୍ମ ଯୋଗଫଳ ସୂତ୍ର = n<sup>୨</sup>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଗଣନା T<sub>7</sub> ଓ T<sub>8</sub>):</span><br>
+              &bull; T<sub>7</sub> = <span class="frac"><sup>୭ &times; ୮</sup><sub>୨</sub></span> = <span class="frac"><sup>୫୬</sup><sub>୨</sub></span> = ୨୮।<br>
+              &bull; T<sub>8</sub> = <span class="frac"><sup>୮ &times; ୯</sup><sub>୨</sub></span> = <span class="frac"><sup>୭୨</sup><sub>୨</sub></span> = ୩୬।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ଯୋଗଫଳ ସତ୍ୟାପନ):</span> T<sub>7</sub> + T<sub>8</sub> = ୨୮ + ୩୬ = ୬୪। ଆମେ ଜାଣୁ ୮<sup>୨</sup> = ୬୪। ଅତଏବ, T<sub>7</sub> + T<sub>8</sub> = ୮<sup>୨</sup>, ଯାହାକି ଏକ ପୂର୍ଣ୍ଣ ବର୍ଗ ସଂଖ୍ୟା (ପ୍ରମାଣିତ)।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଅଯୁଗ୍ମ ଯୋଗଫଳ ନିର୍ଣ୍ଣୟ):</span> ଏଠାରେ n = ୧୫। ପ୍ରଥମ ୧୫ଟି କ୍ରମିକ ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଯୋଗଫଳ = ୧୫<sup>୨</sup> = ୧୫ &times; ୧୫ = ୨୨୫।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) T<sub>7</sub> = ୨୮, T<sub>8</sub> = ୩୬ &bull; (ଖ) ୨୮ + ୩୬ = ୬୪ = ୮<sup>୨</sup> &bull; (ଗ) ପ୍ରଥମ ୧୫ଟି ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଯୋଗଫଳ = ୨୨୫।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- NCERT Question 4 -->
+      <details class="ans-box">
+        <summary>📝 ଅନୁସନ୍ଧାନ କରନ୍ତୁ (Figure it Out - ପୃଷ୍ଠା ୧୧–୧୨): ଜ୍ୟାମିତିକ ଆକୃତି ଓ ଭଗ୍ନାଂଶ ସଂରଚନା</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ ୪:</strong> ଗୋଟିଏ ସମବାହୁ ତ୍ରିଭୁଜକୁ ଚାରୋଟି ସମାନ କ୍ଷୁଦ୍ର ତ୍ରିଭୁଜରେ ବିଭକ୍ତ କରାଗଲା ଏବଂ ମଝି ତ୍ରିଭୁଜଟିକୁ ରଙ୍ଗ କରାଗଲା।<br>
+          (କ) ରଙ୍ଗିନ ଅଂଶଟି ସମ୍ପୂର୍ଣ୍ଣ ତ୍ରିଭୁଜର କେଉଁ ଭଗ୍ନାଂଶ?<br>
+          (ଖ) ଯଦି ଅବଶିଷ୍ଟ ୩ଟି ଧଳା ତ୍ରିଭୁଜକୁ ପୁନର୍ବାର ସେହିପରି ୪ ଭାଗ କରାଯାଏ, ତେବେ ମୋଟ କ୍ଷୁଦ୍ର ତ୍ରିଭୁଜ ସଂଖ୍ୟା କେତେ ହେବ?<br>
+          (ଗ) ଏହି ସଂରଚନା କେଉଁ ପ୍ରକାରର ପାଟର୍ଣ୍ଣକୁ ସୂଚାଏ?</p>
+
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ମୂଳ ତ୍ରିଭୁଜକୁ ୪ଟି ସର୍ବସମ ତ୍ରିଭୁଜରେ ବିଭକ୍ତ କରାଯାଇଛି। ୧ଟି ରଙ୍ଗିନ ଏବଂ ୩ଟି ଧଳା।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଭଗ୍ନାଂଶ ନିର୍ଣ୍ଣୟ):</span> ରଙ୍ଗିନ ଅଂଶ = <span class="frac"><sup>୧</sup><sub>୪</sub></span>।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ଦ୍ୱିତୀୟ ଧାପ ଗଣନା):</span> ଅବଶିଷ୍ଟ ୩ଟି ଧଳା ତ୍ରିଭୁଜରୁ ପ୍ରତ୍ୟେକଟି ୪ ଭାଗ ହେଲେ, ମୋଟ ନୂତନ କ୍ଷୁଦ୍ର ତ୍ରିଭୁଜ = ୩ &times; ୪ = ୧୨ଟି। ମୂଳ ମଝି ରଙ୍ଗିନ ତ୍ରିଭୁଜକୁ ମିଶାଇଲେ ସମୁଦାୟ ତ୍ରିଭୁଜ = ୧୨ + ୧ = ୧୩ଟି।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଜ୍ୟାମିତିକ ତତ୍ତ୍ୱ):</span> ଏହା ହେଉଛି ଏକ ପ୍ରସିଦ୍ଧ ଭଙ୍ଗାଂଶିକ ସଂରଚନା ବା <strong>ଫ୍ରାକ୍ଟାଲ୍ (Fractal / Sierpinski Triangle)</strong>, ଯେଉଁଥିରେ ଆକୃତି ନିଜ ଭିତରେ ନିଜେ ପୁନରାବୃତ୍ତି ହୁଏ।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: (କ) <span class="frac"><sup>୧</sup><sub>୪</sub></span> ଅଂଶ &bull; (ଖ) ନୂତନ କ୍ଷୁଦ୍ର ତ୍ରିଭୁଜ ୧୨ଟି (ସର୍ବମୋଟ ୧୩ଟି) &bull; (ଗ) ଏହା ସିଏରପିନସ୍କି ତ୍ରିଭୁଜ (Sierpinski Fractal) ସଂରଚନା।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="section5">
+      <h2>Section 5: ପରୀକ୍ଷା ଉପଯୋଗୀ ପ୍ରଶ୍ନୋତ୍ତର ବ୍ୟାଙ୍କ ଓ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍ (Exam Question Bank &amp; Quiz Engine)</h2>
+      <p>ସମସ୍ତ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ପ୍ରଶ୍ନ, ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନ (MCQs), ସଂକ୍ଷିପ୍ତ ଓ ଦୀର୍ଘ ଉତ୍ତରମୂଳକ ପ୍ରଶ୍ନର ପୂର୍ଣ୍ଣ ସମାଧାନ:</p>
+
+      <!-- Score Board -->
+      <div class="quiz-score-board" id="quizScoreBoard">
+        🎯 ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍ ସ୍କୋର: <span id="currentScore">୦</span> / <span id="totalQuestions">୫</span> ସଠିକ୍
+      </div>
+
+      <!-- Part A: Interactive MCQs -->
+      <h3>ଭାଗ 'କ': ବହୁବିକଳ୍ପ ପ୍ରଶ୍ନାବଳୀ (Interactive MCQs with Instant Feedback)</h3>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card" id="quiz-card-1">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୧: ପ୍ରଥମ ୧୨ଟି କ୍ରମିକ ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଯୋଗଫଳ (୧ + ୩ + ୫ + ... + ୨୩) କେତେ ହେବ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 0, false, 'ଭୁଲ! ୧୨ଟି ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଯୋଗଫଳ ୧୨n ନୁହେଁ, ବରଂ n² ଅଟେ।')">
+            <span>(A) ୧୨୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 1, true, 'ନିର୍ଭୁଲ! ପ୍ରଥମ n ଟି ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଯୋଗଫଳ = n² = ୧୨² = ୧୪୪।')">
+            <span>(B) ୧୪୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 2, false, 'ଭୁଲ! ୧୫୬ ହେଉଛି ୧୨ × ୧୩, ଯାହା ଯୁଗ୍ମ ସଂଖ୍ୟାର ଯୋଗଫଳ।')">
+            <span>(C) ୧୫୬</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-1', 3, false, 'ଭୁଲ! ଗଣନା ପୁନର୍ବାର ଯାଞ୍ଚ କରନ୍ତୁ।')">
+            <span>(D) ୧୬୯</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-1-fb"></div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card" id="quiz-card-2">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୨: ୬ଷ୍ଠ ତ୍ରିଭୁଜ ସଂଖ୍ୟା (6th Triangular Number) ର ମୂଲ୍ୟ କେତେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 0, false, 'ଭୁଲ! ୧୫ ହେଉଛି ୫ମ ତ୍ରିଭୁଜ ସଂଖ୍ୟା।')">
+            <span>(A) ୧୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 1, true, 'ସଠିକ୍! T₆ = (୬ × ୭) ÷ ୨ = ୪୨ ÷ ୨ = ୨୧।')">
+            <span>(B) ୨୧</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 2, false, 'ଭୁଲ! ୨୮ ହେଉଛି ୭ମ ତ୍ରିଭୁଜ ସଂଖ୍ୟା।')">
+            <span>(C) ୨୮</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-2', 3, false, 'ଭୁଲ! ୩୬ ହେଉଛି ୬ଷ୍ଠ ବର୍ଗ ସଂଖ୍ୟା (୬²)।')">
+            <span>(D) ୩୬</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-2-fb"></div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card" id="quiz-card-3">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୩: ଦୁଇଟି କ୍ରମିକ ତ୍ରିଭୁଜ ସଂଖ୍ୟା T₄ (୧୦) ଏବଂ T₅ (୧୫) ର ଯୋଗଫଳ କେଉଁ ସଂଖ୍ୟା ସହିତ ସମାନ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 0, false, 'ଭୁଲ! ୧୦ + ୧୫ = ୨୫, ଯାହା ୨୦ ନୁହେଁ।')">
+            <span>(A) ୨୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 1, true, 'ସଠିକ୍! T₄ + T₅ = ୧୦ + ୧୫ = ୨୫ = ୫² (ଏକ ପୂର୍ଣ୍ଣ ବର୍ଗ ସଂଖ୍ୟା)।')">
+            <span>(B) ୨୫ (୫ମ ବର୍ଗ ସଂଖ୍ୟା)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 2, false, 'ଭୁଲ! ୩୦ ଏକ ବର୍ଗ ସଂଖ୍ୟା ନୁହେଁ।')">
+            <span>(C) ୩୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-3', 3, false, 'ଭୁଲ! ସଠିକ୍ ଯୋଗଫଳ ୨୫ ଅଟେ।')">
+            <span>(D) ୩୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-3-fb"></div>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="quiz-card" id="quiz-card-4">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୪: ଦିଆସିଲି କାଠି ଦ୍ୱାରା ନିର୍ମିତ ସଂଲଗ୍ନ ତ୍ରିଭୁଜ ଶ୍ରେଣୀ (୩, ୫, ୭, ୯...) ର n-ତମ ପଦ ନିୟମ କ'ଣ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 0, false, 'ଭୁଲ! ୨n ହେଉଛି ଯୁଗ୍ମ ସଂଖ୍ୟାର ନିୟମ। ଏଠାରେ ପ୍ରଥମ ପଦ ୩ ଅଟେ।')">
+            <span>(A) ୨n</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 1, false, 'ଭୁଲ! ୨n − ୧ ହେଉଛି ୧, ୩, ୫... ର ନିୟମ।')">
+            <span>(B) ୨n &minus; ୧</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 2, true, 'ଚମତ୍କାର! n = ୧ ପାଇଁ ୨(୧)+୧ = ୩, n = ୨ ପାଇଁ ୨(୨)+୧ = ୫। ନିୟମଟି ୨n + ୧।')">
+            <span>(C) ୨n + ୧</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-4', 3, false, 'ଭୁଲ! ୩n + ୧ ହେଉଛି ବର୍ଗ କାଠି ଶ୍ରେଣୀର ନିୟମ।')">
+            <span>(D) ୩n + ୧</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-4-fb"></div>
+      </div>
+
+      <!-- Quiz 5 -->
+      <div class="quiz-card" id="quiz-card-5">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୫: ୨ ର ଘାତ ଶ୍ରେଣୀରେ (୧, ୨, ୪, ୮, ୧୬, ୩୨...) ୮ମ ପଦ କେତେ ହେବ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 0, false, 'ଭୁଲ! ୬୪ ହେଉଛି ୭ମ ପଦ (୨⁶)।')">
+            <span>(A) ୬୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 1, true, 'ନିର୍ଭୁଲ ଉତ୍ତର! ୮ମ ପଦ = ୨^(୮−୧) = ୨⁷ = ୧୨୮।')">
+            <span>(B) ୧୨୮</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 2, false, 'ଭୁଲ! ୨୫୬ ହେଉଛି ୯ମ ପଦ (୨⁸)।')">
+            <span>(C) ୨୫୬</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('quiz-card-5', 3, false, 'ଭୁଲ! ୫୧୨ ହେଉଛି ୧୦ମ ପଦ।')">
+            <span>(D) ୫୧୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="quiz-card-5-fb"></div>
+      </div>
+
+      <!-- Part B: Short & Long Answer Questions -->
+      <h3 style="margin-top: 2rem;">ଭାଗ 'ଖ': ସଂକ୍ଷିପ୍ତ ଓ ଦୀର୍ଘ ଉତ୍ତରମୂଳକ ପରୀକ୍ଷା ପ୍ରଶ୍ନୋତ୍ତର (Subjective Question Bank)</h3>
+
+      <!-- Subjective Q1 -->
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୬ (୨ ମାର୍କ): ବର୍ଗ ସଂଖ୍ୟା ଏବଂ ତ୍ରିଭୁଜ ସଂଖ୍ୟା ମଧ୍ୟରେ ୨ଟି ମୁଖ୍ୟ ପାର୍ଥକ୍ୟ ଲେଖ।</summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong></p>
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>ବିଷୟ</th>
+                <th>ବର୍ଗ ସଂଖ୍ୟା (Square Numbers)</th>
+                <th>ତ୍ରିଭୁଜ ସଂଖ୍ୟା (Triangular Numbers)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>ଜ୍ୟାମିତିକ ଆକୃତି</strong></td>
+                <td>ବିନ୍ଦୁଗୁଡ଼ିକୁ ସମାନ ଧାଡ଼ି ଓ ସ୍ତମ୍ଭ ବିଶିଷ୍ଟ ବର୍ଗାକାରରେ ସଜାଯାଏ।</td>
+                <td>ବିନ୍ଦୁଗୁଡ଼ିକୁ ସମବାହୁ ତ୍ରିଭୁଜ ଆକୃତିରେ ସଜାଯାଏ।</td>
+              </tr>
+              <tr>
+                <td><strong>ସାଧାରଣ ନିୟମ</strong></td>
+                <td>n-ତମ ପଦ = <span class="math-formula">n<sup>୨</sup></span> (ଯଥା: ୧, ୪, ୯, ୧୬...)</td>
+                <td>n-ତମ ପଦ = <span class="math-formula"><span class="frac"><sup>n(n+୧)</sup><sub>୨</sub></span></span> (ଯଥା: ୧, ୩, ୬, ୧୦...)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </details>
+
+      <!-- Subjective Q2 -->
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୭ (୩ ମାର୍କ): ସଂଖ୍ୟା ଶ୍ରେଣୀ ୭, ୧୧, ୧୫, ୧୯, ୨୩... ର n-ତମ ପଦ ନିର୍ଣ୍ଣୟ କର ଏବଂ ଏହାର ୨୫ତମ ପଦ କେତେ ହେବ?</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପ୍ରଦତ୍ତ ତଥ୍ୟ):</span> ଶ୍ରେଣୀ: ୭, ୧୧, ୧୫, ୧୯, ୨୩...। ପ୍ରଥମ ପଦ (a) = ୭।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ସାଧାରଣ ଅନ୍ତର):</span> ଧାପ ପାର୍ଥକ୍ୟ (d) = ୧୧ &minus; ୭ = ୪ (ସମାନ ଅନ୍ତର = ୪)।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (n-ତମ ପଦ ନିୟମ):</span> ପ୍ରତ୍ୟେକ ପଦ ୪ ର ଗୁଣିତକ ଅପେକ୍ଷା ୩ ଅଧିକ: <br>
+            T<sub>n</sub> = ୪n + ୩। (ଯାଞ୍ଚ: n=୧ ପାଇଁ ୪(୧)+୩ = ୭; n=୨ ପାଇଁ ୪(୨)+୩ = ୧୧)।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (୨୫ତମ ପଦ ଗଣନା):</span> n = ୨୫ ସ୍ଥାପନ କଲେ:<br>
+            T<sub>25</sub> = ୪(୨୫) + ୩ = ୧୦୦ + ୩ = ୧୦୩।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ଉତ୍ତର: n-ତମ ପଦ = ୪n + ୩ ଏବଂ ୨୫ତମ ପଦ = ୧୦୩।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Subjective Q3 -->
+      <details class="ans-box">
+        <summary>💬 ପ୍ରଶ୍ନ ୮ (୫ ମାର୍କ ଦକ୍ଷତା ଭିତ୍ତିକ): ଗୋଟିଏ ସମ୍ମିଳନୀ କକ୍ଷରେ ୨୦ ଜଣ ବ୍ୟକ୍ତି ଉପସ୍ଥିତ ଅଛନ୍ତି। ପ୍ରତ୍ୟେକ ବ୍ୟକ୍ତି ଅନ୍ୟ ପ୍ରତ୍ୟେକ ବ୍ୟକ୍ତିଙ୍କ ସହିତ ଠିକ୍ ଥରେ ହାତ ମିଳାନ୍ତି (Handshake)। ମୋଟ କେତୋଟି ହାତମିଳା ହେବ? ଏହା କିପରି ତ୍ରିଭୁଜ ସଂଖ୍ୟା ସହିତ ସମ୍ପର୍କିତ?</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୧ (ପରିସ୍ଥିତି ବିଶ୍ଳେଷଣ):</span> ସମୁଦାୟ ବ୍ୟକ୍ତି ସଂଖ୍ୟା N = ୨୦। ପ୍ରଥମ ବ୍ୟକ୍ତି ୧୯ ଜଣଙ୍କ ସହ ହାତ ମିଳାଇବେ, ଦ୍ୱିତୀୟ ବ୍ୟକ୍ତି ନୂତନ ୧୮ ଜଣଙ୍କ ସହ, ତୃତୀୟ ବ୍ୟକ୍ତି ୧୭ ଜଣଙ୍କ ସହ... ଏହିପରି ଶେଷ ବ୍ୟକ୍ତି ୦ ଜଣଙ୍କ ସହ।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୨ (ଗାଣିତିକ ଶ୍ରେଣୀ):</span> ମୋଟ ହାତମିଳା = ୧୯ + ୧୮ + ୧୭ + ... + ୩ + ୨ + ୧। ଏହା ହେଉଛି ପ୍ରଥମ ୧୯ ଟି ଗଣନ ସଂଖ୍ୟାର ଯୋଗଫଳ, ଅର୍ଥାତ୍ <strong>୧୯ତମ ତ୍ରିଭୁଜ ସଂଖ୍ୟା (T<sub>19</sub>)</strong>!</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୩ (ସୂତ୍ର ପ୍ରୟୋଗ):</span> T<sub>n</sub> = <span class="frac"><sup>n(n+୧)</sup><sub>୨</sub></span>। ଏଠାରେ n = ୧୯।</div>
+            <div class="step-line"><span class="step-title">ପଦକ୍ଷେପ ୪ (ଗଣନା):</span> ମୋଟ ହାତମିଳା = <span class="frac"><sup>୧୯ &times; (୧୯ + ୧)</sup><sub>୨</sub></span> = <span class="frac"><sup>୧୯ &times; ୨୦</sup><sub>୨</sub></span> = ୧୯ &times; ୧୦ = ୧୯୦।</div>
+            <div class="step-conclusion">ଚୂଡ଼ାନ୍ତ ସିଦ୍ଧାନ୍ତ: ମୋଟ ହାତମିଳା ସଂଖ୍ୟା ହେବ ୧୯୦। ଏହା ପ୍ରମାଣ କରେ ଯେ ବାସ୍ତବ ଜୀବନର ନେଟୱର୍କ ଓ ହାତମିଳା ସମସ୍ୟା ସିଧାସଳଖ ତ୍ରିଭୁଜ ସଂଖ୍ୟା ଉପରେ ଆଧାରିତ।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="section6">
+      <h2>Section 6: ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା ଓ ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ତଥ୍ୟ (Exam Hall Traps &amp; One-Liners)</h2>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">⚠️ ସାଧାରଣ ଭ୍ରାନ୍ତି ସତର୍କତା (Common Exam Hall Traps)</div>
+        <ul>
+          <li><strong>ଭୁଲ ୧:</strong> ଛାତ୍ରଛାତ୍ରୀମାନେ ପ୍ରଥମ n ଟି ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଯୋଗଫଳ ପାଇଁ ଶେଷ ଅଙ୍କର ବର୍ଗ କରିଦିଅନ୍ତି! ଉଦାହରଣ: ୧ + ୩ + ୫ + ୭ ର ଯୋଗଫଳ ପାଇଁ ୭² = ୪୯ ଲେଖିଦିଅନ୍ତି। <em>ସଠିକ୍ ନିୟମ:</em> ପଦ ସଂଖ୍ୟା ଗଣନ୍ତୁ (ଏଠାରେ ୪ଟି ପଦ ଅଛି), ତେଣୁ ୪² = ୧୬!</li>
+          <li><strong>ଭୁଲ ୨:</strong> ଦିଆସିଲି କାଠି ପ୍ରଶ୍ନରେ n ଟି ବର୍ଗ ପାଇଁ ୪n ଲେଖିବା ଭୁଲ। କାରଣ ସଂଲଗ୍ନ ବର୍ଗରେ ମଝି କାଠିଟି ଉଭୟ ବର୍ଗ ପାଇଁ ସାଧାରଣ (Common) ଥାଏ। ତେଣୁ ସଠିକ୍ ନିୟମ = <strong>୩n + ୧</strong>।</li>
+          <li><strong>ଭୁଲ ୩:</strong> ତ୍ରିଭୁଜ ସଂଖ୍ୟା ସୂତ୍ରରେ <span class="frac"><sup>n(n+୧)</sup><sub>୨</sub></span> ସ୍ଥାନରେ ହରଣ ୨ ଭୁଲିଯିବା। ସର୍ବଦା ୨ ଦ୍ୱାରା ହରଣ କରିବାକୁ ମନେରଖନ୍ତୁ।</li>
+        </ul>
+      </div>
+
+      <h3 class="topic-title">📌 ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ଏକ-ପଦୀ ତଥ୍ୟ (15 Rapid Revision One-Liners)</h3>
+      <ol style="line-height: 2; margin-left: 1.5rem;">
+        <li>ଗଣିତ ହେଉଛି ମୁଖ୍ୟତଃ <strong>ପାଟର୍ଣ୍ଣ ଓ ସଂରଚନା</strong> ର ଅଧ୍ୟୟନ।</li>
+        <li>ଗଣନ ସଂଖ୍ୟାର ସାଧାରଣ ନିୟମ ହେଉଛି <strong>n</strong> (୧, ୨, ୩, ୪...)।</li>
+        <li>ଯୁଗ୍ମ ସଂଖ୍ୟାର ସାଧାରଣ n-ତମ ପଦ ନିୟମ ହେଉଛି <strong>୨n</strong>।</li>
+        <li>ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ସାଧାରଣ n-ତମ ପଦ ନିୟମ ହେଉଛି <strong>୨n &minus; ୧</strong>।</li>
+        <li>ପ୍ରଥମ 'n' ଟି କ୍ରମିକ ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଯୋଗଫଳ ସର୍ବଦା <strong>n<sup>୨</sup></strong> ସହିତ ସମାନ।</li>
+        <li>ପୂର୍ଣ୍ଣ ବର୍ଗ ସଂଖ୍ୟା ଶ୍ରେଣୀ ହେଲା: <strong>୧, ୪, ୯, ୧୬, ୨୫, ୩୬, ୪୯, ୬୪, ୮୧, ୧୦୦...</strong></li>
+        <li>ତ୍ରିଭୁଜ ସଂଖ୍ୟା ଶ୍ରେଣୀ ହେଲା: <strong>୧, ୩, ୬, ୧୦, ୧୫, ୨୧, ୨୮, ୩୬, ୪୫, ୫୫...</strong></li>
+        <li>n-ତମ ତ୍ରିଭୁଜ ସଂଖ୍ୟା ନିର୍ଣ୍ଣୟ କରିବାର ସୂତ୍ର ହେଉଛି: <strong>T<sub>n</sub> = <span class="frac"><sup>n(n+୧)</sup><sub>୨</sub></span></strong>।</li>
+        <li>ଯେକୌଣସି ଦୁଇଟି କ୍ରମିକ ତ୍ରିଭୁଜ ସଂଖ୍ୟାର ଯୋଗଫଳ ଏକ <strong>ପୂର୍ଣ୍ଣ ବର୍ଗ ସଂଖ୍ୟା</strong> ହୁଏ (T<sub>n&minus;1</sub> + T<sub>n</sub> = n<sup>୨</sup>)।</li>
+        <li>୨ ର ଘାତ ଶ୍ରେଣୀ (Powers of 2): <strong>୧, ୨, ୪, ୮, ୧୬, ୩୨, ୬୪, ୧୨୮...</strong> ଯେଉଁଥିରେ ପ୍ରତି ପଦରେ ସଂଖ୍ୟା ଦ୍ୱିଗୁଣିତ ହୁଏ।</li>
+        <li>n ଥର ଅଧା ଭାଙ୍ଗିଥିବା ଏକ କାଗଜ ଖଣ୍ଡରେ ମୋଟ <strong>୨<sup>n</sup></strong> ଟି ଅଂଶ ସୃଷ୍ଟି ହୁଏ।</li>
+        <li>ଦିଆସିଲି କାଠିରେ 'n' ଟି ସଂଲଗ୍ନ ତ୍ରିଭୁଜ ତିଆରି କରିବା ପାଇଁ <strong>୨n + ୧</strong> ଟି କାଠି ଆବଶ୍ୟକ।</li>
+        <li>ଦିଆସିଲି କାଠିରେ 'n' ଟି ସଂଲଗ୍ନ ବର୍ଗ ତିଆରି କରିବା ପାଇଁ <strong>୩n + ୧</strong> ଟି କାଠି ଆବଶ୍ୟକ।</li>
+        <li>N ଜଣ ବ୍ୟକ୍ତିଙ୍କ ମଧ୍ୟରେ ସମସ୍ତ ହାତମିଳା (Handshakes) ର ସମୁଦାୟ ସଂଖ୍ୟା ହେଉଛି <strong>(N&minus;୧) ତମ ତ୍ରିଭୁଜ ସଂଖ୍ୟା</strong>।</li>
+        <li>ଆତ୍ମ-ସମାନତା ବିଶିଷ୍ଟ ଜ୍ୟାମିତିକ ପାଟର୍ଣ୍ଣକୁ <strong>ଫ୍ରାକ୍ଟାଲ୍ (Fractal)</strong> କୁହାଯାଏ।</li>
+      </ol>
+    </section>
+
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      // Back to top button visibility
+      const btn = document.getElementById('backToTopBtn');
+      if (winScroll > 350) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    });
+
+    // 2. Expand/Collapse All Answers
+    function toggleAllAnswers(openState) {
+      document.querySelectorAll('details.ans-box').forEach(el => {
+        el.open = openState;
+      });
+    }
+
+    // 3. Interactive Quiz Engine
+    let quizScore = 0;
+    const answeredQuizzes = new Set();
+
+    function checkQuiz(cardId, optionIndex, isCorrect, explanation) {
+      const card = document.getElementById(cardId);
+      const buttons = card.querySelectorAll('.quiz-opt-btn');
+      const fb = document.getElementById(cardId + '-fb');
+
+      if (answeredQuizzes.has(cardId)) return;
+      answeredQuizzes.add(cardId);
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        const ind = btn.querySelector('.quiz-opt-indicator');
+        if (idx === optionIndex) {
+          if (isCorrect) {
+            btn.classList.add('correct-opt');
+            ind.innerHTML = ' &check; (ସଠିକ୍)';
+          } else {
+            btn.classList.add('wrong-opt');
+            ind.innerHTML = ' &cross; (ଭୁଲ)';
+          }
+        }
+      });
+
+      // Highlight the correct answer if user picked wrong
+      if (!isCorrect) {
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct-opt');
+            btn.querySelector('.quiz-opt-indicator').innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          }
+        });
+      }
+
+      // Display feedback box
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.className = 'quiz-feedback correct-fb';
+        fb.innerHTML = '<strong>ଠିକ୍ ଉତ୍ତର! 🎉</strong> ' + explanation;
+        quizScore++;
+      } else {
+        fb.className = 'quiz-feedback incorrect-fb';
+        fb.innerHTML = '<strong>ଭୁଲ ଉତ୍ତର! ⚠️</strong> ' + explanation;
+      }
+
+      document.getElementById('currentScore').innerText = quizScore;
+    }
+
+    // 4. Text-to-Speech Teacher Audio Reader
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Text-to-Speech ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+      } else {
+        const text = "ନମସ୍କାର ପିଲାମାନେ! ଷଷ୍ଠ ଶ୍ରେଣୀ ଗଣିତର ପ୍ରଥମ ଅଧ୍ୟାୟ 'ଗଣିତରେ ସଂରଚନା ଓ ପାଟର୍ଣ୍ଣ' କୁ ସ୍ୱାଗତ। ଗଣିତ କେବଳ ହିସାବ ନୁହେଁ, ଏହା ହେଉଛି ଚାରିପାଖରେ ଥିବା ସୁନ୍ଦର ସଂରଚନା ବା ପାଟର୍ଣ୍ଣକୁ ବୁଝିବାର ଏକ ମାଧ୍ୟମ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ଗଣନ ସଂଖ୍ୟା, ଯୁଗ୍ମ, ଅଯୁଗ୍ମ, ବର୍ଗ ସଂଖ୍ୟା ଏବଂ ତ୍ରିଭୁଜ ସଂଖ୍ୟା ବିଷୟରେ ପଢ଼ିଲେ। ମନେରଖନ୍ତୁ: ପ୍ରଥମ n ଟି ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଯୋଗଫଳ ସର୍ବଦା n ସ୍କୋୟାର ହୁଏ। ଦୁଇଟି କ୍ରମିକ ତ୍ରିଭୁଜ ସଂଖ୍ୟାର ଯୋଗଫଳ ଏକ ବର୍ଗ ସଂଖ୍ୟା ହୁଏ। ଦିଆସିଲି କାଠିରେ n ଟି ବର୍ଗ ତିଆରି କରିବା ପାଇଁ ୩n ଯୁକ୍ତ ୧ ଟି କାଠି ଦରକାର ହୁଏ। ମନଦେଇ ଅଭ୍ୟାସ କରନ୍ତୁ, ଗଣିତ ବହୁତ ସହଜ ହୋଇଯିବ!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'or-IN';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>";
+      }
+    }
+  </script>
+</body>
+</html>
