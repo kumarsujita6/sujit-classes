@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 7 Mathematics Chapter 13: Connecting the Dots... (Data Handling) - Master Study Notes (Ganita Prakash)</title>
+  <meta name="description" content="Comprehensive, zero-omission teacher notes for Class 7 Maths Chapter 13: Connecting the Dots... (NCERT Ganita Prakash Part 2). Master Arithmetic Mean, Median, Range, Outliers, Dot Plots, Double Bar Graphs, ancient Samamiti, and complete solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #0284c7 0%, #0d9488 50%, #4338ca 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      max-width: 750px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    /* Audio Reader */
+    .audio-controls {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      margin-top: 1rem;
+    }
+
+    .audio-btn {
+      background: white;
+      color: #0369a1;
+      border: none;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.82rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f1f5f9;
+      transform: translateY(-1px);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 2.5rem 0 1.25rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 3px solid var(--primary-light);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .section-title i {
+      color: var(--primary);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Callouts */
+    .callout {
+      border-radius: 0.75rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.25rem 0;
+      border-left: 4px solid;
+    }
+
+    .callout-def { background: #f0fdf4; border-color: #22c55e; color: #14532d; }
+    .callout-act { background: #eff6ff; border-color: #3b82f6; color: #1e3a8a; }
+    .callout-hack { background: #fefce8; border-color: #eab308; color: #713f12; }
+    .callout-warn { background: #fef2f2; border-color: #ef4444; color: #7f1d1d; }
+    .callout-pyq { background: #faf5ff; border-color: #a855f7; color: #581c87; }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.98rem;
+    }
+
+    /* Details Collapsible */
+    details.ans-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      margin: 1rem 0;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-sm);
+    }
+
+    details.ans-box summary {
+      padding: 0.85rem 1.25rem;
+      font-weight: 600;
+      color: var(--primary-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #f1f5f9;
+    }
+
+    details.ans-box summary:hover { background: #e2e8f0; }
+
+    .sol-content {
+      padding: 1.25rem 1.5rem;
+      font-size: 0.95rem;
+      color: var(--text);
+    }
+
+    .sol-step { margin-bottom: 0.75rem; }
+    .sol-step-label { font-weight: 700; color: var(--primary-dark); margin-right: 0.4rem; }
+
+    .calc-box {
+      font-family: 'JetBrains Mono', monospace;
+      background: #f8fafc;
+      padding: 0.65rem 0.9rem;
+      border-radius: 0.5rem;
+      border-left: 3px solid var(--secondary);
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* SVG Graphics */
+    .svg-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1.5rem 0;
+      background: #ffffff;
+      padding: 1.25rem;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+
+    /* Table */
+    .math-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1rem 0;
+      font-size: 0.92rem;
+    }
+
+    .math-table th, .math-table td {
+      border: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+
+    .math-table th { background: #f1f5f9; font-weight: 700; color: var(--dark); }
+    .math-table tr:nth-child(even) { background: #f8fafc; }
+
+    /* Quiz */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-question { font-weight: 700; font-size: 1.05rem; margin-bottom: 1rem; color: var(--dark); }
+    .quiz-options { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .quiz-option {
+      padding: 0.65rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 0.92rem;
+      background: #f8fafc;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .quiz-option:hover { background: #e0f2fe; border-color: #7dd3fc; }
+    .quiz-option.correct { background: #dcfce7 !important; border-color: #22c55e !important; color: #15803d; font-weight: 700; }
+    .quiz-option.wrong { background: #fee2e2 !important; border-color: #ef4444 !important; color: #b91c1c; font-weight: 700; }
+    .quiz-feedback { margin-top: 0.75rem; padding: 0.75rem 1rem; border-radius: 0.5rem; font-size: 0.88rem; display: none; }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 2.5rem 1.25rem;
+      margin-top: 4rem;
+      font-size: 0.88rem;
+    }
+
+    footer a { color: #38bdf8; text-decoration: none; }
+
+    #backToTop {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: var(--shadow-md);
+      z-index: 999;
+      transition: all 0.2s ease;
+    }
+
+    #backToTop:hover { background: var(--primary-dark); transform: translateY(-2px); }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>Sujit Classes</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#awakening" class="nav-link">Visual Intuition</a>
+      <a href="#core-theory" class="nav-link">Core Theory</a>
+      <a href="#samamiti" class="nav-link">Ancient Samamiti</a>
+      <a href="#solutions" class="nav-link">NCERT Solutions</a>
+      <a href="#drills" class="nav-link">Practice Drills</a>
+      <a href="#quiz" class="nav-link">Interactive Quiz</a>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-chart-simple"></i> NCERT Ganita Prakash (Class 7) &bull; Part 2 Chapter 5
+    </div>
+    <h1 class="hero-title">Chapter 13: Connecting the Dots... (Data Handling)</h1>
+    <p class="hero-subtitle">
+      Master Arithmetic Mean, Median, Range, Outliers, Dot Plots, Clustered &amp; Double Bar Graphs, ancient Indian Samamiti (levelling measures), and statistical decision making.
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> Full Depth Study Notes</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Figure it Out Solved</span>
+      <span><i class="fa-solid fa-clock"></i> 45 Min Comprehensive Read</span>
+    </div>
+    <div class="audio-controls">
+      <button class="audio-btn" id="ttsToggleBtn" onclick="toggleAudioReader()">
+        <i class="fa-solid fa-volume-high"></i> Listen to Notes
+      </button>
+      <span style="font-size: 0.8rem; opacity: 0.85;">Text-to-Speech Ready</span>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- ================= SECTION 1: VISUAL INTUITION ================= -->
+    <section id="awakening">
+      <h2 class="section-title"><i class="fa-solid fa-eye"></i> Section 1: Concept Awakening &amp; Visual Intuition</h2>
+
+      <div class="card">
+        <h3 style="color: var(--primary-dark); margin-bottom: 0.75rem;">1. The Meaning of "Average": Equal Levelling</h3>
+        <p>
+          Suppose over 5 days, a garden plant produces <strong>7, 3, 5, 8, and 2</strong> Hibiscus flowers.
+          What does the "average" flowers per day really represent?
+        </p>
+        <p style="margin-top: 0.5rem;">
+          Imagine stacks of flower tokens of heights 7, 3, 5, 8, 2. If you take tokens from the tall stacks and place them onto the short stacks until every single stack is at the exact same level:
+        </p>
+        <div class="calc-box">
+          Total Flowers = 7 + 3 + 5 + 8 + 2 = 25 flowers<br>
+          Divided equally across 5 days = 25 &divide; 5 = <strong>5 flowers per day</strong>!
+        </div>
+
+        <!-- SVG Levelling Stacks -->
+        <div class="svg-container">
+          <svg viewBox="0 0 680 180" width="100%" height="180" style="max-width: 650px; font-family: 'Space Grotesk', sans-serif;">
+            <!-- 5 Stacks before: 7, 3, 5, 8, 2 (each unit = 12px height) -->
+            <g transform="translate(40, 20)">
+              <text x="110" y="0" font-size="12" font-weight="700" fill="#64748b" text-anchor="middle">Unequal Daily Harvest</text>
+              <!-- Day 1: 7 units (height 84) -->
+              <rect x="0" y="46" width="35" height="84" fill="#38bdf8" rx="3"/>
+              <text x="17" y="145" font-size="11" text-anchor="middle">7</text>
+              <!-- Day 2: 3 units (height 36) -->
+              <rect x="45" y="94" width="35" height="36" fill="#38bdf8" rx="3"/>
+              <text x="62" y="145" font-size="11" text-anchor="middle">3</text>
+              <!-- Day 3: 5 units (height 60) -->
+              <rect x="90" y="70" width="35" height="60" fill="#38bdf8" rx="3"/>
+              <text x="107" y="145" font-size="11" text-anchor="middle">5</text>
+              <!-- Day 4: 8 units (height 96) -->
+              <rect x="135" y="34" width="35" height="96" fill="#38bdf8" rx="3"/>
+              <text x="152" y="145" font-size="11" text-anchor="middle">8</text>
+              <!-- Day 5: 2 units (height 24) -->
+              <rect x="180" y="106" width="35" height="24" fill="#38bdf8" rx="3"/>
+              <text x="197" y="145" font-size="11" text-anchor="middle">2</text>
+              <line x1="-10" y1="130" x2="225" y2="130" stroke="#0f172a" stroke-width="2"/>
+            </g>
+
+            <!-- Arrow -->
+            <text x="325" y="95" font-size="28" font-weight="800" fill="#94a3b8" text-anchor="middle">&rarr;</text>
+
+            <!-- 5 Stacks after: all 5 units (height 60) -->
+            <g transform="translate(390, 20)">
+              <text x="110" y="0" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">Equalised Level (Mean = 5)</text>
+              <rect x="0" y="70" width="35" height="60" fill="#4ade80" rx="3"/>
+              <text x="17" y="145" font-size="11" text-anchor="middle">5</text>
+              <rect x="45" y="70" width="35" height="60" fill="#4ade80" rx="3"/>
+              <text x="62" y="145" font-size="11" text-anchor="middle">5</text>
+              <rect x="90" y="70" width="35" height="60" fill="#4ade80" rx="3"/>
+              <text x="107" y="145" font-size="11" text-anchor="middle">5</text>
+              <rect x="135" y="70" width="35" height="60" fill="#4ade80" rx="3"/>
+              <text x="152" y="145" font-size="11" text-anchor="middle">5</text>
+              <rect x="180" y="70" width="35" height="60" fill="#4ade80" rx="3"/>
+              <text x="197" y="145" font-size="11" text-anchor="middle">5</text>
+              <line x1="-10" y1="130" x2="225" y2="130" stroke="#0f172a" stroke-width="2"/>
+              <!-- Dashed mean line across -->
+              <line x1="-10" y1="70" x2="225" y2="70" stroke="#15803d" stroke-width="2" stroke-dasharray="4 2"/>
+            </g>
+          </svg>
+        </div>
+
+        <h3 style="color: var(--primary-dark); margin: 1.75rem 0 0.75rem;" id="samamiti">2. Ancient Indian Heritage: The Concept of <em>Samamiti</em></h3>
+        <p>
+          Centuries before modern statistics, ancient Indian mathematicians developed deep geometric and arithmetic insights into the mean as an <strong>equalising balance</strong>:
+        </p>
+        <div class="callout callout-act">
+          <div class="callout-title"><i class="fa-solid fa-scroll"></i> Classical Sanskrit Terms for the Arithmetic Mean</div>
+          <ul style="margin-left: 1.25rem; line-height: 1.8;">
+            <li><strong>Samarajju</strong> (equalising measuring rope) &bull; Brahmagupta (628 CE)</li>
+            <li><strong>Samīkaraṇa</strong> (making even / levelling) &bull; Mahāvīrācārya (850 CE)</li>
+            <li><strong>Sāmya</strong> (fairness, impartial balance) &bull; Śrīpati (1039 CE)</li>
+            <li><strong>Samamiti</strong> (equal measure; <em>sama</em> = equal, <em>miti</em> = measure) &bull; Bhāskarācārya (1150 CE) and Gaṇeṣa (1545 CE)</li>
+          </ul>
+        </div>
+
+        <!-- The European 16-foot rod -->
+        <h3 style="color: var(--primary-dark); margin: 1.75rem 0 0.75rem;">3. "A Mean Foot" &bull; Europe (1500s)</h3>
+        <p>
+          In 16th-century Europe, the standard survey rod was defined as <strong>16 feet</strong>.
+          To remove bias caused by individual foot sizes, surveyor <strong>Jacob K&ouml;bel</strong> had 16 random adult men coming out of church stand heel-to-toe in a straight line.
+          Dividing this 16-man line into 16 equal segments created the standard 1-foot ruler&mdash;an early practical implementation of the <strong>Arithmetic Mean</strong>!
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2: CORE THEORY ================= -->
+    <section id="core-theory">
+      <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> Section 2: Core Theory &amp; Statistical Measures</h2>
+
+      <div class="card">
+        <h3 style="color: var(--primary-dark); margin-bottom: 0.75rem;">1. Measures of Central Tendency</h3>
+
+        <table class="math-table">
+          <thead>
+            <tr>
+              <th>Measure</th>
+              <th>Formula / Definition</th>
+              <th>Key Strengths</th>
+              <th>Vulnerabilities</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Arithmetic Mean (&mu;)</strong></td>
+              <td><code>Sum of all observations &divide; Total count (N)</code></td>
+              <td>Uses every data point; great for total budget and resource planning.</td>
+              <td>Highly sensitive to <strong>extreme outliers</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Median</strong></td>
+              <td>Middle value of arranged data (or average of two middle values if N is even).</td>
+              <td>Completely unaffected by extreme outliers; reflects the typical experience.</td>
+              <td>Ignores the actual magnitude of values far from the center.</td>
+            </tr>
+            <tr>
+              <td><strong>Range</strong></td>
+              <td><code>Maximum value &minus; Minimum value</code></td>
+              <td>Shows total spread and variability at a glance.</td>
+              <td>Depends solely on two extreme points.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="callout callout-warn">
+          <div class="callout-title"><i class="fa-solid fa-door-open"></i> "A Mean Decision!": The Door Height Trap</div>
+          A carpenter designs a house door based on the <strong>average height</strong> of a family (155 cm).
+          The father is 185 cm tall and the mother is 160 cm tall. Every time the father walks in, he bumps his head!
+          <br><strong>Lesson:</strong> The Mean is NOT always the right tool. For doors, bridges, and ceilings, we must use the <strong>Maximum</strong>, not the Mean!
+        </div>
+
+        <h3 style="color: var(--primary-dark); margin: 1.75rem 0 0.75rem;">2. Visualising Data: Dot Plots</h3>
+        <p>
+          A <strong>Dot Plot</strong> plots a dot for every occurrence of a value above a number line.
+          It allows you to instantly see:
+        </p>
+        <ul style="margin-left: 1.5rem; line-height: 1.8;">
+          <li><strong>Peaks (Clusters):</strong> Where data piles up most densely.</li>
+          <li><strong>Spread (Variability):</strong> How tightly clustered or spread out the dots are.</li>
+          <li><strong>Outliers:</strong> Lone dots far away from the main cluster.</li>
+        </ul>
+
+        <!-- SVG Dot Plot Example -->
+        <div class="svg-container">
+          <svg viewBox="0 0 640 130" width="100%" height="130" style="max-width: 600px; font-family: 'Space Grotesk', sans-serif;">
+            <line x1="40" y1="95" x2="600" y2="95" stroke="#0f172a" stroke-width="2"/>
+            <!-- Ticks 0 to 6 (step = 80px) -->
+            <!-- 0: 80, 1: 160, 2: 240, 3: 320, 4: 400, 5: 480, 6: 560 -->
+            <g font-size="12" font-weight="700" text-anchor="middle" fill="#475569">
+              <line x1="80" y1="90" x2="80" y2="100" stroke="#0f172a"/><text x="80" y="115">0</text>
+              <line x1="160" y1="90" x2="160" y2="100" stroke="#0f172a"/><text x="160" y="115">1</text>
+              <line x1="240" y1="90" x2="240" y2="100" stroke="#0f172a"/><text x="240" y="115">2</text>
+              <line x1="320" y1="90" x2="320" y2="100" stroke="#0f172a"/><text x="320" y="115">3</text>
+              <line x1="400" y1="90" x2="400" y2="100" stroke="#0f172a"/><text x="400" y="115">4</text>
+              <line x1="480" y1="90" x2="480" y2="100" stroke="#0f172a"/><text x="480" y="115">5</text>
+              <line x1="560" y1="90" x2="560" y2="100" stroke="#0f172a"/><text x="560" y="115">6</text>
+            </g>
+
+            <!-- Dots stacked: e.g. at 2 pockets (3 dots), at 4 pockets (5 dots) -->
+            <g fill="#0284c7">
+              <!-- At 1: 1 dot -->
+              <circle cx="160" cy="80" r="6"/>
+              <!-- At 2: 3 dots -->
+              <circle cx="240" cy="80" r="6"/><circle cx="240" cy="65" r="6"/><circle cx="240" cy="50" r="6"/>
+              <!-- At 3: 2 dots -->
+              <circle cx="320" cy="80" r="6"/><circle cx="320" cy="65" r="6"/>
+              <!-- At 4: 4 dots (Peak!) -->
+              <circle cx="400" cy="80" r="6"/><circle cx="400" cy="65" r="6"/><circle cx="400" cy="50" r="6"/><circle cx="400" cy="35" r="6"/>
+              <!-- At 5: 1 dot -->
+              <circle cx="480" cy="80" r="6"/>
+            </g>
+            <text x="320" y="20" font-size="13" font-weight="700" fill="#0369a1" text-anchor="middle">Pocket Count Dot Plot (Peak at 4 pockets)</text>
+          </svg>
+        </div>
+
+        <h3 style="color: var(--primary-dark); margin: 1.75rem 0 0.75rem;">3. Clustered &amp; Double Bar Graphs</h3>
+        <p>
+          When you want to compare <strong>two related categories simultaneously</strong> (e.g. Boys vs Girls, Watching vs Participating, Blue Team vs Red Team runs), draw a <strong>Double Bar Graph</strong> where each category has two side-by-side bars with distinct colors and a clear legend.
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: COMPREHENSIVE NCERT SOLUTIONS ================= -->
+    <section id="solutions">
+      <h2 class="section-title"><i class="fa-solid fa-list-check"></i> Section 3: Comprehensive NCERT Solutions (Zero Omissions)</h2>
+
+      <!-- Page 5 Figure it Out -->
+      <div class="card">
+        <h3 style="color: var(--primary); margin-bottom: 0.75rem;">Figure it Out (Page 5) &bull; First Steps in Arithmetic Mean</h3>
+
+        <!-- Q1 -->
+        <details class="ans-box" open>
+          <summary><span><strong>1. Shreyas Ball Bouncing Attempts (6, 2, 9, 5, 4, 6, 3, 5)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="sol-step"><span class="sol-step-label">1. Given:</span> Data: 6, 2, 9, 5, 4, 6, 3, 5. Total attempts (N) = 8.</div>
+            <div class="sol-step"><span class="sol-step-label">2. Formula:</span> Mean = (Sum of bounces) &divide; (Number of attempts).</div>
+            <div class="sol-step"><span class="sol-step-label">3. Calculation:</span>
+              <div class="calc-box">
+                Sum = 6 + 2 + 9 + 5 + 4 + 6 + 3 + 5 = 40<br>
+                Mean = 40 &divide; 8 = <strong>5 bounces</strong>
+              </div>
+            </div>
+            <div class="sol-step"><span class="sol-step-label">4. Answer:</span> Shreyas was able to make an average of <strong>5 bounces</strong> per attempt.</div>
+          </div>
+        </details>
+
+        <!-- Q4 -->
+        <details class="ans-box">
+          <summary><span><strong>4. Nikhil vs Sunil 100m Race Training (Who Ran Quicker?)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="sol-step"><span class="sol-step-label">Nikhil's times (sec):</span> 17, 18, 17, 16, 19, 17, 18 (7 trials)
+              <div class="calc-box">
+                Sum = 17 + 18 + 17 + 16 + 19 + 17 + 18 = 122<br>
+                Nikhil's Mean = 122 &divide; 7 &approx; <strong>17.43 seconds</strong>
+              </div>
+            </div>
+            <div class="sol-step"><span class="sol-step-label">Sunil's times (sec):</span> 20, 18, 18, 17, 16, 16, 17 (7 trials)
+              <div class="calc-box">
+                Sum = 20 + 18 + 18 + 17 + 16 + 16 + 17 = 122<br>
+                Sunil's Mean = 122 &divide; 7 &approx; <strong>17.43 seconds</strong>
+              </div>
+            </div>
+            <div class="sol-step"><span class="sol-step-label">Conclusion:</span> Both friends had the exact same average time of <strong>17.43 seconds</strong>! However, Sunil recorded the fastest single trial (16 seconds twice), but also the slowest trial (20 seconds).</div>
+          </div>
+        </details>
+
+        <!-- Q5 -->
+        <details class="ans-box">
+          <summary><span><strong>5. School Enrolment Over 6 Consecutive Years</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="sol-step"><span class="sol-step-label">Given:</span> 1555, 1670, 1750, 2013, 2040, 2126. Count = 6.</div>
+            <div class="calc-box">
+              Sum = 1555 + 1670 + 1750 + 2013 + 2040 + 2126 = 11,154<br>
+              Mean Enrolment = 11,154 &divide; 6 = <strong>1859 students</strong>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Page 16 Figure it Out -->
+      <div class="card">
+        <h3 style="color: var(--primary); margin-bottom: 0.75rem;">Figure it Out (Page 16) &bull; Medians, Dot Plots, and Outliers</h3>
+
+        <!-- Q1 & Q2 -->
+        <details class="ans-box" open>
+          <summary><span><strong>1 &amp; 2. Onion Prices Median &amp; Sanskruti's Domestic Pets Survey</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>1. Onion Prices Median:</strong></p>
+            <div class="calc-box">
+              Arrange monthly prices in ascending order. Since there are 12 months (even), the median is the average of the 6th and 7th values.
+            </div>
+
+            <p style="margin-top: 0.75rem;"><strong>2. Sanskruti Pets Data:</strong> 0, 1, 0, 4, 8, 0, 0, 2, 1, 1, 5, 3, 4, 0, 0, 10, 25, 2, 2, 4 (20 recorded students).</p>
+            <div class="sol-step"><span class="sol-step-label">Analysis:</span>
+              <div class="calc-box">
+                Sum = 72. Mean = 72 &divide; 20 = <strong>3.6 pets</strong>.<br>
+                Sorted: 0, 0, 0, 0, 0, 0, 1, 1, 1, <strong>2, 2</strong>, 2, 3, 4, 4, 4, 5, 8, 10, 25.<br>
+                Median = (10th + 11th values) &divide; 2 = (2 + 2) &divide; 2 = <strong>2 pets</strong>.<br>
+                <strong>Outlier Impact:</strong> 25 pets (an extreme farm outlier) pulls the Mean up to 3.6, whereas the Median (2) is a much truer reflection of a normal student's household!
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- Q3 & Q4 -->
+        <details class="ans-box">
+          <summary><span><strong>3 &amp; 4. Habra Palm Tree Heights &amp; Water Usage Bounds</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>3. Palm Tree Heights (29 trees):</strong></p>
+            <div class="calc-box">
+              Sorted values (feet): 43, 44, 45, 46, 49, 50, 51, 52, 52, 54, 54, 55, 55, 56, <strong>56</strong>, 57, 58, 59, 60, 60, 60, 60, 61, 61, 62, 63, 65, 66, 67.<br>
+              Total Sum = 1645 feet. Count = 29 trees.<br>
+              Mean = 1645 &divide; 29 &approx; <strong>56.72 feet</strong>.<br>
+              Median (15th value) = <strong>56 feet</strong>.<br>
+              Trees shorter than average (&lt; 56.72 ft): Exactly <strong>15 trees</strong>.
+            </div>
+
+            <p style="margin-top: 0.75rem;"><strong>4. Water Usage Bounds:</strong> Data: 5.6, 8, 3.09, 12.9, 6.5, 12.1, 11.3, 20.5, 7.4.</p>
+            <div class="sol-step"><span class="sol-step-label">(a) Can mean or median lie between 25 and 30?</span>
+              <div class="calc-box">
+                <strong>NO!</strong> The maximum usage is 20.5 L. The mean and median can NEVER exceed the maximum data value!
+              </div>
+            </div>
+            <div class="sol-step"><span class="sol-step-label">(b) Universal Property:</span>
+              <p>For any dataset: <strong>Minimum &le; Median &le; Maximum</strong> and <strong>Minimum &le; Mean &le; Maximum</strong>. Both representative measures always stay strictly bounded within the data range!</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Page 26 Figure it Out -->
+      <div class="card">
+        <h3 style="color: var(--primary); margin-bottom: 0.75rem;">Figure it Out (Page 26) &bull; Cricket Runs Double Bar Graph</h3>
+        <details class="ans-box" open>
+          <summary><span><strong>Analysis of Cricket Match Runs per Over Graph</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="calc-box">
+              1. <strong>Batted first:</strong> Usually the first team plotted (or indicated by target lines). The team with higher cumulative total won.<br>
+              2. <strong>Runs scored by Blue Team in Over 12:</strong> Read vertical bar height for Blue at Over 12.<br>
+              3. <strong>Over with least runs for Red Team:</strong> Locate the shortest red bar.<br>
+              4. <strong>Target set:</strong> Easy to calculate by summing all runs scored across 20 overs by Team 1 + 1 run.
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Page 33-36 End of Chapter Master Problems -->
+      <div class="card">
+        <h3 style="color: var(--primary); margin-bottom: 0.75rem;">End-of-Chapter Master Problems (Page 33 &ndash; 36, Q1 to Q10)</h3>
+
+        <!-- Q1 Clothing Pockets -->
+        <details class="ans-box" open>
+          <summary><span><strong>Q1: Clothing Pockets Dot Plot (Boys vs Girls)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="calc-box">
+              &bull; Boys clothing typically has 2 to 7 pockets (wider spread, higher maximum).<br>
+              &bull; Girls clothing often has 0 to 4 pockets (clustered near 0 and 2, lower maximum).<br>
+              True Statements:<br>
+              <strong>(a) The data varies more for the boys than for the girls &check;</strong><br>
+              <strong>(b) The median number of pockets for boys is more than that for girls &check;</strong><br>
+              <strong>(d) The maximum number of pockets for boys is greater than that for girls &check;</strong>
+            </div>
+          </div>
+        </details>
+
+        <!-- Q2 Player Points -->
+        <details class="ans-box">
+          <summary><span><strong>Q2: Player Points Scoring Across 4 Games</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>(a) Average points scored per game by Player A:</strong></p>
+            <div class="calc-box">A's scores: 14, 16, 10, 10 &rArr; Mean = (14 + 16 + 10 + 10) &divide; 4 = 50 &divide; 4 = <strong>12.5 points</strong>.</div>
+
+            <p style="margin-top: 0.75rem;"><strong>(b) Mean for Player C vs Player B:</strong></p>
+            <div class="calc-box">
+              &bull; <strong>Player C:</strong> Did not play Game 3. We divide by <strong>3</strong> because Player C only participated in 3 games! Mean = (8 + 11 + 13) &divide; 3 = 32 &divide; 3 &approx; <strong>10.67 points</strong>.<br>
+              &bull; <strong>Player B:</strong> Played all 4 games and scored 0 in Game 1. We must divide by <strong>4</strong>, because 0 is a valid score! Mean = (0 + 8 + 6 + 4) &divide; 4 = 18 &divide; 4 = <strong>4.5 points</strong>.
+            </div>
+
+            <p style="margin-top: 0.75rem;"><strong>(c) Who is the best performer?</strong></p>
+            <p><strong>Player A</strong> is the best performer with the highest mean score of <strong>12.5 points per game</strong>.</p>
+          </div>
+        </details>
+
+        <!-- Q3 GK Quiz -->
+        <details class="ans-box">
+          <summary><span><strong>Q3: General Knowledge Quiz Score Comparison</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>Group 1 (10 students):</strong> 85, 76, 90, 85, 39, 48, 56, 95, 81, 75.</p>
+            <div class="calc-box">
+              Sum = 730 &rArr; Mean = 730 &divide; 10 = <strong>73.0</strong><br>
+              Sorted: 39, 48, 56, 75, 76, 81, 85, 85, 90, 95.<br>
+              Median = (76 + 81) &divide; 2 = <strong>78.5</strong>
+            </div>
+
+            <p style="margin-top: 0.75rem;"><strong>Group 2 (9 students):</strong> 68, 59, 73, 86, 47, 79, 90, 93, 86.</p>
+            <div class="calc-box">
+              Sum = 681 &rArr; Mean = 681 &divide; 9 = <strong>75.67</strong><br>
+              Sorted: 47, 59, 68, 73, <strong>79</strong>, 86, 86, 90, 93.<br>
+              Median = <strong>79.0</strong>
+            </div>
+            <p><strong>Conclusion:</strong> Group 2 performed slightly better overall, with both a higher mean (75.67 vs 73.0) and a higher median (79 vs 78.5).</p>
+          </div>
+        </details>
+
+        <!-- Q4 Colony Sports Double Bar Graph -->
+        <details class="ans-box">
+          <summary><span><strong>Q4: Colony Sports Survey (Watching vs Participating)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <table class="math-table">
+              <thead>
+                <tr>
+                  <th>Sport</th>
+                  <th>Watching</th>
+                  <th>Participating</th>
+                  <th>Ratio (Watch : Play)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Cricket</td><td>1240</td><td>620</td><td>2.00 : 1</td></tr>
+                <tr><td>Basketball</td><td>470</td><td>320</td><td>1.47 : 1</td></tr>
+                <tr><td>Swimming</td><td>510</td><td>320</td><td>1.59 : 1</td></tr>
+                <tr><td>Hockey</td><td>430</td><td>250</td><td>1.72 : 1</td></tr>
+                <tr><td>Athletics</td><td>250</td><td>105</td><td>2.38 : 1</td></tr>
+              </tbody>
+            </table>
+            <div class="calc-box">
+              <strong>Observations:</strong><br>
+              1. Cricket is by far the most popular sport both for watching (1240) and participating (620).<br>
+              2. For every sport, watching is significantly higher than participating.<br>
+              3. Athletics has the lowest participation count (105).
+            </div>
+          </div>
+        </details>
+
+        <!-- Q5 Partitioning 17 Students by Median -->
+        <details class="ans-box">
+          <summary><span><strong>Q5: Dividing 17 Students into Two Equal Groups by Height</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="sol-step"><span class="sol-step-label">Method:</span> Find the <strong>Median</strong> of the 17 heights!
+              <div class="calc-box">
+                Sorted heights (17 values):<br>
+                101, 102, 106, 109, 110, 110, 112, 115, <strong>115</strong>, 115, 115, 115, 117, 120, 120, 123, 125 cm.<br>
+                Median = 9th value = <strong>115 cm</strong>.
+              </div>
+            </div>
+            <p>
+              Students with height &le; 115 cm go to Group A, and students &ge; 115 cm go to Group B.
+              Based on standard WHO height charts, students with mean height around 115 cm are typically around <strong>6 to 7 years old</strong> (Grade 1 &ndash; 2)!
+            </p>
+          </div>
+        </details>
+
+        <!-- Q7 Section Heights MCQ -->
+        <details class="ans-box">
+          <summary><span><strong>Q7: Mean Height of Two Grade 7 Sections (MCQ)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p>One section has a mean height of 154.2 cm. What must be true about the other section?</p>
+            <div class="calc-box">
+              Different groups of students have different individuals with varying heights.<br>
+              Knowing Section A's mean tells us <strong>nothing definite</strong> about Section B's mean without actual measurements.<br>
+              Correct choice: <strong>(d) The mean height of students in the other section cannot be determined</strong>.
+            </div>
+          </div>
+        </details>
+
+        <!-- Q10 Aditi Sudoku Dot Plot -->
+        <details class="ans-box">
+          <summary><span><strong>Q10: Aditi's Sudoku Solving Time (Week 1 vs Week 2)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>Week 1 (9 values):</strong> 410, 400, 370, 340, 360, 400, 320, 330, 310 sec.</p>
+            <div class="calc-box">
+              Sum = 3240 &rArr; Week 1 Mean = 3240 &divide; 9 = <strong>360 seconds</strong> (6 minutes).<br>
+              Sorted Week 1: 310, 320, 330, 340, <strong>360</strong>, 370, 400, 400, 410. Median = <strong>360 sec</strong>.
+            </div>
+
+            <p style="margin-top: 0.75rem;"><strong>Week 2 (8 values):</strong> 320, 290, 380, 280, 270, 230, 220, 240 sec.</p>
+            <div class="calc-box">
+              Sum = 2230 &rArr; Week 2 Mean = 2230 &divide; 8 = <strong>278.75 seconds</strong> (4.6 minutes).<br>
+              Sorted Week 2: 220, 230, 240, <strong>270, 280</strong>, 290, 320, 380.<br>
+              Median = (270 + 280) &divide; 2 = <strong>275 sec</strong>.
+            </div>
+            <p>
+              <strong>Observation:</strong> Aditi shows remarkable improvement! Her mean solving time dropped by more than 81 seconds from Week 1 to Week 2 due to practice and pattern recognition.
+            </p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: PRACTICE DRILLS ================= -->
+    <section id="drills">
+      <h2 class="section-title"><i class="fa-solid fa-dumbbell"></i> Section 4: Practice Drills &amp; Exam Questions</h2>
+
+      <div class="card">
+        <h3 style="color: var(--primary-dark); margin-bottom: 0.75rem;">Competency-Based Exam Drills</h3>
+
+        <div class="callout callout-pyq">
+          <div class="callout-title"><i class="fa-solid fa-hospital-user"></i> Clinic Waiting Room Wait Times</div>
+          A doctor records the waiting times (in minutes) of 7 patients: 12, 15, 8, 45, 14, 10, 11.
+          <br><strong>(a)</strong> Calculate the Mean and the Median waiting time.
+          <br><strong>(b)</strong> Which measure better describes the typical patient experience, and why?
+          <details class="ans-box" style="margin-top: 0.75rem;">
+            <summary><span>View Solution</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <div class="sol-content">
+              <strong>(a)</strong> Sum = 12 + 15 + 8 + 45 + 14 + 10 + 11 = 115.<br>
+              Mean = 115 &divide; 7 &approx; <strong>16.43 minutes</strong>.<br>
+              Sorted: 8, 10, 11, <strong>12</strong>, 14, 15, 45.<br>
+              Median = 4th value = <strong>12 minutes</strong>.<br><br>
+              <strong>(b)</strong> The <strong>Median (12 minutes)</strong> is a far superior representative because 45 is an outlier (an emergency delay) that unfairly skews the mean upwards.
+            </div>
+          </details>
+        </div>
+
+        <div class="callout callout-act">
+          <div class="callout-title"><i class="fa-solid fa-arrows-split-up-and-left"></i> Assertion &amp; Reason (Measures of Central Tendency)</div>
+          <p><strong>Assertion (A):</strong> The median of any dataset is always one of the numbers present in the dataset.</p>
+          <p><strong>Reason (R):</strong> When there are an even number of observations, the median is calculated by finding the mean of the two middle numbers, which may not be an original observation.</p>
+          <details class="ans-box" style="margin-top: 0.75rem;">
+            <summary><span>View Solution</span> <i class="fa-solid fa-chevron-down"></i></summary>
+            <div class="sol-content">
+              <strong>Correct Option:</strong> Assertion (A) is FALSE, and Reason (R) is TRUE. For example, the median of {2, 4} is (2+4)/2 = 3, which is not in the original dataset!
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 5: INTERACTIVE QUIZ ENGINE ================= -->
+    <section id="quiz">
+      <h2 class="section-title"><i class="fa-solid fa-circle-question"></i> Section 5: Interactive Mastery Quiz</h2>
+
+      <div style="background: var(--primary-light); padding: 1rem 1.25rem; border-radius: 0.75rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-weight: 700; color: var(--primary-dark);"><i class="fa-solid fa-trophy"></i> Your Score: <span id="quizScoreCount">0</span> / 6</span>
+        <span id="quizTeacherMsg" style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted);">Select your answers to see instant feedback!</span>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-card" id="q1">
+        <div class="quiz-question">1. What is the mean of the first five prime numbers (2, 3, 5, 7, 11)?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="checkQuiz(1, 0, false)">A) 5.0</button>
+          <button class="quiz-option" onclick="checkQuiz(1, 1, true)">B) 5.6</button>
+          <button class="quiz-option" onclick="checkQuiz(1, 2, false)">C) 6.0</button>
+          <button class="quiz-option" onclick="checkQuiz(1, 3, false)">D) 28</button>
+        </div>
+        <div class="quiz-feedback" id="fb1"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-card" id="q2">
+        <div class="quiz-question">2. Which term was used by Bhaskaracharya (1150 CE) for the Arithmetic Mean?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="checkQuiz(2, 0, true)">A) Samamiti</button>
+          <button class="quiz-option" onclick="checkQuiz(2, 1, false)">B) Samarajju</button>
+          <button class="quiz-option" onclick="checkQuiz(2, 2, false)">C) Samikarana</button>
+          <button class="quiz-option" onclick="checkQuiz(2, 3, false)">D) Samya</button>
+        </div>
+        <div class="quiz-feedback" id="fb2"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-card" id="q3">
+        <div class="quiz-question">3. What is the median of the dataset: 14, 8, 22, 10, 19, 12?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="checkQuiz(3, 0, false)">A) 12</button>
+          <button class="quiz-option" onclick="checkQuiz(3, 1, true)">B) 13</button>
+          <button class="quiz-option" onclick="checkQuiz(3, 2, false)">C) 14</button>
+          <button class="quiz-option" onclick="checkQuiz(3, 3, false)">D) 14.16</button>
+        </div>
+        <div class="quiz-feedback" id="fb3"></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-card" id="q4">
+        <div class="quiz-question">4. Which measure of central tendency is least affected by an extreme outlier?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="checkQuiz(4, 0, false)">A) Arithmetic Mean</button>
+          <button class="quiz-option" onclick="checkQuiz(4, 1, true)">B) Median</button>
+          <button class="quiz-option" onclick="checkQuiz(4, 2, false)">C) Range</button>
+          <button class="quiz-option" onclick="checkQuiz(4, 3, false)">D) Total Sum</button>
+        </div>
+        <div class="quiz-feedback" id="fb4"></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-card" id="q5">
+        <div class="quiz-question">5. If the maximum value in a dataset is 48 and the range is 29, what is the minimum value?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="checkQuiz(5, 0, true)">A) 19</button>
+          <button class="quiz-option" onclick="checkQuiz(5, 1, false)">B) 77</button>
+          <button class="quiz-option" onclick="checkQuiz(5, 2, false)">C) 24</button>
+          <button class="quiz-option" onclick="checkQuiz(5, 3, false)">D) 29</button>
+        </div>
+        <div class="quiz-feedback" id="fb5"></div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-card" id="q6">
+        <div class="quiz-question">6. What type of graph is best suited for comparing two sets of related data across multiple categories simultaneously?</div>
+        <div class="quiz-options">
+          <button class="quiz-option" onclick="checkQuiz(6, 0, false)">A) Single line plot</button>
+          <button class="quiz-option" onclick="checkQuiz(6, 1, true)">B) Double Bar Graph</button>
+          <button class="quiz-option" onclick="checkQuiz(6, 2, false)">C) Tally chart</button>
+          <button class="quiz-option" onclick="checkQuiz(6, 3, false)">D) Circle Venn diagram</button>
+        </div>
+        <div class="quiz-feedback" id="fb6"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="Go to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2026 Sujit Classes &bull; Ganita Prakash Class 7 Mathematics Master Series.</p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem;">Designed strictly adhering to NEP guidelines, NCERT Part 2 syllabus, and high-performance vertical web design.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // 1. Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTop');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.style.display = 'flex';
+        } else {
+          btt.style.display = 'none';
+        }
+      }
+    });
+
+    // 2. Audio Reader
+    var synth = window.speechSynthesis;
+    var isSpeaking = false;
+
+    function toggleAudioReader() {
+      var btn = document.getElementById('ttsToggleBtn');
+      if (!synth) {
+        alert("Sorry, your browser doesn't support Text-to-Speech.");
+        return;
+      }
+      if (isSpeaking) {
+        synth.cancel();
+        isSpeaking = false;
+        btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Listen to Notes';
+      } else {
+        var text = document.querySelector('main').innerText;
+        var utter = new SpeechSynthesisUtterance(text);
+        utter.rate = 0.95;
+        utter.pitch = 1.0;
+        utter.onend = function() {
+          isSpeaking = false;
+          btn.innerHTML = '<i class="fa-solid fa-volume-high"></i> Listen to Notes';
+        };
+        synth.speak(utter);
+        isSpeaking = true;
+        btn.innerHTML = '<i class="fa-solid fa-pause"></i> Pause Audio';
+      }
+    }
+
+    // 3. Quiz Engine
+    var quizState = {};
+    var totalQuestions = 6;
+
+    var explanations = {
+      1: "Sum = 2 + 3 + 5 + 7 + 11 = 28. Mean = 28 &divide; 5 = 5.6.",
+      2: "Bhaskaracharya (1150 CE) used the Sanskrit term 'Samamiti' (meaning equal measure).",
+      3: "Sorted: 8, 10, 12, 14, 19, 22. Median is average of 3rd and 4th values: (12 + 14) &divide; 2 = 13.",
+      4: "The Median tracks the physical middle order, making it completely resilient to extreme outlying values.",
+      5: "Range = Max &minus; Min &rArr; 29 = 48 &minus; Min &rArr; Min = 48 &minus; 29 = 19.",
+      6: "A Double Bar Graph displays two side-by-side bars for each category, enabling direct simultaneous comparisons."
+    };
+
+    function checkQuiz(qNum, optionIdx, isCorrect) {
+      if (quizState[qNum] !== undefined) return;
+      quizState[qNum] = isCorrect;
+
+      var card = document.getElementById('q' + qNum);
+      var options = card.querySelectorAll('.quiz-option');
+      var fb = document.getElementById('fb' + qNum);
+
+      options.forEach(function(opt, idx) {
+        opt.disabled = true;
+        opt.style.cursor = 'default';
+        if (idx === optionIdx) {
+          if (isCorrect) {
+            opt.classList.add('correct');
+          } else {
+            opt.classList.add('wrong');
+          }
+        }
+      });
+
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.style.background = '#dcfce7';
+        fb.style.color = '#15803d';
+        fb.innerHTML = '<strong><i class="fa-solid fa-circle-check"></i> Correct!</strong> ' + explanations[qNum];
+      } else {
+        fb.style.background = '#fee2e2';
+        fb.style.color = '#b91c1c';
+        fb.innerHTML = '<strong><i class="fa-solid fa-circle-xmark"></i> Incorrect.</strong> ' + explanations[qNum];
+      }
+
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🎉 Brilliant! 100% Score! You are a Data Detective Master!";
+        } else if (score >= 4) {
+          msgEl.textContent = "👏 Great job! You understand Mean, Median, and Data Visualization well!";
+        } else if (answered > 0) {
+          msgEl.textContent = "💪 Keep learning! Review the teacher explanations above.";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
