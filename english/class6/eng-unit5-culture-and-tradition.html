@@ -858,6 +858,26 @@
     </div>
   </header>
 
+  <!-- Sticky Pill Navigation Bar -->
+  <div class="top-bar">
+    <div class="nav-links">
+      <a href="#section1">🗺️ Mind Map</a>
+      <a href="#section2">📖 Text Notes</a>
+      <a href="#section3">📝 Grammar Bank</a>
+      <a href="#section4">✅ NCERT Solutions</a>
+      <a href="#section5">🎯 Question Bank</a>
+      <a href="#section6">⚠️ Exam Mistakes</a>
+    </div>
+    <div class="toolbar-actions">
+      <button class="btn btn-primary" id="teacherAudioBtn" onclick="toggleTeacherAudio()">
+        <span>🔊 Listen to Notes</span>
+      </button>
+      <button class="btn" onclick="toggleAllAnswers(true)">➕ Expand All</button>
+      <button class="btn" onclick="toggleAllAnswers(false)">➖ Collapse All</button>
+    </div>
+  </div>
+
+
   <div class="container">
     <!-- Table of Contents -->
     <nav class="toc-card" aria-label="Table of contents">
@@ -873,7 +893,7 @@
     </nav>
 
     <!-- SECTION 1: MIND MAP & BLUEPRINT -->
-    <section id="sec1" class="section-card">
+    <section id="section1" class="section-card">
       <h2 class="section-title"><span>🗺</span> Section 1: Visual Mind Map & Chapter Blueprint</h2>
       <p>Unit 5 introduces students to the magnificent tapestry of Indian heritage, showcasing how folk arts, poetic imagination, resilience over physical adversity, and selfless national defence form the core identity of our country.</p>
 
@@ -988,7 +1008,7 @@
     </section>
 
     <!-- SECTION 2: EXHAUSTIVE NOTES & BILINGUAL ODIA -->
-    <section id="sec2" class="section-card">
+    <section id="section2" class="section-card">
       <h2 class="section-title"><span>📖</span> Section 2: Exhaustive Topic-by-Topic Notes with Bilingual Odia Support</h2>
 
       <!-- SUBSECTION 2.1: HAMARA BHARAT -->
@@ -1388,7 +1408,7 @@
     </section>
 
     <!-- SECTION 3: LITERARY DEVICES & GRAMMAR BANK -->
-    <section id="sec3" class="section-card">
+    <section id="section3" class="section-card">
       <h2 class="section-title"><span>📝</span> Section 3: Rapid Revision Literary Devices & Grammar Bank</h2>
 
       <!-- LITERARY DEVICES -->
@@ -1461,7 +1481,7 @@
     </section>
 
     <!-- SECTION 4: 100% SOLVED NCERT SOLUTIONS -->
-    <section id="sec4" class="section-card">
+    <section id="section4" class="section-card">
       <h2 class="section-title"><span>✅</span> Section 4: 100% Complete NCERT Solutions (In-Text & Back Exercises)</h2>
       <p>Every single discussion question, fill-in-the-blank, grammar task, and reflection prompt from the NCERT textbook <em>Poorvi</em> Unit 5 solved with complete point-wise topper explanations.</p>
 
@@ -1804,64 +1824,77 @@
     </section>
 
     <!-- SECTION 5: COMPETENCY QUESTION BANK -->
-    <section id="sec5" class="section-card">
+    <section id="section5" class="section-card">
       <h2 class="section-title"><span>🎯</span> Section 5: Exhaustive CBSE/BSE Competency Question Bank</h2>
       <p>Specially curated multi-tier questions strictly adhering to NEP 2020 competency frameworks to ensure students score full marks in terminal examinations.</p>
 
       <!-- 5 MCQs -->
-      <h3>Part A: 5 High-Yield MCQs with Traps Explained</h3>
-
-      <div class="callout callout-pyq">
-        <p><strong>Q1. Dhokra metal craft is executed through which ancient scientific technique?</strong><br>
-        (A) Sand casting<br>
-        (B) Lost-wax casting (Cire Perdue)<br>
-        (C) Electroplating<br>
-        (D) Die stamping</p>
-        <p><strong>Answer: (B) Lost-wax casting (Cire Perdue)</strong><br>
-        <em>Conceptual Trap:</em> Students often confuse general metal moulding with the specific tribal technique of lost-wax casting, where a wax layer is completely melted out and replaced with molten bronze/brass scrap.</p>
+      
+      <h3>Part A: Interactive Multiple Choice Questions (MCQs)</h3>
+      <div class="quiz-score-board" id="quizScoreBoard">
+        Quiz Score: <span id="currentScore">0</span> / 5 answered correctly
       </div>
 
-      <div class="callout callout-pyq">
-        <p><strong>Q2. In the poem 'The Kites', what literary device is used in the phrase 'Like coloured birds'?</strong><br>
-        (A) Metaphor<br>
-        (B) Personification<br>
-        (C) Simile<br>
-        (D) Hyperbole</p>
-        <p><strong>Answer: (C) Simile</strong><br>
-        <em>Conceptual Trap:</em> Whenever the explicit comparison word 'like' or 'as' is present, the device is a <strong>Simile</strong>, not a metaphor.</p>
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qCard1">
+        <div class="quiz-question">Q1. Dhokra metal craft is executed through which ancient scientific metallurgical technique?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 0, false)">A. Sand mold casting</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 1, true)">B. Lost-wax casting (Cire Perdue) method</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 2, false)">C. Modern industrial die stamping</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(1, 3, false)">D. Chemical electroplating</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback1"></div>
       </div>
 
-      <div class="callout callout-pyq">
-        <p><strong>Q3. Which lightweight wood is traditionally used to carve Kondapalli toys in Andhra Pradesh?</strong><br>
-        (A) Teak wood<br>
-        (B) Tella Poniki wood<br>
-        (C) Sandalwood<br>
-        (D) Rosewood</p>
-        <p><strong>Answer: (B) Tella Poniki wood</strong><br>
-        <em>Conceptual Trap:</em> Hardwoods like Teak or expensive woods like Sandalwood are not used because Kondapalli toys require easily sculptable, lightweight white wood.</p>
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qCard2">
+        <div class="quiz-question">Q2. In the poem "The Kites" by Daphne Lister, what poetic device is used in the phrase "Like coloured birds"?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 0, false)">A. Metaphor</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 1, false)">B. Personification</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 2, true)">C. Simile</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(2, 3, false)">D. Hyperbole</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback2"></div>
       </div>
 
-      <div class="callout callout-pyq">
-        <p><strong>Q4. Choose the sentence with the grammatically correct quantifier:</strong><br>
-        (A) Ila had much techniques in Kathiawar embroidery.<br>
-        (B) How many milk is left in the container?<br>
-        (C) There are many historical monuments in New Delhi.<br>
-        (D) I saw much birds flying over the park.</p>
-        <p><strong>Answer: (C) There are many historical monuments in New Delhi.</strong><br>
-        <em>Conceptual Trap:</em> 'Monuments' is a countable plural noun, so 'many' is mandatory. 'Much' cannot be used with countable nouns like 'techniques' or 'birds'.</p>
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qCard3">
+        <div class="quiz-question">Q3. Which lightweight indigenous wood is traditionally used to carve Kondapalli toys in Andhra Pradesh?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 0, false)">A. Teak wood</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 1, true)">B. Tella Poniki wood</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 2, false)">C. Fragrant sandalwood</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(3, 3, false)">D. Rosewood</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback3"></div>
       </div>
 
-      <div class="callout callout-pyq">
-        <p><strong>Q5. What highest national honour was conferred upon Ila Sachani for her inspirational embroidery art?</strong><br>
-        (A) Bharat Ratna<br>
-        (B) President's Medal<br>
-        (C) Param Vir Chakra<br>
-        (D) Padma Vibhushan</p>
-        <p><strong>Answer: (B) President's Medal</strong><br>
-        <em>Conceptual Trap:</em> Param Vir Chakra is the highest wartime military gallantry medal, whereas Ila received the President's Medal for exceptional craftsmanship and determination.</p>
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qCard4">
+        <div class="quiz-question">Q4. Which sentence demonstrates the grammatically correct usage of the quantifier 'many'?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 0, false)">A. How many milk is left in the brass pot?</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 1, false)">B. Ila showed much techniques in her embroidery.</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 2, true)">C. There are many historical monuments and memorials in New Delhi.</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(4, 3, false)">D. The kite flyers had much kites in their baskets.</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback4"></div>
       </div>
 
-      <!-- 4 Assertion & Reasoning -->
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qCard5">
+        <div class="quiz-question">Q5. What prestigious national honour was conferred upon Ila Sachani for her extraordinary foot embroidery art?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 0, false)">A. Bharat Ratna</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 1, true)">B. President's Medal</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 2, false)">C. Param Vir Chakra</button>
+          <button class="quiz-opt-btn" onclick="handleQuiz(5, 3, false)">D. Khel Ratna Award</button>
+        </div>
+        <div class="quiz-feedback" id="qFeedback5"></div>
+      </div>
+<!-- 4 Assertion & Reasoning -->
       <h3>Part B: 4 Assertion & Reasoning Questions</h3>
 
       <div class="callout callout-hack">
@@ -2103,7 +2136,7 @@
     </section>
 
     <!-- SECTION 6: EXAM HALL MISTAKES & RAPID REVISION -->
-    <section id="sec6" class="section-card">
+    <section id="section6" class="section-card">
       <h2 class="section-title"><span>⚠️</span> Section 6: Exam Hall Mistakes & 15 Rapid Revision One-Liners</h2>
 
       <!-- 5 Common Mistakes -->
@@ -2152,6 +2185,72 @@
 
   <!-- JavaScript for Audio Reader & Interactive Quiz -->
   <script>
+
+    // Interactive Quiz Engine for Section 5
+    var quizState = { 1: false, 2: false, 3: false, 4: false, 5: false };
+    var quizFeedbackData = {
+      1: {
+        correct: "✓ Correct! Dhokra craft relies on the 4,000-year-old 'lost-wax' (Cire Perdue) casting technique, an unbroken metallurgical tradition dating back to the Harappan Dancing Girl.",
+        incorrect: "✗ Conceptual Trap: Dhokra does NOT use modern die stamping or sand molds. Artisans model bees-wax, cover it with clay, and melt the wax out through runners so molten metal fills the exact hollow cavity."
+      },
+      2: {
+        correct: "✓ Correct! The explicit presence of 'Like' ('Like coloured birds') makes it a Simile, directly comparing flying kites to fluttering birds.",
+        incorrect: "✗ Conceptual Trap: A metaphor states one thing IS another without 'like' or 'as'. Because Daphne Lister used 'Like coloured birds', it is definitely a Simile."
+      },
+      3: {
+        correct: "✓ Correct! Kondapalli toys are carved exclusively from 'Tella Poniki' (soft, lightweight white wood) found in the surrounding Andhra hills.",
+        incorrect: "✗ Conceptual Trap: Hardwoods like Teak or expensive woods like Sandalwood are too dense and heavy for delicate village toy carving."
+      },
+      4: {
+        correct: "✓ Correct! 'Monuments' is a plural countable noun, requiring 'many'.",
+        incorrect: "✗ Conceptual Trap: 'Milk' is uncountable (requires 'much'), while 'techniques' and 'kites' are countable (require 'many'). Only Option C is grammatically flawless."
+      },
+      5: {
+        correct: "✓ Correct! Ila Sachani was honored with the prestigious President's Medal for her inspirational mastery of Kathiawar needlework using her feet.",
+        incorrect: "✗ Conceptual Trap: Param Vir Chakra is wartime military gallantry. Ila received the President's Medal for artistic resilience and cultural contribution."
+      }
+    };
+
+    function handleQuiz(qNum, optIdx, isCorrect) {
+      var card = document.getElementById('qCard' + qNum);
+      if (!card) return;
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var fb = document.getElementById('qFeedback' + qNum);
+
+      btns.forEach(function(b, idx) {
+        b.disabled = true;
+        b.classList.remove('correct-opt', 'wrong-opt');
+        if (idx === optIdx) {
+          b.classList.add(isCorrect ? 'correct-opt' : 'wrong-opt');
+        }
+      });
+
+      if (fb) {
+        fb.style.display = 'block';
+        fb.className = 'quiz-feedback ' + (isCorrect ? 'correct-fb' : 'incorrect-fb');
+        fb.textContent = isCorrect ? quizFeedbackData[qNum].correct : quizFeedbackData[qNum].incorrect;
+      }
+
+      quizState[qNum] = isCorrect;
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      for (var k in quizState) {
+        if (quizState[k]) score++;
+      }
+      var scoreEl = document.getElementById('currentScore');
+      if (scoreEl) scoreEl.textContent = score;
+    }
+
+    function toggleAllAnswers(openState) {
+      document.querySelectorAll('details.ans-box').forEach(function(d) {
+        d.open = openState;
+      });
+    }
+
+
     // Reading Progress Indicator
     window.addEventListener('scroll', () => {
       const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
@@ -2282,7 +2381,7 @@
         utterance.pitch = 1.0;
         utterance.onend = function() {
           teacherSpeechActive = false;
-          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+          if (btn) btn.innerHTML = "<span>🔊 Listen to Teacher's Summary</span>";
         };
         window.speechSynthesis.speak(utterance);
         teacherSpeechActive = true;
@@ -2290,7 +2389,7 @@
       } else {
         window.speechSynthesis.cancel();
         teacherSpeechActive = false;
-        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+        if (btn) btn.innerHTML = "<span>🔊 Listen to Teacher's Summary</span>";
       }
     }
 
