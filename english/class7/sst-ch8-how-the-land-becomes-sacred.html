@@ -1,0 +1,1587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 8 - How the Land Becomes Sacred (Class 7 Social Science)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #d97706;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --rose: #e11d48;
+      --rose-light: #ffe4e6;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 1rem;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Reading Progress Bar */
+    #read-progress-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: transparent;
+      z-index: 1000;
+    }
+    #read-progress {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #059669, #0284c7, #f59e0b);
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Nav */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.75rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 990;
+    }
+    .brand-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .btn-icon {
+      background: var(--light);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 0.5rem 0.85rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+    .btn-icon:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-color: var(--primary);
+    }
+
+    /* Header Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #065f46 50%, #047857 100%);
+      color: #ffffff;
+      padding: 3.5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-banner::after {
+      content: "";
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(52, 211, 153, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.2);
+      color: #a7f3d0;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      backdrop-filter: blur(5px);
+    }
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      line-height: 1.25;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      color: #d1fae5;
+    }
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: #a7f3d0;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 950px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Card styling */
+    .note-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease;
+    }
+    .note-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 0.6rem;
+    }
+    .section-title i {
+      color: var(--primary);
+    }
+
+    .subheading {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 1.5rem 0 0.75rem;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      text-align: justify;
+    }
+
+    strong {
+      color: var(--dark);
+    }
+
+    /* Epigraph Box */
+    .epigraph-box {
+      background: linear-gradient(135deg, #ecfdf5 0%, #e0f2fe 100%);
+      border-left: 5px solid var(--primary);
+      border-radius: 0 12px 12px 0;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      font-style: italic;
+      color: #064e3b;
+    }
+    .epigraph-author {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 0.9rem;
+      color: var(--primary-dark);
+      margin-top: 0.5rem;
+      text-align: right;
+    }
+
+    /* Highlight & Note Boxes */
+    .teacher-tip {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      border-radius: 0 10px 10px 0;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+    }
+    .teacher-tip strong {
+      color: var(--primary-dark);
+    }
+
+    .myth-box {
+      background: var(--accent-light);
+      border-left: 4px solid var(--accent);
+      padding: 1rem 1.25rem;
+      border-radius: 0 10px 10px 0;
+      margin: 1.25rem 0;
+      font-size: 0.95rem;
+      color: #78350f;
+    }
+    .myth-box strong {
+      color: #92400e;
+    }
+
+    .eco-box {
+      background: #ecfdf5;
+      border: 1px solid #a7f3d0;
+      padding: 1.25rem;
+      border-radius: 12px;
+      margin: 1.25rem 0;
+    }
+    .eco-box-title {
+      font-weight: 700;
+      color: #065f46;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Comparison & Info Tables */
+    .table-wrapper {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    .content-table th, .content-table td {
+      padding: 0.85rem 1rem;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .content-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      font-weight: 700;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .content-table tr:hover {
+      background: #f8fafc;
+    }
+
+    /* SVG Containers */
+    .svg-container {
+      width: 100%;
+      margin: 1.75rem 0;
+      padding: 1rem;
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .svg-container svg {
+      max-width: 100%;
+      height: auto;
+    }
+    .svg-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    /* Collapsible Answer Boxes (Zero Omission) */
+    details.ans-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+    summary.ans-header {
+      padding: 0.9rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #f8fafc;
+      transition: background 0.2s ease;
+    }
+    details.ans-box[open] summary.ans-header {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+    summary.ans-header::-webkit-details-marker {
+      display: none;
+    }
+    .ans-body {
+      padding: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      color: var(--text);
+    }
+    .tag-pill {
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .tag-explore { background: var(--secondary-light); color: var(--secondary); }
+    .tag-think { background: var(--accent-light); color: var(--accent); }
+    .tag-ncert { background: var(--primary-light); color: var(--primary-dark); }
+    .tag-missout { background: var(--rose-light); color: var(--rose); }
+
+    /* Interactive Quiz Section */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.25rem;
+      margin-bottom: 1.25rem;
+    }
+    .quiz-q {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: var(--dark);
+      margin-bottom: 0.85rem;
+    }
+    .quiz-opts {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .quiz-opt-btn {
+      text-align: left;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+      background: var(--light);
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      transition: all 0.2s ease;
+      color: var(--text);
+    }
+    .quiz-opt-btn:hover {
+      background: #e2e8f0;
+    }
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 600;
+    }
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+    .quiz-feedback {
+      margin-top: 0.75rem;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      display: none;
+    }
+    .score-banner {
+      background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+      color: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Key Terms Grid */
+    .terms-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1rem;
+      margin: 1.25rem 0;
+    }
+    .term-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 1rem;
+    }
+    .term-name {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 0.3rem;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+    .term-def {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: #94a3b8;
+      text-align: center;
+      padding: 2.5rem 1rem;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+    footer a { color: #38bdf8; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hero-title { font-size: 1.7rem; }
+      .note-card { padding: 1.25rem; }
+      .top-nav { padding: 0.6rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="read-progress-container">
+    <div id="read-progress"></div>
+  </div>
+
+  <!-- Top Sticky Navigation -->
+  <header class="top-nav">
+    <a href="../../index.html" class="brand-link">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>Sujit Classes</span>
+    </a>
+    <div class="nav-actions">
+      <button class="btn-icon" id="tts-toggle" title="Listen to Chapter Summary">
+        <i class="fa-solid fa-volume-high"></i> <span id="tts-label">Read Aloud</span>
+      </button>
+      <a href="../../index.html#notes" class="btn-icon">
+        <i class="fa-solid fa-arrow-left"></i> <span>Dashboard</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <span class="hero-badge"><i class="fa-solid fa-seedling"></i> NCERT Grade 7 Social Science</span>
+    <h1 class="hero-title">Chapter 8: How the Land Becomes Sacred</h1>
+    <p class="hero-sub">Exploring Sacred Geography, Tīrtha Pilgrim Circuits, Sacred Groves, Reverence for Nature, and Civilisational Unity in the Indian Subcontinent.</p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> Unit: Our Cultural Heritage</span>
+      <span><i class="fa-solid fa-clock"></i> Reading Time: ~35 Mins</span>
+      <span><i class="fa-solid fa-check-double"></i> Zero-Omission Complete Notes & Solutions</span>
+    </div>
+  </section>
+
+  <!-- Main Content Wrapper -->
+  <main class="main-container">
+
+    <!-- Epigraph Box -->
+    <div class="epigraph-box">
+      "Ether, air, fire, water, earth, planets, all creatures, directions, trees and plants, rivers and seas, are organs of the supreme Lord's body."
+      <div class="epigraph-author">— Bhāgavata Purāṇa</div>
+    </div>
+
+    <!-- Section 1: The Big Questions & What is 'Sacredness'? -->
+    <section class="note-card" id="sec-1">
+      <h2 class="section-title"><i class="fa-solid fa-question-circle"></i> 1. The Big Questions & Understanding 'Sacredness'</h2>
+      
+      <p>Why do millions of Indians travel across deserts, snowy Himalayan passes, and dense forests to visit a shrine? Why is a river not just flowing water, but a mother (<strong>Mā Ganga</strong>)? Why is a mountain not just a pile of stone and minerals, but a living guardian deity? This chapter explores the magnificent idea of <strong>Sacred Geography</strong>—how culture, spirituality, and geography blend together to make the entire Indian subcontinent feel like a single living home.</p>
+
+      <div class="teacher-tip">
+        <strong>Teacher's Key Insight:</strong> For Class 7 students, understanding 'Sacredness' does not merely mean studying religious dogmas. It means discovering how our ancestors developed an extraordinarily deep, respectful bond with Nature—rivers, forests, hills, animals—and how nationwide pilgrimage networks tied our diverse subcontinent into an integrated, enduring civilisational community!
+      </div>
+
+      <h3 class="subheading">Four Core Questions Explored in This Chapter</h3>
+      <ol style="margin-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li><strong>What is 'Sacredness'?</strong> It is finding deep religious, spiritual, or ethical significance in a place, element, or journey—deeming it worthy of profound reverence and protection.</li>
+        <li><strong>How does the land become sacred?</strong> The land becomes sacred through holy narratives, presence of enlightened masters and avatars, ecological reverence, and the feet of millions of pilgrims traveling across it for thousands of years.</li>
+        <li><strong>How do sacred sites and pilgrimage networks connect with everyday life?</strong> They foster spiritual purification, community bonding, regional trade, pan-Indian communication, and ecological conservation.</li>
+        <li><strong>What role did sacred geography play in cultural integration?</strong> It dissolved political boundaries, united people speaking hundreds of different languages, and established a shared civilisational identity.</li>
+      </ol>
+
+      <h3 class="subheading">Sacred Sites Across Different Faiths in India</h3>
+      <p>India is a land of multiple profound spiritual traditions, both those that originated here and those welcomed from across the seas:</p>
+
+      <div class="table-wrapper">
+        <table class="content-table">
+          <thead>
+            <tr>
+              <th>Faith / Tradition</th>
+              <th>Prominent Sacred Sites</th>
+              <th>Spiritual & Cultural Significance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Buddhism</strong></td>
+              <td>Bodh Gaya (Bihar), Sarnath (UP), Sanchi Stupa (MP), Kushinagar (UP)</td>
+              <td>Associated with Buddha's Enlightenment (Bodhi Tree), First Sermon (Dharmachakra), and sacred relic stupas. Bodh Gaya receives over 4 million pilgrims annually.</td>
+            </tr>
+            <tr>
+              <td><strong>Jainism</strong></td>
+              <td>Mount Abu, Girnar, Shatrunjaya Hill (Palitana, Gujarat), Shikharji (Jharkhand)</td>
+              <td>Dedicated to the 24 <em>Tīrthankaras</em> (spiritual bridge-makers) who attained liberation or meditated on these sacred hills.</td>
+            </tr>
+            <tr>
+              <td><strong>Sikhism</strong></td>
+              <td>Golden Temple & Akal Takht (Amritsar), Takht Sri Patna Sahib, Takht Sri Keshgarh Sahib</td>
+              <td>Seats of spiritual authority (<em>Takhts</em>) and places blessed by the Sikh Gurus. Guru Nanak himself undertook extensive journeys (<em>Udasis</em>) across India.</td>
+            </tr>
+            <tr>
+              <td><strong>Islam</strong></td>
+              <td>Dargah Sharif of Khwaja Moinuddin Chishti (Ajmer, Rajasthan), Nizamuddin (Delhi)</td>
+              <td>Sufi shrines visited by millions of people across all religious communities seeking peace, brotherhood, and divine grace.</td>
+            </tr>
+            <tr>
+              <td><strong>Christianity</strong></td>
+              <td>Basilica of Our Lady of Good Health (Velankanni, Tamil Nadu), San Thome (Chennai)</td>
+              <td>Revered pilgrim destinations celebrated for spiritual healing and faith, visited by pilgrims of all backgrounds.</td>
+            </tr>
+            <tr>
+              <td><strong>Hinduism & Tribal Traditions</strong></td>
+              <td>Char Dham, 12 Jyotirlingas, 51 Shakti Peethas, Niyamgiri hills, sacred groves</td>
+              <td>Vast nationwide network connecting natural elements (mountains, rivers, forests) with the Divine Mother (<em>Bhūdevī</em>) and major deities.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- SVG 1: Panchamahabhutas -->
+      <div class="svg-container">
+        <svg viewBox="0 0 700 280" width="100%" height="280" xmlns="http://www.w3.org/2000/svg">
+          <rect width="700" height="280" fill="#f0fdf4" rx="16"/>
+          <!-- Central Circle -->
+          <circle cx="350" cy="140" r="62" fill="#059669" filter="drop-shadow(0 4px 6px rgba(0,0,0,0.15))"/>
+          <text x="350" y="132" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="14" fill="#ffffff" text-anchor="middle">SACRED</text>
+          <text x="350" y="152" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="14" fill="#ffffff" text-anchor="middle">GEOGRAPHY</text>
+          
+          <!-- Element 1: Earth (Prithvi) -->
+          <circle cx="160" cy="75" r="42" fill="#d97706"/>
+          <text x="160" y="70" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="12" fill="#fff" text-anchor="middle">PRITHVI</text>
+          <text x="160" y="85" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#fef3c7" text-anchor="middle">Mother Earth / Soil</text>
+
+          <!-- Element 2: Water (Jala) -->
+          <circle cx="540" cy="75" r="42" fill="#0284c7"/>
+          <text x="540" y="70" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="12" fill="#fff" text-anchor="middle">JALA</text>
+          <text x="540" y="85" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#e0f2fe" text-anchor="middle">Rivers & Sangams</text>
+
+          <!-- Element 3: Fire / Energy (Agni) -->
+          <circle cx="120" cy="205" r="42" fill="#dc2626"/>
+          <text x="120" y="200" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="12" fill="#fff" text-anchor="middle">AGNI</text>
+          <text x="120" y="215" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#fee2e2" text-anchor="middle">Sun & Inner Spirit</text>
+
+          <!-- Element 4: Air (Vayu) -->
+          <circle cx="580" cy="205" r="42" fill="#0d9488"/>
+          <text x="580" y="200" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="12" fill="#fff" text-anchor="middle">VAYU</text>
+          <text x="580" y="215" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#ccfbf1" text-anchor="middle">Vital Breath / Prana</text>
+
+          <!-- Element 5: Space (Akasha) -->
+          <circle cx="350" cy="40" r="32" fill="#7c3aed"/>
+          <text x="350" y="36" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="11" fill="#fff" text-anchor="middle">AKASHA</text>
+          <text x="350" y="49" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#ede9fe" text-anchor="middle">Ether / Cosmos</text>
+
+          <!-- Connecting Lines -->
+          <line x1="202" y1="90" x2="295" y2="120" stroke="#059669" stroke-width="2" stroke-dasharray="4"/>
+          <line x1="498" y1="90" x2="405" y2="120" stroke="#059669" stroke-width="2" stroke-dasharray="4"/>
+          <line x1="162" y1="195" x2="292" y2="155" stroke="#059669" stroke-width="2" stroke-dasharray="4"/>
+          <line x1="538" y1="195" x2="408" y2="155" stroke="#059669" stroke-width="2" stroke-dasharray="4"/>
+          <line x1="350" y1="72" x2="350" y2="78" stroke="#059669" stroke-width="2" stroke-dasharray="4"/>
+
+          <!-- Bottom Banner -->
+          <rect x="180" y="240" width="340" height="28" fill="#ffffff" rx="14" stroke="#059669" stroke-width="1.5"/>
+          <text x="350" y="258" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="11" fill="#047857" text-anchor="middle">PAÑCHAMAHĀBHŪTAS: The Five Elements as Divine Manifestations</text>
+        </svg>
+        <span class="svg-caption">Figure 8.1: In the Indian worldview, the five great natural elements (Pañchamahābhūtas) are organs of the Supreme Divine, forming the bedrock of sacred ecology.</span>
+      </div>
+    </section>
+
+    <!-- Section 2: Dense Networks of Pilgrimage & Sacred Geography -->
+    <section class="note-card" id="sec-2">
+      <h2 class="section-title"><i class="fa-solid fa-map-marked-alt"></i> 2. Pilgrimage Networks: Weaving the Geography into One Sacred Web</h2>
+
+      <p>The Sanskrit word <strong>Tīrtha</strong> literally signifies a shallow crossing or ford in a river where one can cross over safely. Metaphorically, a <em>tīrtha</em> is a spiritual ford—a sacred site where human beings can easily cross over from mundane, worldly worries to higher consciousness and peace.</p>
+
+      <p>Unlike many ancient civilisations where religion was tightly confined within the borders of a single kingdom, Indian spirituality mapped itself directly across the entire length and breadth of the subcontinent. Long before modern railway tracks, asphalt highways, or GPS existed, Indians constantly traveled on foot and by bullock cart from the snows of the Himalayas down to the southern ocean.</p>
+
+      <h3 class="subheading">Key Pan-Indian Sacred Circuits</h3>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li><strong>The Chār Dhām (Four Abodes):</strong> Strategically anchored in the four corners of India—<strong>Badrinath</strong> in the North (Uttarakhand), <strong>Rameshwaram</strong> in the South (Tamil Nadu), <strong>Puri</strong> (Jagannatha) in the East (Odisha), and <strong>Dwarka</strong> in the West (Gujarat). Anyone completing this circuit was compelled to experience the entirety of India's cultural tapestry.</li>
+        <li><strong>The 12 Jyotirlingas:</strong> Auspicious shrines of Shiva spanning from Somnath and Nageshwar in Gujarat, Kedarnath in Uttarakhand, Mahakaleshwar and Omkareshwar in MP, Kashi Vishwanath in UP, Baidyanath in Jharkhand, Trimbakeshwar, Bhimashankar and Grishneshwar in Maharashtra, Mallikarjuna in Andhra Pradesh, to Rameshwaram in Tamil Nadu.</li>
+        <li><strong>The 51 Shakti Pīṭhas:</strong> Dotted throughout the subcontinent (including sites in present-day Pakistan and Bangladesh, such as Hinglaj Mata and Sugandha). According to sacred legend, when Sati's body was severed by Vishnu's Sudarshana Chakra to calm Shiva's grief, her sacred limbs fell at 51 locations. <em>The profound symbolism is clear: the entire physical land of India is the living body of the Divine Mother!</em></li>
+        <li><strong>The Chota Chār Dhām of the Himalayas:</strong> Yamunotri, Gangotri, Kedarnath, and Badrinath in the Garhwal Himalayas.</li>
+        <li><strong>The Pandharpur Wāri:</strong> An 800-year-old annual pilgrimage in Maharashtra where lakhs of pilgrims (<em>Varkaris</em>) walk together on foot for 21 days singing abhangs of saints Tukaram and Dnyaneshwar to the Vithoba temple.</li>
+        <li><strong>Sabarimala:</strong> The hilltop shrine of Lord Ayyappa in the thick forests of the Western Ghats (Kerala), where over 10 million pilgrims observe 41 days of austere vows (<em>vratham</em>) before trekking through dense jungles.</li>
+      </ul>
+
+      <!-- SVG 2: Pilgrim Circuits -->
+      <div class="svg-container">
+        <svg viewBox="0 0 700 360" width="100%" height="360" xmlns="http://www.w3.org/2000/svg">
+          <rect width="700" height="360" fill="#f8fafc" rx="16"/>
+          
+          <!-- Outer Boundary Diamond representing India's 4 Corners -->
+          <polygon points="350,45 610,180 350,315 90,180" fill="#ecfdf5" stroke="#059669" stroke-width="2" stroke-dasharray="6,4"/>
+
+          <!-- 4 Cardinal Nodes (Char Dham) -->
+          <!-- North: Badrinath -->
+          <circle cx="350" cy="45" r="28" fill="#0284c7" stroke="#fff" stroke-width="3"/>
+          <text x="350" y="42" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="10" fill="#fff" text-anchor="middle">NORTH</text>
+          <text x="350" y="54" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="10" fill="#fff" text-anchor="middle">Badrinath</text>
+
+          <!-- East: Puri -->
+          <circle cx="610" cy="180" r="28" fill="#d97706" stroke="#fff" stroke-width="3"/>
+          <text x="610" y="177" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="10" fill="#fff" text-anchor="middle">EAST</text>
+          <text x="610" y="189" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="10" fill="#fff" text-anchor="middle">Puri</text>
+
+          <!-- South: Rameshwaram -->
+          <circle cx="350" cy="315" r="28" fill="#7c3aed" stroke="#fff" stroke-width="3"/>
+          <text x="350" y="312" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="10" fill="#fff" text-anchor="middle">SOUTH</text>
+          <text x="350" y="324" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="9" fill="#fff" text-anchor="middle">Rameshwaram</text>
+
+          <!-- West: Dwarka -->
+          <circle cx="90" cy="180" r="28" fill="#059669" stroke="#fff" stroke-width="3"/>
+          <text x="90" y="177" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="10" fill="#fff" text-anchor="middle">WEST</text>
+          <text x="90" y="189" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="10" fill="#fff" text-anchor="middle">Dwarka</text>
+
+          <!-- Central Core Box: Kumbh Mela & Confluence -->
+          <rect x="250" y="130" width="200" height="100" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2" filter="drop-shadow(0 2px 4px rgba(0,0,0,0.08))"/>
+          <text x="350" y="153" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="13" fill="#065f46" text-anchor="middle">THE 4 KUMBH SITES</text>
+          <text x="350" y="173" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#334155" text-anchor="middle">Haridwar • Prayagraj</text>
+          <text x="350" y="190" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#334155" text-anchor="middle">Nashik • Ujjain</text>
+          <text x="350" y="212" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="bold" fill="#d97706" text-anchor="middle">Drop of Amṛita (Nectar of Immortality)</text>
+
+          <!-- Diagonal Connectors -->
+          <line x1="350" y1="73" x2="350" y2="130" stroke="#0284c7" stroke-width="2"/>
+          <line x1="350" y1="230" x2="350" y2="287" stroke="#7c3aed" stroke-width="2"/>
+          <line x1="118" y1="180" x2="250" y2="180" stroke="#059669" stroke-width="2"/>
+          <line x1="450" y1="180" x2="582" y2="180" stroke="#d97706" stroke-width="2"/>
+
+          <text x="350" y="348" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Connecting the Four Corners: A Sacred Web Fostering National Integration</text>
+        </svg>
+        <span class="svg-caption">Figure 8.2: The geographical geometry of the Chār Dhām and Kumbh Mela sites systematically spans the four cardinal extremes and heartland of India.</span>
+      </div>
+
+      <h3 class="subheading">The Two-Fold Significance of a Tīrthayātrā</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin: 1rem 0;">
+        <div style="background: var(--light); padding: 1.25rem; border-radius: 10px; border-left: 4px solid var(--secondary);">
+          <h4 style="color: var(--secondary); margin-bottom: 0.5rem;"><i class="fa-solid fa-person-walking"></i> 1. The Outer Journey (Socio-Cultural Integration)</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 0;">Pilgrims encounter people speaking diverse languages, tasting unfamiliar regional cuisines, wearing unique local dresses, and practicing regional customs. In doing so, they witness firsthand that beneath surface diversities, the foundational cultural and spiritual pulse of India is one!</p>
+        </div>
+        <div style="background: var(--light); padding: 1.25rem; border-radius: 10px; border-left: 4px solid var(--primary);">
+          <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;"><i class="fa-solid fa-heart-pulse"></i> 2. The Inner Journey (Spiritual & Mental Growth)</h4>
+          <p style="font-size: 0.9rem; margin-bottom: 0;">Undertaking an arduous journey—climbing steep mountains, fasting, enduring weather variations, and leaving luxury behind—cultivates mental endurance, humility, self-discipline, inner silence, and detached devotion.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Sacred Ecology — Rivers, Sangams & The Kumbh Mela -->
+    <section class="note-card" id="sec-3">
+      <h2 class="section-title"><i class="fa-solid fa-water"></i> 3. Sacred Ecology: Reverence for Rivers, Confluences, and the Kumbh Mela</h2>
+
+      <p>In Indian thought, Nature is never an inanimate object to be conquered, logged, and exploited. Nature is an organic extension of the divine. This environmental ethics is known as <strong>Sacred Ecology</strong>.</p>
+
+      <h3 class="subheading">The Reverence for Rivers (Nadīstuti)</h3>
+      <p>Rivers have been celebrated as maternal lifelines since the dawn of Indian history. In the <em>Ṛigveda</em>, the famous <strong>Nadīstuti Sūkta</strong> (Hymn in praise of rivers) invokes 19 great rivers of the northwest subcontinent, celebrating their life-giving waters.</p>
+      <p>To this day, priests and householders across India recite an ancient Sanskrit water-invocation shloka during morning prayers and sacred ceremonies:</p>
+
+      <div style="background: #e0f2fe; border-left: 4px solid #0284c7; padding: 1rem 1.25rem; border-radius: 0 10px 10px 0; margin: 1rem 0; font-family: monospace; font-size: 0.95rem; color: #0369a1;">
+        <strong>gaṅge ca yamune caiva godāvari sarasvati |<br>
+        narmade sindhu kāveri jalesmin sannidhiṃ kuru ||</strong>
+        <p style="font-family: 'Plus Jakarta Sans', sans-serif; font-style: italic; margin-top: 0.5rem; margin-bottom: 0; color: #0c4a6e; font-size: 0.9rem;">
+          "O holy rivers Ganga, Yamuna, Godavari, Sarasvati, Narmada, Sindhu, and Kaveri! May you all bless and manifest your presence in this water."
+        </p>
+      </div>
+
+      <p>Notice how this single shloka weaves the geography of the entire subcontinent—the northern rivers (Ganga, Yamuna, Sarasvati, Sindhu), the central river (Narmada), and the peninsular southern rivers (Godavari, Kaveri)—into a unified spiritual consciousness!</p>
+
+      <h3 class="subheading">The Phenomenon of Sangams and the Kumbh Mela</h3>
+      <p>A <strong>Sangam</strong> is the confluence where two or more sacred rivers merge. The most celebrated is the <strong>Triveni Sangam</strong> at Prayagraj (Uttar Pradesh), where the Ganga, the Yamuna, and the subterranean, mythical Sarasvati meet.</p>
+
+      <div class="myth-box">
+        <strong>The Legend of Samudra Manthana & Amṛita:</strong>
+        <p style="margin-top: 0.4rem; margin-bottom: 0;">According to Puranic legend, the devas and asuras churned the cosmic ocean of milk using Mount Mandara and the serpent Vasuki to extract <em>amṛita</em> (the nectar of immortality). To prevent the demons from snatching it, Lord Vishnu assumed the mesmerizing form of Mohini and took the pitcher (<em>kumbha</em>). As the divine pitcher was carried, drops of amṛita splashed upon four places on Earth: <strong>Haridwar</strong> (on the Ganga), <strong>Prayagraj</strong> (at the Triveni Sangam), <strong>Nashik</strong> (on the Godavari), and <strong>Ujjain</strong> (on the Shipra). These four locations host the cyclical Kumbh Mela every three to twelve years.</p>
+      </div>
+
+      <p>In 2017, UNESCO inscribed the Kumbh Mela onto the Representative List of the <strong>Intangible Cultural Heritage of Humanity</strong>. In the Kumbh Mela of 2025, an astonishing estimated <strong>660 million pilgrims</strong> gathered peacefully—making it the largest peaceful gathering of humanity anywhere on planet Earth!</p>
+    </section>
+
+    <!-- Section 4: Sacred Mountains, Trees & Sacred Groves -->
+    <section class="note-card" id="sec-4">
+      <h2 class="section-title"><i class="fa-solid fa-tree"></i> 4. Sacred Mountains, Trees, and Sacred Groves (Biodiversity Refuges)</h2>
+
+      <p>Mountains have universally symbolized lofty spiritual aspiration, acting as majestic gateways connecting earthly existence with the heavens. In India, mountains are venerated as abodes of the gods:</p>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li><strong>Mount Kailash:</strong> Revered by Hindus, Buddhists, Jains, and Bons as the cosmic axis (Meru) and abode of Shiva.</li>
+        <li><strong>Tirumala Hills (Seven Hills):</strong> Abode of Lord Venkateswara (Balaji) in Andhra Pradesh.</li>
+        <li><strong>Arunachala Hill (Tiruvannamalai, Tamil Nadu):</strong> Veneration of the mountain itself as a manifestation of Shiva as a column of divine light (Agni Linga).</li>
+        <li><strong>Niyamgiri Range (Odisha):</strong> The sacred hill of the <em>Dongria Khond</em> tribal community, who worship <strong>Niyam Raja</strong> as their supreme provider and refuse to let the hill be leveled for bauxite mining.</li>
+        <li><strong>Nilgiri Hills (Tamil Nadu):</strong> The indigenous <em>Toda</em> tribe regards mountain peaks, shola forests, streams, and specific boulders as sacred clan ancestors.</li>
+      </ul>
+
+      <h3 class="subheading">Sacred Trees: The Peepul (Ficus religiosa)</h3>
+      <p>Trees in India are honored with offerings of sacred threads, turmeric, and vermilion. The <strong>Peepul</strong> (or <em>Aśvattha</em>) is sacred across Hinduism, Buddhism, Jainism, and Sikhism. It is represented on ancient 4,500-year-old seals of the Harappan Civilisation excavated at Mohenjo-daro, proving an unbroken cultural reverence!</p>
+      <p>Under the Peepul tree in Bodh Gaya, Gautama Buddha attained supreme enlightenment (hence termed the <strong>Bodhi Tree</strong>). Scientifically, <em>Ficus religiosa</em> is a keystone species that provides perennially dense foliage, generates high oxygen levels, supports hundreds of birds and insects, and yields bark and leaves utilized extensively in Ayurveda for digestive and skin treatments.</p>
+
+      <h3 class="subheading">Sacred Groves: Community Forests of Ancient Conservation</h3>
+      <p>For millennia, rural and tribal communities across India set aside patches of pristine forest where all hunting, tree felling, grazing, and mining were strictly forbidden under community law. Dedicated to local forest deities, these protected community forest sanctuaries are known as <strong>Sacred Groves</strong>.</p>
+
+      <!-- SVG 3: Sacred Grove -->
+      <div class="svg-container">
+        <svg viewBox="0 0 700 280" width="100%" height="280" xmlns="http://www.w3.org/2000/svg">
+          <rect width="700" height="280" fill="#ecfdf5" rx="16"/>
+          
+          <!-- Forest Canopy Background -->
+          <circle cx="120" cy="90" r="60" fill="#047857" opacity="0.8"/>
+          <circle cx="200" cy="70" r="70" fill="#065f46" opacity="0.9"/>
+          <circle cx="280" cy="85" r="65" fill="#059669" opacity="0.8"/>
+          <circle cx="500" cy="80" r="65" fill="#047857" opacity="0.85"/>
+          <circle cx="580" cy="90" r="60" fill="#065f46" opacity="0.8"/>
+
+          <!-- Tree Trunks -->
+          <rect x="185" y="130" width="30" height="90" fill="#78350f" rx="4"/>
+          <rect x="265" y="140" width="25" height="80" fill="#92400e" rx="4"/>
+          <rect x="495" y="135" width="28" height="85" fill="#78350f" rx="4"/>
+
+          <!-- Sacred Shrine in Center -->
+          <rect x="340" y="140" width="60" height="50" fill="#fef3c7" stroke="#d97706" stroke-width="2" rx="4"/>
+          <polygon points="330,140 370,105 410,140" fill="#d97706"/>
+          <!-- Trishul / Deity symbol -->
+          <line x1="370" y1="115" x2="370" y2="135" stroke="#ef4444" stroke-width="3"/>
+          <circle cx="370" cy="115" r="4" fill="#ef4444"/>
+          <!-- Earthen lamps -->
+          <circle cx="355" cy="180" r="4" fill="#f59e0b"/>
+          <circle cx="385" cy="180" r="4" fill="#f59e0b"/>
+
+          <!-- Sacred Spring / Stream -->
+          <path d="M 0,250 Q 200,210 370,250 T 700,240 L 700,280 L 0,280 Z" fill="#38bdf8"/>
+          <text x="540" y="265" font-family="'Plus Jakarta Sans', sans-serif" font-weight="bold" font-size="11" fill="#0369a1">Perennial Sacred Spring & Water Table</text>
+
+          <!-- Labels -->
+          <rect x="100" y="180" width="120" height="26" fill="#ffffff" rx="6" stroke="#059669"/>
+          <text x="160" y="197" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="bold" fill="#065f46" text-anchor="middle">Medicinal Flora</text>
+
+          <rect x="300" y="20" width="140" height="28" fill="#ffffff" rx="6" stroke="#059669"/>
+          <text x="370" y="38" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="12" fill="#065f46" text-anchor="middle">SACRED GROVE</text>
+
+          <rect x="470" y="180" width="130" height="26" fill="#ffffff" rx="6" stroke="#059669"/>
+          <text x="535" y="197" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="bold" fill="#065f46" text-anchor="middle">Keystone Wildlife / Bats</text>
+        </svg>
+        <span class="svg-caption">Figure 8.3: Ecosystem anatomy of a Sacred Grove: deity shrine, untouched dense canopy, rare medicinal flora, wildlife habitat, and living water recharge aquifer.</span>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="content-table">
+          <thead>
+            <tr>
+              <th>Language / Region</th>
+              <th>Local Term for Sacred Grove</th>
+              <th>Key Flora / Fauna & Ecological Significance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Malayalam</strong> (Kerala)</td>
+              <td><em>Kāvu</em> (e.g., Sarpa Kāvu)</td>
+              <td>Preserves snake habitats, endemic evergreen trees, and natural spring wells.</td>
+            </tr>
+            <tr>
+              <td><strong>Tamil</strong> (Tamil Nadu)</td>
+              <td><em>Kovilkādu</em></td>
+              <td>Protects fruit bats in Thanjavur (crucial for pollination and seed dispersal).</td>
+            </tr>
+            <tr>
+              <td><strong>Kannada</strong> (Karnataka)</td>
+              <td><em>Devare Kādu</em></td>
+              <td>Guards watershed origins in Kodagu (Coorg) Western Ghats.</td>
+            </tr>
+            <tr>
+              <td><strong>Marathi</strong> (Maharashtra)</td>
+              <td><em>Devarāī</em></td>
+              <td>Ancient refuges for giant squirrels and rare medicinal climbers in Sahyadris.</td>
+            </tr>
+            <tr>
+              <td><strong>Khasi</strong> (Meghalaya)</td>
+              <td><em>Khlaw Kyntang</em> (e.g., Mawphlang)</td>
+              <td>Abode of protective deity Ryngkew; centuries-old pristine oak & orchid forests.</td>
+            </tr>
+            <tr>
+              <td><strong>Hindi</strong> (Himachal Pradesh)</td>
+              <td><em>Dev Van</em></td>
+              <td>High-altitude cedar (Deodar) and pine groves protecting fragile slopes.</td>
+            </tr>
+            <tr>
+              <td><strong>Jharkhand / Santhal</strong></td>
+              <td><em>Sarnā</em> / <em>Jaherthan</em></td>
+              <td>Sacred Sal tree groves central to Sarhul festival and tribal identity.</td>
+            </tr>
+            <tr>
+              <td><strong>Chhattisgarh</strong> (Bastar)</td>
+              <td><em>Devgudi</em></td>
+              <td>Tribal village shrines preserving ancient local wild fruit and herbal varieties.</td>
+            </tr>
+            <tr>
+              <td><strong>Rajasthan</strong></td>
+              <td><em>Oraṇ</em></td>
+              <td>Desert oasis groves protecting Khejri trees, Chinkara deer, and water ponds.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 5: Pilgrimage and Trade Overlap & Sacred Geography Beyond India -->
+    <section class="note-card" id="sec-5">
+      <h2 class="section-title"><i class="fa-solid fa-route"></i> 5. Pilgrimage and Trade: Overlapping Routes & Global Parallels</h2>
+
+      <p>In ancient and medieval India, spiritual travel (<em>Tīrthayātrā</em>) and commercial commerce (<em>Vanijya</em>) were deeply intertwined. Pilgrims and merchants traversed the very same highways:</p>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li><strong>Uttarapatha (Northern Highway):</strong> Stretched from the northwestern frontier (Taxila) through Mathura, Prayagraj, and Varanasi all the way to Tamralipti in Bengal.</li>
+        <li><strong>Dakshinapatha (Southern Highway):</strong> Branching southwards from Kaushambi and Ujjain down to Paithan (Pratishthana) and onward to the Krishna and Kaveri deltas.</li>
+      </ul>
+
+      <!-- SVG 4: Trade & Pilgrimage Overlap -->
+      <div class="svg-container">
+        <svg viewBox="0 0 700 240" width="100%" height="240" xmlns="http://www.w3.org/2000/svg">
+          <rect width="700" height="240" fill="#f8fafc" rx="16"/>
+          
+          <!-- Route 1: Uttarapatha -->
+          <line x1="80" y1="70" x2="620" y2="70" stroke="#0284c7" stroke-width="8" stroke-linecap="round"/>
+          <text x="80" y="50" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="12" fill="#0369a1">Taxila (NW)</text>
+          <text x="350" y="50" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="14" fill="#0284c7" text-anchor="middle">UTTARAPATHA (Northern Trunk Highway)</text>
+          <text x="620" y="50" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="12" fill="#0369a1" text-anchor="end">Tamralipti (Bengal)</text>
+
+          <!-- Route 2: Dakshinapatha -->
+          <line x1="280" y1="70" x2="420" y2="200" stroke="#d97706" stroke-width="8" stroke-linecap="round"/>
+          <text x="250" y="100" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="11" fill="#b45309">Kaushambi / Ujjayini</text>
+          <text x="440" y="205" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="12" fill="#d97706">Pratishthana / South (DAKSHINAPATHA)</text>
+
+          <!-- Convergence Hubs -->
+          <circle cx="280" cy="70" r="12" fill="#059669" stroke="#fff" stroke-width="2"/>
+          <circle cx="380" cy="70" r="12" fill="#059669" stroke="#fff" stroke-width="2"/>
+          <text x="380" y="100" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="bold" fill="#047857" text-anchor="middle">Varanasi / Prayag</text>
+
+          <!-- Overlap Benefits box -->
+          <rect x="120" y="140" width="220" height="65" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+          <text x="230" y="160" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="11" fill="#0f172a" text-anchor="middle">COMMERCIAL FLOURISHING</text>
+          <text x="230" y="178" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Rest houses (Choultries), food stalls,</text>
+          <text x="230" y="193" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#64748b" text-anchor="middle">silk, brassware, and spice trade.</text>
+
+          <rect x="460" y="115" width="210" height="65" rx="8" fill="#ffffff" stroke="#e2e8f0"/>
+          <text x="565" y="135" font-family="'Space Grotesk', sans-serif" font-weight="bold" font-size="11" fill="#0f172a" text-anchor="middle">CULTURAL DIFFUSION</text>
+          <text x="565" y="153" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#64748b" text-anchor="middle">Philosophers, wandering monks,</text>
+          <text x="565" y="168" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#64748b" text-anchor="middle">folktales, and regional languages.</text>
+        </svg>
+        <span class="svg-caption">Figure 8.4: Pilgrim highways and commercial trade arteries directly overlapped, energising regional economies and spreading new philosophies across India.</span>
+      </div>
+
+      <h3 class="subheading">Sacred Geography Beyond India</h3>
+      <p>The practice of sanctifying natural landmarks is not unique to India; indigenous traditions across the world shared similar reverential paradigms:</p>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li><strong>Ancient Greece:</strong> Revered sacred mountains like Mount Olympus (home of the gods) and sacred groves dedicated to goddesses like Artemis.</li>
+        <li><strong>Native American Peoples:</strong> Possessed a deep, intimate spiritual bond with nature, viewing buffalo, eagles, rivers, and the Black Hills as living sacred kin.</li>
+        <li><strong>The Māori of New Zealand:</strong> Regard Mount <strong>Taranaki Maunga</strong> and the <strong>Whanganui River</strong> as sacred ancestors. In an extraordinary modern legal milestone, New Zealand enacted laws granting Mount Taranaki and the Whanganui River the <strong>legal rights of a human person</strong>, with tribal elders appointed as official legal guardians!</li>
+      </ul>
+    </section>
+
+    <!-- Section 6: Restoring and Conserving the Sacred in Modern Times -->
+    <section class="note-card" id="sec-6">
+      <h2 class="section-title"><i class="fa-solid fa-hand-holding-heart"></i> 6. Modern Environmental Strain & Restoring the Sacred</h2>
+
+      <p>Today, our sacred geography is facing an unprecedented ecological crisis. Rivers revered as holy mothers—such as the Yamuna, Ganga, and Kaveri—suffer severe pollution from untreated industrial effluents, plastic litter, sewage, and unmanaged pilgrimage crowds. Ancient sacred groves are being illegally cleared for concrete roads, mining projects, and commercial plantations.</p>
+
+      <div class="eco-box">
+        <div class="eco-box-title"><i class="fa-solid fa-quote-left"></i> The Wisdom of David Suzuki (Canadian Environmentalist):</div>
+        <p style="font-style: italic; color: #064e3b; margin-bottom: 0.5rem;">
+          "The way we see the world shapes the way we treat it. If a mountain is a deity, not a pile of ore; if a river is one of the veins of the land, not potential irrigation water; if a forest is a sacred grove, not timber; if other species are biological kin, not resources; or if the planet is our mother, not an opportunity—then we will treat each other with greater respect. Thus is the challenge, to look at the world from a different perspective."
+        </p>
+      </div>
+
+      <p>Our <strong>Constitution of India (Article 51A(g))</strong> explicitly declares it to be the Fundamental Duty of every Indian citizen: <em>"to protect and improve the natural environment including forests, lakes, rivers and wild life, and to have compassion for living creatures."</em> Treating nature as sacred provides the moral and ethical fuel needed to achieve true ecological sustainability in the 21st century.</p>
+    </section>
+
+    <!-- Section 7: Complete In-Text Solutions (Zero Omission) -->
+    <section class="note-card" id="sec-7">
+      <h2 class="section-title"><i class="fa-solid fa-comments"></i> 7. Complete In-Text Solutions (Zero-Omission)</h2>
+
+      <!-- In-Text Box 1 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-explore">Let's Explore • Page 2</span> Do any of the pictures look familiar to you? Can you name similar places found in your neighbourhood?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Teacher-Guided Answer:</strong></p>
+          <ul style="margin-left: 1.5rem;">
+            <li><strong>Recognition of Pictures:</strong> The pictures illustrate sacred shrines of various world religions flourishing in India, including a Buddhist Stupa (Sanchi), the Golden Temple (Amritsar), Sufi Dargah (Ajmer Sharif), and historical churches (Velankanni).</li>
+            <li><strong>Neighbourhood Examples:</strong> In almost every Indian town or city neighbourhood, one can observe diverse sacred places coexisting harmoniously—local temple shrines under peepul trees, community Gurdwaras with welcoming langar halls, neighbourhood Masjids with minarets, and community parish Churches.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- In-Text Box 2 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-explore">Let's Explore • Page 5</span> Dharampal Excerpt: Route from Rameswaram to Haridwar & Why bypassing Delhi?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Detailed Analysis of Dharampal's Encounter:</strong></p>
+          <ol style="margin-left: 1.5rem;">
+            <li><strong>Route Taken:</strong> From Rameswaram at the southern tip of Tamil Nadu, the pilgrims traveled northward through Madurai, Tiruchirappalli, Chennai, Vijayawada, Nagpur, Bhopal, Gwalior, and Agra to Delhi, where they transferred to trains heading directly to Haridwar in the Himalayan foothills.</li>
+            <li><strong>Why bypass Delhi?</strong> Delhi was a political and administrative capital filled with monuments and markets. However, the pilgrims had undertaken a focused <em>tīrthayātrā</em>—their minds were absorbed in spiritual devotion and completing their holy dip in the sacred Ganga at Haridwar before returning home to attend to agricultural cycles. To them, sacred geography held far greater personal meaning than worldly political spectacle.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- In-Text Box 3 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-explore">Let's Explore • Page 5</span> Ancient travel from Madurai to Varanasi: Languages, stay, and food</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Reconstructing an Ancient Pilgrimage:</strong></p>
+          <ul style="margin-left: 1.5rem;">
+            <li><strong>Languages Encountered:</strong> Starting from Tamil Nadu (Tamil), pilgrims passed through Telugu-speaking regions (Andhra), Marathi-speaking territories (Maharashtra/Deccan), tribal dialects of the Central Highlands (Gondi), and finally Hindi/Bhojpuri dialects in the Gangetic plains.</li>
+            <li><strong>Communication:</strong> Pilgrims communicated through basic gestures, common Sanskrit sacred loanwords understood nationwide, broken Prakrit/lingua-franca, and with the help of multilingual temple guides (<em>pandas</em>) and merchants.</li>
+            <li><strong>Accommodation:</strong> Pilgrims stayed in free traditional rest houses (<em>Dharmashālas</em>, <em>Choultries</em>, <em>Chattrams</em>), temple verandahs, village community halls, or under banyan trees.</li>
+            <li><strong>Food:</strong> They carried dry provisions (flour/sattu, jaggery, parched rice, ghee) and cooked their own simple satvik meals using earthen pots, or received free meals at temple open kitchens (<em>annachhatras</em>).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- In-Text Box 4 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-explore">Let's Explore • Page 7</span> Locations of Chār Dhām and Implications for North-South and East-West Travel</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Geographical Significance of Chār Dhām:</strong></p>
+          <p>The Chār Dhām were purposely placed at the four geographic boundaries of the Indian subcontinent: <strong>Badrinath</strong> in the high northern Himalayas, <strong>Rameshwaram</strong> at the southern sea coast, <strong>Puri</strong> on the eastern Bay of Bengal, and <strong>Dwarka</strong> on the western Arabian Sea.</p>
+          <p><strong>Implications:</strong> When pilgrims aspired to complete this circuit, they had to cross hundreds of independent kingdoms and diverse terrains. This compulsory movement prevented regional isolation, fostered a collective consciousness of <em>Bhāratavarsha</em> as one cultural family, and ensured continuous pan-Indian exchange of languages, arts, and philosophies.</p>
+        </div>
+      </details>
+
+      <!-- In-Text Box 5 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-explore">Let's Explore • Page 8</span> Identifying traditional tīrthas given on the textbook map</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Key Traditional Tīrthas Mapped:</strong></p>
+          <ul style="margin-left: 1.5rem;">
+            <li><strong>Himalayan Shrines:</strong> Amarnath, Vaishno Devi, Kedarnath, Badrinath, Haridwar, Rishikesh.</li>
+            <li><strong>Northern & Central Plains:</strong> Kurukshetra, Mathura, Ayodhya, Prayagraj, Varanasi (Kashi), Gaya, Bodh Gaya.</li>
+            <li><strong>Western Region:</strong> Pushkar, Mount Abu, Somnath, Dwarka, Ujjain, Omkareshwar.</li>
+            <li><strong>Eastern Region:</strong> Kamakhya (Assam), Baidyanath (Deoghar), Puri (Jagannatha).</li>
+            <li><strong>Deccan & South:</strong> Nashik, Pandharpur, Srisailam, Tirupati (Tirumala), Kanchipuram, Chidambaram, Madurai, Sabarimala, Rameshwaram, Kanyakumari.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- In-Text Box 6 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-missout">Don't Miss Out • Page 10</span> 660 Million People at Kumbh Mela 2025: Proportion of India's Population</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Step-by-Step Calculation:</strong></p>
+          <ul>
+            <li>Estimated participants in Kumbh Mela 2025 = <strong>660 million</strong> (66 crore).</li>
+            <li>Current approximate population of India = <strong>1,440 million</strong> (~144 crore).</li>
+            <li>Proportion calculation: (660 ÷ 1440) × 100 ≈ <strong>45.8%</strong>.</li>
+            <li><strong>Conclusion:</strong> Nearly <strong>46% (almost half)</strong> of the entire population equivalent of India gathered at this sacred river confluence! This highlights the unmatched cultural pull of sacred ecology in the Indian psyche.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- In-Text Box 7 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-think">Think About It • Page 11</span> Mind Map: How Sacred Places are Connected with Economic Lives</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Mind Map Breakdown of Pilgrim Economy:</strong></p>
+          <ul style="margin-left: 1.5rem;">
+            <li><strong>Hospitality Sector:</strong> Hotels, dharamsalas, homestays, and guesthouses providing shelter to millions of visitors.</li>
+            <li><strong>Transport Network:</strong> Boatmen at sangams, taxi drivers, auto-rickshaws, pony owners on mountain trails, and state railways.</li>
+            <li><strong>Local Handicrafts & Souvenirs:</strong> Brass deity statues, rudraksha beads, conch shells, silk sarees (Varanasi/Kanchi), wooden toys, and stone carvings.</li>
+            <li><strong>Food & Agriculture:</strong> Local sweetmakers (Peda in Mathura/Puri Khaja), farmers selling milk and flowers (marigold garlands), eateries, and prasad vendors.</li>
+            <li><strong>Religious Service Workers:</strong> Priests (pandas), temple musicians, cleaners, and flower growers earning sustainable year-round livelihoods.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- In-Text Box 8 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-think">Think About It • Page 13</span> Medical and Ecological Value of the Peepul Tree</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Why the Peepul (Ficus religiosa) is Revered:</strong></p>
+          <ul>
+            <li><strong>Medicinal Properties:</strong> Peepul bark extract treats stomach ulcers and dysentery. The fresh leaves have antibacterial properties used to relieve skin allergies and burns. The dried fruit powder aids respiratory health.</li>
+            <li><strong>Ecological Keystone:</strong> The tree remains green throughout the hottest summer months, providing vital shade. Its figs feed thousands of birds (parakeets, barbets, hornbills), bats, and monkeys.</li>
+            <li><strong>Oxygen Generator:</strong> It produces substantial oxygen and helps absorb toxic airborne pollutants in crowded urban areas.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- In-Text Box 9 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-explore">Let's Explore • Page 15</span> Tracing Trade Routes over Pilgrimage Map: Key Observations</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Key Observations from Overlaying the Maps:</strong></p>
+          <p>When the ancient trade route map (Uttarapatha & Dakshinapatha) is placed over the traditional tīrtha map, one discovers almost <strong>complete alignment</strong>! Major pilgrimage destinations (Varanasi, Prayag, Ujjain, Madurai, Paithan) were simultaneously massive commercial emporia. Merchants traveled with pilgrim caravans for safety against robbers, while pilgrims relied on merchant bazaars to purchase provisions and devotional goods.</p>
+        </div>
+      </details>
+
+      <!-- In-Text Box 10 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-think">Think About It • Page 16</span> River Pollution & Responsibility to Preserve Sanctity</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Causes of Pollution & Shared Responsibilities:</strong></p>
+          <ul>
+            <li><strong>Causes:</strong> Untreated industrial toxic chemicals dumped into rivers, municipal sewage outflow, non-biodegradable plastic packaging left by pilgrims, and immersion of synthetic painted idols containing lead and mercury.</li>
+            <li><strong>Whose Responsibility?</strong> It is a <em>joint civic duty</em>. The government must enforce strict effluent treatment plants (ETPs) and sewage management. Citizens and pilgrims must stop tossing plastics, flowers in plastic bags, and synthetic chemicals into water bodies, honoring the river as truly sacred in deed, not just in words.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- Section 8: NCERT End-of-Chapter Exercises & Solutions -->
+    <section class="note-card" id="sec-8">
+      <h2 class="section-title"><i class="fa-solid fa-graduation-cap"></i> 8. Step-by-Step NCERT Exercise Solutions</h2>
+
+      <!-- Question 1 -->
+      <details class="ans-box" open>
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-ncert">NCERT Q1</span> Discuss David Suzuki's statement on perspective and environmental respect</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>David Suzuki's Statement:</strong> <em>"The way we see the world shapes the way we treat it. If a mountain is a deity, not a pile of ore; if a river is one of the veins of the land, not potential irrigation water... then we will treat each other with greater respect."</em></p>
+          <p><strong>Meaning & Environmental Implications:</strong></p>
+          <ol style="margin-left: 1.5rem;">
+            <li><strong>Change of Worldview:</strong> When we perceive nature purely as a commercial resource, we greedily clear-cut forests for timber, dynamite mountains for rock and ores, and poison rivers with chemical factory waste.</li>
+            <li><strong>Reverence Cultivates Restraint:</strong> When an indigenous community views a mountain as a guardian deity (e.g., Niyam Raja by the Dongria Khonds) or a river as Mother Ganga, they take only what is minimally required for sustenance and never desecrate the natural source.</li>
+            <li><strong>Actionable Implications:</strong> We must transition from an exploitative economy to a sustainable, circular model that safeguards pure air, preserves living rivers, protects sacred groves, and treats other biological species as our planetary kin.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Question 2 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-ncert">NCERT Q2</span> Short Essay (150 words): Sacred Sites in your region and connected lore</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Model Essay (Topic: The Sacred Temple & Sacred Pond of My Region):</strong></p>
+          <div style="background: #f8fafc; border: 1px solid var(--border); padding: 1.25rem; border-radius: 8px; line-height: 1.8;">
+            "In my home region of coastal Odisha, the sacred town of Puri and its ancient <em>Chandan Yatra</em> water tanks (such as Narendra Pushkarini) represent a magnificent blend of sacred geography and communal devotion. Centered around the 12th-century Jagannatha Temple, the town is considered one of India's primary Chār Dhāms.<br><br>
+            According to local lore, Lord Jagannatha embodies universal love and brotherhood, originally worshipped as Lord Neela Madhava by the tribal Sabara chieftain Biswabasu in the dense forests. Every year during the grand Ratha Yatra, the deities emerge onto the Grand Road to mingle freely with all devotees irrespective of caste, creed, or status.<br><br>
+            Surrounding the city are sacred banyan trees (<em>Kalpa Bata</em>) and sacred water bodies. Elders narrate that bathing in these water bodies washes away pride and disease. These sacred sites foster local folk dance traditions (Odissi), sustain traditional palm-leaf pattachitra painters, and instill a lasting community pride in preserving our living ecology."
+          </div>
+        </div>
+      </details>
+
+      <!-- Question 3 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-ncert">NCERT Q3</span> Why natural elements (rivers, mountains, forests) are sacred and how they contribute to our lives</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Why Natural Elements are Sacred & Their Vital Contributions:</strong></p>
+          <ul>
+            <li><strong>Rivers:</strong> Provide fresh drinking water, deposit fertile alluvial silt for bumper crops, and supply clean inland transport. Sanctifying them as divine mothers prevented people from polluting upstream sources.</li>
+            <li><strong>Mountains:</strong> Trap moisture-laden monsoon winds, giving India abundant rainfall. They act as natural defense barriers and feed perennial snow-melt rivers like the Ganga and Yamuna. Their challenging ascents build mental grit.</li>
+            <li><strong>Forests:</strong> Purify the atmosphere by releasing oxygen, anchor topsoil against erosion, host thousands of medicinal herbs, regulate the local climate, and nurture wildlife. Recognizing forests as sacred groves safeguarded biodiversity.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Question 4 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-ncert">NCERT Q4</span> Why do people visit a tīrtha or other sacred sites?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Key Motivations for Visiting Tīrthas:</strong></p>
+          <ol style="margin-left: 1.5rem;">
+            <li><strong>Spiritual Seeking & Peace:</strong> To seek inner tranquility, step away from daily family stresses, pray for guidance, and perform rituals of gratitude.</li>
+            <li><strong>Code of Conduct & Austerity:</strong> To practice simplicity, charity (<em>dāna</em>), and self-control while living without luxury.</li>
+            <li><strong>Community & Family Vows:</strong> Fulfilling pledges made for the health of children, marriage blessings, or seeking ancestral peace.</li>
+            <li><strong>Experiencing India's Living Heritage:</strong> Discovering ancient architecture, witnessing sacred rituals, and connecting with pilgrims arriving from distant regions.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Question 5 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-ncert">NCERT Q5</span> How ancient pilgrimage routes fostered trade and regional economies</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Synergy Between Pilgrimage and Economic Development:</strong></p>
+          <ul>
+            <li><strong>Safe Group Travel:</strong> Merchants traveled alongside large pilgrim bands along the Uttarapatha and Dakshinapatha routes, drastically reducing the danger of highway robbery.</li>
+            <li><strong>Market Towns & Fairs:</strong> Massive pilgrimage festivals like the Kumbh Mela and Rath Yatra attracted lakhs of people, creating ready-made mega-markets for cattle, copper vessels, silks, grains, spices, and pottery.</li>
+            <li><strong>Year-Round Local Economy:</strong> Towns situated on pilgrimage routes developed robust service economies—transport services, dharmasalas, restaurants, souvenir craft workshops, and floral markets—providing direct employment to millions of local residents.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Question 6 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-ncert">NCERT Q6</span> How sacred places influence local culture and traditions</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Cultural Impacts on Local Inhabitants:</strong></p>
+          <ul style="margin-left: 1.5rem;">
+            <li><strong>Culinary Traditions:</strong> Sacred shrines give birth to unique regional cuisines and prasad preparations (e.g., Mahaprasad cooked in earthen pots at Puri, Tirupati Laddu, Mathura Peda).</li>
+            <li><strong>Performing Arts & Music:</strong> Temple courtyards nurtured classical dance forms (Bharatnatyam in Tamil Nadu, Odissi in Odisha) and devotional music (bhajans, kirtans, abhangs).</li>
+            <li><strong>Architecture & Artisan Skills:</strong> Generations of sculptors, stone masons, bronze casters, and weavers developed exquisite craftsmanship to build temples and adorn deities.</li>
+            <li><strong>Hospitality Values (Atithi Devo Bhava):</strong> Local residents developed a deep-rooted cultural ethic of welcoming travelers from distant lands with warmth, shelter, and generosity.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Question 7 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-ncert">NCERT Q7</span> Project: Select two sacred sites of India and explain their significance</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>Student Project Framework: Two Exemplary Sacred Sites</strong></p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem; margin-top: 0.75rem;">
+            <div style="background: #f1f5f9; padding: 1.25rem; border-radius: 8px;">
+              <h4 style="color: var(--primary-dark); margin-bottom: 0.5rem;">Site 1: Varanasi (Kashi), Uttar Pradesh</h4>
+              <ul style="font-size: 0.9rem; margin-left: 1.2rem;">
+                <li><strong>Geographical Setting:</strong> Situated on the crescent-shaped western bank of the sacred Ganga.</li>
+                <li><strong>Religious Significance:</strong> Dedicated to Lord Shiva (Kashi Vishwanath Jyotirlinga); believed to liberate the soul (<em>moksha</em>).</li>
+                <li><strong>Cultural Legacy:</strong> Center for Sanskrit learning, classical music (Banaras Gharana), and renowned Banarasi silk weaving.</li>
+              </ul>
+            </div>
+            <div style="background: #f1f5f9; padding: 1.25rem; border-radius: 8px;">
+              <h4 style="color: var(--secondary); margin-bottom: 0.5rem;">Site 2: Mount Abu (Dilwara), Rajasthan</h4>
+              <ul style="font-size: 0.9rem; margin-left: 1.2rem;">
+                <li><strong>Geographical Setting:</strong> The highest oasis peak of the ancient Aravalli mountain range.</li>
+                <li><strong>Religious Significance:</strong> One of the most sacred pilgrimage shrines of Jainism, dedicated to Tīrthankaras like Rishabhanatha and Neminatha.</li>
+                <li><strong>Cultural Legacy:</strong> World-famous for breathtaking marble carvings of unmatched delicacy, dating to the 11th–13th centuries CE.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Question 8 -->
+      <details class="ans-box">
+        <summary class="ans-header">
+          <span><span class="tag-pill tag-ncert">NCERT Q8</span> What is the two-fold significance of a tīrthayātrā or a pilgrimage?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-body">
+          <p><strong>The Two-Fold Significance Explained:</strong></p>
+          <ol style="margin-left: 1.5rem;">
+            <li><strong>The Inner Dimension (Personal & Spiritual Transformation):</strong>
+              <p>A pilgrimage is an inner journey of purification. Walking long distances, leaving behind worldly luxuries, enduring extreme heat or cold, and praying alongside strangers breaks the ego. It fosters humbleness, patience, mental resilience, and spiritual awakening.</p>
+            </li>
+            <li><strong>The Outer Dimension (Civilisational & Social Integration):</strong>
+              <p>A pilgrimage connects the individual with the vast cultural fabric of India. Pilgrims experience different tongues, diets, and customs, realizing that all Indians share a common cultural home. It also fuels local commerce, spreads fresh ideas, and keeps nationwide transport routes vibrant.</p>
+            </li>
+          </ol>
+        </div>
+      </details>
+    </section>
+
+    <!-- Section 9: Practice Drills & Flashcards -->
+    <section class="note-card" id="sec-9">
+      <h2 class="section-title"><i class="fa-solid fa-bolt"></i> 9. Practice Drills & Essential Knowledge Bank</h2>
+
+      <h3 class="subheading">Key Terms Flashcard Bank</h3>
+      <div class="terms-grid">
+        <div class="term-card">
+          <div class="term-name">Tīrtha</div>
+          <div class="term-def">Literally a river ford; symbolically a holy site where one crosses over from mundane existence to spiritual illumination.</div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">Tīrthankara</div>
+          <div class="term-def">In Jainism, a supreme spiritual guide who builds a ford across the ocean of rebirth (total 24 Tīrthankaras).</div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">Sacred Grove</div>
+          <div class="term-def">Community-protected forest tract dedicated to local deities where all hunting and logging are strictly forbidden.</div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">Chār Dhām</div>
+          <div class="term-def">The four cardinal holy centers anchoring India: Badrinath (North), Rameshwaram (South), Puri (East), and Dwarka (West).</div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">Shakti Pīṭhas</div>
+          <div class="term-def">51 sacred shrines across the subcontinent where parts of Sati's body fell, symbolizing India as the living Divine Mother.</div>
+        </div>
+        <div class="term-card">
+          <div class="term-name">Kumbh Mela</div>
+          <div class="term-def">Cyclical mass gathering at Haridwar, Prayagraj, Nashik, and Ujjain where drops of immortality nectar (amṛita) splashed.</div>
+        </div>
+      </div>
+
+      <h3 class="subheading" style="margin-top: 2rem;">Match the Following Drill</h3>
+      <div class="table-wrapper">
+        <table class="content-table">
+          <thead>
+            <tr>
+              <th>Sacred Grove Name</th>
+              <th>Region / Language</th>
+              <th>Correct Match</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1. Kāvu</td>
+              <td>A. Meghalaya (Khasi)</td>
+              <td><strong>1 → D (Kerala / Malayalam)</strong></td>
+            </tr>
+            <tr>
+              <td>2. Devare Kādu</td>
+              <td>B. Rajasthan</td>
+              <td><strong>2 → E (Karnataka / Kannada)</strong></td>
+            </tr>
+            <tr>
+              <td>3. Khlaw Kyntang</td>
+              <td>C. Maharashtra</td>
+              <td><strong>3 → A (Meghalaya / Khasi)</strong></td>
+            </tr>
+            <tr>
+              <td>4. Oraṇ</td>
+              <td>D. Kerala (Malayalam)</td>
+              <td><strong>4 → B (Rajasthan)</strong></td>
+            </tr>
+            <tr>
+              <td>5. Devarāī</td>
+              <td>E. Karnataka (Kannada)</td>
+              <td><strong>5 → C (Maharashtra)</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 10: Interactive Real-Time Quiz Engine -->
+    <section class="note-card" id="sec-10">
+      <h2 class="section-title"><i class="fa-solid fa-vial-circle-check"></i> 10. Interactive Mastery Quiz (10 Questions)</h2>
+      <p style="margin-bottom: 1.5rem;">Test your conceptual mastery with this instant-feedback test. Your score will update dynamically!</p>
+
+      <div class="score-banner" id="score-box" style="display: none;">
+        <h3 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.4rem; margin-bottom: 0.3rem;">Quiz Completed!</h3>
+        <p style="font-size: 1.1rem;" id="score-text">You scored 0 / 10</p>
+      </div>
+
+      <div id="quiz-container">
+        <!-- Q1 -->
+        <div class="quiz-card" data-qid="1">
+          <div class="quiz-q">1. What is the literal meaning of the Sanskrit term 'Tīrtha'?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt-btn" onclick="checkAnswer(1, 0, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> A high Himalayan mountain peak</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(1, 1, true)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> A shallow ford to cross a river safely</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(1, 2, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> A royal palace gate</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(1, 3, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> A stone relic box</button>
+          </div>
+          <div class="quiz-feedback" id="fb-1"></div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-card" data-qid="2">
+          <div class="quiz-q">2. Which tree, sacred across Hinduism, Buddhism, Jainism, and Sikhism, was also found depicted on seals from Mohenjo-daro?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt-btn" onclick="checkAnswer(2, 0, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Sandalwood (Santalum album)</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(2, 1, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Sal tree (Shorea robusta)</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(2, 2, true)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Peepul / Bodhi tree (Ficus religiosa)</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(2, 3, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Deodar cedar</button>
+          </div>
+          <div class="quiz-feedback" id="fb-2"></div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-card" data-qid="3">
+          <div class="quiz-q">3. Which four cities host the cyclical Kumbh Mela?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt-btn" onclick="checkAnswer(3, 0, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Varanasi, Ayodhya, Mathura, and Gaya</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(3, 1, true)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Haridwar, Prayagraj, Nashik, and Ujjain</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(3, 2, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Badrinath, Puri, Dwarka, and Rameshwaram</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(3, 3, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Amritsar, Patna, Anandpur, and Nanded</button>
+          </div>
+          <div class="quiz-feedback" id="fb-3"></div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-card" data-qid="4">
+          <div class="quiz-q">4. The Dongria Khond tribal community of Odisha actively protected which mountain range as the sacred abode of deity Niyam Raja?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt-btn" onclick="checkAnswer(4, 0, true)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Niyamgiri Hills</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(4, 1, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Aravalli Hills</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(4, 2, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Nilgiri Hills</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(4, 3, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Vindhya Range</button>
+          </div>
+          <div class="quiz-feedback" id="fb-4"></div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-card" data-qid="5">
+          <div class="quiz-q">5. What is a community-protected patch of forest dedicated to a local deity called in Kerala?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt-btn" onclick="checkAnswer(5, 0, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Oraṇ</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(5, 1, true)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Kāvu</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(5, 2, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Sarnā</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(5, 3, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Dev Van</button>
+          </div>
+          <div class="quiz-feedback" id="fb-5"></div>
+        </div>
+
+        <!-- Q6 -->
+        <div class="quiz-card" data-qid="6">
+          <div class="quiz-q">6. Which sacred hymn in the Ṛigveda specifically praises 19 ancient rivers of northwestern India?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt-btn" onclick="checkAnswer(6, 0, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Purusha Sūkta</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(6, 1, true)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Nadīstuti Sūkta</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(6, 2, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Gayatri Mantra</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(6, 3, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Nasadiya Sūkta</button>
+          </div>
+          <div class="quiz-feedback" id="fb-6"></div>
+        </div>
+
+        <!-- Q7 -->
+        <div class="quiz-card" data-qid="7">
+          <div class="quiz-q">7. In New Zealand, which indigenous community successfully advocated for granting legal personhood to Mount Taranaki Maunga?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt-btn" onclick="checkAnswer(7, 0, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> The Inuits</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(7, 1, true)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> The Māori</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(7, 2, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> The Aborigines</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(7, 3, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> The Navajos</button>
+          </div>
+          <div class="quiz-feedback" id="fb-7"></div>
+        </div>
+
+        <!-- Q8 -->
+        <div class="quiz-card" data-qid="8">
+          <div class="quiz-q">8. What fundamental symbolic message is conveyed by the sacred network of the 51 Shakti Pīṭhas?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt-btn" onclick="checkAnswer(8, 0, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Only certain high mountains have spiritual power</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(8, 1, true)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> The entire geography of the subcontinent is the sacred body of the Divine Mother</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(8, 2, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Only kings could build sacred shrines</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(8, 3, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Foreign pilgrims were barred from travelling</button>
+          </div>
+          <div class="quiz-feedback" id="fb-8"></div>
+        </div>
+
+        <!-- Q9 -->
+        <div class="quiz-card" data-qid="9">
+          <div class="quiz-q">9. Which constitutional article reminds Indian citizens of their fundamental duty to protect forests, lakes, rivers, and wildlife?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt-btn" onclick="checkAnswer(9, 0, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Article 21</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(9, 1, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Article 370</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(9, 2, true)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Article 51A(g)</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(9, 3, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Article 14</button>
+          </div>
+          <div class="quiz-feedback" id="fb-9"></div>
+        </div>
+
+        <!-- Q10 -->
+        <div class="quiz-card" data-qid="10">
+          <div class="quiz-q">10. Why is the 800-year-old Pandharpur pilgrimage in Maharashtra known as a 'Wāri'?</div>
+          <div class="quiz-opts">
+            <button class="quiz-opt-btn" onclick="checkAnswer(10, 0, true)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Because 'Wāri' means a pilgrimage undertaken regularly (annually) on foot</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(10, 1, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Because it is undertaken only on horseback</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(10, 2, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Because it was conducted only by royal decree</button>
+            <button class="quiz-opt-btn" onclick="checkAnswer(10, 3, false)"><span class="quiz-opt-indicator"><i class="fa-regular fa-circle"></i></span> Because it takes place only in boats along the sea</button>
+          </div>
+          <div class="quiz-feedback" id="fb-10"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div style="max-width: 900px; margin: 0 auto;">
+      <p style="font-weight: 700; color: #f1f5f9; margin-bottom: 0.5rem; text-align: center;">Sujit Classes • Digital Learning Initiative</p>
+      <p style="text-align: center;">Strictly Aligned with NCERT Grade 7 Social Science • Exploring Society: India and Beyond</p>
+      <p style="margin-top: 1rem; font-size: 0.85rem; text-align: center;">
+        <a href="../../index.html">Home Dashboard</a> • 
+        <a href="sst-ch7-the-gupta-era-an-age-of-tireless-creativity.html">Prev: Chapter 7</a> • 
+        <a href="sst-ch9-from-the-rulers-to-the-ruled-types-of-governments.html">Next: Chapter 9</a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Script for Progress Bar, Audio TTS, and Interactive Quiz -->
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      document.getElementById('read-progress').style.width = scrolled + '%';
+    });
+
+    // 2. Text-to-Speech (TTS) Reader
+    var ttsBtn = document.getElementById('tts-toggle');
+    var ttsLabel = document.getElementById('tts-label');
+    var isSpeaking = false;
+    var speechSynth = window.speechSynthesis;
+
+    ttsBtn.addEventListener('click', function() {
+      if (!isSpeaking) {
+        var textToRead = "Chapter 8: How the Land Becomes Sacred. In Indian tradition, the entire landscape is perceived as sacred. Rivers, mountains, sacred groves, and pilgrimage networks like the Char Dham and Kumbh Mela woven disparate cultures into an integrated civilisational whole.";
+        var utterThis = new SpeechSynthesisUtterance(textToRead);
+        utterThis.rate = 0.95;
+        utterThis.onend = function() {
+          isSpeaking = false;
+          ttsLabel.textContent = "Read Aloud";
+          ttsBtn.style.background = "";
+        };
+        speechSynth.speak(utterThis);
+        isSpeaking = true;
+        ttsLabel.textContent = "Stop Reading";
+        ttsBtn.style.background = "#fee2e2";
+      } else {
+        speechSynth.cancel();
+        isSpeaking = false;
+        ttsLabel.textContent = "Read Aloud";
+        ttsBtn.style.background = "";
+      }
+    });
+
+    // 3. Interactive Quiz Engine
+    var totalQuestions = 10;
+    var answeredCount = 0;
+    var correctCount = 0;
+    var quizState = {};
+
+    var explanations = {
+      1: "Correct! 'Tīrtha' literally signifies a river ford where one crosses water safely, metaphorically representing a spiritual ford to cross from worldly worries to higher consciousness.",
+      2: "Correct! The Peepul tree (Ficus religiosa) appears on Harappan seals from Mohenjo-daro and is revered across Hinduism, Buddhism (Bodhi tree), Jainism, and Sikhism.",
+      3: "Correct! The four sacred Kumbh sites are Haridwar (Ganga), Prayagraj (Sangam), Nashik (Godavari), and Ujjain (Shipra).",
+      4: "Correct! The Dongria Khonds of Odisha revered Niyamgiri as the abode of Niyam Raja, successfully resisting destructive mining.",
+      5: "Correct! In Malayalam (Kerala), sacred groves are termed 'Kāvu' (such as Sarpa Kāvu).",
+      6: "Correct! The Nadīstuti Sūkta in the Ṛigveda specifically pays homage to 19 northwestern rivers.",
+      7: "Correct! The Māori of New Zealand successfully fought to grant Mount Taranaki and Whanganui River the legal rights of a person.",
+      8: "Correct! The 51 Shakti Pīṭhas geographically sanctify the entire subcontinent as the living body of the Divine Mother.",
+      9: "Correct! Article 51A(g) enshrines the duty to protect forests, rivers, lakes, and wildlife.",
+      10: "Correct! 'Wāri' means a regular or annual pilgrimage where lakhs of Varkaris walk to Pandharpur."
+    };
+
+    function checkAnswer(qNum, optIdx, isCorrect) {
+      if (quizState[qNum]) return; // already answered
+
+      var card = document.querySelector('.quiz-card[data-qid="' + qNum + '"]');
+      var buttons = card.querySelectorAll('.quiz-opt-btn');
+      var fb = document.getElementById('fb-' + qNum);
+      var btn = buttons[optIdx];
+
+      if (isCorrect) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.innerHTML = '<i class="fa-solid fa-check-circle"></i>';
+        fb.innerHTML = '<strong style="color:#15803d;">Awesome! </strong> ' + explanations[qNum];
+        fb.style.background = '#dcfce7';
+        fb.style.color = '#14532d';
+        fb.style.display = 'block';
+        correctCount++;
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.innerHTML = '<i class="fa-solid fa-times-circle"></i>';
+        fb.innerHTML = '<strong style="color:#b91c1c;">Incorrect.</strong> Re-read the section above! Hint: ' + explanations[qNum];
+        fb.style.background = '#fee2e2';
+        fb.style.color = '#7f1d1d';
+        fb.style.display = 'block';
+        quizState[qNum] = true;
+      }
+
+      // Disable other buttons
+      buttons.forEach(function(b) {
+        b.style.pointerEvents = 'none';
+      });
+
+      answeredCount++;
+      if (answeredCount === totalQuestions) {
+        var scoreBox = document.getElementById('score-box');
+        var scoreText = document.getElementById('score-text');
+        scoreBox.style.display = 'block';
+        scoreText.textContent = 'You scored ' + correctCount + ' out of ' + totalQuestions + ' (' + Math.round((correctCount/totalQuestions)*100) + '%)!';
+        scoreBox.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  </script>
+</body>
+</html>
