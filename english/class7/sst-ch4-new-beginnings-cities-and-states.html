@@ -1,0 +1,1532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 4 - New Beginnings: Cities and States (Class 7 Social Science)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #d97706, #0284c7, #0d9488);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #78350f 0%, #b45309 45%, #0369a1 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #92400e;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+      background: #f8fafc;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-number {
+      background: #fef3c7;
+      color: #b45309;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      font-size: 1.2rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 0;
+    }
+
+    .topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin: 1.8rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    p {
+      margin-bottom: 1.15rem;
+      font-size: 1.02rem;
+      color: #334155;
+    }
+
+    /* Pastel Callouts */
+    .callout {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid;
+    }
+
+    .callout-def {
+      background-color: #f0f9ff;
+      border-left-color: #0284c7;
+      color: #0c4a6e;
+    }
+
+    .callout-act {
+      background-color: #f0fdf4;
+      border-left-color: #16a34a;
+      color: #14532d;
+    }
+
+    .callout-pyq {
+      background-color: #fffbeb;
+      border-left-color: #f59e0b;
+      color: #78350f;
+    }
+
+    .callout-hack {
+      background-color: #faf5ff;
+      border-left-color: #a855f7;
+      color: #581c87;
+    }
+
+    .callout-warn {
+      background-color: #fef2f2;
+      border-left-color: #ef4444;
+      color: #7f1d1d;
+    }
+
+    .callout-head {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Tables */
+    .table-responsive {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    th {
+      background-color: #f8fafc;
+      color: var(--dark);
+      font-weight: 700;
+      padding: 0.9rem 1.1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.9rem 1.1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) { background-color: #fafbfd; }
+
+    /* Collapsible Question Cards */
+    details.ans-box {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      margin: 1.15rem 0;
+      padding: 0;
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: #0284c7;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.08);
+    }
+
+    details.ans-box summary {
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      font-size: 1.02rem;
+      cursor: pointer;
+      background: #f8fafc;
+      color: var(--dark);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      user-select: none;
+    }
+
+    details.ans-box summary::-webkit-details-marker { display: none; }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: #0369a1;
+    }
+
+    details.ans-box summary::after {
+      content: '+';
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--primary);
+      transition: transform 0.2s ease;
+    }
+
+    details.ans-box[open] summary::after {
+      content: '−';
+      transform: rotate(180deg);
+    }
+
+    .ans-content {
+      padding: 1.25rem 1.4rem;
+      border-top: 1px solid var(--border);
+      background: #ffffff;
+      color: #334155;
+    }
+
+    /* SVG Diagrams */
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-weight: 600;
+    }
+
+    /* Quiz Engine */
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #b45309 0%, #0369a1 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    /* Back to Top */
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .term-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.15rem;
+      margin: 1.5rem 0;
+    }
+
+    .term-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.15rem;
+      border-top: 4px solid #b45309;
+    }
+
+    .term-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      color: #b45309;
+      margin-bottom: 0.35rem;
+    }
+
+    .term-def {
+      font-size: 0.92rem;
+      color: #475569;
+      line-height: 1.55;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 3rem 1.5rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    footer a { color: #38bdf8; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Sticky Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">Overview & Mind Map</a>
+      <a href="#sec2" class="nav-link">Concept Notes</a>
+      <a href="#sec3" class="nav-link">Term Bank</a>
+      <a href="#sec4" class="nav-link">NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">Interactive Quiz</a>
+      <a href="#sec6" class="nav-link">Revision & Traps</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-landmark-dome"></i> Class 7 Social Science &bull; Tapestry of the Past
+    </div>
+    <h1 class="hero-title">Chapter 4: New Beginnings: Cities and States</h1>
+    <p class="hero-sub">
+      The dramatic rise of Janapadas and the 16 Mahajanapadas, the birth of India's Second Urbanisation, iron technology, early republics, punch-marked coins, and trade across the subcontinent.
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-regular fa-clock"></i> Reading Time: 30 mins</span>
+      <span><i class="fa-solid fa-book-open"></i> Full NCERT Solutions</span>
+      <span><i class="fa-solid fa-coins"></i> Punch-Marked Coins & Guilds</span>
+    </div>
+    <button class="audio-btn" id="teacherAudioBtn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL MIND MAP & OVERVIEW -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <div class="section-number">01</div>
+        <h2 class="section-title">Visual Mind Map &amp; Chapter Overview</h2>
+      </div>
+
+      <p>
+        After the golden brick-paved cities of the Indus-Sarasvati Civilization faded away around 1900 BCE, urban life disappeared from India for more than a thousand years. People lived primarily in peaceful agricultural villages, pastoral homesteads, and megalithic stone settlements.
+      </p>
+      <p>
+        Then, around <strong>600 BCE (the 1st millennium BCE)</strong>, something magnificent happened! Armed with newly discovered <strong>iron tools</strong> and fertile monsoon soils, farming exploded across the Ganga valley. Prosperous farm villages expanded into powerful territorial states called <strong>Janapadas</strong> and <strong>Mahajanapadas</strong>. Giant fortified cities, bustling craft guilds, early republics, and silvery punch-marked coins emerged. Historians proudly call this epoch the <strong>Second Urbanisation of India</strong>!
+      </p>
+
+      <!-- SVG Mind Map: The Second Urbanisation Engine -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 900 450" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="centerUrban" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#b45309"/>
+              <stop offset="100%" stop-color="#78350f"/>
+            </linearGradient>
+            <linearGradient id="gIron" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#64748b"/>
+              <stop offset="100%" stop-color="#334155"/>
+            </linearGradient>
+            <linearGradient id="gMaha" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+            <linearGradient id="gGov" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#047857"/>
+            </linearGradient>
+            <linearGradient id="gCoin" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <linearGradient id="gTrade" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8b5cf6"/>
+              <stop offset="100%" stop-color="#6d28d9"/>
+            </linearGradient>
+            <filter id="cShadow" x="-5%" y="-5%" width="110%" height="110%">
+              <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.12"/>
+            </filter>
+          </defs>
+
+          <!-- Connecting Paths -->
+          <line x1="450" y1="225" x2="180" y2="85" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="225" x2="720" y2="85" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="225" x2="160" y2="350" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="225" x2="450" y2="385" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+          <line x1="450" y1="225" x2="740" y2="350" stroke="#94a3b8" stroke-width="2.5" stroke-dasharray="4,4"/>
+
+          <!-- Central Hub -->
+          <g filter="url(#cShadow)">
+            <rect x="320" y="180" width="260" height="90" rx="20" fill="url(#centerUrban)" />
+            <text x="450" y="220" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="17" fill="#ffffff" text-anchor="middle">SECOND URBANISATION</text>
+            <text x="450" y="245" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="15" fill="#fef3c7" text-anchor="middle">(c. 600 BCE – 300 BCE)</text>
+          </g>
+
+          <!-- Node 1: Iron Technology -->
+          <g filter="url(#cShadow)">
+            <rect x="60" y="40" width="240" height="90" rx="14" fill="url(#gIron)" />
+            <text x="180" y="73" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">⚔️ Iron Metallurgy</text>
+            <text x="180" y="95" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Heavy axes clear dense jungles</text>
+            <text x="180" y="113" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#cbd5e1" text-anchor="middle">Iron ploughs &amp; paddy surplus</text>
+          </g>
+
+          <!-- Node 2: 16 Mahajanapadas -->
+          <g filter="url(#cShadow)">
+            <rect x="600" y="40" width="240" height="90" rx="14" fill="url(#gMaha)" />
+            <text x="720" y="73" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">🏰 16 Mahajanapadas</text>
+            <text x="720" y="95" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Magadha, Kosala, Vatsa, Avanti</text>
+            <text x="720" y="113" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#e0f2fe" text-anchor="middle">Fortified brick capital cities</text>
+          </g>
+
+          <!-- Node 3: Systems of Governance -->
+          <g filter="url(#cShadow)">
+            <rect x="40" y="305" width="240" height="90" rx="14" fill="url(#gGov)" />
+            <text x="160" y="338" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">👑 Kingdoms vs Republics</text>
+            <text x="160" y="360" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Monarchies (Magadha)</text>
+            <text x="160" y="378" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#dcfce7" text-anchor="middle">Gana-Sanghas (Vajji / Lichchhavis)</text>
+          </g>
+
+          <!-- Node 4: Coinage & Guilds -->
+          <g filter="url(#cShadow)">
+            <rect x="330" y="340" width="240" height="90" rx="14" fill="url(#gCoin)" />
+            <text x="450" y="373" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">🪙 Punch-Marked Coins</text>
+            <text x="450" y="395" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Stamped silver pieces &amp; Shrenis</text>
+            <text x="450" y="413" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#fef3c7" text-anchor="middle">Artisan associations &amp; banks</text>
+          </g>
+
+          <!-- Node 5: Trade Highways -->
+          <g filter="url(#cShadow)">
+            <rect x="620" y="305" width="240" height="90" rx="14" fill="url(#gTrade)" />
+            <text x="740" y="338" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="15" fill="#ffffff" text-anchor="middle">🛣️ Uttarapatha &amp; South</text>
+            <text x="740" y="360" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" fill="#fff" text-anchor="middle">Highways linking Taxila to Bengal</text>
+            <text x="740" y="378" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#ede9fe" text-anchor="middle">Dakshinapatha into Tamilakam</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 4.1: The Five Key Pillars of India's Second Urbanisation (600 BCE).</p>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-head"><i class="fa-solid fa-bullseye"></i> The Big Questions of Chapter 4</div>
+        <p>1. <strong>What is meant by the "Second Urbanisation of India"?</strong> (The rebirth of fortified cities, metallic coinage, and craft commerce in the Ganga valley after the ancient Harappan era).</p>
+        <p>2. <strong>Why were the Janapadas and Mahajanapadas so important?</strong> (They transformed tribal clans into organised territorial nations with formal taxation, armies, and laws).</p>
+        <p>3. <strong>What systems of governance did they pioneer?</strong> (Hereditary monarchies like Magadha alongside early democratic assemblies and republics called Gana-Sanghas like Vajji).</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EXHAUSTIVE CONCEPT EXPLANATIONS -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <div class="section-number">02</div>
+        <h2 class="section-title">Exhaustive Concept Explanations</h2>
+      </div>
+
+      <!-- 2.1 From Jana to Janapada -->
+      <h3 class="topic-title"><i class="fa-solid fa-people-roof"></i> 1. From Jana to Janapada: The Birth of Territorial States</h3>
+      <p>
+        In the early Vedic period (late 2nd millennium BCE), people identified themselves by their clan or tribe, called a <strong>Jana</strong> (such as the Bharatas, Kurus, or Purus). They moved frequently with their cattle herds.
+      </p>
+      <p>
+        As settled agriculture took root, each tribe claimed a fixed territory where the clan set its "foot" (*pada*). Thus, <strong>Janapada</strong> literally means <em>"the foothold of a tribe"</em>—the land where a people settled down to farm and build permanent villages.
+      </p>
+      <ul>
+        <li><strong>Early Governance:</strong> The king (<em>Rājā</em>) was not an absolute tyrant. He took counsel from two powerful public assemblies:
+          <ol>
+            <li><strong>Sabha:</strong> A council of respected elders, scholars, and nobles.</li>
+            <li><strong>Samiti:</strong> A broad popular assembly attended by ordinary citizens of the tribe to elect or endorse the king.</li>
+          </ol>
+        </li>
+      </ul>
+
+      <!-- 2.2 The 16 Mahajanapadas -->
+      <h3 class="topic-title"><i class="fa-solid fa-shield-halved"></i> 2. The 16 Mahajanapadas (c. 600 BCE)</h3>
+      <p>
+        By 600 BCE, smaller Janapadas merged, formed alliances, or were conquered by ambitious neighbours, growing into <strong>16 Great States</strong> called <strong>Mahājanapadas</strong>. 
+      </p>
+      <p>
+        Ancient Buddhist texts (the <em>Anguttara Nikaya</em>) and Jain texts (the <em>Bhagavati Sutra</em>) list these 16 powerful realms:
+      </p>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Mahājanapada</th>
+              <th>Capital City</th>
+              <th>Modern Location</th>
+              <th>Key Highlights</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Magadha</strong></td>
+              <td>Rajagriha (later Pataliputra)</td>
+              <td>Patna &amp; Gaya districts, Bihar</td>
+              <td>Most powerful empire. Rich iron ore mines, dense elephant forests, fertile Ganga soil.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Kosala</strong></td>
+              <td>Sravasti / Ayodhya</td>
+              <td>Eastern Uttar Pradesh</td>
+              <td>Ruled by King Prasenajit; sacred land of Lord Rama; frequent rival of Magadha.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Vatsa</strong></td>
+              <td>Kausambi</td>
+              <td>Near Prayagraj, UP</td>
+              <td>Situated on the Yamuna river at the junction of major trade routes; ruled by King Udayana.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Avanti</strong></td>
+              <td>Ujjayini (North) / Mahishmati (South)</td>
+              <td>Malwa region, Madhya Pradesh</td>
+              <td>Gateway to South India (Dakshinapatha); center of iron smelting; ruled by King Pradyota.</td>
+            </tr>
+            <tr>
+              <td><strong>5. Vajji (Vrijji)</strong></td>
+              <td>Vaishali</td>
+              <td>North Bihar</td>
+              <td>A famous confederacy of 8 republican clans (Gana-Sangha), including the Lichchhavis.</td>
+            </tr>
+            <tr>
+              <td><strong>6. Malla</strong></td>
+              <td>Kusinara and Pava</td>
+              <td>Eastern UP / Deoria</td>
+              <td>Another famous Gana-Sangha; site where Lord Buddha and Lord Mahavira attained Mahaparinirvana.</td>
+            </tr>
+            <tr>
+              <td><strong>7. Anga</strong></td>
+              <td>Champa</td>
+              <td>Bhagalpur &amp; Munger, Bihar</td>
+              <td>Renowned maritime trading port on the Ganga; later annexed by Magadha's King Bimbisara.</td>
+            </tr>
+            <tr>
+              <td><strong>8. Kasi</strong></td>
+              <td>Varanasi</td>
+              <td>Varanasi, UP</td>
+              <td>Famous for cotton textiles, spiritual learning, and perfumes; later absorbed by Kosala.</td>
+            </tr>
+            <tr>
+              <td><strong>9. Chedi</strong></td>
+              <td>Suktimati</td>
+              <td>Bundelkhand region</td>
+              <td>Mentioned in the Mahabharata (realm of King Shishupala).</td>
+            </tr>
+            <tr>
+              <td><strong>10. Kuru</strong></td>
+              <td>Indraprastha / Hastinapur</td>
+              <td>Delhi, Haryana &amp; western UP</td>
+              <td>Heroic kingdom celebrated in the Mahabharata epic.</td>
+            </tr>
+            <tr>
+              <td><strong>11. Panchala</strong></td>
+              <td>Ahichchhatra (North) / Kampilya (South)</td>
+              <td>Bareilly, Badaun &amp; Farrukhabad, UP</td>
+              <td>Famous center of Vedic philosophy and statecraft.</td>
+            </tr>
+            <tr>
+              <td><strong>12. Matsya</strong></td>
+              <td>Viratnagar</td>
+              <td>Jaipur–Alwar region, Rajasthan</td>
+              <td>Allies of the Pandavas; famous for cattle wealth.</td>
+            </tr>
+            <tr>
+              <td><strong>13. Surasena</strong></td>
+              <td>Mathura</td>
+              <td>Braj region, UP</td>
+              <td>Associated with Lord Krishna and the Yadava clan; major commercial junction on the Yamuna.</td>
+            </tr>
+            <tr>
+              <td><strong>14. Assaka (Asmaka)</strong></td>
+              <td>Potali / Podana</td>
+              <td>Godavari River valley (Maharashtra/Telangana)</td>
+              <td>The only Mahājanapada located in Peninsular South India!</td>
+            </tr>
+            <tr>
+              <td><strong>15. Gandhara</strong></td>
+              <td>Taxila (Takshashila)</td>
+              <td>Rawalpindi &amp; Peshawar (NW frontier)</td>
+              <td>World-famous center of higher education, sculpture, and trans-Asian silk trade.</td>
+            </tr>
+            <tr>
+              <td><strong>16. Kamboja</strong></td>
+              <td>Rajapura</td>
+              <td>Pamirs &amp; Hindukush (Kashmir/Afghanistan)</td>
+              <td>Renowned across India for breeding fine warhorses.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 2.3 The Catalysts of the Second Urbanisation -->
+      <h3 class="topic-title"><i class="fa-solid fa-hammer"></i> 3. What Triggered the Second Urbanisation?</h3>
+      <p>
+        Why did massive cities suddenly sprout all across northern India around 600 BCE? Historians point to four groundbreaking factors:
+      </p>
+      <ol>
+        <li><strong>The Iron Revolution:</strong> Copper and bronze tools were too soft to fell massive hardwood trees in the dense monsoon rainforests of the Ganga basin. The discovery of rich iron ore deposits in Jharkhand and Odisha allowed blacksmiths to craft heavy, sharp <strong>iron axes</strong> to clear the jungles and tough <strong>iron ploughshares</strong> that could slice through heavy black and alluvial clay soils.</li>
+        <li><strong>Wet Rice Paddy Transplantation (*Ropar*):</strong> Instead of scattering seeds randomly on dry ground, farmers grew seedlings in flooded nursery beds and transplanted them by hand into water-logged fields. This multiplied rice yields three- to five-fold!</li>
+        <li><strong>Creation of Agricultural Surplus:</strong> Because a few farmers could now grow enough food to feed hundreds, other people were free to leave farming and become full-time specialized blacksmiths, carpenters, potters, cloth weavers, soldiers, priests, and administrators!</li>
+        <li><strong>River Highways:</strong> The flat, interconnected waters of the Ganga, Yamuna, Son, and Gandak rivers allowed merchants to transport boatloads of grain, timber, and iron weapons cheaply over hundreds of kilometres.</li>
+      </ol>
+
+      <!-- 2.4 Monarchies vs Republics -->
+      <h3 class="topic-title"><i class="fa-solid fa-crown"></i> 4. Two Systems of Governance: Monarchies vs Republics</h3>
+      <p>The Mahājanapadas developed two distinct forms of government:</p>
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Monarchies (*Rajya*)</th>
+              <th>Early Republics (*Gana-Sanghas*)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Ruler</strong></td>
+              <td>A single hereditary king (<em>Rājā</em>). The eldest son usually inherited the throne.</td>
+              <td>Ruled collectively by an assembly of chiefs or clan leaders; no single king.</td>
+            </tr>
+            <tr>
+              <td><strong>Decision Making</strong></td>
+              <td>The King took final decisions with advice from his council of ministers (<em>Amatyas</em>) and chief priest (<em>Purohita</em>).</td>
+              <td>Decisions were debated and voted on democratically inside an assembly hall called the <strong>Santhagara</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Taxation</strong></td>
+              <td>Regular, compulsory taxes collected by officers: <strong>Bhaga</strong> (1/6th of crop yield), tolls on goods, and unpaid labor (<em>Visti</em>).</td>
+              <td>Revenue was contributed collectively by clan members for shared defence and public works.</td>
+            </tr>
+            <tr>
+              <td><strong>Standing Army</strong></td>
+              <td>Maintained a professional, permanent standing army paid round-the-year in cash/grain with infantry, cavalry, and war elephants.</td>
+              <td>Trained citizen-soldiers mobilised under elected clan commanders during wartime.</td>
+            </tr>
+            <tr>
+              <td><strong>Famous Examples</strong></td>
+              <td><strong>Magadha, Kosala, Vatsa, Avanti</strong>.</td>
+              <td><strong>Vajji confederacy (Lichchhavis of Vaishali), Sakyas of Kapilavastu</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-head"><i class="fa-solid fa-hands-holding-circle"></i> Lord Buddha and the Spirit of Gana-Sanghas</div>
+        <p>
+          Both <strong>Gautama Buddha</strong> (founder of Buddhism) and <strong>Vardhamana Mahavira</strong> (24th Tirthankara of Jainism) were born into republican Gana-Sangha clans! Lord Buddha belonged to the <em>Sakya</em> clan of Kapilavastu, while Mahavira belonged to the <em>Jnatrika</em> clan of the Vajji confederacy.
+        </p>
+        <p>
+          Their democratic background profoundly influenced their religious orders: the Buddhist monastic community (the <strong>Sangha</strong>) operated exactly like a Gana-Sangha assembly, where all monks voted using coloured wooden sticks (<em>salakas</em>) to reach consensus!
+        </p>
+      </div>
+
+      <!-- 2.5 Coins and Craft Guilds -->
+      <h3 class="topic-title"><i class="fa-solid fa-coins"></i> 5. Economic Revolution: Punch-Marked Coins &amp; Craft Guilds</h3>
+      <p>
+        Before this period, trade was conducted through barter (exchanging cows, grain, or copper bars). With the growth of long-distance commerce, merchants invented metallic money:
+      </p>
+      <ul>
+        <li><strong>Punch-Marked Coins (Pana / Karshapana):</strong> Pieces of silver or copper cut to a standard weight and stamped with distinct punches of symbols—such as the sun, crescent moon, six-armed wheel, hill, bull, and tree-in-railing. They did not carry written names or royal portraits yet!</li>
+        <li><strong>Craft Guilds (*Shrenis*):</strong> Artisans practicing the same craft formed powerful associations called <em>Shrenis</em> (guilds of weavers, potters, metalworkers, carpenters, and ivory carvers).
+          <br><em>Functions of Shrenis:</em>
+          <ol>
+            <li>Trained apprentices and set strict quality standards.</li>
+            <li>Procured raw materials at bulk wholesale prices.</li>
+            <li>Acted as trusted <strong>ancient banks</strong>: wealthy citizens and kings deposited money with guilds, and the guilds paid regular interest or donated funds to maintain temples and monasteries!</li>
+          </ol>
+        </li>
+        <li><strong>Great Trade Highways:</strong>
+          <ul>
+            <li><strong>Uttarapatha (Northern Route):</strong> Ran from Taxila in the northwest through Hastinapur, Kanyakubja, Varanasi, Pataliputra to the port of Tamralipti in Bengal.</li>
+            <li><strong>Dakshinapatha (Southern Route):</strong> Connected the Ganga plains with Ujjayini, crossed the Narmada and Vindhya ranges, and reached Pratishthana (Paithan) on the Godavari.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <!-- 2.6 Social Changes & Varna-Jati -->
+      <h3 class="topic-title"><i class="fa-solid fa-layer-group"></i> 6. Society in Transition: The Varna–Jāti System</h3>
+      <p>
+        As urban society grew more complex, social organization changed profoundly:
+      </p>
+      <ul>
+        <li><strong>The Four Varnas:</strong> The fourfold classification mentioned in late Vedic texts:
+          <ol>
+            <li><em>Brahmanas:</em> Priests, teachers, and custodians of Vedic rituals.</li>
+            <li><em>Kshatriyas:</em> Rulers, kings, and warriors responsible for defence and justice.</li>
+            <li><em>Vaishyas:</em> Farmers, cattle herders, traders, and money-lenders.</li>
+            <li><em>Shudras:</em> Artisans, laborers, and service providers.</li>
+          </ol>
+        </li>
+        <li><strong>The Emergence of Jātis:</strong> With the birth of specialized professions (such as metal-smelters, ivory-carvers, weavers, stone-cutters, and chariot-makers), hundreds of hereditary occupational groups formed within the broader Varnas, known as <strong>Jātis</strong>.</li>
+        <li><strong>Origin of the Word 'Caste':</strong> The English word 'caste' does not exist in ancient Sanskrit! It comes from the Portuguese word <strong>Casta</strong> (meaning 'pure breed' or 'lineage'), introduced by Portuguese travellers visiting Goa in the 16th century CE to describe Indian social divisions.</li>
+      </ul>
+
+      <!-- 2.7 South India Interconnections -->
+      <h3 class="topic-title"><i class="fa-solid fa-gem"></i> 7. The Deep South: Megaliths and Maritime Trade</h3>
+      <p>
+        While Mahājanapadas flourished in the north, South India was undergoing its own dynamic transformation:
+      </p>
+      <ul>
+        <li><strong>Megalithic Culture:</strong> Communities erected large stone monuments over burials (such as stone circles, dolmens, and burial urns containing iron weapons, pottery, and beads).</li>
+        <li><strong>Early Kingdoms:</strong> The southern tip of India saw the emergence of the <strong>Cheras, Cholas, and Pandyas</strong>, celebrated in early Sangam literature.</li>
+        <li><strong>Craft Hubs &amp; Gem Trade:</strong> Sites like <strong>Kodumanal</strong> (near Erode, Tamil Nadu) and <strong>Keeladi</strong> (near Madurai) reveal thriving industrial workshops manufacturing quartz beads, beryl gemstones, shell bangles, and high-quality iron tools. These goods were traded north to Magadha and shipped across the Indian Ocean to the Greco-Roman world!</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3: RAPID REVISION FACT & TECHNICAL TERM BANK -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <div class="section-number">03</div>
+        <h2 class="section-title">Rapid Revision Fact &amp; Technical Term Bank</h2>
+      </div>
+
+      <div class="term-grid">
+        <div class="term-card">
+          <div class="term-title">1. Janapada</div>
+          <div class="term-def">Literally 'the foothold of a tribe'; a small territorial state in ancient India where a clan permanently settled down to practice agriculture.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">2. Mahājanapada</div>
+          <div class="term-def">One of the 16 major, powerful states that emerged in the Indian subcontinent around 600 BCE with fortified capital cities and standing armies.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">3. Second Urbanisation</div>
+          <div class="term-def">The resurgence of planned cities, monetization, and commercial craft guilds across the Ganga plains around 600 BCE, over a millennium after Harappa.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">4. Gana-Sangha</div>
+          <div class="term-def">An ancient Indian oligarchic republic ruled collectively by an assembly of clan elders and chiefs rather than a single hereditary monarch.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">5. Santhagara</div>
+          <div class="term-def">The public assembly hall of a Gana-Sangha (such as Vajji) where matters of state, warfare, and justice were debated and voted on.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">6. Bhaga</div>
+          <div class="term-def">The standard land revenue tax paid by farmers to the king in monarchical states, fixed at one-sixth (1/6th) of the total harvested produce.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">7. Punch-Marked Coins</div>
+          <div class="term-def">India's earliest metallic coinage: silver or copper pieces stamped with symbols using distinct punches, without written royal names.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">8. Shreni</div>
+          <div class="term-def">A formal association or craft guild of merchants and artisans that regulated production, maintained quality, trained apprentices, and functioned as a bank.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">9. Uttarapatha</div>
+          <div class="term-def">The Great Northern Highway of ancient India linking Taxila in the northwest across the Ganga plain to the seaport of Tamralipti in Bengal.</div>
+        </div>
+
+        <div class="term-card">
+          <div class="term-title">10. Megalith</div>
+          <div class="term-def">Large stone monuments or circular stone boulders placed by iron-age communities over graves and burial chambers, especially prominent in South India.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: COMPLETE NCERT IN-TEXT ACTIVITIES & EXERCISE SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <div class="section-number">04</div>
+        <h2 class="section-title">Complete NCERT In-Text Activities &amp; Exercise Solutions</h2>
+      </div>
+
+      <!-- In-Text Activity 1 -->
+      <details class="ans-box">
+        <summary>In-Text Activity (Page 4): Notice how many Mahājanapadas are concentrated in the Ganga plains. Why did this happen?</summary>
+        <div class="ans-content">
+          <p><strong>Reasons for the concentration of Mahājanapadas in the Ganga plains:</strong></p>
+          <ol>
+            <li><strong>Extremely Fertile Alluvium:</strong> The deep silt brought down by the Ganga, Yamuna, and their tributaries produced abundant harvests of rice, wheat, and sugarcane.</li>
+            <li><strong>Introduction of Iron Tools:</strong> Rich iron ore in the nearby Chota Nagpur plateau allowed people to forge heavy axes to clear dense monsoon forests and make iron ploughs to till the stiff soil.</li>
+            <li><strong>River Navigation &amp; Trade:</strong> Broad, perennial rivers served as natural highways for boats carrying bulk commodities, grain, and soldiers quickly.</li>
+            <li><strong>Water &amp; Dense Forests:</strong> Heavy rainfall and rivers ensured permanent drinking and irrigation water, while forests provided sturdy timber for city walls and elephants for royal armies.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- In-Text Activity 2 -->
+      <details class="ans-box">
+        <summary>In-Text Activity (Page 7): Match the four most powerful Mahājanapadas with their capitals and modern Indian cities.</summary>
+        <div class="ans-content">
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Mahājanapada</th>
+                  <th>Ancient Capital</th>
+                  <th>Corresponding Modern Location / City</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Magadha</strong></td>
+                  <td>Rajagriha (later Pataliputra)</td>
+                  <td>Rajgir and modern-day <strong>Patna</strong>, Bihar</td>
+                </tr>
+                <tr>
+                  <td><strong>Kosala</strong></td>
+                  <td>Sravasti (and Ayodhya)</td>
+                  <td>Near Balrampur / Ayodhya, eastern Uttar Pradesh</td>
+                </tr>
+                <tr>
+                  <td><strong>Vatsa</strong></td>
+                  <td>Kausambi</td>
+                  <td>Kosam (near <strong>Prayagraj / Allahabad</strong>, UP)</td>
+                </tr>
+                <tr>
+                  <td><strong>Avanti</strong></td>
+                  <td>Ujjayini (North) / Mahishmati (South)</td>
+                  <td><strong>Ujjain</strong> and Maheshwar, Madhya Pradesh</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- In-Text Activity 3 -->
+      <details class="ans-box">
+        <summary>In-Text Activity (Page 10): Why should a complex society divide itself into occupational groups (Jatis)?</summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ul>
+            <li><strong>Specialisation of Skills:</strong> Advanced crafts like iron metallurgy, wheel-turned pottery, ivory carving, and gold jewellery required years of training from childhood. Families passed these specialized trade secrets down through generations.</li>
+            <li><strong>Division of Labour:</strong> As towns grew, no single family could do everything. Having dedicated farmers, weavers, builders, soldiers, and traders increased overall efficiency and economic productivity.</li>
+            <li><strong>Mutual Support:</strong> Occupational groups (Shrenis / Jātis) acted as social safety nets, looking after widows, orphans, and sick members of their trade.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Exercise 1: Kautilya Quotation -->
+      <details class="ans-box">
+        <summary>Exercise Q1: Consider the quotation from Kautilya's Arthashastra at the start of the chapter. What does he recommend for a kingdom? Is it very different today?</summary>
+        <div class="ans-content">
+          <p><strong>Analysis of Kautilya's Recommendations:</strong></p>
+          <ul>
+            <li><strong>What Kautilya Recommends:</strong>
+              <ol>
+                <li><em>Strong Defence:</em> Fortified capital city and frontier border forts to protect against invasions.</li>
+                <li><em>Economic Self-Sufficiency:</em> Fertile agricultural land, productive mines, timber and elephant forests, and rich pastures.</li>
+                <li><em>Water Security:</em> The state must not depend solely on rain; it must build canals, tanks, and reservoirs.</li>
+                <li><em>Infrastructure &amp; Trade:</em> A well-connected network of roads and waterways to facilitate a productive, diverse market economy.</li>
+                <li><em>Disaster Preparedness:</em> The land must produce enough surplus to support both its citizens and refugees during calamities.</li>
+              </ol>
+            </li>
+            <li><strong>Comparison with Today:</strong>
+              <br>It is <strong>not very different at all</strong>! Modern democratic nations still prioritize national border security, modern road/rail infrastructure, irrigation dams to protect farmers from droughts, industrial mining, and emergency disaster relief reserves. Kautilya's statecraft principles remain remarkably relevant after 2,300 years!
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Exercise 2: How Rulers Were Chosen -->
+      <details class="ans-box">
+        <summary>Exercise Q2: According to the text, how were rulers chosen in early Vedic society?</summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong></p>
+          <ol>
+            <li><strong>Role of the Samiti:</strong> In early Vedic society, the <em>Rājā</em> was often chosen or approved by the <strong>Samiti</strong>, the general assembly composed of ordinary clan members.</li>
+            <li><strong>Qualifications:</strong> The leader was selected for his personal bravery, leadership in warfare, ability to protect cattle herds, and wisdom in resolving disputes.</li>
+            <li><strong>Guidance of the Sabha:</strong> The king did not have dictatorial powers; he had to consult the <strong>Sabha</strong> (council of wise elders and nobles) before making critical decisions. (Only later, during the late Vedic and Mahājanapada period, did kingship become strictly hereditary from father to son).</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Exercise 3: Historian Sources for Mahajanapadas -->
+      <details class="ans-box">
+        <summary>Exercise Q3: Imagine you are a historian studying ancient India. What types of sources would you use to learn about the Mahājanapadas?</summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong> A historian would use a balanced combination of <strong>literary</strong> and <strong>archaeological</strong> sources:</p>
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Type of Source</th>
+                  <th>Specific Examples</th>
+                  <th>Contribution to Understanding</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>1. Buddhist Texts</strong></td>
+                  <td><em>Anguttara Nikaya</em>, <em>Digha Nikaya</em>, Jataka Tales</td>
+                  <td>Provide the classic list of 16 Mahājanapadas, insights into Gana-Sanghas (Vajji), life in cities, kings, and dialogues of the Buddha.</td>
+                </tr>
+                <tr>
+                  <td><strong>2. Jain Texts</strong></td>
+                  <td><em>Bhagavati Sutra</em>, <em>Uttaradhyayana Sutra</em></td>
+                  <td>Provide an alternate list of Mahājanapadas, merchant trade routes, and ascetic philosophies of the era.</td>
+                </tr>
+                <tr>
+                  <td><strong>3. Political &amp; Epic Texts</strong></td>
+                  <td>Kauṭilya's <em>Arthaśhāstra</em>, <em>Mahabharata</em></td>
+                  <td>Details on statecraft, taxation (*Bhaga*), espionage, city fortifications, and royal administration.</td>
+                </tr>
+                <tr>
+                  <td><strong>4. Numismatic Sources (Coins)</strong></td>
+                  <td>Punch-Marked Silver &amp; Copper Coins</td>
+                  <td>Prove the emergence of a cash economy, trade routes, metal purity, and merchant guild stamps.</td>
+                </tr>
+                <tr>
+                  <td><strong>5. Archaeological Excavations</strong></td>
+                  <td>Rajgir stone walls, Kausambi brick ramparts, Northern Black Polished Ware (NBPW) pottery, iron implements</td>
+                  <td>Provide physical proof of urban town planning, defense walls, high-temperature iron smelting, and luxury tableware.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Exercise 4: Importance of Iron Metallurgy -->
+      <details class="ans-box">
+        <summary>Exercise Q4: Why was the development of iron metallurgy so important for the growth of urbanism in the 1st millennium BCE?</summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong> Iron metallurgy was the core engine of the Second Urbanisation for four crucial reasons:</p>
+          <ol>
+            <li><strong>Clearing Hardwood Jungles:</strong> The middle Ganga valley was covered in thick, tangled monsoon rainforests. Soft bronze and copper tools were useless. Heavy, durable <strong>iron axes</strong> enabled settlers to clear vast tracts of land for cultivation.</li>
+            <li><strong>Deep Ploughing of Heavy Clay Soils:</strong> Gangetic alluvium becomes heavy and sticky when wet and rock-hard when dry. Sturdy <strong>iron ploughshares</strong> could dig deep furrows, bringing up nutrients and aerating the soil.</li>
+            <li><strong>Agricultural Surplus &amp; City Growth:</strong> Deep ploughing combined with wet rice transplantation generated a massive food surplus. This surplus allowed thousands of people to move into fortified towns as full-time craftsmen, merchants, soldiers, and administrators.</li>
+            <li><strong>Military Superiority:</strong> Kings who controlled iron ore deposits (especially Magadha) forged lethal iron swords, spears, and iron-tipped arrows, enabling them to defeat rivals and create large, secure empires that promoted safe trade.</li>
+          </ol>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: HIGH-ORDER THINKING (HOTS) & INTERACTIVE QUIZ ENGINE -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <div class="section-number">05</div>
+        <h2 class="section-title">HOTS &amp; Interactive Quiz Engine</h2>
+      </div>
+
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <i class="fa-solid fa-trophy"></i> Your Score: <span id="quizScoreCount">0</span> / 5
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Test your mastery of ancient Indian cities and states!
+        </div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-card" id="qcard1">
+        <p><strong>Q1. What was the standard agricultural tax (*Bhaga*) collected by kings in ancient monarchical Mahājanapadas?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(a) Half (1/2) of the harvest</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(b) One-sixth (1/6th) of the produce</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(c) One-tenth (1/10th) of the produce</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(d) Taxes were only collected in gold coins, never in crops</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> <em>Bhaga</em> (share) was fixed at one-sixth (1/6th) of the total crop harvested by the farmer, paid directly into the royal granary.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-card" id="qcard2">
+        <p><strong>Q2. Which of the following Mahājanapadas was NOT a hereditary monarchy, but an early republic (Gana-Sangha)?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(a) Magadha</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(b) Kosala</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(c) Vajji (Lichchhavis)</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(d) Avanti</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> Vajji was a confederacy of republican clans whose leaders met and voted in the Santhagara assembly hall in Vaishali. Magadha, Kosala, and Avanti were monarchies.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-card" id="qcard3">
+        <p><strong>Q3. India's earliest metallic coins, stamped with symbols of the sun, hills, and trees, are called:</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(a) Punch-marked coins</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(b) Gold Dinars</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(c) Paper notes</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(d) Cowrie shells</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong> Punch-marked coins (mostly silver, sometimes copper) were stamped with punches showing distinctive symbols, marking the beginning of coinage in India.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-card" id="qcard4">
+        <p><strong>Q4. Which was the ONLY Mahājanapada located in South India along the Godavari River?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(a) Gandhara</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(b) Matsya</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(c) Chedi</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(d) Assaka (Asmaka)</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d)</strong> Assaka, with its capital at Potali, was the southernmost Mahājanapada, situated on the banks of the Godavari River in modern Maharashtra/Telangana.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-card" id="qcard5">
+        <p><strong>Q5. What was a primary function of ancient Indian merchant and craft associations called *Shrenis*?</strong></p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(a) Leading military invasions into foreign lands</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(b) Training craft apprentices, regulating goods quality, and functioning as early banks</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(c) Writing poetry for royal coronations only</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(d) Forbidding members from trading outside their village</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 1rem; display: none;">
+          <summary>Teacher's Concept Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> <em>Shrenis</em> (guilds) organised artisans, maintained high craftsmanship standards, and took money deposits on which they paid regular interest, acting as early banks!
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM HALL TRAPS & 15 HIGH-YIELD REVISION POINTS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <div class="section-number">06</div>
+        <h2 class="section-title">Exam Hall Traps &amp; 15 High-Yield Revision Points</h2>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-head"><i class="fa-solid fa-triangle-exclamation"></i> Common Exam Hall Traps to Avoid!</div>
+        <ul>
+          <li><strong>Trap 1: Confusing First and Second Urbanisation:</strong> The <em>First Urbanisation</em> was the Bronze Age Harappan Civilization (c. 2600–1900 BCE) in the Indus-Sarasvati basin. The <em>Second Urbanisation</em> was the Iron Age Mahājanapada period (c. 600 BCE) in the Ganga plains!</li>
+          <li><strong>Trap 2: Monarchy vs Republic Misconception:</strong> Not all Mahājanapadas had kings! States like <em>Vajji (Lichchhavis)</em> and <em>Malla</em> were early republics (Gana-Sanghas) ruled by assemblies of elders.</li>
+          <li><strong>Trap 3: Origin of 'Caste':</strong> 'Caste' is not a Sanskrit or Indian word; it comes from the Portuguese word <em>Casta</em> introduced in the 16th century CE.</li>
+          <li><strong>Trap 4: Capital of Magadha:</strong> Magadha's original capital was <strong>Rajagriha</strong> (surrounded by five hills), before King Udayin shifted it to <strong>Pataliputra</strong> (modern Patna) at the confluence of the Ganga and Son.</li>
+        </ul>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-bolt"></i> 15 High-Yield Revision Points</h3>
+      <ol style="padding-left: 1.5rem; line-height: 1.9;">
+        <li><strong>Janapada Meaning:</strong> 'Foothold of a tribe'—a settled agrarian territory.</li>
+        <li><strong>Sabha &amp; Samiti:</strong> Early Vedic councils of elders and citizens that advised and guided the Rājā.</li>
+        <li><strong>Sixteen Mahājanapadas:</strong> Great states flourishing around 600 BCE, recorded in the Buddhist <em>Anguttara Nikaya</em>.</li>
+        <li><strong>Four Great Powers:</strong> Magadha, Kosala, Vatsa, and Avanti.</li>
+        <li><strong>Second Urbanisation:</strong> Renaissance of cities, trade, and money across northern India around 600 BCE.</li>
+        <li><strong>Iron Tools:</strong> Heavy iron axes cleared dense forests; iron ploughshares enabled deep till farming in the Ganga basin.</li>
+        <li><strong>Wet Rice Transplantation:</strong> Multiplied crop yields, creating the agricultural surplus that sustained urban citizens.</li>
+        <li><strong>Monarchies (*Rajya*):</strong> Ruled by hereditary kings like Bimbisara of Magadha with standing armies and regular taxes.</li>
+        <li><strong>Gana-Sanghas:</strong> Early republics (e.g., Vajji) where clan chiefs debated in the <em>Santhagara</em> assembly hall.</li>
+        <li><strong>Bhaga:</strong> Standard land tax fixed at 1/6th of agricultural output.</li>
+        <li><strong>Punch-Marked Coins:</strong> Earliest stamped silver/copper coins bearing geometric, celestial, and animal symbols.</li>
+        <li><strong>Shrenis (Guilds):</strong> Powerful artisan associations that regulated crafts, trained apprentices, and accepted bank deposits.</li>
+        <li><strong>Trade Highways:</strong> <em>Uttarapatha</em> (Taxila to Bengal) and <em>Dakshinapatha</em> (Ujjayini to the Godavari).</li>
+        <li><strong>Southern Connections:</strong> Megaliths and Sangam era industrial centers (e.g., Kodumanal, Keeladi) trading gemstones, shell, and iron.</li>
+        <li><strong>Varna to Jāti:</strong> Evolution from four broad social classes into hundreds of specialized hereditary trade groups.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p style="font-weight: 700; font-size: 1.1rem; margin-bottom: 0.5rem; color: #f8fafc;">
+      Sujit Classes &bull; Conceptual Middle School Portal
+    </p>
+    <p style="font-size: 0.9rem; margin-bottom: 1rem;">
+      Empowering young minds across Odisha and India with crystal-clear NCERT foundations.
+    </p>
+    <p style="font-size: 0.85rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Portal Home</a> &bull; 
+      <a href="#sec1">Top of Notes</a>
+    </p>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    // 1. Reading Progress Bar & Back to Top Controller
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    // 2. Teacher Audio Reader (TTS)
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+      }
+    }
+
+    // 3. Interactive Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) {
+        details.style.display = 'block';
+        details.open = true;
+      }
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Fantastic! Perfect 5/5 on Ancient Cities and States!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great work! You have a firm grasp of the Second Urbanisation!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good effort! Check the teacher explanations above to master all concepts!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
