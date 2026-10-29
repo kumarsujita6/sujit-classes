@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୩: ବିଦ୍ୟୁତ୍: ପରିପଥ ଓ ଏହାର ଉପାଦାନ (Electricity: Circuits and their Components) | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ସପ୍ତମ ଶ୍ରେଣୀ ବିଜ୍ଞାନ ଅଧ୍ୟାୟ ୩: ବିଦ୍ୟୁତ୍: ପରିପଥ ଓ ଏହାର ଉପାଦାନ। ବୈଦ୍ୟୁତିକ ସେଲ୍, ବ୍ୟାଟେରୀ, ବଲ୍ବ୍ ଓ LED, ବନ୍ଦ ଓ ମୁକ୍ତ ପରିପଥ, ପରିବାହୀ ଓ ଅନ୍ତରକ, NCERT ସମାଧାନ ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.85;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #f59e0b, #0284c7, #10b981);
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.4rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.35rem 0.7rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #1e293b 0%, #0f766e 50%, #0369a1 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.15rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.25rem;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    h3.topic-title {
+      font-size: 1.3rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-left: 4px solid var(--primary);
+      padding-left: 0.75rem;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 1rem; font-size: 1.02rem; }
+
+    ul, ol {
+      margin: 0.75rem 0 1.25rem 1.5rem;
+    }
+
+    li { margin-bottom: 0.5rem; }
+
+    .callout {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid;
+    }
+
+    .callout-def {
+      background: #ecfdf5;
+      border-color: #10b981;
+      color: #065f46;
+    }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e40af;
+    }
+
+    .callout-hack {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #92400e;
+    }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #991b1b;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.98rem;
+      text-align: left;
+    }
+
+    th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #fafafa; }
+
+    details.ans-box {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box summary {
+      padding: 1rem 1.25rem;
+      font-weight: 700;
+      color: var(--dark);
+      cursor: pointer;
+      background: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.98rem;
+      line-height: 1.85;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1.5px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quiz-question {
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .quiz-opt-btn {
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-size: 0.95rem;
+      cursor: pointer;
+      font-family: inherit;
+      color: var(--text);
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      border-color: var(--secondary);
+      background: #f0f9ff;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #ecfdf5 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700 !important;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fef2f2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+      font-weight: 600 !important;
+    }
+
+    svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      border: 1.5px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03);
+    }
+
+    .audio-btn {
+      background: linear-gradient(135deg, #059669 0%, #0284c7 100%);
+      color: #ffffff;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 9999px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin: 14px auto;
+      box-shadow: 0 4px 14px rgba(5, 150, 105, 0.35);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .audio-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(5, 150, 105, 0.45);
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> ସୁଜିତ୍ କ୍ଲାସେସ୍ (Sujit Classes)
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">୧. ମାନଚିତ୍ର</a>
+      <a href="#sec2" class="nav-link">୨. ମାଷ୍ଟର ନୋଟ୍ସ</a>
+      <a href="#sec3" class="nav-link">୩. ପରିଭାଷା</a>
+      <a href="#sec4" class="nav-link">୪. NCERT ସମାଧାନ</a>
+      <a href="#sec5" class="nav-link">୫. ପ୍ରଶ୍ନ ବ୍ୟାଙ୍କ ଓ କୁଇଜ୍</a>
+      <a href="#sec6" class="nav-link">୬. ରିଭିଜନ୍</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-bolt"></i> ସପ୍ତମ ଶ୍ରେଣୀ ବିଜ୍ଞାନ &bull; ଅଧ୍ୟାୟ ୩ (କୌତୂହଳ - Curiosity)
+    </div>
+    <h1 class="hero-title">ଅଧ୍ୟାୟ ୩: ବିଦ୍ୟୁତ୍: ପରିପଥ ଓ ଏହାର ଉପାଦାନ<br><span style="font-size: 1.55rem; opacity: 0.95;">(Electricity: Circuits and their Components)</span></h1>
+    <p class="hero-sub">
+      ଟର୍ଚ୍ଚ ଲାଇଟ୍ର ଅଭ୍ୟନ୍ତରୀଣ ରହସ୍ୟରୁ ଘରୋଇ ବୈଦ୍ୟୁତିକ ସଂଯୋଗ &mdash; ବୈଦ୍ୟୁତିକ ସେଲ୍, ବ୍ୟାଟେରୀ ସଂଯୋଗ, ଟଙ୍ଗଷ୍ଟେନ୍ ବଲ୍ବ୍ ବନାମ LED, ମୁକ୍ତ ଓ ବନ୍ଦ ପରିପଥ, ମାନକ ସଙ୍କେତ ଏବଂ ପରିବାହୀ-ଅନ୍ତରକ ପରୀକ୍ଷା।
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT / BSE Odisha: କୌତୂହଳ</span>
+      <span><i class="fa-solid fa-circle-nodes"></i> ବିଷୟବସ୍ତୁ: ବିଦ୍ୟୁତ ପ୍ରବାହ ଓ ପରିପଥ</span>
+      <span><i class="fa-solid fa-check-double"></i> ୧୦୦% ସମାଧାନ ହୋଇଥିବା କାର୍ଯ୍ୟକଳାପ ଓ ପ୍ରଶ୍ନୋତ୍ତର</span>
+    </div>
+    <div>
+      <button class="audio-btn" id="teacherAudioBtn" onclick="toggleTeacherAudio()">
+        <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL MIND MAP & BLUEPRINT -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୧</span>
+        <h2>ଦୃଶ୍ୟ ମାନସିକ ମାନଚିତ୍ର ଓ ପରିପଥ ଖସଡ଼ା (Visual Mind Map & Circuit Blueprint)</h2>
+        <p class="section-sub">ବୈଦ୍ୟୁତିକ ପରିପଥର ସମସ୍ତ ଉପାଦାନ ଓ ସେମାନଙ୍କ ସଂଯୋଗ ନୀତି</p>
+      </div>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 920 520" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="c3bg" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f8fafc"/>
+              <stop offset="100%" stop-color="#f0f9ff"/>
+            </linearGradient>
+            <linearGradient id="c3core" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0f766e"/>
+            </linearGradient>
+          </defs>
+
+          <rect x="10" y="10" width="900" height="500" rx="16" fill="url(#c3bg)" stroke="#bae6fd" stroke-width="2"/>
+
+          <path d="M 460 260 L 180 130" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="6,4"/>
+          <path d="M 460 260 L 740 130" stroke="#10b981" stroke-width="2.5" stroke-dasharray="6,4"/>
+          <path d="M 460 260 L 180 390" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="6,4"/>
+          <path d="M 460 260 L 740 390" stroke="#ef4444" stroke-width="2.5" stroke-dasharray="6,4"/>
+
+          <!-- Center Node -->
+          <g>
+            <circle cx="460" cy="260" r="80" fill="url(#c3core)" stroke="#ffffff" stroke-width="4"/>
+            <text x="460" y="245" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="15">ବିଦ୍ୟୁତ୍ ପରିପଥ</text>
+            <text x="460" y="268" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="15">&amp; ଉପାଦାନ</text>
+            <text x="460" y="290" text-anchor="middle" fill="#e0f2fe" font-family="'Space Grotesk', sans-serif" font-size="11">(Electric Circuits)</text>
+          </g>
+
+          <!-- Branch 1: Sources (Top-Left) -->
+          <g>
+            <rect x="50" y="60" width="260" height="135" rx="12" fill="#ffffff" stroke="#f59e0b" stroke-width="2"/>
+            <rect x="50" y="60" width="260" height="32" rx="12" fill="#f59e0b"/>
+            <text x="180" y="82" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="13">୧. ବିଦ୍ୟୁତ୍ ଉତ୍ସ (Sources)</text>
+            <text x="65" y="110" fill="#78350f" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ବୈଦ୍ୟୁତିକ ସେଲ୍: ଧନାତ୍ମକ (+) ଓ ଋଣାତ୍ମକ (&ndash;)</text>
+            <text x="65" y="130" fill="#78350f" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ବ୍ୟାଟେରୀ: ଏକାଧିକ ସେଲ୍ର ଶ୍ରେଣୀ ସଂଯୋଗ</text>
+            <text x="65" y="150" fill="#78350f" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ବଟନ୍ ସେଲ୍, ଲିଥିୟମ୍ ଆୟନ୍ ସେଲ୍</text>
+            <text x="65" y="170" fill="#b45309" font-family="'Noto Sans Oriya', sans-serif" font-size="11" font-weight="600">&rarr; ରାସାୟନିକ ଶକ୍ତି &rarr; ବୈଦ୍ୟୁତିକ ଶକ୍ତି</text>
+          </g>
+
+          <!-- Branch 2: Lamps & Loads (Top-Right) -->
+          <g>
+            <rect x="610" y="60" width="260" height="135" rx="12" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+            <rect x="610" y="60" width="260" height="32" rx="12" fill="#10b981"/>
+            <text x="740" y="82" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="13">୨. ବୈଦ୍ୟୁତିକ ଲୋଡ୍ (Loads)</text>
+            <text x="625" y="110" fill="#065f46" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ଟଙ୍ଗଷ୍ଟେନ୍ ବଲ୍ବ୍ (ଅଧିକ ତାପ, କମ୍ ଦକ୍ଷତା)</text>
+            <text x="625" y="130" fill="#065f46" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ଏଲ୍ଇଡି / LED (ଅତ୍ୟଧିକ ଶକ୍ତି ସଞ୍ଚୟକାରୀ)</text>
+            <text x="625" y="150" fill="#065f46" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; LED ଲମ୍ବା ଗୋଡ଼ (+), ଛୋଟ ଗୋଡ଼ (&ndash;)</text>
+            <text x="625" y="170" fill="#047857" font-family="'Noto Sans Oriya', sans-serif" font-size="11" font-weight="600">&bull; ଫିଲାମେଣ୍ଟ୍ ଛିଣ୍ଡିଲେ ବଲ୍ବ୍ ଫ୍ୟୁଜ୍ ହୁଏ</text>
+          </g>
+
+          <!-- Branch 3: Circuit Types (Bottom-Left) -->
+          <g>
+            <rect x="50" y="325" width="260" height="140" rx="12" fill="#ffffff" stroke="#8b5cf6" stroke-width="2"/>
+            <rect x="50" y="325" width="260" height="32" rx="12" fill="#8b5cf6"/>
+            <text x="180" y="347" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="13">୩. ପରିପଥର ପ୍ରକାର (Circuits)</text>
+            <text x="65" y="375" fill="#4c1d95" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ବନ୍ଦ ପରିପଥ (Closed): କରେଣ୍ଟ ପ୍ରବାହିତ</text>
+            <text x="65" y="395" fill="#4c1d95" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ମୁକ୍ତ ପରିପଥ (Open): କରେଣ୍ଟ ବନ୍ଦ</text>
+            <text x="65" y="415" fill="#4c1d95" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ସୁଇଚ୍: ପରିପଥ ଯୋଡ଼ିବା ବା ଭାଙ୍ଗିବା ଉପକରଣ</text>
+            <text x="65" y="435" fill="#6d28d9" font-family="'Noto Sans Oriya', sans-serif" font-size="11" font-weight="600">&bull; ପ୍ରବାହ ଦିଗ: ଧନାତ୍ମକ (+) ରୁ ଋଣାତ୍ମକ (&ndash;)</text>
+          </g>
+
+          <!-- Branch 4: Conductors & Insulators (Bottom-Right) -->
+          <g>
+            <rect x="610" y="325" width="260" height="140" rx="12" fill="#ffffff" stroke="#ef4444" stroke-width="2"/>
+            <rect x="610" y="325" width="260" height="32" rx="12" fill="#ef4444"/>
+            <text x="740" y="347" text-anchor="middle" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="13">୪. ପରିବାହୀ ଓ ଅନ୍ତରକ (Materials)</text>
+            <text x="625" y="375" fill="#991b1b" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ପରିବାହୀ: ତମ୍ବା, ଆଲୁମିନିୟମ୍, ଲୁହା, ଗ୍ରାଫାଇଟ୍</text>
+            <text x="625" y="395" fill="#991b1b" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ଅନ୍ତରକ: ରବର, ପ୍ଲାଷ୍ଟିକ୍, କାଠ, କାଚ</text>
+            <text x="625" y="415" fill="#991b1b" font-family="'Noto Sans Oriya', sans-serif" font-size="12">&bull; ତାର ଉପରେ ପ୍ଲାଷ୍ଟିକ୍ ଆସ୍ତରଣ ସୁରକ୍ଷା ପାଇଁ</text>
+            <text x="625" y="435" fill="#b91c1c" font-family="'Noto Sans Oriya', sans-serif" font-size="11" font-weight="600">&bull; ମାନବ ଶରୀର ଏକ ଉତ୍ତମ ପରିବାହୀ (ସାବଧାନ!)</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EXHAUSTIVE CONCEPT EXPLANATIONS -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୨</span>
+        <h2>ସମ୍ପୂର୍ଣ୍ଣ ଧାରଣା ସ୍ପଷ୍ଟୀକରଣ (Exhaustive Concept Explanations)</h2>
+        <p class="section-sub">ବୈଦ୍ୟୁତିକ ସେଲ୍, ବ୍ୟାଟେରୀ, ସର୍କିଟ୍ ସଙ୍କେତ ଓ ସୁରକ୍ଷା ନିୟମାବଳୀ</p>
+      </div>
+
+      <!-- Topic 1: Inside a Torch -->
+      <h3 class="topic-title"><i class="fa-solid fa-flashlight"></i> ୧. ଟର୍ଚ୍ଚ ଲାଇଟ୍ର ଅଭ୍ୟନ୍ତରୀଣ ରହସ୍ୟ</h3>
+      <p>
+        ଆମ ଘରେ ବିଦ୍ୟୁତ୍ ଚାଲିଗଲେ ଆମେ ତୁରନ୍ତ ଟର୍ଚ୍ଚ ଲାଇଟ୍ ବ୍ୟବହାର କରୁ। ଟର୍ଚ୍ଚର ସୁଇଚ୍ ଟିପିବା ମାତ୍ରେ ବଲ୍ବ୍ କିପରି ଜଳିଉଠେ?
+      </p>
+      <p>
+        ଟର୍ଚ୍ଚ ଭିତରେ ଦୁଇଟି ବା ତିନୋଟି ବୈଦ୍ୟୁତିକ ସେଲ୍ ଗୋଟିକ ପଛରେ ଗୋଟିଏ ଶ୍ରେଣୀରେ (in series) ରଖାଯାଇଥାଏ। ତଳେ ଥିବା ଧାତବ ସ୍ପ୍ରିଙ୍ଗ୍ ସେଲ୍ର ଋଣାତ୍ମକ ଅଗ୍ରକୁ ସ୍ପର୍ଶ କରେ ଏବଂ ସୁଇଚ୍ ଅନ୍ କଲେ ଧାତବ ପଟି ସାହାଯ୍ୟରେ ବଲ୍ବ୍ ସହିତ ଏକ ସମ୍ପୂର୍ଣ୍ଣ ବନ୍ଦ ପରିପଥ (Closed Circuit) ତିଆରି ହୁଏ। ଫଳରେ ବିଦ୍ୟୁତ ପ୍ରବାହିତ ହୋଇ ବଲ୍ବ୍ ଆଲୋକିତ ହୁଏ।
+      </p>
+
+      <!-- Topic 2: Electric Cell & Battery -->
+      <h3 class="topic-title"><i class="fa-solid fa-car-battery"></i> ୨. ବୈଦ୍ୟୁତିକ ସେଲ୍ (Electric Cell) ଏବଂ ବ୍ୟାଟେରୀ (Battery)</h3>
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-battery-half"></i> ବୈଦ୍ୟୁତିକ ସେଲ୍ (Electric Cell)</div>
+        <p><strong>ବୈଦ୍ୟୁତିକ ସେଲ୍:</strong> ଏହା ଏକ ଯନ୍ତ୍ର ଯାହା ନିଜ ଭିତରେ ଥିବା ରାସାୟନିକ ପଦାର୍ଥର ରାସାୟନିକ ଶକ୍ତିକୁ ବୈଦ୍ୟୁତିକ ଶକ୍ତି (Electric Energy) ରେ ରୂପାନ୍ତରିତ କରେ। ପ୍ରତ୍ୟେକ ସେଲ୍ର ଦୁଇଟି ଅଗ୍ର ଥାଏ:</p>
+        <ul>
+          <li><strong>ଧନାତ୍ମକ ଅଗ୍ର (+ Terminal):</strong> ଉପର ଭାଗରେ ଥିବା ଛୋଟ ଧାତବ ଟୋପି (Metal Cap)।</li>
+          <li><strong>ଋଣାତ୍ମକ ଅଗ୍ର (&ndash; Terminal):</strong> ତଳ ଭାଗରେ ଥିବା ସମତଳ ଜିଙ୍କ୍ ଡିସ୍କ (Flat Metal/Zinc Base)।</li>
+        </ul>
+      </div>
+
+      <h4>ବ୍ୟାଟେରୀ କିପରି ତିଆରି ହୁଏ?</h4>
+      <p>
+        ସାଧାରଣତଃ ଗୋଟିଏ ସେଲ୍ ମାତ୍ର ୧.୫ ଭୋଲ୍ଟ (1.5V) ବିଦ୍ୟୁତ୍ ବିଭବାନ୍ତର ଯୋଗାଏ। କିନ୍ତୁ ଖେଳନା ଗାଡ଼ି, ରିମୋଟ୍ କଣ୍ଟ୍ରୋଲ୍ ବା ଟର୍ଚ୍ଚ ଚଲାଇବା ପାଇଁ ଅଧିକ ଭୋଲ୍ଟେଜ୍ ଆବଶ୍ୟକ। ତେଣୁ ଦୁଇ ବା ତତୋଧିକ ସେଲ୍କୁ ଏକାଠି ଯୋଡ଼ାଯାଏ। <strong>ଦୁଇ ବା ତତୋଧିକ ବୈଦ୍ୟୁତିକ ସେଲ୍ର ସଂଯୋଗକୁ ବ୍ୟାଟେରୀ (Battery) କୁହାଯାଏ।</strong>
+      </p>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସଂଯୋଗ ନିୟମ: (+) ସହିତ ସର୍ବଦା (&ndash;) ଯୋଡ଼ନ୍ତୁ!</div>
+        <p>ବ୍ୟାଟେରୀ ତିଆରି କରିବା ସମୟରେ, ଗୋଟିଏ ସେଲ୍ର ଧନାତ୍ମକ ଅଗ୍ର (+) କୁ ଅନ୍ୟ ସେଲ୍ର ଋଣାତ୍ମକ ଅଗ୍ର (&ndash;) ସହିତ ହିଁ ଯୋଡ଼ିବା ଆବଶ୍ୟକ। ଯଦି ଦୁଇଟି ସେଲ୍ର (+) ସହିତ (+) ବା (&ndash;) ସହିତ (&ndash;) ଯୋଡ଼ିବେ, ତେବେ ପରିପଥରେ କୌଣସି ବିଦ୍ୟୁତ ପ୍ରବାହିତ ହେବ ନାହିଁ ଏବଂ ବଲ୍ବ୍ ଜଳିବ ନାହିଁ!</p>
+      </div>
+
+      <!-- SVG 2: Cell, Bulb, LED Anatomy -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 880 280" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="860" height="260" rx="14" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+          <text x="440" y="38" text-anchor="middle" fill="#0f172a" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="15">ବୈଦ୍ୟୁତିକ ସେଲ୍, ଟଙ୍ଗଷ୍ଟେନ୍ ବଲ୍ବ୍ ଓ LED ର ଅଭ୍ୟନ୍ତରୀଣ ଗଠନ</text>
+
+          <!-- 1. Cell -->
+          <g transform="translate(40, 60)">
+            <rect x="50" y="30" width="80" height="130" rx="8" fill="#e2e8f0" stroke="#0f172a" stroke-width="2"/>
+            <rect x="75" y="15" width="30" height="15" rx="3" fill="#f59e0b" stroke="#0f172a" stroke-width="1.5"/>
+            <text x="90" y="27" text-anchor="middle" fill="#0f172a" font-weight="700" font-size="14">+</text>
+            <text x="90" y="90" text-anchor="middle" fill="#0284c7" font-weight="700" font-size="14">ସେଲ୍ (1.5V)</text>
+            <text x="90" y="150" text-anchor="middle" fill="#0f172a" font-weight="700" font-size="16">&ndash;</text>
+            <text x="90" y="185" text-anchor="middle" fill="#334155" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="12">୧. ବୈଦ୍ୟୁତିକ ସେଲ୍</text>
+            <text x="90" y="200" text-anchor="middle" fill="#64748b" font-family="'Noto Sans Oriya', sans-serif" font-size="10">(+ ଟୋପି, &ndash; ସମତଳ ତଳ)</text>
+          </g>
+
+          <!-- 2. Incandescent Bulb -->
+          <g transform="translate(320, 60)">
+            <circle cx="100" cy="70" r="45" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" opacity="0.8"/>
+            <path d="M 85 80 Q 95 40 100 50 Q 105 40 115 80" stroke="#b45309" stroke-width="2" fill="none"/>
+            <text x="100" y="35" text-anchor="middle" fill="#92400e" font-family="'Noto Sans Oriya', sans-serif" font-size="10">ଫିଲାମେଣ୍ଟ୍ (Tungsten)</text>
+            <rect x="85" y="110" width="30" height="30" fill="#94a3b8" stroke="#475569" stroke-width="1.5"/>
+            <text x="100" y="185" text-anchor="middle" fill="#334155" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="12">୨. ଟଙ୍ଗଷ୍ଟେନ୍ ବଲ୍ବ୍</text>
+            <text x="100" y="200" text-anchor="middle" fill="#64748b" font-family="'Noto Sans Oriya', sans-serif" font-size="10">(ପତଳା ତାର ତାପ ଯୋଗୁଁ ଜଳେ)</text>
+          </g>
+
+          <!-- 3. LED -->
+          <g transform="translate(600, 60)">
+            <path d="M 80 90 A 25 25 0 0 1 120 90 Z" fill="#ecfdf5" stroke="#10b981" stroke-width="2"/>
+            <line x1="90" y1="90" x2="90" y2="150" stroke="#059669" stroke-width="2.5"/>
+            <line x1="110" y1="90" x2="110" y2="135" stroke="#059669" stroke-width="2.5"/>
+            <text x="75" y="130" fill="#047857" font-weight="700" font-size="12">ଲମ୍ବା ଗୋଡ଼ (+)</text>
+            <text x="115" y="130" fill="#991b1b" font-weight="700" font-size="12">ଛୋଟ ଗୋଡ଼ (&ndash;)</text>
+            <text x="100" y="185" text-anchor="middle" fill="#334155" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="12">୩. ଏଲ୍ଇଡି (LED)</text>
+            <text x="100" y="200" text-anchor="middle" fill="#64748b" font-family="'Noto Sans Oriya', sans-serif" font-size="10">(କମ୍ ଶକ୍ତି ଖର୍ଚ୍ଚ, ଉଚ୍ଚ ଆଲୋକ)</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Topic 3: Bulb vs LED -->
+      <h3 class="topic-title"><i class="fa-solid fa-lightbulb"></i> ୩. ଟଙ୍ଗଷ୍ଟେନ୍ ବଲ୍ବ୍ ବନାମ ଏଲ୍ଇଡି (LED): ପ୍ରଯୁକ୍ତିଗତ ବିପ୍ଳବ</h3>
+      <table style="width: 100%; margin: 1rem 0;">
+        <tr>
+          <th>ତୁଳନାତ୍ମକ ଲକ୍ଷଣ</th>
+          <th>ପାରମ୍ପରିକ ଇନକାଣ୍ଡେସେଣ୍ଟ୍ ବଲ୍ବ୍</th>
+          <th>ଆଧୁନିକ ଏଲ୍ଇଡି (LED)</th>
+        </tr>
+        <tr>
+          <td><strong>ଆଲୋକର ଉତ୍ସ</strong></td>
+          <td>ଅତ୍ୟଧିକ ଉତ୍ତପ୍ତ ଟଙ୍ଗଷ୍ଟେନ୍ ଫିଲାମେଣ୍ଟ୍।</td>
+          <td>ଅର୍ଦ୍ଧପରିବାହୀ ଚିପ୍ (Semiconductor Diode)।</td>
+        </tr>
+        <tr>
+          <td><strong>ତାପ ଉତ୍ପନ୍ନ</strong></td>
+          <td>ଅତ୍ୟଧିକ ତାପ ଉତ୍ପନ୍ନ କରେ (୯୦% ଶକ୍ତି ତାପରେ ନଷ୍ଟ)।</td>
+          <td>ଖୁବ୍ କମ୍ ତାପ ଉତ୍ପନ୍ନ ହୁଏ (ଥଣ୍ଡା ଆଲୋକ)।</td>
+        </tr>
+        <tr>
+          <td><strong>ବିଦ୍ୟୁତ୍ ଖର୍ଚ୍ଚ</strong></td>
+          <td>ବହୁତ ଅଧିକ ବିଦ୍ୟୁତ୍ ଖାଏ (ଅପଚୟ)।</td>
+          <td>ଖୁବ୍ କମ୍ ବିଦ୍ୟୁତ୍ ଖାଏ (୮୦% ଶକ୍ତି ସଞ୍ଚୟ)।</td>
+        </tr>
+        <tr>
+          <td><strong>ସ୍ଥାୟିତ୍ୱ</strong></td>
+          <td>ଫିଲାମେଣ୍ଟ୍ ସହଜରେ ଛିଣ୍ଡି ଫ୍ୟୁଜ୍ ହୋଇଯାଏ।</td>
+          <td>ଅନେକ ବର୍ଷ ପର୍ଯ୍ୟନ୍ତ ନିରନ୍ତର କାର୍ଯ୍ୟ କରେ।</td>
+        </tr>
+      </table>
+
+      <!-- Topic 4: Circuit Symbols -->
+      <h3 class="topic-title"><i class="fa-solid fa-diagram-project"></i> ୪. ମାନକ ବୈଦ୍ୟୁତିକ ସଙ୍କେତ (Standard Circuit Symbols)</h3>
+      <p>
+        ପ୍ରତ୍ୟେକ ଥର ପ୍ରକୃତ ସେଲ୍ ବା ବଲ୍ବ୍ର ଚିତ୍ର ଆଙ୍କିବା କଷ୍ଟକର। ତେଣୁ ବିଜ୍ଞାନରେ କିଛି ସର୍ବମାନ୍ୟ ସରଳ ସଙ୍କେତ ବ୍ୟବହାର କରାଯାଏ:
+      </p>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 880 280" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="860" height="260" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+          <text x="440" y="35" text-anchor="middle" fill="#0f172a" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="14">ବୈଦ୍ୟୁତିକ ଉପାଦାନଗୁଡ଼ିକର ମାନକ ସଙ୍କେତ (Standard Circuit Symbols)</text>
+
+          <!-- 1. Cell -->
+          <g transform="translate(50, 60)">
+            <line x1="0" y1="40" x2="30" y2="40" stroke="#0f172a" stroke-width="2"/>
+            <line x1="30" y1="15" x2="30" y2="65" stroke="#059669" stroke-width="3"/>
+            <line x1="45" y1="25" x2="45" y2="55" stroke="#ef4444" stroke-width="5"/>
+            <line x1="45" y1="40" x2="75" y2="40" stroke="#0f172a" stroke-width="2"/>
+            <text x="30" y="10" text-anchor="middle" fill="#059669" font-weight="700">+</text>
+            <text x="45" y="10" text-anchor="middle" fill="#ef4444" font-weight="700">&ndash;</text>
+            <text x="37" y="95" text-anchor="middle" fill="#334155" font-family="'Noto Sans Oriya', sans-serif" font-size="12">ବୈଦ୍ୟୁତିକ ସେଲ୍</text>
+          </g>
+
+          <!-- 2. Battery -->
+          <g transform="translate(220, 60)">
+            <line x1="0" y1="40" x2="25" y2="40" stroke="#0f172a" stroke-width="2"/>
+            <line x1="25" y1="15" x2="25" y2="65" stroke="#059669" stroke-width="3"/>
+            <line x1="35" y1="25" x2="35" y2="55" stroke="#ef4444" stroke-width="5"/>
+            <line x1="35" y1="40" x2="55" y2="40" stroke="#0f172a" stroke-width="2" stroke-dasharray="3,2"/>
+            <line x1="55" y1="15" x2="55" y2="65" stroke="#059669" stroke-width="3"/>
+            <line x1="65" y1="25" x2="65" y2="55" stroke="#ef4444" stroke-width="5"/>
+            <line x1="65" y1="40" x2="90" y2="40" stroke="#0f172a" stroke-width="2"/>
+            <text x="45" y="95" text-anchor="middle" fill="#334155" font-family="'Noto Sans Oriya', sans-serif" font-size="12">ବ୍ୟାଟେରୀ</text>
+          </g>
+
+          <!-- 3. Bulb -->
+          <g transform="translate(400, 60)">
+            <line x1="0" y1="40" x2="25" y2="40" stroke="#0f172a" stroke-width="2"/>
+            <circle cx="45" cy="40" r="20" fill="none" stroke="#0f172a" stroke-width="2"/>
+            <path d="M 35 48 Q 45 25 55 48" stroke="#f59e0b" stroke-width="2" fill="none"/>
+            <line x1="65" y1="40" x2="90" y2="40" stroke="#0f172a" stroke-width="2"/>
+            <text x="45" y="95" text-anchor="middle" fill="#334155" font-family="'Noto Sans Oriya', sans-serif" font-size="12">ବୈଦ୍ୟୁତିକ ବଲ୍ବ୍</text>
+          </g>
+
+          <!-- 4. Switch ON -->
+          <g transform="translate(560, 60)">
+            <circle cx="20" cy="40" r="5" fill="#0f172a"/>
+            <circle cx="60" cy="40" r="5" fill="#0f172a"/>
+            <line x1="20" y1="40" x2="60" y2="40" stroke="#10b981" stroke-width="3"/>
+            <line x1="0" y1="40" x2="20" y2="40" stroke="#0f172a" stroke-width="2"/>
+            <line x1="60" y1="40" x2="80" y2="40" stroke="#0f172a" stroke-width="2"/>
+            <text x="40" y="95" text-anchor="middle" fill="#334155" font-family="'Noto Sans Oriya', sans-serif" font-size="12">ସୁଇଚ୍ (ON / ବନ୍ଦ)</text>
+          </g>
+
+          <!-- 5. Switch OFF -->
+          <g transform="translate(720, 60)">
+            <circle cx="20" cy="40" r="5" fill="#0f172a"/>
+            <circle cx="60" cy="40" r="5" fill="#0f172a"/>
+            <line x1="20" y1="40" x2="55" y2="15" stroke="#ef4444" stroke-width="3"/>
+            <line x1="0" y1="40" x2="20" y2="40" stroke="#0f172a" stroke-width="2"/>
+            <line x1="60" y1="40" x2="80" y2="40" stroke="#0f172a" stroke-width="2"/>
+            <text x="40" y="95" text-anchor="middle" fill="#334155" font-family="'Noto Sans Oriya', sans-serif" font-size="12">ସୁଇଚ୍ (OFF / ମୁକ୍ତ)</text>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Topic 5: Conductors vs Insulators -->
+      <h3 class="topic-title"><i class="fa-solid fa-plug-circle-check"></i> ୫. ପରିବାହୀ (Conductors) ଓ ଅନ୍ତରକ (Insulators)</h3>
+      <ul>
+        <li><strong>ବୈଦ୍ୟୁତିକ ପରିବାହୀ (Electrical Conductors):</strong> ଯେଉଁ ପଦାର୍ଥଗୁଡ଼ିକ ନିଜ ମଧ୍ୟ ଦେଇ ବିଦ୍ୟୁତ ପ୍ରବାହିତ ହେବାକୁ ଦିଅନ୍ତି। ଯଥା: ତମ୍ବା, ଆଲୁମିନିୟମ୍, ଲୁହା, ରୂପା, ଲୁଣ ପାଣି ଏବଂ ପେନ୍ସିଲ୍ର ଗ୍ରାଫାଇଟ୍ ସୀସା।</li>
+        <li><strong>ବୈଦ୍ୟୁତିକ ଅନ୍ତରକ (Electrical Insulators):</strong> ଯେଉଁ ପଦାର୍ଥଗୁଡ଼ିକ ନିଜ ମଧ୍ୟ ଦେଇ ବିଦ୍ୟୁତ ପ୍ରବାହିତ ହେବାକୁ ଦିଅନ୍ତି ନାହିଁ। ଯଥା: ରବର, ପ୍ଲାଷ୍ଟିକ୍, ଶୁଖିଲା କାଠ, କାଚ ଏବଂ ବାୟୁ।</li>
+      </ul>
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-shield-halved"></i> ସୁରକ୍ଷା ରହସ୍ୟ</div>
+        <p>ବିଦ୍ୟୁତ୍ ତାର ଭିତରେ ତମ୍ବା ତାର (ପରିବାହୀ) ଥାଏ ଯାହା କରେଣ୍ଟ ନିଏ, କିନ୍ତୁ ବାହାରେ ପ୍ଲାଷ୍ଟିକ୍ ଆସ୍ତରଣ (ଅନ୍ତରକ) ଥାଏ ଯାହା ମଣିଷକୁ ବିଦ୍ୟୁତ୍ ଆଘାତ (Electric Shock) ରୁ ରକ୍ଷା କରେ!</p>
+      </div>
+    </section>
+
+    <!-- SECTION 3: SCIENTIFIC TERM BANK -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୩</span>
+        <h2>ମୁଖ୍ୟ ବୈଜ୍ଞାନିକ ଶବ୍ଦାବଳୀ ଓ ପରିଭାଷା (Scientific Term Bank)</h2>
+        <p class="section-sub">ବୈଦ୍ୟୁତିକ ପରିପଥ ସମ୍ବନ୍ଧୀୟ ପ୍ରମୁଖ ବୈଜ୍ଞାନିକ ଶବ୍ଦାବଳୀ</p>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th style="width: 25%;">ଓଡ଼ିଆ ଶବ୍ଦ (Odia Term)</th>
+              <th style="width: 25%;">ଇଂରାଜୀ ଶବ୍ଦ (English Term)</th>
+              <th style="width: 50%;">ଛାତ୍ର-ଅନୁକୂଳ ପରିଭାଷା (Simple Explanation)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ବୈଦ୍ୟୁତିକ ସେଲ୍</strong></td>
+              <td>Electric Cell</td>
+              <td>ରାସାୟନିକ ଶକ୍ତିକୁ ବୈଦ୍ୟୁତିକ ଶକ୍ତିରେ ପରିଣତ କରୁଥିବା ଏକକ ଉପକରଣ।</td>
+            </tr>
+            <tr>
+              <td><strong>ବ୍ୟାଟେରୀ</strong></td>
+              <td>Battery</td>
+              <td>ଦୁଇ ବା ତତୋଧିକ ବୈଦ୍ୟୁତିକ ସେଲ୍ର ଶ୍ରେଣୀବଦ୍ଧ ସଂଯୋଗ।</td>
+            </tr>
+            <tr>
+              <td><strong>ବନ୍ଦ ପରିପଥ</strong></td>
+              <td>Closed Circuit</td>
+              <td>ଏକ ସମ୍ପୂର୍ଣ୍ଣ ଓ ଅବିଛିନ୍ନ ବୈଦ୍ୟୁତିକ ପଥ, ଯେଉଁଥିରେ ବିଦ୍ୟୁତ୍ ନିରନ୍ତର ପ୍ରବାହିତ ହୁଏ।</td>
+            </tr>
+            <tr>
+              <td><strong>ମୁକ୍ତ ପରିପଥ</strong></td>
+              <td>Open Circuit</td>
+              <td>ଯେଉଁ ପରିପଥରେ କୌଣସି ସ୍ଥାନରେ ସଂଯୋଗ ଛିନ୍ନ ଥାଏ ଏବଂ ବିଦ୍ୟୁତ ପ୍ରବାହିତ ହୁଏ ନାହିଁ।</td>
+            </tr>
+            <tr>
+              <td><strong>ଫିଲାମେଣ୍ଟ୍</strong></td>
+              <td>Filament</td>
+              <td>ଇନକାଣ୍ଡେସେଣ୍ଟ୍ ବଲ୍ବ୍ ମଧ୍ୟରେ ଥିବା ଅତ୍ୟନ୍ତ ପତଳା ଟଙ୍ଗଷ୍ଟେନ୍ ତାର ଯାହା ଗରମ ହୋଇ ଆଲୋକ ଦିଏ।</td>
+            </tr>
+            <tr>
+              <td><strong>ଏଲ୍ଇଡି</strong></td>
+              <td>LED (Light Emitting Diode)</td>
+              <td>ଅଳ୍ପ ବିଦ୍ୟୁତ୍ରେ ପ୍ରଚୁର ଆଲୋକ ପ୍ରଦାନ କରୁଥିବା ଆଧୁନିକ ଅର୍ଦ୍ଧପରିବାହୀ ଆଲୋକ ଉପକରଣ।</td>
+            </tr>
+            <tr>
+              <td><strong>ପରିବାହୀ</strong></td>
+              <td>Conductor</td>
+              <td>ଯେଉଁ ପଦାର୍ଥ ନିଜ ମଧ୍ୟ ଦେଇ ବିଦ୍ୟୁତ୍ ସହଜରେ ଗତି କରିବାକୁ ଦିଏ (ଯଥା: ତମ୍ବା, ଲୁହା)।</td>
+            </tr>
+            <tr>
+              <td><strong>ଅନ୍ତରକ</strong></td>
+              <td>Insulator</td>
+              <td>ଯେଉଁ ପଦାର୍ଥ ନିଜ ମଧ୍ୟ ଦେଇ ବିଦ୍ୟୁତ୍ ପ୍ରବାହକୁ ସମ୍ପୂର୍ଣ୍ଣ ରୋକିଦିଏ (ଯଥା: ରବର, କାଚ)।</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4: COMPLETE NCERT SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୪</span>
+        <h2>ପାଠ୍ୟପୁସ୍ତକ କାର୍ଯ୍ୟକଳାପ ଓ ପ୍ରଶ୍ନୋତ୍ତର ସମାଧାନ (NCERT Solutions)</h2>
+        <p class="section-sub">ଅଧ୍ୟାୟ ଶେଷର ସମସ୍ତ ଅଭ୍ୟାସ ପ୍ରଶ୍ନର ପୂର୍ଣ୍ଣ ସମାଧାନ</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>
+          <span>ପ୍ରଶ୍ନ ୧: ଏକ ପରିପଥରେ ବଲ୍ବ୍ ନ ଜଳିବାର ତିନୋଟି ସମ୍ଭାବ୍ୟ କାରଣ କ'ଣ ହୋଇପାରେ?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong> ଏକ ପରିପଥରେ ବଲ୍ବ୍ ନ ଜଳିବାର ତିନୋଟି ପ୍ରମୁଖ କାରଣ ହେଉଛି:</p>
+          <ol>
+            <li><strong>ବଲ୍ବ୍ ଫ୍ୟୁଜ୍ ହୋଇଯାଇଥିଲେ:</strong> ବଲ୍ବ୍ର ଭିତରେ ଥିବା ଟଙ୍ଗଷ୍ଟେନ୍ ଫିଲାମେଣ୍ଟ୍ ଛିଣ୍ଡି ଯାଇଥିଲେ ପରିପଥ ଭାଙ୍ଗିଯାଏ।</li>
+            <li><strong>ତାରର ସଂଯୋଗ ଢିଲା ଥିଲେ ବା ସୁଇଚ୍ ଖୋଲା ଥିଲେ:</strong> ତାର ସଠିକ୍ ଭାବରେ ଯୋଡ଼ା ହୋଇନଥିଲେ ମୁକ୍ତ ପରିପଥ (Open circuit) ରହିଯାଏ।</li>
+            <li><strong>ସେଲ୍ଗୁଡ଼ିକ ଭୁଲ୍ ଭାବେ ସଂଯୁକ୍ତ ହୋଇଥିଲେ:</strong> ବ୍ୟାଟେରୀରେ (+) ସହିତ (+) ଯୋଡ଼ା ହୋଇଥିଲେ କିମ୍ବା ସେଲ୍ଟି ସମ୍ପୂର୍ଣ୍ଣ ଡିସଚାର୍ଜ (ନିଃଶେଷ) ହୋଇଯାଇଥିଲେ।</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>ପ୍ରଶ୍ନ ୨: ଏକ ବୈଦ୍ୟୁତିକ ସେଲ୍ର ସଙ୍କେତରେ ଲମ୍ବା ରେଖା ଏବଂ ମୋଟା ଛୋଟ ରେଖା କ'ଣ ଦର୍ଶାଏ?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong> ବୈଦ୍ୟୁତିକ ସେଲ୍ର ସଙ୍କେତରେ:</p>
+          <ul>
+            <li><strong>ଲମ୍ବା ପତଳା ରେଖାଟି:</strong> ସେଲ୍ର <strong>ଧନାତ୍ମକ ଅଗ୍ର (+ Terminal)</strong> କୁ ଦର୍ଶାଏ।</li>
+            <li><strong>ଛୋଟ ମୋଟା ରେଖାଟି:</strong> ସେଲ୍ର <strong>ଋଣାତ୍ମକ ଅଗ୍ର (&ndash; Terminal)</strong> କୁ ଦର୍ଶାଏ।</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>ପ୍ରଶ୍ନ ୩: ପରିପଥରେ ଏଲ୍ଇଡି (LED) ସଂଯୋଗ କରିବା ସମୟରେ କେଉଁ ବିଶେଷ ସାବଧାନତା ଅବଲମ୍ବନ କରିବା ଉଚିତ୍?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong> ଏଲ୍ଇଡି (LED) ର ଦୁଇଟି ଗୋଡ଼ ସମାନ ଲମ୍ବର ନୁହେଁ। ସଂଯୋଗ କରିବା ସମୟରେ:</p>
+          <ul>
+            <li>ଏଲ୍ଇଡିର <strong>ଲମ୍ବା ଗୋଡ଼ଟିକୁ ସର୍ବଦା ବ୍ୟାଟେରୀର ଧନାତ୍ମକ ଅଗ୍ର (+)</strong> ସହିତ ଯୋଡ଼ିବା ଆବଶ୍ୟକ।</li>
+            <li>ଏଲ୍ଇଡିର <strong>ଛୋଟ ଗୋଡ଼ଟିକୁ ବ୍ୟାଟେରୀର ଋଣାତ୍ମକ ଅଗ୍ର (&ndash;)</strong> ସହିତ ଯୋଡ଼ିବା ଆବଶ୍ୟକ।</li>
+            <li>ଯଦି ଓଲଟା ସଂଯୋଗ କରାଯାଏ, ତେବେ ଏଲ୍ଇଡି ମଧ୍ୟ ଦେଇ ବିଦ୍ୟୁତ ପ୍ରବାହିତ ହେବ ନାହିଁ ଏବଂ ତାହା ଜଳିବ ନାହିଁ।</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>ପ୍ରଶ୍ନ ୪: ଇଲେକ୍ଟ୍ରିସିଆନ୍ ମରାମତି କରିବା ସମୟରେ ରବର ଗ୍ଲୋଭ୍ସ (ଦସ୍ତାନା) କାହିଁକି ପିନ୍ଧନ୍ତି?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong> ମାନବ ଶରୀର ଏକ ଉତ୍ତମ ବୈଦ୍ୟୁତିକ ପରିବାହୀ। ଯଦି ଜଣେ ଖାଲି ହାତରେ ଜୀବନ୍ତ ବିଦ୍ୟୁତ୍ ତାର ଛୁଇଁଦିଏ, ତେବେ ଶରୀର ଦେଇ ବିଦ୍ୟୁତ୍ ଭୂମିକୁ ପ୍ରବାହିତ ହୋଇ ମାରାତ୍ମକ ବୈଦ୍ୟୁତିକ ଆଘାତ (Electric Shock) ଲାଗିବ। କିନ୍ତୁ <strong>ରବର ଏକ ଉତ୍କୃଷ୍ଟ ଅନ୍ତରକ (Insulator)</strong>। ରବର ଗ୍ଲୋଭ୍ସ ମଧ୍ୟ ଦେଇ ବିଦ୍ୟୁତ୍ ପ୍ରବାହିତ ହୋଇପାରେ ନାହିଁ, ଯାହା ଇଲେକ୍ଟ୍ରିସିଆନ୍ଙ୍କୁ ସୁରକ୍ଷିତ ରଖେ।</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: HOTS & INTERACTIVE QUIZ ENGINE -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୫</span>
+        <h2>ଉଚ୍ଚସ୍ତରୀୟ ଚିନ୍ତନ ଦକ୍ଷତା (HOTS) ଓ ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍</h2>
+        <p class="section-sub">ସ୍ୱ-ମୂଲ୍ୟାୟନ ପରୀକ୍ଷା &mdash; ତୁରନ୍ତ ଫଳାଫଳ</p>
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-brain"></i> HOTS ବିଚାର ପ୍ରଶ୍ନ</div>
+        <p><strong>ପ୍ରଶ୍ନ:</strong> ଜଣେ ଛାତ୍ର ଏକ ବୈଦ୍ୟୁତିକ ପରିପଥ ତିଆରି କଲେ କିନ୍ତୁ ସୁଇଚ୍ ବଦଳରେ ପେନ୍ସିଲ୍ର ଉଭୟ ମୁଣ୍ଡ ଛୋଲା ଅଂଶ (ଗ୍ରାଫାଇଟ୍) ଲଗାଇଲେ। ବଲ୍ବ୍ ଜଳିବ କି? କାହିଁକି?</p>
+        <p><strong>ଉତ୍ତର:</strong> ହଁ, ବଲ୍ବ୍ ନିଶ୍ଚୟ ଜଳିବ! କାରଣ ପେନ୍ସିଲ୍ର ଭିତର ସୀସା <strong>ଗ୍ରାଫାଇଟ୍ (Graphite)</strong> ରେ ନିର୍ମିତ, ଯାହା ଅଧାତୁ ହୋଇଥିଲେ ମଧ୍ୟ ବିଦ୍ୟୁତ୍ର ଏକ ଉତ୍ତମ ପରିବାହୀ (Good Conductor)। ତେଣୁ ପରିପଥ ସମ୍ପୂର୍ଣ୍ଣ ହୋଇ ବିଦ୍ୟୁତ ପ୍ରବାହିତ ହେବ।</p>
+      </div>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card" id="q3card1">
+        <div class="quiz-question">୧. ବ୍ୟାଟେରୀରେ ଦୁଇଟି ସେଲ୍କୁ ସଠିକ୍ ଭାବରେ ଯୋଡ଼ିବାର ନିୟମ କ'ଣ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card1', 0, false)">
+            <span>(A) (+) ଅଗ୍ର ସହିତ (+) ଅଗ୍ର ଯୋଡ଼ିବା</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card1', 1, true)">
+            <span>(B) ପ୍ରଥମ ସେଲ୍ର (+) ଅଗ୍ର ସହିତ ଦ୍ୱିତୀୟ ସେଲ୍ର (&ndash;) ଅଗ୍ର ଯୋଡ଼ିବା</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card1', 2, false)">
+            <span>(C) (&ndash;) ଅଗ୍ର ସହିତ (&ndash;) ଅଗ୍ର ଯୋଡ଼ିବା</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card1', 3, false)">
+            <span>(D) କୌଣସି ନିୟମ ନାହିଁ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card" id="q3card2">
+        <div class="quiz-question">୨. ଇନକାଣ୍ଡେସେଣ୍ଟ୍ ବଲ୍ବ୍ ଭିତରେ ଥିବା ସୂକ୍ଷ୍ମ ତାରଟି କେଉଁ ଧାତୁରେ ତିଆରି ହୋଇଥାଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card2', 0, false)">
+            <span>(A) ତମ୍ବା (Copper)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card2', 1, false)">
+            <span>(B) ଆଲୁମିନିୟମ୍ (Aluminium)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card2', 2, true)">
+            <span>(C) ଟଙ୍ଗଷ୍ଟେନ୍ (Tungsten)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card2', 3, false)">
+            <span>(D) ଲୁହା (Iron)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card" id="q3card3">
+        <div class="quiz-question">୩. ନିମ୍ନଲିଖିତ ମଧ୍ୟରୁ କେଉଁଟି ଏକ ବୈଦ୍ୟୁତିକ ଅନ୍ତରକ (Insulator)?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card3', 0, false)">
+            <span>(A) ଲୁହା କଣ୍ଟା</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card3', 1, true)">
+            <span>(B) ରବର ଇରେଜର୍</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card3', 2, false)">
+            <span>(C) ତମ୍ବା ପଇସା</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card3', 3, false)">
+            <span>(D) ଆଲୁମିନିୟମ୍ ତାର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="quiz-card" id="q3card4">
+        <div class="quiz-question">୪. ଏକ ସୁଇଚ୍ 'ON' ଅବସ୍ଥାରେ ଥିଲେ ପରିପଥଟି କି ପ୍ରକାରର ହୋଇଥାଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card4', 0, true)">
+            <span>(A) ବନ୍ଦ ପରିପଥ (Closed Circuit)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card4', 1, false)">
+            <span>(B) ମୁକ୍ତ ପରିପଥ (Open Circuit)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card4', 2, false)">
+            <span>(C) ଛିଣ୍ଡା ପରିପଥ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3card4', 3, false)">
+            <span>(D) ଫ୍ୟୁଜ୍ ପରିପଥ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM HALL TRAPS & 15 REVISION POINTS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୬</span>
+        <h2>ପରୀକ୍ଷା ହଲ୍ ସାଧାରଣ ଭୁଲ୍ ଚେତାବନୀ ଓ ୧୫ଟି ମୁଖ୍ୟ ରିଭିଜନ୍ ପଏଣ୍ଟ୍</h2>
+        <p class="section-sub">୫ ମିନିଟ୍ ଦ୍ରୁତ ପୁନରାବୃତ୍ତି</p>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> ୩ଟି ମୁଖ୍ୟ ପରୀକ୍ଷା ହଲ୍ ଭୁଲ୍ (Exam Traps):</div>
+        <ul>
+          <li><strong>ଭୁଲ୍ ୧:</strong> ସେଲ୍ ସଙ୍କେତରେ ଲମ୍ବା ରେଖାକୁ ଋଣାତ୍ମକ ଭାବିବା। ମନେରଖନ୍ତୁ: <strong>ଲମ୍ବା ପତଳା ରେଖା = (+) ଧନାତ୍ମକ</strong>, <strong>ଛୋଟ ମୋଟା ରେଖା = (&ndash;) ଋଣାତ୍ମକ</strong>!</li>
+          <li><strong>ଭୁଲ୍ ୨:</strong> ସୁଇଚ୍ 'ON' ଥିଲେ ତାହାକୁ 'Open' ପରିପଥ ଭାବିବା। ଭାଷାଗତ ଭ୍ରାନ୍ତିରୁ ବଞ୍ଚନ୍ତୁ: ସୁଇଚ୍ ON ଥିଲେ ପରିପଥ <strong>ବନ୍ଦ (Closed)</strong> ହୁଏ ଏବଂ କରେଣ୍ଟ ପ୍ରବାହିତ ହୁଏ! ସୁଇଚ୍ OFF ଥିଲେ ପରିପଥ <strong>ମୁକ୍ତ (Open)</strong> ହୁଏ।</li>
+          <li><strong>ଭୁଲ୍ ୩:</strong> ଏଲ୍ଇଡିର ଯେକୌଣସି ଗୋଡ଼କୁ (+) ସହିତ ଯୋଡ଼ିବା। ଏଲ୍ଇଡି କେବଳ ଗୋଟିଏ ନିର୍ଦ୍ଦିଷ୍ଟ ଦିଗରେ କରେଣ୍ଟ ଛାଡ଼େ: <strong>ଲମ୍ବା ଗୋଡ଼ ସର୍ବଦା (+)</strong> ସହିତ ହିଁ ଯୋଡ଼ିବା ଆବଶ୍ୟକ।</li>
+        </ul>
+      </div>
+
+      <h4>୧୫ଟି ବିଜୁଳି ବେଗରେ ପୁନରାବୃତ୍ତି ସୂତ୍ର (15 Lightning Revision Points):</h4>
+      <ol style="line-height: 2; margin-left: 1.5rem;">
+        <li><strong>ବୈଦ୍ୟୁତିକ ସେଲ୍</strong> ରାସାୟନିକ ଶକ୍ତିକୁ ବୈଦ୍ୟୁତିକ ଶକ୍ତିରେ ରୂପାନ୍ତରିତ କରେ।</li>
+        <li>ସେଲ୍ର ଦୁଇଟି ଅଗ୍ର ଥାଏ: <strong>ଧାତବ ଟୋପି (+)</strong> ଏବଂ <strong>ସମତଳ ତଳ (&ndash;)</strong>।</li>
+        <li>ଦୁଇ ବା ତତୋଧିକ ସେଲ୍ର ଶ୍ରେଣୀବଦ୍ଧ ସଂଯୋଗକୁ <strong>ବ୍ୟାଟେରୀ (Battery)</strong> କୁହାଯାଏ।</li>
+        <li>ବ୍ୟାଟେରୀ ତିଆରି ପାଇଁ ଗୋଟିଏ ସେଲ୍ର (+) ଅଗ୍ର ସହିତ ଅନ୍ୟ ସେଲ୍ର (&ndash;) ଅଗ୍ର ଯୋଡ଼ାଯାଏ।</li>
+        <li>ବଲ୍ବ୍ ମଧ୍ୟରେ ଥିବା ଅତ୍ୟନ୍ତ ପତଳା ତାରକୁ <strong>ଫିଲାମେଣ୍ଟ୍ (Filament)</strong> କୁହାଯାଏ, ଯାହା <strong>ଟଙ୍ଗଷ୍ଟେନ୍</strong> ଧାତୁରେ ତିଆରି।</li>
+        <li>ଫିଲାମେଣ୍ଟ୍ ଛିଣ୍ଡିଗଲେ ବଲ୍ବ୍ଟିକୁ <strong>ଫ୍ୟୁଜ୍ (Fused)</strong> କୁହାଯାଏ।</li>
+        <li><strong>ଏଲ୍ଇଡି (LED)</strong> ପାରମ୍ପରିକ ବଲ୍ବ୍ ତୁଳନାରେ ଖୁବ୍ କମ୍ ବିଦ୍ୟୁତ୍ ଖର୍ଚ୍ଚ କରେ ଏବଂ ଅଧିକ ସମୟ ତିଷ୍ଠି ରହେ।</li>
+        <li>ଏଲ୍ଇଡିର <strong>ଲମ୍ବା ତାରଟି (+)</strong> ଅଗ୍ର ଏବଂ <strong>ଛୋଟ ତାରଟି (&ndash;)</strong> ଅଗ୍ର ଅଟେ।</li>
+        <li>ବିଦ୍ୟୁତ ପ୍ରବାହ ସର୍ବଦା ବ୍ୟାଟେରୀର <strong>ଧନାତ୍ମକ (+) ରୁ ଋଣାତ୍ମକ (&ndash;)</strong> ଆଡ଼କୁ ହୋଇଥାଏ।</li>
+        <li>ଏକ ଅବିଛିନ୍ନ ବିଦ୍ୟୁତ ପଥକୁ <strong>ବନ୍ଦ ପରିପଥ (Closed Circuit)</strong> କୁହାଯାଏ।</li>
+        <li>ଯେଉଁ ପରିପଥରେ କରେଣ୍ଟ ବନ୍ଦ ଥାଏ ତାହାକୁ <strong>ମୁକ୍ତ ପରିପଥ (Open Circuit)</strong> କୁହାଯାଏ।</li>
+        <li><strong>ସୁଇଚ୍</strong> ହେଉଛି ଏକ ସରଳ ଉପକରଣ ଯାହା ପରିପଥକୁ ସଂଯୋଗ (ବନ୍ଦ) ବା ବିଚ୍ଛିନ୍ନ (ମୁକ୍ତ) କରେ।</li>
+        <li>ଧାତୁ ଯଥା ତମ୍ବା, ଆଲୁମିନିୟମ୍ ଓ ଲୁହା ବିଦ୍ୟୁତ୍ର <strong>ଉତ୍ତମ ପରିବାହୀ (Conductors)</strong>।</li>
+        <li>ରବର, ପ୍ଲାଷ୍ଟିକ୍ ଓ ଶୁଖିଲା କାଠ ବିଦ୍ୟୁତ୍ର <strong>ଅନ୍ତରକ (Insulators)</strong>।</li>
+        <li>ଓଦା ହାତରେ ବୈଦ୍ୟୁତିକ ଉପକରଣ ଛୁଇଁବା ଅନୁଚିତ୍ କାରଣ ମାନବ ଶରୀର ଏକ ପରିବାହୀ।</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+    });
+
+    function checkQuiz(cardId, optionIndex, isCorrect) {
+      const card = document.getElementById(cardId);
+      const buttons = card.querySelectorAll('.quiz-opt-btn');
+      
+      buttons.forEach((btn, idx) => {
+        btn.classList.add('evaluated');
+        btn.disabled = true;
+        const ind = btn.querySelector('.quiz-opt-indicator');
+        if (idx === optionIndex) {
+          if (isCorrect) {
+            btn.classList.add('correct-opt');
+            ind.innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          } else {
+            btn.classList.add('wrong-opt');
+            ind.innerHTML = ' &cross; (ଭୁଲ୍ ଉତ୍ତର)';
+          }
+        }
+      });
+
+      if (!isCorrect) {
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct-opt');
+            btn.querySelector('.quiz-opt-indicator').innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          }
+        });
+      }
+    }
+
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Text-to-Speech ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+      } else {
+        const text = "ନମସ୍କାର ପିଲାମାନେ! ସପ୍ତମ ଶ୍ରେଣୀ ବିଜ୍ଞାନର ତୃତୀୟ ଅଧ୍ୟାୟ 'ବିଦ୍ୟୁତ୍: ପରିପଥ ଓ ଏହାର ଉପାଦାନ' କୁ ସ୍ୱାଗତ। ବୈଦ୍ୟୁତିକ ସେଲ୍ ରାସାୟନିକ ଶକ୍ତିକୁ ବୈଦ୍ୟୁତିକ ଶକ୍ତିରେ ପରିଣତ କରେ। ଏକାଧିକ ସେଲ୍ର ସଂଯୋଗକୁ ବ୍ୟାଟେରୀ କୁହାଯାଏ। ବଲ୍ବ୍ ଭିତରେ ଥିବା ଟଙ୍ଗଷ୍ଟେନ୍ ଫିଲାମେଣ୍ଟ୍ ଛିଣ୍ଡିଗଲେ ତାହା ଫ୍ୟୁଜ୍ ହୁଏ। ଆଧୁନିକ ଏଲ୍ଇଡି କମ୍ ବିଦ୍ୟୁତ୍ ଖର୍ଚ୍ଚ କରି ଅଧିକ ଆଲୋକ ଦିଏ। ଏଲ୍ଇଡିର ଲମ୍ବା ଗୋଡ଼ ଧନାତ୍ମକ ଏବଂ ଛୋଟ ଗୋଡ଼ ଋଣାତ୍ମକ ଅଟେ। ବିଦ୍ୟୁତ ସୁରକ୍ଷା ପାଇଁ ପ୍ଲାଷ୍ଟିକ୍ ଓ ରବର ପରି ଅନ୍ତରକ ବ୍ୟବହୃତ ହୁଏ। ଧନ୍ୟବାଦ!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'or-IN';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>";
+      }
+    }
+  </script>
+</body>
+</html>
