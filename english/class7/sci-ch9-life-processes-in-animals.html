@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 9 - Life Processes in Animals (Class 7 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-light: #ecfdf5;
+      --primary-dark: #047857;
+      --secondary: #e11d48;
+      --secondary-light: #fff1f2;
+      --accent: #d97706;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #059669, #e11d48, #d97706);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 50%, #a7f3d0 100%);
+      border-radius: 1.5rem;
+      padding: 3rem 2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid #6ee7b7;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #ffffff;
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.3rem;
+      line-height: 1.25;
+      color: #064e3b;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: #065f46;
+      margin-bottom: 1.5rem;
+      max-width: 720px;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      color: #064e3b;
+      border-top: 1px solid #a7f3d0;
+      padding-top: 1.25rem;
+    }
+
+    .hero-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Audio Bar */
+    .audio-bar {
+      background: white;
+      border: 1px solid #a7f3d0;
+      border-radius: 1rem;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .audio-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .audio-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+    }
+
+    .audio-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--surface);
+      border-radius: 1.25rem;
+      border: 1px solid var(--border);
+      padding: 2.25rem 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--light);
+    }
+
+    .section-tag {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.6rem;
+      border-radius: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.5rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    /* Typography */
+    h3 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.25rem;
+      color: #1e293b;
+      margin: 1.75rem 0 0.75rem;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      color: #334155;
+      margin: 1.25rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 1rem; }
+    ul, ol { margin: 0 0 1.25rem 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+
+    /* Callouts */
+    .callout {
+      border-radius: 1rem;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      position: relative;
+    }
+
+    .callout-def {
+      background: #ecfdf5;
+      border-left: 4px solid #059669;
+      color: #065f46;
+    }
+
+    .callout-act {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      color: #1e40af;
+    }
+
+    .callout-pyq {
+      background: #fefce8;
+      border-left: 4px solid #ca8a04;
+      color: #854d0e;
+    }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-left: 4px solid #9333ea;
+      color: #6b21a8;
+    }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-left: 4px solid #dc2626;
+      color: #991b1b;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    /* Comparison Table */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    th {
+      background: #f8fafc;
+      padding: 0.85rem 1rem;
+      font-weight: 700;
+      color: #1e293b;
+      border-bottom: 2px solid var(--border);
+    }
+
+    td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background-color: #fbfcfe; }
+
+    /* Collapsible Solutions */
+    .ans-box {
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      background: #ffffff;
+      transition: all 0.2s ease;
+    }
+
+    .ans-box summary {
+      padding: 1rem 1.25rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #f8fafc;
+      transition: background 0.2s;
+    }
+
+    .ans-box summary:hover {
+      background: #f1f5f9;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.95rem;
+      background: #ffffff;
+    }
+
+    .step-pill {
+      display: inline-block;
+      background: #e2e8f0;
+      color: #475569;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 0.375rem;
+      margin-right: 0.4rem;
+    }
+
+    /* Pathway Flow Steps */
+    .journey-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .journey-step {
+      background: #ecfdf5;
+      border: 1.5px solid #059669;
+      color: #065f46;
+      font-weight: 700;
+      padding: 0.5rem 0.85rem;
+      border-radius: 0.5rem;
+      font-size: 0.88rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .journey-arrow {
+      color: #059669;
+      font-size: 1.1rem;
+      font-weight: 800;
+    }
+
+    /* Quiz Widget */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quiz-q {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 1rem;
+      color: #0f172a;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .opt-btn {
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 0.6rem;
+      background: white;
+      text-align: left;
+      font-family: inherit;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .opt-btn:hover:not(:disabled) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .opt-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+
+    .opt-btn.wrong {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+    }
+
+    .quiz-feedback {
+      display: none;
+      padding: 0.85rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    /* Floating Back to Top */
+    #backToTopBtn {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.2s ease;
+      z-index: 999;
+    }
+
+    #backToTopBtn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .hero { padding: 2rem 1.25rem; }
+      .section-card { padding: 1.5rem 1rem; }
+      .top-nav { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <!-- Sticky Top Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Deep Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Quiz Engine</a>
+      <a href="#sec6" class="nav-link">6. Exam Readiness</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Hero Banner -->
+    <header class="hero">
+      <div class="hero-badge">
+        <i class="fa-solid fa-dna"></i> Class 7 Science Curiosity • Chapter 9
+      </div>
+      <h1>Life Processes in Animals</h1>
+      <p class="hero-subtitle">
+        A deep physiological journey through animal nutrition, the human alimentary canal, ruminant digestion, the breathing mechanics of lungs, and cellular respiration!
+      </p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><i class="fa-solid fa-book-open"></i> NCERT NEP 2020 Code: gecu109</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-clock"></i> 38 Mins Comprehensive Master Read</div>
+        <div class="hero-meta-item"><i class="fa-solid fa-lungs"></i> Nutrition &amp; Respiration Integrated</div>
+      </div>
+    </header>
+
+    <!-- Teacher Audio Summary Widget -->
+    <div class="audio-bar">
+      <div class="audio-info">
+        <div class="audio-icon"><i class="fa-solid fa-headphones-simple"></i></div>
+        <div>
+          <strong style="font-size: 0.95rem; color: var(--dark);">Listen to Chapter Summary</strong>
+          <p style="font-size: 0.8rem; color: var(--text-muted); margin: 0;">Interactive 2-Minute Speech Synthesis Audio Lecture</p>
+        </div>
+      </div>
+      <button class="audio-btn" id="ttsBtn" onclick="toggleTeacherAudio()">
+        <i class="fa-solid fa-play" id="ttsIcon"></i> <span id="ttsText">Play Audio</span>
+      </button>
+    </div>
+
+    <!-- ==========================================
+         SECTION 1: VISUAL ARCHITECTURE & BLUEPRINT
+         ========================================== -->
+    <section class="section-card" id="sec1">
+      <div class="section-header">
+        <span class="section-tag">Section 1</span>
+        <h2 class="section-title">Visual Architecture &amp; Mind Map</h2>
+      </div>
+      <p>
+        Life processes are the fundamental physiological activities performed by an organism to maintain life, repair cells, and ensure survival. Chapter 9 focuses on the twin pillars of energy acquisition and release: <strong>Animal Nutrition</strong> and <strong>Respiration</strong>.
+      </p>
+
+      <!-- Inline SVG Concept Map -->
+      <div style="width: 100%; overflow-x: auto; background: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 1rem; padding: 1.5rem; margin: 1.5rem 0;">
+        <svg viewBox="0 0 880 500" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bioGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#059669"/>
+              <stop offset="100%" stop-color="#047857"/>
+            </linearGradient>
+            <linearGradient id="digestGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#059669"/>
+            </linearGradient>
+            <linearGradient id="respGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e11d48"/>
+              <stop offset="100%" stop-color="#be123c"/>
+            </linearGradient>
+            <filter id="shadowBio" x="-10%" y="-10%" width="120%" height="120%">
+              <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.15"/>
+            </filter>
+          </defs>
+
+          <!-- Central Node: Life Processes in Animals -->
+          <rect x="290" y="20" width="300" height="60" rx="12" fill="url(#bioGrad)" filter="url(#shadowBio)"/>
+          <text x="440" y="46" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" text-anchor="middle">LIFE PROCESSES IN ANIMALS</text>
+          <text x="440" y="66" fill="#d1fae5" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" text-anchor="middle">Curiosity Chapter 9 • Nutrition &amp; Respiration</text>
+
+          <!-- Branch 1: Animal Nutrition -->
+          <path d="M 360 80 L 220 150" stroke="#059669" stroke-width="2.5"/>
+          <rect x="60" y="150" width="320" height="90" rx="10" fill="url(#digestGrad)" filter="url(#shadowBio)"/>
+          <text x="220" y="178" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="700" text-anchor="middle">1. NUTRITION IN ANIMALS</text>
+          <text x="220" y="200" fill="#ecfdf5" font-size="11" text-anchor="middle">&bull; 5 Stages: Ingestion &rarr; Digestion &rarr; Absorption</text>
+          <text x="220" y="216" fill="#ecfdf5" font-size="11" text-anchor="middle">&bull; Assimilation &rarr; Egestion</text>
+          <text x="220" y="232" fill="#ecfdf5" font-size="11" text-anchor="middle">&bull; Human Alimentary Canal &amp; Digestive Glands</text>
+
+          <!-- Branch 2: Animal Respiration -->
+          <path d="M 520 80 L 660 150" stroke="#e11d48" stroke-width="2.5"/>
+          <rect x="500" y="150" width="320" height="90" rx="10" fill="url(#respGrad)" filter="url(#shadowBio)"/>
+          <text x="660" y="178" fill="#ffffff" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="700" text-anchor="middle">2. RESPIRATION IN ANIMALS</text>
+          <text x="660" y="200" fill="#fff1f2" font-size="11" text-anchor="middle">&bull; Breathing (Inhalation/Exhalation) vs Cellular</text>
+          <text x="660" y="216" fill="#fff1f2" font-size="11" text-anchor="middle">&bull; Diaphragm &amp; Ribcage Mechanics</text>
+          <text x="660" y="232" fill="#fff1f2" font-size="11" text-anchor="middle">&bull; Alveoli Diffusion &amp; Lime Water Test</text>
+
+          <!-- Digestive Flow Breakdown -->
+          <path d="M 220 240 L 220 290" stroke="#059669" stroke-width="1.5"/>
+          <rect x="40" y="290" width="360" height="170" rx="8" fill="#ffffff" stroke="#a7f3d0" stroke-width="1.5"/>
+          <text x="220" y="315" fill="#047857" font-size="12" font-weight="700" text-anchor="middle">Digestive Architecture &amp; Ruminants</text>
+          <text x="50" y="340" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Mouth:</tspan> Teeth chew; Saliva amylase turns starch &rarr; maltose</text>
+          <text x="50" y="360" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Oesophagus:</tspan> Wave-like peristalsis moves food bolus</text>
+          <text x="50" y="380" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Stomach:</tspan> HCl (kills germs) + Pepsin (digests proteins)</text>
+          <text x="50" y="400" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Small Intestine:</tspan> Liver bile (emulsifies fat), Pancreas, Villi</text>
+          <text x="50" y="420" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Large Intestine:</tspan> Absorbs water/salts; Anus egests faeces</text>
+          <text x="50" y="440" fill="#059669" font-size="11" font-weight="700">&bull; Ruminants: Rumen bacterial fermentation of cellulose (cud)</text>
+
+          <!-- Respiratory Flow Breakdown -->
+          <path d="M 660 240 L 660 290" stroke="#e11d48" stroke-width="1.5"/>
+          <rect x="480" y="290" width="360" height="170" rx="8" fill="#ffffff" stroke="#fecdd3" stroke-width="1.5"/>
+          <text x="660" y="315" fill="#be123c" font-size="12" font-weight="700" text-anchor="middle">Respiratory Pathway &amp; Mechanics</text>
+          <text x="490" y="340" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Nostrils &amp; Nasal Cavity:</tspan> Cilia &amp; mucus filter dust</text>
+          <text x="490" y="360" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Trachea &amp; Bronchi:</tspan> Cartilaginous rings keep airway open</text>
+          <text x="490" y="380" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Alveoli:</tspan> 300 million micro-sacs for O2/CO2 blood exchange</text>
+          <text x="490" y="400" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Inhalation:</tspan> Diaphragm moves down, Ribs move up/out</text>
+          <text x="490" y="420" fill="#334155" font-size="11">&bull; <tspan font-weight="700">Exhalation:</tspan> Diaphragm domes up, Ribs move down/in</text>
+          <text x="490" y="440" fill="#be123c" font-size="11" font-weight="700">&bull; Respiration in other taxa: Fish (gills), Earthworm (skin)</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 2: COMPREHENSIVE STUDY NOTES
+         ========================================== -->
+    <section class="section-card" id="sec2">
+      <div class="section-header">
+        <span class="section-tag">Section 2</span>
+        <h2 class="section-title">Comprehensive Line-by-Line Study Notes</h2>
+      </div>
+
+      <!-- Part 1: Animal Nutrition -->
+      <h3>1. Nutrition in Animals: The Five Universal Stages</h3>
+      <p>
+        Animals are <strong>heterotrophs</strong> — unlike green plants, they cannot synthesize organic nutrients through photosynthesis. Instead, they ingest complex organic food (carbohydrates, proteins, fats, vitamins, and minerals) that must be biochemically simplified.
+      </p>
+
+      <div class="journey-container">
+        <div class="journey-step"><i class="fa-solid fa-utensils"></i> 1. Ingestion</div>
+        <div class="journey-arrow">&rarr;</div>
+        <div class="journey-step"><i class="fa-solid fa-scissors"></i> 2. Digestion</div>
+        <div class="journey-arrow">&rarr;</div>
+        <div class="journey-step"><i class="fa-solid fa-sponge"></i> 3. Absorption</div>
+        <div class="journey-arrow">&rarr;</div>
+        <div class="journey-step"><i class="fa-solid fa-bolt"></i> 4. Assimilation</div>
+        <div class="journey-arrow">&rarr;</div>
+        <div class="journey-step"><i class="fa-solid fa-trash-can"></i> 5. Egestion</div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Stage</th>
+              <th>Biological Meaning</th>
+              <th>Primary Human Location</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Ingestion</strong></td>
+              <td>The physical act of taking food into the body.</td>
+              <td>Mouth (Buccal cavity) using lips, teeth, and tongue.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Digestion</strong></td>
+              <td>Biochemical breakdown of complex, insoluble macromolecules into simple, water-soluble micro-molecules.</td>
+              <td>Mouth, Stomach, and Small Intestine (via digestive enzymes).</td>
+            </tr>
+            <tr>
+              <td><strong>3. Absorption</strong></td>
+              <td>Diffusion of simple soluble nutrients across intestinal mucosal walls into the blood and lymph circulation.</td>
+              <td>Small Intestine (specifically through millions of micro-villi).</td>
+            </tr>
+            <tr>
+              <td><strong>4. Assimilation</strong></td>
+              <td>Uptake and incorporation of absorbed nutrients by body cells for cellular growth, repair, and ATP energy production.</td>
+              <td>All living somatic cells across the entire body.</td>
+            </tr>
+            <tr>
+              <td><strong>5. Egestion</strong></td>
+              <td>Discharge or expulsion of undigested, unabsorbed solid waste residues (faeces) from the body.</td>
+              <td>Anus (controlled by the anal sphincter).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Part 2: Human Digestive System -->
+      <h3>2. The Human Digestive System: Step-by-Step Anatomy</h3>
+      <p>
+        The continuous muscular tube running from the mouth to the anus is called the <strong>Alimentary Canal</strong> (or gastrointestinal tract). It spans roughly 9 metres in length and is assisted by associated digestive glands (salivary glands, liver, gallbladder, and pancreas).
+      </p>
+
+      <h4>(a) The Buccal Cavity (Mouth)</h4>
+      <ul>
+        <li><strong>Teeth:</strong> Mechanically grind and masticate food into smaller particles.
+          <br>&bull; <em>Incisors (8):</em> Chisel-shaped front teeth for biting and cutting.
+          <br>&bull; <em>Canines (4):</em> Dagger-shaped sharp teeth for tearing tough food.
+          <br>&bull; <em>Premolars (8) &amp; Molars (12):</em> Broad, ridged surface for crushing and grinding food.</li>
+        <li><strong>Tongue:</strong> A fleshy muscular organ attached to the floor of the buccal cavity. It manipulates food, mixes it thoroughly with saliva, assists in swallowing, and contains <strong>taste buds</strong> sensitive to sweet, salty, sour, and bitter tastants.</li>
+        <li><strong>Salivary Glands &amp; Saliva:</strong> Secrete watery saliva containing the enzyme <strong>Salivary Amylase</strong> (ptyalin), which initiates chemical digestion by converting insoluble complex starch into soluble maltose sugar.</li>
+      </ul>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-flask"></i> Activity 9.1: Enzymatic Action of Saliva on Starch</div>
+        <strong>Procedure:</strong> Take two test tubes, A and B.
+        <br>&bull; In Tube A: Add 1 teaspoon of boiled rice (or rice flour solution).
+        <br>&bull; In Tube B: Add 1 teaspoon of boiled rice that has been <strong>thoroughly chewed for 3 to 5 minutes</strong>.
+        <br>&bull; Add 3-4 mL of water to both and add 2-3 drops of iodine solution.
+        <br><strong>Observations:</strong>
+        <br>&bull; <em>Tube A (unchewed):</em> Turns intense blue-black, indicating the presence of abundant starch.
+        <br>&bull; <em>Tube B (chewed):</em> Remains yellowish-brown; NO blue-black color appears!
+        <br><strong>Scientific Conclusion:</strong> Salivary amylase present in saliva broke down the starch in the chewed rice into simple sugars (maltose), which do not give a blue-black color with iodine!
+      </div>
+
+      <h4>(b) The Oesophagus (Food Pipe)</h4>
+      <p>
+        A 25 cm long muscular tube connecting the throat to the stomach. Food is not pulled down simply by gravity; rather, the muscular walls of the oesophagus undergo rhythmic, alternating waves of contraction and relaxation called <strong>Peristalsis</strong>, pushing the semi-solid food bolus downward into the stomach. (This is why astronauts can swallow food even in zero-gravity space!).
+      </p>
+
+      <h4>(c) The Stomach</h4>
+      <p>
+        A thick-walled, elastic, J-shaped muscular sac. The inner mucosal lining of the stomach secretes <strong>Gastric Juice</strong>, which contains three vital components:
+      </p>
+      <ol>
+        <li><strong>Hydrochloric Acid (HCl):</strong> Creates an acidic environment ($	ext{pH } pprox 1.5 - 2.0$) essential for activating pepsinogen into active pepsin, and acts as a chemical barrier by killing harmful bacteria swallowed along with food.</li>
+        <li><strong>Pepsin:</strong> A powerful protein-digesting enzyme that cleaves complex dietary proteins into smaller soluble peptides and peptones.</li>
+        <li><strong>Mucus:</strong> Forms a thick, slimy protective lubricating barrier over the stomach wall, preventing the stomach's own hydrochloric acid and pepsin from corroding and digesting the muscular organ (preventing gastric ulcers).</li>
+      </ol>
+
+      <h4>(d) The Small Intestine &amp; Associated Glands</h4>
+      <p>
+        The longest segment of the alimentary canal (~6 to 7.5 metres), arranged in compact coils. It is the principal site of <strong>complete digestion</strong> and <strong>nutrient absorption</strong>.
+      </p>
+      <ul>
+        <li><strong>The Liver &amp; Gallbladder:</strong> The liver is the largest gland in the human body (reddish-brown). It secretes <strong>Bile juice</strong>, which is temporarily stored and concentrated in the <strong>Gallbladder</strong>. Bile contains no enzymes, but performs two critical functions:
+          <br>1. Neutralizes acidic chyme arriving from the stomach, turning it alkaline so pancreatic enzymes can function.
+          <br>2. <strong>Emulsification of Fats:</strong> Breaks down huge, insoluble fat globules into minute microscopic droplets, vastly increasing the surface area for lipase enzymes to digest fats.</li>
+        <li><strong>The Pancreas:</strong> A cream-coloured gland located beneath the stomach. It secretes <strong>Pancreatic Juice</strong> containing:
+          <br>&bull; <em>Pancreatic Amylase:</em> Digestion of remaining starch &rarr; maltose.
+          <br>&bull; <em>Trypsin:</em> Cleaves proteins and peptones &rarr; peptides and amino acids.
+          <br>&bull; <em>Pancreatic Lipase:</em> Breaks down emulsified fat droplets &rarr; fatty acids and glycerol.</li>
+        <li><strong>Intestinal Juice:</strong> Secreted by intestinal wall glands; completes digestion:
+          <br>&bull; Carbohydrates &rarr; <strong>Glucose</strong>
+          <br>&bull; Proteins &rarr; <strong>Amino Acids</strong>
+          <br>&bull; Fats &rarr; <strong>Fatty Acids and Glycerol</strong></li>
+      </ul>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-microscope"></i> Structural Marvel: Intestinal Villi</div>
+        The inner surface of the small intestine is covered with millions of microscopic, finger-like vascular projections called <strong>Villi</strong> (singular: <em>villus</em>).
+        <br>&bull; <strong>Enormous Surface Area:</strong> Villi increase the absorptive surface area of the intestine by more than 30-fold (equivalent to the size of a tennis court!).
+        <br>&bull; <strong>Ultra-thin Epithelium:</strong> Single-cell thick surface allowing rapid diffusion of nutrients.
+        <br>&bull; <strong>Rich Blood &amp; Lymph Capillary Network:</strong> Absorbed glucose and amino acids enter blood capillaries; fatty acids and glycerol are absorbed into specialized central lymph vessels called <strong>lacteals</strong>.
+      </div>
+
+      <h4>(e) The Large Intestine, Rectum, and Anus</h4>
+      <p>
+        Wider in diameter but shorter in length (~1.5 metres). It does not secrete any digestive enzymes. Its primary job is to <strong>absorb excess water and mineral salts</strong> from unabsorbed, indigestible food residues. The remaining solidified waste (faeces) is temporarily stored in the <strong>Rectum</strong> until it is periodically expelled through the <strong>Anus</strong> by the process of <strong>egestion (defecation)</strong>.
+      </p>
+
+      <!-- Part 3: Digestion in Ruminants and Birds -->
+      <h3>3. Digestion in Grass-Eating Animals (Ruminants)</h3>
+      <p>
+        Cows, buffaloes, deer, and goats feed predominantly on grass, which is rich in tough, fibrous <strong>cellulose</strong>. Humans cannot digest cellulose because our digestive tract lacks the necessary enzymes and symbiotic microbes!
+      </p>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title"><i class="fa-solid fa-cow"></i> How Ruminants Digest Cellulose</div>
+        <ol>
+          <li><strong>Rapid Ingestion:</strong> Ruminants quickly chew grass superficially and swallow it into the largest chamber of their four-chambered stomach, called the <strong>Rumen</strong>.</li>
+          <li><strong>Symbiotic Bacterial Fermentation:</strong> In the rumen, billions of anaerobic bacteria and ciliate protozoa produce cellulase enzymes that ferment and partially digest cellulose. The partially digested mass is called <strong>Cud</strong>.</li>
+          <li><strong>Rumination:</strong> When resting, the animal regurgitates cud back into the mouth in small portions and chews it methodically and thoroughly (called <em>chewing the cud</em> or <em>rumination</em>).</li>
+          <li><strong>Final Digestion:</strong> The re-chewed cud passes into the reticulum, omasum, and <strong>abomasum</strong> (the true stomach, where gastric juices and true enzymatic digestion occur). A large sac-like structure called the <strong>caecum</strong> between the small and large intestine hosts additional cellulose-fermenting microbes.</li>
+        </ol>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-dove"></i> Avian Adaptation: Digestion in Birds</div>
+        Birds lack teeth (to keep body weight minimal for flight). Instead, they have two specialized digestive compartments:
+        <br>&bull; <strong>Crop:</strong> An expandable storage pouch at the base of the neck that softens and moistens swallowed whole seeds and grains.
+        <br>&bull; <strong>Gizzard:</strong> A thick, heavy muscular organ lined with a tough keratinous plate. Birds swallow tiny stones and grit, which tumble inside the churning muscular gizzard to mechanically grind hard grains into fine meal!
+      </div>
+
+      <!-- Part 4: Respiration in Animals -->
+      <h3>4. Respiration in Animals: Breathing vs Cellular Respiration</h3>
+      <p>
+        Many students make the grave conceptual mistake of treating "breathing" and "respiration" as synonyms. They are fundamentally distinct!
+      </p>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Breathing (External Respiration)</th>
+              <th>Cellular Respiration (Internal Respiration)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Nature of Process</strong></td>
+              <td>Purely a physical, mechanical process of air intake and expulsion.</td>
+              <td>A complex biochemical enzymatic process of food oxidation.</td>
+            </tr>
+            <tr>
+              <td><strong>Site of Occurrence</strong></td>
+              <td>Extracellular (takes place in respiratory organs: lungs, gills, skin).</td>
+              <td>Intracellular (takes place inside the cytoplasm and mitochondria of every cell).</td>
+            </tr>
+            <tr>
+              <td><strong>Energy Transformation</strong></td>
+              <td>Consumes energy (muscular effort of diaphragm/ribs); generates NO ATP.</td>
+              <td>Releases biological energy, trapping it as <strong>ATP (Adenosine Triphosphate)</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Enzymes Involved</strong></td>
+              <td>No enzymes required.</td>
+              <td>Involves a sequence of specialized respiratory enzymes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-fire"></i> Cellular Respiration Equation</div>
+        $$	ext{Glucose } (	ext{C}_6	ext{H}_{12}	ext{O}_6) + 6	ext{O}_2 \longrightarrow 6	ext{CO}_2 + 6	ext{H}_2	ext{O} + \mathbf{Energy \ (ATP)}$$
+        Glucose delivered by the digestive system is oxidized by oxygen delivered by the respiratory system, yielding cellular fuel (ATP).
+      </div>
+
+      <!-- Part 5: Human Respiratory System & Mechanics -->
+      <h3>5. The Human Respiratory System &amp; Mechanics of Breathing</h3>
+      <p>
+        The human respiratory pathway consists of:
+        <br><strong>Nostrils &rarr; Nasal Cavity &rarr; Pharynx &rarr; Larynx &rarr; Trachea &rarr; Bronchi &rarr; Bronchioles &rarr; Alveoli</strong>.
+      </p>
+
+      <h4>The Protective Design of the Nasal Cavity</h4>
+      <p>
+        Breathing through the nose is far healthier than mouth-breathing because:
+        <br>1. <strong>Fine nasal hair (cilia):</strong> Filter and trap coarse airborne dust particles, insect debris, and soot.
+        <br>2. <strong>Sticky mucus lining:</strong> Traps microscopic dust, pollen grains, and bacterial spores.
+        <br>3. <strong>Rich superficial blood vessels:</strong> Warm and humidify cold, dry incoming air to match internal body core temperature ($37^\circ	ext{C}$).
+      </p>
+
+      <h4>The Mechanics of Inhalation and Exhalation</h4>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Component</th>
+              <th>Inhalation (Breathing In)</th>
+              <th>Exhalation (Breathing Out)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Ribcage</strong></td>
+              <td>External intercostal muscles contract &rarr; Ribs move <strong>UPWARDS and OUTWARDS</strong>.</td>
+              <td>Intercostal muscles relax &rarr; Ribs move <strong>DOWNWARDS and INWARDS</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Diaphragm</strong></td>
+              <td>Diaphragm muscle contracts and moves <strong>DOWNWARDS</strong> (flattens out).</td>
+              <td>Diaphragm relaxes and arches <strong>UPWARDS</strong> (returns to dome shape).</td>
+            </tr>
+            <tr>
+              <td><strong>Chest Cavity Volume</strong></td>
+              <td>Volume <strong>increases</strong> significantly.</td>
+              <td>Volume <strong>decreases</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Intra-pulmonary Pressure</strong></td>
+              <td>Pressure inside lungs drops below outdoor atmospheric pressure.</td>
+              <td>Pressure inside lungs rises above atmospheric pressure.</td>
+            </tr>
+            <tr>
+              <td><strong>Direction of Air Flow</strong></td>
+              <td>Fresh atmospheric air rushes <strong>INTO the lungs</strong>.</td>
+              <td>$	ext{CO}_2$-rich stale air is forced <strong>OUT of the lungs</strong>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-wine-bottle"></i> Activity 9.2: Working Model of Lungs and Diaphragm</div>
+        Using a clear plastic bottle with the bottom cut off, a Y-shaped glass/plastic tube with two small balloons attached to the prongs (representing the two lungs), and a stretched thin rubber sheet tied over the open bottom (representing the muscular diaphragm):
+        <br>&bull; <strong>Pulling the rubber sheet downward:</strong> Increases internal bottle volume &rarr; Air pressure drops &rarr; Atmospheric air rushes into the balloons, inflating them (simulating <em>Inhalation</em>).
+        <br>&bull; <strong>Pushing the rubber sheet upward:</strong> Decreases internal volume &rarr; Air pressure rises &rarr; Air is squeezed out of the balloons, deflating them (simulating <em>Exhalation</em>).
+      </div>
+
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-vial-circle-check"></i> Activity 9.3: Lime Water Test for Exhaled Air</div>
+        When exhaled air is blown through a drinking straw into a test tube containing freshly prepared clear <strong>Lime Water</strong> ($	ext{Calcium Hydroxide, Ca(OH)}_2$):
+        <br>&bull; The lime water turns rapidly milky white!
+        <br>&bull; <strong>Chemical Reaction:</strong>
+        $$	ext{Ca(OH)}_2 	ext{ (aq)} + 	ext{CO}_2 	ext{ (g)} \longrightarrow \mathbf{CaCO}_3 \downarrow 	ext{ (white precipitate)} + 	ext{H}_2	ext{O}$$
+        <br>&bull; <strong>Significance:</strong> Inhaled air contains only $0.04\% 	ext{ CO}_2$, whereas exhaled air contains approximately $4.4\% 	ext{ CO}_2$ (over 100 times more!).
+      </div>
+
+      <!-- Respiration across Animal Kingdom -->
+      <h3>6. Diverse Respiratory Organs Across the Animal Kingdom</h3>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Organism</th>
+              <th>Respiratory Organ</th>
+              <th>Adaptation &amp; Mechanism</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Fish</strong></td>
+              <td><strong>Gills</strong></td>
+              <td>Thin, feathery gill filaments covered with ultra-thin membranes and dense blood capillaries. Water taken in through the mouth washes over gills; dissolved $	ext{O}_2$ diffuses into blood, and $	ext{CO}_2$ diffuses out.</td>
+            </tr>
+            <tr>
+              <td><strong>Earthworm</strong></td>
+              <td><strong>Moist Skin (Cutaneous)</strong></td>
+              <td>Body surface is kept constantly slimy and moist with mucus. Atmospheric oxygen dissolves in the moisture layer and diffuses directly across thin capillary walls into hemoglobin.</td>
+            </tr>
+            <tr>
+              <td><strong>Insects (Cockroach)</strong></td>
+              <td><strong>Spiracles &amp; Tracheal Tubes</strong></td>
+              <td>A network of branching internal air pipes (tracheae) opening along the body sides through tiny valves called spiracles. Oxygen is delivered directly to body tissues without using blood!</td>
+            </tr>
+            <tr>
+              <td><strong>Frog</strong></td>
+              <td><strong>Skin &amp; Lungs</strong> (Dual)</td>
+              <td>Under water and during hibernation, breathes through moist, permeable skin. On land, breathes using simple sac-like lungs and buccopharyngeal cavity.</td>
+            </tr>
+            <tr>
+              <td><strong>Birds</strong></td>
+              <td><strong>Lungs with Air Sacs</strong></td>
+              <td>Possess interconnected auxiliary air sacs providing a continuous, unidirectional flow of oxygenated air through lungs during both inhalation and exhalation, supporting high-altitude flight.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 3: HIGH-YIELD FACT & TERM BANK
+         ========================================== -->
+    <section class="section-card" id="sec3">
+      <div class="section-header">
+        <span class="section-tag">Section 3</span>
+        <h2 class="section-title">High-Yield Fact &amp; Scientific Term Bank</h2>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Scientific Term</th>
+              <th>Precise Definition</th>
+              <th>High-Yield Exam Context</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Peristalsis</strong></td>
+              <td>Wave of involuntary muscular contractions moving food along digestive tract.</td>
+              <td>Enables food swallowing in any body orientation, even upside down!</td>
+            </tr>
+            <tr>
+              <td><strong>Salivary Amylase</strong></td>
+              <td>Starch-hydrolyzing enzyme present in saliva converting starch to maltose.</td>
+              <td>Optimal activity at near-neutral pH ($6.8$).</td>
+            </tr>
+            <tr>
+              <td><strong>Pepsin</strong></td>
+              <td>Proteolytic gastric enzyme that cleaves proteins into peptides in acid pH.</td>
+              <td>Requires $	ext{HCl}$ for activation from pepsinogen.</td>
+            </tr>
+            <tr>
+              <td><strong>Bile Juice</strong></td>
+              <td>Alkaline, enzyme-free hepatic secretion storing in gallbladder.</td>
+              <td>Emulsifies fats into tiny micelles and neutralizes acidic chyme.</td>
+            </tr>
+            <tr>
+              <td><strong>Villi</strong></td>
+              <td>Finger-like mucosal projections lining small intestine.</td>
+              <td>Maximizes absorption surface area; contains blood capillaries and lacteals.</td>
+            </tr>
+            <tr>
+              <td><strong>Rumination</strong></td>
+              <td>Regurgitation and re-chewing of partially digested cud in ruminants.</td>
+              <td>Allows bacterial fermentation of complex plant cellulose.</td>
+            </tr>
+            <tr>
+              <td><strong>Alveoli</strong></td>
+              <td>Microscopic thin-walled air sacs in lungs where gaseous exchange occurs.</td>
+              <td>Over 300 million alveoli provide ~80 square metres of gas exchange area.</td>
+            </tr>
+            <tr>
+              <td><strong>Diaphragm</strong></td>
+              <td>Dome-shaped muscular sheet separating thoracic and abdominal cavities.</td>
+              <td>Primary muscle driving inhalation (flattens) and exhalation (domes).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-shield-heart"></i> The Box-Breathing Technique (Sama Vritti)</div>
+        Used by deep-sea divers, elite athletes, and yoga practitioners for mental focus and lung capacity:
+        <br>&bull; <strong>Step 1:</strong> Inhale slowly through nose for <strong>4 seconds</strong>.
+        <br>&bull; <strong>Step 2:</strong> Hold breath with full lungs for <strong>4 seconds</strong>.
+        <br>&bull; <strong>Step 3:</strong> Exhale smoothly through mouth for <strong>4 seconds</strong>.
+        <br>&bull; <strong>Step 4:</strong> Hold empty lungs for <strong>4 seconds</strong>.
+        <br>Activates the parasympathetic nervous system, lowers heart rate, and enhances alveolar gas diffusion.
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 4: 100% COMPLETE NCERT SOLUTIONS
+         ========================================== -->
+    <section class="section-card" id="sec4">
+      <div class="section-header">
+        <span class="section-tag">Section 4</span>
+        <h2 class="section-title">100% Complete NCERT Solutions (Let Us Enhance Our Learning)</h2>
+      </div>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Question 1:</strong> Complete the journey of food through the alimentary canal by filling up the boxes with appropriate parts: Food &rarr; Mouth &rarr; [ ] &rarr; Stomach &rarr; [ ] &rarr; [ ] &rarr; [ ] &rarr; Anus</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Answer</span> The complete anatomical journey of food through the human alimentary canal is:</p>
+          <div class="journey-container">
+            <div class="journey-step">Food</div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-step">Mouth (Buccal Cavity)</div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-step" style="background: #dbeafe; border-color: #2563eb; color: #1e40af;"><strong>Oesophagus (Food Pipe)</strong></div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-step">Stomach</div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-step" style="background: #dbeafe; border-color: #2563eb; color: #1e40af;"><strong>Small Intestine</strong></div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-step" style="background: #dbeafe; border-color: #2563eb; color: #1e40af;"><strong>Large Intestine</strong></div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-step" style="background: #dbeafe; border-color: #2563eb; color: #1e40af;"><strong>Rectum</strong></div>
+            <div class="journey-arrow">&rarr;</div>
+            <div class="journey-step">Anus</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 2:</strong> Sahil placed some pieces of chapati in test tube A. Neha placed chewed chapati in test tube B, and Santushti took boiled and mashed potato in test tube C. All of them added a few drops of iodine solution to their test tubes—A, B, and C, respectively. What would be their observations? Give reasons.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Observations &amp; Scientific Reasons</span></p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Test Tube &amp; Student</th>
+                  <th>Contents</th>
+                  <th>Observed Color with Iodine</th>
+                  <th>Scientific Reason</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Tube A (Sahil)</strong></td>
+                  <td>Pieces of plain unchewed chapati</td>
+                  <td><strong style="color: #1e40af;">Turns Blue-Black</strong></td>
+                  <td>Chapati is made from wheat flour containing complex starch. Iodine reacts with starch molecules to produce a deep blue-black complex.</td>
+                </tr>
+                <tr>
+                  <td><strong>Tube B (Neha)</strong></td>
+                  <td>Chewed chapati</td>
+                  <td><strong style="color: #b45309;">Remains Yellowish-Brown (No Blue-Black)</strong></td>
+                  <td>When chapati was chewed, saliva mixed with it. The enzyme <em>salivary amylase</em> in saliva digested the complex starch into simple maltose sugars. Simple sugars do not react with iodine.</td>
+                </tr>
+                <tr>
+                  <td><strong>Tube C (Santushti)</strong></td>
+                  <td>Boiled and mashed potato</td>
+                  <td><strong style="color: #1e40af;">Turns Intense Blue-Black</strong></td>
+                  <td>Potato tubers store immense quantities of starch. Boiling and mashing exposes starch grains, which react vigorously with iodine to yield an intense blue-black coloration.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 3:</strong> What is the role of the diaphragm in breathing? (i) To filter the air, (ii) To produce sound, (iii) To help in inhalation and exhalation, (iv) To absorb oxygen.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Correct Option</span> <strong>(iii) To help in inhalation and exhalation</strong></p>
+          <p><em>Scientific Explanation:</em> The diaphragm is a dome-shaped muscular sheet separating the thoracic and abdominal cavities. During inhalation, it contracts and moves downward (flattens), expanding the chest volume and drawing air into the lungs. During exhalation, it relaxes and curves upward (dome shape), decreasing chest volume and expelling stale air from the lungs.</p>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 4:</strong> Match the following parts with their functions: (i) Nostrils, (ii) Nasal passages, (iii) Windpipe, (iv) Alveoli, (v) Ribcage.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Matched Pairs</span></p>
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>Anatomical Part</th>
+                  <th>Matched Function</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>(i) Nostrils</strong></td>
+                  <td><strong>(a) Fresh air from outside enters</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>(ii) Nasal passages</strong></td>
+                  <td><strong>(d) Tiny hair and mucus help to trap dust and dirt from the air we breathe</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>(iii) Windpipe (Trachea)</strong></td>
+                  <td><strong>(e) Air reaches our lungs through this part</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>(iv) Alveoli</strong></td>
+                  <td><strong>(b) Exchange of gases occurs</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>(v) Ribcage</strong></td>
+                  <td><strong>(c) Protects lungs</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 5:</strong> Anil claims to his friend Sanvi that respiration and breathing are the same process. What question(s) can Sanvi ask him to make him understand that he is not correct?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Teacher's Inquiry Approach</span> Sanvi can challenge Anil with the following probing scientific questions:</p>
+          <ol>
+            <li><em>"Anil, does breathing happen in the lungs or inside every microscopic cell of our kidneys, brain, and muscles?"</em> (Breathing occurs only in respiratory organs, whereas respiration takes place inside every single living cell!).</li>
+            <li><em>"Can simply pulling air in and pushing it out generate chemical energy (ATP) to keep our heart beating, or does that require burning glucose with oxygen?"</em> (Breathing does not produce energy; cellular respiration oxidizes glucose to release ATP).</li>
+            <li><em>"Do you need complex biochemical enzymes to breathe, or just muscle movements of the ribs and diaphragm?"</em> (Breathing is purely a physical mechanical process; cellular respiration is an enzyme-driven biochemical process).</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 6:</strong> Which of the following statements is correct and why? Anu: We inhale air. Shanu: We inhale oxygen. Tanu: We inhale air rich in oxygen.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Correct Statement</span> <strong>Tanu is the most scientifically accurate: "We inhale air rich in oxygen."</strong> (Anu's statement is also acceptable in general terms, but Tanu's is precise).</p>
+          <p><strong>Detailed Scientific Reason:</strong></p>
+          <ul>
+            <li>We do not have a selective filter in our nostrils to separate and inhale pure $100\%$ oxygen alone (which disproves Shanu).</li>
+            <li>When we breathe in, we inhale atmospheric air, which is a mixture of gases containing roughly <strong>$21\%$ Oxygen</strong>, $78\%$ Nitrogen, and $0.04\%$ Carbon dioxide.</li>
+            <li>Since atmospheric air has a higher concentration of oxygen compared to carbon dioxide, it is correctly characterized as <strong>"air rich in oxygen"</strong>.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 7:</strong> We often sneeze when we inhale a lot of dust-laden air. What can be possible explanations for this?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Scientific Explanation</span> Sneezing is a protective, involuntary reflex action of the respiratory system:</p>
+          <ol>
+            <li>When we inhale air loaded with dust, pollen, smoke, or allergen particles, these foreign irritants bypass the fine nasal hairs and irritate the sensitive mucosal lining of the nasal cavity.</li>
+            <li>Sensory nerve endings in the nasal lining detect this irritation and transmit an urgent signal to the reflex control center in the brainstem (medulla oblongata).</li>
+            <li>The brain triggers a sudden, violent, spasmodic contraction of the chest muscles and diaphragm, expelling a high-velocity blast of air through the nose and mouth.</li>
+            <li>This powerful blast sweeps out the trapped dust particles, foreign irritants, and excess mucus, keeping the delicate lower respiratory tract (windpipe and lungs) clean and unobstructed.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 8:</strong> Paridhi and Anusha of Grade 7 started running for their morning workout. After they completed their running, they counted their breaths per minute. Anusha was breathing faster than Paridhi. Provide at least two possible explanations for why Anusha was breathing faster than Paridhi.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Two Plausible Explanations</span></p>
+          <ol>
+            <li><strong>Difference in Running Intensity / Physical Exertion:</strong> Anusha might have run at a higher speed, covered a greater distance, or sprinted aggressively uphill compared to Paridhi. Higher muscular exertion requires muscle cells to break down glucose faster, causing high oxygen consumption and rapid $	ext{CO}_2$ buildup, which triggers the brain to accelerate breathing rate to flush out $	ext{CO}_2$ and repay the "oxygen debt".</li>
+            <li><strong>Difference in Aerobic Fitness &amp; Vital Lung Capacity:</strong> Paridhi might engage in regular sports, jogging, or yoga, giving her a higher vital lung capacity and more efficient cardiovascular conditioning. A well-trained athlete takes deeper, more oxygen-rich breaths, enabling her body to satisfy its oxygen demand with fewer breaths per minute, whereas a less conditioned runner must breathe much faster to deliver the same volume of oxygen.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 9:</strong> Yadu took two test tubes, A and B, added rice flour in water to both, and added saliva to Tube B only. After 35-45 min, he added iodine solution to both. Tube A turned dark blue-black; Tube B stayed brown (Fig. 9.15). What do you think he wants to test?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Scientific Objective</span> Yadu wants to test and investigate: <strong>"The digestive action of human saliva (specifically the enzyme salivary amylase) on complex starch."</strong></p>
+          <p><strong>Deduction from Results:</strong></p>
+          <ul>
+            <li>In Test Tube A (rice flour without saliva), the starch remains completely intact and unhydrolyzed, giving an intense blue-black coloration upon the addition of iodine.</li>
+            <li>In Test Tube B (rice flour incubated with saliva for 40 minutes), the enzyme salivary amylase broke down the starch into simple, soluble sugars (maltose). Since maltose does not react with iodine, Tube B remains yellowish-brown.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Question 10:</strong> Rakshita took two clean test tubes, A and B, with lime water (Fig. 9.16). In Tube A, surrounding atmospheric air was sucked/bubbled through, while in Tube B, exhaled air was blown through a pipe. What is she trying to investigate? How can she confirm her findings?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><span class="step-pill">Investigation Goal</span> Rakshita is investigating: <strong>"Whether exhaled air contains a substantially higher concentration of Carbon Dioxide ($	ext{CO}_2$) compared to normal atmospheric (inhaled) air."</strong></p>
+          <p><span class="step-pill">Confirmation of Findings</span></p>
+          <ul>
+            <li><strong>In Tube B (Exhaled air blown):</strong> The clear lime water ($	ext{Ca(OH)}_2$) turns distinctly <strong>milky and cloudy almost immediately</strong> (within 10-20 seconds). This confirms that exhaled air contains an abundant amount of carbon dioxide (~$4.4\%$), which reacts with lime water to precipitate insoluble white calcium carbonate ($	ext{CaCO}_3$).</li>
+            <li><strong>In Tube A (Atmospheric air passed):</strong> The lime water remains largely clear and transparent, or turns very faintly cloudy only after prolonged bubbling, confirming that ambient inhaled air contains only a trace amount of carbon dioxide (~$0.04\%$).</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- ==========================================
+         SECTION 5: CBSE/BSE COMPETENCY BANK & QUIZ
+         ========================================== -->
+    <section class="section-card" id="sec5">
+      <div class="section-header">
+        <span class="section-tag">Section 5</span>
+        <h2 class="section-title">CBSE/BSE Competency Bank &amp; Interactive Quiz Engine</h2>
+      </div>
+      <p>Test your clinical understanding of animal physiology with immediate diagnostic feedback and live scoring!</p>
+
+      <!-- Scoreboard -->
+      <div style="background: var(--light); border: 1.5px solid var(--border); border-radius: 0.75rem; padding: 0.85rem 1.25rem; margin-bottom: 1.5rem; display: flex; align-items: center; justify-content: space-between;">
+        <span style="font-weight: 700; color: var(--dark);"><i class="fa-solid fa-trophy" style="color: var(--accent);"></i> Scoreboard:</span>
+        <span id="quizScoreText" style="font-weight: 800; color: var(--primary); font-size: 1.05rem;">0 / 6 Answered</span>
+      </div>
+
+      <!-- Q1 -->
+      <div class="quiz-card" id="q1-box">
+        <div class="quiz-q">1. In which organ of the human digestive tract is the digestion of proteins initiated?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q1', 0, false)">A) Mouth (Buccal cavity)</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 1, false)">B) Oesophagus</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 2, true)">C) Stomach (via Pepsin in acidic medium)</button>
+          <button class="opt-btn" onclick="checkQuiz('q1', 3, false)">D) Large Intestine</button>
+        </div>
+        <div class="quiz-feedback" id="q1-fb"></div>
+      </div>
+
+      <!-- Q2 -->
+      <div class="quiz-card" id="q2-box">
+        <div class="quiz-q">2. Which digestive secretion contains NO digestive enzymes at all, yet is indispensable for fat digestion?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q2', 0, false)">A) Saliva</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 1, true)">B) Bile Juice from the Liver</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 2, false)">C) Pancreatic Juice</button>
+          <button class="opt-btn" onclick="checkQuiz('q2', 3, false)">D) Gastric Juice</button>
+        </div>
+        <div class="quiz-feedback" id="q2-fb"></div>
+      </div>
+
+      <!-- Q3 -->
+      <div class="quiz-card" id="q3-box">
+        <div class="quiz-q">3. What is the structural significance of the millions of villi found in the inner lining of the small intestine?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q3', 0, false)">A) They produce hydrochloric acid to kill microbes</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 1, true)">B) They vastly multiply the surface area for rapid nutrient absorption</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 2, false)">C) They churn solid food mechanically like teeth</button>
+          <button class="opt-btn" onclick="checkQuiz('q3', 3, false)">D) They filter dust particles from digested food</button>
+        </div>
+        <div class="quiz-feedback" id="q3-fb"></div>
+      </div>
+
+      <!-- Q4 -->
+      <div class="quiz-card" id="q4-box">
+        <div class="quiz-q">4. During inhalation in humans, the muscular diaphragm:</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q4', 0, true)">A) Contracts and moves downwards (flattens)</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 1, false)">B) Relaxes and arches upwards into a dome</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 2, false)">C) Expels air out of the trachea</button>
+          <button class="opt-btn" onclick="checkQuiz('q4', 3, false)">D) Closes the nostrils</button>
+        </div>
+        <div class="quiz-feedback" id="q4-fb"></div>
+      </div>
+
+      <!-- Q5 -->
+      <div class="quiz-card" id="q5-box">
+        <div class="quiz-q">5. How does an earthworm carry out gaseous exchange with its environment?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q5', 0, false)">A) Through gills under its segments</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 1, false)">B) Through spiracles along its abdomen</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 2, true)">C) Through its thin, moist, and vascular skin</button>
+          <button class="opt-btn" onclick="checkQuiz('q5', 3, false)">D) Using simple sac-like lungs</button>
+        </div>
+        <div class="quiz-feedback" id="q5-fb"></div>
+      </div>
+
+      <!-- Q6 -->
+      <div class="quiz-card" id="q6-box">
+        <div class="quiz-q">6. Why are cows and buffaloes able to digest cellulose from grass, whereas human beings cannot?</div>
+        <div class="quiz-options">
+          <button class="opt-btn" onclick="checkQuiz('q6', 0, false)">A) Cows have sharper molars that grind cellulose into sugar</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 1, true)">B) Their rumen contains symbiotic bacteria that secrete cellulase enzymes</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 2, false)">C) Their bile juice digests cellulose into amino acids</button>
+          <button class="opt-btn" onclick="checkQuiz('q6', 3, false)">D) Their stomach acid is 100 times stronger than human HCl</button>
+        </div>
+        <div class="quiz-feedback" id="q6-fb"></div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SECTION 6: EXAM HALL READINESS
+         ========================================== -->
+    <section class="section-card" id="sec6">
+      <div class="section-header">
+        <span class="section-tag">Section 6</span>
+        <h2 class="section-title">Exam Hall Readiness: Traps &amp; Lightning Revision</h2>
+      </div>
+
+      <h3>Common Exam Traps &amp; Misconceptions</h3>
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 1: "Digestion of all food takes place in the stomach."</div>
+        <strong>Wrong!</strong> In the mouth, only starch is partially broken down. In the stomach, only proteins undergo initial digestion. The actual complete digestion of carbohydrates, proteins, and fats happens in the <strong>Small Intestine</strong>!
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 2: "Bile digests fats using enzymes."</div>
+        <strong>Wrong!</strong> Bile contains <strong>NO enzymes</strong>. It acts purely through <em>emulsification</em> (physically breaking big fat blobs into tiny droplets) and creating an alkaline pH so that pancreatic lipase can chemically digest them.
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Trap 3: "During exhalation, the diaphragm moves down."</div>
+        <strong>Wrong!</strong> The diaphragm relaxes and curves <strong>UPWARDS</strong> into a dome shape during exhalation, compressing the thoracic cavity and pushing air out.
+      </div>
+
+      <h3>15 Lightning Revision Key Takeaways</h3>
+      <ol style="column-count: 2; column-gap: 2rem; margin-left: 1.5rem;">
+        <li>5 stages of animal nutrition: Ingestion, Digestion, Absorption, Assimilation, Egestion.</li>
+        <li>Salivary amylase breaks starch into maltose; unchewed food turns blue-black with iodine.</li>
+        <li>Peristalsis is the wave-like muscular contraction moving food along the alimentary canal.</li>
+        <li>Stomach secretes HCl (kills bacteria, acidic pH), pepsin (digests protein), and mucus (protects lining).</li>
+        <li>Bile from liver emulsifies fats; Pancreatic juice digests starch, proteins, and fats.</li>
+        <li>Complete digestion occurs in the small intestine, producing glucose, amino acids, and fatty acids.</li>
+        <li>Villi and microvilli in the small intestine massively expand surface area for absorption.</li>
+        <li>Large intestine absorbs water and mineral salts, forming solid faeces.</li>
+        <li>Ruminants possess a rumen with symbiotic bacteria to ferment plant cellulose (cud).</li>
+        <li>Birds lack teeth; their muscular gizzard grinds hard seeds with swallowed grit.</li>
+        <li>Breathing is mechanical gas exchange; cellular respiration is enzymatic ATP energy release.</li>
+        <li>Inhalation: Diaphragm flattens (moves down), ribs move up and out &rarr; lungs expand.</li>
+        <li>Exhalation: Diaphragm domes up, ribs move down and in &rarr; air pushed out.</li>
+        <li>Exhaled air contains ~4.4% CO2, turning clear lime water milky white (CaCO3 precipitate).</li>
+        <li>Fish breathe through gills; earthworms through moist skin; insects through tracheal spiracles.</li>
+      </ol>
+
+      <!-- Checklist -->
+      <h3 style="margin-top: 2rem;">Interactive Student Self-Assessment</h3>
+      <div style="background: var(--light); border: 1px solid var(--border); border-radius: 0.75rem; padding: 1.25rem;">
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can trace food through all 7 organs of the human alimentary canal.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I know why chewed chapati does NOT turn blue-black with iodine solution.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can clearly explain the three fundamental differences between breathing and cellular respiration.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I can explain the dual movement of the diaphragm and ribcage during inhalation and exhalation.</span>
+        </label>
+        <label style="display: flex; align-items: center; gap: 0.6rem; cursor: pointer;">
+          <input type="checkbox" style="width: 18px; height: 18px; accent-color: var(--primary);">
+          <span>I understand how cows digest cellulose via rumen fermentation and rumination.</span>
+        </label>
+      </div>
+    </section>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" onclick="scrollToTop()" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      const btn = document.getElementById('backToTopBtn');
+      if (window.scrollY > 400) {
+        btn.style.display = 'flex';
+      } else {
+        btn.style.display = 'none';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Teacher Audio Summary (Web Speech API)
+    let isSpeaking = false;
+    let speechUtterance = null;
+
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('ttsBtn');
+      const icon = document.getElementById('ttsIcon');
+      const text = document.getElementById('ttsText');
+
+      if (!('speechSynthesis' in window)) {
+        alert('Sorry! Your browser does not support text-to-speech.');
+        return;
+      }
+
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        icon.className = 'fa-solid fa-play';
+        text.innerText = 'Play Audio';
+        btn.style.background = 'var(--primary)';
+      } else {
+        const scriptText = "Welcome to Sujit Classes Chapter Summary for Life Processes in Animals. " +
+          "Nutrition in animals involves five stages: ingestion, digestion, absorption, assimilation, and egestion. " +
+          "In the mouth, teeth chew food and salivary amylase begins digesting starch into maltose. " +
+          "Food moves down the oesophagus via wave-like peristalsis into the stomach, where hydrochloric acid kills microbes and pepsin digests proteins. " +
+          "In the small intestine, bile from the liver emulsifies fats, while pancreatic and intestinal enzymes complete digestion into glucose, amino acids, and fatty acids. " +
+          "Millions of finger-like villi absorb nutrients into the blood. " +
+          "Ruminants like cows rely on rumen bacteria to ferment cellulose, chewing the cud at rest. " +
+          "In respiration, distinguish breathing, which is physical ventilation using the diaphragm and ribcage, from cellular respiration, which is the biochemical oxidation of glucose inside mitochondria to yield ATP. " +
+          "Explore the complete NCERT answers and interactive quiz below to secure full marks in your biology exam!";
+
+        speechUtterance = new SpeechSynthesisUtterance(scriptText);
+        speechUtterance.rate = 0.95;
+        speechUtterance.pitch = 1.0;
+
+        speechUtterance.onend = () => {
+          isSpeaking = false;
+          icon.className = 'fa-solid fa-play';
+          text.innerText = 'Play Audio';
+          btn.style.background = 'var(--primary)';
+        };
+
+        window.speechSynthesis.speak(speechUtterance);
+        isSpeaking = true;
+        icon.className = 'fa-solid fa-pause';
+        text.innerText = 'Pause Audio';
+        btn.style.background = '#dc2626';
+      }
+    }
+
+    // Interactive Quiz Engine
+    let quizScore = 0;
+    const answeredQuestions = new Set();
+
+    const explanations = {
+      q1: "Correct! Protein digestion begins in the stomach where hydrochloric acid activates pepsin to break down proteins into peptides.",
+      q2: "Correct! Bile contains no digestive enzymes; it emulsifies fats into micro-droplets and creates an alkaline pH for lipase.",
+      q3: "Correct! Villi multiply the inner surface area of the small intestine by more than 30 times to maximize nutrient absorption.",
+      q4: "Correct! During inhalation, the diaphragm contracts and flattens downwards, increasing chest cavity volume and drawing in air.",
+      q5: "Correct! Earthworms exchange gases through their thin, mucus-covered, richly vascularized skin.",
+      q6: "Correct! Ruminants have a specialized rumen populated by symbiotic bacteria and protozoa that produce cellulase to ferment plant cellulose."
+    };
+
+    function checkQuiz(qId, selectedIdx, isCorrect) {
+      const qBox = document.getElementById(qId + '-box');
+      const buttons = qBox.querySelectorAll('.opt-btn');
+      const fb = document.getElementById(qId + '-fb');
+
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (isCorrect) {
+        buttons[selectedIdx].classList.add('correct');
+        fb.style.display = 'block';
+        fb.style.background = '#dcfce7';
+        fb.style.color = '#15803d';
+        fb.innerHTML = '<strong><i class="fa-solid fa-circle-check"></i> Correct!</strong> ' + explanations[qId];
+        if (!answeredQuestions.has(qId)) {
+          quizScore++;
+        }
+      } else {
+        buttons[selectedIdx].classList.add('wrong');
+        fb.style.display = 'block';
+        fb.style.background = '#fee2e2';
+        fb.style.color = '#b91c1c';
+        fb.innerHTML = '<strong><i class="fa-solid fa-circle-xmark"></i> Not quite.</strong> ' + explanations[qId];
+      }
+
+      answeredQuestions.add(qId);
+      document.getElementById('quizScoreText').innerText = quizScore + ' / 6 Correct';
+    }
+  </script>
+</body>
+</html>
