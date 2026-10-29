@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 7 Mathematics Chapter 9: Geometric Twins (Congruence) - Master Study Notes (Ganita Prakash)</title>
+  <meta name="description" content="Comprehensive, zero-omission teacher notes for Class 7 Maths Chapter 9: Geometric Twins (NCERT Ganita Prakash Part 2). Master triangle congruence criteria (SSS, SAS, ASA, RHS), correspondence, isosceles theorems, and full solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #4338ca 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #0369a1;
+      border: none;
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    /* Callout Boxes */
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-def { background: #f0fdf4; border-color: #10b981; color: #065f46; }
+    .callout-def i { color: #059669; }
+
+    .callout-act { background: #eff6ff; border-color: #3b82f6; color: #1e3a8a; }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq { background: #fffbeb; border-color: #f59e0b; color: #78350f; }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack { background: #faf5ff; border-color: #a855f7; color: #581c87; }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn { background: #fef2f2; border-color: #ef4444; color: #7f1d1d; }
+    .callout-warn i { color: #dc2626; }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+
+    /* 5-Step Solution Box */
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.2rem 0;
+    }
+
+    .step-item {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .step-label {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 90px;
+    }
+
+    .step-ans {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      margin-top: 0.8rem;
+      font-weight: 700;
+      color: #166534;
+    }
+
+    /* Collapsible Details Answers */
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    /* Diagrams */
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    /* Quiz Engine */
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+    }
+
+    .correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700 !important;
+    }
+
+    .wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Overview &amp; Mind Map</a>
+      <a href="#sec2" class="nav-link">2. Core Concepts</a>
+      <a href="#sec3" class="nav-link">3. In-Text Activities</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Practice Quiz</a>
+      <a href="#sec6" class="nav-link">6. Teacher Hacks</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge"><i class="fa-solid fa-calculator"></i> Class 7 Mathematics &bull; Chapter 9</div>
+    <h1 class="hero-title">Geometric Twins</h1>
+    <p class="hero-sub">The Science of Congruence: Exact Copies, Correspondence of Vertices, SSS, SAS, ASA, and RHS Congruence Criteria, and Isosceles Triangle Theorems</p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> Textbook: Ganita Prakash Part 2 (Ch 1)</span>
+      <span><i class="fa-solid fa-layer-group"></i> NEP 2020 Aligned</span>
+      <span><i class="fa-solid fa-check-double"></i> Zero-Omission Guide</span>
+    </div>
+    <button class="audio-btn" id="audioSummaryBtn" onclick="toggleAudioSummary()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+    <!-- SECTION 1 -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1</span>
+        <h2>Chapter Overview &amp; Visual Mind Map</h2>
+        <p class="section-sub">Two figures that are carbon copies of each other in both shape and size are Geometric Twins!</p>
+      </div>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div class="callout-text">
+          <strong>Teacher's Welcome Note:</strong> Welcome to Book 2! Look at two identical ₹500 currency notes, two pages in your fresh notebook, or two biscuits from the same pack. When one is placed on top of the other, they match edge-to-edge perfectly. In geometry, such figures are called <strong>congruent figures</strong> (&cong;). When are two triangles guaranteed to be congruent? We don't need to check all 6 parts (3 sides and 3 angles); just 3 specific matching measurements are enough!
+        </div>
+      </div>
+
+      <!-- SVG Mind Map: Congruence Criteria -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 880 420" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="congGradCenter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#4338ca"/>
+            </linearGradient>
+            <linearGradient id="congNode1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#059669"/>
+            </linearGradient>
+            <linearGradient id="congNode2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+            <linearGradient id="congNode3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <linearGradient id="congNode4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="100%" stop-color="#6d28d9"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Branch curves -->
+          <path d="M 440 210 C 280 210, 180 100, 140 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 280 210, 180 320, 140 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 100, 740 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 320, 740 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+
+          <!-- Center Node -->
+          <circle cx="440" cy="210" r="82" fill="url(#congGradCenter)" filter="drop-shadow(0 4px 10px rgba(67,56,202,0.35))"/>
+          <text x="440" y="200" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">GEOMETRIC</text>
+          <text x="440" y="222" fill="#e0e7ff" font-size="16" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">TWINS (&cong;)</text>
+          <text x="440" y="242" fill="#c7d2fe" font-size="11" text-anchor="middle">Triangle Congruence</text>
+
+          <!-- Branch 1: Superposition & Correspondence -->
+          <rect x="20" y="55" width="240" height="90" rx="14" fill="url(#congNode1)" filter="drop-shadow(0 3px 8px rgba(16,185,129,0.25))"/>
+          <text x="140" y="85" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">1. Superposition &amp; Order</text>
+          <text x="140" y="108" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; Exact same shape &amp; size</text>
+          <text x="140" y="126" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; Vertex order: &Delta;HEN &cong; &Delta;BIG</text>
+
+          <!-- Branch 2: SSS & SAS -->
+          <rect x="20" y="275" width="240" height="90" rx="14" fill="url(#congNode2)" filter="drop-shadow(0 3px 8px rgba(2,132,199,0.25))"/>
+          <text x="140" y="305" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">2. SSS &amp; SAS Criteria</text>
+          <text x="140" y="328" fill="#e0f2fe" font-size="12" text-anchor="middle">&bull; SSS: All 3 sides match</text>
+          <text x="140" y="346" fill="#e0f2fe" font-size="12" text-anchor="middle">&bull; SAS: 2 sides + INCLUDED angle</text>
+
+          <!-- Branch 3: ASA & RHS -->
+          <rect x="620" y="55" width="240" height="90" rx="14" fill="url(#congNode3)" filter="drop-shadow(0 3px 8px rgba(217,119,6,0.25))"/>
+          <text x="740" y="85" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">3. ASA &amp; RHS Criteria</text>
+          <text x="740" y="108" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; ASA: 2 angles + INCLUDED side</text>
+          <text x="740" y="126" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; RHS: Right angle + Hypotenuse + Leg</text>
+
+          <!-- Branch 4: Why AAA & SSA Fail -->
+          <rect x="620" y="275" width="240" height="90" rx="14" fill="url(#congNode4)" filter="drop-shadow(0 3px 8px rgba(124,58,237,0.25))"/>
+          <text x="740" y="305" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle" font-family="Space Grotesk">4. Traps: AAA &amp; SSA</text>
+          <text x="740" y="328" fill="#ede9fe" font-size="12" text-anchor="middle">&bull; AAA: Same shape, different size</text>
+          <text x="740" y="346" fill="#ede9fe" font-size="12" text-anchor="middle">&bull; SSA: Ambiguous 2-triangle trap</text>
+        </svg>
+        <p class="diagram-caption">Figure 9.1: Comprehensive mind map of Congruence Criteria and Correspondence.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2</span>
+        <h2>Deep-Dive Core Concepts &amp; Teacher Explanations</h2>
+        <p class="section-sub">The 4 valid congruence criteria vs. invalid conditions explained with visual diagrams.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-clone"></i> 9.1 Correspondence and Notation</h3>
+      <p>If triangle ABC is congruent to triangle PQR:
+      <br>Symbol: <strong>&Delta;ABC &cong; &Delta;PQR</strong>.
+      <br>This simple statement contains six separate mathematical equalities:
+      <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+        <li>Corresponding Vertices: A &harr; P, B &harr; Q, C &harr; R.</li>
+        <li>Corresponding Sides: AB = PQ, BC = QR, CA = RP.</li>
+        <li>Corresponding Angles: &ang;A = &ang;P, &ang;B = &ang;Q, &ang;C = &ang;R.</li>
+      </ul>
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Order Matters!</strong> If A corresponds to P, writing <code>&Delta;ABC &cong; &Delta;QPR</code> is completely false! The letters must match in the exact same sequence.
+        </div>
+      </div>
+
+      <!-- SVG The 4 Congruence Criteria -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 740 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- SSS -->
+          <g transform="translate(30, 20)">
+            <rect x="0" y="0" width="150" height="220" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+            <text x="75" y="30" font-size="15" font-weight="bold" fill="#15803d" text-anchor="middle">1. SSS</text>
+            <polygon points="25,170 125,170 75,70" fill="none" stroke="#16a34a" stroke-width="2"/>
+            <!-- Tick marks on sides -->
+            <line x1="45" y1="115" x2="55" y2="125" stroke="#16a34a" stroke-width="2"/>
+            <line x1="95" y1="115" x2="105" y2="125" stroke="#16a34a" stroke-width="2"/>
+            <line x1="72" y1="165" x2="72" y2="175" stroke="#16a34a" stroke-width="2"/>
+            <text x="75" y="205" font-size="11" fill="#166534" text-anchor="middle">3 Matching Sides</text>
+          </g>
+
+          <!-- SAS -->
+          <g transform="translate(210, 20)">
+            <rect x="0" y="0" width="150" height="220" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+            <text x="75" y="30" font-size="15" font-weight="bold" fill="#1d4ed8" text-anchor="middle">2. SAS</text>
+            <polygon points="25,170 125,170 75,70" fill="none" stroke="#2563eb" stroke-width="2"/>
+            <!-- Included angle arc at bottom-left -->
+            <path d="M 45 170 A 20 20 0 0 0 35 150" stroke="#f59e0b" stroke-width="3" fill="none"/>
+            <line x1="45" y1="115" x2="55" y2="125" stroke="#2563eb" stroke-width="2"/>
+            <line x1="72" y1="165" x2="72" y2="175" stroke="#2563eb" stroke-width="2"/>
+            <text x="75" y="205" font-size="11" fill="#1e40af" text-anchor="middle">2 Sides + INCLUDED &ang;</text>
+          </g>
+
+          <!-- ASA -->
+          <g transform="translate(390, 20)">
+            <rect x="0" y="0" width="150" height="220" rx="10" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/>
+            <text x="75" y="30" font-size="15" font-weight="bold" fill="#a16207" text-anchor="middle">3. ASA</text>
+            <polygon points="25,170 125,170 75,70" fill="none" stroke="#ca8a04" stroke-width="2"/>
+            <!-- 2 angles on base -->
+            <path d="M 45 170 A 20 20 0 0 0 35 150" stroke="#ca8a04" stroke-width="2" fill="none"/>
+            <path d="M 105 170 A 20 20 0 0 1 115 150" stroke="#ca8a04" stroke-width="2" fill="none"/>
+            <line x1="72" y1="165" x2="72" y2="175" stroke="#ca8a04" stroke-width="2"/>
+            <text x="75" y="205" font-size="11" fill="#713f12" text-anchor="middle">2 &ang;s + INCLUDED Side</text>
+          </g>
+
+          <!-- RHS -->
+          <g transform="translate(570, 20)">
+            <rect x="0" y="0" width="150" height="220" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
+            <text x="75" y="30" font-size="15" font-weight="bold" fill="#7e22ce" text-anchor="middle">4. RHS</text>
+            <polygon points="30,170 120,170 30,70" fill="none" stroke="#9333ea" stroke-width="2"/>
+            <!-- Right angle square -->
+            <rect x="30" y="155" width="15" height="15" fill="none" stroke="#9333ea" stroke-width="1.5"/>
+            <!-- Hypotenuse tick -->
+            <line x1="70" y1="115" x2="80" y2="125" stroke="#9333ea" stroke-width="2"/>
+            <text x="75" y="205" font-size="11" fill="#581c87" text-anchor="middle">Right-Hypotenuse-Leg</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">Figure 9.2: The four pillars of triangle congruence.</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-triangle-exclamation"></i> 9.2 Why AAA and SSA are Not Valid Criteria</h3>
+      <ul style="margin-left: 1.5rem;">
+        <li><strong>AAA (Angle-Angle-Angle):</strong> An equilateral triangle with side 2 cm has angles 60&deg;, 60&deg;, 60&deg;. Another equilateral triangle with side 10 cm also has angles 60&deg;, 60&deg;, 60&deg;. They have the same shape, but vastly different sizes! Thus, AAA guarantees similarity, NOT congruence.</li>
+        <li><strong>SSA (Side-Side-Angle):</strong> When the angle is not enclosed between the two sides, swinging the second arm can intersect the third line in two different locations, forming two non-congruent triangles!</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3</span>
+        <h2>In-Text Activities &amp; Classroom Explorations (Fully Solved)</h2>
+        <p class="section-sub">Step-by-step solutions to in-text exercises from pages 3, 8, 13, and 20.</p>
+      </div>
+
+      <h4 class="sub-topic">Activity 1: Diagonals of a Rectangle (Page 8)</h4>
+      <div class="solution-box">
+        <p><strong>Problem:</strong> In rectangle ABCD, diagonal BD divides the rectangle into two triangles: &Delta;ABD and &Delta;CDB. Prove they are congruent and write the correct correspondence.</p>
+        <div class="step-item"><span class="step-label">Given:</span> Opposite sides of a rectangle are equal: AB = CD, and AD = CB.</div>
+        <div class="step-item"><span class="step-label">Third Side:</span> Diagonal BD is common to both: BD = DB.</div>
+        <div class="step-item"><span class="step-label">Congruence:</span> By <strong>SSS Congruence Criterion</strong>, &Delta;ABD &cong; &Delta;CDB.</div>
+        <div class="step-item"><span class="step-label">Correspondence:</span> Vertex A &harr; C, Vertex B &harr; D, Vertex D &harr; B.</div>
+        <div class="step-ans">&check; Conclusion: <strong>&Delta;ABD &cong; &Delta;CDB</strong> by SSS.</div>
+      </div>
+
+      <h4 class="sub-topic">Activity 2: Midpoint Intersection Proof (Page 13)</h4>
+      <div class="solution-box">
+        <p><strong>Problem:</strong> Line segments AD and BC bisect each other at point O. Prove that &Delta;AOB &cong; &Delta;DOC.</p>
+        <div class="step-item"><span class="step-label">Side 1:</span> AO = OD (given, O is midpoint of AD).</div>
+        <div class="step-item"><span class="step-label">Angle:</span> &ang;AOB = &ang;DOC (vertically opposite angles are equal).</div>
+        <div class="step-item"><span class="step-label">Side 2:</span> BO = OC (given, O is midpoint of BC).</div>
+        <div class="step-item"><span class="step-label">Criterion:</span> Two sides and the included angle match &rArr; <strong>SAS Criterion</strong>!</div>
+        <div class="step-ans">&check; Answer: <strong>&Delta;AOB &cong; &Delta;DOC</strong> by SAS. (Consequently, AB = CD and AB || CD).</div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4</span>
+        <h2>Complete End-of-Chapter 'Figure it Out' Exercises (Solved Step-by-Step)</h2>
+        <p class="section-sub">Comprehensive solutions with zero omissions.</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>Q1. Correspondence Drill: &Delta;AIR &cong; &Delta;FLY (Page 20)</summary>
+        <div class="ans-content">
+          <p><strong>Question:</strong> Given &Delta;AIR &cong; &Delta;FLY. Identify all corresponding vertices, sides, and angles.</p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr><th>Corresponding Vertices</th><th>Corresponding Sides</th><th>Corresponding Angles</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>A &harr; F</strong></td><td><strong>AI = FL</strong></td><td><strong>&ang;A = &ang;F</strong></td></tr>
+                <tr><td><strong>I &harr; L</strong></td><td><strong>IR = LY</strong></td><td><strong>&ang;I = &ang;L</strong></td></tr>
+                <tr><td><strong>R &harr; Y</strong></td><td><strong>AR = FY</strong></td><td><strong>&ang;R = &ang;Y</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q2. Isosceles Triangle Base Angle Theorem</summary>
+        <div class="ans-content">
+          <p><strong>Theorem:</strong> Angles opposite to equal sides of an isosceles triangle are equal.</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">Given:</span> &Delta;ABC with AB = AC.</div>
+            <div class="step-item"><span class="step-label">Construction:</span> Draw angle bisector AD of &ang;A, meeting BC at D.</div>
+            <div class="step-item"><span class="step-label">Proof:</span> In &Delta;ABD and &Delta;ACD:
+              <br>&bull; AB = AC (Given)
+              <br>&bull; &ang;BAD = &ang;CAD (AD bisects &ang;A)
+              <br>&bull; AD = AD (Common side)
+              <br>Therefore, &Delta;ABD &cong; &Delta;ACD by <strong>SAS Criterion</strong>!
+            </div>
+            <div class="step-item"><span class="step-label">CPCTC:</span> Corresponding Parts of Congruent Triangles are Congruent &rArr; <strong>&ang;B = &ang;C</strong>.</div>
+            <div class="step-ans">&check; Proved: <strong>&ang;B = &ang;C</strong>.</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5</span>
+        <h2>Interactive Practice Quiz Engine</h2>
+        <p class="section-sub">Test your mastery of congruence criteria and proofs.</p>
+      </div>
+
+      <div class="callout-box callout-pyq" id="scoreBanner" style="justify-content: space-between; align-items: center;">
+        <div><strong>Current Score:</strong> <span id="quizScoreCount">0</span> / 5 Correct</div>
+        <div id="quizTeacherMsg" style="font-size: 0.9rem; font-weight: 600;">Answer all questions to see your rank!</div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-card" id="qcard1">
+        <div class="quiz-question"><strong>Q1:</strong> Which of the following is NOT a valid congruence criterion for triangles?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')"><span>(a) SSS</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')"><span>(b) SAS</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')"><span>(c) AAA</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')"><span>(d) RHS</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c) AAA.</strong> AAA gives identical shapes (similar triangles), but not necessarily identical sizes.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-card" id="qcard2">
+        <div class="quiz-question"><strong>Q2:</strong> If &Delta;ABC &cong; &Delta;PQR, which side corresponds to BC?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')"><span>(a) PQ</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')"><span>(b) QR</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')"><span>(c) PR</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')"><span>(d) QP</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b) QR.</strong> The second and third letters of ABC correspond to the second and third letters of PQR (BC &harr; QR).
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-card" id="qcard3">
+        <div class="quiz-question"><strong>Q3:</strong> For two circles to be congruent, they must have equal:</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')"><span>(a) Radii</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')"><span>(b) Centers</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')"><span>(c) Chords</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')"><span>(d) Sectors</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a) Radii.</strong> Two circles are congruent if and only if their radii are equal.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-card" id="qcard4">
+        <div class="quiz-question"><strong>Q4:</strong> In RHS criterion, the letter 'H' stands for:</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')"><span>(a) Height</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')"><span>(b) Horizontal</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')"><span>(c) Hexagon</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')"><span>(d) Hypotenuse</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d) Hypotenuse.</strong> RHS = Right angle, Hypotenuse, and Side (leg).
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-card" id="qcard5">
+        <div class="quiz-question"><strong>Q5:</strong> In an equilateral triangle, all three interior angles measure:</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')"><span>(a) 45&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')"><span>(b) 90&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')"><span>(c) 60&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')"><span>(d) 120&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c) 60&deg;.</strong> All three angles are equal: 180&deg; &divide; 3 = 60&deg;.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6</span>
+        <h2>Quick Revision Notes &amp; Common Pitfalls</h2>
+        <p class="section-sub">Exam master tips and congruence criteria review.</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Don't Make This Mistake in Exams:</strong><br>
+          &bull; <strong>Non-Included Angle in SAS:</strong> The angle MUST be trapped strictly between the two given sides. If it is elsewhere, it is SSA (invalid!).<br>
+          &bull; <strong>Scrambled Vertex Order:</strong> Writing &Delta;ABC &cong; &Delta;RPQ when A corresponds to P is marked wrong.<br>
+          &bull; <strong>Equal Area &ne; Congruence:</strong> Two triangles can have the exact same area (e.g. Area = 12 cm&sup2;) but completely different shapes!
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div class="callout-text">
+          <strong>Teacher's Congruence Memory Sheet:</strong><br>
+          1. <strong>SSS:</strong> 3 sides match.<br>
+          2. <strong>SAS:</strong> 2 sides and included angle match.<br>
+          3. <strong>ASA:</strong> 2 angles and included side match.<br>
+          4. <strong>RHS:</strong> Right angle, Hypotenuse, and 1 leg match.<br>
+          5. <strong>CPCTC:</strong> Corresponding Parts of Congruent Triangles are Congruent!
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // 2. Audio Reader (Text-to-Speech)
+    var speechActive = false;
+    function toggleAudioSummary() {
+      var btn = document.getElementById('audioSummaryBtn');
+      if (!speechActive) {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          var text = "Welcome to Class 7 Mathematics, Chapter 9: Geometric Twins. In this chapter, we explore congruence of geometric figures. Two figures are congruent if they have the exact same shape and size and cover each other completely by superposition. For triangles, we have four valid congruence criteria: Side-Side-Side, Side-Angle-Side where the angle must be included, Angle-Side-Angle where the side must be included, and Right-Hypotenuse-Side for right-angled triangles. Remember, Angle-Angle-Angle does not guarantee congruence, and vertex order matters!";
+          var utterance = new SpeechSynthesisUtterance(text);
+          utterance.rate = 0.95;
+          utterance.onend = function() {
+            speechActive = false;
+            if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+          };
+          window.speechSynthesis.speak(utterance);
+          speechActive = true;
+          if (btn) btn.innerHTML = '<span>⏹ Stop Audio</span>';
+        } else {
+          alert('Sorry, text-to-speech is not supported on this device.');
+        }
+      } else {
+        window.speechSynthesis.cancel();
+        speechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+      }
+    }
+
+    // 3. Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Perfect Score! You are a Congruence Master!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! You have a solid grasp of Triangle Congruence!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Keep practicing! Review the teacher explanations above.";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
