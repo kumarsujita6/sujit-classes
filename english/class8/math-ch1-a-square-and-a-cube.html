@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 8 Mathematics Chapter 1: A Square and A Cube - Master Study Notes (Ganita Prakash)</title>
+  <meta name="description" content="Comprehensive, zero-omission teacher notes for Class 8 Maths Chapter 1: A Square and A Cube (NCERT Ganita Prakash). Perfect squares, square roots, locker puzzle, cube numbers, Ramanujan taxicab numbers, and full step-by-step solutions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.4rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 0.35rem 0.7rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #0c4a6e 0%, #0284c7 50%, #0d9488 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #0369a1;
+      border: none;
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-size: 1.08rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    /* Callout Boxes */
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-def { background: #f0fdf4; border-color: #10b981; color: #065f46; }
+    .callout-def i { color: #059669; }
+
+    .callout-act { background: #eff6ff; border-color: #3b82f6; color: #1e3a8a; }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq { background: #fffbeb; border-color: #f59e0b; color: #78350f; }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack { background: #faf5ff; border-color: #a855f7; color: #581c87; }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn { background: #fef2f2; border-color: #ef4444; color: #7f1d1d; }
+    .callout-warn i { color: #dc2626; }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+
+    /* Math formulas */
+    .math-block {
+      font-family: 'JetBrains Mono', monospace;
+      background: #f1f5f9;
+      padding: 0.8rem 1.2rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+      color: #0369a1;
+      font-weight: 600;
+      overflow-x: auto;
+    }
+
+    /* 5-Step Solution Box */
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.2rem 0;
+    }
+
+    .step-item {
+      margin-bottom: 0.75rem;
+      line-height: 1.6;
+    }
+
+    .step-label {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 90px;
+    }
+
+    .step-ans {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      margin-top: 0.8rem;
+      font-weight: 700;
+      color: #166534;
+    }
+
+    /* Collapsible Details Answers */
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #bae6fd;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    /* Diagrams */
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    /* Quiz Engine */
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+    }
+
+    .correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700 !important;
+    }
+
+    .wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+    }
+
+    /* Floating Back-To-Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      background: var(--primary);
+      color: white;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.2s ease;
+      z-index: 999;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <!-- Top Sticky Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Mind Map</a>
+      <a href="#sec2" class="nav-link">2. Core Concepts</a>
+      <a href="#sec3" class="nav-link">3. In-Text Activities</a>
+      <a href="#sec4" class="nav-link">4. Figure It Out</a>
+      <a href="#sec5" class="nav-link">5. Quiz Engine</a>
+      <a href="#sec6" class="nav-link">6. Quick Revision</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-square-root-variable"></i> NCERT Ganita Prakash | Class 8
+    </div>
+    <h1 class="hero-title">Chapter 1: A Square and A Cube</h1>
+    <p class="hero-sub">The Mystery of Lockers, Odd Numbers, Perfect Squares, Cube Roots & Ramanujan's Magic Number</p>
+    <div class="hero-meta">
+      <span><i class="fa-regular fa-clock"></i> 45 Mins Read</span>
+      <span><i class="fa-solid fa-book-open"></i> Full NCERT Depth</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Solved Activities</span>
+    </div>
+    <button class="audio-btn" id="audioSummaryBtn" onclick="toggleAudioSummary()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+    <!-- SECTION 1 -->
+    <section class="section-card" id="sec1">
+      <div class="section-header">
+        <span class="section-num">Section 01</span>
+        <h2>Chapter Overview & Visual Mind Map</h2>
+      </div>
+      <p>Welcome to Grade 8 Mathematics! In this opening chapter, we step into the captivating world of <strong>square numbers</strong> and <strong>cube numbers</strong>. We begin with a royal palace mystery—Queen Ratnamanjuri's 100-locker puzzle—and discover how the number of factors reveals the secret of perfect squares.</p>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 900 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gSquare" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7" />
+              <stop offset="100%" stop-color="#0369a1" />
+            </linearGradient>
+            <linearGradient id="gCube" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0d9488" />
+              <stop offset="100%" stop-color="#0f766e" />
+            </linearGradient>
+            <linearGradient id="gHist" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7c3aed" />
+              <stop offset="100%" stop-color="#6d28d9" />
+            </linearGradient>
+          </defs>
+          <!-- Center Node -->
+          <circle cx="450" cy="240" r="70" fill="url(#gSquare)" />
+          <text x="450" y="235" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">A SQUARE &amp;</text>
+          <text x="450" y="255" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" fill="#ffffff" text-anchor="middle">A CUBE</text>
+          
+          <!-- Connectors -->
+          <line x1="380" y1="210" x2="220" y2="120" stroke="#0284c7" stroke-width="3" stroke-dasharray="4,4" />
+          <line x1="520" y1="210" x2="680" y2="120" stroke="#0d9488" stroke-width="3" stroke-dasharray="4,4" />
+          <line x1="380" y1="270" x2="220" y2="360" stroke="#f59e0b" stroke-width="3" stroke-dasharray="4,4" />
+          <line x1="520" y1="270" x2="680" y2="360" stroke="#7c3aed" stroke-width="3" stroke-dasharray="4,4" />
+
+          <!-- Node 1: Squares -->
+          <rect x="80" y="70" width="220" height="90" rx="12" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" />
+          <text x="190" y="100" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="700" fill="#0369a1" text-anchor="middle">1. Square Numbers (n²)</text>
+          <text x="190" y="125" font-size="12" fill="#334155" text-anchor="middle">• Dot arrays &amp; area models</text>
+          <text x="190" y="145" font-size="12" fill="#334155" text-anchor="middle">• Ending digits: 0, 1, 4, 5, 6, 9</text>
+
+          <!-- Node 2: Cubes -->
+          <rect x="600" y="70" width="220" height="90" rx="12" fill="#ccfbf1" stroke="#0d9488" stroke-width="2" />
+          <text x="710" y="100" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="700" fill="#0f766e" text-anchor="middle">2. Cubic Numbers (n³)</text>
+          <text x="710" y="125" font-size="12" fill="#334155" text-anchor="middle">• 3D volume &amp; unit blocks</text>
+          <text x="710" y="145" font-size="12" fill="#334155" text-anchor="middle">• Can end in ANY digit (0 to 9)</text>
+
+          <!-- Node 3: Special Patterns -->
+          <rect x="80" y="320" width="220" height="90" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" />
+          <text x="190" y="350" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="700" fill="#b45309" text-anchor="middle">3. Beautiful Patterns</text>
+          <text x="190" y="375" font-size="12" fill="#334155" text-anchor="middle">• Sum of n odd numbers = n²</text>
+          <text x="190" y="395" font-size="12" fill="#334155" text-anchor="middle">• Consecutive cubes differences</text>
+
+          <!-- Node 4: Heritage & Roots -->
+          <rect x="600" y="320" width="220" height="90" rx="12" fill="#ede9fe" stroke="#7c3aed" stroke-width="2" />
+          <text x="710" y="350" font-family="'Space Grotesk', sans-serif" font-size="15" font-weight="700" fill="#6d28d9" text-anchor="middle">4. Heritage &amp; Roots</text>
+          <text x="710" y="375" font-size="12" fill="#334155" text-anchor="middle">• Ramanujan Taxicab 1729</text>
+          <text x="710" y="395" font-size="12" fill="#334155" text-anchor="middle">• Aryabhata &amp; Sulba-Sutra methods</text>
+        </svg>
+        <div class="diagram-caption">Figure 1.1: Visual roadmap connecting the core themes of Chapter 1.</div>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section class="section-card" id="sec2">
+      <div class="section-header">
+        <span class="section-num">Section 02</span>
+        <h2>Deep-Dive Core Concepts &amp; Teacher Explanations</h2>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-key"></i> 1. The Royal Palace Locker Puzzle: Why Perfect Squares?</h3>
+      <p>Queen Ratnamanjuri had 100 lockers numbered 1 to 100, initially all closed. 100 people walk past them in order:</p>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+        <li><strong>Person 1:</strong> Opens every locker (1, 2, 3, 4, 5, ...).</li>
+        <li><strong>Person 2:</strong> Toggles every 2nd locker (closes 2, 4, 6, 8, ...).</li>
+        <li><strong>Person 3:</strong> Toggles every 3rd locker (3, 6, 9, 12, ...).</li>
+        <li><strong>Person k:</strong> Toggles every k-th locker.</li>
+      </ul>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <strong>The Teacher's Insight:</strong> A locker starts <em>CLOSED</em>.
+          <br>• Toggled 1 time ⇒ OPEN.
+          <br>• Toggled 2 times ⇒ CLOSED.
+          <br>• Toggled 3 times ⇒ OPEN.
+          <br>In general: <strong>If a locker is toggled an ODD number of times, it stays OPEN!</strong>
+        </div>
+      </div>
+
+      <p>Who toggles locker number <em>N</em>? Exactly the <strong>factors (divisors) of N</strong>! For example, locker 12 is visited by Person 1, 2, 3, 4, 6, and 12 (6 factors). Since 6 is even, locker 12 ends up CLOSED.</p>
+      
+      <p>Factors always come in pairs: for 12, the pairs are (1, 12), (2, 6), and (3, 4). Every pair has 2 distinct numbers, so the total count of factors is normally <strong>EVEN</strong>.</p>
+      <p>When does a number have an <strong>ODD</strong> number of factors? Only when one factor pairs with <em>itself</em>! That is, <strong>k × k = N</strong>. This means <strong>N is a perfect square!</strong></p>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <div>
+          <strong>The Open Lockers:</strong>
+          Only the perfect squares remain open at the end:
+          <br><strong>1, 4, 9, 16, 25, 36, 49, 64, 81, and 100</strong> (Exactly 10 lockers out of 100!).
+        </div>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-shapes"></i> 2. Properties of Square Numbers</h3>
+      <p>A natural number <em>m</em> is called a <strong>perfect square</strong> (or square number) if it can be written as <strong>m = n²</strong> (where <em>n</em> is a natural number).</p>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Number (n)</th>
+              <th>Square (n²)</th>
+              <th>Units Digit</th>
+              <th>Number (n)</th>
+              <th>Square (n²)</th>
+              <th>Units Digit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>1</td><td>1</td><td>6</td><td>36</td><td>6</td></tr>
+            <tr><td>2</td><td>4</td><td>4</td><td>7</td><td>49</td><td>9</td></tr>
+            <tr><td>3</td><td>9</td><td>9</td><td>8</td><td>64</td><td>4</td></tr>
+            <tr><td>4</td><td>16</td><td>6</td><td>9</td><td>81</td><td>1</td></tr>
+            <tr><td>5</td><td>25</td><td>5</td><td>10</td><td>100</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>The Golden Ending-Digit Rule:</strong>
+          Look closely at the table! The units digit of ANY square number can ONLY be <strong>0, 1, 4, 5, 6, or 9</strong>.
+          <br>A number ending in <strong>2, 3, 7, or 8</strong> is <em>NEVER</em> a perfect square!
+        </div>
+      </div>
+
+      <h4 class="sub-topic">A. Number of Zeros at the End</h4>
+      <p>If a number ends with 1 zero (e.g. 10), its square ends with <strong>2 zeros</strong> (100). If it ends with 2 zeros (e.g. 200), its square ends with <strong>4 zeros</strong> (40,000). Therefore, a square number can only end in an <strong>EVEN number of zeros</strong>.</p>
+
+      <h4 class="sub-topic">B. Sum of Consecutive Odd Numbers</h4>
+      <p>Every square number <em>n²</em> is the sum of the first <em>n</em> consecutive odd natural numbers:</p>
+      <div class="math-block">
+        1 = 1² = 1<br>
+        1 + 3 = 2² = 4<br>
+        1 + 3 + 5 = 3² = 9<br>
+        1 + 3 + 5 + 7 = 4² = 16<br>
+        1 + 3 + 5 + 7 + 9 = 5² = 25<br>
+        ...<br>
+        Sum of first n odd numbers = n²
+      </div>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 600 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- 1 dot -->
+          <circle cx="50" cy="110" r="12" fill="#0284c7" />
+          <text x="50" y="150" font-size="14" font-weight="700" fill="#0369a1" text-anchor="middle">1² = 1</text>
+          
+          <!-- 2x2 L-shape -->
+          <circle cx="150" cy="95" r="10" fill="#0284c7" />
+          <circle cx="175" cy="95" r="10" fill="#f59e0b" />
+          <circle cx="150" cy="120" r="10" fill="#f59e0b" />
+          <circle cx="175" cy="120" r="10" fill="#f59e0b" />
+          <text x="162" y="160" font-size="14" font-weight="700" fill="#0369a1" text-anchor="middle">1 + 3 = 4 = 2²</text>
+
+          <!-- 3x3 L-shape -->
+          <circle cx="280" cy="80" r="8" fill="#0284c7" />
+          <circle cx="300" cy="80" r="8" fill="#f59e0b" />
+          <circle cx="320" cy="80" r="8" fill="#10b981" />
+          <circle cx="280" cy="100" r="8" fill="#f59e0b" />
+          <circle cx="300" cy="100" r="8" fill="#f59e0b" />
+          <circle cx="320" cy="100" r="8" fill="#10b981" />
+          <circle cx="280" cy="120" r="8" fill="#10b981" />
+          <circle cx="300" cy="120" r="8" fill="#10b981" />
+          <circle cx="320" cy="120" r="8" fill="#10b981" />
+          <text x="300" y="160" font-size="14" font-weight="700" fill="#0369a1" text-anchor="middle">1 + 3 + 5 = 9 = 3²</text>
+
+          <!-- 4x4 L-shape -->
+          <rect x="420" y="60" width="80" height="80" rx="4" fill="none" stroke="#7c3aed" stroke-width="2" stroke-dasharray="3,3" />
+          <text x="460" y="105" font-size="14" font-weight="700" fill="#7c3aed" text-anchor="middle">4² = 16</text>
+          <text x="460" y="160" font-size="14" font-weight="700" fill="#0369a1" text-anchor="middle">1 + 3 + 5 + 7 = 16</text>
+        </svg>
+        <div class="diagram-caption">Figure 1.2: Adding consecutive odd numbers forms successive L-shaped borders (gnomons) to build larger squares.</div>
+      </div>
+
+      <h4 class="sub-topic">C. Non-Square Numbers Between Consecutive Squares</h4>
+      <p>Between <em>n²</em> and <em>(n + 1)²</em>, how many natural numbers exist?
+      <br>Formula: <strong>There are exactly 2n non-square numbers</strong> between <em>n²</em> and <em>(n + 1)²</em>.</p>
+      <div class="callout-box callout-pyq">
+        <i class="fa-solid fa-award"></i>
+        <div>
+          <strong>Example:</strong> How many non-square numbers lie between 12² and 13²?
+          <br>Here, n = 12. Non-square numbers = <strong>2 × 12 = 24</strong>.
+          <br>Check: 12² = 144, 13² = 169. Numbers between them = 169 - 144 - 1 = <strong>24</strong>!
+        </div>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-cube"></i> 3. Cubic Numbers (n³)</h3>
+      <p>A number obtained by multiplying a number by itself three times is called a <strong>cube number</strong> (or perfect cube): <strong>V = n × n × n = n³</strong>.</p>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Number (n)</th>
+              <th>Cube (n³)</th>
+              <th>Ending Digit</th>
+              <th>Number (n)</th>
+              <th>Cube (n³)</th>
+              <th>Ending Digit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>1</td><td>1</td><td>1</td><td>6</td><td>216</td><td>6</td></tr>
+            <tr><td>2</td><td>8</td><td>8</td><td>7</td><td>343</td><td>3</td></tr>
+            <tr><td>3</td><td>27</td><td>7</td><td>8</td><td>512</td><td>2</td></tr>
+            <tr><td>4</td><td>64</td><td>4</td><td>9</td><td>729</td><td>9</td></tr>
+            <tr><td>5</td><td>125</td><td>5</td><td>10</td><td>1000</td><td>0</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-sparkles"></i>
+        <div>
+          <strong>Notice the Cube Ending Digits:</strong>
+          Unlike squares, <strong>cubes can end in ANY digit from 0 to 9</strong>!
+          <br>• Numbers ending in 1, 4, 5, 6, 9, 0 keep their ending digit in their cube!
+          <br>• 2 ends in 8, and 8 ends in 2 (sum to 10!).
+          <br>• 3 ends in 7, and 7 ends in 3 (sum to 10!).
+        </div>
+      </div>
+
+      <h4 class="sub-topic">A. Consecutive Odd Numbers Summing to Cubes</h4>
+      <p>Notice this astonishing pattern:</p>
+      <div class="math-block">
+        1 = 1³<br>
+        3 + 5 = 8 = 2³<br>
+        7 + 9 + 11 = 27 = 3³<br>
+        13 + 15 + 17 + 19 = 64 = 4³<br>
+        21 + 23 + 25 + 27 + 29 = 125 = 5³
+      </div>
+      <p>To express <em>n³</em> as the sum of <em>n</em> consecutive odd numbers, the first odd number is <strong>n(n - 1) + 1</strong>.</p>
+
+      <h4 class="sub-topic">B. Difference of Consecutive Cubes</h4>
+      <div class="math-block">
+        2³ - 1³ = 1 + 3 × 1 × 2 = 7<br>
+        3³ - 2³ = 1 + 3 × 2 × 3 = 19<br>
+        4³ - 3³ = 1 + 3 × 3 × 4 = 37<br>
+        General Rule: (n + 1)³ - n³ = 1 + 3n(n + 1)
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-landmark"></i> 4. Ramanujan's Magic Number (Taxicab 1729)</h3>
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-scroll"></i>
+        <div>
+          <strong>The Legend of 1729:</strong>
+          When English mathematician G.H. Hardy visited Srinivasa Ramanujan in the hospital, he remarked that his taxi had the dull number <strong>1729</strong>. Ramanujan immediately replied:
+          <br><em>"No, Hardy! It is a very interesting number. It is the smallest number expressible as the sum of two cubes in two different ways!"</em>
+          <div class="math-block" style="margin-top: 0.5rem; background: #ffffff;">
+            1729 = 1³ + 12³ = 1 + 1728<br>
+            1729 = 9³ + 10³ = 729 + 1000
+          </div>
+          Such numbers are called <strong>Taxicab Numbers</strong> or <strong>Hardy-Ramanujan Numbers</strong>.
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section class="section-card" id="sec3">
+      <div class="section-header">
+        <span class="section-num">Section 03</span>
+        <h2>In-Text Activities &amp; Classroom Explorations (Fully Solved)</h2>
+      </div>
+
+      <details class="ans-box">
+        <summary>
+          <span>Activity 1 (Page 2): Does every number have an even number of factors? Find numbers with an odd number of factors.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong> <strong>No, not every number has an even number of factors.</strong></p>
+          <p>Factors come in pairs (a, b) where a × b = N. If a ≠ b, they contribute 2 distinct factors. But if a = b, then a² = N, meaning N is a <strong>perfect square</strong>. In that case, the factor 'a' is counted only once, making the total number of factors <strong>odd</strong>.</p>
+          <p><strong>Examples of numbers with an odd number of factors:</strong></p>
+          <ul>
+            <li>1 (Factor: 1) → 1 factor</li>
+            <li>4 (Factors: 1, 2, 4) → 3 factors</li>
+            <li>9 (Factors: 1, 3, 9) → 3 factors</li>
+            <li>16 (Factors: 1, 2, 4, 8, 16) → 5 factors</li>
+            <li>25 (Factors: 1, 5, 25) → 3 factors</li>
+            <li>36 (Factors: 1, 2, 3, 4, 6, 9, 12, 18, 36) → 9 factors</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>Activity 2 (Page 5): Which of the following numbers have the digit 6 in the units place? (19², 24², 26², 36², 34²)</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Rule:</strong> The square of a number ends in 6 only if the number itself ends in <strong>4 or 6</strong> (since 4² = 16 and 6² = 36).</p>
+          <ul>
+            <li>19² ends in 9² = 81 → ends in <strong>1</strong> (No)</li>
+            <li>24² ends in 4² = 16 → ends in <strong>6</strong> (Yes)</li>
+            <li>26² ends in 6² = 36 → ends in <strong>6</strong> (Yes)</li>
+            <li>36² ends in 6² = 36 → ends in <strong>6</strong> (Yes)</li>
+            <li>34² ends in 4² = 16 → ends in <strong>6</strong> (Yes)</li>
+          </ul>
+          <p><strong>Conclusion:</strong> 24², 26², 36², and 34² all have 6 in the units place.</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>Activity 3 (Page 6): What can you say about the number of zeros at the end of a square number?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Teacher's Explanation:</strong> When a number ending in <em>k</em> zeros is squared, the square always ends in <strong>2k zeros</strong>.</p>
+          <p>Since 2k is always an even number, <strong>a square number can NEVER end in an odd number of zeros</strong>.</p>
+          <p>Example: 100 has 2 zeros (even) and is 10². 1000 has 3 zeros (odd) and is NOT a perfect square.</p>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>Activity 4 (Page 11): Fill in the missing numbers in the pattern: 1² + 2² + 2² = 3², 2² + 3² + 6² = 7², 3² + 4² + 12² = 13², 4² + 5² + ___² = 21², 5² + ___² + 30² = 31²</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Pattern Recognition:</strong></p>
+          <p>Look at the terms: a² + b² + c² = d²</p>
+          <ul>
+            <li>b = a + 1</li>
+            <li>c = a × b</li>
+            <li>d = c + 1</li>
+          </ul>
+          <p>1. For 4² + 5² + ___² = 21²: Third number c = 4 × 5 = <strong>20</strong>. So 4² + 5² + <strong>20²</strong> = 21².</p>
+          <p>2. For 5² + ___² + 30² = 31²: Second number b = 30 ÷ 5 = <strong>6</strong>. So 5² + <strong>6²</strong> + 30² = 31².</p>
+          <p>3. For 6² + 7² + 42² = ___²: d = 42 + 1 = <strong>43</strong>. So 6² + 7² + 42² = <strong>43²</strong>.</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section class="section-card" id="sec4">
+      <div class="section-header">
+        <span class="section-num">Section 04</span>
+        <h2>Complete End-of-Chapter 'Figure it Out' Exercises (Solved Step-by-Step)</h2>
+      </div>
+
+      <details class="ans-box">
+        <summary>
+          <span>Exercise 1: Find the length of the side of a square whose area is 441 sq. cm.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">Given:</span> Area of square = 441 cm²</div>
+            <div class="step-item"><span class="step-label">Formula:</span> Area = side × side = s² ⇒ s = √441</div>
+            <div class="step-item"><span class="step-label">Factoring:</span> 441 = 3 × 147 = 3 × 3 × 49 = (3 × 3) × (7 × 7)</div>
+            <div class="step-item"><span class="step-label">Pairing:</span> s = √(3² × 7²) = 3 × 7 = 21</div>
+            <div class="step-ans">Result: The length of the side is 21 cm.</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>Exercise 2: How many numbers lie between 25² and 26²?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">Concept:</span> The number of non-square numbers between n² and (n + 1)² is 2n.</div>
+            <div class="step-item"><span class="step-label">Identify:</span> Here n = 25.</div>
+            <div class="step-item"><span class="step-label">Calculate:</span> Count = 2 × 25 = 50.</div>
+            <div class="step-item"><span class="step-label">Verification:</span> 25² = 625, 26² = 676. Numbers between = 676 - 625 - 1 = 50.</div>
+            <div class="step-ans">Result: Exactly 50 numbers lie between 25² and 26².</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>Exercise 3: Express 81 as the sum of 9 odd numbers.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">Rule:</span> n² is the sum of the first n odd numbers.</div>
+            <div class="step-item"><span class="step-label">Identify:</span> 81 = 9², so we add the first 9 odd numbers.</div>
+            <div class="step-item"><span class="step-label">List:</span> 1, 3, 5, 7, 9, 11, 13, 15, 17.</div>
+            <div class="step-ans">Result: 81 = 1 + 3 + 5 + 7 + 9 + 11 + 13 + 15 + 17.</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>Exercise 4: Guess without prime factorisation: Is 1331 a perfect cube? What is its cube root?</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">Step 1 (Grouping):</span> Split 1331 into groups of 3 digits from the right: Group 1 = 331, Group 2 = 1.</div>
+            <div class="step-item"><span class="step-label">Step 2 (Units digit):</span> Group 1 ends in 1. Since only 1³ ends in 1, the units digit of the cube root must be <strong>1</strong>.</div>
+            <div class="step-item"><span class="step-label">Step 3 (Tens digit):</span> Group 2 is 1. Since 1³ = 1, the tens digit is <strong>1</strong>.</div>
+            <div class="step-ans">Result: ∛1331 = 11. (Check: 11 × 11 × 11 = 121 × 11 = 1331).</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span>Exercise 5: Which is greater: (i) 67³ - 66³ or (ii) 43³ - 42³? Explain your reasoning.</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">Formula:</span> (n + 1)³ - n³ = 1 + 3n(n + 1).</div>
+            <div class="step-item"><span class="step-label">Part (i):</span> For n = 66: Difference = 1 + 3(66)(67) = 1 + 3(4422) = 1 + 13266 = <strong>13,267</strong>.</div>
+            <div class="step-item"><span class="step-label">Part (ii):</span> For n = 42: Difference = 1 + 3(42)(43) = 1 + 3(1806) = 1 + 5418 = <strong>5,419</strong>.</div>
+            <div class="step-ans">Result: 67³ - 66³ is much greater, because 3n(n+1) increases rapidly as n increases.</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section class="section-card" id="sec5">
+      <div class="section-header">
+        <span class="section-num">Section 05</span>
+        <h2>Interactive Practice Quiz Engine</h2>
+      </div>
+      <p>Test your conceptual understanding! Click an option to see instant teacher feedback and your real-time score.</p>
+      
+      <div style="background: #e0f2fe; padding: 1rem 1.25rem; border-radius: 10px; margin: 1.5rem 0; display: flex; justify-content: space-between; align-items: center;">
+        <span style="font-weight: 700; color: #0369a1;">Score: <span id="quizScoreCount">0</span> / 5</span>
+        <span id="quizTeacherMsg" style="font-size: 0.9rem; color: #0284c7; font-weight: 600;">Answer the questions below to test your mastery!</span>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-card" id="qcard1">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">1. Which of the following numbers can NEVER be a perfect square?</p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(a) 10,404</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(b) 6,241</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(c) 8,573</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(d) 12,321</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c) 8,573.</strong><br>
+            A perfect square can only end in 0, 1, 4, 5, 6, or 9. Any number ending in 2, 3, 7, or 8 is never a square! 8,573 ends in 3, so it is impossible for it to be a perfect square.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-card" id="qcard2">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">2. In Queen Ratnamanjuri's 100-locker puzzle, why did locker #64 remain OPEN?</p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(a) Because 64 is an even number</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(b) Because 64 is a perfect square and has an odd number of factors</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(c) Because locker #64 was never touched by anyone</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(d) Because 64 is a prime number</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b).</strong><br>
+            A locker remains open if toggled an odd number of times. The number of toggles equals the number of factors. Only square numbers (like 64 = 8²) have an odd number of factors.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-card" id="qcard3">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">3. How many non-square numbers lie between 15² and 16²?</p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(a) 30</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(b) 31</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(c) 32</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(d) 15</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a) 30.</strong><br>
+            Between n² and (n+1)², there are exactly 2n non-square numbers. Here n = 15, so 2 × 15 = 30.
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-card" id="qcard4">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">4. What is the value of 1³ + 2³ + 3³?</p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(a) 18</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(b) 27</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(c) 30</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(d) 36 (which is (1+2+3)²)</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d) 36.</strong><br>
+            1 + 8 + 27 = 36. Notice that 1 + 2 + 3 = 6, and 6² = 36! The sum of the first n cubes always equals (n(n+1)/2)².
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-card" id="qcard5">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">5. Why is 1729 known as the Hardy-Ramanujan Number?</p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(a) It is the largest prime number known in 1918</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(b) It is the smallest number that can be expressed as the sum of two cubes in two different ways</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(c) It is the product of 17 and 29</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(d) It is Ramanujan's birth year</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.75rem;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b).</strong><br>
+            1729 = 1³ + 12³ and 1729 = 9³ + 10³. It is the smallest positive integer that has this special property.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section class="section-card" id="sec6">
+      <div class="section-header">
+        <span class="section-num">Section 06</span>
+        <h2>Quick Revision Notes &amp; Common Pitfalls</h2>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>Common Exam Trap 1: Assuming a number ending in 1, 4, 5, 6, 9 must be a square!</strong>
+          <br>Remember: While all square numbers end in 0, 1, 4, 5, 6, or 9, <em>not every number ending in these digits is a square</em>!
+          <br>For example, 19 ends in 9, but 19 is NOT a square. You must verify by prime factorisation.
+        </div>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>Common Exam Trap 2: Counting numbers between n² and (n+1)² by simple subtraction!</strong>
+          <br>If asked how many numbers lie <em>between</em> 16 and 25, subtracting 25 - 16 gives 9. But 25 is included!
+          <br>The actual count strictly between them is 25 - 16 - 1 = <strong>8</strong> (which equals 2 × 4). Always use <strong>2n</strong>.
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Key Formula / Fact</th>
+              <th>Memory Hook / Hack</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Square Root Symbol</td>
+              <td>√x = y ⇒ y² = x</td>
+              <td>"Un-squaring" the number</td>
+            </tr>
+            <tr>
+              <td>Sum of Odds</td>
+              <td>1 + 3 + 5 + ... + (2n - 1) = n²</td>
+              <td>"n odd numbers make n²"</td>
+            </tr>
+            <tr>
+              <td>Between Squares</td>
+              <td>Between n² and (n + 1)²: 2n numbers</td>
+              <td>"Double the smaller base"</td>
+            </tr>
+            <tr>
+              <td>Cube Difference</td>
+              <td>(n + 1)³ - n³ = 1 + 3n(n + 1)</td>
+              <td>"1 plus triple the product"</td>
+            </tr>
+            <tr>
+              <td>Taxicab Number</td>
+              <td>1729 = 1³ + 12³ = 9³ + 10³</td>
+              <td>"Ramanujan's Hospital Taxi"</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Back to Top Button -->
+  <a href="#" class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </a>
+
+  <script>
+    // 1. Reading Progress Bar & Back to Top
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTop');
+      if (btt) {
+        if (winScroll > 300) btt.classList.add('visible');
+        else btt.classList.remove('visible');
+      }
+    });
+
+    // 2. Audio Reader (Text-to-Speech)
+    var speechActive = false;
+    function toggleAudioSummary() {
+      var btn = document.getElementById('audioSummaryBtn');
+      if (!speechActive) {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          var text = "Welcome to Class 8 Mathematics, Chapter 1: A Square and A Cube. In this chapter, we explore how multiplying a number by itself creates a perfect square, and multiplying it three times creates a cube. Through Queen Ratnamanjuri's palace locker puzzle, we discover that only square numbers have an odd number of factors. Square numbers always end in digits 0, 1, 4, 5, 6, or 9, and never in 2, 3, 7, or 8. We also discover the famous Hardy-Ramanujan number 1729, which is the smallest number that can be expressed as the sum of two cubes in two different ways.";
+          var utterance = new SpeechSynthesisUtterance(text);
+          utterance.rate = 0.95;
+          utterance.onend = function() {
+            speechActive = false;
+            if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+          };
+          window.speechSynthesis.speak(utterance);
+          speechActive = true;
+          if (btn) btn.innerHTML = '<span>⏹ Stop Audio</span>';
+        } else {
+          alert('Sorry, text-to-speech is not supported on this device.');
+        }
+      } else {
+        window.speechSynthesis.cancel();
+        speechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+      }
+    }
+
+    // 3. Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Perfect Score! You are a Square and Cube Champion!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! You have a solid grasp of Squares & Cubes!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Keep practicing! Review the teacher explanations above.";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
