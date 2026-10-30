@@ -1,0 +1,1413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 10 - Light: Mirrors and Lenses (Class 8 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981, #0284c7, #8b5cf6);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 45%, #0284c7 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #065f46;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease;
+    }
+
+    .callout-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-box .callout-text {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .callout-def {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .callout-def i { color: #059669; }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-color: #a855f7;
+      color: #581c87;
+    }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+    .callout-warn i { color: #dc2626; }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+    .data-table tr:hover { background: #f1f5f9; }
+
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #065f46 0%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      background: #0369a1;
+      transform: translateY(-3px) scale(1.08);
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Master Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Competency Bank</a>
+      <a href="#sec6" class="nav-link">6. Exam Traps</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-lightbulb"></i> Class 8 Science &bull; Chapter 10 (Curiosity NEP)
+    </div>
+    <h1 class="hero-title">Light: Mirrors and Lenses</h1>
+    <p class="hero-sub">
+      Explore the enchanting science of reflection and refraction! Master the Laws of Reflection, curved spherical mirrors (concave vs convex), converging and diverging lenses, why vehicle mirrors warn "objects are closer than they appear", and ancient Indian water-mirror astronomy of Bhaskara II.
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT Curiosity Grade 8</span>
+      <span><i class="fa-solid fa-clock"></i> 55 Mins Full Mastery</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Complete &amp; Unabridged</span>
+      <span><i class="fa-solid fa-brain"></i> Interactive Quiz &amp; Audio</span>
+    </div>
+    <button id="teacherAudioBtn" class="audio-btn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL BLUEPRINT -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
+        <h2>Optics Blueprint: Mirrors vs Lenses Ray Mechanics</h2>
+        <p class="section-sub">A comparative visual architecture displaying reflection on curved mirrors and refraction through converging/diverging lenses.</p>
+      </div>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 950 380" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="rayGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b" />
+              <stop offset="100%" stop-color="#ef4444" />
+            </linearGradient>
+            <linearGradient id="lensGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#e0f2fe" />
+              <stop offset="100%" stop-color="#bae6fd" />
+            </linearGradient>
+          </defs>
+
+          <!-- 1. Laws of Reflection Panel -->
+          <rect x="20" y="25" width="280" height="320" rx="14" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" />
+          <text x="160" y="55" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" fill="#0f172a" text-anchor="middle">LAWS OF REFLECTION</text>
+
+          <!-- Mirror line -->
+          <line x1="45" y1="230" x2="275" y2="230" stroke="#0284c7" stroke-width="4" />
+          <line x1="45" y1="236" x2="275" y2="236" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="4,4" />
+
+          <!-- Normal line -->
+          <line x1="160" y1="90" x2="160" y2="230" stroke="#64748b" stroke-width="2" stroke-dasharray="5,4" />
+          <text x="160" y="82" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#64748b" text-anchor="middle">Normal (90&deg;)</text>
+
+          <!-- Incident ray -->
+          <line x1="75" y1="125" x2="160" y2="230" stroke="#f59e0b" stroke-width="3" />
+          <polygon points="120,175 112,185 125,188" fill="#f59e0b" />
+          <text x="80" y="115" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#b45309">Incident Ray</text>
+
+          <!-- Reflected ray -->
+          <line x1="160" y1="230" x2="245" y2="125" stroke="#10b981" stroke-width="3" />
+          <polygon points="200,180 208,170 213,183" fill="#10b981" />
+          <text x="245" y="115" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#047857" text-anchor="end">Reflected Ray</text>
+
+          <!-- Angles i and r -->
+          <path d="M 140 205 A 28 28 0 0 1 160 195" fill="none" stroke="#f59e0b" stroke-width="2" />
+          <text x="135" y="185" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" fill="#b45309">&ang; i</text>
+
+          <path d="M 160 195 A 28 28 0 0 1 180 205" fill="none" stroke="#10b981" stroke-width="2" />
+          <text x="185" y="185" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700" fill="#047857">&ang; r</text>
+
+          <rect x="40" y="260" width="240" height="65" rx="8" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5" />
+          <text x="160" y="283" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="800" fill="#065f46" text-anchor="middle">Law 1: &ang; i = &ang; r</text>
+          <text x="160" y="306" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" fill="#334155" text-anchor="middle">Incident, Normal &amp; Reflected rays lie in 1 plane</text>
+
+          <!-- 2. Spherical Mirrors Panel -->
+          <rect x="330" y="25" width="280" height="320" rx="14" fill="#f0fdfa" stroke="#99f6e4" stroke-width="2" />
+          <text x="470" y="55" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" fill="#0f766e" text-anchor="middle">SPHERICAL MIRRORS</text>
+
+          <!-- Concave Mirror (Curves inwards) -->
+          <path d="M 390 90 Q 360 145 390 200" fill="none" stroke="#0284c7" stroke-width="5" />
+          <path d="M 393 90 Q 363 145 393 200" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="3,3" />
+          <!-- Converging rays -->
+          <line x1="430" y1="105" x2="380" y2="120" stroke="#f59e0b" stroke-width="2" />
+          <line x1="380" y1="120" x2="430" y2="170" stroke="#10b981" stroke-width="2" />
+          <line x1="430" y1="185" x2="380" y2="170" stroke="#f59e0b" stroke-width="2" />
+          <line x1="380" y1="170" x2="430" y2="120" stroke="#10b981" stroke-width="2" />
+          <circle cx="430" cy="145" r="4" fill="#ef4444" />
+          <text x="435" y="140" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#b91c1c">Focus (F)</text>
+          <text x="390" y="222" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">CONCAVE (Converging)</text>
+          <text x="390" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" fill="#64748b" text-anchor="middle">Dentist &bull; Shaving &bull; Solar Cooker</text>
+
+          <!-- Convex Mirror (Curves outwards) -->
+          <path d="M 530 90 Q 560 145 530 200" fill="none" stroke="#f59e0b" stroke-width="5" />
+          <path d="M 527 90 Q 557 145 527 200" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="3,3" />
+          <!-- Diverging rays -->
+          <line x1="490" y1="110" x2="545" y2="120" stroke="#f59e0b" stroke-width="2" />
+          <line x1="545" y1="120" x2="490" y2="90" stroke="#10b981" stroke-width="2" />
+          <line x1="490" y1="180" x2="545" y2="170" stroke="#f59e0b" stroke-width="2" />
+          <line x1="545" y1="170" x2="490" y2="200" stroke="#10b981" stroke-width="2" />
+          <text x="540" y="222" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700" fill="#b45309" text-anchor="middle">CONVEX (Diverging)</text>
+          <text x="540" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" fill="#64748b" text-anchor="middle">Rear-view &bull; Always Erect &amp; Small</text>
+
+          <rect x="350" y="260" width="240" height="65" rx="8" fill="#ecfeff" stroke="#06b6d4" stroke-width="1.5" />
+          <text x="470" y="283" font-family="'Space Grotesk', sans-serif" font-size="12.5" font-weight="800" fill="#0e7490" text-anchor="middle">Vehicle Mirror Warning:</text>
+          <text x="470" y="304" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="600" fill="#155e75" text-anchor="middle">"Objects in mirror are closer than they appear"</text>
+
+          <!-- 3. Lenses Panel -->
+          <rect x="640" y="25" width="290" height="320" rx="14" fill="#faf5ff" stroke="#d8b4fe" stroke-width="2" />
+          <text x="785" y="55" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700" fill="#6b21a8" text-anchor="middle">LENSES (REFRACTION)</text>
+
+          <!-- Convex Lens (Thick in middle) -->
+          <path d="M 695 90 Q 715 145 695 200 Q 675 145 695 90 Z" fill="url(#lensGrad)" stroke="#0284c7" stroke-width="2" />
+          <line x1="645" y1="115" x2="750" y2="155" stroke="#f59e0b" stroke-width="2" />
+          <line x1="645" y1="175" x2="750" y2="135" stroke="#f59e0b" stroke-width="2" />
+          <circle cx="750" cy="145" r="4" fill="#ef4444" />
+          <text x="695" y="222" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700" fill="#0369a1" text-anchor="middle">CONVEX LENS</text>
+          <text x="695" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" fill="#64748b" text-anchor="middle">Converging &bull; Magnifier</text>
+
+          <!-- Concave Lens (Thin in middle) -->
+          <path d="M 855 90 Q 845 145 855 200 L 875 200 Q 865 145 875 90 Z" fill="url(#lensGrad)" stroke="#8b5cf6" stroke-width="2" />
+          <line x1="820" y1="125" x2="910" y2="100" stroke="#a855f7" stroke-width="2" />
+          <line x1="820" y1="165" x2="910" y2="190" stroke="#a855f7" stroke-width="2" />
+          <text x="865" y="222" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700" fill="#7e22ce" text-anchor="middle">CONCAVE LENS</text>
+          <text x="865" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" fill="#64748b" text-anchor="middle">Diverging &bull; Always Diminished</text>
+
+          <rect x="660" y="260" width="250" height="65" rx="8" fill="#fdf4ff" stroke="#d946ef" stroke-width="1.5" />
+          <text x="785" y="283" font-family="'Space Grotesk', sans-serif" font-size="12.5" font-weight="800" fill="#a21caf" text-anchor="middle">Magnifying Glass = Convex</text>
+          <text x="785" y="304" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#701a75" text-anchor="middle">Close: Erect &amp; Big &bull; Far: Inverted &amp; Real</text>
+        </svg>
+        <p class="diagram-caption">Figure 10.1: Master optical architecture illustrating the Laws of Reflection, Spherical Mirrors, and Converging/Diverging Lenses.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: DEEP CORE CONCEPTS -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2 &bull; Teacher's Deep Conceptual Guide</span>
+        <h2>Mastering Mirrors, Lenses, and Ray Optics</h2>
+        <p class="section-sub">From the shiny curves of a kitchen spoon to telescope lenses, explained with joyful teacher clarity.</p>
+      </div>
+
+      <!-- TOPIC 1 -->
+      <h3 class="topic-title"><i class="fa-solid fa-utensils"></i> 10.1 Spherical Mirrors: The Kitchen Spoon Discovery</h3>
+      <p>
+        Pick up a shiny, clean stainless steel tablespoon from your kitchen right now. Look at your reflection on both sides:
+      </p>
+      <ul>
+        <li><strong>Inner Curved Surface (Concave side):</strong> If you hold it close, your face looks <strong>huge (magnified) and upright</strong>! If you slowly pull it away from your eyes, your image suddenly flips completely <strong>upside down (inverted)</strong>!</li>
+        <li><strong>Outer Bulging Surface (Convex side):</strong> No matter how close or far you hold the back of the spoon, your face is always <strong>upright (erect) and tiny (diminished)</strong>, and you can see a wide view of your entire room behind you!</li>
+      </ul>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-circle-dot"></i>
+        <div class="callout-text">
+          <strong>Teacher's Definitions &bull; Spherical Mirrors:</strong><br>
+          A mirror whose reflecting surface is a part of a hollow sphere of glass or metal.<br>
+          &bull; <strong>Concave Mirror:</strong> A spherical mirror whose reflecting surface curves <strong>inwards</strong> (towards the center of the sphere, like a hollow cave). It <strong>converges</strong> parallel light rays to a single point.<br>
+          &bull; <strong>Convex Mirror:</strong> A spherical mirror whose reflecting surface bulges <strong>outwards</strong>. It <strong>diverges</strong> light rays outward over a wide area.
+        </div>
+      </div>
+
+      <!-- TOPIC 2 -->
+      <h3 class="topic-title"><i class="fa-solid fa-compass-drafting"></i> 10.2 The Laws of Reflection &amp; Angle Geometry</h3>
+      <p>
+        Whenever light hits any smooth, shiny surface (whether flat or curved), it obeys two inviolable laws of physics:
+      </p>
+      <ol>
+        <li><strong>First Law of Reflection:</strong> The angle of incidence (&ang; i) is always equal to the angle of reflection (&ang; r). Both angles are measured between the light rays and the <strong>Normal</strong> (an imaginary perpendicular line drawn at 90&deg; to the mirror surface at the point of incidence).<br>
+        <code>&ang; i = &ang; r</code></li>
+        <li><strong>Second Law of Reflection:</strong> The incident ray, the reflected ray, and the normal at the point of incidence all lie in the same geometric plane.</li>
+      </ol>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Crucial Board Exam Trap &bull; Normal Incidence (&ang; i = 0&deg;):</strong><br>
+          What happens when a ray of light hits a mirror straight along the normal (perpendicularly)?<br>
+          Students often wrongly answer: <em>"Angle of incidence is 90&deg;!"</em><br>
+          <strong>Correct Answer:</strong> The ray is parallel to the normal, so the <strong>Angle of Incidence &ang; i = 0&deg;</strong>! By the law of reflection, the <strong>Angle of Reflection &ang; r = 0&deg;</strong>. The ray bounces straight back along its own path!
+        </div>
+      </div>
+
+      <!-- TOPIC 3: Mirror Applications -->
+      <h3 class="topic-title"><i class="fa-solid fa-car-rear"></i> 10.3 Why Vehicle Mirrors Warn: "Objects are Closer Than They Appear"</h3>
+      <p>
+        Have you ever read the printed warning on the side-view mirror of a car or motorcycle? Why do automakers use <strong>convex mirrors</strong> instead of plane mirrors?
+      </p>
+      <ul>
+        <li><strong>Wide Field of View:</strong> Because a convex mirror curves outward, it captures light from a much wider angle than a flat plane mirror. The driver can see several lanes of traffic behind them!</li>
+        <li><strong>Always Erect and Diminished:</strong> A convex mirror always produces an upright image, compressed into a smaller size.</li>
+        <li><strong>The Optical Catch:</strong> Because the cars appear smaller (diminished), our brain naturally assumes they are far away. In reality, that trailing truck is right behind you! Hence, the vital safety warning: <em>"Objects in mirror are closer than they appear."</em></li>
+      </ul>
+
+      <div class="callout-box callout-pyq">
+        <i class="fa-solid fa-teeth"></i>
+        <div class="callout-text">
+          <strong>Why Dentists &amp; ENT Specialists Use Concave Mirrors:</strong><br>
+          When an object is placed very close to a concave mirror (closer than its focal point), the mirror forms a <strong>virtual, erect, and highly magnified image</strong>. A dentist places a tiny concave mirror inside your mouth right beside a molar tooth to see a giant, crystal-clear view of small cavities and plaque!
+        </div>
+      </div>
+
+      <!-- TOPIC 4: Refraction and Lenses -->
+      <h3 class="topic-title"><i class="fa-solid fa-glasses"></i> 10.4 What Is a Lens? Convex vs Concave Lenses</h3>
+      <p>
+        A <strong>lens</strong> is a piece of transparent glass or plastic bounded by one or two curved spherical surfaces. While mirrors reflect light backwards, lenses let light pass through them, bending (refracting) the rays:
+      </p>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Convex Lens (Converging)</th>
+              <th>Concave Lens (Diverging)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Physical Shape</strong></td>
+              <td>Thick in the middle, thin and tapered at the outer edges.</td>
+              <td>Thin in the middle, thicker at the outer edges.</td>
+            </tr>
+            <tr>
+              <td><strong>Action on Light Rays</strong></td>
+              <td><strong>Converges</strong> parallel rays inward towards a focal point.</td>
+              <td><strong>Diverges</strong> parallel rays outward away from each other.</td>
+            </tr>
+            <tr>
+              <td><strong>Nature of Image</strong></td>
+              <td>Can form both real (inverted) and virtual (magnified erect) images.</td>
+              <td>Always forms <strong>virtual, erect, and diminished</strong> images.</td>
+            </tr>
+            <tr>
+              <td><strong>Everyday Uses</strong></td>
+              <td>Magnifying glass, microscope, telescope, reading glasses for hypermetropia.</td>
+              <td>Spectacles for myopia (nearsightedness), peepholes in hotel doors.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TOPIC 5: The Bent Pencil -->
+      <h3 class="topic-title"><i class="fa-solid fa-pencil"></i> 10.5 The Bent Pencil: The Magic of Refraction</h3>
+      <p>
+        In NCERT Activity 10.11, place a pencil diagonally inside an empty glass tumbler: it looks completely straight. Now pour water until the tumbler is half-full:
+      </p>
+      <ul>
+        <li>The pencil appears <strong>broken or sharply bent</strong> at the water's surface!</li>
+        <li>The submerged part of the pencil looks significantly thicker and closer to the viewer!</li>
+      </ul>
+      <p>
+        <strong>Why?</strong> Light travels faster in air (approx 300,000 km/s) than in water (approx 225,000 km/s). When light rays reflected from the submerged pencil travel from dense water into rare air, they speed up and <strong>bend away from the normal</strong>. Our brain assumes light travels in dead-straight lines, tracing the rays back to an apparent higher position, creating the optical illusion of a bent pencil!
+      </p>
+
+      <!-- TOPIC 6: Bhaskara II Heritage -->
+      <h3 class="topic-title"><i class="fa-solid fa-monument"></i> 10.7 Indian Optical Heritage: Bhaskara II &amp; Water-Mirror Astronomy</h3>
+      <p>
+        Over 800 years ago in 12th-century India, the renowned mathematician and astronomer <strong>Bhāskara II</strong> (author of <em>Siddhanta Shiromani</em>) developed sophisticated methods to study stars and planetary orbits.
+      </p>
+      <p>
+        Because direct viewing of bright celestial bodies can strain the eyes and introduce parallax errors, ancient Indian observatories used perfectly calm, shallow black bowls filled with clear water or mercury as horizontal plane mirrors. By sighting the sharp reflected starlight through calibrated brass tubes (<em>Nalika Yantra</em>) set at precise angles, astronomers accurately mapped astronomical coordinates centuries before modern telescopes were invented!
+      </p>
+    </section>
+
+    <!-- SECTION 3: ESSENTIAL VOCABULARY -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3 &bull; Terminology &amp; Comparative Master Table</span>
+        <h2>Optical Devices: The Master Comparison Table</h2>
+        <p class="section-sub">A comprehensive comparative guide for mirrors and lenses across image properties and practical uses.</p>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Optical Device</th>
+              <th>Surface / Shape</th>
+              <th>Image Nature</th>
+              <th>Image Size</th>
+              <th>Major Practical Applications</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Plane Mirror</strong></td>
+              <td>Flat reflective sheet</td>
+              <td>Always Virtual &amp; Erect</td>
+              <td><strong>Same size</strong> as object</td>
+              <td>Dressing mirrors, periscopes, kaleidoscope.</td>
+            </tr>
+            <tr>
+              <td><strong>Concave Mirror</strong></td>
+              <td>Curved inward (converging)</td>
+              <td>Real &amp; inverted (far); Virtual &amp; erect (close)</td>
+              <td>Diminished, same size, or <strong>Magnified</strong></td>
+              <td>Dentist mirror, shaving mirror, car headlights, solar cookers.</td>
+            </tr>
+            <tr>
+              <td><strong>Convex Mirror</strong></td>
+              <td>Bulges outward (diverging)</td>
+              <td>Always Virtual &amp; Erect</td>
+              <td>Always <strong>Diminished</strong></td>
+              <td>Vehicle rear-view side mirrors, ATM safety mirrors, blind corners.</td>
+            </tr>
+            <tr>
+              <td><strong>Convex Lens</strong></td>
+              <td>Thick center, thin edges (converging)</td>
+              <td>Real &amp; inverted (far); Virtual &amp; erect (close)</td>
+              <td>Diminished, same size, or <strong>Magnified</strong></td>
+              <td>Magnifying glass, camera lens, human eye lens, telescopes.</td>
+            </tr>
+            <tr>
+              <td><strong>Concave Lens</strong></td>
+              <td>Thin center, thick edges (diverging)</td>
+              <td>Always Virtual &amp; Erect</td>
+              <td>Always <strong>Diminished</strong></td>
+              <td>Myopia spectacles, door security peepholes, flashlights.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4: NCERT SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4 &bull; Step-by-Step NCERT Solutions</span>
+        <h2>Complete Textbook 'Keep the Curiosity Alive' Exercises</h2>
+        <p class="section-sub">Unabridged solutions for Questions 1 to 12 with full ray tracing explanations and justifications.</p>
+      </div>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Q1.</strong> Light ray incident on mirror. Angle with normal is 40&deg;. What is angle made by reflected ray with the mirror?</span>
+          <span class="badge badge-green">Angle Geometry</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Correct Option:</strong> <strong>(ii) 50&deg;</strong></p>
+          <p><strong>Step-by-Step Teacher's Solution:</strong></p>
+          <ul>
+            <li>Angle of incidence (&ang; i) with normal = 40&deg;.</li>
+            <li>By the first law of reflection: <code>Angle of reflection (&ang; r) = &ang; i = 40&deg;</code> (with the normal).</li>
+            <li>The normal is perpendicular to the mirror surface (makes 90&deg; with the mirror).</li>
+            <li>Therefore, the angle made by the reflected ray with the mirror surface = <code>90&deg; - &ang; r = 90&deg; - 40&deg; = 50&deg;</code>.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q2.</strong> Fig. 10.22 ray falling on mirror: (i) along normal; (ii) tilted mirror along normal; (iii) tilted at 20&deg; from normal. What is angle of reflection in each case?</span>
+          <span class="badge badge-blue">Ray Tracing</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Analysis for each case:</strong></p>
+          <ul>
+            <li><strong>Case (i):</strong> Light ray falls along the normal. Since the incident ray coincides with the normal, the angle of incidence is <code>&ang; i = 0&deg;</code>. Hence, <strong>Angle of reflection &ang; r = 0&deg;</strong>. The reflected ray bounces straight back along the same line!</li>
+            <li><strong>Case (ii):</strong> Mirror is tilted, but the light ray still falls along the normal to the tilted surface. Angle of incidence is <code>&ang; i = 0&deg;</code>. Hence, <strong>Angle of reflection &ang; r = 0&deg;</strong>. The ray retraces its path straight back.</li>
+            <li><strong>Case (iii):</strong> Mirror is tilted, and the light ray falls at an angle of 20&deg; from the normal. Here, <code>&ang; i = 20&deg;</code>. By the law of reflection, <strong>Angle of reflection &ang; r = 20&deg;</strong> on the opposite side of the normal.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q3.</strong> Match cap of sketch pen placed in front of three mirrors (Fig. 10.23): Plane, Convex, Concave.</span>
+          <span class="badge badge-purple">Matching</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Matching Table:</strong></p>
+          <ul>
+            <li><strong>Image (i) &mdash; Same Size:</strong> <strong>Plane mirror</strong> (A plane mirror always produces an image of identical size to the object).</li>
+            <li><strong>Image (ii) &mdash; Diminished (Smaller):</strong> <strong>Convex mirror</strong> (A convex mirror always produces an erect, smaller image).</li>
+            <li><strong>Image (iii) &mdash; Magnified (Larger):</strong> <strong>Concave mirror</strong> (When placed close to a concave mirror, it forms an enlarged erect image).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q4.</strong> Match pen cap behind convex lens, concave lens, and flat glass piece (Fig. 10.24).</span>
+          <span class="badge badge-green">Matching</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Matching Table:</strong></p>
+          <ul>
+            <li><strong>Image (i) &mdash; Same Size (Unaltered):</strong> <strong>Flat transparent glass piece</strong> (Does not converge or diverge rays; no magnification).</li>
+            <li><strong>Image (ii) &mdash; Magnified (Enlarged):</strong> <strong>Convex lens</strong> (Acts as a magnifying glass when the object is near).</li>
+            <li><strong>Image (iii) &mdash; Diminished (Smaller):</strong> <strong>Concave lens</strong> (Always produces a diminished, upright image).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q5.</strong> When light is incident along the normal on the mirror, which statement is true?</span>
+          <span class="badge badge-amber">Concept</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Correct Option:</strong> <strong>(ii) Angle of incidence is 0&deg;</strong></p>
+          <p><strong>Explanation:</strong> The angle of incidence is defined as the angle between the incident ray and the normal. When the incident ray travels directly along the normal, there is zero angular separation between them, so &ang; i = 0&deg;.</p>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q6.</strong> Three mirrors in Fig. 10.25 showing images of a graph sheet. Identify the mirrors.</span>
+          <span class="badge badge-blue">Image Identification</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Identification based on grid square size:</strong></p>
+          <ul>
+            <li><strong>Mirror 1 (Squares are same size as real sheet):</strong> <strong>Plane mirror</strong>.</li>
+            <li><strong>Mirror 2 (Squares are visibly smaller and compressed):</strong> <strong>Convex mirror</strong> (Diminishing effect).</li>
+            <li><strong>Mirror 3 (Squares are enlarged and stretched out):</strong> <strong>Concave mirror</strong> (Magnifying effect).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q7.</strong> In a museum, a woman walks towards a large concave mirror (Fig. 10.26). What will she see?</span>
+          <span class="badge badge-purple">Concave Mirror Dynamics</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Correct Option:</strong> <strong>(iii) her inverted image keeps increasing in size and eventually it becomes erect and magnified.</strong></p>
+          <p><strong>Teacher's Detailed Optical Journey:</strong></p>
+          <ul>
+            <li>When she is far beyond the center of curvature (C), she sees a small, inverted image.</li>
+            <li>As she walks closer towards the focus (F), her inverted image gets bigger and bigger (increasing in size).</li>
+            <li>The moment she steps inside the focal point (between Focus and Mirror), the image flips upright and becomes a giant, erect, and highly magnified virtual image!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q8.</strong> Hold a magnifying glass over text. What happens as you move it away? What type of lens is it?</span>
+          <span class="badge badge-green">Hands-on Inquiry</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer &amp; Observations:</strong></p>
+          <ul>
+            <li>A magnifying glass is a <strong>Convex lens</strong> (converging lens).</li>
+            <li>When held close to the text (within its focal length), the letters appear upright (erect) and significantly larger (magnified).</li>
+            <li>As you pull the magnifying glass farther away beyond its focus, the letters become blurry, and suddenly they flip completely <strong>upside-down (inverted)</strong> and become smaller!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q9.</strong> Match Column I with Column II (Concave/Convex mirrors and lenses).</span>
+          <span class="badge badge-blue">Column Match</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Correct Matches:</strong></p>
+          <ul>
+            <li><strong>(i) Concave mirror &rarr; (a)</strong> Spherical mirror with a reflecting surface that curves inwards.</li>
+            <li><strong>(ii) Convex mirror &rarr; (b)</strong> It forms an image which is always erect and diminished in size.</li>
+            <li><strong>(iii) Convex lens &rarr; (c)</strong> Object placed behind it may appear inverted at some distance.</li>
+            <li><strong>(iv) Concave lens &rarr; (d)</strong> Object placed behind it always appears diminished in size.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q10.</strong> Assertion: Convex mirrors are preferred for observing traffic behind us. Reason: Convex mirrors provide a significantly larger view area than plane mirrors.</span>
+          <span class="badge badge-amber">Assertion-Reason</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Correct Option:</strong> <strong>(i) Both Assertion and Reason are correct and Reason is the correct explanation for Assertion.</strong></p>
+          <p><strong>Explanation:</strong> Convex mirrors curve outward, creating a diverging field of view that enables the driver to see a much broader panoramic view of traffic than a flat mirror could ever provide, while keeping images upright.</p>
+        </div>
+      </details>
+
+      <!-- Q11 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q11.</strong> In Fig. 10.27 (O = object, M = mirror, I = image), identify mirrors in (a) and (b).</span>
+          <span class="badge badge-purple">Diagram Analysis</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Correct Option:</strong> <strong>(iii) Figure (a) indicates a concave mirror and Figure (b) indicates a convex mirror.</strong></p>
+          <p><strong>Reasoning:</strong> In Fig (a), the image I is erect and larger than object O (magnified), which is characteristic of a concave mirror at close range. In Fig (b), the image I is erect and smaller than object O (diminished), which is the signature characteristic of a convex mirror.</p>
+        </div>
+      </details>
+
+      <!-- Q12 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q12.</strong> Pencil behind transparent glass tumbler filled halfway with water (Fig. 10.28). How does it appear and why?</span>
+          <span class="badge badge-green">Refraction</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Observations:</strong> The pencil appears broken, bent, and displaced sideways at the boundary between air and water, and the submerged lower portion appears thicker and magnified.</p>
+          <p><strong>Scientific Explanation (Refraction):</strong></p>
+          <ul>
+            <li>Light rays reflected from the submerged pencil travel from water into air.</li>
+            <li>Because water is optically denser than air, the light rays speed up and bend <strong>away from the normal</strong> as they cross the water-glass-air interface.</li>
+            <li>When these bent rays reach our eyes, our brain traces them straight back, making the submerged part of the pencil appear shifted upwards and sideways, creating the illusion of a bent pencil.</li>
+            <li>Additionally, the cylindrical curvature of the water-filled glass tumbler acts like a <strong>convex lens</strong>, magnifying the submerged pencil!</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: INTERACTIVE QUIZ & HOTS -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5 &bull; Interactive Quiz &amp; Competency Drills</span>
+        <h2>Mastery Check: Interactive Real-Time Evaluation</h2>
+        <p class="section-sub">Test your ray optics intuition. Click your answer for instant color-coded feedback.</p>
+      </div>
+
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <i class="fa-solid fa-trophy"></i> Your Score: <span id="quizScoreCount">0</span> / 5
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Select an option for each question to test your concepts!
+        </div>
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qcard1">
+        <h4>1. A ray of light strikes a flat plane mirror such that the angle between the incident ray and the mirror surface is 35&deg;. What is the angle of reflection?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(a) 35&deg;</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(b) 70&deg;</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(c) 55&deg;</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(d) 90&deg;</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> The normal makes 90&deg; with the mirror. Angle of incidence with normal = 90&deg; - 35&deg; = 55&deg;. Since &ang; r = &ang; i, the angle of reflection is 55&deg;!
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qcard2">
+        <h4>2. Which optical device ALWAYS forms an erect and diminished (smaller) image, regardless of where the object is placed?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(a) Concave mirror</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(b) Convex mirror</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(c) Convex lens</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(d) Plane mirror</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> A convex mirror diverges light rays and can ONLY produce virtual, upright, and diminished images, providing a wide rear view.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qcard3">
+        <h4>3. Why does a dentist choose a concave mirror instead of a plane mirror to inspect teeth?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(a) When held very close, a concave mirror produces a magnified, upright virtual image of the tooth</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(b) Concave mirrors emit ultraviolet rays that kill tooth bacteria</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(c) Concave mirrors are cheaper than plane glass</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(d) It turns the image upside down so the dentist can see beneath the gums</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong> Inside the focal point of a concave mirror, an object's image is virtual, erect, and significantly magnified, allowing minute dental details to be examined clearly.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qcard4">
+        <h4>4. Which type of lens is used in a standard pocket magnifying glass?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(a) Cylindrical lens</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(b) Flat glass plate</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(c) Concave lens</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(d) Convex lens (converging lens)</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d)</strong> A convex lens is thicker in the center and converges light. When placed close to an object, it creates an enlarged virtual image.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qcard5">
+        <h4>5. How did 12th-century Indian astronomer Bhaskara II observe stellar coordinates without straining his eyes?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(a) By using modern glass prisms</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(b) By climbing the highest peak in the Himalayas</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(c) By observing starlight reflected in shallow calm bowls of water through calibrated sighting tubes</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(d) By painting the night sky on temple ceilings</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> Bhaskara II utilized water reflection astronomy, proving an early practical mastery of the Laws of Reflection in ancient India.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM TRAPS & MEMORY HACKS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6 &bull; Exam Traps &amp; Key Takeaways</span>
+        <h2>Board Exam Traps, Common Mistakes &amp; Memory Shortcuts</h2>
+        <p class="section-sub">Guard against these frequent optical mistakes to ensure full marks.</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Trap #1: 'Normal vs Surface Angles'</strong><br>
+          <em>Mistake:</em> If a question states "the ray strikes the mirror at an angle of 30&deg; to the mirror," students immediately assume &ang; i = 30&deg;.<br>
+          <strong>Full-Marks Correction:</strong> The angle of incidence is <strong>always measured with the NORMAL</strong>, never the mirror surface! Here, <code>&ang; i = 90&deg; - 30&deg; = 60&deg;</code>, so <code>&ang; r = 60&deg;</code>.
+        </div>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Trap #2: 'Convex Mirror vs Convex Lens'</strong><br>
+          <em>Mistake:</em> Confusing curved mirrors with lenses.<br>
+          <strong>Full-Marks Correction:</strong> Remember: <strong>Convex Mirror = Diverging</strong> (pushes light rays away), whereas <strong>Convex Lens = Converging</strong> (brings light rays together to a focus)!
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <div class="callout-text">
+          <strong>Teacher's Memory Hack &bull; C-A-V-E Rule:</strong><br>
+          &bull; <strong>Concave:</strong> Looks like a dark hollow <strong>CAVE</strong> that traps light inward (Converging).<br>
+          &bull; <strong>Convex:</strong> <strong>VEXES</strong> (scatters) light outwards in all directions (Diverging)!
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Sujit Classes &bull; Dedicated to Student Academic Excellence in Odisha</p>
+    <p style="margin-top:0.5rem; font-size:0.85rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Back to Main Portal</a> &bull; 
+      <a href="#sec1">Top of Page</a>
+    </p>
+  </footer>
+
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+      }
+    }
+
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.style.display = 'block';
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Perfect score! You have mastered reflection, mirrors, and lenses!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! Strong understanding of ray optics and optical devices!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good practice! Check the explanations to master every point!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
