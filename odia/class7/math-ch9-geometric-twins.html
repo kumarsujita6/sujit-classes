@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୯: ଜ୍ୟାମିତିକ ଯମଜ (Geometric Twins) — ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୯: ଜ୍ୟାମିତିକ ଯମଜ - ସର୍ବସମତା (Geometric Twins / Congruence - Ganita Prakash)। ବା-ବା-ବା (SSS), ବା-କୋ-ବା (SAS), କୋ-ବା-କୋ (ASA), ସ-କ-ବା (RHS) ସର୍ବସମତା ସର୍ତ୍ତ, ଅନୁରୂପତା ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #4338ca;
+      --secondary-light: #e0e7ff;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.8;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #4338ca, #10b981);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #4338ca 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 850px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #0369a1;
+      border: none;
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-def { background: #f0fdf4; border-color: #10b981; color: #065f46; }
+    .callout-def i { color: #059669; }
+
+    .callout-act { background: #eff6ff; border-color: #3b82f6; color: #1e3a8a; }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq { background: #fffbeb; border-color: #f59e0b; color: #78350f; }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack { background: #faf5ff; border-color: #a855f7; color: #581c87; }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn { background: #fef2f2; border-color: #ef4444; color: #7f1d1d; }
+    .callout-warn i { color: #dc2626; }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.93rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.2rem 0;
+    }
+
+    .step-item {
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+    }
+
+    .step-label {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 130px;
+    }
+
+    .step-ans {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      margin-top: 0.8rem;
+      font-weight: 700;
+      color: #166534;
+    }
+
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.75;
+    }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+    }
+
+    .correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700 !important;
+    }
+
+    .wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+    }
+
+    .math-block {
+      background: #f1f5f9;
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      margin: 1.2rem 0;
+      font-family: 'JetBrains Mono', 'Noto Sans Oriya', monospace;
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 1.05rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> ସୁଜିତ୍ କ୍ଲାସେସ୍
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">୧. ସମୀକ୍ଷା ଓ ମାଇଣ୍ଡ ମ୍ୟାପ୍</a>
+      <a href="#sec2" class="nav-link">୨. ମୌଳିକ ଧାରଣା</a>
+      <a href="#sec3" class="nav-link">୩. ପାଠ୍ୟ କାର୍ଯ୍ୟକଳାପ</a>
+      <a href="#sec4" class="nav-link">୪. ଅନୁଶୀଳନୀ ସମାଧାନ</a>
+      <a href="#sec5" class="nav-link">୫. ଅଭ୍ୟାସ କୁଇଜ୍</a>
+      <a href="#sec6" class="nav-link">୬. ଶିକ୍ଷକ ଟିପ୍ପଣୀ ଓ ସୂତ୍ର</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge"><i class="fa-solid fa-clone"></i> ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ &bull; ଅଧ୍ୟାୟ ୯</div>
+    <h1 class="hero-title">ଜ୍ୟାମିତିକ ଯମଜ (Geometric Twins)</h1>
+    <p class="hero-sub">ତ୍ରିଭୁଜର ସର୍ବସମତା (Congruence) — ଅବିକଳ ପ୍ରତିରୂପ, ଶୀର୍ଷବିନ୍ଦୁର ଅନୁରୂପତା, ବା-ବା-ବା (SSS), ବା-କୋ-ବା (SAS), କୋ-ବା-କୋ (ASA), ସ-କ-ବା (RHS) ଏବଂ ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜର ଧର୍ମ</p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> ପାଠ୍ୟପୁସ୍ତକ: ଗଣିତ ପ୍ରକାଶ ଭାଗ ୨ (ଅଧ୍ୟାୟ ୧)</span>
+      <span><i class="fa-solid fa-layer-group"></i> NEP 2020 ପାଠ୍ୟକ୍ରମ</span>
+      <span><i class="fa-solid fa-check-double"></i> ସମ୍ପୂର୍ଣ୍ଣ ବିବରଣୀ (Zero-Omission)</span>
+    </div>
+    <button class="audio-btn" id="audioSummaryBtn" onclick="toggleAudioSummary()">
+      <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+    <!-- SECTION 1 -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୧</span>
+        <h2>ଅଧ୍ୟାୟ ସମୀକ୍ଷା ଓ ଦୃଶ୍ୟମାନ ମନସ୍ତତ୍ତ୍ୱ ମାନଚିତ୍ର (Overview &amp; Mind Map)</h2>
+        <p class="section-sub">ଯେଉଁ ଦୁଇଟି ଜ୍ୟାମିତିକ ଚିତ୍ରର ଆକାର (Shape) ଏବଂ ଆୟତନ ବା ପରିମାପ (Size) ସମ୍ପୂର୍ଣ୍ଣ ସମାନ, ସେମାନେ ହିଁ ଜ୍ୟାମିତିକ ଯମଜ!</p>
+      </div>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <strong>ଶିକ୍ଷକଙ୍କ ସ୍ୱାଗତ ବାର୍ତ୍ତା:</strong> ଦ୍ୱିତୀୟ ଭାଗ ପାଠ୍ୟପୁସ୍ତକକୁ ସ୍ୱାଗତ! ଦୁଇଟି ନୂଆ ₹୫୦୦ ଟଙ୍କିଆ ନୋଟ୍, ଗୋଟିଏ ବିସ୍କୁଟ୍ ପ୍ୟାକେଟ୍‌ର ଦୁଇଟି ବିସ୍କୁଟ୍ କିମ୍ବା ଆପଣଙ୍କ ଖାତାର ଦୁଇଟି ପୃଷ୍ଠାକୁ ଦେଖନ୍ତୁ। ଗୋଟିଏ ଉପରେ ଅନ୍ୟଟିକୁ ରଖିଲେ ସେମାନେ ପରସ୍ପରକୁ ସମ୍ପୂର୍ଣ୍ଣ ଭାବେ ଢାଙ୍କି ଦିଅନ୍ତି। ଜ୍ୟାମିତିରେ ଏହିପରି ଚିତ୍ରମାନଙ୍କୁ <strong>ସର୍ବସମ ଚିତ୍ର (Congruent Figures, &cong;)</strong> କୁହାଯାଏ। ଦୁଇଟି ତ୍ରିଭୁଜ କେବେ ସର୍ବସମ ହୁଅନ୍ତି? ସେମାନଙ୍କର ସମସ୍ତ ୬ଟି ଅଂଶ (୩ଟି ବାହୁ ଓ ୩ଟି କୋଣ) ମାପିବା ଦରକାର ନାହିଁ; କେବଳ ୩ଟି ନିର୍ଦ୍ଦିଷ୍ଟ ମାପ ଯାଞ୍ଚ କରି ଆମେ ନିଶ୍ଚିତ ହୋଇପାରିବା!
+        </div>
+      </div>
+
+      <!-- SVG Mind Map: Congruence -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 880 420" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="congGradCenter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#4338ca"/>
+            </linearGradient>
+            <linearGradient id="congNode1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#059669"/>
+            </linearGradient>
+            <linearGradient id="congNode2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+            <linearGradient id="congNode3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <linearGradient id="congNode4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="100%" stop-color="#6d28d9"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Branch curves -->
+          <path d="M 440 210 C 280 210, 180 100, 140 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 280 210, 180 320, 140 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 100, 740 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 320, 740 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+
+          <!-- Center Node -->
+          <circle cx="440" cy="210" r="82" fill="url(#congGradCenter)" filter="drop-shadow(0 4px 10px rgba(67,56,202,0.35))"/>
+          <text x="440" y="200" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle" font-family="'Noto Sans Oriya', sans-serif">ଜ୍ୟାମିତିକ ଯମଜ</text>
+          <text x="440" y="222" fill="#e0e7ff" font-size="16" font-weight="bold" text-anchor="middle" font-family="'Noto Sans Oriya', sans-serif">ସର୍ବସମତା (&cong;)</text>
+          <text x="440" y="242" fill="#c7d2fe" font-size="11" text-anchor="middle">ଅଧ୍ୟାୟ ୯ ସାରାଂଶ</text>
+
+          <!-- Branch 1: Superposition & Order -->
+          <rect x="15" y="55" width="250" height="95" rx="14" fill="url(#congNode1)" filter="drop-shadow(0 3px 8px rgba(16,185,129,0.25))"/>
+          <text x="140" y="85" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୧. ଅନୁରୂପତା ଓ କ୍ରମ</text>
+          <text x="140" y="108" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; ସମାନ ଆକାର ଓ ପରିମାପ</text>
+          <text x="140" y="128" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; ଶୀର୍ଷବିନ୍ଦୁ କ୍ରମ: &Delta;ABC &cong; &Delta;PQR</text>
+
+          <!-- Branch 2: SSS & SAS -->
+          <rect x="15" y="275" width="250" height="95" rx="14" fill="url(#congNode2)" filter="drop-shadow(0 3px 8px rgba(2,132,199,0.25))"/>
+          <text x="140" y="305" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୨. ବା-ବା-ବା ଓ ବା-କୋ-ବା</text>
+          <text x="140" y="328" fill="#e0f2fe" font-size="12" text-anchor="middle">&bull; SSS: ୩ଟି ଯାକ ବାହୁ ସମାନ</text>
+          <text x="140" y="348" fill="#e0f2fe" font-size="12" text-anchor="middle">&bull; SAS: ୨ ବାହୁ ଓ ଅନ୍ତର୍ଭୁକ୍ତ କୋଣ</text>
+
+          <!-- Branch 3: ASA & RHS -->
+          <rect x="615" y="55" width="250" height="95" rx="14" fill="url(#congNode3)" filter="drop-shadow(0 3px 8px rgba(217,119,6,0.25))"/>
+          <text x="740" y="85" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୩. କୋ-ବା-କୋ ଓ ସ-କ-ବା</text>
+          <text x="740" y="108" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; ASA: ୨ କୋଣ ଓ ଅନ୍ତର୍ଭୁକ୍ତ ବାହୁ</text>
+          <text x="740" y="128" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; RHS: ସମକୋଣ, କର୍ଣ୍ଣ ଓ ଗୋଟିଏ ବାହୁ</text>
+
+          <!-- Branch 4: Traps -->
+          <rect x="615" y="275" width="250" height="95" rx="14" fill="url(#congNode4)" filter="drop-shadow(0 3px 8px rgba(124,58,237,0.25))"/>
+          <text x="740" y="305" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୪. ଭ୍ରାନ୍ତି: AAA ଓ SSA</text>
+          <text x="740" y="328" fill="#ede9fe" font-size="12" text-anchor="middle">&bull; AAA: କେବଳ ସଦୃଶ (ଅସମାନ ଆୟତନ)</text>
+          <text x="740" y="348" fill="#ede9fe" font-size="12" text-anchor="middle">&bull; SSA: ଅନିର୍ଦ୍ଦିଷ୍ଟତା (୨ଟି ତ୍ରିଭୁଜ ଜାଲ)</text>
+        </svg>
+        <p class="diagram-caption">ଚିତ୍ର ୯.୧: ତ୍ରିଭୁଜ ସର୍ବସମତାର ୪ଟି ମୁଖ୍ୟ ସର୍ତ୍ତ ଓ ଅନୁରୂପତାର ମନସ୍ତତ୍ତ୍ୱ ମାନଚିତ୍ର (Visual Mind Map)।</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୨</span>
+        <h2>ମୁଖ୍ୟ ଧାରଣା ଓ ଶିକ୍ଷକଙ୍କ ବିସ୍ତୃତ ବ୍ୟାଖ୍ୟା (Core Concepts &amp; Explanations)</h2>
+        <p class="section-sub">ସର୍ବସମତାର ଚାରୋଟି ବୈଧ ସର୍ତ୍ତ, ଅନୁରୂପତା ଏବଂ ଅବୈଧ ସର୍ତ୍ତର କାରଣ।</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-clone"></i> ୯.୧ ଅନୁରୂପତା (Correspondence) ଏବଂ ସଙ୍କେତ</h3>
+      <p>ଯଦି ତ୍ରିଭୁଜ ABC ଏବଂ ତ୍ରିଭୁଜ PQR ସର୍ବସମ ହୁଅନ୍ତି, ତେବେ ତାହାକୁ <strong>&Delta;ABC &cong; &Delta;PQR</strong> ଲେଖାଯାଏ। ଏହି ଏକକ ସୂତ୍ରରୁ ଛଅଟି ସ୍ୱତନ୍ତ୍ର ସମାନତା ପ୍ରକାଶ ପାଏ:</p>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+        <li><strong>ଅନୁରୂପ ଶୀର୍ଷବିନ୍ଦୁ:</strong> A &harr; P, B &harr; Q, C &harr; R।</li>
+        <li><strong>ଅନୁରୂପ ବାହୁ:</strong> AB = PQ, BC = QR, CA = RP।</li>
+        <li><strong>ଅନୁରୂପ କୋଣ:</strong> &ang;A = &ang;P, &ang;B = &ang;Q, &ang;C = &ang;R।</li>
+      </ul>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>ଶୀର୍ଷବିନ୍ଦୁର କ୍ରମ ଅତ୍ୟନ୍ତ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ!</strong> ଯଦି ଶୀର୍ଷ A ସହ P ମିଶୁଛି, ତେବେ <code>&Delta;ABC &cong; &Delta;QPR</code> ଲେଖିବା ସମ୍ପୂର୍ଣ୍ଣ ଭୁଲ୍! ସର୍ବସମତା ଚିହ୍ନ ଲେଖିବା ବେଳେ ଶୀର୍ଷବିନ୍ଦୁର କ୍ରମ ଠିକ୍ ଭାବେ ମେଳ ଖାଇବା ବାଧ୍ୟତାମୂଳକ।
+        </div>
+      </div>
+
+      <!-- The 4 Congruence Criteria SVG -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 740 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- SSS -->
+          <g transform="translate(30, 20)">
+            <rect x="0" y="0" width="150" height="220" rx="10" fill="#f0fdf4" stroke="#16a34a" stroke-width="2"/>
+            <text x="75" y="30" font-size="14" font-weight="bold" fill="#15803d" text-anchor="middle">୧. ବା-ବା-ବା (SSS)</text>
+            <polygon points="25,170 125,170 75,70" fill="none" stroke="#16a34a" stroke-width="2"/>
+            <line x1="45" y1="115" x2="55" y2="125" stroke="#16a34a" stroke-width="2"/>
+            <line x1="95" y1="115" x2="105" y2="125" stroke="#16a34a" stroke-width="2"/>
+            <line x1="72" y1="165" x2="72" y2="175" stroke="#16a34a" stroke-width="2"/>
+            <text x="75" y="205" font-size="11" fill="#166534" text-anchor="middle">୩ଟି ବାହୁ ସମାନ</text>
+          </g>
+
+          <!-- SAS -->
+          <g transform="translate(210, 20)">
+            <rect x="0" y="0" width="150" height="220" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+            <text x="75" y="30" font-size="14" font-weight="bold" fill="#1d4ed8" text-anchor="middle">୨. ବା-କୋ-ବା (SAS)</text>
+            <polygon points="25,170 125,170 75,70" fill="none" stroke="#2563eb" stroke-width="2"/>
+            <path d="M 45 170 A 20 20 0 0 0 35 150" stroke="#f59e0b" stroke-width="3" fill="none"/>
+            <line x1="45" y1="115" x2="55" y2="125" stroke="#2563eb" stroke-width="2"/>
+            <line x1="72" y1="165" x2="72" y2="175" stroke="#2563eb" stroke-width="2"/>
+            <text x="75" y="205" font-size="11" fill="#1e40af" text-anchor="middle">୨ ବାହୁ + ଅନ୍ତର୍ଭୁକ୍ତ କୋଣ</text>
+          </g>
+
+          <!-- ASA -->
+          <g transform="translate(390, 20)">
+            <rect x="0" y="0" width="150" height="220" rx="10" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/>
+            <text x="75" y="30" font-size="14" font-weight="bold" fill="#a16207" text-anchor="middle">୩. କୋ-ବା-କୋ (ASA)</text>
+            <polygon points="25,170 125,170 75,70" fill="none" stroke="#ca8a04" stroke-width="2"/>
+            <path d="M 45 170 A 20 20 0 0 0 35 150" stroke="#ca8a04" stroke-width="2" fill="none"/>
+            <path d="M 105 170 A 20 20 0 0 1 115 150" stroke="#ca8a04" stroke-width="2" fill="none"/>
+            <line x1="72" y1="165" x2="72" y2="175" stroke="#ca8a04" stroke-width="2"/>
+            <text x="75" y="205" font-size="11" fill="#713f12" text-anchor="middle">୨ କୋଣ + ଅନ୍ତର୍ଭୁକ୍ତ ବାହୁ</text>
+          </g>
+
+          <!-- RHS -->
+          <g transform="translate(570, 20)">
+            <rect x="0" y="0" width="150" height="220" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="2"/>
+            <text x="75" y="30" font-size="14" font-weight="bold" fill="#7e22ce" text-anchor="middle">୪. ସ-କ-ବା (RHS)</text>
+            <polygon points="30,170 120,170 30,70" fill="none" stroke="#9333ea" stroke-width="2"/>
+            <rect x="30" y="155" width="15" height="15" fill="none" stroke="#9333ea" stroke-width="1.5"/>
+            <line x1="70" y1="115" x2="80" y2="125" stroke="#9333ea" stroke-width="2"/>
+            <text x="75" y="205" font-size="11" fill="#581c87" text-anchor="middle">ସମକୋଣ, କର୍ଣ୍ଣ ଓ ବାହୁ</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">ଚିତ୍ର ୯.୨: ତ୍ରିଭୁଜ ସର୍ବସମତାର ଚାରୋଟି ବୈଧ ସର୍ତ୍ତ (Criteria)।</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-triangle-exclamation"></i> ୯.୨ କାହିଁକି AAA ଏବଂ SSA ସର୍ବସମତାର ସର୍ତ୍ତ ନୁହନ୍ତି?</h3>
+      <ul style="margin-left: 1.5rem;">
+        <li><strong>କୋ-କୋ-କୋ (AAA):</strong> ୨ ସେମି ବାହୁବିଶିଷ୍ଟ ସମବାହୁ ତ୍ରିଭୁଜର ୩ଟି କୋଣ ୬୦°, ୬୦°, ୬୦°। ଆଉ ଏକ ୧୦ ସେମି ବାହୁବିଶିଷ୍ଟ ସମବାହୁ ତ୍ରିଭୁଜର ୩ଟି କୋଣ ମଧ୍ୟ ୬୦°, ୬୦°, ୬୦°! ସେମାନଙ୍କର ଆକାର ଏକାପରି କିନ୍ତୁ ଆୟତନ ଭିନ୍ନ। ତେଣୁ AAA କେବଳ <strong>ସଦୃଶତା (Similarity)</strong> ସୂଚାଏ, ସର୍ବସମତା ନୁହେଁ।</li>
+        <li><strong>ବା-ବା-କୋ (SSA):</strong> ଯଦି କୋଣଟି ଦୁଇଟି ବାହୁ ମଧ୍ୟରେ ଅନ୍ତର୍ଭୁକ୍ତ ହୋଇନଥାଏ, ତେବେ ଦ୍ୱିତୀୟ ବାହୁଟିକୁ ଘୂରାଇଲେ ତାହା ତୃତୀୟ ରେଖାକୁ ଦୁଇଟି ଭିନ୍ନ ବିନ୍ଦୁରେ ଛେଦ କରିପାରେ, ଯାହାଦ୍ୱାରା ଦୁଇଟି ଅସର୍ବସମ ତ୍ରିଭୁଜ ସୃଷ୍ଟି ହୁଏ।</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୩</span>
+        <h2>ପାଠ୍ୟପୁସ୍ତକ ମଧ୍ୟସ୍ଥ କାର୍ଯ୍ୟକଳାପ ଓ ଅନୁସନ୍ଧାନ (In-Text Activities Fully Solved)</h2>
+        <p class="section-sub">ପାଠ୍ୟପୁସ୍ତକର ପୃଷ୍ଠା ୮ ଓ ୧୩ ରେ ଥିବା ସମସ୍ତ ପ୍ରମାଣମୂଳକ କାର୍ଯ୍ୟର ସମାଧାନ।</p>
+      </div>
+
+      <h4 class="sub-topic">କାର୍ଯ୍ୟକଳାପ ୧: ଆୟତକ୍ଷେତ୍ରର କର୍ଣ୍ଣ ଦ୍ୱାରା ସର୍ବସମତା ପ୍ରମାଣ (ପୃଷ୍ଠା ୮)</h4>
+      <div class="solution-box">
+        <p><strong>ପ୍ରଶ୍ନ:</strong> ABCD ଏକ ଆୟତକ୍ଷେତ୍ର। କର୍ଣ୍ଣ BD ଏହାକୁ ଦୁଇଟି ତ୍ରିଭୁଜ &Delta;ABD ଏବଂ &Delta;CDB ରେ ବିଭକ୍ତ କରେ। ପ୍ରମାଣ କରନ୍ତୁ ଯେ ଏହି ଦୁଇଟି ତ୍ରିଭୁଜ ସର୍ବସମ ଏବଂ ସେମାନଙ୍କର ସଠିକ୍ ଅନୁରୂପତା ଲେଖନ୍ତୁ।</p>
+        <div class="step-item"><span class="step-label">ଦତ୍ତ:</span> ଆୟତକ୍ଷେତ୍ରର ବିପରୀତ ବାହୁ ସମାନ: AB = CD ଏବଂ AD = CB।</div>
+        <div class="step-item"><span class="step-label">ସାଧାରଣ ବାହୁ:</span> କର୍ଣ୍ଣ BD ଉଭୟ ତ୍ରିଭୁଜ ପାଇଁ ସମାନ: BD = DB।</div>
+        <div class="step-item"><span class="step-label">ସର୍ବସମତା:</span> <strong>ବା-ବା-ବା (SSS) ସର୍ତ୍ତ</strong> ଅନୁଯାୟୀ, &Delta;ABD &cong; &Delta;CDB।</div>
+        <div class="step-item"><span class="step-label">ଶୀର୍ଷ ଅନୁରୂପତା:</span> ଶୀର୍ଷ A &harr; C, ଶୀର୍ଷ B &harr; D, ଶୀର୍ଷ D &harr; B।</div>
+        <div class="step-ans">&check; ସିଦ୍ଧାନ୍ତ: <strong>&Delta;ABD &cong; &Delta;CDB</strong> (ବା-ବା-ବା ସର୍ତ୍ତ ଦ୍ୱାରା ପ୍ରମାଣିତ)।</div>
+      </div>
+
+      <h4 class="sub-topic">କାର୍ଯ୍ୟକଳାପ ୨: ମଧ୍ୟବିନ୍ଦୁ ଛେଦକ ପ୍ରମାଣ (ପୃଷ୍ଠା ୧୩)</h4>
+      <div class="solution-box">
+        <p><strong>ପ୍ରଶ୍ନ:</strong> ରେଖାଖଣ୍ଡ AD ଏବଂ BC ପରସ୍ପରକୁ O ବିନ୍ଦୁରେ ସମଦ୍ୱିଖଣ୍ଡ କରନ୍ତି। ପ୍ରମାଣ କରନ୍ତୁ ଯେ &Delta;AOB &cong; &Delta;DOC।</p>
+        <div class="step-item"><span class="step-label">ବାହୁ ୧:</span> AO = OD (ଦତ୍ତ, O ହେଉଛି AD ର ମଧ୍ୟବିନ୍ଦୁ)।</div>
+        <div class="step-item"><span class="step-label">କୋଣ:</span> &ang;AOB = &ang;DOC (ପ୍ରତୀପ କୋଣ ପରସ୍ପର ସମାନ)।</div>
+        <div class="step-item"><span class="step-label">ବାହୁ ୨:</span> BO = OC (ଦତ୍ତ, O ହେଉଛି BC ର ମଧ୍ୟବିନ୍ଦୁ)।</div>
+        <div class="step-item"><span class="step-label">ସର୍ତ୍ତ:</span> ଦୁଇଟି ବାହୁ ଏବଂ ସେମାନଙ୍କ ଅନ୍ତର୍ଭୁକ୍ତ କୋଣ ସମାନ &rArr; <strong>ବା-କୋ-ବା (SAS) ସର୍ତ୍ତ</strong>!</div>
+        <div class="step-ans">&check; ଉତ୍ତର: <strong>&Delta;AOB &cong; &Delta;DOC</strong> (SAS ସର୍ତ୍ତ ଦ୍ୱାରା ପ୍ରମାଣିତ)। ଏହାର ଫଳସ୍ୱରୂପ AB = CD ଏବଂ AB || CD।</div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୪</span>
+        <h2>ଅଧ୍ୟାୟ ଶେଷସ୍ଥ 'Figure It Out' ଅଭ୍ୟାସ ସମାଧାନ (Exercises Solved)</h2>
+        <p class="section-sub">ସୋପାନ-ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ବ୍ୟାଖ୍ୟା (Zero-Omission Solutions)।</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>ପ୍ରଶ୍ନ ୧: ଅନୁରୂପତା ଅଭ୍ୟାସ: &Delta;AIR &cong; &Delta;FLY (ପୃଷ୍ଠା ୨୦)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ:</strong> ଦତ୍ତ ଅଛି ଯେ &Delta;AIR &cong; &Delta;FLY। ଏହାର ସମସ୍ତ ଅନୁରୂପ ଶୀର୍ଷବିନ୍ଦୁ, ବାହୁ ଏବଂ କୋଣ ଚିହ୍ନଟ କରନ୍ତୁ।</p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr><th>ଅନୁରୂପ ଶୀର୍ଷବିନ୍ଦୁ</th><th>ଅନୁରୂପ ବାହୁ</th><th>ଅନୁରୂପ କୋଣ</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>A &harr; F</strong></td><td><strong>AI = FL</strong></td><td><strong>&ang;A = &ang;F</strong></td></tr>
+                <tr><td><strong>I &harr; L</strong></td><td><strong>IR = LY</strong></td><td><strong>&ang;I = &ang;L</strong></td></tr>
+                <tr><td><strong>R &harr; Y</strong></td><td><strong>AR = FY</strong></td><td><strong>&ang;R = &ang;Y</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>ପ୍ରଶ୍ନ ୨: ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜର ଭୂମିକୋଣ ଉପପାଦ୍ୟ ପ୍ରମାଣ</summary>
+        <div class="ans-content">
+          <p><strong>ଉପପାଦ୍ୟ:</strong> ଏକ ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜର ସମାନ ବାହୁଦ୍ୱୟର ସମ୍ମୁଖୀନ କୋଣଦ୍ୱୟ ପରସ୍ପର ସମାନ।</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">ଦତ୍ତ:</span> &Delta;ABC ରେ AB = AC।</div>
+            <div class="step-item"><span class="step-label">ଅଙ୍କନ:</span> &ang;A ର ସମଦ୍ୱିଖଣ୍ଡକ AD ଅଙ୍କନ କରାଗଲା ଯାହା BC କୁ D ବିନ୍ଦୁରେ ଛେଦ କରେ।</div>
+            <div class="step-item"><span class="step-label">ପ୍ରମାଣ:</span> &Delta;ABD ଏବଂ &Delta;ACD ମଧ୍ୟରେ:
+              <br>&bull; AB = AC (ଦତ୍ତ)
+              <br>&bull; &ang;BAD = &ang;CAD (ଅଙ୍କନାନୁସାରେ, AD ହେଉଛି &ang;A ର କୋଣସମଦ୍ୱିଖଣ୍ଡକ)
+              <br>&bull; AD = AD (ସାଧାରଣ ବାହୁ)
+              <br>ତେଣୁ, <strong>ବା-କୋ-ବା (SAS) ସର୍ତ୍ତ</strong> ଅନୁଯାୟୀ &Delta;ABD &cong; &Delta;ACD!
+            </div>
+            <div class="step-item"><span class="step-label">CPCTC:</span> ସର୍ବସମ ତ୍ରିଭୁଜର ଅନୁରୂପ ଅଂଶ ସର୍ବଦା ସମାନ ହୋଇଥିବାରୁ &rArr; <strong>&ang;B = &ang;C</strong>।</div>
+            <div class="step-ans">&check; ପ୍ରମାଣିତ: <strong>&ang;B = &ang;C</strong>।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୫</span>
+        <h2>ଇଣ୍ଟରାକ୍ଟିଭ୍ ଅଭ୍ୟାସ କୁଇଜ୍ ଇଞ୍ଜିନ୍ (Interactive Practice Quiz)</h2>
+        <p class="section-sub">ସର୍ବସମତା ସର୍ତ୍ତ ଓ ପ୍ରମାଣରେ ନିଜର ଦକ୍ଷତା ମାପନ୍ତୁ।</p>
+      </div>
+
+      <div class="callout-box callout-pyq" id="scoreBanner" style="justify-content: space-between; align-items: center;">
+        <div><strong>ବର୍ତ୍ତମାନର ସ୍କୋର:</strong> <span id="quizScoreCount">0</span> / ୫ ସଠିକ୍</div>
+        <div id="quizTeacherMsg" style="font-size: 0.9rem; font-weight: 600;">ସମସ୍ତ ପ୍ରଶ୍ନର ଉତ୍ତର ଦେଇ ନିଜର ମୂଲ୍ୟାୟନ ଦେଖନ୍ତୁ!</div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-card" id="qcard1">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୧:</strong> ନିମ୍ନୋକ୍ତ ମଧ୍ୟରୁ କେଉଁଟି ତ୍ରିଭୁଜ ସର୍ବସମତାର ଏକ ବୈଧ ସର୍ତ୍ତ ନୁହେଁ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')"><span>(କ) ବା-ବା-ବା (SSS)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')"><span>(ଖ) ବା-କୋ-ବା (SAS)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')"><span>(ଗ) କୋ-କୋ-କୋ (AAA)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')"><span>(ଘ) ସ-କ-ବା (RHS)</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଗ) କୋ-କୋ-କୋ (AAA)।</strong> AAA ସମାନ ଆକାର ପ୍ରଦାନ କରେ (ସଦୃଶ ତ୍ରିଭୁଜ), କିନ୍ତୁ ଆୟତନ ସମାନ ହେବା ବାଧ୍ୟତାମୂଳକ ନୁହେଁ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-card" id="qcard2">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୨:</strong> ଯଦି &Delta;ABC &cong; &Delta;PQR ହୁଏ, ତେବେ BC ବାହୁର ଅନୁରୂପ ବାହୁ କେଉଁଟି?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')"><span>(କ) PQ</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')"><span>(ଖ) QR</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')"><span>(ଗ) PR</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')"><span>(ଘ) QP</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଖ) QR।</strong> ABC ର ଦ୍ୱିତୀୟ ଓ ତୃତୀୟ ଅକ୍ଷର (BC), PQR ର ଦ୍ୱିତୀୟ ଓ ତୃତୀୟ ଅକ୍ଷର (QR) ସହିତ ଅନୁରୂପ ଅଟେ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-card" id="qcard3">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୩:</strong> ଦୁଇଟି ବୃତ୍ତ ସର୍ବସମ ହେବା ପାଇଁ ସେମାନଙ୍କର କେଉଁ ମାପ ସମାନ ହେବା ଆବଶ୍ୟକ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')"><span>(କ) ବ୍ୟାସାର୍ଦ୍ଧ (Radius)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')"><span>(ଖ) କେନ୍ଦ୍ରବିନ୍ଦୁ (Center)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')"><span>(ଗ) ଜ୍ୟା (Chord)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')"><span>(ଘ) ବୃତ୍ତକଳା (Sector)</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (କ) ବ୍ୟାସାର୍ଦ୍ଧ।</strong> ଦୁଇଟି ବୃତ୍ତର ବ୍ୟାସାର୍ଦ୍ଧ ସମାନ ହେଲେ ସେମାନେ ପରସ୍ପରକୁ ସମ୍ପୂର୍ଣ୍ଣ ଆଚ୍ଛାଦନ କରନ୍ତି।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-card" id="qcard4">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୪:</strong> RHS ସର୍ତ୍ତରେ 'H' ଅକ୍ଷରଟି କାହାକୁ ସୂଚିତ କରେ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')"><span>(କ) ଉଚ୍ଚତା (Height)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')"><span>(ଖ) ଭୂସମାନ୍ତର (Horizontal)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')"><span>(ଗ) ଷଡ଼ଭୁଜ (Hexagon)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')"><span>(ଘ) କର୍ଣ୍ଣ (Hypotenuse)</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଘ) କର୍ଣ୍ଣ (Hypotenuse)।</strong> RHS = Right angle (ସମକୋଣ), Hypotenuse (କର୍ଣ୍ଣ), Side (ବାହୁ)।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-card" id="qcard5">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୫:</strong> ଏକ ସମବାହୁ ତ୍ରିଭୁଜର ପ୍ରତ୍ୟେକ ଅନ୍ତଃସ୍ଥ କୋଣର ପରିମାଣ କେତେ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')"><span>(କ) ୪୫&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')"><span>(ଖ) ୯୦&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')"><span>(ଗ) ୬୦&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')"><span>(ଘ) ୧୨୦&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଗ) ୬୦°।</strong> ସମବାହୁ ତ୍ରିଭୁଜର ୩ଟି ଯାକ କୋଣ ସମାନ: ୧୮୦° &divide; ୩ = ୬୦°।
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୬</span>
+        <h2>ପରୀକ୍ଷା ଉପଯୋଗୀ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସତର୍କତା ଓ ୧୫ଟି ଶୀଘ୍ର ପୁନରାବୃତ୍ତି ସୂତ୍ର (Pitfalls &amp; Revision)</h2>
+        <p class="section-sub">ପରୀକ୍ଷାରେ ଭୁଲ୍ ଏଡ଼ାଇବା ପାଇଁ ଶିକ୍ଷକଙ୍କ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ପରାମର୍ଶ।</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>ପରୀକ୍ଷା ହଲ୍‌ରେ କଦାପି ଏହି ଭୁଲ୍ କରନ୍ତୁ ନାହିଁ:</strong><br>
+          &bull; <strong>SAS ରେ ଅନ୍ତର୍ଭୁକ୍ତ କୋଣ ଭ୍ରାନ୍ତି:</strong> କୋଣଟି ଦୁଇଟି ବାହୁ ମଧ୍ୟରେ ହିଁ ଅନ୍ତର୍ଭୁକ୍ତ (Included) ହେବା ବାଧ୍ୟତାମୂଳକ। ଯଦି କୋଣ ଅନ୍ୟ କେଉଁଠି ଥାଏ, ତେବେ ତାହା SSA ହୋଇଯାଏ, ଯାହା ଅବୈଧ!<br>
+          &bull; <strong>ଶୀର୍ଷବିନ୍ଦୁ କ୍ରମର ଭୁଲ୍:</strong> ଯଦି A ସହ P ମିଳୁଛି, ତେବେ &Delta;ABC &cong; &Delta;RPQ ଲେଖିଲେ ଶୂନ ମାର୍କ ମିଳିବ!<br>
+          &bull; <strong>କ୍ଷେତ୍ରଫଳ ସମାନ ହେଲେ ତ୍ରିଭୁଜ ସର୍ବସମ ହୁଏନାହିଁ:</strong> ଦୁଇଟି ତ୍ରିଭୁଜର କ୍ଷେତ୍ରଫଳ ସମାନ (ଯଥା ୧୨ ବର୍ଗ ସେମି) ହୋଇପାରେ କିନ୍ତୁ ସେମାନଙ୍କର ଆକାର ସମ୍ପୂର୍ଣ୍ଣ ଭିନ୍ନ ହୋଇପାରେ!
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <strong>ଶିକ୍ଷକଙ୍କ ୧୫ଟି ଶୀଘ୍ର ପୁନରାବୃତ୍ତି ସୂତ୍ର (15 Rapid Revision One-Liners):</strong><br>
+          ୧. ସର୍ବସମତାର ସଙ୍କେତ ହେଉଛି &cong;।<br>
+          ୨. ଦୁଇଟି ଚିତ୍ର ସର୍ବସମ ହେଲେ ସେମାନଙ୍କର ଆକାର (Shape) ଓ ଆୟତନ (Size) ଉଭୟ ସମାନ ଥାଏ।<br>
+          ୩. ସମାନ ବ୍ୟାସାର୍ଦ୍ଧ ବିଶିଷ୍ଟ ଦୁଇଟି ବୃତ୍ତ ସର୍ବଦା ସର୍ବସମ ହୁଅନ୍ତି।<br>
+          ୪. ସମାନ ବାହୁ ବିଶିଷ୍ଟ ଦୁଇଟି ବର୍ଗଚିତ୍ର ସର୍ବଦା ସର୍ବସମ ହୁଅନ୍ତି।<br>
+          ୫. ତ୍ରିଭୁଜ ସର୍ବସମତାର ୪ଟି ମୁଖ୍ୟ ସର୍ତ୍ତ: SSS, SAS, ASA ଏବଂ RHS।<br>
+          ୬. ବା-ବା-ବା (SSS): ଗୋଟିଏ ତ୍ରିଭୁଜର ୩ଟି ବାହୁ ଅନ୍ୟ ତ୍ରିଭୁଜର ୩ଟି ବାହୁ ସହ ସମାନ।<br>
+          ୭. ବା-କୋ-ବା (SAS): ଦୁଇଟି ବାହୁ ଏବଂ ସେମାନଙ୍କ ଅନ୍ତର୍ଭୁକ୍ତ କୋଣ ସମାନ।<br>
+          ୮. କୋ-ବା-କୋ (ASA): ଦୁଇଟି କୋଣ ଏବଂ ସେମାନଙ୍କ ଅନ୍ତର୍ଭୁକ୍ତ ବାହୁ ସମାନ।<br>
+          ୯. ସ-କ-ବା (RHS): ସମକୋଣୀ ତ୍ରିଭୁଜରେ ସମକୋଣ, କର୍ଣ୍ଣ ଏବଂ ଅନ୍ୟ ଗୋଟିଏ ବାହୁ ସମାନ।<br>
+          ୧୦. କୋ-କୋ-କୋ (AAA) ସର୍ବସମତାର ପ୍ରମାଣ ନୁହେଁ, ଏହା କେବଳ ସଦୃଶତା ଦର୍ଶାଏ।<br>
+          ୧୧. CPCTC: ସର୍ବସମ ତ୍ରିଭୁଜମାନଙ୍କର ଅନୁରୂପ ଅଂଶ ସର୍ବଦା ସମାନ।<br>
+          ୧୨. ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜର ସମାନ ବାହୁର ସମ୍ମୁଖୀନ କୋଣଦ୍ୱୟ ସର୍ବଦା ସମାନ।<br>
+          ୧୩. ସମବାହୁ ତ୍ରିଭୁଜର ପ୍ରତ୍ୟେକ କୋଣ ୬୦° ଅଟେ।<br>
+          ୧୪. ଦୁଇଟି ସର୍ବସମ ତ୍ରିଭୁଜର କ୍ଷେତ୍ରଫଳ ସର୍ବଦା ସମାନ ହୋଇଥାଏ।<br>
+          ୧୫. ସର୍ବସମତା ପ୍ରକାଶ କରିବା ବେଳେ ଅନୁରୂପ ଶୀର୍ଷବିନ୍ଦୁର କ୍ରମ ବଜାୟ ରଖିବା ବାଧ୍ୟତାମୂଳକ।
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // 2. Audio Reader (Text-to-Speech)
+    var speechActive = false;
+    function toggleAudioSummary() {
+      var btn = document.getElementById('audioSummaryBtn');
+      if (!speechActive) {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          var text = "ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୯: ଜ୍ୟାମିତିକ ଯମଜରେ ଆପଣଙ୍କୁ ସ୍ୱାଗତ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ତ୍ରିଭୁଜର ସର୍ବସମତା ବିଷୟରେ ଜାଣିବା। ଯେଉଁ ଦୁଇଟି ଚିତ୍ରର ଆକାର ଓ ପରିମାପ ସମାନ ଏବଂ ପରସ୍ପରକୁ ସମ୍ପୂର୍ଣ୍ଣ ଢାଙ୍କି ପାରନ୍ତି, ସେମାନେ ସର୍ବସମ। ତ୍ରିଭୁଜ ସର୍ବସମତାର ଚାରୋଟି ମୁଖ୍ୟ ସର୍ତ୍ତ ହେଉଛି ବା-ବା-ବା, ବା-କୋ-ବା ଯେଉଁଠି କୋଣଟି ଅନ୍ତର୍ଭୁକ୍ତ ହେବା ଉଚିତ, କୋ-ବା-କୋ ଯେଉଁଠି ବାହୁଟି ଅନ୍ତର୍ଭୁକ୍ତ ହେବା ଉଚିତ, ଏବଂ ସମକୋଣୀ ତ୍ରିଭୁଜ ପାଇଁ ସ-କ-ବା ବା ଆର-ଏଚ-ଏସ୍। ଶୀର୍ଷବିନ୍ଦୁର ଅନୁରୂପତା କ୍ରମ ସଠିକ୍ ରଖିବା ଅତ୍ୟନ୍ତ ଆବଶ୍ୟକ।";
+          var utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'or-IN';
+          utterance.rate = 0.95;
+          utterance.onend = function() {
+            speechActive = false;
+            if (btn) btn.innerHTML = '<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>';
+          };
+          window.speechSynthesis.speak(utterance);
+          speechActive = true;
+          if (btn) btn.innerHTML = '<span>⏹ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>';
+        } else {
+          alert('ଦୁଃଖିତ, ଆପଣଙ୍କ ବ୍ରାଉଜରରେ ଟେକ୍ସଟ୍-ଟୁ-ସ୍ପିଚ୍ ସମର୍ଥିତ ନୁହେଁ।');
+        }
+      } else {
+        window.speechSynthesis.cancel();
+        speechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>';
+      }
+    }
+
+    // 3. Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim();
+      var selectedOpt = '';
+      if (btnText.indexOf('(କ)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(ଖ)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(ଗ)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(ଘ)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      var optMapping = { 'a': '(କ)', 'b': '(ଖ)', 'c': '(ଗ)', 'd': '(ଘ)' };
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim();
+          if (t.indexOf(optMapping[correctOpt]) === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 ଚମତ୍କାର! ସର୍ବସମତାର ସମସ୍ତ ପ୍ରଶ୍ନର ସଠିକ୍ ଉତ୍ତର ଦେଇଛନ୍ତି!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 ବହୁତ ବଢ଼ିଆ! ଜ୍ୟାମିତିକ ଯମଜ ବିଷୟରେ ଆପଣଙ୍କ ଜ୍ଞାନ ସୁଦୃଢ଼!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 ଚେଷ୍ଟା ଜାରି ରଖନ୍ତୁ! ଉପରୋକ୍ତ ସର୍ତ୍ତଗୁଡ଼ିକୁ ପୁଣି ଥରେ ପଢ଼ନ୍ତୁ।";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
