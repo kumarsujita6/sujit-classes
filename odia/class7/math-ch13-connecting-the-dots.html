@@ -1,0 +1,1452 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୧୩: ବିନ୍ଦୁ ସଂଯୋଗ: ତଥ୍ୟ ପରିଚାଳନା — ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୧୩: ବିନ୍ଦୁ ସଂଯୋଗ - ତଥ୍ୟ ପରିଚାଳନା ଓ ପରିସଂଖ୍ୟାନ (Connecting the Dots...: Data Handling - Ganita Prakash)। ମାଧ୍ୟମାନ, ମଧ୍ୟମା, ପରିସର, ବହିଃସ୍ଥ ମାନ (Outliers), ବିନ୍ଦୁ ଲେଖଚିତ୍ର (Dot Plot), ଦ୍ୱି-ସ୍ତମ୍ଭ ଲେଖଚିତ୍ର, ପ୍ରାଚୀନ ସମମିତି, ସମାଧାନ ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.8;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #0284c7 0%, #0d9488 50%, #4338ca 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Audio Reader Bar */
+    .audio-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.25rem 1.75rem;
+      margin: -1.75rem auto 2rem;
+      max-width: 900px;
+      position: relative;
+      z-index: 10;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .audio-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .audio-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .audio-btn {
+      background: linear-gradient(135deg, #0284c7, #0d9488);
+      color: #ffffff;
+      border: none;
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(2, 132, 199, 0.2);
+    }
+
+    .audio-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.35);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin: 3rem 0 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid var(--primary-light);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title i {
+      color: var(--primary);
+      font-size: 1.6rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 1.15rem;
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 0.9rem;
+      padding: 1.35rem 1.6rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid;
+    }
+
+    .callout-def { background: #f0fdf4; border-color: #22c55e; color: #14532d; }
+    .callout-act { background: #eff6ff; border-color: #3b82f6; color: #1e3a8a; }
+    .callout-hack { background: #fefce8; border-color: #eab308; color: #713f12; }
+    .callout-warn { background: #fef2f2; border-color: #ef4444; color: #7f1d1d; }
+    .callout-pyq { background: #faf5ff; border-color: #a855f7; color: #581c87; }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Collapsible Details */
+    details.ans-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      margin: 1.25rem 0;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-sm);
+    }
+
+    details.ans-box summary {
+      padding: 1rem 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #f1f5f9;
+      font-size: 0.98rem;
+    }
+
+    details.ans-box summary:hover {
+      background: #e2e8f0;
+    }
+
+    .sol-content {
+      padding: 1.4rem 1.6rem;
+      font-size: 0.96rem;
+      color: var(--text);
+    }
+
+    .sol-step {
+      margin-bottom: 0.85rem;
+    }
+
+    .sol-step-label {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-right: 0.4rem;
+    }
+
+    .calc-box {
+      font-family: 'JetBrains Mono', 'Noto Sans Oriya', monospace;
+      background: #f8fafc;
+      padding: 0.85rem 1.1rem;
+      border-radius: 0.6rem;
+      border-left: 4px solid var(--secondary);
+      margin: 0.75rem 0;
+      font-size: 0.92rem;
+      line-height: 1.8;
+      overflow-x: auto;
+    }
+
+    /* SVG Graphics Container */
+    .svg-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1.75rem 0;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 0.85rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+
+    /* Tables */
+    .math-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.94rem;
+    }
+
+    .math-table th, .math-table td {
+      border: 1px solid var(--border);
+      padding: 0.85rem 1.1rem;
+      text-align: left;
+    }
+
+    .math-table th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .math-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    /* Mind Map Grid */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .concept-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 1.35rem;
+      transition: all 0.2s ease;
+      position: relative;
+      border-top: 4px solid var(--primary);
+    }
+
+    .concept-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-top-color: var(--secondary);
+    }
+
+    .concept-item h4 {
+      color: var(--dark);
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Quiz Styling */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-q-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+      color: var(--dark);
+    }
+
+    .quiz-opts {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .quiz-opt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 0.85rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      background: #f8fafc;
+      font-family: inherit;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+      color: var(--text);
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary-dark);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    /* Rapid Revision Grid */
+    .revision-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .revision-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 1rem 1.25rem;
+      border-radius: 0.75rem;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .rev-num {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 800;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.8rem;
+    }
+
+    /* Back to Top */
+    #backToTop {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      box-shadow: var(--shadow-md);
+      z-index: 999;
+      transition: all 0.2s ease;
+    }
+
+    #backToTop:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+    }
+
+    footer a { color: #38bdf8; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>ସୁଜିତ୍ କ୍ଲାସେସ୍ (Sujit Classes)</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#overview" class="nav-link">ସାରାଂଶ ଓ ମାନସଚିତ୍ର</a>
+      <a href="#core-concepts" class="nav-link">ମୁଖ୍ୟ ତତ୍ତ୍ୱ</a>
+      <a href="#samamiti" class="nav-link">ପ୍ରାଚୀନ ସମମିତି</a>
+      <a href="#ncert-solutions" class="nav-link">ପାଠ୍ୟପୁସ୍ତକ ସମାଧାନ</a>
+      <a href="#quiz-section" class="nav-link">କୁଇଜ୍ ପରୀକ୍ଷା</a>
+      <a href="#rapid-revision" class="nav-link">ଦ୍ରୁତ ପୁନରୀକ୍ଷଣ</a>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-chart-simple"></i> NCERT ଗଣିତ ପ୍ରକାଶ &bull; ସପ୍ତମ ଶ୍ରେଣୀ &bull; ଭାଗ ୨ ଅଧ୍ୟାୟ ୫ (Ch 13)
+    </div>
+    <h1 class="hero-title">ଅଧ୍ୟାୟ ୧୩: ବିନ୍ଦୁ ସଂଯୋଗ: ତଥ୍ୟ ପରିଚାଳନା ଓ ପରିସଂଖ୍ୟାନ</h1>
+    <p class="hero-subtitle">
+      କେନ୍ଦ୍ରୀୟ ପ୍ରବୃତ୍ତିର ମାପ (ମାଧ୍ୟମାନ, ମଧ୍ୟମା ଓ ପରିସର), ବହିଃସ୍ଥ ମାନ (Outliers) ର ପ୍ରଭାବ, ବିନ୍ଦୁ ଲେଖଚିତ୍ର (Dot Plot), ଦ୍ୱି-ସ୍ତମ୍ଭ ଲେଖଚିତ୍ର (Double Bar Graph) ଏବଂ ପ୍ରାଚୀନ ଭାରତୀୟ ସମମିତି (Levelling Measures)।
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> ସମ୍ପୂର୍ଣ୍ଣ ଗଭୀର ଅଧ୍ୟୟନ ନୋଟ୍ସ</span>
+      <span><i class="fa-solid fa-check-double"></i> ୧୦୦% ସମସ୍ତ ପ୍ରଶ୍ନର ସମାଧାନ</span>
+      <span><i class="fa-solid fa-clock"></i> ୪୫ ମିନିଟ୍ ଗଭୀର ପଠନ</span>
+    </div>
+  </section>
+
+  <!-- Audio Reader Bar -->
+  <div class="audio-card">
+    <div class="audio-info">
+      <div class="audio-icon"><i class="fa-solid fa-headphones"></i></div>
+      <div>
+        <h4 style="color: var(--dark); margin-bottom: 0.2rem;">ଓଡ଼ିଆ ଅଡିଓ ସାରାଂଶ (Audio Summary)</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">ଶିକ୍ଷକଙ୍କ କଣ୍ଠରେ ଅଧ୍ୟାୟର ମୁଖ୍ୟ ଧାରଣାଗୁଡ଼ିକୁ ଶୁଣନ୍ତୁ ଏବଂ ସହଜରେ ବୁଝନ୍ତୁ।</p>
+      </div>
+    </div>
+    <button class="audio-btn" id="audioSummaryBtn" onclick="toggleAudioSummary()">
+      <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>
+    </button>
+  </div>
+
+  <main class="container">
+
+    <!-- ================= SECTION 1: OVERVIEW & MIND MAP ================= -->
+    <section id="overview">
+      <h2 class="section-title"><i class="fa-solid fa-sitemap"></i> ବିଭାଗ ୧: ଅଧ୍ୟାୟ ସାରାଂଶ ଓ ମାନସଚିତ୍ର (Overview &amp; Mind Map)</h2>
+
+      <div class="card">
+        <h3 style="color: var(--primary-dark); margin-bottom: 0.75rem;">ହାରାହାରି (Average) ର ପ୍ରକୃତ ଅର୍ଥ: ସମାନ ସ୍ତରୀକରଣ (Equal Levelling)</h3>
+        <p>
+          ଗୋଟିଏ ଗଛରୁ ୫ ଦିନରେ ଯଥାକ୍ରମେ <strong>୭, ୩, ୫, ୮, ଏବଂ ୨</strong> ଟି ମନ୍ଦାର ଫୁଲ ତୋଳାଗଲା। ପ୍ରତିଦିନର "ହାରାହାରି ଫୁଲ ସଂଖ୍ୟା" ପ୍ରକୃତରେ କ’ଣ ଦର୍ଶାଏ?
+        </p>
+        <p style="margin-top: 0.5rem;">
+          ଏହାକୁ ଭାବନ୍ତୁ ୫ଟି ବିଭିନ୍ନ ଉଚ୍ଚତାର ଫୁଲ ସ୍ତମ୍ଭ ଭାବରେ। ଯଦି ଆମେ ଉଚ୍ଚ ସ୍ତମ୍ଭରୁ ଫୁଲ ନେଇ ଛୋଟ ସ୍ତମ୍ଭରେ ରଖିବା, ଯେପର୍ଯ୍ୟନ୍ତ ପ୍ରତ୍ୟେକ ସ୍ତମ୍ଭ ସମାନ ଉଚ୍ଚତା ବିଶିଷ୍ଟ ନ ହୋଇଛି:
+        </p>
+        <div class="calc-box">
+          ମୋଟ ଫୁଲ ସଂଖ୍ୟା = ୭ + ୩ + ୫ + ୮ + ୨ = ୨୫ ଟି<br>
+          ୫ ଦିନରେ ସମାନ ବଣ୍ଟନ = ୨୫ &divide; ୫ = <strong>ପ୍ରତିଦିନ ୫ ଟି ଫୁଲ (ମାଧ୍ୟମାନ)</strong>!
+        </div>
+
+        <!-- SVG Levelling Stacks -->
+        <h4 style="color: var(--dark); margin: 1.5rem 0 0.5rem;"><i class="fa-solid fa-eye"></i> ମାଧ୍ୟମାନର ଦୃଶ୍ୟମାନ ସମତୁଲତା ମଡେଲ୍ (Equalised Level Model)</h4>
+        <div class="svg-container">
+          <svg viewBox="0 0 680 180" width="100%" height="180" style="max-width: 650px; font-family: 'Noto Sans Oriya', 'Space Grotesk', sans-serif;">
+            <!-- 5 Stacks before: 7, 3, 5, 8, 2 -->
+            <g transform="translate(40, 20)">
+              <text x="110" y="0" font-size="12" font-weight="700" fill="#64748b" text-anchor="middle">ଅସମାନ ଦୈନିକ ଫୁଲ ଉତ୍ପାଦନ</text>
+              <!-- Day 1: 7 units (height 84) -->
+              <rect x="0" y="46" width="35" height="84" fill="#38bdf8" rx="3"/>
+              <text x="17" y="145" font-size="12" text-anchor="middle">୭</text>
+              <!-- Day 2: 3 units (height 36) -->
+              <rect x="45" y="94" width="35" height="36" fill="#38bdf8" rx="3"/>
+              <text x="62" y="145" font-size="12" text-anchor="middle">୩</text>
+              <!-- Day 3: 5 units (height 60) -->
+              <rect x="90" y="70" width="35" height="60" fill="#38bdf8" rx="3"/>
+              <text x="107" y="145" font-size="12" text-anchor="middle">୫</text>
+              <!-- Day 4: 8 units (height 96) -->
+              <rect x="135" y="34" width="35" height="96" fill="#38bdf8" rx="3"/>
+              <text x="152" y="145" font-size="12" text-anchor="middle">୮</text>
+              <!-- Day 5: 2 units (height 24) -->
+              <rect x="180" y="106" width="35" height="24" fill="#38bdf8" rx="3"/>
+              <text x="197" y="145" font-size="12" text-anchor="middle">୨</text>
+              <line x1="-10" y1="130" x2="225" y2="130" stroke="#0f172a" stroke-width="2"/>
+            </g>
+
+            <!-- Arrow -->
+            <text x="325" y="95" font-size="28" font-weight="800" fill="#94a3b8" text-anchor="middle">&rarr;</text>
+
+            <!-- 5 Stacks after: all 5 units (height 60) -->
+            <g transform="translate(390, 20)">
+              <text x="110" y="0" font-size="12" font-weight="700" fill="#16a34a" text-anchor="middle">ସମାନ ସ୍ତରୀକରଣ (ମାଧ୍ୟମାନ = ୫)</text>
+              <rect x="0" y="70" width="35" height="60" fill="#4ade80" rx="3"/>
+              <text x="17" y="145" font-size="12" text-anchor="middle">୫</text>
+              <rect x="45" y="70" width="35" height="60" fill="#4ade80" rx="3"/>
+              <text x="62" y="145" font-size="12" text-anchor="middle">୫</text>
+              <rect x="90" y="70" width="35" height="60" fill="#4ade80" rx="3"/>
+              <text x="107" y="145" font-size="12" text-anchor="middle">୫</text>
+              <rect x="135" y="70" width="35" height="60" fill="#4ade80" rx="3"/>
+              <text x="152" y="145" font-size="12" text-anchor="middle">୫</text>
+              <rect x="180" y="70" width="35" height="60" fill="#4ade80" rx="3"/>
+              <text x="197" y="145" font-size="12" text-anchor="middle">୫</text>
+              <line x1="-10" y1="130" x2="225" y2="130" stroke="#0f172a" stroke-width="2"/>
+              <!-- Dashed mean line across -->
+              <line x1="-10" y1="70" x2="225" y2="70" stroke="#15803d" stroke-width="2" stroke-dasharray="4 2"/>
+            </g>
+          </svg>
+        </div>
+
+        <div class="concept-grid">
+          <div class="concept-item">
+            <h4><i class="fa-solid fa-calculator" style="color: var(--primary);"></i> ୧. ମାଧ୍ୟମାନ (Arithmetic Mean)</h4>
+            <p>ସମସ୍ତ ପର୍ଯ୍ୟବେକ୍ଷଣର ଯୋଗଫଳକୁ ପର୍ଯ୍ୟବେକ୍ଷଣ ସଂଖ୍ୟା ଦ୍ୱାରା ଭାଗ କଲେ ମିଳୁଥିବା ମାନ।</p>
+          </div>
+          <div class="concept-item">
+            <h4><i class="fa-solid fa-arrows-split-up-and-left" style="color: var(--secondary);"></i> ୨. ମଧ୍ୟମା (Median)</h4>
+            <p>ତଥ୍ୟାବଳୀକୁ ଆରୋହୀ କ୍ରମରେ ସଜାଇଲେ ଠିକ୍ ମଝିରେ ଥିବା ମାନ। ବହିଃସ୍ଥ ମାନ ଦ୍ୱାରା ଏହା ପ୍ରଭାବିତ ହୁଏ ନାହିଁ।</p>
+          </div>
+          <div class="concept-item">
+            <h4><i class="fa-solid fa-arrows-left-right" style="color: var(--purple);"></i> ୩. ପରିସର (Range)</h4>
+            <p>ସର୍ବାଧିକ ମାନ ଓ ସର୍ବନିମ୍ନ ମାନ ମଧ୍ୟରେ ଥିବା ପାର୍ଥକ୍ୟ (Range = Max &minus; Min)।</p>
+          </div>
+          <div class="concept-item">
+            <h4><i class="fa-solid fa-bullseye" style="color: var(--danger);"></i> ୪. ବହିଃସ୍ଥ ମାନ (Outliers)</h4>
+            <p>ଅତ୍ୟଧିକ ବଡ଼ ବା ଅତ୍ୟଧିକ ଛୋଟ ଅସ୍ୱାଭାବିକ ମାନ, ଯାହା ମାଧ୍ୟମାନକୁ ଅସ୍ୱାଭାବିକ ଭାବେ ଟାଣି ନିଏ।</p>
+          </div>
+          <div class="concept-item">
+            <h4><i class="fa-solid fa-ellipsis" style="color: #0284c7;"></i> ୫. ବିନ୍ଦୁ ଲେଖଚିତ୍ର (Dot Plot)</h4>
+            <p>ସଂଖ୍ୟାରେଖା ଉପରେ ବିନ୍ଦୁ ସ୍ଥାପନ କରି ତଥ୍ୟର ଘନତା, ଶିଖର (Peaks) ଓ ବିସ୍ତାର ପ୍ରଦର୍ଶନ।</p>
+          </div>
+          <div class="concept-item">
+            <h4><i class="fa-solid fa-chart-column" style="color: #b45309;"></i> ୬. ଦ୍ୱି-ସ୍ତମ୍ଭ ଲେଖଚିତ୍ର (Double Bar Graph)</h4>
+            <p>ଦୁଇଟି ସମ୍ପର୍କିତ ତଥ୍ୟାବଳୀକୁ ଏକ ସମୟରେ ପାଖାପାଖି ସ୍ତମ୍ଭ ଦ୍ୱାରା ତୁଳନା କରିବାର କୌଶଳ।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2: CORE MATHEMATICAL CONCEPTS ================= -->
+    <section id="core-concepts">
+      <h2 class="section-title"><i class="fa-solid fa-chart-line"></i> ବିଭାଗ ୨: ମୁଖ୍ୟ ଗାଣିତିକ ତତ୍ତ୍ୱ ଓ ପରିସଂଖ୍ୟାନ ମାପ (Core Theory)</h2>
+
+      <div class="card">
+        <h3 style="color: var(--primary-dark); margin-bottom: 0.75rem;">୧. କେନ୍ଦ୍ରୀୟ ପ୍ରବୃତ୍ତିର ମାପଗୁଡ଼ିକର ତୁଳନାତ୍ମକ ବିଶ୍ଳେଷଣ</h3>
+
+        <table class="math-table">
+          <thead>
+            <tr>
+              <th>ପରିମାପ</th>
+              <th>ସୂତ୍ର / ସଂଜ୍ଞା</th>
+              <th>ମୁଖ୍ୟ ଉପଯୋଗିତା</th>
+              <th>ଦୁର୍ବଳତା</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ମାଧ୍ୟମାନ (Mean)</strong></td>
+              <td><code>ସମସ୍ତ ରାଶିର ଯୋଗଫଳ &divide; ମୋଟ ରାଶି ସଂଖ୍ୟା (N)</code></td>
+              <td>ସମସ୍ତ ତଥ୍ୟ ବିନ୍ଦୁକୁ ବ୍ୟବହାର କରେ; ବଜେଟ୍ ଓ ସମ୍ବଳ ବଣ୍ଟନ ପାଇଁ ଉତ୍ତମ।</td>
+              <td><strong>ବହିଃସ୍ଥ ମାନ (Outliers)</strong> ଦ୍ୱାରା ସହଜରେ ବିଭ୍ରାନ୍ତ ହୁଏ।</td>
+            </tr>
+            <tr>
+              <td><strong>ମଧ୍ୟମା (Median)</strong></td>
+              <td>କ୍ରମାନୁସାରେ ସଜ୍ଜିତ ତଥ୍ୟର ମଧ୍ୟବର୍ତ୍ତୀ ମାନ (ଯୁଗ୍ମ ହେଲେ ଦୁଇଟି ମଝି ମାନର ହାରାହାରି)।</td>
+              <td>ବହିଃସ୍ଥ ମାନ ଦ୍ୱାରା ପ୍ରଭାବିତ ହୁଏ ନାହିଁ; ପ୍ରକୃତ ସାଧାରଣ ଅନୁଭୂତି ଦର୍ଶାଏ।</td>
+              <td>ସୀମାନ୍ତ ମାନଗୁଡ଼ିକର ପ୍ରକୃତ ପରିମାଣକୁ ଅଣଦେଖା କରେ।</td>
+            </tr>
+            <tr>
+              <td><strong>ପରିସର (Range)</strong></td>
+              <td><code>ସର୍ବାଧିକ ମାନ &minus; ସର୍ବନିମ୍ନ ମାନ</code></td>
+              <td>ତଥ୍ୟର ସମୁଦାୟ ବିସ୍ତାର ଓ ପାର୍ଥକ୍ୟକୁ ତତ୍କ୍ଷଣାତ୍ ଦର୍ଶାଏ।</td>
+              <td>କେବଳ ଦୁଇଟି ଚରମ ମାନ ଉପରେ ନିର୍ଭର କରେ।</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Door Height Callout -->
+        <div class="callout callout-warn">
+          <div class="callout-title"><i class="fa-solid fa-door-open"></i> "ହାରାହାରି ନିଷ୍ପତ୍ତିର ବିପଦ!": କବାଟ ଉଚ୍ଚତା ବିଭ୍ରାଟ</div>
+          ଜଣେ ବଢ଼େଇ ଏକ ପରିବାରର ସମସ୍ତ ସଦସ୍ୟଙ୍କ <strong>ହାରାହାରି ଉଚ୍ଚତା (୧୫୫ cm)</strong> ଅନୁସାରେ ଘରର ମୁଖ୍ୟ କବାଟ ତିଆରି କଲେ।
+          ପରିବାରର ପିତାଙ୍କ ଉଚ୍ଚତା ୧୮୫ cm ଏବଂ ମାତାଙ୍କ ଉଚ୍ଚତା ୧୬୦ cm। ଫଳସ୍ୱରୂପ, ପିତା ଯେତେବେଳେ ବି କବାଟ ଦେଇ ପ୍ରବେଶ କରନ୍ତି, ତାଙ୍କ ମୁଣ୍ଡ ବାଡ଼େଇ ହୁଏ!<br>
+          <strong>ଶିକ୍ଷା:</strong> ସବୁ କ୍ଷେତ୍ରରେ ମାଧ୍ୟମାନ ଉପଯୁକ୍ତ ନୁହେଁ। କବାଟ, ବ୍ରିଜ୍ କିମ୍ବା ଛାତ ତିଆରି ପାଇଁ ଆମକୁ <strong>ସର୍ବାଧିକ ମାନ (Maximum)</strong> ବ୍ୟବହାର କରିବାକୁ ହୁଏ!
+        </div>
+
+        <h3 style="color: var(--primary-dark); margin: 2rem 0 0.75rem;">୨. ତଥ୍ୟର ଦୃଶ୍ୟମାନ ଉପସ୍ଥାପନା: ବିନ୍ଦୁ ଲେଖଚିତ୍ର (Dot Plot)</h3>
+        <p>
+          <strong>ବିନ୍ଦୁ ଲେଖଚିତ୍ର (Dot Plot)</strong> ରେ ସଂଖ୍ୟାରେଖାରେ ପ୍ରତ୍ୟେକ ସଂଖ୍ୟାର ବାରମ୍ବାରତା ଅନୁସାରେ ତାହା ଉପରେ ବିନ୍ଦୁ (Dots) ସ୍ଥାପନ କରାଯାଏ। ଏହା ଦ୍ୱାରା ତତ୍କ୍ଷଣାତ୍ ଜଣାପଡ଼େ:
+        </p>
+        <ul style="margin-left: 1.5rem; line-height: 2;">
+          <li><strong>ଶିଖର ବା ଗୁଚ୍ଛ (Peaks/Clusters):</strong> କେଉଁ ସଂଖ୍ୟାଟି ସବୁଠାରୁ ଅଧିକ ଥର ଘଟିଛି।</li>
+          <li><strong>ବିସ୍ତାର (Spread):</strong> ତଥ୍ୟ କେତେ ଦୂର ପର୍ଯ୍ୟନ୍ତ ବିଞ୍ଚି ହୋଇ ରହିଛି।</li>
+          <li><strong>ବହିଃସ୍ଥ ମାନ (Outliers):</strong> କେଉଁ ବିନ୍ଦୁଟି ମୁଖ୍ୟ ଗୋଷ୍ଠୀ ଠାରୁ ବହୁତ ଦୂରରେ ଏକାକୀ ରହିଛି।</li>
+        </ul>
+
+        <!-- SVG Dot Plot Example -->
+        <div class="svg-container">
+          <svg viewBox="0 0 640 135" width="100%" height="135" style="max-width: 600px; font-family: 'Noto Sans Oriya', 'Space Grotesk', sans-serif;">
+            <line x1="40" y1="95" x2="600" y2="95" stroke="#0f172a" stroke-width="2"/>
+            <!-- Ticks 0 to 6 -->
+            <g font-size="12" font-weight="700" text-anchor="middle" fill="#475569">
+              <line x1="80" y1="90" x2="80" y2="100" stroke="#0f172a"/><text x="80" y="115">୦</text>
+              <line x1="160" y1="90" x2="160" y2="100" stroke="#0f172a"/><text x="160" y="115">୧</text>
+              <line x1="240" y1="90" x2="240" y2="100" stroke="#0f172a"/><text x="240" y="115">୨</text>
+              <line x1="320" y1="90" x2="320" y2="100" stroke="#0f172a"/><text x="320" y="115">୩</text>
+              <line x1="400" y1="90" x2="400" y2="100" stroke="#0f172a"/><text x="400" y="115">୪</text>
+              <line x1="480" y1="90" x2="480" y2="100" stroke="#0f172a"/><text x="480" y="115">୫</text>
+              <line x1="560" y1="90" x2="560" y2="100" stroke="#0f172a"/><text x="560" y="115">୬</text>
+            </g>
+
+            <!-- Dots stacked: e.g. at 2 pockets (3 dots), at 4 pockets (4 dots) -->
+            <g fill="#0284c7">
+              <circle cx="160" cy="80" r="6"/>
+              <circle cx="240" cy="80" r="6"/><circle cx="240" cy="65" r="6"/><circle cx="240" cy="50" r="6"/>
+              <circle cx="320" cy="80" r="6"/><circle cx="320" cy="65" r="6"/>
+              <circle cx="400" cy="80" r="6"/><circle cx="400" cy="65" r="6"/><circle cx="400" cy="50" r="6"/><circle cx="400" cy="35" r="6"/>
+              <circle cx="480" cy="80" r="6"/>
+            </g>
+            <text x="320" y="20" font-size="13" font-weight="700" fill="#0369a1" text-anchor="middle">ପକେଟ୍ ସଂଖ୍ୟାର ବିନ୍ଦୁ ଲେଖଚିତ୍ର (୪ ଟି ପକେଟ୍‌ରେ ସର୍ବାଧିକ ଶିଖର)</text>
+          </svg>
+        </div>
+
+        <h3 style="color: var(--primary-dark); margin: 2rem 0 0.75rem;">୩. ଦ୍ୱି-ସ୍ତମ୍ଭ ଲେଖଚିତ୍ର (Double Bar Graph)</h3>
+        <p>
+          ଯେତେବେଳେ ଦୁଇଟି ସମ୍ପର୍କିତ ତଥ୍ୟକୁ (ଯଥା: ବାଳକ ବନାମ ବାଳିକା, ଖେଳ ଦେଖୁଥିବା ବନାମ ଅଂଶଗ୍ରହଣ କରୁଥିବା ଲୋକ) ଏକା ସାଙ୍ଗରେ ତୁଳନା କରିବାକୁ ହୁଏ, ସେତେବେଳେ ପ୍ରତ୍ୟେକ ବର୍ଗ ପାଇଁ ଦୁଇଟି ଭିନ୍ନ ରଙ୍ଗର ପାଖାପାଖି ସ୍ତମ୍ଭ ଅଙ୍କନ କରାଯାଏ। ଏଥିରେ ଏକ ସ୍ପଷ୍ଟ ସୂଚକ (Legend) ରହିବା ଆବଶ୍ୟକ।
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: ANCIENT HERITAGE ================= -->
+    <section id="samamiti">
+      <h2 class="section-title"><i class="fa-solid fa-scroll"></i> ବିଭାଗ ୩: ଭାରତୀୟ ଗାଣିତିକ ଐତିହ୍ୟ: "ସମମିତି" ର ଧାରଣା (Ancient Samamiti)</h2>
+
+      <div class="card">
+        <h3 style="color: var(--primary-dark); margin-bottom: 0.75rem;">ଭାରତୀୟ ଗଣିତରେ ହାରାହାରିର ବିକାଶ</h3>
+        <p>
+          ଆଧୁନିକ ପାଶ୍ଚାତ୍ୟ ପରିସଂଖ୍ୟାନର ଶହ ଶହ ବର୍ଷ ପୂର୍ବରୁ ପ୍ରାଚୀନ ଭାରତୀୟ ଗଣିତଜ୍ଞମାନେ ହାରାହାରିକୁ ଏକ <strong>ସମତୁଲତା ଓ ସମାନ ବଣ୍ଟନର ମାପ</strong> ଭାବେ ଗ୍ରହଣ କରିଥିଲେ:
+        </p>
+
+        <div class="callout callout-act">
+          <div class="callout-title"><i class="fa-solid fa-feather-pointed"></i> ପ୍ରାଚୀନ ସଂସ୍କୃତ ଶବ୍ଦାବଳୀ:</div>
+          <ul style="margin-left: 1.5rem; line-height: 2;">
+            <li><strong>ସମରଜ୍ଜୁ (Samarajju):</strong> ସମତୁଲ ମାପ ରଜ୍ଜୁ ବା ଦଉଡ଼ି &bull; ବ୍ରହ୍ମଗୁପ୍ତ (୬୨୮ ଖ୍ରୀଷ୍ଟାବ୍ଦ)</li>
+            <li><strong>ସମୀକରଣ (Samīkaraṇa):</strong> ସମାନ ସ୍ତରୀକରଣ କରିବା &bull; ଆଚାର୍ଯ୍ୟ ମହାବୀର (୮୫୦ ଖ୍ରୀଷ୍ଟାବ୍ଦ)</li>
+            <li><strong>ସାମ୍ୟ (Sāmya):</strong> ନ୍ୟାୟସଙ୍ଗତ ଓ ନିରପେକ୍ଷ ସନ୍ତୁଳନ &bull; ଶ୍ରୀପତି (୧୦୩୯ ଖ୍ରୀଷ୍ଟାବ୍ଦ)</li>
+            <li><strong>ସମମିତି (Samamiti):</strong> ସମାନ ମାପ (ସମ = ସମାନ, ମିତି = ମାପ) &bull; ଭାସ୍କରାଚାର୍ଯ୍ୟ (୧୧୫୦ ଖ୍ରୀଷ୍ଟାବ୍ଦ) ଓ ଗଣେଶ (୧୫୪୫ ଖ୍ରୀଷ୍ଟାବ୍ଦ)</li>
+          </ul>
+        </div>
+
+        <h3 style="color: var(--primary-dark); margin: 1.75rem 0 0.75rem;">ଇଉରୋପୀୟ ୧୬-ପାଦ ଦଣ୍ଡ (A Mean Foot &bull; 1500s)</h3>
+        <p>
+          ଷୋଡ଼ଶ ଶତାବ୍ଦୀର ଇଉରୋପରେ ଜମି ମାପିବା ପାଇଁ <strong>୧୬ ଫୁଟ୍ ଲମ୍ବ ଦଣ୍ଡ</strong> ବ୍ୟବହୃତ ହେଉଥିଲା। ବିଭିନ୍ନ ବ୍ୟକ୍ତିଙ୍କ ପାଦର ଆକାର ଭିନ୍ନ ହୋଇଥିବାରୁ ପକ୍ଷପାତ ଦୂର କରିବା ପାଇଁ ସର୍ଭେକ୍ଷକ <strong>ଜାକବ୍ କୋବେଲ୍ (Jacob Köbel)</strong> ଚର୍ଚ୍ଚରୁ ବାହାରୁଥିବା ୧୬ ଜଣ ବୟସ୍କ ବ୍ୟକ୍ତିଙ୍କୁ ପରସ୍ପରର ଗୋଇଠି ଓ ଆଙ୍ଗୁଠି ଯୋଡ଼ି ଏକ ସଳଖ ଧାଡ଼ିରେ ଠିଆ କରାଇଲେ। ସେହି ସମୁଦାୟ ଲମ୍ବକୁ ୧୬ ଭାଗ କରି ୧ ଫୁଟ୍‌ର ମାନକ ନିର୍ଦ୍ଧାରଣ କରାଗଲା—ଯାହା ହେଉଛି <strong>ମାଧ୍ୟମାନ (Arithmetic Mean)</strong> ର ଏକ ଉତ୍କୃଷ୍ଟ ଐତିହାସିକ ଉଦାହରଣ!
+        </p>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: NCERT SOLUTIONS ================= -->
+    <section id="ncert-solutions">
+      <h2 class="section-title"><i class="fa-solid fa-list-check"></i> ବିଭାଗ ୪: ସମ୍ପୂର୍ଣ୍ଣ ପାଠ୍ୟପୁସ୍ତକ ସମାଧାନ (NCERT Solutions - Zero Omission)</h2>
+
+      <!-- Page 5 Figure it Out -->
+      <div class="card">
+        <h3 style="color: var(--primary); margin-bottom: 0.75rem;">ଚିନ୍ତା କରି ଉତ୍ତର ଦିଅ (Figure it Out — ପୃଷ୍ଠା ୫) &bull; ମାଧ୍ୟମାନର ପ୍ରାଥମିକ ପ୍ରୟୋଗ</h3>
+
+        <!-- Q1 -->
+        <details class="ans-box" open>
+          <summary><span><strong>ପ୍ରଶ୍ନ ୧: ଶ୍ରେୟାସଙ୍କ ବଲ୍ ଡିଆଁ ପ୍ରୟାସ (୬, ୨, ୯, ୫, ୪, ୬, ୩, ୫)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="sol-step"><span class="sol-step-label">୧. ପ୍ରଦତ୍ତ ତଥ୍ୟ:</span> ୬, ୨, ୯, ୫, ୪, ୬, ୩, ୫। ମୋଟ ପ୍ରୟାସ (N) = ୮।</div>
+            <div class="sol-step"><span class="sol-step-label">୨. ସୂତ୍ର:</span> ମାଧ୍ୟମାନ = ଡିଆଁ ସଂଖ୍ୟାର ସମଷ୍ଟି &divide; ମୋଟ ପ୍ରୟାସ ସଂଖ୍ୟା।</div>
+            <div class="sol-step"><span class="sol-step-label">୩. ଗଣନା:</span>
+              <div class="calc-box">
+                ସମଷ୍ଟି = ୬ + ୨ + ୯ + ୫ + ୪ + ୬ + ୩ + ୫ = ୪୦<br>
+                ମାଧ୍ୟମାନ = ୪୦ &divide; ୮ = <strong>୫ ଟି ଡିଆଁ</strong>
+              </div>
+            </div>
+            <div class="sol-step"><span class="sol-step-label">୪. ଉତ୍ତର:</span> ଶ୍ରେୟାସ ପ୍ରୟାସ ପିଛା ହାରାହାରି <strong>୫ ଥର</strong> ବଲ୍ ଡେଇଁବାରେ ସଫଳ ହୋଇଥିଲେ।</div>
+          </div>
+        </details>
+
+        <!-- Q4 -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୪: ନିଖିଲ ବନାମ ସୁନୀଲ୍ ୧୦୦ ମିଟର ଦୌଡ଼ (କିଏ ଅଧିକ ଦ୍ରୁତ ଥିଲେ?)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="sol-step"><span class="sol-step-label">ନିଖିଲଙ୍କ ସମୟ (ସେକେଣ୍ଡରେ):</span> ୧୭, ୧୮, ୧୭, ୧୬, ୧୯, ୧୭, ୧୮ (୭ ଥର)
+              <div class="calc-box">
+                ସମଷ୍ଟି = ୧୭ + ୧୮ + ୧୭ + ୧୬ + ୧୯ + ୧୭ + ୧୮ = ୧୨୨<br>
+                ନିଖିଲଙ୍କ ହାରାହାରି = ୧୨୨ &divide; ୭ &approx; <strong>୧୭.୪୩ ସେକେଣ୍ଡ</strong>
+              </div>
+            </div>
+            <div class="sol-step"><span class="sol-step-label">ସୁନୀଲଙ୍କ ସମୟ (ସେକେଣ୍ଡରେ):</span> ୨୦, ୧୮, ୧୮, ୧୭, ୧୬, ୧୬, ୧୭ (୭ ଥର)
+              <div class="calc-box">
+                ସମଷ୍ଟି = ୨୦ + ୧୮ + ୧୮ + ୧୭ + ୧୬ + ୧୬ + ୧୭ = ୧୨୨<br>
+                ସୁନୀଲଙ୍କ ହାରାହାରି = ୧୨୨ &divide; ୭ &approx; <strong>୧୭.୪୩ ସେକେଣ୍ଡ</strong>
+              </div>
+            </div>
+            <div class="sol-step"><span class="sol-step-label">ସିଦ୍ଧାନ୍ତ:</span> ଉଭୟ ସାଙ୍ଗଙ୍କ ହାରାହାରି ସମୟ ସମ୍ପୂର୍ଣ୍ଣ ସମାନ (<strong>୧୭.୪୩ ସେକେଣ୍ଡ</strong>)! କିନ୍ତୁ ସୁନୀଲ ସର୍ବାଧିକ ଦ୍ରୁତ ଏକକ ପ୍ରୟାସ (୧୬ ସେକେଣ୍ଡ ଦୁଇଥର) ଦେଇଥିବା ବେଳେ ସବୁଠାରୁ ମନ୍ଥର ପ୍ରୟାସ (୨୦ ସେକେଣ୍ଡ) ମଧ୍ୟ ଦେଇଥିଲେ।</div>
+          </div>
+        </details>
+
+        <!-- Q5 -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୫: କ୍ରମାଗତ ୬ ବର୍ଷରେ ବିଦ୍ୟାଳୟ ନାମଲେଖା</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="sol-step"><span class="sol-step-label">ତଥ୍ୟ:</span> ୧୫୫୫, ୧୬୭୦, ୧୭୫୦, ୨୦୧୩, ୨୦୪୦, ୨୧୨୬। ବର୍ଷ ସଂଖ୍ୟା = ୬।</div>
+            <div class="calc-box">
+              ସମଷ୍ଟି = ୧୫୫୫ + ୧୬୭୦ + ୧୭୫୦ + ୨୦୧୩ + ୨୦୪୦ + ୨୧୨୬ = ୧୧,୧୫୪<br>
+              ମାଧ୍ୟମାନ ନାମଲେଖା = ୧୧,୧୫୪ &divide; ୬ = <strong>୧୮୫୯ ଜଣ ଛାତ୍ରଛାତ୍ରୀ</strong>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Page 16 Figure it Out -->
+      <div class="card">
+        <h3 style="color: var(--primary); margin-bottom: 0.75rem;">ଚିନ୍ତା କରି ଉତ୍ତର ଦିଅ (Figure it Out — ପୃଷ୍ଠା ୧୬) &bull; ମଧ୍ୟମା, ପୋଷା ଜୀବ ଓ ପାମ୍ ଗଛ</h3>
+
+        <!-- Q1 & Q2 -->
+        <details class="ans-box" open>
+          <summary><span><strong>ପ୍ରଶ୍ନ ୧ ଓ ୨: ପିଆଜ ଦର ମଧ୍ୟମା ଏବଂ ସଂସ୍କୃତିଙ୍କ ଗୃହପାଳିତ ପ୍ରାଣୀ ସର୍ଭେକ୍ଷଣ</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>୧. ପିଆଜ ଦର ମଧ୍ୟମା:</strong> ମାସିକ ଦରକୁ ଆରୋହୀ କ୍ରମରେ ସଜାନ୍ତୁ। ଯେହେତୁ ୧୨ ମାସ (ଯୁଗ୍ମ), ତେଣୁ ୬ଷ୍ଠ ଏବଂ ୭ମ ମାନର ହାରାହାରି ହିଁ ମଧ୍ୟମା ହେବ।</p>
+
+            <p style="margin-top: 1rem;"><strong>୨. ସଂସ୍କୃତିଙ୍କ ତଥ୍ୟ (୨୦ ଜଣ ଛାତ୍ର):</strong> ୦, ୧, ୦, ୪, ୮, ୦, ୦, ୨, ୧, ୧, ୫, ୩, ୪, ୦, ୦, ୧୦, ୨୫, ୨, ୨, ୪।</p>
+            <div class="sol-step"><span class="sol-step-label">ବିଶ୍ଳେଷଣ:</span>
+              <div class="calc-box">
+                ସମଷ୍ଟି = ୭୨। ମାଧ୍ୟମାନ = ୭୨ &divide; ୨୦ = <strong>୩.୬ ଟି ପ୍ରାଣୀ</strong>।<br>
+                କ୍ରମରେ ସଜାଇଲେ: ୦, ୦, ୦, ୦, ୦, ୦, ୧, ୧, ୧, <strong>୨, ୨</strong>, ୨, ୩, ୪, ୪, ୪, ୫, ୮, ୧୦, ୨୫।<br>
+                ମଧ୍ୟମା = (୧୦ମ + ୧୧ଶ ମାନ) &divide; ୨ = (୨ + ୨) &divide; ୨ = <strong>୨ ଟି ପ୍ରାଣୀ</strong>।<br>
+                <strong>ବହିଃସ୍ଥ ମାନ (Outlier) ର ପ୍ରଭାବ:</strong> ୨୫ ଟି ପ୍ରାଣୀ (ଏକ ଫାର୍ମର ଅସ୍ୱାଭାବିକ ତଥ୍ୟ) ମାଧ୍ୟମାନକୁ ୩.୬ କୁ ବଢ଼ାଇ ଦେଇଛି, କିନ୍ତୁ ମଧ୍ୟମା (୨) ଏକ ସାଧାରଣ ଘରର ପ୍ରକୃତ ପ୍ରତିଛବି ପ୍ରଦାନ କରୁଛି!
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <!-- Q3 & Q4 -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୩ ଓ ୪: ହାବଡ଼ା ପାମ୍ ଗଛ ଉଚ୍ଚତା ଓ ଜଳ ବ୍ୟବହାର ସୀମାବଦ୍ଧତା</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>୩. ପାମ୍ ଗଛ ଉଚ୍ଚତା (୨୯ ଟି ଗଛ):</strong></p>
+            <div class="calc-box">
+              ସଜ୍ଜିତ ଉଚ୍ଚତା (ଫୁଟ୍): ୪୩, ୪୪, ୪୫, ୪୬, ୪୯, ୫୦, ୫୧, ୫୨, ୫୨, ୫୪, ୫୪, ୫୫, ୫୫, ୫୬, <strong>୫୬</strong>, ୫୭, ୫୮, ୫୯, ୬୦, ୬୦, ୬୦, ୬୦, ୬୧, ୬୧, ୬୨, ୬୩, ୬୫, ୬୬, ୬୭।<br>
+              ମୋଟ ସମଷ୍ଟି = ୧୬୪୫ ଫୁଟ୍। ଗଛ ସଂଖ୍ୟା = ୨୯।<br>
+              ମାଧ୍ୟମାନ = ୧୬୪୫ &divide; ୨୯ &approx; <strong>୫୬.୭୨ ଫୁଟ୍</strong>।<br>
+              ମଧ୍ୟମା (୧୫ତମ ମାନ) = <strong>୫୬ ଫୁଟ୍</strong>।<br>
+              ହାରାହାରି ଠାରୁ କମ୍ ଉଚ୍ଚତା ବିଶିଷ୍ଟ (&lt; ୫୬.୭୨ ଫୁଟ୍) ଗଛ ସଂଖ୍ୟା = ଠିକ୍ <strong>୧୫ ଟି ଗଛ</strong>।
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>୪. ଜଳ ବ୍ୟବହାର ସୀମାବଦ୍ଧତା:</strong> ତଥ୍ୟ: ୫.୬, ୮, ୩.୦୯, ୧୨.୯, ୬.୫, ୧୨.୧, ୧୧.୩, ୨୦.୫, ୭.୪ ଲିଟର।</p>
+            <div class="sol-step"><span class="sol-step-label">(କ) ମାଧ୍ୟମାନ ବା ମଧ୍ୟମା ୨୫ ରୁ ୩୦ ମଧ୍ୟରେ ରହିପାରିବ କି?</span>
+              <div class="calc-box">
+                <strong>କଦାପି ନୁହେଁ!</strong> ସର୍ବାଧିକ ବ୍ୟବହାର ହେଉଛି ୨୦.୫ ଲିଟର। ମାଧ୍ୟମାନ କିମ୍ବା ମଧ୍ୟମା କେବେହେଲେ ତଥ୍ୟର ସର୍ବାଧିକ ମାନକୁ ଅତିକ୍ରମ କରିପାରିବ ନାହିଁ!
+              </div>
+            </div>
+            <div class="sol-step"><span class="sol-step-label">(ଖ) ସାର୍ବଜନୀନ ନିୟମ:</span>
+              <p>ଯେକୌଣସି ତଥ୍ୟାବଳୀ ପାଇଁ: <strong>ସର୍ବନିମ୍ନ ମାନ &le; ମଧ୍ୟମା &le; ସର୍ବାଧିକ ମାନ</strong> ଏବଂ <strong>ସର୍ବନିମ୍ନ ମାନ &le; ମାଧ୍ୟମାନ &le; ସର୍ବାଧିକ ମାନ</strong>। କେନ୍ଦ୍ରୀୟ ପ୍ରବୃତ୍ତିର ମାନ ସର୍ବଦା ତଥ୍ୟର ସୀମା ଭିତରେ ହିଁ ଆବଦ୍ଧ ରହେ।</p>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Page 26 Figure it Out -->
+      <div class="card">
+        <h3 style="color: var(--primary); margin-bottom: 0.75rem;">ଚିନ୍ତା କରି ଉତ୍ତର ଦିଅ (Figure it Out — ପୃଷ୍ଠା ୨୬) &bull; କ୍ରିକେଟ୍ ରନ୍ ଦ୍ୱି-ସ୍ତମ୍ଭ ଲେଖଚିତ୍ର</h3>
+        <details class="ans-box" open>
+          <summary><span><strong>ପ୍ରତି ଓଭରରେ କ୍ରିକେଟ୍ ରନ୍ ଗ୍ରାଫ୍ ବିଶ୍ଳେଷଣ</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="calc-box">
+              ୧. <strong>ପ୍ରଥମେ ବ୍ୟାଟିଂ କରିଥିବା ଦଳ:</strong> ନୀଳ ଦଳ (Blue Team)।<br>
+              ୨. <strong>୧୨ଶ ଓଭରରେ ନୀଳ ଦଳର ରନ୍:</strong> ୧୨ଶ ଓଭର ଉପରେ ଥିବା ନୀଳ ସ୍ତମ୍ଭର ଉଚ୍ଚତା ଦେଖି ସହଜରେ ପଢ଼ିହେବ।<br>
+              ୩. <strong>ଲାଲ୍ ଦଳର ସର୍ବନିମ୍ନ ରନ୍ ଓଭର:</strong> ସବୁଠାରୁ ଛୋଟ ଲାଲ୍ ସ୍ତମ୍ଭ ଥିବା ଓଭର।<br>
+              ୪. <strong>ବିଜୟୀ ଦଳ:</strong> ୨୦ ଓଭର ଶେଷରେ ଯେଉଁ ଦଳର ମୋଟ ସ୍ତମ୍ଭ ଉଚ୍ଚତାର ସମଷ୍ଟି ଅଧିକ ଥିଲା।
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Page 33-36 End-of-Chapter Master Problems -->
+      <div class="card">
+        <h3 style="color: var(--primary); margin-bottom: 0.75rem;">ଅଧ୍ୟାୟ ଶେଷ ମାଷ୍ଟର ଅଭ୍ୟାସ ପ୍ରଶ୍ନାବଳୀ (ପୃଷ୍ଠା ୩୩-୩୬, ପ୍ରଶ୍ନ ୧ ରୁ ୧୦)</h3>
+
+        <!-- Q1 Clothing Pockets -->
+        <details class="ans-box" open>
+          <summary><span><strong>ପ୍ରଶ୍ନ ୧: ପୋଷାକରେ ପକେଟ୍ ସଂଖ୍ୟାର ବିନ୍ଦୁ ଲେଖଚିତ୍ର (ବାଳକ ବନାମ ବାଳିକା)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="calc-box">
+              &bull; ବାଳକମାନଙ୍କ ପୋଷାକରେ ସାଧାରଣତଃ ୨ ରୁ ୭ଟି ପକେଟ୍ ଥାଏ (ଅଧିକ ବିସ୍ତାର ଓ ଉଚ୍ଚତର ସର୍ବାଧିକ ମାନ)।<br>
+              &bull; ବାଳିକାମାନଙ୍କ ପୋଷାକରେ ୦ ରୁ ୪ଟି ପକେଟ୍ ଥାଏ (୦ ଓ ୨ ପାଖରେ କେନ୍ଦ୍ରୀଭୂତ)।<br>
+              ସତ୍ୟ ଉକ୍ତିଗୁଡ଼ିକ:<br>
+              <strong>(a) ବାଳକମାନଙ୍କ ତଥ୍ୟରେ ବିବିଧତା ବା ପରିସର ଅଧିକ &check;</strong><br>
+              <strong>(b) ବାଳକମାନଙ୍କ ପକେଟ୍ ସଂଖ୍ୟାର ମଧ୍ୟମା ବାଳିକାମାନଙ୍କ ଠାରୁ ଅଧିକ &check;</strong><br>
+              <strong>(d) ବାଳକମାନଙ୍କ ସର୍ବାଧିକ ପକେଟ୍ ସଂଖ୍ୟା ବାଳିକାମାନଙ୍କ ଠାରୁ ଅଧିକ &check;</strong>
+            </div>
+          </div>
+        </details>
+
+        <!-- Q2 Player Points -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୨: ୪ଟି ଖେଳରେ ଖେଳାଳିମାନଙ୍କ ସ୍କୋର ବିଶ୍ଳେଷଣ</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>(କ) ଖେଳାଳି A ଙ୍କ ହାରାହାରି ସ୍କୋର:</strong></p>
+            <div class="calc-box">A ଙ୍କ ସ୍କୋର: ୧୪, ୧୬, ୧୦, ୧୦ &rArr; ମାଧ୍ୟମାନ = (୧୪ + ୧୬ + ୧୦ + ୧୦) &divide; ୪ = ୫୦ &divide; ୪ = <strong>୧୨.୫ ପଏଣ୍ଟ</strong>।</div>
+
+            <p style="margin-top: 1rem;"><strong>(ଖ) ଖେଳାଳି C ବନାମ B ର ହାରାହାରି ନିର୍ଣ୍ଣୟ:</strong></p>
+            <div class="calc-box">
+              &bull; <strong>ଖେଳାଳି C:</strong> ଖେଳ ୩ ଖେଳି ନାହାନ୍ତି। ତେଣୁ ସମଷ୍ଟିକୁ <strong>୩</strong> ଦ୍ୱାରା ଭାଗ କରାଯିବ! ମାଧ୍ୟମାନ = (୮ + ୧୧ + ୧୩) &divide; ୩ = ୩୨ &divide; ୩ &approx; <strong>୧୦.୬୭ ପଏଣ୍ଟ</strong>।<br>
+              &bull; <strong>ଖେଳାଳି B:</strong> ସମସ୍ତ ୪ଟି ଖେଳ ଖେଳିଛନ୍ତି ଏବଂ ଖେଳ ୧ ରେ ୦ ରନ୍ କରିଛନ୍ତି। ଏଠାରେ <strong>୪</strong> ଦ୍ୱାରା ଭାଗ କରାଯିବ କାରଣ ୦ ଏକ ବୈଧ ସ୍କୋର! ମାଧ୍ୟମାନ = (୦ + ୮ + ୬ + ୪) &divide; ୪ = ୧୮ &divide; ୪ = <strong>୪.୫ ପଏଣ୍ଟ</strong>।
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>(ଗ) ସର୍ବୋତ୍ତମ ପ୍ରଦର୍ଶନକାରୀ କିଏ?</strong></p>
+            <p><strong>ଖେଳାଳି A</strong> ହେଉଛନ୍ତି ସର୍ବୋତ୍ତମ ପ୍ରଦର୍ଶନକାରୀ, ଯାହାଙ୍କର ହାରାହାରି ସ୍କୋର ସର୍ବାଧିକ (<strong>୧୨.୫ ପଏଣ୍ଟ</strong>)।</p>
+          </div>
+        </details>
+
+        <!-- Q3 GK Quiz -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୩: ସାଧାରଣ ଜ୍ଞାନ କୁଇଜ୍ ମାର୍କ ତୁଳନା (ଗୋଷ୍ଠୀ ୧ ବନାମ ଗୋଷ୍ଠୀ ୨)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>ଗୋଷ୍ଠୀ ୧ (୧୦ ଜଣ ଛାତ୍ର):</strong> ୮୫, ୭୬, ୯୦, ୮୫, ୩୯, ୪୮, ୫୬, ୯୫, ୮୧, ୭୫।</p>
+            <div class="calc-box">
+              ସମଷ୍ଟି = ୭୩୦ &rArr; ମାଧ୍ୟମାନ = ୭୩୦ &divide; ୧୦ = <strong>୭୩.୦</strong><br>
+              କ୍ରମ: ୩୯, ୪୮, ୫୬, ୭୫, ୭୬, ୮୧, ୮୫, ୮୫, ୯୦, ୯୫।<br>
+              ମଧ୍ୟମା = (୭୬ + ୮୧) &divide; ୨ = <strong>୭୮.୫</strong>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>ଗୋଷ୍ଠୀ ୨ (୯ ଜଣ ଛାତ୍ର):</strong> ୬୮, ୫୯, ୭୩, ୮୬, ୪୭, ୭୯, ୯୦, ୯୩, ୮୬।</p>
+            <div class="calc-box">
+              ସମଷ୍ଟି = ୬୮୧ &rArr; ମାଧ୍ୟମାନ = ୬୮୧ &divide; ୯ = <strong>୭୫.୬୭</strong><br>
+              କ୍ରମ: ୪୭, ୫୯, ୬୮, ୭୩, <strong>୭୯</strong>, ୮୬, ୮୬, ୯୦, ୯୩।<br>
+              ମଧ୍ୟମା = <strong>୭୯.୦</strong>
+            </div>
+            <p><strong>ସିଦ୍ଧାନ୍ତ:</strong> ଗୋଷ୍ଠୀ ୨ ର ପ୍ରଦର୍ଶନ ଉତ୍କୃଷ୍ଟ, କାରଣ ଏହାର ଉଭୟ ମାଧ୍ୟମାନ (୭୫.୬୭ &gt; ୭୩.୦) ଏବଂ ମଧ୍ୟମା (୭୯.୦ &gt; ୭୮.୫) ଅଧିକ।</p>
+          </div>
+        </details>
+
+        <!-- Q4 Colony Sports Double Bar Graph -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୪: କଲୋନୀ ଖେଳକୁଦ ସର୍ଭେକ୍ଷଣ (ଦେଖିବା ବନାମ ଭାଗ ନେବା)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <table class="math-table">
+              <thead>
+                <tr>
+                  <th>ଖେଳ</th>
+                  <th>ଦେଖୁଥିବା ଲୋକ</th>
+                  <th>ଅଂଶଗ୍ରହଣ କରୁଥିବା ଲୋକ</th>
+                  <th>ଅନୁପାତ (ଦେଖିବା : ଖେଳିବା)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>କ୍ରିକେଟ୍</td><td>୧୨୪୦</td><td>୬୨୦</td><td>୨.୦୦ : ୧</td></tr>
+                <tr><td>ବାସ୍କେଟବଲ୍</td><td>୪୭୦</td><td>୩୨୦</td><td>୧.୪୭ : ୧</td></tr>
+                <tr><td>ସନ୍ତରଣ (Swimming)</td><td>୫୧୦</td><td>୩୨୦</td><td>୧.୫୯ : ୧</td></tr>
+                <tr><td>ହକି</td><td>୪୩୦</td><td>୨୫୦</td><td>୧.୭୨ : ୧</td></tr>
+                <tr><td>ଆଥଲେଟିକ୍ସ</td><td>୨୫୦</td><td>୧୦୫</td><td>୨.୩୮ : ୧</td></tr>
+              </tbody>
+            </table>
+            <div class="calc-box">
+              <strong>ପର୍ଯ୍ୟବେକ୍ଷଣ:</strong><br>
+              ୧. କ୍ରିକେଟ୍ ଉଭୟ ଦେଖିବା (୧୨୪୦) ଏବଂ ଖେଳିବା (୬୨୦) ରେ ସର୍ବାଧିକ ଲୋକପ୍ରିୟ।<br>
+              ୨. ପ୍ରତ୍ୟେକ ଖେଳରେ ଅଂଶଗ୍ରହଣ ଠାରୁ ଦେଖିବା ଲୋକଙ୍କ ସଂଖ୍ୟା ବହୁତ ଅଧିକ।<br>
+              ୩. ଆଥଲେଟିକ୍ସରେ ସବୁଠାରୁ କମ୍ ଅଂଶଗ୍ରହଣକାରୀ (୧୦୫) ଅଛନ୍ତି।
+            </div>
+          </div>
+        </details>
+
+        <!-- Q5 Partitioning 17 Students by Median -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୫: ଉଚ୍ଚତା ଅନୁସାରେ ୧୭ ଜଣ ଛାତ୍ରଙ୍କୁ ଦୁଇଟି ସମାନ ଦଳରେ ବିଭକ୍ତ କରିବା</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="sol-step"><span class="sol-step-label">ପଦ୍ଧତି:</span> ୧୭ ଜଣଙ୍କ ଉଚ୍ଚତାର <strong>ମଧ୍ୟମା (Median)</strong> ନିର୍ଣ୍ଣୟ କରନ୍ତୁ!
+              <div class="calc-box">
+                କ୍ରମାନୁସାରେ ସଜ୍ଜିତ ଉଚ୍ଚତା (୧୭ ଟି ମାନ):<br>
+                ୧୦୧, ୧୦୨, ୧୦୬, ୧୦୯, ୧୧୦, ୧୧୦, ୧୧୨, ୧୧୫, <strong>୧୧୫</strong>, ୧୧୫, ୧୧୫, ୧୧୫, ୧୧୭, ୧୨୦, ୧୨୦, ୧୨୩, ୧୨୫ cm।<br>
+                ମଧ୍ୟମା = ୯ମ ମାନ = <strong>୧୧୫ cm</strong>।
+              </div>
+            </div>
+            <p>
+              &le; ୧୧୫ cm ଉଚ୍ଚତା ବିଶିଷ୍ଟ ଛାତ୍ର ଗୋଷ୍ଠୀ ‘କ’ ଏବଂ &ge; ୧୧୫ cm ଛାତ୍ର ଗୋଷ୍ଠୀ ‘ଖ’ ରେ ରହିବେ।
+              WHO ମାନକ ଅନୁସାରେ ହାରାହାରି ୧୧୫ cm ଉଚ୍ଚତା ବିଶିଷ୍ଟ ପିଲାମାନେ ସାଧାରଣତଃ <strong>୬ ରୁ ୭ ବର୍ଷ ବୟସ୍କ (ପ୍ରଥମ-ଦ୍ୱିତୀୟ ଶ୍ରେଣୀ)</strong> ହୋଇଥାନ୍ତି!
+            </p>
+          </div>
+        </details>
+
+        <!-- Q7 Section Heights MCQ -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୭: ସପ୍ତମ ଶ୍ରେଣୀର ଦୁଇଟି ସେକ୍ସନର ମାଧ୍ୟମାନ ଉଚ୍ଚତା (MCQ)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p>ଗୋଟିଏ ସେକ୍ସନର ହାରାହାରି ଉଚ୍ଚତା ୧୫୪.୨ cm। ଅନ୍ୟ ସେକ୍ସନ ବିଷୟରେ କ’ଣ କୁହାଯାଇପାରିବ?</p>
+            <div class="calc-box">
+              ପ୍ରତ୍ୟେକ ସେକ୍ସନରେ ଭିନ୍ନ ଭିନ୍ନ ଉଚ୍ଚତାର ଛାତ୍ରଛାତ୍ରୀ ଥାଆନ୍ତି।<br>
+              ସେକ୍ସନ ‘କ’ ର ହାରାହାରି ଜାଣି ସେକ୍ସନ ‘ଖ’ ର ହାରାହାରି ବିଷୟରେ କୌଣସି ନିଶ୍ଚିତ ସିଦ୍ଧାନ୍ତ ନିଆଯାଇପାରିବ ନାହିଁ।<br>
+              ସଠିକ୍ ବିକଳ୍ପ: <strong>(d) ଅନ୍ୟ ସେକ୍ସନର ଛାତ୍ରମାନଙ୍କ ମାଧ୍ୟମାନ ଉଚ୍ଚତା ନିର୍ଣ୍ଣୟ କରାଯାଇପାରିବ ନାହିଁ</strong>।
+            </div>
+          </div>
+        </details>
+
+        <!-- Q10 Aditi Sudoku Dot Plot -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୧୦: ଅଦିତିଙ୍କ ସୁଡୋକୁ ସମାଧାନ ସମୟର ବିନ୍ଦୁ ଲେଖଚିତ୍ର (ସପ୍ତାହ ୧ ବନାମ ସପ୍ତାହ ୨)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>ସପ୍ତାହ ୧ (୯ ଟି ମାନ, ସେକେଣ୍ଡରେ):</strong> ୪୧୦, ୪୦୦, ୩୭୦, ୩୪୦, ୩୬୦, ୪୦୦, ୩୨୦, ୩୩୦, ୩୧୦।</p>
+            <div class="calc-box">
+              ସମଷ୍ଟି = ୩୨୪୦ &rArr; ସପ୍ତାହ ୧ ମାଧ୍ୟମାନ = ୩୨୪୦ &divide; ୯ = <strong>୩୬୦ ସେକେଣ୍ଡ</strong> (୬ ମିନିଟ୍)।<br>
+              କ୍ରମ: ୩୧୦, ୩୨୦, ୩୩୦, ୩୪୦, <strong>୩୬୦</strong>, ୩୭୦, ୪୦୦, ୪୦୦, ୪୧୦। ମଧ୍ୟମା = <strong>୩୬୦ ସେକେଣ୍ଡ</strong>।
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>ସପ୍ତାହ ୨ (୮ ଟି ମାନ, ସେକେଣ୍ଡରେ):</strong> ୩୨୦, ୨୯୦, ୩୮୦, ୨୮୦, ୨୭୦, ୨୩୦, ୨୨୦, ୨୪୦।</p>
+            <div class="calc-box">
+              ସମଷ୍ଟି = ୨୨୩୦ &rArr; ସପ୍ତାହ ୨ ମାଧ୍ୟମାନ = ୨୨୩୦ &divide; ୮ = <strong>୨୭୮.୭୫ ସେକେଣ୍ଡ</strong> (ପ୍ରାୟ ୪.୬ ମିନିଟ୍)।<br>
+              କ୍ରମ: ୨୨୦, ୨୩୦, ୨୪୦, <strong>୨୭୦, ୨୮୦</strong>, ୨୯୦, ୩୨୦, ୩୮୦।<br>
+              ମଧ୍ୟମା = (୨୭୦ + ୨୮୦) &divide; ୨ = <strong>୨୭୫ ସେକେଣ୍ଡ</strong>।
+            </div>
+            <p>
+              <strong>ପର୍ଯ୍ୟବେକ୍ଷଣ:</strong> ଅଦିତିଙ୍କ ପ୍ରଦର୍ଶନରେ ଚମତ୍କାର ଉନ୍ନତି ଘଟିଛି! ଅଭ୍ୟାସ ହେତୁ ତାଙ୍କର ହାରାହାରି ସମାଧାନ ସମୟ ୮୧ ସେକେଣ୍ଡରୁ ଅଧିକ ହ୍ରାସ ପାଇଛି।
+            </p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 5: INTERACTIVE QUIZ ================= -->
+    <section id="quiz-section">
+      <h2 class="section-title"><i class="fa-solid fa-circle-question"></i> ବିଭାଗ ୫: ଇଣ୍ଟରାକ୍ଟିଭ୍ ପରୀକ୍ଷା କୁଇଜ୍ (Interactive Mastery Quiz)</h2>
+
+      <div class="card" style="background: var(--primary-light); border-color: #bae6fd;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <h3 style="color: var(--primary-dark); margin: 0;"><i class="fa-solid fa-trophy"></i> ଆପଣଙ୍କ ମୋଟ ସ୍କୋର: <span id="quizScoreCount">0</span> / 5</h3>
+          <span id="quizTeacherMsg" style="font-weight: 700; color: var(--dark);">ଉତ୍ତର ବାଛି ଆପଣଙ୍କ ଜ୍ଞାନ ପରୀକ୍ଷା କରନ୍ତୁ!</span>
+        </div>
+      </div>
+
+      <!-- Quiz Q1 -->
+      <div class="quiz-card" id="qcard1">
+        <div class="quiz-q-title">୧. ପ୍ରଥମ ୫ଟି ମୌଳିକ ସଂଖ୍ୟା (୨, ୩, ୫, ୭, ୧୧) ର ମାଧ୍ୟମାନ କେତେ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+            <span>(କ) ୫.୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+            <span>(ଖ) ୫.୬</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+            <span>(ଗ) ୬.୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+            <span>(ଘ) ୨୮</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary><span>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା ଦେଖନ୍ତୁ</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଖ) ୫.୬</strong><br>
+            ବ୍ୟାଖ୍ୟା: ସମଷ୍ଟି = ୨ + ୩ + ୫ + ୭ + ୧୧ = ୨୮। ମାଧ୍ୟମାନ = ୨୮ &divide; ୫ = ୫.୬।
+          </div>
+        </details>
+      </div>
+
+      <!-- Quiz Q2 -->
+      <div class="quiz-card" id="qcard2">
+        <div class="quiz-q-title">୨. ଭାସ୍କରାଚାର୍ଯ୍ୟ (୧୧୫୦ ଖ୍ରୀଷ୍ଟାବ୍ଦ) ଗାଣିତିକ ହାରାହାରି ପାଇଁ କେଉଁ ସଂସ୍କୃତ ଶବ୍ଦ ବ୍ୟବହାର କରିଥିଲେ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+            <span>(କ) ସମମିତି (Samamiti)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+            <span>(ଖ) ସମରଜ୍ଜୁ (Samarajju)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+            <span>(ଗ) ସମୀକରଣ (Samikarana)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+            <span>(ଘ) ସାମ୍ୟ (Samya)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary><span>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା ଦେଖନ୍ତୁ</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (କ) ସମମିତି (Samamiti)</strong><br>
+            ବ୍ୟାଖ୍ୟା: ଭାସ୍କରାଚାର୍ଯ୍ୟ ଏବଂ ଗଣେଶ ହାରାହାରି ମାପ ପାଇଁ ‘ସମମିତି’ (ସମାନ ମାପ) ଶବ୍ଦ ବ୍ୟବହାର କରିଥିଲେ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Quiz Q3 -->
+      <div class="quiz-card" id="qcard3">
+        <div class="quiz-q-title">୩. ୧୪, ୮, ୨୨, ୧୦, ୧୯, ୧୨ ତଥ୍ୟାବଳୀର ମଧ୍ୟମା (Median) କେତେ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')">
+            <span>(କ) ୧୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')">
+            <span>(ଖ) ୧୩</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')">
+            <span>(ଗ) ୧୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')">
+            <span>(ଘ) ୧୪.୧୬</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary><span>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା ଦେଖନ୍ତୁ</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଖ) ୧୩</strong><br>
+            ବ୍ୟାଖ୍ୟା: ଆରୋହୀ କ୍ରମ: ୮, ୧୦, ୧୨, ୧୪, ୧୯, ୨୨। ୬ଟି ସଂଖ୍ୟା ଥିବାରୁ ମଝିର ଦୁଇଟି ମାନ ୧୨ ଓ ୧୪ ର ମାଧ୍ୟମାନ = (୧୨ + ୧୪) &divide; ୨ = ୧୩।
+          </div>
+        </details>
+      </div>
+
+      <!-- Quiz Q4 -->
+      <div class="quiz-card" id="qcard4">
+        <div class="quiz-q-title">୪. ଏକ ଅସ୍ୱାଭାବିକ ଚରମ ମାନ ବା ବହିଃସ୍ଥ ମାନ (Outlier) ଦ୍ୱାରା କେନ୍ଦ୍ରୀୟ ପ୍ରବୃତ୍ତିର କେଉଁ ମାପ ସବୁଠାରୁ କମ୍ ପ୍ରଭାବିତ ହୁଏ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')">
+            <span>(କ) ମାଧ୍ୟମାନ (Arithmetic Mean)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')">
+            <span>(ଖ) ମଧ୍ୟମା (Median)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')">
+            <span>(ଗ) ପରିସର (Range)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')">
+            <span>(ଘ) ମୋଟ ଯୋଗଫଳ (Total Sum)</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary><span>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା ଦେଖନ୍ତୁ</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଖ) ମଧ୍ୟମା (Median)</strong><br>
+            ବ୍ୟାଖ୍ୟା: ମଧ୍ୟମା କେବଳ ଭୌତିକ ମଧ୍ୟବର୍ତ୍ତୀ କ୍ରମ ଉପରେ ନିର୍ଭର କରେ, ତେଣୁ ଶେଷ ଆଡ଼େ ଥିବା ଅସ୍ୱାଭାବିକ ବଡ଼ ବା ଛୋଟ ମାନ ଦ୍ୱାରା ଏହା ବିଚଳିତ ହୁଏ ନାହିଁ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Quiz Q5 -->
+      <div class="quiz-card" id="qcard5">
+        <div class="quiz-q-title">୫. ଯଦି ଏକ ତଥ୍ୟାବଳୀର ସର୍ବାଧିକ ମାନ ୪୮ ଏବଂ ପରିସର (Range) ୨୯ ହୁଏ, ତେବେ ସର୍ବନିମ୍ନ ମାନ କେତେ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+            <span>(କ) ୧୯</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+            <span>(ଖ) ୭୭</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+            <span>(ଗ) ୨୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+            <span>(ଘ) ୨୯</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary><span>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା ଦେଖନ୍ତୁ</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (କ) ୧୯</strong><br>
+            ବ୍ୟାଖ୍ୟା: ପରିସର = ସର୍ବାଧିକ ମାନ &minus; ସର୍ବନିମ୍ନ ମାନ &rArr; ୨୯ = ୪୮ &minus; ସର୍ବନିମ୍ନ ମାନ &rArr; ସର୍ବନିମ୍ନ ମାନ = ୪୮ &minus; ୨୯ = ୧୯।
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 6: PITFALLS & RAPID REVISION ================= -->
+    <section id="rapid-revision">
+      <h2 class="section-title"><i class="fa-solid fa-bolt"></i> ବିଭାଗ ୬: ପରୀକ୍ଷା ତ୍ରୁଟି ଓ ୧୫ଟି ଦ୍ରୁତ ପୁନରୀକ୍ଷଣ ତଥ୍ୟ (Pitfalls &amp; Revision)</h2>
+
+      <!-- Pitfalls -->
+      <div class="card">
+        <h3 style="color: var(--danger); margin-bottom: 0.75rem;"><i class="fa-solid fa-triangle-exclamation"></i> ଛାତ୍ରଛାତ୍ରୀ କରୁଥିବା ୪ଟି ସାଧାରଣ ପରୀକ୍ଷା ଭୁଲ୍</h3>
+        
+        <div class="callout callout-warn">
+          <strong>ଭୁଲ୍ ୧: ମଧ୍ୟମା ବାହାର କରିବା ପୂର୍ବରୁ ସଂଖ୍ୟାଗୁଡ଼ିକୁ କ୍ରମରେ ନସଜାଇବା।</strong><br>
+          ଯେକୌଣସି ତଥ୍ୟାବଳୀର ମଧ୍ୟମା ନିର୍ଣ୍ଣୟ କରିବା ପୂର୍ବରୁ ସର୍ବପ୍ରଥମେ ତାହାକୁ ଆରୋହୀ (ବା ଅବରୋହୀ) କ୍ରମରେ ସଜାଇବା ବାଧ୍ୟତାମୂଳକ।
+        </div>
+
+        <div class="callout callout-warn">
+          <strong>ଭୁଲ୍ ୨: ୦ (ଶୂନ) ସ୍କୋର ଥିଲେ ତାହାକୁ ଗଣନାରୁ ବାଦ୍ ଦେବା।</strong><br>
+          ଯଦି କୌଣସି ଖେଳାଳି ୪ଟି ଖେଳ ଖେଳି ଗୋଟିଏରେ ୦ ରନ୍ କରନ୍ତି, ତଥାପି ହାରାହାରି ବାହାର କରିବା ବେଳେ ୪ ଦ୍ୱାରା ହିଁ ଭାଗ କରିବାକୁ ହେବ, ୩ ଦ୍ୱାରା ନୁହେଁ।
+        </div>
+
+        <div class="callout callout-warn">
+          <strong>ଭୁଲ୍ ୩: ବହିଃସ୍ଥ ମାନ ଥିବା ବେଳେ ମାଧ୍ୟମାନ ଉପରେ ଅନ୍ଧଭାବେ ନିର୍ଭର କରିବା।</strong><br>
+          ଦରମା ବା ଆୟ ତଥ୍ୟରେ କୋଟିପତି ବ୍ୟକ୍ତିଙ୍କ ଉପସ୍ଥିତି ମାଧ୍ୟମାନକୁ ଅସ୍ୱାଭାବିକ ଭାବେ ବଢ଼ାଇଦିଏ। ଏପରି ସ୍ଥଳେ ମଧ୍ୟମା (Median) ହିଁ ପ୍ରକୃତ ପ୍ରତିନିଧି।
+        </div>
+
+        <div class="callout callout-warn">
+          <strong>ଭୁଲ୍ ୪: ମାଧ୍ୟମାନ ସର୍ବଦା ତଥ୍ୟରେ ଥିବା ଏକ ସଂଖ୍ୟା ହେବ ବୋଲି ଭାବିବା।</strong><br>
+          ମାଧ୍ୟମାନ ଏକ ଦଶମିକ ବା ଭଗ୍ନାଂଶ ହୋଇପାରେ ଯାହା ମୂଳ ତଥ୍ୟାବଳୀରେ ଆଦୌ ନଥାଇପାରେ (ଯଥା: ୨ ଓ ୪ ର ମାଧ୍ୟମାନ ୩, କିନ୍ତୁ ୨ ଓ ୫ ର ମାଧ୍ୟମାନ ୩.୫)।
+        </div>
+      </div>
+
+      <!-- 15 Rapid Revision Points -->
+      <div class="card">
+        <h3 style="color: var(--primary-dark); margin-bottom: 0.75rem;"><i class="fa-solid fa-list-ol"></i> ୧୫ଟି ଦ୍ରୁତ ପୁନରୀକ୍ଷଣ ଏକ-ପଦୀ ତଥ୍ୟ (15 Rapid One-Liners)</h3>
+        
+        <div class="revision-grid">
+          <div class="revision-item">
+            <span class="rev-num">୧</span>
+            <span>ମାଧ୍ୟମାନ = ସମସ୍ତ ପର୍ଯ୍ୟବେକ୍ଷଣର ଯୋଗଫଳ &divide; ପର୍ଯ୍ୟବେକ୍ଷଣ ସଂଖ୍ୟା।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୨</span>
+            <span>ମଧ୍ୟମା ହେଉଛି ଆରୋହୀ କ୍ରମରେ ସଜ୍ଜିତ ତଥ୍ୟାବଳୀର ଠିକ୍ ମଝି ମାନ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୩</span>
+            <span>ପର୍ଯ୍ୟବେକ୍ଷଣ ସଂଖ୍ୟା N ଅଯୁଗ୍ମ ହେଲେ ମଧ୍ୟମା = ((N+୧)/୨) ତମ ପଦ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୪</span>
+            <span>ପର୍ଯ୍ୟବେକ୍ଷଣ ସଂଖ୍ୟା N ଯୁଗ୍ମ ହେଲେ ମଧ୍ୟମା = (N/୨) ତମ ଏବଂ ((N/୨)+୧) ତମ ପଦର ହାରାହାରି।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୫</span>
+            <span>ପରିସର (Range) = ସର୍ବାଧିକ ମାନ &minus; ସର୍ବନିମ୍ନ ମାନ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୬</span>
+            <span>ସର୍ବଦା ସର୍ବନିମ୍ନ ମାନ &le; ମାଧ୍ୟମାନ &le; ସର୍ବାଧିକ ମାନ ହୋଇଥାଏ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୭</span>
+            <span>ସର୍ବଦା ସର୍ବନିମ୍ନ ମାନ &le; ମଧ୍ୟମା &le; ସର୍ବାଧିକ ମାନ ହୋଇଥାଏ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୮</span>
+            <span>ବହିଃସ୍ଥ ମାନ (Outlier) ମାଧ୍ୟମାନକୁ ଯଥେଷ୍ଟ ପ୍ରଭାବିତ କରେ କିନ୍ତୁ ମଧ୍ୟମାକୁ ନୁହେଁ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୯</span>
+            <span>କବାଟ କିମ୍ବା ବ୍ରିଜ୍ ଉଚ୍ଚତା ନିର୍ଣ୍ଣୟ ପାଇଁ ମାଧ୍ୟମାନ ନୁହେଁ, ସର୍ବାଧିକ ମାନ ଦରକାର।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୧୦</span>
+            <span>ବିନ୍ଦୁ ଲେଖଚିତ୍ର (Dot Plot) ରେ ସର୍ବାଧିକ ଉଚ୍ଚ ବିନ୍ଦୁ ସ୍ତମ୍ଭକୁ ଶିଖର (Peak) କୁହାଯାଏ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୧୧</span>
+            <span>ଦ୍ୱି-ସ୍ତମ୍ଭ ଲେଖଚିତ୍ର ଦୁଇଟି ସମ୍ପର୍କିତ ତଥ୍ୟକୁ ଏକ ସମୟରେ ତୁଳନା କରିବାରେ ସାହାଯ୍ୟ କରେ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୧୨</span>
+            <span>ପ୍ରାଚୀନ ଭାରତରେ ହାରାହାରିକୁ ଭାସ୍କରାଚାର୍ଯ୍ୟ "ସମମିତି" ବୋଲି ନାମିତ କରିଥିଲେ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୧୩</span>
+            <span>ବ୍ରହ୍ମଗୁପ୍ତ (୬୨୮ ଖ୍ରୀଷ୍ଟାବ୍ଦ) ସମତୁଲତା ପାଇଁ "ସମରଜ୍ଜୁ" ଶବ୍ଦ ବ୍ୟବହାର କରିଥିଲେ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୧୪</span>
+            <span>ମହାବୀରାଚାର୍ଯ୍ୟ ହାରାହାରି ପ୍ରକ୍ରିୟାକୁ "ସମୀକରଣ" ଭାବେ ବର୍ଣ୍ଣନା କରିଥିଲେ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୧୫</span>
+            <span>ଇଉରୋପରେ ୧୬ ଜଣ ବ୍ୟକ୍ତିଙ୍କ ପାଦ ଯୋଡ଼ି ହାରାହାରି ୧ ଫୁଟ୍ ମାପ ନିର୍ଦ୍ଧାରଣ କରାଯାଇଥିଲା।</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="ଉପରକୁ ଯାଆନ୍ତୁ">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; ୨୦୨୬ ସୁଜିତ୍ କ୍ଲାସେସ୍ (Sujit Classes) &bull; ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ପ୍ରକାଶ ମାଷ୍ଟର ସିରିଜ୍।</p>
+    <p style="margin-top: 0.5rem; font-size: 0.82rem; color: #64748b;">NEP ମାର୍ଗଦର୍ଶିକା, NCERT ପାଠ୍ୟକ୍ରମ ଏବଂ ଉଚ୍ଚ-ଦକ୍ଷତା ସମ୍ପନ୍ନ ୱେବ୍ ଡିଜାଇନ୍ ଅନୁସରଣରେ ନିର୍ମିତ।</p>
+  </footer>
+
+  <script>
+    // 1. Reading Progress Bar & Back to Top
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTop');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.style.display = 'flex';
+        } else {
+          btt.style.display = 'none';
+        }
+      }
+    });
+
+    // 2. Audio Reader (Text-to-Speech)
+    var speechActive = false;
+    function toggleAudioSummary() {
+      var btn = document.getElementById('audioSummaryBtn');
+      if (!speechActive) {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          var text = "ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୧୩: ବିନ୍ଦୁ ସଂଯୋଗ, ତଥ୍ୟ ପରିଚାଳନାରେ ଆପଣଙ୍କୁ ସ୍ୱାଗତ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ କେନ୍ଦ୍ରୀୟ ପ୍ରବୃତ୍ତିର ମାପ ଯଥା ମାଧ୍ୟମାନ, ମଧ୍ୟମା ଏବଂ ପରିସର ବିଷୟରେ ଶିଖିବା। ମାଧ୍ୟମାନ ହେଉଛି ସମସ୍ତ ତଥ୍ୟର ସମାନ ସ୍ତରୀକରଣ। ମଧ୍ୟମା କ୍ରମାନୁସାରେ ସଜ୍ଜିତ ତଥ୍ୟର ମଝି ମାନ ହୋଇଥିବାରୁ ଏହା ବହିଃସ୍ଥ ମାନ ଦ୍ୱାରା ପ୍ରଭାବିତ ହୁଏ ନାହିଁ। ବିନ୍ଦୁ ଲେଖଚିତ୍ର ତଥ୍ୟର ଘନତା ଓ ଶିଖର ପ୍ରଦର୍ଶନ କରେ ଏବଂ ଦ୍ୱି-ସ୍ତମ୍ଭ ଲେଖଚିତ୍ର ଦୁଇଟି ସମ୍ପର୍କିତ ତଥ୍ୟକୁ ଏକା ସାଙ୍ଗରେ ତୁଳନା କରେ। ପ୍ରାଚୀନ ଭାରତୀୟ ଗଣିତଜ୍ଞ ଭାସ୍କରାଚାର୍ଯ୍ୟ ଏହି ହାରାହାରି ମାପକୁ ସମମିତି ବୋଲି ନାମିତ କରିଥିଲେ।";
+          var utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'or-IN';
+          utterance.rate = 0.95;
+          utterance.onend = function() {
+            speechActive = false;
+            if (btn) btn.innerHTML = '<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>';
+          };
+          window.speechSynthesis.speak(utterance);
+          speechActive = true;
+          if (btn) btn.innerHTML = '<span>⏹ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>';
+        } else {
+          alert('ଦୁଃଖିତ, ଆପଣଙ୍କ ବ୍ରାଉଜରରେ ଟେକ୍ସଟ୍-ଟୁ-ସ୍ପିଚ୍ ସମର୍ଥିତ ନୁହେଁ।');
+        }
+      } else {
+        window.speechSynthesis.cancel();
+        speechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>';
+      }
+    }
+
+    // 3. Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim();
+      var selectedOpt = '';
+      if (btnText.indexOf('(କ)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(ଖ)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(ଗ)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(ଘ)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      var optMapping = { 'a': '(କ)', 'b': '(ଖ)', 'c': '(ଗ)', 'd': '(ଘ)' };
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim();
+          if (t.indexOf(optMapping[correctOpt]) === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 ଚମତ୍କାର! ତଥ୍ୟ ପରିଚାଳନାରେ ଆପଣ ଶତପ୍ରତିଶତ ସଫଳ!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 ଉତ୍କୃଷ୍ଟ କାର୍ଯ୍ୟ! ପରିସଂଖ୍ୟାନରେ ଆପଣଙ୍କ ଧାରଣା ଅତି ସ୍ପଷ୍ଟ!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 ଚେଷ୍ଟା ଜାରି ରଖନ୍ତୁ! ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା ପୁଣି ଥରେ ଦେଖନ୍ତୁ।";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
