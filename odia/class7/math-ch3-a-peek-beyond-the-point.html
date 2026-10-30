@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୩: ବିନ୍ଦୁ ଆରପାରିର ଝଲକ: ଦଶମିକ (A Peek Beyond the Point) — ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୩: ବିନ୍ଦୁ ଆରପାରିର ଝଲକ: ଦଶମିକ (A Peek Beyond the Point)। ଦଶମାଂଶ, ଶତାଂଶ, ସହସ୍ରାଂଶ, ସ୍ଥାନମାନ ସାରଣୀ, ଏକକ ରୂପାନ୍ତର, NCERT ସମାଧାନ ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.8;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0d9488, #0284c7, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #0d9488 45%, #0284c7 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(8px);
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      opacity: 0.95;
+    }
+
+    .audio-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: #ffffff;
+      color: #065f46;
+      font-weight: 700;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      border: 2px solid var(--secondary-light);
+      cursor: pointer;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: var(--secondary-light);
+      transform: translateY(-2px);
+    }
+
+    /* Container */
+    .main-container {
+      max-width: 1040px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    /* Section Cards */
+    .section-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-num {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--secondary);
+      background: var(--secondary-light);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-card h2 {
+      font-size: 1.6rem;
+      color: var(--dark);
+      font-weight: 800;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-top: 0.3rem;
+    }
+
+    .topic-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #0f766e;
+      margin: 1.8rem 0 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Callout Boxes */
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.2rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      line-height: 1.7;
+    }
+
+    .callout-box i {
+      font-size: 1.3rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-def { background: #f0fdf4; border-left: 5px solid #16a34a; color: #166534; }
+    .callout-def i { color: #16a34a; }
+
+    .callout-act { background: #f0fdfa; border-left: 5px solid #0d9488; color: #115e59; }
+    .callout-act i { color: #0d9488; }
+
+    .callout-warn { background: #fef2f2; border-left: 5px solid #ef4444; color: #991b1b; }
+    .callout-warn i { color: #ef4444; }
+
+    .callout-hack { background: #fefce8; border-left: 5px solid #f59e0b; color: #854d0e; }
+    .callout-hack i { color: #f59e0b; }
+
+    .callout-pyq { background: #faf5ff; border-left: 5px solid #8b5cf6; color: #581c87; }
+    .callout-pyq i { color: #8b5cf6; }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 1.2rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      font-weight: 700;
+      padding: 0.85rem 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .data-table tr:hover { background: #f8fafc; }
+
+    /* Diagrams */
+    .diagram-wrapper {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+      text-align: center;
+    }
+
+    .diagram-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Details / Solution */
+    details.ans-box {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: #f8fafc;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: var(--dark);
+    }
+
+    details.ans-box summary::after {
+      content: '\f107';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      transition: transform 0.2s;
+    }
+
+    details.ans-box[open] summary::after {
+      transform: rotate(180deg);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--secondary-light);
+      color: #0f766e;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .ans-content {
+      padding: 1.2rem;
+      line-height: 1.8;
+      font-size: 0.95rem;
+    }
+
+    .solution-box {
+      background: #f8fafc;
+      border-left: 4px solid var(--secondary);
+      padding: 1rem 1.2rem;
+      margin: 0.8rem 0;
+      border-radius: 0 8px 8px 0;
+    }
+
+    .step-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .step-label {
+      font-weight: 700;
+      color: #0f766e;
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+
+    .step-ans {
+      background: #dcfce7;
+      color: #15803d;
+      font-weight: 700;
+      padding: 0.5rem 0.8rem;
+      border-radius: 6px;
+      margin-top: 0.6rem;
+      display: inline-block;
+    }
+
+    /* Quiz */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin-bottom: 1.2rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-question {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .quiz-opt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 0.85rem 1.2rem;
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-family: inherit;
+      color: var(--text);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s;
+    }
+
+    .quiz-opt-btn:hover:not(:disabled) {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+      font-weight: 700;
+    }
+
+    .quiz-feedback {
+      display: none;
+      margin-top: 0.8rem;
+      padding: 0.8rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+    }
+
+    .quiz-feedback.correct-fb {
+      background: #ecfdf5;
+      color: #065f46;
+      border-left: 4px solid #10b981;
+    }
+
+    .quiz-feedback.incorrect-fb {
+      background: #fff1f2;
+      color: #9f1239;
+      border-left: 4px solid #f43f5e;
+    }
+
+    .quiz-score-board {
+      background: linear-gradient(135deg, #0d9488, #0284c7);
+      color: white;
+      padding: 1.2rem 1.5rem;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+      font-size: 1.1rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: var(--shadow-md);
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 1.7rem; }
+      .section-card { padding: 1.4rem; }
+      .top-nav { padding: 0 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Reading Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Top Sticky Navigation -->
+  <nav class="top-nav">
+    <a href="../../index.html#odia-medium" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> ସୁଜିତ୍ କ୍ଲାସେସ୍
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">ମାନସିକ ମାନଚିତ୍ର</a>
+      <a href="#sec2" class="nav-link">ମୁଖ୍ୟ ଧାରଣା</a>
+      <a href="#sec3" class="nav-link">କାର୍ଯ୍ୟକଳାପ ସମାଧାନ</a>
+      <a href="#sec4" class="nav-link">NCERT ପ୍ରଶ୍ନୋତ୍ତର</a>
+      <a href="#sec5" class="nav-link">ଇଣ୍ଟରାକ୍ଟିଭ୍ କୁଇଜ୍</a>
+      <a href="#sec6" class="nav-link">ପରୀକ୍ଷା ଟିପ୍ସ</a>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-book-open"></i> NEP ୨୦୨୦ ପାଠ୍ୟକ୍ରମ &bull; ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ (ଗଣିତ ପ୍ରକାଶ)
+    </div>
+    <h1 class="hero-title">ଅଧ୍ୟାୟ ୩: ବିନ୍ଦୁ ଆରପାରିର ଝଲକ: ଦଶମିକ<br><span style="font-size: 1.5rem; opacity: 0.9;">(A Peek Beyond the Point)</span></h1>
+    <p class="hero-sub">
+      ଦଶମାଂଶ, ଶତାଂଶ ଓ ସହସ୍ରାଂଶର ଦୁନିଆ, ଦଶମିକ ସ୍ଥାନମାନ ସାରଣୀ, ମାଟ୍ରିକ ଏକକ ରୂପାନ୍ତର, ସଂଖ୍ୟାରେଖାରେ ସ୍ଥାପନ ଓ ସ୍ତମ୍ଭ ଯୋଗ-ବିୟୋଗର ସମ୍ପୂର୍ଣ୍ଣ ମାଷ୍ଟର ନୋଟ୍ସ।
+    </p>
+    <button class="audio-btn" id="teacherAudioBtn" onclick="toggleTeacherAudio()">
+      <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+
+    <div class="breadcrumb">
+      <a href="../../index.html#odia-medium">ମୂଳ ପୃଷ୍ଠା</a> &raquo; 
+      <a href="../../index.html#odia-medium">ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ</a> &raquo; 
+      <span>ଅଧ୍ୟାୟ ୩: ବିନ୍ଦୁ ଆରପାରିର ଝଲକ: ଦଶମିକ</span>
+    </div>
+
+    <!-- SECTION 1 -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1</span>
+        <h2>ଅଧ୍ୟାୟର ରୂପରେଖ ଓ ମାନସିକ ମାନଚିତ୍ର (Visual Mind Map)</h2>
+        <p class="section-sub">ଦଶମିକ ବିନ୍ଦୁ ପାର ହୋଇ ୧୦ ର ଭଗ୍ନାଂଶ ବିଭାଜନକୁ ଗୋଟିଏ ନଜରରେ ବୁଝନ୍ତୁ।</p>
+      </div>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <strong>ଶିକ୍ଷକଙ୍କ ପ୍ରବେଶ ବାର୍ତ୍ତା:</strong> ଯେତେବେଳେ କୌଣସି ବସ୍ତୁର ଦୈର୍ଘ୍ୟ ୧ ସେଣ୍ଟିମିଟରରୁ କମ୍ ହୁଏ କିମ୍ବା ଟଙ୍କା ୧ ଟଙ୍କାରୁ କମ୍ (ପଇସା) ହୁଏ, ସେତେବେଳେ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଯଥେଷ୍ଟ ହୁଏ ନାହିଁ! ଆମକୁ ୧ କୁ ୧୦ ଭାଗ (ଦଶମାଂଶ), ୧୦୦ ଭାଗ (ଶତାଂଶ) କିମ୍ବା ୧୦୦୦ ଭାଗ (ସହସ୍ରାଂଶ) ରେ ବାଣ୍ଟିବାକୁ ପଡ଼େ। <strong>ଦଶମିକ ବିନ୍ଦୁ (.)</strong> ହେଉଛି ସେହି ସୁନ୍ଦର ଦ୍ୱାରବନ୍ଧ, ଯାହାର ବାମ ପାଖରେ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଓ ଡାହାଣ ପାଖରେ ଭଗ୍ନାଂଶ ରହନ୍ତି!
+        </div>
+      </div>
+
+      <!-- SVG Mind Map: Decimals -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 880 420" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="decGradCenter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#065f46"/>
+              <stop offset="100%" stop-color="#0d9488"/>
+            </linearGradient>
+            <linearGradient id="decNode1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+            <linearGradient id="decNode2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <linearGradient id="decNode3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="100%" stop-color="#9333ea"/>
+            </linearGradient>
+            <linearGradient id="decNode4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#059669"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Branch curves -->
+          <path d="M 440 210 C 280 210, 180 100, 140 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 280 210, 180 320, 140 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 100, 740 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 320, 740 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+
+          <!-- Center Node -->
+          <circle cx="440" cy="210" r="82" fill="url(#decGradCenter)" filter="drop-shadow(0 4px 10px rgba(13,148,136,0.35))"/>
+          <text x="440" y="200" fill="#ffffff" font-size="15" font-weight="bold" text-anchor="middle">ଦଶମିକ ବିନ୍ଦୁ</text>
+          <text x="440" y="222" fill="#e0f2fe" font-size="16" font-weight="bold" text-anchor="middle">ଆରପାରିର ଝଲକ</text>
+          <text x="440" y="242" fill="#bae6fd" font-size="11" text-anchor="middle">ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ</text>
+
+          <!-- Branch 1: Tenths & Hundredths -->
+          <rect x="20" y="55" width="250" height="90" rx="14" fill="url(#decNode1)" filter="drop-shadow(0 3px 8px rgba(2,132,199,0.25))"/>
+          <text x="145" y="85" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୧. ଦଶମାଂଶ ଓ ଶତାଂଶ</text>
+          <text x="145" y="108" fill="#e0f2fe" font-size="12" text-anchor="middle">&bull; ୧/୧୦ = ୦.୧ (ଦଶମାଂଶ - Tenths)</text>
+          <text x="145" y="126" fill="#e0f2fe" font-size="12" text-anchor="middle">&bull; ୧/୧୦୦ = ୦.୦୧ (ଶତାଂଶ - Hundredths)</text>
+
+          <!-- Branch 2: Metric Conversions -->
+          <rect x="20" y="275" width="250" height="90" rx="14" fill="url(#decNode2)" filter="drop-shadow(0 3px 8px rgba(245,158,11,0.25))"/>
+          <text x="145" y="305" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୨. ମାଟ୍ରିକ ଏକକ ରୂପାନ୍ତର</text>
+          <text x="145" y="328" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; ମିମି &rarr; ସେମି (&divide;୧୦)</text>
+          <text x="145" y="346" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; ସେମି &rarr; ମି (&divide;୧୦୦) &bull; ଗ୍ରାମ &rarr; କିଗ୍ରା</text>
+
+          <!-- Branch 3: Place Value & Line -->
+          <rect x="615" y="55" width="250" height="90" rx="14" fill="url(#decNode3)" filter="drop-shadow(0 3px 8px rgba(124,58,237,0.25))"/>
+          <text x="740" y="85" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୩. ସ୍ଥାନମାନ ଓ ସଂଖ୍ୟାରେଖା</text>
+          <text x="740" y="108" fill="#ede9fe" font-size="12" text-anchor="middle">&bull; ଦଶକ | ଏକକ . ଦଶମାଂଶ | ଶତାଂଶ</text>
+          <text x="740" y="126" fill="#ede9fe" font-size="12" text-anchor="middle">&bull; ସଂଖ୍ୟାରେଖାରେ ବିନ୍ଦୁ ସ୍ଥାପନ</text>
+
+          <!-- Branch 4: Arithmetic -->
+          <rect x="615" y="275" width="250" height="90" rx="14" fill="url(#decNode4)" filter="drop-shadow(0 3px 8px rgba(16,185,129,0.25))"/>
+          <text x="740" y="305" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୪. ସ୍ତମ୍ଭ ଯୋଗ ଓ ବିୟୋଗ</text>
+          <text x="740" y="328" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; ବିନ୍ଦୁ ତଳେ ବିନ୍ଦୁ ରଖି ସଜାଇବା</text>
+          <text x="740" y="346" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; ଡାହାଣ ପାଖରେ ଶୂନ (୦) ଯୋଡ଼ିବା</text>
+        </svg>
+        <p class="diagram-caption">ଚିତ୍ର ୩.୧: ଦଶମିକ ସଂଖ୍ୟାର ସ୍ଥାନମାନ ଓ ଗାଣିତିକ ରୂପାନ୍ତରଣ ମାନଚିତ୍ର</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2</span>
+        <h2>ଗଭୀର ଧାରଣା ଓ ଶିକ୍ଷକଙ୍କ ସରଳ ବିଶ୍ଳେଷଣ (Core Concepts)</h2>
+        <p class="section-sub">ଦଶମାଂଶ, ଶତାଂଶ, ସହସ୍ରାଂଶ ଏବଂ ସ୍ଥାନମାନ ସାରଣୀର ବିସ୍ତୃତ ଅଧ୍ୟୟନ।</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-ruler"></i> ୩.୧ କ୍ଷୁଦ୍ର ଏକକର ଆବଶ୍ୟକତା (The Need for Tenths)</h3>
+      <p>ସୋନୁର ମାଆ ଗୋଟିଏ ଖେଳଣାର ସ୍କ୍ରୁ (Screw) ଟାଇଟ୍ କରୁଥିଲେ। ସେ ଲକ୍ଷ୍ୟ କଲେ ଯେ ସ୍କ୍ରୁଟିର ଲମ୍ବ ୨ ସେମି ରୁ ବଡ଼, କିନ୍ତୁ ୩ ସେମି ରୁ ଛୋଟ। ସ୍କେଲ୍ ରେ ଦେଖିବାରୁ ଜଣାପଡ଼ିଲା ଯେ ଏହା ୨ ସେଣ୍ଟିମିଟର ଏବଂ ୪ ମିଲିମିଟର। ଏହାକୁ ଗୋଟିଏ ସଂଖ୍ୟାରେ କିପରି ଲେଖିବା? <strong>୨.୪ ସେଣ୍ଟିମିଟର</strong>!</p>
+
+      <!-- SVG Strip for Tenths -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 680 120" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <rect x="40" y="30" width="600" height="50" fill="#f8fafc" stroke="#334155" stroke-width="2"/>
+          <rect x="40" y="30" width="60" height="50" fill="#38bdf8"/>
+          <line x1="100" y1="30" x2="100" y2="80" stroke="#334155" stroke-width="1.5"/>
+          <line x1="160" y1="30" x2="160" y2="80" stroke="#334155" stroke-width="1.5"/>
+          <line x1="220" y1="30" x2="220" y2="80" stroke="#334155" stroke-width="1.5"/>
+          <line x1="280" y1="30" x2="280" y2="80" stroke="#334155" stroke-width="1.5"/>
+          <line x1="340" y1="30" x2="340" y2="80" stroke="#334155" stroke-width="1.5"/>
+          <line x1="400" y1="30" x2="400" y2="80" stroke="#334155" stroke-width="1.5"/>
+          <line x1="460" y1="30" x2="460" y2="80" stroke="#334155" stroke-width="1.5"/>
+          <line x1="520" y1="30" x2="520" y2="80" stroke="#334155" stroke-width="1.5"/>
+          <line x1="580" y1="30" x2="580" y2="80" stroke="#334155" stroke-width="1.5"/>
+          <text x="70" y="60" font-size="13" font-weight="bold" fill="#0369a1" text-anchor="middle">୧/୧୦</text>
+          <text x="70" y="105" font-size="12" font-weight="bold" fill="#0284c7" text-anchor="middle">୦.୧ (ଦଶମାଂଶ)</text>
+          <text x="340" y="105" font-size="13" font-weight="bold" fill="#334155" text-anchor="middle">୧ ସମଗ୍ର ପଟି = ୧୦ ଦଶମାଂଶ = ୧.୦</text>
+        </svg>
+        <p class="diagram-caption">ଚିତ୍ର ୩.୨: ୧ ସମଗ୍ର କୁ ୧୦ ସମାନ ଭାଗରେ ବାଣ୍ଟିଲେ ପ୍ରତ୍ୟେକ ଭାଗ ୧/୧୦ = ୦.୧ (ଦଶମାଂଶ) ଅଟେ।</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-table-cells"></i> ୩.୨ ଶତାଂଶ ଓ ସହସ୍ରାଂଶ (Hundredths and Thousandths)</h3>
+      <p>ଯେତେବେଳେ ୧ ଦଶମାଂଶ (୦.୧) କୁ ପୁନର୍ବାର ୧୦ ସମାନ ଭାଗ କରାଯାଏ, ପ୍ରତ୍ୟେକ ଭାଗ ହୁଏ <code>୧/୧୦୦ = ୦.୦୧</code> (ଶତାଂଶ)। ଯେତେବେଳେ ୧ ଶତାଂଶକୁ ଆହୁରି ୧୦ ଭାଗ କରାଯାଏ, ପ୍ରତ୍ୟେକ ଭାଗ ହୁଏ <code>୧/୧୦୦୦ = ୦.୦୦୧</code> (ସହସ୍ରାଂଶ)।</p>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ଶତକ (୧୦୦)</th>
+              <th>ଦଶକ (୧୦)</th>
+              <th>ଏକକ (୧)</th>
+              <th>ଦଶମିକ ବିନ୍ଦୁ (.)</th>
+              <th>ଦଶମାଂଶ (୧/୧୦)</th>
+              <th>ଶତାଂଶ (୧/୧୦୦)</th>
+              <th>ସହସ୍ରାଂଶ (୧/୧୦୦୦)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>&mdash;</td>
+              <td>୨</td>
+              <td>୫</td>
+              <td style="text-align: center; font-weight: bold; color: #ef4444; font-size: 1.2rem;">.</td>
+              <td>୩</td>
+              <td>୭</td>
+              <td>&mdash;</td>
+            </tr>
+            <tr>
+              <td>୧</td>
+              <td>୦</td>
+              <td>୪</td>
+              <td style="text-align: center; font-weight: bold; color: #ef4444; font-size: 1.2rem;">.</td>
+              <td>୦</td>
+              <td>୨</td>
+              <td>୫</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-scale-balanced"></i> ୩.୩ ମାଟ୍ରିକ ଏକକ ରୂପାନ୍ତର (Metric Unit Conversions)</h3>
+      <p>ସମସ୍ତ ମାଟ୍ରିକ ଏକକ ୧୦, ୧୦୦ କିମ୍ବା ୧୦୦୦ ଦ୍ୱାରା ପରିଚାଳିତ:</p>
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-calculator"></i>
+        <div>
+          &bull; ୧ ସେମି = ୧୦ ମିମି &rArr; ୧ ମିମି = ୧/୧୦ ସେମି = <strong>୦.୧ ସେମି</strong><br>
+          &bull; ୧ ମିଟର = ୧୦୦ ସେମି &rArr; ୧ ସେମି = ୧/୧୦୦ ମି = <strong>୦.୦୧ ମି</strong><br>
+          &bull; ୧ କିଲୋମିଟର = ୧,୦୦୦ ମିଟର &rArr; ୧ ମି = ୧/୧୦୦୦ କିମି = <strong>୦.୦୦୧ କିମି</strong><br>
+          &bull; ୧ କିଲୋଗ୍ରାମ = ୧,୦୦୦ ଗ୍ରାମ &rArr; ୧ ଗ୍ରାମ = ୧/୧୦୦୦ କିଗ୍ରା = <strong>୦.୦୦୧ କିଗ୍ରା</strong><br>
+          &bull; ୧ ଟଙ୍କା = ୧୦୦ ପଇସା &rArr; ୧ ପଇସା = ₹ ୧/୧୦୦ = <strong>₹ ୦.୦୧</strong>
+        </div>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-code-compare"></i> ୩.୪ ଦଶମିକ ତୁଳନାର ଗୋପନୀୟ ସୂତ୍ର (Comparing Decimals)</h3>
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>ଛାତ୍ରଛାତ୍ରୀଙ୍କ ସାଧାରଣ ଭ୍ରାନ୍ତି:</strong> "୦.୪୬ ହେଉଛି ୦.୫ ଠାରୁ ବଡ଼, କାରଣ ୪୬ ସଂଖ୍ୟାଟି ୫ ଠାରୁ ବଡ଼!"<br>
+          <strong>ଶିକ୍ଷକଙ୍କ ସଂଶୋଧନ:</strong> ଦଶମିକକୁ କେବେ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ପରି ତୁଳନା କରନ୍ତୁ ନାହିଁ! ଡାହାଣ ପାଖରେ ଶୂନ (୦) ଯୋଡ଼ି ଉଭୟଙ୍କ ଦଶମିକ ସ୍ଥାନ ସମାନ କରନ୍ତୁ:<br>
+          &bull; <code>୦.୫ = ୦.୫୦</code> (୫୦ ଶତାଂଶ)<br>
+          &bull; <code>୦.୪୬ = ୦.୪୬</code> (୪୬ ଶତାଂଶ)<br>
+          ଯେହେତୁ ୫୦ ଶତାଂଶ &gt; ୪୬ ଶତାଂଶ, ତେଣୁ <strong>୦.୫ &gt; ୦.୪୬</strong>!
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3</span>
+        <h2>ପାଠ୍ୟପୁସ୍ତକ ଅନ୍ତର୍ଗତ କାର୍ଯ୍ୟକଳାପର ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ (In-Text Activities)</h2>
+        <p class="section-sub">ସଂଖ୍ୟାରେଖାରେ ବିନ୍ଦୁ ଚିହ୍ନଟ ଓ ସ୍ତମ୍ଭ ବିୟୋଗର ପଦକ୍ଷେପ-ୱାରୀ ସମାଧାନ।</p>
+      </div>
+
+      <h4 style="color: #0f766e; font-weight: 700; margin-bottom: 0.8rem;">କାର୍ଯ୍ୟକଳାପ ୧: ସଂଖ୍ୟାରେଖାରେ ଅକ୍ଷର ଚିହ୍ନଟ (ପୃଷ୍ଠା ୩୪)</h4>
+      <p>୬.୪, ୬.୫ ଏବଂ ୬.୬ ମଧ୍ୟରେ ୧୦ଟି ଲେଖାଏଁ ସମାନ ଭାଗ ଥିବା ସଂଖ୍ୟାରେଖାରେ a, b, c ର ମାନ ନିର୍ଣ୍ଣୟ କରନ୍ତୁ:</p>
+      <div class="solution-box">
+        <div class="step-item"><span class="step-label">ଅକ୍ଷର a:</span> ୬.୪ ପରେ ୩ୟ ଗାରରେ ଅଛି &rArr; ୬.୪ + ୦.୦୩ = <strong>୬.୪୩</strong>।</div>
+        <div class="step-item"><span class="step-label">ଅକ୍ଷର b:</span> ୬.୪ ପରେ ୭ମ ଗାରରେ ଅଛି &rArr; ୬.୪ + ୦.୦୭ = <strong>୬.୪୭</strong>।</div>
+        <div class="step-item"><span class="step-label">ଅକ୍ଷର c:</span> ୬.୫ ପରେ ୪ର୍ଥ ଗାରରେ ଅଛି &rArr; ୬.୫ + ୦.୦୪ = <strong>୬.୫୪</strong>।</div>
+        <div class="step-ans">&check; ଉତ୍ତର: a = <strong>୬.୪୩</strong>, b = <strong>୬.୪୭</strong>, c = <strong>୬.୫୪</strong>।</div>
+      </div>
+
+      <h4 style="color: #0f766e; font-weight: 700; margin: 1.5rem 0 0.8rem;">କାର୍ଯ୍ୟକଳାପ ୨: ସ୍ଥାନମାନ ବିୟୋଗ (ପୃଷ୍ଠା ୩୦)</h4>
+      <div class="solution-box">
+        <p><strong>ବିୟୋଗ କର: ୮୪.୬୯୧ &minus; ୭୭.୩୪୫</strong></p>
+        <div class="step-item"><span class="step-label">ସ୍ତମ୍ଭ ସଜ୍ଜା:</span>
+          <pre style="font-family: monospace; font-size: 1.1rem; line-height: 1.4; color: #0f766e;">
+    ୮୪.୬୯୧
+  - ୭୭.୩୪୫
+  ---------
+     ୭.୩୪୬
+          </pre>
+        </div>
+        <div class="step-item"><span class="step-label">ସହସ୍ରାଂଶ:</span> ୧ ରୁ ୫ ବିୟୋଗ ଯିବ ନାହିଁ &rArr; ୧ ଶତାଂଶ ହାର ନେଲେ ୧୧ &minus; ୫ = ୬ ସହସ୍ରାଂଶ।</div>
+        <div class="step-item"><span class="step-label">ଶତାଂଶ:</span> ୮ &minus; ୪ = ୪ ଶତାଂଶ।</div>
+        <div class="step-item"><span class="step-label">ଦଶମାଂଶ:</span> ୬ &minus; ୩ = ୩ ଦଶମାଂଶ।</div>
+        <div class="step-item"><span class="step-label">ପୂର୍ଣ୍ଣସଂଖ୍ୟା:</span> ୮୪ &minus; ୭୭ = ୭।</div>
+        <div class="step-ans">&check; ନିର୍ଣ୍ଣେୟ ବିୟୋଗଫଳ: <strong>୭.୩୪୬</strong>।</div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4</span>
+        <h2>୧୦୦% ସମ୍ପୂର୍ଣ୍ଣ NCERT ଅଭ୍ୟାସ ପ୍ରଶ୍ନାବଳୀ ସମାଧାନ (Figure it Out)</h2>
+        <p class="section-sub">ପାଠ୍ୟପୁସ୍ତକ ଅନୁଶୀଳନୀର ପ୍ରତ୍ୟେକ ପ୍ରଶ୍ନର ପୂର୍ଣ୍ଣ ସମାଧାନ।</p>
+      </div>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>ପ୍ରଶ୍ନ ୧: ଭଗ୍ନାଂଶକୁ ଦଶମିକରେ ରୂପାନ୍ତର କର (ପୃଷ୍ଠା ୫୨)</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-item"><strong>(କ) ୫/୧୦୦</strong> &rArr; ୫ ଶତାଂଶ = <strong>୦.୦୫</strong>।</div>
+            <div class="step-item"><strong>(ଖ) ୧୬/୧୦୦୦</strong> &rArr; ୧୬ ସହସ୍ରାଂଶ = <strong>୦.୦୧୬</strong>।</div>
+            <div class="step-item"><strong>(ଗ) ୧୨/୧୦</strong> &rArr; ୧୨ ଦଶମାଂଶ = ୧ ସମଗ୍ର ଓ ୨ ଦଶମାଂଶ = <strong>୧.୨</strong>।</div>
+            <div class="step-item"><strong>(ଘ) ୨୫୪/୧୦୦୦</strong> &rArr; ୨୫୪ ସହସ୍ରାଂଶ = <strong>୦.୨୫୪</strong>।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>ପ୍ରଶ୍ନ ୨: ଦଶମିକ ଯୋଗ ଓ ବିୟୋଗ ସାରଣୀ (ପୃଷ୍ଠା ୩୦)</summary>
+        <div class="ans-content">
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr><th>ପ୍ରଶ୍ନ</th><th>ସମାଧାନ ପ୍ରକ୍ରିୟା (ବିନ୍ଦୁ ସମରେଖନ ଓ ଶୂନ ଯୋଗ)</th><th>ଚୂଡ଼ାନ୍ତ ମାନ</th></tr>
+              </thead>
+              <tbody>
+                <tr><td><strong>୫.୩ + ୨.୬</strong></td><td>୫.୩ + ୨.୬ = ୭.୯</td><td><strong>୭.୯</strong></td></tr>
+                <tr><td><strong>୧୮ + ୮.୮</strong></td><td>୧୮.୦ + ୮.୮ = ୨୬.୮</td><td><strong>୨୬.୮</strong></td></tr>
+                <tr><td><strong>୨.୧୫ + ୫.୨୬</strong></td><td>୨.୧୫ + ୫.୨୬ = ୭.୪୧</td><td><strong>୭.୪୧</strong></td></tr>
+                <tr><td><strong>୯.୦୧ + ୯.୧୦</strong></td><td>୯.୦୧ + ୯.୧୦ = ୧୮.୧୧</td><td><strong>୧୮.୧୧</strong></td></tr>
+                <tr><td><strong>୨୯.୧୯ + ୯.୯୧</strong></td><td>୨୯.୧୯ + ୯.୯୧ = ୩୯.୧୦</td><td><strong>୩୯.୧୦</strong></td></tr>
+                <tr><td><strong>୦.୯୩୪ + ୦.୬</strong></td><td>୦.୯୩୪ + ୦.୬୦୦ = ୧.୫୩୪</td><td><strong>୧.୫୩୪</strong></td></tr>
+                <tr><td><strong>୧୮ &minus; ୮.୮</strong></td><td>୧୮.୦ &minus; ୮.୮ = ୯.୨</td><td><strong>୯.୨</strong></td></tr>
+                <tr><td><strong>୧୭ &minus; ୧୬.୧୯୮</strong></td><td>୧୭.୦୦୦ &minus; ୧୬.୧୯୮ = ୦.୮୦୨</td><td><strong>୦.୮୦୨</strong></td></tr>
+                <tr><td><strong>୧୭ &minus; ୦.୦୫</strong></td><td>୧୭.୦୦ &minus; ୦.୦୫ = ୧୬.୯୫</td><td><strong>୧୬.୯୫</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>ପ୍ରଶ୍ନ ୩: ଅଧଃକ୍ରମରେ ସଜାଅ (Descending Order - ପୃଷ୍ଠା ୫୩)</summary>
+        <div class="ans-content">
+          <div class="solution-box">
+            <div class="step-item"><strong>(କ) ୧୧.୦୧, ୧.୦୧୧, ୧.୧୦୧, ୧୧.୧୦, ୧.୦୧</strong><br>
+            ପ୍ରଥମେ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ତୁଳନା: ୧୧.୧୦ &gt; ୧୧.୦୧।<br>
+            ପରେ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ୧ ବିଶିଷ୍ଟ ମାନ: ୧.୧୦୧ &gt; ୧.୦୧୧ &gt; ୧.୦୧୦।<br>
+            &check; <strong>ଅଧଃକ୍ରମ: ୧୧.୧୦ &gt; ୧୧.୦୧ &gt; ୧.୧୦୧ &gt; ୧.୦୧୧ &gt; ୧.୦୧</strong>।</div>
+
+            <div class="step-item"><strong>(ଖ) ୨.୫୬୭, ୨.୬୭୫, ୨.୭୬୮, ୨.୪୯୯, ୨.୬୯୮</strong><br>
+            ଦଶମାଂଶ ଅଙ୍କ: ୭, ୬, ୬, ୫, ୪।<br>
+            &check; <strong>ଅଧଃକ୍ରମ: ୨.୭୬୮ &gt; ୨.୬୯୮ &gt; ୨.୬୭୫ &gt; ୨.୫୬୭ &gt; ୨.୪୯୯</strong>।</div>
+
+            <div class="step-item"><strong>(ଗ) ୪.୬୭୮ ଗ୍ରାମ, ୪.୫୯୫ ଗ୍ରାମ, ୪.୬୦୦ ଗ୍ରାମ, ୪.୬୫୬ ଗ୍ରାମ, ୪.୬୬୬ ଗ୍ରାମ</strong><br>
+            &check; <strong>ଅଧଃକ୍ରମ: ୪.୬୭୮ ଗ୍ରାମ &gt; ୪.୬୬୬ ଗ୍ରାମ &gt; ୪.୬୫୬ ଗ୍ରାମ &gt; ୪.୬୦୦ ଗ୍ରାମ &gt; ୪.୫୯୫ ଗ୍ରାମ</strong>।</div>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>ପ୍ରଶ୍ନ ୪: ଟିଙ୍କୁର ଓଜନ ପରିବର୍ତ୍ତନ ସମସ୍ୟା (ପୃଷ୍ଠା ୫୪)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ:</strong> ଜାନୁଆରୀ ମାସରେ ଟିଙ୍କୁର ଓଜନ ୩୫.୭୫ କିଗ୍ରା ଥିଲା ଏବଂ ଫେବୃଆରୀ ମାସରେ ତାହା ୩୪.୫୦ କିଗ୍ରା ହେଲା। ଟିଙ୍କୁର ଓଜନ ବୃଦ୍ଧି ପାଇଛି ନା ହ୍ରାସ ପାଇଛି? କେତେ ପରିମାଣରେ ପରିବର୍ତ୍ତନ ଘଟିଛି?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">ଜାନୁଆରୀରେ ଓଜନ:</span> ୩୫.୭୫ କିଗ୍ରା</div>
+            <div class="step-item"><span class="step-label">ଫେବୃଆରୀରେ ଓଜନ:</span> ୩୪.୫୦ କିଗ୍ରା</div>
+            <div class="step-item"><span class="step-label">ତୁଳନା:</span> ଯେହେତୁ ୩୪.୫୦ କିଗ୍ରା &lt; ୩୫.୭୫ କିଗ୍ରା, ତେଣୁ ଟିଙ୍କୁର ଓଜନ <strong>ହ୍ରାସ ପାଇଛି</strong>।</div>
+            <div class="step-item"><span class="step-label">ଓଜନ ହ୍ରାସ ପରିମାଣ:</span> ୩୫.୭୫ &minus; ୩୪.୫୦ = <strong>୧.୨୫ କିଗ୍ରା</strong>।</div>
+            <div class="step-ans">&check; ଉତ୍ତର: ଟିଙ୍କୁର ଓଜନ ହ୍ରାସ ପାଇଛି ଏବଂ ପରିବର୍ତ୍ତନର ପରିମାଣ ହେଉଛି <strong>୧.୨୫ କିଲୋଗ୍ରାମ</strong>।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5</span>
+        <h2>ଇଣ୍ଟରାକ୍ଟିଭ୍ ପରୀକ୍ଷା ପ୍ରଶ୍ନୋତ୍ତର ବ୍ୟାଙ୍କ ଓ କୁଇଜ୍ (Interactive Quiz Engine)</h2>
+        <p class="section-sub">ସଠିକ୍ ଉତ୍ତର ବାଛି ନିଜର ଦକ୍ଷତା ମାପନ୍ତୁ!</p>
+      </div>
+
+      <div class="quiz-score-board" id="scoreBoard">
+        <span>🎯 ଆପଣଙ୍କ ସ୍କୋର: <span id="quizScore">୦</span> / ୫ ସଠିକ୍</span>
+        <span id="quizBadge" style="font-size: 0.9rem; opacity: 0.9;">ସମସ୍ତ ପ୍ରଶ୍ନର ଉତ୍ତର ଦିଅନ୍ତୁ!</span>
+      </div>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card" id="q1">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୧: ୭/୧୦୦ ର ଦଶମିକ ରୂପ କେଉଁଟି?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 0, false, 'ଭୁଲ! ୦.୭ ହେଉଛି ୭/୧୦ (୭ ଦଶମାଂଶ)।')">
+            <span>(A) ୦.୭</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 1, false, 'ଭୁଲ! ୭.୦ ହେଉଛି ପୂର୍ଣ୍ଣସଂଖ୍ୟା ୭।')">
+            <span>(B) ୭.୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 2, true, 'ନିର୍ଭୁଲ! ୭/୧୦୦ ରେ ୭ ଶତାଂଶ ସ୍ଥାନରେ ରହିବ, ତେଣୁ ୦.୦୭।')">
+            <span>(C) ୦.୦୭</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 3, false, 'ଭୁଲ! ୦.୦୦୭ ହେଉଛି ୭/୧୦୦୦।')">
+            <span>(D) ୦.୦୦୭</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="q1-fb"></div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card" id="q2">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୨: ୦.୮ ଏବଂ ୦.୭୫ ମଧ୍ୟରେ କେଉଁଟି ବଡ଼?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 0, true, 'ଚମତ୍କାର! ୦.୮ = ୦.୮୦ (୮୦ ଶତାଂଶ), ଯାହା ୦.୭୫ (୭୫ ଶତାଂଶ) ଠାରୁ ବଡ଼।')">
+            <span>(A) ୦.୮</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 1, false, 'ଭୁଲ! ୭୫ ସଂଖ୍ୟାଟି ୮ ଠାରୁ ବଡ଼ ଦେଖାଗଲେ ବି ଦଶମିକରେ ୦.୮ = ୦.୮୦ ଅଟେ।')">
+            <span>(B) ୦.୭୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 2, false, 'ଭୁଲ! ଉଭୟ ସମାନ ନୁହଁନ୍ତି।')">
+            <span>(C) ଉଭୟ ସମାନ</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 3, false, 'ଭୁଲ! ତୁଳନା ସମ୍ଭବ।')">
+            <span>(D) ତୁଳନା ସମ୍ଭବ ନୁହେଁ</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="q2-fb"></div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card" id="q3">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୩: ୨୫ ମିଲିମିଟର (mm) କୁ ସେଣ୍ଟିମିଟର (cm) ରେ ପ୍ରକାଶ କଲେ କେତେ ହେବ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 0, false, 'ଭୁଲ! ୧ ସେମି = ୧୦ ମିମି, ତେଣୁ ୧୦ ଦ୍ୱାରା ହରଣ ହେବ।')">
+            <span>(A) ୦.୨୫ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 1, true, 'ଏକଦମ୍ ସଠିକ୍! ୨୫ ମିମି = ୨୫/୧୦ ସେମି = ୨.୫ ସେମି।')">
+            <span>(B) ୨.୫ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 2, false, 'ଭୁଲ! ୨୫୦ ସେମି ହେଉଛି ୨.୫ ମିଟର।')">
+            <span>(C) ୨୫୦ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 3, false, 'ଭୁଲ! ୦.୦୨୫ ସେମି ହେଉଛି ୨୫ ମାଇକ୍ରୋନ୍।')">
+            <span>(D) ୦.୦୨୫ ସେମି</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="q3-fb"></div>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="quiz-card" id="q4">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୪: ୫ &minus; ୦.୨୫ ର ମାନ କେତେ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 0, false, 'ଭୁଲ! ୫.୦୦ &minus; ୦.୨୫ କରନ୍ତୁ।')">
+            <span>(A) ୫.୨୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 1, false, 'ଭୁଲ! ୪.୨୫ ନୁହେଁ।')">
+            <span>(B) ୪.୨୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 2, true, 'ସଠିକ୍ ଉତ୍ତର! ୫.୦୦ &minus; ୦.୨୫ = ୪.୭୫।')">
+            <span>(C) ୪.୭୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 3, false, 'ଭୁଲ! ୪.୮୫ ନୁହେଁ।')">
+            <span>(D) ୪.୮୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="q4-fb"></div>
+      </div>
+
+      <!-- Quiz 5 -->
+      <div class="quiz-card" id="q5">
+        <div class="quiz-question">ପ୍ରଶ୍ନ ୫: ୩ ଟଙ୍କା ୫ ପଇସାକୁ ଦଶମିକ ଟଙ୍କାରେ କିପରି ଲେଖାଯାଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 0, false, 'ଭୁଲ! ₹ ୩.୫ ଅର୍ଥ ₹ ୩.୫୦ (୩ ଟଙ୍କା ୫୦ ପଇସା)।')">
+            <span>(A) ₹ ୩.୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 1, true, 'ଅତି ଉତ୍ତମ! ୫ ପଇସା = ₹ ୫/୧୦୦ = ₹ ୦.୦୫, ତେଣୁ ₹ ୩.୦୫।')">
+            <span>(B) ₹ ୩.୦୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 2, false, 'ଭୁଲ! ୩୫ ଟଙ୍କା ନୁହେଁ।')">
+            <span>(C) ₹ ୩୫.୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 3, false, 'ଭୁଲ! ₹ ୦.୩୫ ହେଉଛି ୩୫ ପଇସା।')">
+            <span>(D) ₹ ୦.୩୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-feedback" id="q5-fb"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6</span>
+        <h2>ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା ଓ ୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ତଥ୍ୟ (Exam Traps &amp; One-Liners)</h2>
+        <p class="section-sub">ପରୀକ୍ଷାରେ ଭୁଲରୁ ବଞ୍ଚିବା ପାଇଁ ଶିକ୍ଷକଙ୍କ ପରାମର୍ଶ ଓ ଦ୍ରୁତ ପୁନରାବୃତ୍ତି ସୂତ୍ର।</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>ପରୀକ୍ଷାରେ ଏହି ସାଧାରଣ ଭୁଲ କେବେ କରିବେ ନାହିଁ:</strong><br>
+          &bull; <strong>ସ୍ତମ୍ଭ ଯୋଗରେ ଦଶମିକ ବିନ୍ଦୁ ଆଲାଇନ୍ ନକରିବା:</strong> ୧୮ + ୮.୮ କରିବା ବେଳେ ୧୮ କୁ ୧୮.୦ ନଲେଖି ୮ ସହିତ ୧୮ କୁ ସିଧା ଯୋଗ କରିଦେଲେ ସମ୍ପୂର୍ଣ୍ଣ ଭୁଲ ହୁଏ। ସର୍ବଦା ଦଶମିକ ବିନ୍ଦୁ ତଳେ ଦଶମିକ ବିନ୍ଦୁ ରଖନ୍ତୁ।<br>
+          &bull; <strong>୫ ପଇସାକୁ ₹ ୦.୫ ଲେଖିବା:</strong> ୫ ପଇସା ହେଉଛି ₹ ୦.୦୫। ₹ ୦.୫ ହେଉଛି ୫୦ ପଇସା!<br>
+          &bull; <strong>ଶୂନ ହଟାଇବା ବା ଯୋଡ଼ିବା:</strong> ଦଶମିକ ସଂଖ୍ୟାର ଶେଷରେ ଯେତେ ଶୂନ ଯୋଗ କଲେ ମଧ୍ୟ ମୂଲ୍ୟ ବଦଳେ ନାହିଁ (୦.୭ = ୦.୭୦ = ୦.୭୦୦), କିନ୍ତୁ ବିନ୍ଦୁ ଓ ଅଙ୍କ ମଝିରେ ଶୂନ ଥିଲେ ତାହା ବଦଳାଯାଇ ପାରିବ ନାହିଁ (୦.୦୭ &ne; ୦.୭)।
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-star"></i>
+        <div>
+          <strong>୧୫ଟି ତ୍ୱରିତ ରିଭିଜନ୍ ଏକ-ପଦୀ ତଥ୍ୟ (15 Rapid Fire Facts):</strong>
+          <ol style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 2;">
+            <li>ଦଶମିକ ବିନ୍ଦୁର ଠିକ୍ ଡାହାଣ ପାଖ ପ୍ରଥମ ସ୍ଥାନ ହେଉଛି <strong>ଦଶମାଂଶ (Tenths, ୧/୧୦)</strong>।</li>
+            <li>ଦ୍ୱିତୀୟ ଡାହାଣ ସ୍ଥାନ ହେଉଛି <strong>ଶତାଂଶ (Hundredths, ୧/୧୦୦)</strong>।</li>
+            <li>ତୃତୀୟ ଡାହାଣ ସ୍ଥାନ ହେଉଛି <strong>ସହସ୍ରାଂଶ (Thousandths, ୧/୧୦୦୦)</strong>।</li>
+            <li>୧୦ ଦଶମାଂଶ ମିଶିଲେ <strong>୧ ପୂର୍ଣ୍ଣ ଏକକ</strong> ହୁଏ (୧୦ &times; ୦.୧ = ୧.୦)।</li>
+            <li>୧୦୦ ଶତାଂଶ ମିଶିଲେ <strong>୧ ପୂର୍ଣ୍ଣ ଏକକ</strong> ହୁଏ (୧୦୦ &times; ୦.୦୧ = ୧.୦)।</li>
+            <li>୧ ମିମି = <strong>୦.୧ ସେମି</strong>।</li>
+            <li>୧ ସେମି = <strong>୦.୦୧ ମିଟର</strong>।</li>
+            <li>୧ ମିଟର = <strong>୦.୦୦୧ କିଲୋମିଟର</strong>।</li>
+            <li>୧ ଗ୍ରାମ = <strong>୦.୦୦୧ କିଲୋଗ୍ରାମ</strong>।</li>
+            <li>୧ ପଇସା = <strong>₹ ୦.୦୧</strong>।</li>
+            <li>ଦଶମିକ ସଂଖ୍ୟାର ଶେଷ ଭାଗରେ ଶୂନ ଯୋଗ କଲେ ତାର ମାନ ପରିବର୍ତ୍ତିତ ହୁଏ ନାହିଁ।</li>
+            <li>ଦୁଇଟି ଦଶମିକ ସଂଖ୍ୟା ତୁଳନା କରିବା ପାଇଁ ପ୍ରଥମେ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଅଂଶ ଦେଖିବା ଉଚିତ।</li>
+            <li>ଯଦି ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଅଂଶ ସମାନ ଥାଏ, ତେବେ ଯଥାକ୍ରମେ ଦଶମାଂଶ, ଶତାଂଶ ଓ ସହସ୍ରାଂଶ ତୁଳନା କରାଯାଏ।</li>
+            <li>ଦଶମିକ ଯୋଗ ବା ବିୟୋଗ ବେଳେ ବିନ୍ଦୁଗୁଡ଼ିକୁ ସର୍ବଦା ଗୋଟିଏ ସିଧା ଲମ୍ବ ସ୍ତମ୍ଭରେ ରଖାଯାଏ।</li>
+            <li>ସଂଖ୍ୟାରେଖାରେ ଯେକୌଣସି ଦୁଇଟି ଦଶମିକ ସଂଖ୍ୟା ମଧ୍ୟରେ ଅସଂଖ୍ୟ କ୍ଷୁଦ୍ର ଦଶମିକ ସଂଖ୍ୟା ଅବସ୍ଥିତ ଥାଏ।</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // 2. Interactive Quiz Engine
+    let quizScore = 0;
+    const answeredQuizzes = new Set();
+
+    function checkQuiz(cardId, optionIndex, isCorrect, explanation) {
+      const card = document.getElementById(cardId);
+      const buttons = card.querySelectorAll('.quiz-opt-btn');
+      const fb = document.getElementById(cardId + '-fb');
+
+      if (answeredQuizzes.has(cardId)) return;
+      answeredQuizzes.add(cardId);
+
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        const ind = btn.querySelector('.quiz-opt-indicator');
+        if (idx === optionIndex) {
+          if (isCorrect) {
+            btn.classList.add('correct-opt');
+            ind.innerHTML = ' &check; (ସଠିକ୍)';
+          } else {
+            btn.classList.add('wrong-opt');
+            ind.innerHTML = ' &cross; (ଭୁଲ)';
+          }
+        }
+      });
+
+      if (!isCorrect) {
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct-opt');
+            btn.querySelector('.quiz-opt-indicator').innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          }
+        });
+      }
+
+      fb.style.display = 'block';
+      if (isCorrect) {
+        fb.className = 'quiz-feedback correct-fb';
+        fb.innerHTML = '<strong>ଠିକ୍ ଉତ୍ତର! 🎉</strong> ' + explanation;
+        quizScore++;
+      } else {
+        fb.className = 'quiz-feedback incorrect-fb';
+        fb.innerHTML = '<strong>ଭୁଲ ଉତ୍ତର! ⚠️</strong> ' + explanation;
+      }
+
+      document.getElementById('quizScore').innerText = quizScore;
+      if (quizScore === 5) {
+        document.getElementById('quizBadge').innerText = "ଚମତ୍କାର! ଆପଣ ସମସ୍ତ ଉତ୍ତର ସଠିକ୍ ଦେଇଛନ୍ତି! 🏆";
+      }
+    }
+
+    // 3. Teacher Audio Reader (Text-to-Speech)
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Text-to-Speech ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+      } else {
+        const text = "ନମସ୍କାର ପିଲାମାନେ! ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତର ତୃତୀୟ ଅଧ୍ୟାୟ 'ବିନ୍ଦୁ ଆରପାରିର ଝଲକ: ଦଶମିକ' କୁ ସ୍ୱାଗତ। ଯେତେବେଳେ ସଂଖ୍ୟା ୧ ରୁ ଛୋଟ ହୁଏ, ଆମେ ଦଶମିକ ବିନ୍ଦୁ ବ୍ୟବହାର କରୁ। ଦଶମିକର ପ୍ରଥମ ସ୍ଥାନ ହେଉଛି ଦଶମାଂଶ, ଦ୍ୱିତୀୟ ସ୍ଥାନ ଶତାଂଶ, ଏବଂ ତୃତୀୟ ସ୍ଥାନ ସହସ୍ରାଂଶ। ମନେରଖନ୍ତୁ: ୦.୮ ହେଉଛି ୦.୭୫ ଠାରୁ ବଡ଼ କାରଣ ୮୦ ଶତାଂଶ ୭୫ ଶତାଂଶ ଠାରୁ ବଡ଼। ଯୋଗ ଓ ବିୟୋଗ ବେଳେ ସର୍ବଦା ଦଶମିକ ବିନ୍ଦୁ ତଳେ ଦଶମିକ ବିନ୍ଦୁ ରଖି ହିସାବ କରନ୍ତୁ। ଧ୍ୟାନ ଦେଇ ପାଠ ପଢ଼ନ୍ତୁ ଏବଂ ଅଭ୍ୟାସ ଜାରି ରଖନ୍ତୁ!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'or-IN';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>";
+      }
+    }
+  </script>
+</body>
+</html>
