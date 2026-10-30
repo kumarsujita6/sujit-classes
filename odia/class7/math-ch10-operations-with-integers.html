@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୧୦: ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଉପରେ ଗାଣିତିକ ପ୍ରକ୍ରିୟା — ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୧୦: ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଉପରେ ଗାଣିତିକ ପ୍ରକ୍ରିୟା (Operations with Integers - Ganita Prakash Part 2)। ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଗୁଣନ, ହରଣ, ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ସୂତ୍ର, ବଣ୍ଟନ ନିୟମ, ଶୂନ ଯୁଗ୍ମ ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.8;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #0284c7 0%, #0369a1 50%, #4338ca 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 850px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #0369a1;
+      border: none;
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-def { background: #f0fdf4; border-color: #10b981; color: #065f46; }
+    .callout-def i { color: #059669; }
+
+    .callout-act { background: #eff6ff; border-color: #3b82f6; color: #1e3a8a; }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq { background: #fffbeb; border-color: #f59e0b; color: #78350f; }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack { background: #faf5ff; border-color: #a855f7; color: #581c87; }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn { background: #fef2f2; border-color: #ef4444; color: #7f1d1d; }
+    .callout-warn i { color: #dc2626; }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.93rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.2rem 0;
+    }
+
+    .step-item {
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+    }
+
+    .step-label {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 130px;
+    }
+
+    .step-ans {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      margin-top: 0.8rem;
+      font-weight: 700;
+      color: #166534;
+    }
+
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.75;
+    }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+    }
+
+    .correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700 !important;
+    }
+
+    .wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+    }
+
+    .math-block {
+      background: #f1f5f9;
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      margin: 1.2rem 0;
+      font-family: 'JetBrains Mono', 'Noto Sans Oriya', monospace;
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 1.05rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> ସୁଜିତ୍ କ୍ଲାସେସ୍
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">୧. ସମୀକ୍ଷା ଓ ମାଇଣ୍ଡ ମ୍ୟାପ୍</a>
+      <a href="#sec2" class="nav-link">୨. ମୌଳିକ ଧାରଣା</a>
+      <a href="#sec3" class="nav-link">୩. ପାଠ୍ୟ କାର୍ଯ୍ୟକଳାପ</a>
+      <a href="#sec4" class="nav-link">୪. ଅନୁଶୀଳନୀ ସମାଧାନ</a>
+      <a href="#sec5" class="nav-link">୫. ଅଭ୍ୟାସ କୁଇଜ୍</a>
+      <a href="#sec6" class="nav-link">୬. ଶିକ୍ଷକ ଟିପ୍ପଣୀ ଓ ସୂତ୍ର</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge"><i class="fa-solid fa-calculator"></i> ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ &bull; ଅଧ୍ୟାୟ ୧୦</div>
+    <h1 class="hero-title">ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଉପରେ ଗାଣିତିକ ପ୍ରକ୍ରିୟା</h1>
+    <p class="hero-sub">(Operations with Integers) — ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଗୁଣନ ଓ ହରଣ, ଶୂନ ଯୁଗ୍ମ (Zero Pairs), ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ପ୍ରାଚୀନ ବୀଜଗାଣିତିକ ସୂତ୍ର, ବଣ୍ଟନ ନିୟମ ଏବଂ ବାସ୍ତବ ଜୀବନ ସମସ୍ୟା ସମାଧାନ</p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> ପାଠ୍ୟପୁସ୍ତକ: ଗଣିତ ପ୍ରକାଶ ଭାଗ ୨ (ଅଧ୍ୟାୟ ୨)</span>
+      <span><i class="fa-solid fa-layer-group"></i> NEP 2020 ପାଠ୍ୟକ୍ରମ</span>
+      <span><i class="fa-solid fa-check-double"></i> ସମ୍ପୂର୍ଣ୍ଣ ବିବରଣୀ (Zero-Omission)</span>
+    </div>
+    <button class="audio-btn" id="audioSummaryBtn" onclick="toggleAudioSummary()">
+      <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+    <!-- SECTION 1 -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୧</span>
+        <h2>ଅଧ୍ୟାୟ ସମୀକ୍ଷା ଓ ଦୃଶ୍ୟମାନ ମନସ୍ତତ୍ତ୍ୱ ମାନଚିତ୍ର (Overview &amp; Mind Map)</h2>
+        <p class="section-sub">ଧନାତ୍ମକ ଓ ଋଣାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ଗୁଣନ ଓ ହରଣର ଅନ୍ତର୍ନିହିତ ରହସ୍ୟ ଉନ୍ମୋଚନ।</p>
+      </div>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <strong>ଶିକ୍ଷକଙ୍କ ସ୍ୱାଗତ ବାର୍ତ୍ତା:</strong> କାହିଁକି ଋଣାତ୍ମକ ସଂଖ୍ୟା ସହିତ ଋଣାତ୍ମକ ସଂଖ୍ୟା ଗୁଣନ କଲେ ଧନାତ୍ମକ ଫଳ ମିଳେ? <em>(&minus;) &times; (&minus;) = (+) କାହିଁକି?</em> ପ୍ରାୟ ୧୪୦୦ ବର୍ଷ ପୂର୍ବେ ଭାରତୀୟ ଗଣିତଜ୍ଞ ଆଚାର୍ଯ୍ୟ ବ୍ରହ୍ମଗୁପ୍ତ ଏହାର ସୁନ୍ଦର ବ୍ୟାଖ୍ୟା ଦେଇଥିଲେ: <em>"ଋଣରୁ ଋଣ ବାଦ୍ ଦେଲେ ଧନ ବୃଦ୍ଧି ପାଏ!"</em> ଏହି ଅଧ୍ୟାୟରେ ଆମେ କ୍ୟାରମ୍ କଏନ୍, ସବୁଜ-ଲାଲ୍ ଟୋକନ୍, ଶୂନ ଯୁଗ୍ମ ଏବଂ ବଣ୍ଟନ ନିୟମ ସାହାଯ୍ୟରେ ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ସମସ୍ତ ଗାଣିତିକ ପ୍ରକ୍ରିୟାକୁ ହୃଦୟଙ୍ଗମ କରିବା।
+        </div>
+      </div>
+
+      <!-- SVG Number Line & Carrom Coin -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 760 170" width="100%" height="auto" style="max-width: 720px;" xmlns="http://www.w3.org/2000/svg">
+          <line x1="40" y1="90" x2="720" y2="90" stroke="#0f172a" stroke-width="3"/>
+          <g font-size="13" text-anchor="middle" font-weight="600" fill="#475569">
+            <line x1="80" y1="82" x2="80" y2="98" stroke="#0f172a" stroke-width="2"/>
+            <text x="80" y="118">-୫</text>
+            <line x1="140" y1="82" x2="140" y2="98" stroke="#0f172a" stroke-width="2"/>
+            <text x="140" y="118">-୪</text>
+            <line x1="200" y1="82" x2="200" y2="98" stroke="#0f172a" stroke-width="2"/>
+            <text x="200" y="118">-୩</text>
+            <line x1="260" y1="82" x2="260" y2="98" stroke="#0f172a" stroke-width="2"/>
+            <text x="260" y="118">-୨</text>
+            <line x1="320" y1="82" x2="320" y2="98" stroke="#0f172a" stroke-width="2"/>
+            <text x="320" y="118">-୧</text>
+
+            <line x1="380" y1="78" x2="380" y2="102" stroke="#0284c7" stroke-width="3"/>
+            <text x="380" y="122" font-weight="800" fill="#0284c7" font-size="15">୦ (ଆରମ୍ଭ)</text>
+
+            <line x1="440" y1="82" x2="440" y2="98" stroke="#0f172a" stroke-width="2"/>
+            <text x="440" y="118">+୧</text>
+            <line x1="500" y1="82" x2="500" y2="98" stroke="#0f172a" stroke-width="2"/>
+            <text x="500" y="118">+୨</text>
+            <line x1="560" y1="82" x2="560" y2="98" stroke="#0f172a" stroke-width="2"/>
+            <text x="560" y="118">+୩</text>
+            <line x1="620" y1="82" x2="620" y2="98" stroke="#0f172a" stroke-width="2"/>
+            <text x="620" y="118">+୪</text>
+            <line x1="680" y1="82" x2="680" y2="98" stroke="#0f172a" stroke-width="2"/>
+            <text x="680" y="118">+୫</text>
+          </g>
+
+          <path d="M 380 75 Q 530 20 675 75" fill="none" stroke="#10b981" stroke-width="2.5" stroke-dasharray="4,2"/>
+          <text x="530" y="38" font-size="12" font-weight="700" fill="#047857" text-anchor="middle">ପ୍ରଥମ ଷ୍ଟ୍ରାଇକ୍: +୫ (ଡାହାଣକୁ)</text>
+
+          <path d="M 680 75 Q 470 5 265 75" fill="none" stroke="#ef4444" stroke-width="2.5"/>
+          <text x="460" y="24" font-size="12" font-weight="700" fill="#b91c1c" text-anchor="middle">ଦ୍ୱିତୀୟ ଷ୍ଟ୍ରାଇକ୍: &minus;୭ (ବାମକୁ)</text>
+
+          <circle cx="260" cy="90" r="7" fill="#ef4444"/>
+          <text x="260" y="150" font-size="12" font-weight="800" fill="#b91c1c" text-anchor="middle">ଚୂଡ଼ାନ୍ତ ଅବସ୍ଥାନ: &minus;୨</text>
+        </svg>
+        <p class="diagram-caption">ଚିତ୍ର ୧୦.୧: କ୍ୟାରମ୍ କଏନ୍ ଗତି — (+୫) + (&minus;୭) = &minus;୨। ଦିଗ ଚିହ୍ନ ନିର୍ଦ୍ଧାରଣ କରେ ଏବଂ ପରିମାଣ ଦୂରତା ନିର୍ଣ୍ଣୟ କରେ।</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୨</span>
+        <h2>ମୁଖ୍ୟ ଧାରଣା ଓ ଶିକ୍ଷକଙ୍କ ବିସ୍ତୃତ ବ୍ୟାଖ୍ୟା (Core Concepts &amp; Explanations)</h2>
+        <p class="section-sub">ଗୁଣନ ନିୟମ, ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ସୂତ୍ର, ଯୁଗ୍ମତା ନିୟମ ଏବଂ ବୀଜଗାଣିତିକ ଧର୍ମ।</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-shapes"></i> ୧୦.୧ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଗୁଣନ ନିୟମ (Multiplication Rules)</h3>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ପ୍ରକ୍ରିୟା</th>
+              <th>ଫଳାଫଳର ଚିହ୍ନ</th>
+              <th>ଉଦାହରଣ</th>
+              <th>ଗାଣିତିକ କାରଣ</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>(+) &times; (+)</strong></td>
+              <td><span style="color:#16a34a; font-weight:700;">ଧନାତ୍ମକ (+)</span></td>
+              <td>(+୪) &times; (+୩) = +୧୨</td>
+              <td>୩ ଥର ୪ ଯୋଗ କରାଗଲା।</td>
+            </tr>
+            <tr>
+              <td><strong>(+) &times; (&minus;)</strong></td>
+              <td><span style="color:#dc2626; font-weight:700;">ଋଣାତ୍ମକ (&minus;)</span></td>
+              <td>(+୪) &times; (&minus;୩) = &minus;୧୨</td>
+              <td>୪ ଥର (&minus;୩) କୁ କ୍ରମାଗତ ଯୋଗ କରାଗଲା।</td>
+            </tr>
+            <tr>
+              <td><strong>(&minus;) &times; (+)</strong></td>
+              <td><span style="color:#dc2626; font-weight:700;">ଋଣାତ୍ମକ (&minus;)</span></td>
+              <td>(&minus;୪) &times; (+୩) = &minus;୧୨</td>
+              <td>କ୍ରମବିନିମୟୀ ନିୟମ ଅନୁସାରେ।</td>
+            </tr>
+            <tr>
+              <td><strong>(&minus;) &times; (&minus;)</strong></td>
+              <td><span style="color:#16a34a; font-weight:700;">ଧନାତ୍ମକ (+)</span></td>
+              <td>(&minus;୪) &times; (&minus;୩) = +୧୨</td>
+              <td>ଶୂନ ଯୁଗ୍ମରୁ ୪ ଥର (&minus;୩) କୁ କାଢ଼ି ନେଲେ +୧୨ ରହେ।</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-scroll"></i> ୧୦.୨ ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ପ୍ରାଚୀନ ସୂତ୍ର (୬୨୮ ଖ୍ରୀଷ୍ଟାବ୍ଦ)</h3>
+      <p>ଭାରତର ମହାନ ଗଣିତଜ୍ଞ-ଜ୍ୟୋତିର୍ବିଦ୍ <strong>ଆଚାର୍ଯ୍ୟ ବ୍ରହ୍ମଗୁପ୍ତ</strong> ତାଙ୍କର ପ୍ରସିଦ୍ଧ ଗ୍ରନ୍ଥ <em>ବ୍ରାହ୍ମସ୍ଫୁଟସିଦ୍ଧାନ୍ତ</em> ରେ ଧନାତ୍ମକ ସଂଖ୍ୟାକୁ 'ଧନ', ଋଣାତ୍ମକ ସଂଖ୍ୟାକୁ 'ଋଣ' ଏବଂ ଶୂନକୁ 'ଖ' ନାମରେ ନାମିତ କରି ଏହି ସୂତ୍ର ଦେଇଥିଲେ:</p>
+
+      <div class="callout-box callout-act">
+        <i class="fa-solid fa-scroll"></i>
+        <div>
+          <strong>ବ୍ରାହ୍ମସ୍ଫୁଟସିଦ୍ଧାନ୍ତର ସୂତ୍ର:</strong><br>
+          &bull; <strong>ଦୁଇଟି ଧନର ଗୁଣଫଳ ଏକ ଧନ:</strong> (+) &times; (+) = (+)<br>
+          &bull; <strong>ଦୁଇଟି ଋଣର ଗୁଣଫଳ ଏକ ଧନ:</strong> (&minus;) &times; (&minus;) = (+)<br>
+          &bull; <strong>ଗୋଟିଏ ଧନ ଓ ଗୋଟିଏ ଋଣର ଗୁଣଫଳ ଏକ ଋଣ:</strong> (+) &times; (&minus;) = (&minus;)<br>
+          &bull; <strong>ଦୁଇଟି ଋଣର ଭାଗଫଳ ଏକ ଧନ:</strong> (&minus;) &divide; (&minus;) = (+)<br>
+          &bull; <strong>ଋଣକୁ ଧନ ଦ୍ୱାରା ବା ଧନକୁ ଋଣ ଦ୍ୱାରା ହରିଲେ ଭାଗଫଳ ଋଣ ହୁଏ:</strong> (&minus;) &divide; (+) = (&minus;)
+        </div>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-calculator"></i> ୧୦.୩ ଯୁଗ୍ମତା ନିୟମ (Parity Rule)</h3>
+      <p>ତିନି ବା ତତୋଧିକ ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ଗୁଣନ ବେଳେ:</p>
+      <div class="math-block">
+        ଋଣାତ୍ମକ (&minus;) ସଂଖ୍ୟାର ସଂଖ୍ୟା ଯଦି <strong>ଯୁଗ୍ମ (Even: ୨, ୪, ୬, ...)</strong> ହୁଏ &rArr; ଗୁଣଫଳ <strong>ଧନାତ୍ମକ (+)</strong><br>
+        ଋଣାତ୍ମକ (&minus;) ସଂଖ୍ୟାର ସଂଖ୍ୟା ଯଦି <strong>ଅଯୁଗ୍ମ (Odd: ୧, ୩, ୫, ...)</strong> ହୁଏ &rArr; ଗୁଣଫଳ <strong>ଋଣାତ୍ମକ (&minus;)</strong>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-divide"></i> ୧୦.୪ ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ହରଣ ଏବଂ ଶୂନ ଦ୍ୱାରା ହରଣ</h3>
+      <p>ହରଣ ହେଉଛି ଗୁଣନର ବିପରୀତ ପ୍ରକ୍ରିୟା। ଯେହେତୁ ୨୫ &times; (&minus;୪) = &minus;୧୦୦:</p>
+      <div class="math-block">
+        (&minus;୧୦୦) &divide; ୨୫ = &minus;୪ &emsp; | &emsp; (&minus;୧୦୦) &divide; (&minus;୪) = +୨୫
+      </div>
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>ସତର୍କତା — ଶୂନ ଦ୍ୱାରା ହରଣ ଅସଂଜ୍ଞାୟିତ (Undefined):</strong> କୌଣସି ପୂର୍ଣ୍ଣସଂଖ୍ୟା a ପାଇଁ, <code>a &divide; ୦</code> ର କୌଣସି ଗାଣିତିକ ମୂଲ୍ୟ ନାହିଁ। କିନ୍ତୁ <code>୦ &divide; a = ୦</code> (ଯେଉଁଠାରେ a &ne; ୦)।
+        </div>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-table"></i> ୧୦.୫ ବୀଜଗାଣିତିକ ଧର୍ମ (Algebraic Properties)</h3>
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ଧର୍ମ (Property)</th>
+              <th>ଗୁଣନ (Multiplication)</th>
+              <th>ହରଣ (Division)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ସଂବୃତି (Closure)</strong></td>
+              <td>ହଁ: a &times; b ସର୍ବଦା ଏକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା।</td>
+              <td>ନାହିଁ: ୫ &divide; ୨ = ୨.୫ (ପୂର୍ଣ୍ଣସଂଖ୍ୟା ନୁହେଁ)।</td>
+            </tr>
+            <tr>
+              <td><strong>କ୍ରମବିନିମୟୀ (Commutative)</strong></td>
+              <td>ହଁ: a &times; b = b &times; a</td>
+              <td>ନାହିଁ: ୮ &divide; ୨ &ne; ୨ &divide; ୮</td>
+            </tr>
+            <tr>
+              <td><strong>ସହଯୋଗୀ (Associative)</strong></td>
+              <td>ହଁ: (a &times; b) &times; c = a &times; (b &times; c)</td>
+              <td>ନାହିଁ: (୧୬ &divide; ୪) &divide; ୨ &ne; ୧୬ &divide; (୪ &divide; ୨)</td>
+            </tr>
+            <tr>
+              <td><strong>ବଣ୍ଟନ ନିୟମ (Distributive)</strong></td>
+              <td colspan="2"><strong>a &times; (b + c) = (a &times; b) + (a &times; c)</strong> (ପୂର୍ଣ୍ଣସଂଖ୍ୟା ପାଇଁ ସର୍ବଦା ସତ୍ୟ!)</td>
+            </tr>
+            <tr>
+              <td><strong>ଅଭେଦ (Identity)</strong></td>
+              <td>୧ ହେଉଛି ଗୁଣନ ଅଭେଦ: a &times; ୧ = a</td>
+              <td>a &divide; ୧ = a (କେବଳ ଡାହାଣ ଅଭେଦ)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୩</span>
+        <h2>ପାଠ୍ୟପୁସ୍ତକ ମଧ୍ୟସ୍ଥ କାର୍ଯ୍ୟକଳାପ ଓ ଅନୁସନ୍ଧାନ (In-Text Activities Fully Solved)</h2>
+        <p class="section-sub">ପାଠ୍ୟପୁସ୍ତକର ପୃଷ୍ଠା ୨, ୪ ଓ ୮ରେ ଥିବା ସମସ୍ତ ଅନୁସନ୍ଧାନମୂଳକ କାର୍ଯ୍ୟର ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ।</p>
+      </div>
+
+      <h4 class="sub-topic">କାର୍ଯ୍ୟକଳାପ ୧: ରାକେଶଙ୍କ ଧନ୍ଦା: ସମଷ୍ଟି ଓ ଅନ୍ତର (ପୃଷ୍ଠା ୨)</h4>
+      <div class="solution-box">
+        <p><strong>ଶିକ୍ଷକଙ୍କ ମାନସାଙ୍କ ସୂତ୍ର:</strong> ବୃହତ୍ତର ସଂଖ୍ୟା = (ସମଷ୍ଟି + ଅନ୍ତର) &divide; ୨; କ୍ଷୁଦ୍ରତର ସଂଖ୍ୟା = (ସମଷ୍ଟି &minus; ଅନ୍ତର) &divide; ୨।</p>
+        <div class="step-item"><strong>(କ) ସମଷ୍ଟି = ୨୭, ଅନ୍ତର = ୯:</strong>
+          <br>ବୃହତ୍ତର = (୨୭ + ୯) &divide; ୨ = ୩୬ &divide; ୨ = <strong>୧୮</strong>; କ୍ଷୁଦ୍ରତର = (୨୭ &minus; ୯) &divide; ୨ = ୧୮ &divide; ୨ = <strong>୯</strong>।
+        </div>
+        <div class="step-item"><strong>(ଖ) ସମଷ୍ଟି = ୪, ଅନ୍ତର = ୧୨:</strong>
+          <br>ବୃହତ୍ତର = (୪ + ୧୨) &divide; ୨ = ୧୬ &divide; ୨ = <strong>୮</strong>; କ୍ଷୁଦ୍ରତର = (୪ &minus; ୧୨) &divide; ୨ = (&minus;୮) &divide; ୨ = <strong>&minus;୪</strong>।
+        </div>
+        <div class="step-item"><strong>(ଗ) ସମଷ୍ଟି = ୦, ଅନ୍ତର = ୧୦:</strong>
+          <br>ବୃହତ୍ତର = (୦ + ୧୦) &divide; ୨ = <strong>୫</strong>; କ୍ଷୁଦ୍ରତର = (୦ &minus; ୧୦) &divide; ୨ = <strong>&minus;୫</strong>।
+        </div>
+      </div>
+
+      <h4 class="sub-topic">କାର୍ଯ୍ୟକଳାପ ୨: କ୍ରମିକ ଷ୍ଟ୍ରାଇକ୍ ଗଣନା (ପୃଷ୍ଠା ୪)</h4>
+      <div class="solution-box">
+        <p><strong>ପ୍ରଶ୍ନ:</strong> କ୍ୟାରମ୍ କଏନ୍ ଉପରେ କ୍ରମାନ୍ୱୟରେ ୧, &minus;୨, ୩, &minus;୪, ୫, &minus;୬, ୭, &minus;୮, ୯, &minus;୧୦ ଆଘାତ ଦିଆଗଲେ, ତାର ଚୂଡ଼ାନ୍ତ ଅବସ୍ଥାନ କେଉଁଠାରେ ହେବ?</p>
+        <div class="step-item"><span class="step-label">ଯୋଗଫଳ:</span>
+          ମୋଟ = [୧ + (&minus;୨)] + [୩ + (&minus;୪)] + [୫ + (&minus;୬)] + [୭ + (&minus;୮)] + [୯ + (&minus;୧୦)]
+          <br>= (&minus;୧) + (&minus;୧) + (&minus;୧) + (&minus;୧) + (&minus;୧) = ୫ &times; (&minus;୧) = <strong>&minus;୫</strong>।
+        </div>
+        <div class="step-ans">&check; ଉତ୍ତର: କଏନ୍‌ଟି ୦ ର ବାମ ପାର୍ଶ୍ୱରେ <strong>&minus;୫</strong> ବିନ୍ଦୁରେ ରହିବ।</div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୪</span>
+        <h2>ଅଧ୍ୟାୟ ଶେଷସ୍ଥ 'Figure It Out' ଅଭ୍ୟାସ ସମାଧାନ (Exercises Solved)</h2>
+        <p class="section-sub">ସୋପାନ-ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ବ୍ୟାଖ୍ୟା (Zero-Omission Solutions)।</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>ପ୍ରଶ୍ନ ୧: ହିମକରଣ ପ୍ରକ୍ରିୟା — ୧୦ ଘଣ୍ଟା ପରେ କୋଠରୀର ତାପମାତ୍ରା (ପୃଷ୍ଠା ୧୬)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ:</strong> ଏକ କୋଠରୀର ପ୍ରାରମ୍ଭିକ ତାପମାତ୍ରା ୩୨°C। ପ୍ରତି ଘଣ୍ଟାରେ ତାପମାତ୍ରା ୫°C ହ୍ରାସ ପାଏ। ୧୦ ଘଣ୍ଟା ପରେ କୋଠରୀର ତାପମାତ୍ରା କେତେ ହେବ?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">ପ୍ରାରମ୍ଭିକ ତାପମାତ୍ରା:</span> ୩୨&deg;C</div>
+            <div class="step-item"><span class="step-label">ତାପମାତ୍ରା ହ୍ରାସ:</span> ୧୦ ଘଣ୍ଟାରେ ହ୍ରାସ = ୧୦ &times; (&minus;୫&deg;C) = &minus;୫୦&deg;C</div>
+            <div class="step-item"><span class="step-label">ଚୂଡ଼ାନ୍ତ ତାପମାତ୍ରା:</span> ୩୨&deg;C + (&minus;୫୦&deg;C) = ୩୨ &minus; ୫୦ = <strong>&minus;୧୮&deg;C</strong></div>
+            <div class="step-ans">&check; ଉତ୍ତର: ୧୦ ଘଣ୍ଟା ପରେ କୋଠରୀର ତାପମାତ୍ରା <strong>&minus;୧୮&deg;C</strong> ହେବ।</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>ପ୍ରଶ୍ନ ୨: ସିମେଣ୍ଟ କମ୍ପାନୀର ଲାଭ ଓ କ୍ଷତି ହିସାବ (ପୃଷ୍ଠା ୧୬)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ:</strong> ଏକ କମ୍ପାନୀ ଧଳା ସିମେଣ୍ଟ ବସ୍ତା ପ୍ରତି ₹୮ ଲାଭ କରେ ଏବଂ ଧୂସର ସିମେଣ୍ଟ ବସ୍ତା ପ୍ରତି ₹୫ କ୍ଷତି ସହେ।</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">(କ) ୩୦୦୦ ଧଳା ଓ ୫୦୦୦ ଧୂସର ବସ୍ତା ବିକ୍ରୟ:</span>
+              <br>ଧଳା ବସ୍ତାରୁ ଲାଭ = ୩୦୦୦ &times; (+୮) = +₹୨୪,୦୦୦
+              <br>ଧୂସର ବସ୍ତାରୁ କ୍ଷତି = ୫୦୦୦ &times; (&minus;୫) = &minus;₹୨୫,୦୦୦
+              <br>ମୋଟ ଫଳାଫଳ = ୨୪,୦୦୦ + (&minus;୨୫,୦୦୦) = <strong>&minus;₹୧,୦୦୦ (₹୧୦୦୦ କ୍ଷତି)</strong>।
+            </div>
+            <div class="step-item"><span class="step-label">(ଖ) ସମତୁଲ ପାଇଁ ବସ୍ତା ସଂଖ୍ୟା:</span>
+              <br>୬୪୦୦ ଧୂସର ବସ୍ତାରେ କ୍ଷତି = ୬୪୦୦ &times; ୫ = ₹୩୨,୦୦୦।
+              <br>ଏହି କ୍ଷତିକୁ ଭରଣା କରିବା ପାଇଁ ଆବଶ୍ୟକ ଧଳା ବସ୍ତା = ୩୨,୦୦୦ &divide; ୮ = <strong>୪,୦୦୦ ବସ୍ତା</strong>।
+            </div>
+            <div class="step-ans">&check; ଉତ୍ତର: କମ୍ପାନୀର ₹୧,୦୦୦ କ୍ଷତି ହେବ ଏବଂ ସମତୁଲ ପାଇଁ <strong>୪,୦୦୦ ଧଳା ସିମେଣ୍ଟ ବସ୍ତା</strong> ବିକ୍ରୟ ଆବଶ୍ୟକ।</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>ପ୍ରଶ୍ନ ୩: ପରୀକ୍ଷା ମାର୍କିଂ ପ୍ରଣାଳୀ (+୪ ଠିକ୍, &minus;୨ ଭୁଲ୍)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ:</strong> ଏକ ପରୀକ୍ଷାରେ ପ୍ରତ୍ୟେକ ଠିକ୍ ଉତ୍ତର ପାଇଁ +୪ ଏବଂ ଭୁଲ୍ ଉତ୍ତର ପାଇଁ &minus;୨ ନମ୍ବର ଦିଆଯାଏ। ଅନୀତା ସମସ୍ତ ପ୍ରଶ୍ନର ଉତ୍ତର ଦେଇ ୧୫ଟି ଠିକ୍ ଉତ୍ତର ସହିତ ୪୦ ନମ୍ବର ପାଇଲା। ସେ କେତୋଟି ପ୍ରଶ୍ନ ଭୁଲ୍ କରିଥିଲା?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">୧୫ଟି ଠିକ୍ ଉତ୍ତର ପାଇଁ ନମ୍ବର:</span> ୧୫ &times; ୪ = ୬୦</div>
+            <div class="step-item"><span class="step-label">ପ୍ରାପ୍ତ ନମ୍ବର:</span> ୪୦</div>
+            <div class="step-item"><span class="step-label">ଭୁଲ୍ ପାଇଁ କଟିଥିବା ନମ୍ବର:</span> ୬୦ &minus; ୪୦ = ୨୦</div>
+            <div class="step-item"><span class="step-label">ଭୁଲ୍ ଉତ୍ତର ସଂଖ୍ୟା:</span> ୨୦ &divide; ୨ = <strong>୧୦ଟି</strong>।</div>
+            <div class="step-ans">&check; ଉତ୍ତର: ଅନୀତା <strong>୧୦ଟି ପ୍ରଶ୍ନ</strong> ଭୁଲ୍ କରିଥିଲା ଏବଂ ପରୀକ୍ଷାରେ ମୋଟ ୨୫ଟି ପ୍ରଶ୍ନ ଥିଲା।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୫</span>
+        <h2>ଇଣ୍ଟରାକ୍ଟିଭ୍ ଅଭ୍ୟାସ କୁଇଜ୍ ଇଞ୍ଜିନ୍ (Interactive Practice Quiz)</h2>
+        <p class="section-sub">ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଗୁଣନ ଓ ହରଣରେ ନିଜର ଦକ୍ଷତା ମାପନ୍ତୁ।</p>
+      </div>
+
+      <div class="callout-box callout-pyq" id="scoreBanner" style="justify-content: space-between; align-items: center;">
+        <div><strong>ବର୍ତ୍ତମାନର ସ୍କୋର:</strong> <span id="quizScoreCount">0</span> / ୫ ସଠିକ୍</div>
+        <div id="quizTeacherMsg" style="font-size: 0.9rem; font-weight: 600;">ସମସ୍ତ ପ୍ରଶ୍ନର ଉତ୍ତର ଦେଇ ନିଜର ମୂଲ୍ୟାୟନ ଦେଖନ୍ତୁ!</div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-card" id="qcard1">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୧:</strong> (&minus;୧୫) &times; (&minus;୪) &times; (&minus;୨) ର ମାନ କେତେ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(କ) +୧୨୦</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(ଖ) &minus;୧୨୦</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(ଗ) &minus;୬୦</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(ଘ) +୬୦</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଖ) &minus;୧୨୦।</strong> (&minus;୧୫) &times; (&minus;୪) = +୬୦। ତା’ପରେ (+୬୦) &times; (&minus;୨) = &minus;୧୨୦। ତିନୋଟି (ଅଯୁଗ୍ମ) ଋଣାତ୍ମକ ଚିହ୍ନ ଥିବାରୁ ଗୁଣଫଳ ଋଣାତ୍ମକ ହେବ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-card" id="qcard2">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୨:</strong> a &times; (b + c) = (a &times; b) + (a &times; c) କେଉଁ ନିୟମକୁ ସୂଚିତ କରେ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')"><span>(କ) କ୍ରମବିନିମୟୀ ନିୟମ</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')"><span>(ଖ) ସହଯୋଗୀ ନିୟମ</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')"><span>(ଗ) ଯୋଗ ଉପରେ ଗୁଣନର ବଣ୍ଟନ ନିୟମ</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')"><span>(ଘ) ସଂବୃତି ନିୟମ</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଗ)।</strong> ଏହା ବଣ୍ଟନ ନିୟମ (Distributive Property of Multiplication over Addition)।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-card" id="qcard3">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୩:</strong> (&minus;୭୨) &divide; (&minus;୯) ର ମାନ କେତେ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')"><span>(କ) &minus;୮</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')"><span>(ଖ) +୮</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')"><span>(ଗ) &minus;୮୧</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')"><span>(ଘ) +୬୪୮</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଖ) +୮।</strong> ଦୁଇଟି ଋଣାତ୍ମକ ସଂଖ୍ୟାର ଭାଗଫଳ ସର୍ବଦା ଧନାତ୍ମକ ହୁଏ: ୭୨ &divide; ୯ = ୮।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-card" id="qcard4">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୪:</strong> ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ସୂତ୍ର ଅନୁଯାୟୀ, ଦୁଇଟି ଋଣର ଗୁଣଫଳ କ’ଣ ହୁଏ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')"><span>(କ) ଧନ (Fortune / Positive)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')"><span>(ଖ) ଋଣ (Debt / Negative)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')"><span>(ଗ) ଶୂନ</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')"><span>(ଘ) ଅସଂଜ୍ଞାୟିତ</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (କ) ଧନ।</strong> "ଦୁଇଟି ଋଣର ଗୁଣଫଳ ଏକ ଧନ" — ବ୍ରାହ୍ମସ୍ଫୁଟସିଦ୍ଧାନ୍ତ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-card" id="qcard5">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୫:</strong> ଯଦି ୯୯ଟି ଋଣାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଏବଂ ୧ଟି ଧନାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟାକୁ ଗୁଣନ କରାଯାଏ, ତେବେ ଗୁଣଫଳର ଚିହ୍ନ କ’ଣ ହେବ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')"><span>(କ) ଋଣାତ୍ମକ (&minus;)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')"><span>(ଖ) ଧନାତ୍ମକ (+)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')"><span>(ଗ) ଶୂନ</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')"><span>(ଘ) ନିର୍ଣ୍ଣୟ ଅସମ୍ଭବ</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (କ) ଋଣାତ୍ମକ (&minus;)।</strong> ୯୯ ହେଉଛି ଏକ ଅଯୁଗ୍ମ (Odd) ସଂଖ୍ୟା। ଅଯୁଗ୍ମ ସଂଖ୍ୟକ ଋଣାତ୍ମକ ଉତ୍ପାଦକର ଗୁଣଫଳ ସର୍ବଦା ଋଣାତ୍ମକ ହୋଇଥାଏ।
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୬</span>
+        <h2>ପରୀକ୍ଷା ଉପଯୋଗୀ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସତର୍କତା ଓ ୧୫ଟି ଶୀଘ୍ର ପୁନରାବୃତ୍ତି ସୂତ୍ର (Pitfalls &amp; Revision)</h2>
+        <p class="section-sub">ପରୀକ୍ଷାରେ ଭୁଲ୍ ଏଡ଼ାଇବା ପାଇଁ ଶିକ୍ଷକଙ୍କ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ପରାମର୍ଶ।</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>ପରୀକ୍ଷା ହଲ୍‌ରେ କଦାପି ଏହି ଭୁଲ୍ କରନ୍ତୁ ନାହିଁ:</strong><br>
+          &bull; <strong>ଯୋଗ ଓ ଗୁଣନ ଚିହ୍ନର ଦ୍ୱନ୍ଦ୍ୱ:</strong> (&minus;୪) + (&minus;୩) = &minus;୭, କିନ୍ତୁ (&minus;୪) &times; (&minus;୩) = +୧୨! ଯୋଗ ବେଳେ ଚିହ୍ନ ସମାନ ରହେ, ଗୁଣନ ବେଳେ ମାଇନସ୍ ମାଇନସ୍ ପ୍ଲସ୍ ହୁଏ!<br>
+          &bull; <strong>ଶୂନ ଦ୍ୱାରା ହରଣ:</strong> <code>୫ &divide; ୦</code> ଅସଂଜ୍ଞାୟିତ, ଏହାର ଉତ୍ତର ଶୂନ ନୁହେଁ!<br>
+          &bull; <strong>ବନ୍ଧନୀର ବ୍ୟବହାର:</strong> &minus;୫ &times; ୩ &ne; &minus;୫ + ୩, ଗୁଣନ ବେଳେ ଋଣାତ୍ମକ ସଂଖ୍ୟାକୁ ବନ୍ଧନୀରେ ରଖିବା ଉଚିତ।
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <strong>ଶିକ୍ଷକଙ୍କ ୧୫ଟି ଶୀଘ୍ର ପୁନରାବୃତ୍ତି ସୂତ୍ର (15 Rapid Revision One-Liners):</strong><br>
+          ୧. ଧନାତ୍ମକ &times; ଧନାତ୍ମକ = ଧନାତ୍ମକ (+)।<br>
+          ୨. ଧନାତ୍ମକ &times; ଋଣାତ୍ମକ = ଋଣାତ୍ମକ (&minus;)।<br>
+          ୩. ଋଣାତ୍ମକ &times; ଧନାତ୍ମକ = ଋଣାତ୍ମକ (&minus;)।<br>
+          ୪. ଋଣାତ୍ମକ &times; ଋଣାତ୍ମକ = ଧନାତ୍ମକ (+)।<br>
+          ୫. ଯୁଗ୍ମ ସଂଖ୍ୟକ ଋଣାତ୍ମକ ଚିହ୍ନ ଗୁଣନ ହେଲେ ଉତ୍ତର ଧନାତ୍ମକ ହୁଏ।<br>
+          ୬. ଅଯୁଗ୍ମ ସଂଖ୍ୟକ ଋଣାତ୍ମକ ଚିହ୍ନ ଗୁଣନ ହେଲେ ଉତ୍ତର ଋଣାତ୍ମକ ହୁଏ।<br>
+          ୭. ଋଣାତ୍ମକ &divide; ଋଣାତ୍ମକ = ଧନାତ୍ମକ (+)।<br>
+          ୮. କୌଣସି ପୂର୍ଣ୍ଣସଂଖ୍ୟାକୁ ଶୂନ ଦ୍ୱାରା ହରଣ ଗଣିତରେ ଅସଂଜ୍ଞାୟିତ।<br>
+          ୯. ଶୂନକୁ କୌଣସି ଅଶୂନ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଦ୍ୱାରା ହରିଲେ ଭାଗଫଳ ୦ ହୁଏ।<br>
+          ୧୦. ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ଗୁଣନ ଅଭେଦ ହେଉଛି ୧ (a &times; ୧ = a)।<br>
+          ୧୧. ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ଯୋଗାତ୍ମକ ଅଭେଦ ହେଉଛି ୦ (a + ୦ = a)।<br>
+          ୧୨. ଯୋଗ ଉପରେ ଗୁଣନର ବଣ୍ଟନ ନିୟମ: a &times; (b + c) = (a &times; b) + (a &times; c)।<br>
+          ୧୩. ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ଯୋଗ ଓ ଗୁଣନ କ୍ରମବିନିମୟୀ ଓ ସହଯୋଗୀ ନିୟମ ପାଳନ କରେ।<br>
+          ୧୪. ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ବିୟୋଗ ଓ ହରଣ କ୍ରମବିନିମୟୀ ନୁହେଁ।<br>
+          ୧୫. ଆଚାର୍ଯ୍ୟ ବ୍ରହ୍ମଗୁପ୍ତ ପ୍ରଥମେ ଧନ (Positive) ଓ ଋଣ (Negative) ର ବୀଜଗାଣିତିକ ନିୟମ ପ୍ରଦାନ କରିଥିଲେ।
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // 2. Audio Reader (Text-to-Speech)
+    var speechActive = false;
+    function toggleAudioSummary() {
+      var btn = document.getElementById('audioSummaryBtn');
+      if (!speechActive) {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          var text = "ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୧୦: ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଉପରେ ଗାଣିତିକ ପ୍ରକ୍ରିୟାରେ ଆପଣଙ୍କୁ ସ୍ୱାଗତ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ଗୁଣନ ଓ ହରଣ ନିୟମ ଶିଖିବା। ଦୁଇଟି ସମାନ ଚିହ୍ନବିଶିଷ୍ଟ ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ଗୁଣଫଳ ଓ ଭାଗଫଳ ସର୍ବଦା ଧନାତ୍ମକ ହୋଇଥାଏ ଏବଂ ଦୁଇଟି ବିପରୀତ ଚିହ୍ନବିଶିଷ୍ଟ ପୂର୍ଣ୍ଣସଂଖ୍ୟାର ଗୁଣଫଳ ଋଣାତ୍ମକ ହୋଇଥାଏ। ଆଚାର୍ଯ୍ୟ ବ୍ରହ୍ମଗୁପ୍ତ ଧନ ଓ ଋଣ ସମ୍ପର୍କିତ ସୂତ୍ର ପ୍ରଦାନ କରିଥିଲେ। ଶୂନ ଦ୍ୱାରା ହରଣ ଅସଂଜ୍ଞାୟିତ ଏବଂ ବଣ୍ଟନ ନିୟମ ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଗଣନାକୁ ଅତ୍ୟନ୍ତ ସହଜ କରିଦିଏ।";
+          var utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'or-IN';
+          utterance.rate = 0.95;
+          utterance.onend = function() {
+            speechActive = false;
+            if (btn) btn.innerHTML = '<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>';
+          };
+          window.speechSynthesis.speak(utterance);
+          speechActive = true;
+          if (btn) btn.innerHTML = '<span>⏹ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>';
+        } else {
+          alert('ଦୁଃଖିତ, ଆପଣଙ୍କ ବ୍ରାଉଜରରେ ଟେକ୍ସଟ୍-ଟୁ-ସ୍ପିଚ୍ ସମର୍ଥିତ ନୁହେଁ।');
+        }
+      } else {
+        window.speechSynthesis.cancel();
+        speechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>';
+      }
+    }
+
+    // 3. Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim();
+      var selectedOpt = '';
+      if (btnText.indexOf('(କ)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(ଖ)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(ଗ)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(ଘ)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      var optMapping = { 'a': '(କ)', 'b': '(ଖ)', 'c': '(ଗ)', 'd': '(ଘ)' };
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim();
+          if (t.indexOf(optMapping[correctOpt]) === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 ଅଭିନନ୍ଦନ! ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଗାଣିତିକ ପ୍ରକ୍ରିୟାରେ ଆପଣ ପାରଙ୍ଗମ!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 ବହୁତ ଭଲ ପ୍ରଦର୍ଶନ! ଆପଣଙ୍କ ଚିହ୍ନ ଧାରଣା ସ୍ପଷ୍ଟ!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 ଚେଷ୍ଟା ଜାରି ରଖନ୍ତୁ! ଉପରୋକ୍ତ ସୂତ୍ରଗୁଡ଼ିକୁ ପୁନର୍ବାର ଅଭ୍ୟାସ କରନ୍ତୁ।";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
