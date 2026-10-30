@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 5 - Exploring Forces (Class 8 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981, #0284c7, #8b5cf6);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 45%, #0284c7 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #065f46;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease;
+    }
+
+    .callout-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-box .callout-text {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .callout-def {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .callout-def i { color: #059669; }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-color: #a855f7;
+      color: #581c87;
+    }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+    .callout-warn i { color: #dc2626; }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+    .data-table tr:hover { background: #f1f5f9; }
+
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #065f46 0%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      background: #0369a1;
+      transform: translateY(-3px) scale(1.08);
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .pulse-node {
+      animation: pulseGlow 3s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.4)); }
+      100% { filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.8)); }
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Master Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Competency Bank</a>
+      <a href="#sec6" class="nav-link">6. Exam Traps</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-hand-fist"></i> Class 8 Science &bull; Chapter 5 (Curiosity NEP)
+    </div>
+    <h1 class="hero-title">Exploring Forces</h1>
+    <p class="hero-sub">
+      What makes things move, stop, turn, or squash? Unpack the mechanics of forces as pushes and pulls! Master net force calculations, balanced vs unbalanced dynamics, contact forces (muscular, friction) and mysterious non-contact forces (gravity, electrostatics, magnetism).
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT Curiosity Grade 8</span>
+      <span><i class="fa-solid fa-clock"></i> 50 Mins Full Mastery</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Complete &amp; Unabridged</span>
+      <span><i class="fa-solid fa-brain"></i> Interactive Quiz &amp; Audio</span>
+    </div>
+    <button id="teacherAudioBtn" class="audio-btn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL BLUEPRINT -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
+        <h2>Forces Architecture Map</h2>
+        <p class="section-sub">From definition and net vector calculation to contact and non-contact physical interactions.</p>
+      </div>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 920 380" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gForce" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#059669" />
+              <stop offset="100%" stop-color="#0284c7" />
+            </linearGradient>
+            <filter id="shadowF5" x="-5%" y="-5%" width="110%" height="115%">
+              <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.12" />
+            </filter>
+          </defs>
+
+          <!-- Central Core: Force -->
+          <circle cx="460" cy="190" r="70" fill="url(#gForce)" filter="url(#shadowF5)" class="pulse-node" />
+          <text x="460" y="185" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#ffffff" text-anchor="middle">FORCE</text>
+          <text x="460" y="205" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#ffffff" text-anchor="middle">(Push / Pull)</text>
+
+          <!-- Top: Effects of Force -->
+          <rect x="330" y="25" width="260" height="75" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" filter="url(#shadowF5)" />
+          <text x="460" y="55" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#1e40af" text-anchor="middle">1. Four Effects of Force</text>
+          <text x="460" y="77" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Start/Stop &bull; Change Speed &bull; Direction &bull; Shape</text>
+
+          <!-- Left: Contact Forces -->
+          <rect x="50" y="160" width="240" height="100" rx="12" fill="#f0fdf4" stroke="#10b981" stroke-width="2" filter="url(#shadowF5)" />
+          <text x="170" y="190" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#065f46" text-anchor="middle">2. Contact Forces</text>
+          <text x="170" y="215" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Requires physical contact:</text>
+          <text x="170" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#059669" font-weight="600" text-anchor="middle">&bull; Muscular Force &bull; Friction</text>
+
+          <!-- Right: Non-Contact Forces -->
+          <rect x="630" y="160" width="240" height="100" rx="12" fill="#faf5ff" stroke="#a855f7" stroke-width="2" filter="url(#shadowF5)" />
+          <text x="750" y="190" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#6b21a8" text-anchor="middle">3. Non-Contact Forces</text>
+          <text x="750" y="215" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Acts across empty distance:</text>
+          <text x="750" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#7e22ce" font-weight="600" text-anchor="middle">&bull; Magnetic &bull; Electrostatic &bull; Gravity</text>
+
+          <!-- Bottom: Net Force -->
+          <rect x="330" y="295" width="260" height="70" rx="12" fill="#fffbeb" stroke="#f59e0b" stroke-width="2" filter="url(#shadowF5)" />
+          <text x="460" y="325" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#92400e" text-anchor="middle">4. Net Force Dynamics</text>
+          <text x="460" y="347" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#78350f" text-anchor="middle">Same dir: F1 + F2 | Opp dir: F1 - F2</text>
+
+          <!-- Connections -->
+          <line x1="460" y1="100" x2="460" y2="120" stroke="#3b82f6" stroke-width="2" />
+          <line x1="290" y1="200" x2="390" y2="200" stroke="#10b981" stroke-width="2" />
+          <line x1="630" y1="200" x2="530" y2="200" stroke="#a855f7" stroke-width="2" />
+          <line x1="460" y1="260" x2="460" y2="295" stroke="#f59e0b" stroke-width="2" />
+        </svg>
+        <p class="diagram-caption">Figure 5.1: Forces Blueprint — A push or pull interacting through contact or across space, driving changes in state of motion.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: COMPREHENSIVE STUDY NOTES -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2 &bull; Comprehensive Line-by-Line Study Notes</span>
+        <h2>Deep Mechanics: Push, Pull &amp; Equilibrium</h2>
+        <p class="section-sub">Learn how forces interact, calculate resultant forces, and classify contact vs non-contact interactions.</p>
+      </div>
+
+      <!-- Topic 1: What is Force -->
+      <h3 class="topic-title"><i class="fa-solid fa-arrows-left-right"></i> 1. What is Force? Interactions &amp; Direction</h3>
+      <p>
+        In everyday speech, we use many words: pushing a supermarket trolley, pulling open a refrigerator door, hitting a tennis ball, kicking a football, or lifting a heavy school bag. In science, all these actions are grouped into a single unified concept: <strong>a push or a pull</strong> exerted upon an object.
+      </p>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-hand-holding-hand"></i>
+        <div class="callout-text">
+          <strong>Fundamental Law of Interaction:</strong><br>
+          A force does not exist in isolation! A force comes into play <strong>only when at least two objects interact with each other</strong>. A book lying on a shelf cannot push itself; your hand must physically touch or push the book to make it slide. The SI unit of force is the <strong>Newton (N)</strong>.
+        </div>
+      </div>
+
+      <!-- Topic 2: Combining Forces -->
+      <h3 class="topic-title"><i class="fa-solid fa-people-pulling"></i> 2. Combining Forces: The Net Force</h3>
+      <p>
+        When multiple forces act on an object simultaneously, their overall combined effect is known as the <strong>Net Force (or Resultant Force)</strong>.
+      </p>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 860 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Case A: Forces in Same Direction -->
+          <rect x="50" y="30" width="350" height="200" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" />
+          <text x="225" y="60" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#1e40af" text-anchor="middle">CASE A: Forces in Same Direction</text>
+          <!-- Box -->
+          <rect x="180" y="90" width="90" height="60" rx="6" fill="#f59e0b" stroke="#b45309" stroke-width="2" />
+          <text x="225" y="125" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">BOX</text>
+          <!-- Arrows pushing right -->
+          <line x1="90" y1="105" x2="175" y2="105" stroke="#2563eb" stroke-width="4" marker-end="url(#arrowBlue)" />
+          <text x="130" y="98" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#1e40af">F1 = 5 N</text>
+          <line x1="90" y1="135" x2="175" y2="135" stroke="#2563eb" stroke-width="4" />
+          <text x="130" y="152" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#1e40af">F2 = 3 N</text>
+          <text x="225" y="190" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="13" fill="#065f46" text-anchor="middle">Net Force = 5 N + 3 N = 8 N (Right)</text>
+
+          <!-- Case B: Forces in Opposite Direction -->
+          <rect x="460" y="30" width="350" height="200" rx="12" fill="#fffbeb" stroke="#f59e0b" stroke-width="2" />
+          <text x="635" y="60" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#92400e" text-anchor="middle">CASE B: Forces in Opposite Direction</text>
+          <!-- Box -->
+          <rect x="590" y="90" width="90" height="60" rx="6" fill="#f59e0b" stroke="#b45309" stroke-width="2" />
+          <text x="635" y="125" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">BOX</text>
+          <!-- Left arrow pushing right -->
+          <line x1="500" y1="120" x2="585" y2="120" stroke="#16a34a" stroke-width="4" />
+          <text x="540" y="112" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#15803d">F1 = 10 N</text>
+          <!-- Right arrow pushing left -->
+          <line x1="770" y1="120" x2="685" y2="120" stroke="#dc2626" stroke-width="4" />
+          <text x="730" y="112" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#b91c1c">F2 = 4 N</text>
+          <text x="635" y="190" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="13" fill="#92400e" text-anchor="middle">Net Force = 10 N - 4 N = 6 N (Right)</text>
+        </svg>
+        <p class="diagram-caption">Figure 5.2: Calculating Net Force — Forces add up when aligned, but subtract when acting in opposition.</p>
+      </div>
+
+      <h4 class="sub-topic">Balanced vs. Unbalanced Forces:</h4>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li><strong>Balanced Forces:</strong> If two teams in a tug-of-war pull with exactly equal force (e.g. 500 N vs 500 N), the net force is zero ($500 - 500 = 0	ext{ N}$). The central rope does not budge! Balanced forces <strong>cannot change the state of motion</strong> of an object.</li>
+        <li><strong>Unbalanced Forces:</strong> If Team A pulls with 600 N while Team B pulls with 450 N, the net force is $150	ext{ N}$ towards Team A. The rope immediately accelerates in the direction of Team A! Only an <strong>unbalanced force produces a change in motion</strong>.</li>
+      </ul>
+
+      <!-- Topic 3: Effects of Force -->
+      <h3 class="topic-title"><i class="fa-solid fa-wand-magic-sparkles"></i> 3. The Four Core Effects of Force</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+        <div class="card" style="border-top: 4px solid #3b82f6;">
+          <h4 style="color: #1e40af;"><i class="fa-solid fa-play"></i> 1. Start or Stop Motion</h4>
+          <p style="font-size: 0.9rem;">A kick sets a stationary football in motion; a goalkeeper applies force to stop the rolling ball.</p>
+        </div>
+        <div class="card" style="border-top: 4px solid #10b981;">
+          <h4 style="color: #065f46;"><i class="fa-solid fa-gauge-high"></i> 2. Change Speed</h4>
+          <p style="font-size: 0.9rem;">Pedaling harder applies force to accelerate a bicycle; pressing brake levers exerts force to slow it down.</p>
+        </div>
+        <div class="card" style="border-top: 4px solid #f59e0b;">
+          <h4 style="color: #92400e;"><i class="fa-solid fa-turn-down"></i> 3. Change Direction</h4>
+          <p style="font-size: 0.9rem;">A batsman hits a straight delivery towards the boundary covers, changing the ball's travel trajectory.</p>
+        </div>
+        <div class="card" style="border-top: 4px solid #8b5cf6;">
+          <h4 style="color: #6b21a8;"><i class="fa-solid fa-shapes"></i> 4. Change Shape / Size</h4>
+          <p style="font-size: 0.9rem;">Squeezing an inflated balloon, rolling dough with a rolling pin, or stretching an elastic rubber band.</p>
+        </div>
+      </div>
+
+      <!-- Topic 4: Contact vs Non-Contact -->
+      <h3 class="topic-title"><i class="fa-solid fa-hand-fist"></i> 4. Contact Forces vs. Non-Contact Forces</h3>
+      
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Classification</th>
+              <th>Type of Force</th>
+              <th>How It Operates &amp; Everyday Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2"><strong>Contact Forces</strong><br>(Requires physical touching)</td>
+              <td><strong>Muscular Force</strong></td>
+              <td>Force produced by bodily muscles. Lifting a bucket of water, a bullock pulling a cart, chewing food.</td>
+            </tr>
+            <tr>
+              <td><strong>Frictional Force</strong></td>
+              <td>Opposes motion between two surfaces in contact. A rolling ball stops on grass due to friction between ball and blades.</td>
+            </tr>
+            <tr>
+              <td rowspan="3"><strong>Non-Contact Forces</strong><br>(Action-at-a-distance)</td>
+              <td><strong>Magnetic Force</strong></td>
+              <td>Magnets exert attraction or repulsion without touching (like poles repel, opposite attract).</td>
+            </tr>
+            <tr>
+              <td><strong>Electrostatic Force</strong></td>
+              <td>Force exerted by an electrically charged body. A plastic scale rubbed on dry hair attracts tiny paper scraps without contact.</td>
+            </tr>
+            <tr>
+              <td><strong>Gravitational Force</strong></td>
+              <td>Universal attractive pull of the Earth (and all masses). Ripe mangoes falling down from trees, water flowing downward in rivers.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 3: HIGH-YIELD FACT BANK -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3 &bull; High-Yield Fact &amp; Term Bank</span>
+        <h2>Physics Concepts &amp; Key Definitions</h2>
+        <p class="section-sub">Quick-memorization cards for exams.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+        <div class="card" style="border-left: 4px solid #10b981;">
+          <h4 style="color: #065f46;"><i class="fa-solid fa-scale-unbalanced"></i> Force</h4>
+          <p style="font-size: 0.9rem;">A push or pull upon an object resulting from an interaction between two bodies. SI unit: Newton (N).</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #3b82f6;">
+          <h4 style="color: #1e40af;"><i class="fa-solid fa-arrow-right-arrow-left"></i> Net Force</h4>
+          <p style="font-size: 0.9rem;">The single resultant force that represents the combined vector sum of all individual forces acting upon a body.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #f59e0b;">
+          <h4 style="color: #92400e;"><i class="fa-solid fa-rug"></i> Friction</h4>
+          <p style="font-size: 0.9rem;">A contact force that always acts parallel to touching surfaces and in the direction opposite to relative motion.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #8b5cf6;">
+          <h4 style="color: #6b21a8;"><i class="fa-solid fa-bolt"></i> Electrostatic Force</h4>
+          <p style="font-size: 0.9rem;">The non-contact attractive or repulsive force exerted by an object possessing static electric charge.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #dc2626;">
+          <h4 style="color: #991b1b;"><i class="fa-solid fa-earth-americas"></i> Gravity</h4>
+          <p style="font-size: 0.9rem;">The non-contact universal attractive force with which the Earth and all celestial bodies pull masses toward their centers.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #0284c7;">
+          <h4 style="color: #0369a1;"><i class="fa-solid fa-equals"></i> Balanced Forces</h4>
+          <p style="font-size: 0.9rem;">Equal and opposite forces acting on an object whose net force equals zero, preserving its state of rest or uniform motion.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: 100% COMPLETE NCERT SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4 &bull; 100% Complete NCERT Solutions</span>
+        <h2>Textbook In-Text &amp; Chapter Exercises</h2>
+        <p class="section-sub">Step-by-step teacher solutions with complete explanations.</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Q1:</strong> Give two examples each of situations in which you push or pull to change the state of motion of objects.</span>
+          <span class="badge badge-green">NCERT Core</span>
+        </summary>
+        <div class="ans-content">
+          <ul style="margin-left: 1.25rem;">
+            <li><strong>Push Examples:</strong>
+              <ul>
+                <li>Pushing a stationary swing to start it oscillating.</li>
+                <li>Pushing a stalled car from behind to make it move forward.</li>
+              </ul>
+            </li>
+            <li><strong>Pull Examples:</strong>
+              <ul>
+                <li>Pulling a bucket of water up from a deep well.</li>
+                <li>Pulling open a heavy classroom drawer to fetch a book.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q2:</strong> Two people push a heavy wooden box in the same direction with forces of 25 N and 35 N respectively. Find the resultant net force acting on the box.</span>
+          <span class="badge badge-blue">Numerical Calculation</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Step-by-Step Calculation:</strong></p>
+          <ul style="margin-left: 1.25rem;">
+            <li>Force applied by person 1 ($F_1$) = $25	ext{ N}$</li>
+            <li>Force applied by person 2 ($F_2$) = $35	ext{ N}$</li>
+            <li>Since both forces act along the <strong>same direction</strong>, they add together:</li>
+            <li>$	ext{Net Force} = F_1 + F_2 = 25	ext{ N} + 35	ext{ N} = 60	ext{ N}$</li>
+            <li><strong>Conclusion:</strong> The resultant net force is <strong>60 N</strong> acting in the direction of the push.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q3:</strong> An archer stretches her bow while taking aim at the target. She then releases the arrow, which begins to move towards the target. Identify the forces acting at each stage.</span>
+          <span class="badge badge-purple">Real-Life Application</span>
+        </summary>
+        <div class="ans-content">
+          <ol style="margin-left: 1.25rem;">
+            <li>To stretch the bow, the archer applies <strong>muscular force</strong>, which causes a change in the bow's <strong>shape</strong>.</li>
+            <li>When released, the arrow shoots forward due to the stored elastic energy transferring into kinetic motion.</li>
+            <li>While flying in the air, two forces act upon the arrow:
+              <ul>
+                <li><strong>Frictional force of air (air resistance):</strong> Opposes its forward motion.</li>
+                <li><strong>Gravitational force:</strong> Pulls the arrow downward toward the Earth.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q4:</strong> In a tug-of-war, team A exerts a force of 1200 N towards the east, while team B exerts a force of 1200 N towards the west. What is the net force, and will the central mark move?</span>
+          <span class="badge badge-amber">Equilibrium</span>
+        </summary>
+        <div class="ans-content">
+          <ul style="margin-left: 1.25rem;">
+            <li>$	ext{Net Force} = 1200	ext{ N (East)} - 1200	ext{ N (West)} = 0	ext{ N}$</li>
+            <li>Because the forces are equal in magnitude and directly opposite in direction, they represent <strong>balanced forces</strong>.</li>
+            <li>The net force is exactly <strong>zero</strong>, and therefore the central ribbon will remain completely stationary.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q5:</strong> Why does a ball rolling on a horizontal floor eventually slow down and stop even when no one is touching it?</span>
+          <span class="badge badge-green">Friction Physics</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Explanation:</strong></p>
+          <ul style="margin-left: 1.25rem;">
+            <li>Even though no human is touching the ball, an invisible contact force called <strong>friction</strong> acts between the bottom surface of the rolling ball and the floor.</li>
+            <li>Friction always acts in the direction <strong>opposite to the direction of motion</strong>.</li>
+            <li>This opposing force continuously resists the forward momentum of the ball, gradually reducing its speed until it comes to a complete halt.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: COMPETENCY QUESTION BANK -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5 &bull; CBSE / BSE Competency Question Bank</span>
+        <h2>Interactive Quiz &amp; High-Order Thinking Drills</h2>
+        <p class="section-sub">Test your mastery of forces and motion with instant evaluation.</p>
+      </div>
+
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <i class="fa-solid fa-trophy"></i>
+          <span>Score: <span id="quizScoreCount">0</span> / 5</span>
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Click an option below to test your forces intuition!
+        </div>
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qcard1">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q1: Which of the following is a non-contact force that operates across empty space?
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(a) Muscular Force</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(b) Friction</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(c) Gravitational Force</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(d) Tension in a stretched rope</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c) Gravitational Force</strong><br>
+            Gravity pulls objects toward the Earth without requiring physical contact. Muscular force, friction, and rope tension all require physical contact.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qcard2">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q2: Two boys push a cart in opposite directions. Boy A pushes with 40 N towards the left, while Boy B pushes with 60 N towards the right. The cart will:
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(a) Move towards the right with a net force of 20 N</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(b) Move towards the left with a net force of 20 N</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(c) Remain completely motionless because forces cancel out</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(d) Move with a combined force of 100 N</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong><br>
+            Net force = $60	ext{ N} - 40	ext{ N} = 20	ext{ N}$ towards the right (in the direction of the larger force).
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qcard3">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q3: A plastic comb rubbed vigorously through dry hair attracts bits of dry paper. This phenomenon demonstrates:
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')">
+          <span>(a) Magnetic force</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')">
+          <span>(b) Electrostatic force</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')">
+          <span>(c) Gravitational force</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')">
+          <span>(d) Muscular force</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b) Electrostatic force</strong><br>
+            Friction transfers electrons to the plastic comb, giving it an electric charge that attracts neutral paper scraps without physical touching.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qcard4">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q4: Which of the following situations demonstrates a force changing the SHAPE of an object rather than its speed?
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'c')">
+          <span>(a) Kicking a penalty kick into the goal</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'c')">
+          <span>(b) A car decelerating when approaching a red light</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'c')">
+          <span>(c) Squeezing a lump of wet clay to make a toy pot</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'c')">
+          <span>(d) Catching a flying cricket ball</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong><br>
+            Molding clay alters its geometric shape and dimensions rather than driving translational motion.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qcard5">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q5: When two balanced forces act on a stationary box from opposite sides, the net force is:
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+          <span>(a) Double the original force</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+          <span>(b) Infinity</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+          <span>(c) Negative</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+          <span>(d) Exactly Zero</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d) Exactly Zero</strong><br>
+            Balanced forces are equal in magnitude and opposite in direction ($F - F = 0$), resulting in zero acceleration.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM HALL READINESS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6 &bull; Exam Hall Readiness &amp; Quick Recap</span>
+        <h2>Exam Traps &amp; Key Takeaways</h2>
+        <p class="section-sub">Quick revision pearls to prevent loss of marks.</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Common Student Traps to Avoid:</strong><br>
+          <ul style="margin-left: 1.25rem; margin-top: 0.4rem;">
+            <li><strong>Trap 1: Forgetting direction when stating a force:</strong> Force is a vector! Never write just "Force = 15 N"; always write magnitude AND direction (e.g. "15 N towards the East").</li>
+            <li><strong>Trap 2: Saying a moving object must have an unbalanced force:</strong> An object moving at a constant speed in a straight line has a NET FORCE OF ZERO (balanced forces)! Unbalanced forces are only needed to <em>change</em> speed or direction.</li>
+            <li><strong>Trap 3: Classifying Gravity as contact:</strong> Gravity acts through empty space, vacuum, and air—it is strictly a <em>non-contact</em> force.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-clipboard-check"></i>
+        <div class="callout-text">
+          <strong>Final 1-Minute Master Checklist:</strong><br>
+          &bull; <strong>Force:</strong> Push or pull arising from interaction (Unit: Newton, N).<br>
+          &bull; <strong>Net Force:</strong> Same direction add ($F_1 + F_2$); opposite direction subtract ($F_1 - F_2$).<br>
+          &bull; <strong>Balanced Forces:</strong> Net force = 0; no change in motion.<br>
+          &bull; <strong>Unbalanced Forces:</strong> Net force > 0; causes acceleration/turning.<br>
+          &bull; <strong>Contact Forces:</strong> Muscular, Friction.<br>
+          &bull; <strong>Non-Contact Forces:</strong> Magnetic, Electrostatic, Gravitational.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p style="font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Sujit Classes &bull; Excellence in Middle School Education</p>
+    <p style="font-size: 0.88rem; margin-bottom: 1rem;">
+      Aligned with NCERT Curiosity (NEP Edition) &bull; Class 8 Science Chapter 5 Master Study Notes
+    </p>
+    <p style="font-size: 0.82rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Back to Main Portal</a> &bull; 
+      <a href="#sec1">Top of Page</a>
+    </p>
+  </footer>
+
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+      }
+    }
+
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.style.display = 'block';
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Flawless! You have mastered the mechanics of force!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! Strong understanding of contact & non-contact forces!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good practice! Check the explanations to master every point!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
