@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 9 - The Amazing World of Solutes, Solvents, and Solutions (Class 8 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981, #0284c7, #8b5cf6);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 45%, #0284c7 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #065f46;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease;
+    }
+
+    .callout-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-box .callout-text {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .callout-def {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .callout-def i { color: #059669; }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-color: #a855f7;
+      color: #581c87;
+    }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+    .callout-warn i { color: #dc2626; }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+    .data-table tr:hover { background: #f1f5f9; }
+
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #065f46 0%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      background: #0369a1;
+      transform: translateY(-3px) scale(1.08);
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Master Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Competency Bank</a>
+      <a href="#sec6" class="nav-link">6. Exam Traps</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-water"></i> Class 8 Science &bull; Chapter 9 (Curiosity NEP)
+    </div>
+    <h1 class="hero-title">The Amazing World of Solutes, Solvents, and Solutions</h1>
+    <p class="hero-sub">
+      Dive into the physics and chemistry of solutions, solubility limits, and density! Learn why sugar dissolves faster in hot milk, why fish thrive in chilly streams, why ice and ships float while tiny pebbles sink, and explore the ancient salt wells of Ningel, Manipur.
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT Curiosity Grade 8</span>
+      <span><i class="fa-solid fa-clock"></i> 55 Mins Full Mastery</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Complete &amp; Unabridged</span>
+      <span><i class="fa-solid fa-brain"></i> Interactive Quiz &amp; Audio</span>
+    </div>
+    <button id="teacherAudioBtn" class="audio-btn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL BLUEPRINT -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
+        <h2>Solution Dynamics &amp; The Density Spectrum</h2>
+        <p class="section-sub">A visual synthesis connecting Solute-Solvent interactions with Archimedean buoyancy and density gradients.</p>
+      </div>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 950 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="soluteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b" />
+              <stop offset="100%" stop-color="#d97706" />
+            </linearGradient>
+            <linearGradient id="waterGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" />
+              <stop offset="100%" stop-color="#0284c7" />
+            </linearGradient>
+            <linearGradient id="densGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981" />
+              <stop offset="100%" stop-color="#047857" />
+            </linearGradient>
+          </defs>
+
+          <!-- Left Side: Solution Architecture -->
+          <rect x="25" y="30" width="420" height="300" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" />
+          <text x="235" y="65" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">ANATOMY OF A SOLUTION</text>
+
+          <!-- Beaker 1: Solute -->
+          <rect x="50" y="95" width="80" height="90" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="2" />
+          <circle cx="75" cy="155" r="5" fill="#d97706" />
+          <circle cx="90" cy="165" r="5" fill="#d97706" />
+          <circle cx="105" cy="150" r="5" fill="#d97706" />
+          <circle cx="85" cy="140" r="5" fill="#d97706" />
+          <text x="90" y="205" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#b45309" text-anchor="middle">SOLUTE</text>
+          <text x="90" y="222" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#64748b" text-anchor="middle">(Sugar / Salt)</text>
+
+          <!-- Plus sign -->
+          <text x="155" y="150" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="800" fill="#64748b" text-anchor="middle">+</text>
+
+          <!-- Beaker 2: Solvent -->
+          <rect x="180" y="95" width="80" height="90" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" />
+          <path d="M 182 130 Q 220 125 258 130 L 258 183 Q 220 185 182 183 Z" fill="url(#waterGrad)" opacity="0.6" />
+          <text x="220" y="205" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#1d4ed8" text-anchor="middle">SOLVENT</text>
+          <text x="220" y="222" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#64748b" text-anchor="middle">(Water / Liquid)</text>
+
+          <!-- Equals sign -->
+          <text x="285" y="150" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="800" fill="#64748b" text-anchor="middle">=</text>
+
+          <!-- Beaker 3: Solution -->
+          <rect x="310" y="85" width="105" height="105" rx="8" fill="#f0fdf4" stroke="#10b981" stroke-width="2" />
+          <path d="M 312 115 Q 362 110 413 115 L 413 188 Q 362 190 312 188 Z" fill="#67e8f9" opacity="0.5" />
+          <!-- Evenly dispersed solute particles -->
+          <circle cx="335" cy="135" r="4" fill="#d97706" />
+          <circle cx="370" cy="130" r="4" fill="#d97706" />
+          <circle cx="395" cy="140" r="4" fill="#d97706" />
+          <circle cx="350" cy="160" r="4" fill="#d97706" />
+          <circle cx="385" cy="165" r="4" fill="#d97706" />
+          <circle cx="330" cy="175" r="4" fill="#d97706" />
+          <text x="362" y="210" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="700" fill="#047857" text-anchor="middle">HOMOGENEOUS</text>
+          <text x="362" y="227" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="600" fill="#059669" text-anchor="middle">SOLUTION</text>
+
+          <rect x="50" y="250" width="370" height="60" rx="8" fill="#f1f5f9" />
+          <text x="235" y="272" font-family="'Plus Jakarta Sans', sans-serif" font-size="11.5" font-weight="700" fill="#1e293b" text-anchor="middle">Solubility Rule &bull; Temperature Effect</text>
+          <text x="235" y="295" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Solid in Liquid: Temp &#x2191; &#x2794; Solubility &#x2191;  |  Gas in Liquid: Temp &#x2191; &#x2794; Solubility &#x2193;</text>
+
+          <!-- Right Side: Density & Buoyancy Spectrum -->
+          <rect x="490" y="30" width="435" height="300" rx="16" fill="#f0fdfa" stroke="#5eead4" stroke-width="2" />
+          <text x="707" y="65" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="700" fill="#0f766e" text-anchor="middle">THE DENSITY SPECTRUM &amp; BUOYANCY</text>
+
+          <!-- Water column tank -->
+          <rect x="525" y="90" width="365" height="150" rx="10" fill="#e0f2fe" stroke="#0284c7" stroke-width="2" />
+          <!-- Water surface line -->
+          <line x1="525" y1="125" x2="890" y2="125" stroke="#0284c7" stroke-width="2" stroke-dasharray="6,4" />
+          <text x="880" y="120" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#0369a1" text-anchor="end">Water Surface (d = 1.0 g/cm&#179;)</text>
+
+          <!-- Floating items (Density < 1.0) -->
+          <!-- Ice cube -->
+          <rect x="555" y="110" width="45" height="35" rx="4" fill="#ffffff" stroke="#93c5fd" stroke-width="2" />
+          <text x="577" y="132" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#1e40af" text-anchor="middle">ICE</text>
+          <text x="577" y="160" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#0369a1" text-anchor="middle">0.92 g/cm&#179;</text>
+
+          <!-- Oil layer -->
+          <rect x="635" y="112" width="60" height="22" rx="4" fill="#fef08a" stroke="#eab308" stroke-width="1.5" />
+          <text x="665" y="127" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#854d0e" text-anchor="middle">OIL</text>
+          <text x="665" y="150" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#854d0e" text-anchor="middle">0.90 g/cm&#179;</text>
+
+          <!-- Wood block -->
+          <rect x="730" y="105" width="55" height="30" rx="4" fill="#fed7aa" stroke="#f97316" stroke-width="1.5" />
+          <text x="757" y="124" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#9a3412" text-anchor="middle">WOOD</text>
+          <text x="757" y="148" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#9a3412" text-anchor="middle">0.65 g/cm&#179;</text>
+
+          <!-- Sinking items (Density > 1.0) -->
+          <!-- Aluminium -->
+          <rect x="580" y="200" width="40" height="30" rx="4" fill="#cbd5e1" stroke="#64748b" stroke-width="1.5" />
+          <text x="600" y="218" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" font-weight="700" fill="#334155" text-anchor="middle">ALUM</text>
+          <text x="600" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" fill="#475569" text-anchor="middle">2.7 g/cm&#179;</text>
+
+          <!-- Iron block -->
+          <rect x="680" y="195" width="45" height="35" rx="4" fill="#94a3b8" stroke="#475569" stroke-width="2" />
+          <text x="702" y="216" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#0f172a" text-anchor="middle">IRON</text>
+          <text x="702" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" fill="#0f172a" text-anchor="middle">7.9 g/cm&#179;</text>
+
+          <!-- Gold bar -->
+          <rect x="785" y="195" width="50" height="35" rx="4" fill="#fde047" stroke="#ca8a04" stroke-width="2" />
+          <text x="810" y="216" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#713f12" text-anchor="middle">GOLD</text>
+          <text x="810" y="238" font-family="'Plus Jakarta Sans', sans-serif" font-size="8.5" fill="#713f12" text-anchor="middle">19.3 g/cm&#179;</text>
+
+          <!-- Density Formula Bar -->
+          <rect x="525" y="260" width="365" height="50" rx="8" fill="#ccfbf1" />
+          <text x="707" y="291" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="800" fill="#0f766e" text-anchor="middle">DENSITY (d) = MASS (m) / VOLUME (V)</text>
+        </svg>
+        <p class="diagram-caption">Figure 9.1: Comprehensive visual blueprint detailing solution formation, temperature rules, and the density-buoyancy spectrum in water.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: DEEP CORE CONCEPTS -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2 &bull; Teacher's Deep Conceptual Guide</span>
+        <h2>Mastering Solutions, Solubility Limits, and Density</h2>
+        <p class="section-sub">Clear, step-by-step physics and chemistry explained with relatable everyday analogies.</p>
+      </div>
+
+      <!-- TOPIC 1 -->
+      <h3 class="topic-title"><i class="fa-solid fa-mug-hot"></i> 9.1 What Are Solute, Solvent, and Solution?</h3>
+      <p>
+        Think about making a refreshing glass of lemonade (<em>Shikanji</em>) on a hot summer afternoon. You add a spoonful of sugar and a pinch of salt to a glass of water and stir it. Soon, the white granules vanish completely, and you have a clear, sweet liquid.
+      </p>
+      <ul>
+        <li><strong>Solute:</strong> The substance that gets dissolved. It is usually present in the smaller quantity (e.g., sugar, common salt).</li>
+        <li><strong>Solvent:</strong> The liquid medium in which the solute dissolves. It is usually present in the larger quantity (e.g., water).</li>
+        <li><strong>Solution:</strong> The homogeneous (uniform) mixture formed when the solute dissolves completely in the solvent.</li>
+      </ul>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-droplet"></i>
+        <div class="callout-text">
+          <strong>Teacher's Rule &bull; Solutions of Two Liquids:</strong><br>
+          When two liquids mix (like milk and water, or alcohol and water), which one is the solute?<br>
+          The liquid present in <strong>lesser quantity</strong> is called the <strong>solute</strong>, and the liquid present in <strong>greater quantity</strong> is called the <strong>solvent</strong>. If water is present, water is almost always recognized as the solvent because of its extraordinary dissolving power (Universal Solvent).
+        </div>
+      </div>
+
+      <!-- TOPIC 2: Saturated vs Unsaturated -->
+      <h3 class="topic-title"><i class="fa-solid fa-gauge-high"></i> 9.2 Saturated vs Unsaturated Solutions &amp; Solubility</h3>
+      <p>
+        Can water dissolve an unlimited amount of sugar? Let's investigate:
+      </p>
+      <ul>
+        <li>You take 100 mL of water at room temperature (25 &deg;C) and add 1 teaspoon of sugar. It dissolves easily. The solution is <strong>unsaturated</strong> (it has room for more solute).</li>
+        <li>You add a second, third, and fourth spoon. They dissolve with stirring.</li>
+        <li>By the fifth spoon, no matter how vigorously you stir, sugar granules begin to settle at the bottom of the beaker! The solution has reached its absolute capacity.</li>
+      </ul>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-check-double"></i>
+        <div class="callout-text">
+          <strong>Key Definitions &bull; Saturated Solution &amp; Solubility:</strong><br>
+          <strong>Saturated Solution:</strong> A solution in which the maximum possible amount of solute has dissolved at a given temperature, such that no more solute can dissolve.<br>
+          <strong>Unsaturated Solution:</strong> A solution that contains less than the maximum amount of solute, meaning more solute can still dissolve at that temperature.<br>
+          <strong>Solubility:</strong> The maximum mass of a solute (in grams) that can dissolve in a fixed quantity (typically 100 g or 100 mL) of solvent at a specific temperature.
+        </div>
+      </div>
+
+      <!-- TOPIC 3: Temperature effect on solubility -->
+      <h3 class="topic-title"><i class="fa-solid fa-temperature-arrow-up"></i> 9.2.1 How Temperature Changes Solubility</h3>
+      <p>
+        What happens if you take that saturated sugar solution with undissolved crystals at the bottom and place it on a burner?
+      </p>
+      <ul>
+        <li><strong>For Solids in Liquids (e.g., Sugar, Salt, Copper Sulphate):</strong> As temperature rises, thermal energy increases, expanding the interparticle spaces between liquid molecules. The undissolved sugar quickly dissolves! <strong>Solubility of solids increases as temperature increases.</strong></li>
+        <li><strong>For Gases in Liquids (e.g., Oxygen, Carbon Dioxide in Water):</strong> The exact opposite happens! When a liquid is heated, dissolved gas particles gain kinetic energy and escape into the air. <strong>Solubility of gases DECREASES as temperature increases.</strong></li>
+      </ul>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-fish"></i>
+        <div class="callout-text">
+          <strong>Why Do Fish Prefer Cold Water Streams?</strong><br>
+          Because cold water can dissolve significantly more oxygen than warm water! During hot summer months, the temperature of shallow ponds rises, decreasing dissolved oxygen levels and causing aquatic organisms to struggle to breathe.
+        </div>
+      </div>
+
+      <!-- TOPIC 4: Density and Floating -->
+      <h3 class="topic-title"><i class="fa-solid fa-weight-hanging"></i> 9.4 &amp; 9.5 Mass, Volume, and Density</h3>
+      <p>
+        Why does a tiny steel pin sink straight to the bottom of a bucket, while a massive 50,000-ton aircraft carrier made of steel floats proudly on the ocean? The secret is <strong>density</strong>!
+      </p>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-scale-balanced"></i>
+        <div class="callout-text">
+          <strong>Scientific Formula &bull; Density:</strong><br>
+          <strong>Density</strong> is the mass of a substance per unit volume. It measures how tightly matter is packed inside an object.<br>
+          <div style="text-align:center; margin:0.8rem 0; font-size:1.15rem; font-weight:700; color:#0f766e;">
+            Density (d) = Mass (m) &divide; Volume (V)
+          </div>
+          &bull; <strong>SI Unit:</strong> kg/m&sup3; (kilogram per cubic metre)<br>
+          &bull; <strong>Common Laboratory Unit:</strong> g/cm&sup3; (gram per cubic centimetre) or g/mL<br>
+          <em>Conversion: 1 g/cm&sup3; = 1000 kg/m&sup3;. Pure water has a density of 1.0 g/cm&sup3; at 4 &deg;C.</em>
+        </div>
+      </div>
+
+      <!-- TOPIC 5: Water Displacement Method -->
+      <h3 class="topic-title"><i class="fa-solid fa-ruler-combined"></i> 9.5.1 The Water Displacement Method</h3>
+      <p>
+        How do we measure the volume of an irregular stone or sculpture that cannot be measured with a ruler? We use the ingenious method discovered by ancient Greek scientist <strong>Archimedes</strong>:
+      </p>
+      <ol>
+        <li>Fill a graduated measuring cylinder partially with water and record the initial level: <code>V&#8321; = 50 mL</code>.</li>
+        <li>Tie the irregular stone to a thin cotton thread and gently lower it completely into the water.</li>
+        <li>The submerged stone pushes aside (displaces) an amount of water exactly equal to its own volume!</li>
+        <li>Record the new, higher water level: <code>V&#8322; = 72 mL</code>.</li>
+        <li><strong>Volume of Stone:</strong> <code>V = V&#8322; - V&#8321; = 72 - 50 = 22 mL = 22 cm&sup3;</code>.</li>
+        <li>Measure the stone's mass on a digital balance: <code>m = 59.4 g</code>.</li>
+        <li><strong>Density:</strong> <code>d = 59.4 &divide; 22 = 2.7 g/cm&sup3;</code> (which matches aluminium/granite stone!).</li>
+      </ol>
+
+      <!-- TOPIC 6: The Curious Orange & Floating Egg -->
+      <h3 class="topic-title"><i class="fa-solid fa-egg"></i> 9.5.2 The Floating Egg &amp; The Surprising Orange Puzzle</h3>
+
+      <div class="card">
+        <h4 class="sub-topic"><i class="fa-solid fa-lemon"></i> The Orange Puzzle (NCERT Fig 9.25)</h4>
+        <p>
+          Drop a fresh unpeeled orange into a bowl of water: it <strong>floats</strong> like a buoyant little boat! Now peel the orange skin off completely and drop the bare orange slices back into the same water: it <strong>sinks</strong> like a stone to the bottom!
+        </p>
+        <p>
+          <strong>Why?</strong> The peel (rind) of the orange is filled with millions of microscopic air pockets. These air pockets dramatically inflate the total volume of the unpeeled orange without adding much weight. This lowers the orange's <em>average overall density</em> below that of water (1.0 g/cm&sup3;), allowing it to float. Peeling removes the air-filled lifejacket, leaving only dense fruit flesh that is denser than water!
+        </p>
+      </div>
+
+      <div class="card">
+        <h4 class="sub-topic"><i class="fa-solid fa-egg"></i> The Magic Egg in Salt Water (NCERT Fig 9.24)</h4>
+        <p>
+          A raw whole egg placed in pure tap water sinks immediately because the egg is denser than fresh water (density of egg &approx; 1.08 g/cm&sup3; &gt; 1.00 g/cm&sup3;).
+        </p>
+        <p>
+          <strong>How to make it float?</strong> Dissolve 3 to 4 tablespoons of common salt into the water! Adding salt packs heavy sodium and chloride ions into the water, raising the liquid's density to 1.15 g/cm&sup3; (dense brine). Now the water is denser than the egg, pushing the egg up to float on top!
+        </p>
+      </div>
+
+      <!-- TOPIC 7: Heritage Ningel Salt -->
+      <h3 class="topic-title"><i class="fa-solid fa-mountain-sun"></i> 9.6 Indian Heritage: Ningel Salt Wells of Manipur</h3>
+      <p>
+        In the picturesque village of Ningel in Manipur's Thoubal district, villagers still harvest natural salt from ancient brine wells. One famous well is lined with an intact 100-year-old hollowed tree trunk driven deep into saline aquifers.
+      </p>
+      <ul>
+        <li>Local women collect the saturated salt brine and boil it in huge shallow iron pans over firewood kilns.</li>
+        <li>As the water evaporates, pure salt crystals crystallize out.</li>
+        <li>The hot salt is shaped into smooth circular 'salt cakes' using banana leaves and wrapped in traditional handwoven <em>Phanek</em> textiles. These mineral-rich salt cakes have been used for centuries in traditional cuisine and indigenous medicine.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3: ESSENTIAL VOCABULARY -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3 &bull; Terminology &amp; Formula Bank</span>
+        <h2>Key Vocabulary, Units &amp; Density Reference Table</h2>
+        <p class="section-sub">Memorize these core formulas and scientific constants for high-speed problem solving.</p>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Substance</th>
+              <th>Physical State</th>
+              <th>Density (g/cm&sup3;)</th>
+              <th>Behavior in Pure Water (d = 1.0 g/cm&sup3;)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Air (at sea level)</strong></td>
+              <td>Gas</td>
+              <td>0.0012 g/cm&sup3;</td>
+              <td>Rises rapidly (bubbles to surface)</td>
+            </tr>
+            <tr>
+              <td><strong>Cork / Dry Wood</strong></td>
+              <td>Solid</td>
+              <td>0.24 &ndash; 0.65 g/cm&sup3;</td>
+              <td><strong>Floats</strong> high above surface</td>
+            </tr>
+            <tr>
+              <td><strong>Cooking Oil / Kerosene</strong></td>
+              <td>Liquid</td>
+              <td>0.80 &ndash; 0.92 g/cm&sup3;</td>
+              <td><strong>Floats</strong> as a top layer</td>
+            </tr>
+            <tr>
+              <td><strong>Ice (solid water at 0 &deg;C)</strong></td>
+              <td>Solid</td>
+              <td>0.92 g/cm&sup3;</td>
+              <td><strong>Floats</strong> with 90% submerged</td>
+            </tr>
+            <tr>
+              <td><strong>Pure Liquid Water (at 4 &deg;C)</strong></td>
+              <td>Liquid</td>
+              <td>1.00 g/cm&sup3;</td>
+              <td>Reference standard</td>
+            </tr>
+            <tr>
+              <td><strong>Dead Sea Salt Brine</strong></td>
+              <td>Liquid</td>
+              <td>1.24 g/cm&sup3;</td>
+              <td>Humans float effortlessly</td>
+            </tr>
+            <tr>
+              <td><strong>Aluminium</strong></td>
+              <td>Solid Metal</td>
+              <td>2.70 g/cm&sup3;</td>
+              <td><strong>Sinks</strong> to the bottom</td>
+            </tr>
+            <tr>
+              <td><strong>Iron / Steel</strong></td>
+              <td>Solid Metal</td>
+              <td>7.87 g/cm&sup3;</td>
+              <td><strong>Sinks</strong> quickly</td>
+            </tr>
+            <tr>
+              <td><strong>Gold (Au)</strong></td>
+              <td>Solid Metal</td>
+              <td>19.32 g/cm&sup3;</td>
+              <td><strong>Sinks</strong> immediately (extremely heavy)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4: NCERT SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4 &bull; Step-by-Step NCERT Solutions</span>
+        <h2>Complete Textbook 'Keep the Curiosity Alive' Exercises</h2>
+        <p class="section-sub">Unabridged solutions for Questions 1 to 12 with full mathematical calculations and justifications.</p>
+      </div>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Q1.</strong> State whether True or False. Correct the false statement(s).</span>
+          <span class="badge badge-green">True / False</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>(i) Oxygen gas is more soluble in hot water rather than in cold water.</strong><br>
+          <span class="badge badge-warn">FALSE</span> &mdash; <em>Correction:</em> The solubility of gases in liquids <strong>decreases</strong> with rising temperature. Oxygen gas is much <strong>more soluble in cold water</strong> than in hot water.</p>
+
+          <p style="margin-top:0.8rem;"><strong>(ii) A mixture of sand and water is a solution.</strong><br>
+          <span class="badge badge-warn">FALSE</span> &mdash; <em>Correction:</em> Sand does not dissolve in water; it forms an insoluble heterogeneous <strong>suspension</strong>, not a homogeneous solution.</p>
+
+          <p style="margin-top:0.8rem;"><strong>(iii) The amount of space occupied by any object is called its mass.</strong><br>
+          <span class="badge badge-warn">FALSE</span> &mdash; <em>Correction:</em> The space occupied by an object is called its <strong>volume</strong>. Mass is the amount of matter contained in it.</p>
+
+          <p style="margin-top:0.8rem;"><strong>(iv) An unsaturated solution has more solute dissolved than a saturated solution.</strong><br>
+          <span class="badge badge-warn">FALSE</span> &mdash; <em>Correction:</em> A <strong>saturated solution</strong> contains the maximum possible dissolved solute at that temperature; an unsaturated solution contains <strong>less</strong> solute.</p>
+
+          <p style="margin-top:0.8rem;"><strong>(v) The presence of different gases in the atmosphere is also a uniform mixture.</strong><br>
+          <span class="badge badge-green">TRUE</span> &mdash; Clean atmospheric air is a homogeneous (uniform) gaseous solution of nitrogen, oxygen, argon, and trace gases.</p>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q2.</strong> Fill in the blanks.</span>
+          <span class="badge badge-blue">Fill in Blanks</span>
+        </summary>
+        <div class="ans-content">
+          <ol>
+            <li>The volume of a solid can be measured by the method of displacement, where the solid is <strong>immersed / submerged</strong> in water and the <strong>rise / increase</strong> in water level is measured.</li>
+            <li>The maximum amount of <strong>solute</strong> dissolved in <strong>a fixed amount of solvent (100 mL or 100 g)</strong> at a particular temperature is called solubility at that temperature.</li>
+            <li>Generally, the density <strong>decreases</strong> with increase in temperature.</li>
+            <li>The solution in which glucose has completely dissolved in water, and no more glucose can dissolve at a given temperature, is called a <strong>saturated</strong> solution of glucose.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q3.</strong> You pour oil into a glass containing some water. The oil floats on top. What does this tell you?</span>
+          <span class="badge badge-green">NCERT MCQ</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Correct Option:</strong> <strong>(ii) Water is denser than oil (or oil is less dense than water).</strong></p>
+          <p><strong>Explanation:</strong> Any substance with a lower density than the surrounding liquid floats on top. Cooking oil has a density of approximately 0.90 g/cm&sup3;, which is less than water (1.00 g/cm&sup3;); therefore, oil floats on water.</p>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q4.</strong> A stone sculpture weighs 225 g and has a volume of 90 cm&sup3;. Calculate its density and predict whether it will float or sink in water.</span>
+          <span class="badge badge-purple">Calculation</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Step-by-Step Calculation:</strong></p>
+          <ul>
+            <li><strong>Given Mass (m):</strong> 225 g</li>
+            <li><strong>Given Volume (V):</strong> 90 cm&sup3;</li>
+            <li><strong>Formula:</strong> <code>Density (d) = Mass &divide; Volume</code></li>
+            <li><strong>Calculation:</strong> <code>d = 225 &divide; 90 = 2.5 g/cm&sup3;</code></li>
+          </ul>
+          <p><strong>Prediction:</strong> The density of pure water is 1.0 g/cm&sup3;. Since the sculpture's density (2.5 g/cm&sup3;) is significantly greater than the density of water (2.5 &gt; 1.0), the stone sculpture will <strong>SINK</strong> in water.</p>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q5.</strong> Which one of the statements is the most appropriate, and why are the others not appropriate?</span>
+          <span class="badge badge-blue">Conceptual Logic</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Most Appropriate Statement:</strong> <strong>(iii) No more solute can be dissolved into the saturated solution at that temperature.</strong></p>
+          <p><strong>Critical evaluation of other statements:</strong></p>
+          <ul>
+            <li><em>Statement (i) is false:</em> A saturated solution cannot dissolve more solute at that fixed temperature.</li>
+            <li><em>Statement (ii) is false:</em> It describes a saturated solution, not an unsaturated solution.</li>
+            <li><em>Statement (iv) is false:</em> Saturated solutions can be prepared at any temperature (low, room, or high).</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q6.</strong> You have a bottle with a volume of 2 litres. You pour 500 mL of water into it. How much more water can the bottle hold?</span>
+          <span class="badge badge-green">Word Problem</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Calculation:</strong></p>
+          <ul>
+            <li>Total capacity of bottle = 2 litres = <code>2 &times; 1000 mL = 2000 mL</code>.</li>
+            <li>Current volume of water inside = 500 mL.</li>
+            <li>Remaining volume = <code>2000 mL - 500 mL = 1500 mL (or 1.5 litres)</code>.</li>
+          </ul>
+          <p>The bottle can hold <strong>1500 mL (1.5 L)</strong> more water.</p>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q7.</strong> An object has a mass of 400 g and a volume of 40 cm&sup3;. What is its density?</span>
+          <span class="badge badge-purple">Calculation</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Formula:</strong> <code>Density (d) = Mass (m) &divide; Volume (V)</code></p>
+          <p><strong>Calculation:</strong> <code>d = 400 g &divide; 40 cm&sup3; = 10 g/cm&sup3;</code>.</p>
+          <p>The density of the object is <strong>10 g/cm&sup3;</strong> (equivalent to 10,000 kg/m&sup3;, characteristic of silver metal).</p>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q8.</strong> Analyse Fig. 9.25a and 9.25b. Why does the unpeeled orange float, while the peeled one sinks? Explain.</span>
+          <span class="badge badge-amber">NCERT Fig 9.25</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Teacher's Scientific Explanation:</strong></p>
+          <ul>
+            <li><strong>Unpeeled Orange:</strong> The outer skin (rind) of an orange is thick, spongy, and filled with millions of microscopic air pockets. Even though the orange has slightly more mass with the skin on, the air pockets create a huge increase in total volume. This makes the <strong>average density</strong> of the whole unpeeled orange less than 1.0 g/cm&sup3;, so it floats easily!</li>
+            <li><strong>Peeled Orange:</strong> Removing the peel strips away all those trapped air pockets. The remaining fruit flesh consists mostly of dense water, citric acid, and sugars without trapped air. Its density is slightly higher than 1.0 g/cm&sup3;, causing it to sink to the bottom.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q9.</strong> Object A has mass 200 g and volume 40 cm&sup3;. Object B has mass 240 g and volume 60 cm&sup3;. Which object is denser?</span>
+          <span class="badge badge-purple">Comparative Math</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Step-by-Step Comparison:</strong></p>
+          <ul>
+            <li><strong>Density of Object A:</strong> <code>d&#8336; = 200 g &divide; 40 cm&sup3; = 5.0 g/cm&sup3;</code></li>
+            <li><strong>Density of Object B:</strong> <code>d&#7758; = 240 g &divide; 60 cm&sup3; = 4.0 g/cm&sup3;</code></li>
+          </ul>
+          <p><strong>Conclusion:</strong> Since <code>5.0 g/cm&sup3; &gt; 4.0 g/cm&sup3;</code>, <strong>Object A is denser</strong> than Object B.</p>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q10.</strong> Reema has modeling clay of mass 120 g. First moulded into a cube of volume 60 cm&sup3;, then flattened into a thin sheet. Predict what will happen to its density.</span>
+          <span class="badge badge-warn">Conceptual Trap</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Prediction:</strong> The density will <strong>REMAIN EXACTLY THE SAME (UNCHANGED at 2.0 g/cm&sup3;)</strong>!</p>
+          <p><strong>Scientific Reason:</strong></p>
+          <ul>
+            <li>Mass remains 120 g (no clay was added or removed).</li>
+            <li>Volume remains 60 cm&sup3; (changing the physical shape from a 3D block to a flat sheet does not change the amount of space the clay occupies).</li>
+            <li>Since both mass and volume remain constant, <code>Density = 120 g &divide; 60 cm&sup3; = 2.0 g/cm&sup3;</code> remains completely unchanged. Density is an intrinsic material property that does not depend on shape.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q11 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q11.</strong> A block of iron has a mass of 600 g and a density of 7.9 g/cm&sup3;. What is its volume?</span>
+          <span class="badge badge-purple">Calculation</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Rearranging Formula:</strong> <code>Volume (V) = Mass (m) &divide; Density (d)</code></p>
+          <p><strong>Calculation:</strong> <code>V = 600 g &divide; 7.9 g/cm&sup3; &approx; 75.95 cm&sup3; (or ~76.0 cm&sup3;)</code>.</p>
+          <p>The volume of the iron block is <strong>75.95 cm&sup3;</strong>.</p>
+        </div>
+      </details>
+
+      <!-- Q12 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q12.</strong> Experimental setup in Fig. 9.26: Test tube with glass tube placed in hot water (~70 &deg;C). Water level rises. How does it affect density?</span>
+          <span class="badge badge-amber">NCERT Fig 9.26</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong> The density of the water inside the test tube <strong>DECREASES</strong>.</p>
+          <p><strong>Scientific Explanation:</strong></p>
+          <ul>
+            <li>When the test tube is heated by hot water, the water inside absorbs thermal energy. Its particles vibrate and move farther apart, causing <strong>thermal expansion</strong>.</li>
+            <li>Because the liquid expands, it pushes upward into the narrow glass tube, indicating an increase in total <strong>Volume (V)</strong>.</li>
+            <li>The <strong>Mass (m)</strong> of water inside remains unchanged (no water entered or escaped).</li>
+            <li>From the formula <code>Density = Mass &divide; Volume</code>, as Volume increases while Mass stays constant, the <strong>density must decrease</strong>. This explains why hot water is less dense and rises above cold water!</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: INTERACTIVE QUIZ & HOTS -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5 &bull; Interactive Quiz &amp; Competency Drills</span>
+        <h2>Mastery Check: Interactive Real-Time Evaluation</h2>
+        <p class="section-sub">Test your understanding of solutions and density. Immediate teacher evaluation on click.</p>
+      </div>
+
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <i class="fa-solid fa-trophy"></i> Your Score: <span id="quizScoreCount">0</span> / 5
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Select an option for each question to test your concepts!
+        </div>
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qcard1">
+        <h4>1. Why does ice float on liquid water, unlike almost every other solid that sinks in its own liquid?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(a) Ice contains dissolved air bubbles that act like balloons</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(b) Water molecules in ice form an open hexagonal cage lattice with extra empty space, making ice less dense than cold water</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(c) Ice is made of different chemical elements than liquid water</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(d) The magnetic field of the Earth pushes cold ice upward</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> When water freezes at 0 &deg;C, hydrogen bonding locks water molecules into an open hexagonal crystalline cage that occupies ~9% more volume than liquid water, lowering its density to 0.92 g/cm&sup3;.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qcard2">
+        <h4>2. A student adds 40 grams of salt to 100 mL of water at 20 &deg;C. Only 36 grams dissolve, and 4 grams settle at the bottom. The solution is:</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(a) Unsaturated</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(b) Superheated</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(c) Saturated</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(d) Pure substance</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> Because the water has dissolved its absolute maximum capacity of salt (36 g) and cannot dissolve the remaining 4 g at that temperature, it is a <strong>saturated solution</strong>.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qcard3">
+        <h4>3. When opening a chilled soda bottle, vigorous effervescence (bubbles) is observed because:</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(a) Opening the cap releases pressure, dramatically decreasing the solubility of carbon dioxide gas in the liquid</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(b) The sudden contact with air increases the temperature by 50 degrees</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(c) The liquid turns instantly into a solid</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(d) Water begins boiling violently at room temperature</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong> Carbon dioxide is dissolved in soda under high pressure. When opened, pressure drops to atmospheric level; gas solubility drops sharply, and excess CO<sub>2</sub> rushes out as fizzing bubbles.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qcard4">
+        <h4>4. A solid block has mass 500 g and volume 600 cm&sup3;. When dropped into a pond of fresh water (density 1.0 g/cm&sup3;), the block will:</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')">
+          <span>(a) Float on the water surface</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')">
+          <span>(b) Sink to the bottom of the pond</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')">
+          <span>(c) Dissolve completely within 5 seconds</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'a')">
+          <span>(d) Explode due to hydrostatic pressure</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong> Density = 500 g / 600 cm&sup3; = 0.83 g/cm&sup3;. Since 0.83 &lt; 1.0, the block is lighter than water and will <strong>float</strong>!
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qcard5">
+        <h4>5. Why can humans float effortlessly on the surface of the Dead Sea without swimming?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+          <span>(a) The water is extremely warm and pushes people up</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+          <span>(b) There is zero gravity in that region of the world</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+          <span>(c) The bottom of the lake is covered in magnets</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'd')">
+          <span>(d) The water has an enormous salt concentration (~34%), making its density (~1.24 g/cm&sup3;) much higher than the human body (~0.98 g/cm&sup3;)</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d)</strong> High mineral and salt saturation increases the liquid density of the Dead Sea to ~1.24 g/cm&sup3;. Since the human body has an average density of ~0.98 g/cm&sup3;, swimmers cannot sink!
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM TRAPS & MEMORY HACKS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6 &bull; Exam Traps &amp; Key Takeaways</span>
+        <h2>Board Exam Traps, Common Mistakes &amp; Memory Shortcuts</h2>
+        <p class="section-sub">Master these golden rules to avoid losing easy marks in calculations and reasoning.</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Trap #1: 'Does heavy always mean sinking?'</strong><br>
+          <em>Mistake:</em> Thinking a 5,000 kg wooden log will sink because it is "so heavy."<br>
+          <strong>Full-Marks Correction:</strong> Floating or sinking depends on <strong>density (mass per unit volume)</strong>, NOT total mass alone! A 5,000 kg log occupies a massive volume such that its density is ~0.6 g/cm&sup3; (&lt; 1.0), so it floats effortlessly. Conversely, a 1-gram steel pin sinks because its density is ~7.9 g/cm&sup3; (&gt; 1.0).
+        </div>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Trap #2: 'Temperature vs Gas Solubility'</strong><br>
+          <em>Mistake:</em> Writing that "heating makes gases dissolve more."<br>
+          <strong>Full-Marks Correction:</strong> Heating drives gases OUT of solution! Gas solubility decreases with increasing temperature because heat increases particle kinetic energy, allowing gas molecules to break free into the air.
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <div class="callout-text">
+          <strong>Teacher's Memory Triangle &bull; The D-M-V Formula Trick:</strong><br>
+          Draw a triangle with <strong>M</strong> on top, and <strong>D</strong> and <strong>V</strong> at the bottom:<br>
+          &bull; Cover <strong>D</strong> &rarr; <code>D = M &divide; V</code><br>
+          &bull; Cover <strong>M</strong> &rarr; <code>M = D &times; V</code><br>
+          &bull; Cover <strong>V</strong> &rarr; <code>V = M &divide; D</code>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Sujit Classes &bull; Dedicated to Student Academic Excellence in Odisha</p>
+    <p style="margin-top:0.5rem; font-size:0.85rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Back to Main Portal</a> &bull; 
+      <a href="#sec1">Top of Page</a>
+    </p>
+  </footer>
+
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+      }
+    }
+
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.style.display = 'block';
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Perfect score! You have mastered solutes, solvents, solutions, and density!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! Strong understanding of solubility and floating physics!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good practice! Check the explanations to master every point!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
