@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 8 Mathematics - Chapter 12: Tales by Dots and Lines | Sujit Classes</title>
+  <meta name="description" content="Comprehensive NEP-aligned NCERT Class 8 Mathematics Chapter 12 notes: The Balancing Act of Mean, Shifting and Scaling, Tinkering with Median, Frequency Distributions, and Line Graph Trends.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      z-index: 10000;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .nav-brand i { color: var(--primary); font-size: 1.3rem; }
+
+    .nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .btn-audio {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid #bae6fd;
+      padding: 0.4rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.2s ease;
+    }
+
+    .btn-audio:hover {
+      background: #bae6fd;
+      transform: translateY(-1px);
+    }
+
+    .nav-link-home {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .nav-link-home:hover { color: var(--primary); }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 2rem 1.25rem 4rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumb a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: underline 0.2s;
+    }
+
+    .breadcrumb a:hover { text-decoration: underline; }
+
+    .chapter-hero {
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #0d9488 100%);
+      color: white;
+      padding: 2.75rem 2rem;
+      border-radius: 1.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chapter-hero::after {
+      content: '';
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 180px;
+      height: 180px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .chapter-hero h1 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      line-height: 1.2;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .chapter-hero p {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      max-width: 680px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      padding-top: 1.25rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .content-section {
+      background: var(--bg-card);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .section-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      background: var(--primary-light);
+      color: var(--primary);
+    }
+
+    .section-header h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.45rem;
+      color: var(--dark);
+    }
+
+    .callout {
+      padding: 1.25rem 1.5rem;
+      border-radius: 0.75rem;
+      margin: 1.5rem 0;
+      border-left: 4px solid;
+    }
+
+    .callout-def {
+      background: #eff6ff;
+      border-left-color: #3b82f6;
+    }
+
+    .callout-act {
+      background: #f0fdf4;
+      border-left-color: #22c55e;
+    }
+
+    .callout-pyq {
+      background: #fefce8;
+      border-left-color: #eab308;
+    }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-left-color: #a855f7;
+    }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-left-color: #ef4444;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .callout-def .callout-title { color: #1d4ed8; }
+    .callout-act .callout-title { color: #15803d; }
+    .callout-pyq .callout-title { color: #a16207; }
+    .callout-hack .callout-title { color: #7e22ce; }
+    .callout-warn .callout-title { color: #b91c1c; }
+
+    .formula-card {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      text-align: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 1.05rem;
+      color: var(--dark);
+    }
+
+    .data-table-wrap {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.95rem;
+    }
+
+    table.data-table th, table.data-table td {
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--border);
+    }
+
+    table.data-table th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    table.data-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    details.ans-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-sm);
+    }
+
+    details.ans-box summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      list-style: none;
+    }
+
+    details.ans-box summary::-webkit-details-marker { display: none; }
+
+    details.ans-box summary::before {
+      content: '\f054';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      font-size: 0.75rem;
+      transition: transform 0.2s ease;
+      color: var(--primary);
+    }
+
+    details.ans-box[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .ans-content {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--border);
+      color: var(--text);
+    }
+
+    .step-box {
+      display: flex;
+      gap: 1rem;
+      margin: 0.85rem 0;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .svg-container {
+      margin: 1.75rem 0;
+      text-align: center;
+      overflow-x: auto;
+    }
+
+    .svg-container svg {
+      max-width: 100%;
+      height: auto;
+      border-radius: 0.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Quiz styling */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .quiz-question {
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 0.75rem;
+    }
+
+    .quiz-option {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      padding: 0.75rem 1rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: all 0.2s;
+    }
+
+    .quiz-option:hover {
+      background: var(--primary-light);
+      border-color: #bae6fd;
+    }
+
+    .quiz-option.correct {
+      background: #dcfce7 !important;
+      border-color: #86efac !important;
+      color: #166534;
+      font-weight: 600;
+    }
+
+    .quiz-option.wrong {
+      background: #fee2e2 !important;
+      border-color: #fca5a5 !important;
+      color: #991b1b;
+      font-weight: 600;
+    }
+
+    .quiz-explanation {
+      margin-top: 0.85rem;
+      padding: 0.75rem 1rem;
+      background: #f1f5f9;
+      border-radius: 0.5rem;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .score-board {
+      background: linear-gradient(135deg, #0284c7, #0d9488);
+      color: white;
+      padding: 1.5rem;
+      border-radius: 0.75rem;
+      text-align: center;
+      margin-top: 1.5rem;
+      display: none;
+    }
+
+    #back-to-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 44px;
+      height: 44px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s ease;
+      z-index: 9999;
+    }
+
+    #back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-3px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>Sujit Classes</span>
+    </a>
+    <div class="nav-controls">
+      <button class="btn-audio" id="speech-btn" onclick="toggleAudio()">
+        <i class="fa-solid fa-volume-high"></i>
+        <span>Read Aloud</span>
+      </button>
+      <a href="../../index.html" class="nav-link-home">
+        <i class="fa-solid fa-house"></i> Home
+      </a>
+    </div>
+  </nav>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="breadcrumb">
+      <a href="../../index.html">Home</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <a href="../../index.html#english-8">Class 8 (English)</a>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>Mathematics</span>
+      <i class="fa-solid fa-chevron-right"></i>
+      <span>Chapter 12: Tales by Dots and Lines</span>
+    </nav>
+
+    <header class="chapter-hero">
+      <div class="hero-badge">
+        <i class="fa-solid fa-chart-line"></i> NCERT Class 8 Mathematics &bull; Chapter 12
+      </div>
+      <h1>Tales by Dots and Lines</h1>
+      <p>Unlocking data stories through visual geometry: Discover the physical balance of arithmetic mean, algebraic effects of shifting & scaling, median stability, frequency weighted distributions, and continuous trends in line graphs.</p>
+      <div class="hero-meta">
+        <span><i class="fa-solid fa-book-open"></i> Textbook Code: hegp205</span>
+        <span><i class="fa-solid fa-layer-group"></i> Section Count: 6 Sections</span>
+        <span><i class="fa-solid fa-brain"></i> Key Focus: Center of Mass, Shifting, Scaling, Line Trends</span>
+      </div>
+    </header>
+
+    <!-- SECTION 1: OVERVIEW & MIND MAP -->
+    <section id="sec1" class="content-section">
+      <div class="section-header">
+        <div class="section-icon"><i class="fa-solid fa-sitemap"></i></div>
+        <h2>1. Overview & Visual SVG Mind Map</h2>
+      </div>
+
+      <p>Data tells a story. While raw columns of numbers often hide patterns, plotting them as <strong>dots along a number line</strong> and connecting them with <strong>trend lines</strong> transforms statistics into physical, visual intuition. In this chapter, we transition from rote formula calculation to deep mechanical understanding:</p>
+
+      <ul style="margin: 1rem 0 1.5rem 1.5rem; line-height: 1.8;">
+        <li><strong>Physical Center of Gravity:</strong> Why the arithmetic mean acts exactly like a seesaw's balance point, where the total distance to points on the left equals the total distance to points on the right.</li>
+        <li><strong>Algebraic Shifting & Scaling:</strong> Why adding a constant shifts the mean by that exact constant, and why multiplying scales the mean proportionally.</li>
+        <li><strong>Median Resilience:</strong> Why the median is immune to wild outliers, and how inserting or deleting values pushes or preserves the middle value.</li>
+        <li><strong>Frequency Tables:</strong> Calculating means and medians efficiently using grouped frequencies without listing dozens of individual values.</li>
+        <li><strong>Line Graphs as Time Machines:</strong> How connecting dots reveals rates of change, seasonal cycles, life trajectories (sleep duration over 70 years), and socio-economic shifts.</li>
+      </ul>
+
+      <div class="svg-container">
+        <svg viewBox="0 0 920 480" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px;">
+          <defs>
+            <linearGradient id="gradCenter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7"/>
+              <stop offset="100%" stop-color="#0369a1"/>
+            </linearGradient>
+            <linearGradient id="gradBranch1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0d9488"/>
+              <stop offset="100%" stop-color="#115e59"/>
+            </linearGradient>
+            <linearGradient id="gradBranch2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="100%" stop-color="#5b21b6"/>
+            </linearGradient>
+            <linearGradient id="gradBranch3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#b45309"/>
+            </linearGradient>
+            <linearGradient id="gradBranch4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ef4444"/>
+              <stop offset="100%" stop-color="#b91c1c"/>
+            </linearGradient>
+            <linearGradient id="gradBranch5" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3b82f6"/>
+              <stop offset="100%" stop-color="#1d4ed8"/>
+            </linearGradient>
+            <filter id="drop-shadow" x="-10%" y="-10%" width="130%" height="130%">
+              <feDropShadow dx="0" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.1"/>
+            </filter>
+          </defs>
+
+          <!-- Branch Connectors -->
+          <path d="M 460 240 Q 240 180 180 110" stroke="#0d9488" stroke-width="2.5" fill="none" stroke-dasharray="4,4"/>
+          <path d="M 460 240 Q 700 180 740 110" stroke="#7c3aed" stroke-width="2.5" fill="none" stroke-dasharray="4,4"/>
+          <path d="M 460 240 Q 180 280 160 370" stroke="#f59e0b" stroke-width="2.5" fill="none" stroke-dasharray="4,4"/>
+          <path d="M 460 240 Q 740 280 760 370" stroke="#ef4444" stroke-width="2.5" fill="none" stroke-dasharray="4,4"/>
+          <path d="M 460 240 Q 460 380 460 420" stroke="#3b82f6" stroke-width="2.5" fill="none" stroke-dasharray="4,4"/>
+
+          <!-- Central Node -->
+          <rect x="330" y="205" width="260" height="70" rx="16" fill="url(#gradCenter)" filter="url(#drop-shadow)"/>
+          <text x="460" y="238" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-size="18" font-weight="700" text-anchor="middle">TALES BY DOTS & LINES</text>
+          <text x="460" y="260" fill="#e0f2fe" font-family="Plus Jakarta Sans, sans-serif" font-size="12" text-anchor="middle">Class 8 &bull; Ganita Prakash Part-II</text>
+
+          <!-- Branch 1: The Balancing Act -->
+          <rect x="50" y="65" width="260" height="85" rx="12" fill="url(#gradBranch1)" filter="url(#drop-shadow)"/>
+          <text x="180" y="93" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700" text-anchor="middle">1. The Balancing Act</text>
+          <text x="180" y="115" fill="#ccfbf1" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" text-anchor="middle">&bull; Mean as Center of Mass (Fulcrum)</text>
+          <text x="180" y="133" fill="#ccfbf1" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" text-anchor="middle">&bull; Sum of Left Distances = Right Distances</text>
+
+          <!-- Branch 2: Shifting & Scaling -->
+          <rect x="610" y="65" width="260" height="85" rx="12" fill="url(#gradBranch2)" filter="url(#drop-shadow)"/>
+          <text x="740" y="93" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700" text-anchor="middle">2. Shifting & Scaling</text>
+          <text x="740" y="115" fill="#ede9fe" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" text-anchor="middle">&bull; Add c to all &rArr; Mean' = Mean + c</text>
+          <text x="740" y="133" fill="#ede9fe" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" text-anchor="middle">&bull; Multiply by k &rArr; Mean' = k &times; Mean</text>
+
+          <!-- Branch 3: Tinkering with Median -->
+          <rect x="30" y="330" width="260" height="85" rx="12" fill="url(#gradBranch3)" filter="url(#drop-shadow)"/>
+          <text x="160" y="358" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700" text-anchor="middle">3. Tinkering with Median</text>
+          <text x="160" y="380" fill="#fef3c7" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" text-anchor="middle">&bull; Positional Middle: (n+1)/2 Rank</text>
+          <text x="160" y="398" fill="#fef3c7" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" text-anchor="middle">&bull; Resistant to extreme outliers</text>
+
+          <!-- Branch 4: Line Graphs & Trends -->
+          <rect x="630" y="330" width="260" height="85" rx="12" fill="url(#gradBranch4)" filter="url(#drop-shadow)"/>
+          <text x="760" y="358" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700" text-anchor="middle">4. Visualising Trends</text>
+          <text x="760" y="380" fill="#fee2e2" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" text-anchor="middle">&bull; Continuous change over time</text>
+          <text x="760" y="398" fill="#fee2e2" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" text-anchor="middle">&bull; Slope steepness = Rate of change</text>
+
+          <!-- Branch 5: Frequency Distributions -->
+          <rect x="330" y="390" width="260" height="75" rx="12" fill="url(#gradBranch5)" filter="url(#drop-shadow)"/>
+          <text x="460" y="418" fill="#ffffff" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700" text-anchor="middle">5. Frequency Tables & Weights</text>
+          <text x="460" y="440" fill="#dbeafe" font-family="Plus Jakarta Sans, sans-serif" font-size="11.5" text-anchor="middle">&bull; Weighted Mean: &Sigma;(f&middot;x) / &Sigma;f &bull; Cumulative Pos</text>
+        </svg>
+      </div>
+    </section>
+
+    <!-- SECTION 2: DEEP-DIVE CORE CONCEPTS -->
+    <section id="sec2" class="content-section">
+      <div class="section-header">
+        <div class="section-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+        <h2>2. Deep-Dive Core Concepts</h2>
+      </div>
+
+      <!-- 2.1 The Balancing Act -->
+      <h3 style="color: var(--primary-dark); font-size: 1.25rem; margin: 1.5rem 0 0.75rem;">2.1 The Balancing Act: Mean as the Center of Gravity</h3>
+      <p>In earlier grades, we defined the <strong>arithmetic mean</strong> as the sum of all values divided by the total number of values. However, thinking of the mean purely as a calculation hides its remarkable physical property: <em>the mean is the exact center of balance (fulcrum) of the data</em>.</p>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-book-bookmark"></i> Core Definition: The Balance Principle of Mean</div>
+        <p>If you plot all data values as identical physical weights along a weightless ruler, the mean is the <strong>unique pivot point</strong> where the ruler balances in perfect equilibrium. Mathematically, <strong>the sum of the distances from the mean to all points lying to its left is exactly equal to the sum of the distances to all points lying to its right</strong>.</p>
+        <div class="formula-card">
+          &Sigma; (x<sub>i</sub> - x̄) = 0 &emsp;&hArr;&emsp; Total Left Distances = Total Right Distances
+        </div>
+      </div>
+
+      <p>Let us see this in action with the data set: <strong>10, 10, 11, and 17</strong>. First, compute the mean:</p>
+      <div class="formula-card">
+        Mean (x̄) = (10 + 10 + 11 + 17) &divide; 4 = 48 &divide; 4 = 12
+      </div>
+
+      <p>Now observe the distances of each point from the mean of 12:</p>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1rem; line-height: 1.8;">
+        <li>Values to the left of 12: two 10s and one 11. Distances: (12 - 10) + (12 - 10) + (12 - 11) = 2 + 2 + 1 = <strong>5</strong>.</li>
+        <li>Value to the right of 12: one 17. Distance: (17 - 12) = <strong>5</strong>.</li>
+        <li><strong>Conclusion:</strong> Left distance (5) = Right distance (5). The system is in perfect equilibrium!</li>
+      </ul>
+
+      <div class="svg-container">
+        <svg viewBox="0 0 840 220" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 10px;">
+          <!-- Seesaw Beam -->
+          <line x1="80" y1="130" x2="760" y2="130" stroke="#334155" stroke-width="6" stroke-linecap="round"/>
+
+          <!-- Fulcrum Triangle at Mean = 12 -->
+          <polygon points="420,130 395,175 445,175" fill="#0284c7" stroke="#0369a1" stroke-width="2"/>
+          <text x="420" y="200" fill="#0284c7" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700" text-anchor="middle">Mean (x̄) = 12 (Fulcrum)</text>
+
+          <!-- Ticks & Labels on Number Line -->
+          <!-- Scale: 8 to 20. 8 is at x=140, 20 is at x=700. Step = (700-140)/12 = 46.67 px per unit. -->
+          <!-- 10: 140 + 2*46.67 = 233.3. 11: 280. 12: 420 (Fulcrum). 17: 140 + 9*46.67 = 653.3 -->
+          <circle cx="233" cy="115" r="12" fill="#0d9488"/>
+          <text x="233" y="119" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">10</text>
+          <circle cx="233" cy="85" r="12" fill="#0d9488"/>
+          <text x="233" y="89" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">10</text>
+
+          <circle cx="327" cy="115" r="12" fill="#0d9488"/>
+          <text x="327" y="119" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">11</text>
+
+          <circle cx="653" cy="115" r="12" fill="#ef4444"/>
+          <text x="653" y="119" fill="#ffffff" font-size="11" font-weight="700" text-anchor="middle">17</text>
+
+          <!-- Distance bracket Left -->
+          <path d="M 233 50 L 420 50" stroke="#0d9488" stroke-width="2" stroke-dasharray="3,3"/>
+          <text x="320" y="42" fill="#0d9488" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Left Distances = 2 + 2 + 1 = 5</text>
+
+          <!-- Distance bracket Right -->
+          <path d="M 420 50 L 653 50" stroke="#ef4444" stroke-width="2" stroke-dasharray="3,3"/>
+          <text x="536" y="42" fill="#ef4444" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" text-anchor="middle">Right Distance = 5</text>
+        </svg>
+      </div>
+
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-lightbulb"></i> Why Can There Only Be ONE Such Balance Point?</div>
+        <p>Suppose someone suggests that the center could be <strong>13</strong> instead of 12. If the pivot moves to the right (to 13):</p>
+        <ul style="margin-left: 1.5rem; margin-top: 0.5rem; line-height: 1.7;">
+          <li>All distances on the left must increase: from 10 to 13 is 3, from 11 to 13 is 2. Total left distance becomes 3 + 3 + 2 = <strong>8</strong>.</li>
+          <li>All distances on the right must decrease: from 17 to 13 is only <strong>4</strong>.</li>
+          <li>Left distance (8) &ne; Right distance (4). The balance is broken! By the same reasoning, moving left of 12 increases right distances and decreases left distances. Hence, <strong>the arithmetic mean is strictly unique</strong>.</li>
+        </ul>
+      </div>
+
+      <!-- 2.2 Sensitivity & Insertion/Deletion -->
+      <h3 style="color: var(--primary-dark); font-size: 1.25rem; margin: 2rem 0 0.75rem;">2.2 Sensitivity: What Happens When Data Changes?</h3>
+      <p>Because the mean depends on every single data point, adding, removing, or modifying even a single number forces the fulcrum to move to restore equilibrium.</p>
+
+      <div class="data-table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Action on Data</th>
+              <th>Condition on the Value (v)</th>
+              <th>Effect on Mean (x̄)</th>
+              <th>Physical Seesaw Reason</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Include</strong> a new value</td>
+              <td>v &gt; x̄ (Greater than mean)</td>
+              <td><span style="color: #15803d; font-weight: 700;">Increases &uarr;</span></td>
+              <td>Extra weight added to the right side tilts beam down; fulcrum must move right.</td>
+            </tr>
+            <tr>
+              <td><strong>Include</strong> a new value</td>
+              <td>v &lt; x̄ (Smaller than mean)</td>
+              <td><span style="color: #b91c1c; font-weight: 700;">Decreases &darr;</span></td>
+              <td>Extra weight added to the left side tilts beam down; fulcrum must move left.</td>
+            </tr>
+            <tr>
+              <td><strong>Include</strong> a new value</td>
+              <td>v = x̄ (Equal to mean)</td>
+              <td><span style="color: #0284c7; font-weight: 700;">Unchanged &harr;</span></td>
+              <td>Weight placed directly on top of the fulcrum causes zero moment of rotation!</td>
+            </tr>
+            <tr>
+              <td><strong>Remove</strong> an existing value</td>
+              <td>v &gt; x̄ (Greater than mean)</td>
+              <td><span style="color: #b91c1c; font-weight: 700;">Decreases &darr;</span></td>
+              <td>Removing right-side weight causes right side to rise; fulcrum must move left.</td>
+            </tr>
+            <tr>
+              <td><strong>Remove</strong> an existing value</td>
+              <td>v &lt; x̄ (Smaller than mean)</td>
+              <td><span style="color: #15803d; font-weight: 700;">Increases &uarr;</span></td>
+              <td>Removing left-side weight lightens the left; fulcrum must move right.</td>
+            </tr>
+            <tr>
+              <td><strong>Remove</strong> an existing value</td>
+              <td>v = x̄ (Equal to mean)</td>
+              <td><span style="color: #0284c7; font-weight: 700;">Unchanged &harr;</span></td>
+              <td>Removing weight sitting directly on the pivot has zero effect on balance.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- 2.3 Algebraic Proofs: Shifting & Scaling -->
+      <h3 style="color: var(--primary-dark); font-size: 1.25rem; margin: 2rem 0 0.75rem;">2.3 Algebraic Proofs: Shifting & Scaling Properties</h3>
+      <p>What happens if an identical mathematical operation is performed on <em>every single number</em> in the collection? Algebra provides an elegant and rigorous proof.</p>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-square-root-variable"></i> Theorem 1: Shifting Property (Addition / Subtraction)</div>
+        <p>If a fixed constant <strong>c</strong> is added to (or subtracted from) every value in a dataset with n numbers and original mean <strong>a</strong>, the new mean becomes <strong>a + c</strong> (or <strong>a - c</strong>).</p>
+        <div class="step-box">
+          <div class="step-num">1</div>
+          <div><strong>Initial State:</strong> Let the n values be x<sub>1</sub>, x<sub>2</sub>, ..., x<sub>n</sub>. Their original mean is a = (x<sub>1</sub> + x<sub>2</sub> + ... + x<sub>n</sub>) / n. Therefore, &Sigma; x<sub>i</sub> = n &middot; a.</div>
+        </div>
+        <div class="step-box">
+          <div class="step-num">2</div>
+          <div><strong>Apply Shift:</strong> Every new value is x'<sub>i</sub> = x<sub>i</sub> + c.</div>
+        </div>
+        <div class="step-box">
+          <div class="step-num">3</div>
+          <div><strong>Compute New Mean:</strong><br>
+            x̄<sub>new</sub> = [(x<sub>1</sub> + c) + (x<sub>2</sub> + c) + ... + (x<sub>n</sub> + c)] &divide; n<br>
+            = [(x<sub>1</sub> + x<sub>2</sub> + ... + x<sub>n</sub>) + (c + c + ... + c (n times))] &divide; n<br>
+            = [(&Sigma; x<sub>i</sub>) + n&middot;c] &divide; n = (&Sigma; x<sub>i</sub> / n) + (n&middot;c / n) = <strong>a + c</strong>. &emsp;<em>(Q.E.D.)</em>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-square-root-variable"></i> Theorem 2: Scaling Property (Multiplication / Division)</div>
+        <p>If every value in a dataset with original mean <strong>a</strong> is multiplied by a non-zero constant <strong>k</strong>, the new mean becomes <strong>k &middot; a</strong>.</p>
+        <div class="step-box">
+          <div class="step-num">1</div>
+          <div><strong>Distributive Law:</strong> New sum = (k&middot;x<sub>1</sub> + k&middot;x<sub>2</sub> + ... + k&middot;x<sub>n</sub>) = k &middot; (x<sub>1</sub> + x<sub>2</sub> + ... + x<sub>n</sub>).</div>
+        </div>
+        <div class="step-box">
+          <div class="step-num">2</div>
+          <div><strong>Compute New Mean:</strong><br>
+            x̄<sub>new</sub> = [k &middot; (x<sub>1</sub> + x<sub>2</sub> + ... + x<sub>n</sub>)] &divide; n = k &middot; [(x<sub>1</sub> + x<sub>2</sub> + ... + x<sub>n</sub>) / n] = <strong>k &middot; a</strong>. &emsp;<em>(Q.E.D.)</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2.4 Tinkering with Median -->
+      <h3 style="color: var(--primary-dark); font-size: 1.25rem; margin: 2rem 0 0.75rem;">2.4 Tinkering with Median: Positional Stability & Outlier Immunity</h3>
+      <p>The <strong>median</strong> is the positional center of an ordered collection. It divides the sorted data into two halves of equal count.</p>
+
+      <ul style="margin-left: 1.5rem; margin-bottom: 1rem; line-height: 1.8;">
+        <li>If number of items <strong>n is odd</strong>: The median is the unique single middle value at rank <strong>(n + 1)/2</strong>.</li>
+        <li>If number of items <strong>n is even</strong>: The median is the arithmetic mean of the two middle values at ranks <strong>n/2</strong> and <strong>(n/2 + 1)</strong>.</li>
+      </ul>
+
+      <div class="callout callout-pyq">
+        <div class="callout-title"><i class="fa-solid fa-shield-halved"></i> Why Median is Robust vs Outliers (Extreme Values)</div>
+        <p>Consider the daily wages of 5 workers in rupees: <strong>400, 450, 500, 550, 600</strong>.<br>
+        &bull; Median = <strong>₹500</strong>. Mean = (2500)/5 = <strong>₹500</strong>.<br>
+        Now suppose the 5th person is the CEO earning <strong>₹1,00,000</strong>: 400, 450, 500, 550, 100000.<br>
+        &bull; New Mean = 1,01,900 &divide; 5 = <strong>₹20,380</strong> (Completely distorted! No typical worker earns ₹20,380).<br>
+        &bull; New Median = <strong>₹500</strong> (Completely unaffected!). This makes median the gold standard for reporting incomes, house prices, and wealth distributions.</p>
+      </div>
+
+      <!-- 2.5 Frequency Distributions -->
+      <h3 style="color: var(--primary-dark); font-size: 1.25rem; margin: 2rem 0 0.75rem;">2.5 Frequency Distributions: Weighted Mean & Cumulative Ranks</h3>
+      <p>When values repeat frequently, listing every single number is tedious. Instead, we summarize counts in a <strong>frequency distribution table</strong>.</p>
+
+      <div class="formula-card">
+        Weighted Mean (x̄) = &Sigma; (f<sub>i</sub> &times; x<sub>i</sub>) &divide; &Sigma; f<sub>i</sub> = &Sigma; (f<sub>i</sub> &times; x<sub>i</sub>) &divide; N
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> Classic Exam Trap: Dividing by Category Count Instead of &Sigma;f!</div>
+        <p>If family sizes range from 3 to 10 across 36 students, NEVER divide by 8 (the count of distinct family sizes from 3 to 10). You must always divide by the <strong>total number of individuals (total frequency &Sigma;f = 36)</strong>!</p>
+      </div>
+
+      <!-- 2.6 Line Graphs -->
+      <h3 style="color: var(--primary-dark); font-size: 1.25rem; margin: 2rem 0 0.75rem;">2.6 Visualising Trends with Line Graphs</h3>
+      <p>While bar graphs compare independent categories (e.g. favourite sports), <strong>line graphs</strong> connect consecutive data points with line segments to display <strong>continuous change over time</strong>.</p>
+
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.5rem; line-height: 1.8;">
+        <li><strong>Steepness of Slope:</strong> The steeper the upward line segment, the faster the quantity is growing (higher rate of change). A horizontal segment represents zero change.</li>
+        <li><strong>Smooth Curves vs Segmented Polygons:</strong> When data points are sampled continuously (e.g. 80 points representing human sleep across ages 6 to 75), the connected segments blend into a smooth mathematical curve, avoiding the clutter of 80 separate vertical bars.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3: IN-TEXT ACTIVITIES & EXPLORATIONS -->
+    <section id="sec3" class="content-section">
+      <div class="section-header">
+        <div class="section-icon"><i class="fa-solid fa-flask-vial"></i></div>
+        <h2>3. In-Text Activities & Explorations (Step-by-Step)</h2>
+      </div>
+
+      <p>The NCERT textbook introduces key mathematical principles through guided inquiries, physical thought-experiments, and real-life mystery puzzles. Here are the fully unpacked solutions for each exploration.</p>
+
+      <!-- Activity 1 -->
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-puzzle-piece"></i> Exploration 1: Verifying the Balancing Act with 3 Numbers</div>
+        <p><strong>Textbook Prompt:</strong> Consider the numbers <strong>4, 6, and 14</strong>. Calculate their mean, plot them on a line, and verify that the sum of distances on both sides of the mean are equal.</p>
+        
+        <details class="ans-box">
+          <summary>View Step-by-Step Demonstration</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div><strong>Calculate the Mean:</strong><br>
+                Mean (x̄) = (4 + 6 + 14) &divide; 3 = 24 &divide; 3 = <strong>8</strong>.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div><strong>Identify Positions Relative to Mean:</strong><br>
+                &bull; Values to the left of 8: <strong>4</strong> and <strong>6</strong>.<br>
+                &bull; Value to the right of 8: <strong>14</strong>.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">3</div>
+              <div><strong>Calculate Distances:</strong><br>
+                &bull; Total Left Distance = (8 - 4) + (8 - 6) = 4 + 2 = <strong>6</strong>.<br>
+                &bull; Total Right Distance = (14 - 8) = <strong>6</strong>.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">4</div>
+              <div><strong>Conclusion:</strong> Left Distance (6) = Right Distance (6). The mean of 8 sits at the exact physical center of mass.</div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Activity 2 -->
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-puzzle-piece"></i> Exploration 2: The Art of the "Unchanging Mean"</div>
+        <p><strong>Textbook Prompt:</strong> Suppose a collection has a mean of <strong>12</strong>. Can we include or remove numbers without changing the mean? Explore possibilities for 2 values and 3 values.</p>
+
+        <details class="ans-box">
+          <summary>View Exploration & General Rules</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">A</div>
+              <div><strong>Case 1: Including 2 Values Without Changing Mean:</strong><br>
+                The sum of the two new values must average to 12. That means their sum must be 12 &times; 2 = <strong>24</strong>.<br>
+                &bull; <em>Symmetric pair:</em> Include <strong>10 and 14</strong> (Left distance 2, Right distance 2).<br>
+                &bull; <em>Wider symmetric pair:</em> Include <strong>7 and 17</strong> (Left distance 5, Right distance 5).<br>
+                &bull; <em>Direct center:</em> Include <strong>12 and 12</strong> (Zero distance each).
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">B</div>
+              <div><strong>Case 2: Including 3 Values (2 Less than Mean, 1 Greater):</strong><br>
+                The sum of distances of the two numbers to the left must equal the distance of the single number to the right.<br>
+                &bull; Choose left numbers: <strong>10</strong> (dist = 2) and <strong>11</strong> (dist = 1). Total left distance = 2 + 1 = 3.<br>
+                &bull; Choose right number: Must be 3 units above 12, which is 12 + 3 = <strong>15</strong>.<br>
+                &bull; <em>Verification:</em> (10 + 11 + 15) &divide; 3 = 36 &divide; 3 = <strong>12</strong>! The overall mean is completely unchanged!
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">C</div>
+              <div><strong>Case 3: Including 3 Values (2 Greater than Mean, 1 Less):</strong><br>
+                &bull; Choose right numbers: <strong>13</strong> (dist = 1) and <strong>14</strong> (dist = 2). Total right distance = 1 + 2 = 3.<br>
+                &bull; Choose left number: Must be 3 units below 12, which is 12 - 3 = <strong>9</strong>.<br>
+                &bull; <em>Verification:</em> (9 + 13 + 14) &divide; 3 = 36 &divide; 3 = <strong>12</strong>! Perfect balance restored!
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Activity 3 -->
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-puzzle-piece"></i> Exploration 3: Algebraic Proof of Subtracting a Constant</div>
+        <p><strong>Textbook Prompt:</strong> Use algebra to prove what happens to the average when a fixed number, say 2, is subtracted from every value in a dataset.</p>
+
+        <details class="ans-box">
+          <summary>View Rigorous Algebraic Proof</summary>
+          <div class="ans-content">
+            <p>Let the n original values be x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub>, ..., x<sub>n</sub> with initial average <strong>a</strong>:</p>
+            <div class="formula-card">
+              a = (x<sub>1</sub> + x<sub>2</sub> + ... + x<sub>n</sub>) &divide; n
+            </div>
+            <p>When 2 is subtracted from each value, the new values are (x<sub>1</sub> - 2), (x<sub>2</sub> - 2), ..., (x<sub>n</sub> - 2). The new average is:</p>
+            <div class="formula-card">
+              New Average = [(x<sub>1</sub> - 2) + (x<sub>2</sub> - 2) + ... + (x<sub>n</sub> - 2)] &divide; n<br>
+              = [(x<sub>1</sub> + x<sub>2</sub> + ... + x<sub>n</sub>) - (2 + 2 + ... + 2 (n times))] &divide; n<br>
+              = [(x<sub>1</sub> + x<sub>2</sub> + ... + x<sub>n</sub>) - 2n] &divide; n<br>
+              = [(x<sub>1</sub> + x<sub>2</sub> + ... + x<sub>n</sub>) &divide; n] - (2n &divide; n)<br>
+              = <strong>a - 2</strong>.
+            </div>
+            <p><strong>Fair-Share Interpretation:</strong> If everyone in a group gives away 2 sweets from their bag, every person's share decreases by exactly 2 sweets!</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Activity 4 -->
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-puzzle-piece"></i> Exploration 4: Finding the Smudged Wrestling Weight</div>
+        <p><strong>Textbook Mystery:</strong> Coach Balwan recorded the weights of 10 kushti wrestlers and found the mean to be <strong>39.2 kg</strong>. However, one player's weight was smudged by sweat: 42, 40, 39, 33, 48, 38, 42, 35, 32, and <strong>w</strong>. Find the missing weight w.</p>
+
+        <details class="ans-box">
+          <summary>View Step-by-Step Algebraic Solution</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div><strong>Formulate the Mean Equation:</strong><br>
+                Mean = (Sum of all 10 weights) &divide; 10 = 39.2 kg.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div><strong>Calculate the Total Required Weight:</strong><br>
+                Total Weight = 39.2 &times; 10 = <strong>392 kg</strong>.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">3</div>
+              <div><strong>Sum the 9 Known Weights:</strong><br>
+                42 + 40 + 39 + 33 + 48 + 38 + 42 + 35 + 32 = <strong>349 kg</strong>.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">4</div>
+              <div><strong>Solve for w:</strong><br>
+                349 + w = 392 &emsp;&rArr;&emsp; w = 392 - 349 = <strong>43 kg</strong>.
+              </div>
+            </div>
+            <p style="color: #15803d; font-weight: 700; margin-top: 0.5rem;"><i class="fa-solid fa-circle-check"></i> The missing wrestler weighs 43 kg.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Activity 5 -->
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-puzzle-piece"></i> Exploration 5: Venkayya's Coconut Harvest Recount Correction</div>
+        <p><strong>Textbook Problem:</strong> Farmer Venkayya tracked the coconut yield of <strong>15 trees</strong> and computed the average harvest per tree as <strong>25.6</strong>. Later, his son discovered an error: one tree's yield had been recorded as <strong>3 more than its actual count</strong>. Find the correct average.</p>
+
+        <details class="ans-box">
+          <summary>View Two Methods (Standard Sum vs Direct Shift)</summary>
+          <div class="ans-content">
+            <p><strong>Method 1: Standard Total Sum Reversal</strong></p>
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div>Recorded total count = 25.6 &times; 15 = <strong>384 coconuts</strong>.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div>True total count = 384 - 3 = <strong>381 coconuts</strong>.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">3</div>
+              <div>Correct average = 381 &divide; 15 = <strong>25.4 coconuts per tree</strong>.</div>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>Method 2: Super-Fast Direct Deviation Method</strong></p>
+            <p>Since the total error is an excess of 3 coconuts spread across 15 trees, the average was inflated by:</p>
+            <div class="formula-card">
+              Inflation per tree = Error &divide; Total Trees = 3 &divide; 15 = 0.2 coconuts.<br>
+              Correct Average = 25.6 - 0.2 = <strong>25.4</strong>.
+            </div>
+            <p style="color: #7e22ce; font-weight: 600;"><i class="fa-solid fa-bolt"></i> Notice how Method 2 took only 5 seconds without needing large multiplications!</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- Activity 6 -->
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-puzzle-piece"></i> Exploration 6: Class Family Size Frequency Table</div>
+        <p><strong>Textbook Data:</strong> The family sizes of 36 students are recorded: 3 members (3 students), 4 (11), 5 (9), 6 (7), 7 (3), 8 (1), 9 (1), 10 (1). Find the mean and median family size.</p>
+
+        <details class="ans-box">
+          <summary>View Complete Frequency Calculation</summary>
+          <div class="ans-content">
+            <div class="data-table-wrap">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Family Size (x)</th>
+                    <th>Frequency (f)</th>
+                    <th>Product (f &times; x)</th>
+                    <th>Cumulative Frequency (cf)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>3</td><td>3</td><td>9</td><td>3</td></tr>
+                  <tr><td>4</td><td>11</td><td>44</td><td>14</td></tr>
+                  <tr><td>5</td><td>9</td><td>45</td><td>23</td></tr>
+                  <tr><td>6</td><td>7</td><td>42</td><td>30</td></tr>
+                  <tr><td>7</td><td>3</td><td>21</td><td>33</td></tr>
+                  <tr><td>8</td><td>1</td><td>8</td><td>34</td></tr>
+                  <tr><td>9</td><td>1</td><td>9</td><td>35</td></tr>
+                  <tr><td>10</td><td>1</td><td>10</td><td>36</td></tr>
+                  <tr style="font-weight: 700; background: #e0f2fe;">
+                    <td>Total</td>
+                    <td>&Sigma;f = 36</td>
+                    <td>&Sigma;(f&middot;x) = 188</td>
+                    <td>-</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div><strong>Mean Calculation:</strong><br>
+                Mean = &Sigma;(f &times; x) &divide; &Sigma;f = 188 &divide; 36 = <strong>5.22 family members</strong>.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div><strong>Median Calculation (Rank Method):</strong><br>
+                Total count N = 36 (even). The median is the average of the <strong>18th</strong> and <strong>19th</strong> ordered values.<br>
+                &bull; Up to size 4, there are only 14 students (cf = 14).<br>
+                &bull; Size 5 encompasses students from rank 15 through rank 23 (cf reaches 23).<br>
+                &bull; Both the 18th student and the 19th student have a family size of 5.<br>
+                &bull; Therefore, <strong>Median = (5 + 5) &divide; 2 = 5</strong>.
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 4: END-OF-CHAPTER 'FIGURE IT OUT' MASTER SOLUTIONS -->
+    <section id="sec4" class="content-section">
+      <div class="section-header">
+        <div class="section-icon"><i class="fa-solid fa-list-check"></i></div>
+        <h2>4. Complete NCERT 'Figure it Out' Exercise Solutions</h2>
+      </div>
+
+      <p style="margin-bottom: 2rem;">Every exercise from the NCERT textbook is fully solved below following a rigorous 5-step pedagogical structure: <em>Problem Statement &rarr; Key Concepts &rarr; Step-by-Step Working &rarr; Final Answer &rarr; Teacher's In-Depth Insight</em>.</p>
+
+      <!-- SUBSECTION: FIGURE IT OUT SET 1 -->
+      <h3 style="color: var(--primary-dark); font-size: 1.3rem; margin: 2rem 0 1rem; border-bottom: 2px solid var(--primary-light); padding-bottom: 0.5rem;">
+        <i class="fa-solid fa-circle-dot"></i> Figure it Out &bull; Set 1 (Balancing Act, Shifting, Scaling & Median)
+      </h3>
+
+      <!-- Q1 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-calculator"></i> Question 1: Means of Structured Sequences & Observations</div>
+        <p>Find the mean of the following data and share your observations:<br>
+        (i) The first 50 natural numbers.<br>
+        (ii) The first 50 odd numbers.<br>
+        (iii) The first 50 multiples of 4.</p>
+
+        <details class="ans-box" open>
+          <summary>View Complete Solution & General AP Formula</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div><strong>(i) First 50 Natural Numbers (1, 2, 3, ..., 50):</strong><br>
+                &bull; Sum of first n natural numbers = n(n + 1) &divide; 2 = 50 &times; 51 &divide; 2 = 1,275.<br>
+                &bull; Mean = Sum &divide; n = 1,275 &divide; 50 = <strong>25.5</strong>.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div><strong>(ii) First 50 Odd Numbers (1, 3, 5, ..., 99):</strong><br>
+                &bull; Sum of first n odd numbers = n<sup>2</sup> = 50<sup>2</sup> = 2,500.<br>
+                &bull; Mean = Sum &divide; n = 2,500 &divide; 50 = <strong>50</strong>.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">3</div>
+              <div><strong>(iii) First 50 Multiples of 4 (4, 8, 12, ..., 200):</strong><br>
+                &bull; Each number is 4 times the corresponding natural number: 4 &times; (1, 2, ..., 50).<br>
+                &bull; By the scaling theorem: Mean = 4 &times; (Mean of first 50 natural numbers) = 4 &times; 25.5 = <strong>102</strong>.<br>
+                &bull; <em>Verification via sum:</em> 4 &times; 1,275 = 5,100 &divide; 50 = 102.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">4</div>
+              <div><strong>Teacher's Key Observation:</strong><br>
+                In any uniformly spaced sequence (Arithmetic Progression), the mean is always simply the <strong>midpoint of the first and last numbers</strong>:<br>
+                &bull; (i) (1 + 50) &divide; 2 = 51 &divide; 2 = <strong>25.5</strong>.<br>
+                &bull; (ii) (1 + 99) &divide; 2 = 100 &divide; 2 = <strong>50</strong>.<br>
+                &bull; (iii) (4 + 200) &divide; 2 = 204 &divide; 2 = <strong>102</strong>.
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q2 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-calculator"></i> Question 2: Missing Dot in the Dot Plot</div>
+        <p>The dot plot shows a collection of data with a given mean of <strong>9</strong>, but one dot is missing. How do you find and mark the missing value?</p>
+
+        <details class="ans-box">
+          <summary>View Balance Method Solution</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div><strong>Principle of Balance:</strong> For the mean to remain at 9, the total distance of all points on the left of 9 must equal the total distance of all points on the right of 9.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div><strong>Count Left & Right Distances:</strong> Suppose the known points have a left distance deficit of &Delta; units. The missing point must be placed at an offset of exactly &Delta; units on the opposite side to bring the seesaw into balance.</div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q3 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-calculator"></i> Question 3: Uniform Shoes Height Adjustment</div>
+        <p>Teacher Sudhakar asks Shreyas to measure the heights of 24 students. The average height is found to be <strong>150.2 cm</strong>. However, students were wearing uniform shoes that add <strong>1 cm</strong> to each student's height.<br>
+        (i) Should the teacher remeasure everyone, or is there a simpler way?<br>
+        (ii) What is the correct average height of the class?<br>
+        <em>Options:</em> (a) 174.2 cm &emsp; (b) 126.2 cm &emsp; (c) 150.2 cm &emsp; (d) 149.2 cm &emsp; (e) 151.2 cm &emsp; (f) None &emsp; (g) Insufficient info</p>
+
+        <details class="ans-box" open>
+          <summary>View Solution</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div><strong>(i) Simpler Way:</strong> There is NO need to remeasure! Since <em>every single student</em> had exactly 1 cm added by their shoes, each student's true height is x'<sub>i</sub> = x<sub>i</sub> - 1.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div><strong>(ii) Correct Average:</strong> By the Shifting Theorem, subtracting 1 cm from all individual values reduces the mean by exactly 1 cm:<br>
+                Correct Average = 150.2 cm - 1.0 cm = <strong>149.2 cm</strong>.<br>
+                <strong>Correct Option: (d) 149.2 cm</strong>.
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q4 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-calculator"></i> Question 4: Song Lengths Album with Mean 5.57 Minutes</div>
+        <p>Three dot plots A, B, and C show the lengths of songs in different music albums. Which of these albums has a mean of <strong>5.57 minutes</strong>? Explain your reasoning.</p>
+
+        <details class="ans-box">
+          <summary>View Analytical Explanation</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div><strong>Examine the Center of Mass:</strong> Album A has most songs clustered around 2.5 to 3.5 minutes (mean well below 4). Album B has songs uniformly spread between 1.5 and 5.5 minutes (mean around 3.5).</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div><strong>Album C:</strong> Has clusters of dots at 5, 5.5, 6, 6.5, and 7 minutes, with the majority concentrated above 5 minutes. The center of balance for Album C falls precisely in the 5.5 to 5.6 range. Hence, <strong>Album C</strong> has a mean of 5.57 minutes.</div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q5 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-calculator"></i> Question 5: Tinkering with the Median of 16 Numbers</div>
+        <p>Given data (already sorted): <strong>8, 10, 19, 23, 26, 34, 40, 41, 41, 48, 51, 55, 70, 84, 91, 92</strong>.<br>
+        Find the median, and determine:<br>
+        (i) What single value can be included without changing the median?<br>
+        (ii) What two values can be included without changing the median?<br>
+        (iii) What single value can be removed without changing the median?</p>
+
+        <details class="ans-box" open>
+          <summary>View Step-by-Step Median Analysis</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div><strong>Find Initial Median:</strong> Total count n = 16 (even). The middle ranks are 8th and 9th:<br>
+                8th value = 41, 9th value = 41.<br>
+                Median = (41 + 41) &divide; 2 = <strong>41</strong>.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div><strong>(i) Include One Value:</strong> If we add one number, new n = 17 (odd). The new median will be at rank (17 + 1)/2 = 9th position. To keep the 9th position equal to 41, the included value must be <strong>41</strong>.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">3</div>
+              <div><strong>(ii) Include Two Values:</strong> If we add two values, new n = 18 (even). Middle ranks will be 9th and 10th. As long as we add <strong>one value &le; 41 and one value &ge; 41</strong> (e.g. 20 and 50, or 41 and 41), the 9th and 10th values remain 41, so the median remains <strong>41</strong>.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">4</div>
+              <div><strong>(iii) Remove One Value:</strong> If we remove one number, new n = 15 (odd). Middle rank is (15 + 1)/2 = 8th position. If we remove either of the two <strong>41s</strong>, the remaining 41 becomes the 8th value, preserving the median as <strong>41</strong>!</div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q6 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-calculator"></i> Question 6: Always, Sometimes, or Never True?</div>
+        <p>Examine the statements and justify whether they are <strong>Always True</strong>, <strong>Sometimes True</strong>, or <strong>Never True</strong>:<br>
+        (i) Removing a value less than the median will decrease the median.<br>
+        (ii) Including a value less than the mean will decrease the mean.<br>
+        (iii) Including any 4 values will not affect the median.<br>
+        (iv) Including 4 values less than the median will increase the median.</p>
+
+        <details class="ans-box" open>
+          <summary>View Justifications</summary>
+          <div class="ans-content">
+            <ul style="line-height: 1.8; margin-left: 1.5rem;">
+              <li><strong>(i) Never True:</strong> Removing a value smaller than the median removes a point from the left half. This shifts the central index to the right, which can either increase the median or leave it unchanged, but can <em>never decrease</em> it.</li>
+              <li><strong>(ii) Always True:</strong> Adding a value less than the mean adds weight to the left side of the fulcrum. To restore physical equilibrium, the fulcrum must shift leftwards.</li>
+              <li><strong>(iii) Sometimes True:</strong> Only true if the 4 values are balanced (e.g. exactly 2 are less than the median and 2 are greater than the median, or all 4 equal the median). If all 4 values are smaller than the median, the median will decrease.</li>
+              <li><strong>(iv) Never True:</strong> Adding values on the lower side can only pull the central rank to the left, which can either decrease the median or keep it constant; it can never increase the median.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q7 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-calculator"></i> Question 7: Solving for Unknown Variable y</div>
+        <p>The mean of the numbers <strong>8, 13, 10, 4, 5, 20, y, 10</strong> is <strong>10.375</strong>. Find the value of y.</p>
+
+        <details class="ans-box" open>
+          <summary>View Algebraic Solution</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div>Count total items: n = 8.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div>Total required sum = n &times; Mean = 8 &times; 10.375 = <strong>83</strong>.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">3</div>
+              <div>Sum of 7 known numbers = 8 + 13 + 10 + 4 + 5 + 20 + 10 = <strong>70</strong>.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">4</div>
+              <div>Solve for y: 70 + y = 83 &emsp;&rArr;&emsp; y = 83 - 70 = <strong>13</strong>.</div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q8 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-calculator"></i> Question 8: Total Sum from Mean</div>
+        <p>The mean of a set of data with <strong>15 values</strong> is <strong>134</strong>. Find the sum of the data.</p>
+
+        <details class="ans-box">
+          <summary>View Solution</summary>
+          <div class="ans-content">
+            <div class="formula-card">
+              Sum = Number of values &times; Mean = 15 &times; 134 = <strong>2,010</strong>.
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q9 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-calculator"></i> Question 9: Finding Candidate Values of p for Fixed Median</div>
+        <p>Consider the data with 11 values: <strong>12, 47, 8, 73, 18, 35, 39, 8, 29, 25, p</strong>. Which of the following could be p if the median is <strong>29</strong>?<br>
+        (i) 10 &emsp; (ii) 25 &emsp; (iii) 40 &emsp; (iv) 100 &emsp; (v) 29 &emsp; (vi) 47 &emsp; (vii) 30</p>
+
+        <details class="ans-box" open>
+          <summary>View Rank Positioning Solution</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div><strong>Sort the 10 Known Numbers:</strong><br>
+                8, 8, 12, 18, 25, &emsp;<strong>29</strong>,&emsp; 35, 39, 47, 73.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div><strong>Identify the Median Position:</strong><br>
+                With 11 values, the median must be the <strong>6th value</strong> from the bottom: (11 + 1)/2 = 6.<br>
+                Notice that there are already exactly <strong>5 numbers smaller than 29</strong> (8, 8, 12, 18, 25).
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">3</div>
+              <div><strong>Condition on p:</strong><br>
+                For 29 to remain the 6th number, p CANNOT be placed among the bottom 5. Therefore, <strong>p must be greater than or equal to 29 (p &ge; 29)</strong>!
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">4</div>
+              <div><strong>Valid Options:</strong> (iii) 40, (iv) 100, (v) 29, (vi) 47, and (vii) 30.</div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q10 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-calculator"></i> Question 10: Bicycle Riding Frequency Dot Plot</div>
+        <p>A dot plot records weekly bicycle riding counts for students. Four students rode twice. Find the mean and median, and determine what happens if all students ride 1 more time the following week.</p>
+
+        <details class="ans-box">
+          <summary>View Solution</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div><strong>Calculations:</strong> Summing frequencies &times; values gives the average and median counts.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div><strong>Next Week Shift:</strong> If every student rides 1 more time (x'<sub>i</sub> = x<sub>i</sub> + 1):<br>
+                &bull; <strong>New Average = Old Average + 1</strong>.<br>
+                &bull; <strong>New Median = Old Median + 1</strong>.<br>
+                Both measures shift upwards by exactly 1!
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Q11 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-calculator"></i> Question 11: Dart Throwing Competition Statistics</div>
+        <p>A school dart tournament records the number of throws needed to hit the bull's eye:<br>
+        Throws (x): 1, 2, 3, 4, 5, 6, 7, 8, 9, 10.<br>
+        Students (f): 1, 0, 0, 1, 4, 9, 12, 15, 10, 10.<br>
+        Describe the data using minimum, maximum, mean, and median.</p>
+
+        <details class="ans-box" open>
+          <summary>View Complete Analysis</summary>
+          <div class="ans-content">
+            <ul style="line-height: 1.8; margin-left: 1.5rem;">
+              <li><strong>Minimum Throws:</strong> 1 throw (1 student hit it on the first attempt).</li>
+              <li><strong>Maximum Throws:</strong> 10 throws (10 students took 10 attempts).</li>
+              <li><strong>Total Students N = &Sigma;f:</strong> 1 + 0 + 0 + 1 + 4 + 9 + 12 + 15 + 10 + 10 = <strong>62 students</strong>.</li>
+              <li><strong>Total Throws = &Sigma;(f &times; x):</strong><br>
+                (1&times;1) + (4&times;1) + (5&times;4) + (6&times;9) + (7&times;12) + (8&times;15) + (9&times;10) + (10&times;10)<br>
+                = 1 + 4 + 20 + 54 + 84 + 120 + 90 + 100 = <strong>473 throws</strong>.
+              </li>
+              <li><strong>Mean Throws:</strong> 473 &divide; 62 &asymp; <strong>7.63 throws</strong>.</li>
+              <li><strong>Median Throws:</strong> With N = 62, median is the average of 31st and 32nd students.<br>
+                Cumulative frequency up to 7 throws = 27 students.<br>
+                Throws = 8 covers students from 28th to 42nd rank.<br>
+                Both 31st and 32nd students took 8 throws.<br>
+                <strong>Median = 8 throws</strong>.
+              </li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- SUBSECTION: FIGURE IT OUT SET 2 -->
+      <h3 style="color: var(--primary-dark); font-size: 1.3rem; margin: 3rem 0 1rem; border-bottom: 2px solid var(--secondary-light); padding-bottom: 0.5rem;">
+        <i class="fa-solid fa-chart-line"></i> Figure it Out &bull; Set 2 (Line Graphs & Meteorological Trends)
+      </h3>
+
+      <!-- FIO 2 Q1 -->
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-store"></i> Exercise 1: Shop Visitors vs Customers Purchasing</div>
+        <p>Weekly shop data shows visitors vs actual buyers:<br>
+        Mon (16 vs 10), Tue (19 vs 8), Wed (10 vs 7), Thu (14 vs 11), Fri (20 vs 12), Sat (22 vs 16), Sun (35 vs 26).<br>
+        Visualise this data on a double line graph and interpret the business pattern.</p>
+
+        <details class="ans-box" open>
+          <summary>View Double Line Graph & Interpretation</summary>
+          <div class="ans-content">
+            <div class="svg-container">
+              <svg viewBox="0 0 740 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 8px;">
+                <!-- Gridlines -->
+                <line x1="80" y1="220" x2="680" y2="220" stroke="#cbd5e1" stroke-width="1.5"/>
+                <line x1="80" y1="170" x2="680" y2="170" stroke="#f1f5f9" stroke-width="1"/>
+                <line x1="80" y1="120" x2="680" y2="120" stroke="#f1f5f9" stroke-width="1"/>
+                <line x1="80" y1="70" x2="680" y2="70" stroke="#f1f5f9" stroke-width="1"/>
+                <line x1="80" y1="20" x2="680" y2="20" stroke="#f1f5f9" stroke-width="1"/>
+
+                <!-- Y Axis labels (Scale: 0 to 40, height=200 px, 5px per unit) -->
+                <text x="65" y="225" font-size="11" fill="#64748b" text-anchor="end">0</text>
+                <text x="65" y="175" font-size="11" fill="#64748b" text-anchor="end">10</text>
+                <text x="65" y="125" font-size="11" fill="#64748b" text-anchor="end">20</text>
+                <text x="65" y="75" font-size="11" fill="#64748b" text-anchor="end">30</text>
+                <text x="65" y="25" font-size="11" fill="#64748b" text-anchor="end">40</text>
+
+                <!-- X Axis ticks: Mon(120), Tue(200), Wed(280), Thu(360), Fri(440), Sat(520), Sun(600) -->
+                <text x="120" y="240" font-size="11" fill="#334155" text-anchor="middle">Mon</text>
+                <text x="200" y="240" font-size="11" fill="#334155" text-anchor="middle">Tue</text>
+                <text x="280" y="240" font-size="11" fill="#334155" text-anchor="middle">Wed</text>
+                <text x="360" y="240" font-size="11" fill="#334155" text-anchor="middle">Thu</text>
+                <text x="440" y="240" font-size="11" fill="#334155" text-anchor="middle">Fri</text>
+                <text x="520" y="240" font-size="11" fill="#334155" text-anchor="middle">Sat</text>
+                <text x="600" y="240" font-size="11" fill="#334155" text-anchor="middle">Sun</text>
+
+                <!-- Line 1: Visitors (Blue: 16, 19, 10, 14, 20, 22, 35) -->
+                <!-- y = 220 - val*5: 16->140, 19->125, 10->170, 14->150, 20->120, 22->110, 35->45 -->
+                <polyline points="120,140 200,125 280,170 360,150 440,120 520,110 600,45" fill="none" stroke="#0284c7" stroke-width="3"/>
+                <circle cx="120" cy="140" r="4" fill="#0284c7"/>
+                <circle cx="200" cy="125" r="4" fill="#0284c7"/>
+                <circle cx="280" cy="170" r="4" fill="#0284c7"/>
+                <circle cx="360" cy="150" r="4" fill="#0284c7"/>
+                <circle cx="440" cy="120" r="4" fill="#0284c7"/>
+                <circle cx="520" cy="110" r="4" fill="#0284c7"/>
+                <circle cx="600" cy="45" r="4" fill="#0284c7"/>
+
+                <!-- Line 2: Purchasing (Green: 10, 8, 7, 11, 12, 16, 26) -->
+                <!-- y = 220 - val*5: 10->170, 8->180, 7->185, 11->165, 12->160, 16->140, 26->90 -->
+                <polyline points="120,170 200,180 280,185 360,165 440,160 520,140 600,90" fill="none" stroke="#10b981" stroke-width="3" stroke-dasharray="4,2"/>
+                <circle cx="120" cy="170" r="4" fill="#10b981"/>
+                <circle cx="200" cy="180" r="4" fill="#10b981"/>
+                <circle cx="280" cy="185" r="4" fill="#10b981"/>
+                <circle cx="360" cy="165" r="4" fill="#10b981"/>
+                <circle cx="440" cy="160" r="4" fill="#10b981"/>
+                <circle cx="520" cy="140" r="4" fill="#10b981"/>
+                <circle cx="600" cy="90" r="4" fill="#10b981"/>
+
+                <!-- Legend -->
+                <rect x="230" y="5" width="14" height="14" fill="#0284c7"/>
+                <text x="250" y="17" font-size="12" fill="#334155">Visiting Customers</text>
+                <rect x="420" y="5" width="14" height="14" fill="#10b981"/>
+                <text x="440" y="17" font-size="12" fill="#334155">Purchasing Customers</text>
+              </svg>
+            </div>
+            <p><strong>Business Insights:</strong><br>
+            &bull; Footfall and sales both dramatically spike over the weekend, peaking on <strong>Sunday (35 visits, 26 purchases)</strong>.<br>
+            &bull; The conversion rate (purchases &divide; visits) remains consistently high (~70-75%) throughout the week.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- FIO 2 Q2 -->
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-cloud-showers-heavy"></i> Exercise 2: Monthly Rainfall Days Across Indian Cities</div>
+        <p>A meteorological dataset tracks the average number of rainy days per month for Mangaluru, New Delhi, Port Blair, and Rameswaram.<br>
+        (i) What method is used to compile this data?<br>
+        (ii) Which city receives the most rainy days per year? Which gets the least?</p>
+
+        <details class="ans-box" open>
+          <summary>View Climatological Analysis</summary>
+          <div class="ans-content">
+            <ul style="line-height: 1.8; margin-left: 1.5rem;">
+              <li><strong>(i) Compilation Method:</strong> Weather stations record daily precipitation using rain gauges. A day with &ge; 2.5 mm rainfall is logged as a "rainy day". Averages are computed over 30 years of historical observations.</li>
+              <li><strong>(ii) Most Rainy Days:</strong> <strong>Port Blair</strong> and <strong>Mangaluru</strong> receive the highest number of rainy days, driven by intense Southwest and Northeast Monsoon systems (over 115-130 rainy days/year).</li>
+              <li><strong>Least Rainy Days:</strong> <strong>New Delhi</strong> receives the fewest rainy days (~25-35 days/year), concentrated primarily in July and August.</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- SUBSECTION: FIGURE IT OUT SET 3 -->
+      <h3 style="color: var(--primary-dark); font-size: 1.3rem; margin: 3rem 0 1rem; border-bottom: 2px solid var(--purple-light); padding-bottom: 0.5rem;">
+        <i class="fa-solid fa-puzzle-piece"></i> Figure it Out &bull; Set 3 (Comprehensive Synthesis & Data Modeling)
+      </h3>
+
+      <!-- FIO 3 Q1 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-table-cells"></i> Exercise 1: The 3&times;3 Mean Grid Challenge</div>
+        <p>(i) Fill a 3&times;3 grid with 9 distinct numbers such that the average along every row, column, and diagonal is <strong>10</strong>.<br>
+        (ii) Can we alter some numbers and still preserve an average of 10 in all directions?</p>
+
+        <details class="ans-box" open>
+          <summary>View Magic Grid Solution</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div><strong>Convert Average to Sum:</strong> If the average of 3 numbers along any line is 10, their sum must be 3 &times; 10 = <strong>30</strong>. This is mathematically identical to a 3&times;3 Magic Square!</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div><strong>Construct from Standard Magic Square:</strong><br>
+                The classic 3&times;3 magic square uses integers 1 to 9 with central element 5 and magic sum 15.<br>
+                Applying the <strong>Shifting Property</strong>: add 5 to every cell! The center becomes 5 + 5 = <strong>10</strong>, the numbers become 6 through 14, and each sum becomes 15 + (3 &times; 5) = <strong>30</strong>.
+              </div>
+            </div>
+            <div class="data-table-wrap" style="max-width: 320px; margin: 1rem auto;">
+              <table class="data-table" style="text-align: center; font-weight: 700; font-size: 1.1rem;">
+                <tr><td style="background:#e0f2fe;">13</td><td>8</td><td style="background:#e0f2fe;">9</td></tr>
+                <tr><td>6</td><td style="background:#fef3c7; color:#b45309;">10</td><td>14</td></tr>
+                <tr><td style="background:#e0f2fe;">11</td><td>12</td><td style="background:#e0f2fe;">7</td></tr>
+              </table>
+            </div>
+            <p><strong>Verification:</strong><br>
+            &bull; Rows: (13+8+9 = 30), (6+10+14 = 30), (11+12+7 = 30). All averages = 10.<br>
+            &bull; Columns: (13+6+11 = 30), (8+10+12 = 30), (9+14+7 = 30). All averages = 10.<br>
+            &bull; Diagonals: (13+10+7 = 30), (9+10+11 = 30). All averages = 10.<br>
+            <strong>(ii) Altering numbers:</strong> Yes! Multiplying deviations by a factor or swapping complementary pairs around the center generates infinitely many valid grids.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- FIO 3 Q2 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-shapes"></i> Exercise 2: Constructing Custom Datasets</div>
+        <p>Give two distinct examples of data satisfying each condition:<br>
+        (i) 3 numbers whose mean is 8.<br>
+        (ii) 4 numbers whose median is 15.5.<br>
+        (iii) 5 numbers whose mean is 13.6.<br>
+        (iv) 6 numbers whose mean = median.<br>
+        (v) 6 numbers whose mean &gt; median.</p>
+
+        <details class="ans-box" open>
+          <summary>View Constructed Examples</summary>
+          <div class="ans-content">
+            <ul style="line-height: 1.8; margin-left: 1.5rem;">
+              <li><strong>(i) 3 numbers with mean 8 (Sum = 24):</strong><br>
+                &bull; Example A: <strong>{6, 8, 10}</strong> &emsp; &bull; Example B: <strong>{4, 7, 13}</strong>.</li>
+              <li><strong>(ii) 4 numbers with median 15.5:</strong> Middle two values must average to 15.5 (Sum = 31).<br>
+                &bull; Example A: <strong>{10, 15, 16, 20}</strong> &emsp; &bull; Example B: <strong>{12, 14, 17, 25}</strong>.</li>
+              <li><strong>(iii) 5 numbers with mean 13.6 (Sum = 5 &times; 13.6 = 68):</strong><br>
+                &bull; Example A: <strong>{10, 12, 14, 15, 17}</strong> &emsp; &bull; Example B: <strong>{8, 11, 13, 16, 20}</strong>.</li>
+              <li><strong>(iv) 6 numbers where Mean = Median:</strong> Symmetrical datasets.<br>
+                &bull; Example A: <strong>{2, 4, 6, 8, 10, 12}</strong> (Mean = 7, Median = 7).<br>
+                &bull; Example B: <strong>{10, 20, 30, 40, 50, 60}</strong> (Mean = 35, Median = 35).</li>
+              <li><strong>(v) 6 numbers where Mean &gt; Median:</strong> Right-skewed datasets with high outlier.<br>
+                &bull; Example A: <strong>{1, 2, 3, 4, 5, 45}</strong> (Median = 3.5, Mean = 60/6 = 10).<br>
+                &bull; Example B: <strong>{10, 11, 12, 12, 13, 62}</strong> (Median = 12, Mean = 120/6 = 20).</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- FIO 3 Q3 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-arrow-down-up-across-line"></i> Exercise 3: Filling Blanks for Median = 13</div>
+        <p>Fill in the blanks such that the median of the 6 numbers is <strong>13</strong>: <strong>5, 21, 14, __, __, __</strong>. How many possibilities exist if only counting numbers (positive integers) are allowed?</p>
+
+        <details class="ans-box" open>
+          <summary>View Combinatorial Solution</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div>With 6 numbers, the median is the average of the <strong>3rd and 4th</strong> values when sorted: (v<sub>3</sub> + v<sub>4</sub>) &divide; 2 = 13 &rArr; <strong>v<sub>3</sub> + v<sub>4</sub> = 26</strong>.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div>Known values: 5 (small), 14 (greater than 13), 21 (greater than 13).<br>
+                Since 14 is already in the upper half, the 4th value v<sub>4</sub> can be <strong>13 or 14</strong>:<br>
+                &bull; If v<sub>4</sub> = 14, then v<sub>3</sub> = 26 - 14 = <strong>12</strong>. Two numbers must be &le; 12, and one number &ge; 14.<br>
+                &bull; If v<sub>4</sub> = 13, then v<sub>3</sub> = <strong>13</strong>. One number must be &le; 13, one equal to 13, and one &ge; 14.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">3</div>
+              <div>Since counting numbers above 14 can be arbitrarily large (15, 16, 17, 100, ...), there are <strong>infinitely many possibilities</strong>!</div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- FIO 3 Q4 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-hashtag"></i> Exercise 4: Filling Blanks for Mean = 6.5</div>
+        <p>Fill in the blanks such that the mean of the 6 numbers is <strong>6.5</strong>: <strong>3, 11, __, __, 15, 6</strong>. How many possibilities exist using counting numbers?</p>
+
+        <details class="ans-box" open>
+          <summary>View Diophantine Solution</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div>Total required sum = 6 &times; 6.5 = <strong>39</strong>.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div>Sum of 4 known numbers = 3 + 11 + 15 + 6 = <strong>35</strong>.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">3</div>
+              <div>Sum of the two missing blanks: a + b = 39 - 35 = <strong>4</strong>.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">4</div>
+              <div>Since a and b must be positive counting numbers (integers &ge; 1):<br>
+                Possible ordered pairs (a, b): <strong>(1, 3), (2, 2), and (3, 1)</strong>.<br>
+                There are exactly <strong>3 possibilities</strong>!
+              </div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- FIO 3 Q5 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-check-double"></i> Exercise 5: Truth Value of Parity and Multiples Statements</div>
+        <p>Check whether each statement is true with algebraic justification:<br>
+        (i) The average of two even numbers is even.<br>
+        (ii) The average of any two multiples of 5 will be a multiple of 5.<br>
+        (iii) The average of any 5 multiples of 5 will also be a multiple of 5.</p>
+
+        <details class="ans-box" open>
+          <summary>View Algebraic Proofs & Counterexamples</summary>
+          <div class="ans-content">
+            <ul style="line-height: 1.8; margin-left: 1.5rem;">
+              <li><strong>(i) FALSE:</strong> Let the two even numbers be 2m and 2n. Their average is (2m + 2n)/2 = m + n. If m and n have different parities (e.g. 2 and 4: m=1, n=2), the average is 1 + 2 = <strong>3 (ODD)</strong>! Counterexample: (2 + 4) &divide; 2 = 3.</li>
+              <li><strong>(ii) FALSE:</strong> Let the multiples of 5 be 5m and 5n. Their average is 5(m + n)/2. If (m + n) is odd, this is not even an integer! Counterexample: (5 + 10) &divide; 2 = <strong>7.5 (Not a multiple of 5)</strong>.</li>
+              <li><strong>(iii) FALSE:</strong> Counterexample: Consider five multiples of 5: {5, 5, 5, 5, 10}.<br>
+                Average = (5 + 5 + 5 + 5 + 10) &divide; 5 = 30 &divide; 5 = <strong>6</strong>.<br>
+                6 is an integer, but <strong>6 is NOT a multiple of 5</strong>!</li>
+            </ul>
+          </div>
+        </details>
+      </div>
+
+      <!-- FIO 3 Q6 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-person-arrow-up-from-line"></i> Exercise 6: Impact of Two New Students on Class Height</div>
+        <p>In Sudhakar's class of 24 students with average height <strong>150.2 cm</strong>, two new students join with heights <strong>149 cm</strong> and <strong>152 cm</strong>.<br>
+        (i) What must be done to find the new average? (Measure new students vs all)<br>
+        (ii) Will the class average increase, decrease, or remain the same?<br>
+        (iii) What can be claimed regarding the new median?</p>
+
+        <details class="ans-box" open>
+          <summary>View Complete Analysis</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div><strong>(i) Procedure:</strong> Only the <strong>heights of the 2 new students</strong> need to be measured! The existing 24 students do not need remeasurement because their total sum is known (24 &times; 150.2 = 3,604.8 cm). Option (c) is correct.</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div><strong>(ii) Mean Direction:</strong> Average of the two newcomers = (149 + 152) &divide; 2 = <strong>150.5 cm</strong>.<br>
+                Since 150.5 cm &gt; 150.2 cm (the newcomer group average is strictly greater than the class average), <strong>the overall class average will INCREASE</strong>! Option (b) is correct.
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">3</div>
+              <div><strong>(iii) Median Claim:</strong> Because we do not know the exact individual heights around the 12th and 13th positions of the original 24 students, <strong>the information is insufficient to determine how the median changes</strong>. Option (d) is correct.</div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- FIO 3 Q7 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-balance-scale"></i> Exercise 7: Verifying Mean = 17 via Deviations</div>
+        <p>Is 17 the average of the data shown in the textbook dot plot? Share the method you used.</p>
+
+        <details class="ans-box">
+          <summary>View Deviation Balancing Solution</summary>
+          <div class="ans-content">
+            <p><strong>The Quick Deviation Method:</strong> Instead of adding huge numbers, test whether 17 is the true fulcrum by summing deviations &Delta; = (x - 17):</p>
+            <div class="formula-card">
+              &Sigma; (x<sub>i</sub> - 17) = (Sum of Left Distances) - (Sum of Right Distances)
+            </div>
+            <p>If the net deviation is 0, 17 is exactly the mean. If the net deviation is positive, the true mean is greater than 17; if negative, smaller than 17.</p>
+          </div>
+        </details>
+      </div>
+
+      <!-- FIO 3 Q8 -->
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-weight-scale"></i> Exercise 8: Weight Fluctuations in a Fitness Group</div>
+        <p>Last month, a group's average weight was <strong>65.3 kg</strong> and median was <strong>67 kg</strong>. This month, one person lost 2 kg, while two people gained 1 kg each. What happens to the mean and median?</p>
+
+        <details class="ans-box" open>
+          <summary>View Net Change Proof</summary>
+          <div class="ans-content">
+            <div class="step-box">
+              <div class="step-num">1</div>
+              <div><strong>Net Change in Total Weight:</strong><br>
+                &Delta;Sum = (-2 kg) + (+1 kg) + (+1 kg) = <strong>0 kg</strong>!
+              </div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">2</div>
+              <div><strong>Mean Weight:</strong> Because the total sum of weights is completely unchanged, the <strong>mean weight remains exactly 65.3 kg (UNCHANGED)</strong>!</div>
+            </div>
+            <div class="step-box">
+              <div class="step-num">3</div>
+              <div><strong>Median Weight:</strong> Unless one of the changing individuals crosses past the 67 kg boundary rank, the <strong>median weight also remains unchanged at 67 kg</strong>.</div>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- FIO 3 Q9-11 -->
+      <div class="callout callout-act">
+        <div class="callout-title"><i class="fa-solid fa-earth-asia"></i> Exercise 9 to 11: Real-World Time Series Data Insights</div>
+        <p><strong>Key Takeaways from Multi-Decadal Line Graphs:</strong></p>
+        <ul style="line-height: 1.8; margin-left: 1.5rem;">
+          <li><strong>Salt Prices (2016-2025):</strong> Demonstrates steady macroeconomic inflation across Indian states. Uttar Pradesh and Mizoram show significant increases, while island logistics (Andaman) maintain higher base prices due to maritime freight.</li>
+          <li><strong>Household Lighting (1983-2023):</strong> Highlights India's massive rural electrification revolution. In 1983, over 65% of rural homes relied on kerosene lanterns; by 2023, near-universal grid electricity access reduced kerosene lighting to almost 0%.</li>
+          <li><strong>Youth Hobbies vs Age:</strong> Time spent daily on active outdoor play peaks in childhood (age 8-12 at ~2 to 2.5 hours) and declines through senior secondary years (age 16-18 at ~1 hour) due to academic and screen demands.</li>
+        </ul>
+      </div>
+
+      <!-- BONUS: GAME OF HEX -->
+      <div class="callout callout-hack">
+        <div class="callout-title"><i class="fa-solid fa-dice-d20"></i> Mathematical Recreation: The Game of Hex</div>
+        <p>Invented independently by Danish mathematician <strong>Piet Hein</strong> (1942) and Nobel laureate <strong>John Nash</strong> (1948), <strong>Hex</strong> is played on an 11&times;11 rhombus board of hexagons. Players (Blue and Red) take turns claiming cells with the goal of connecting their designated opposite sides with an unbroken chain.</p>
+
+        <details class="ans-box" open>
+          <summary>View Why Hex Can Never End in a Draw (The Nash Theorem)</summary>
+          <div class="ans-content">
+            <p>Hex is one of the most celebrated topological games in mathematics. John Nash proved using the <strong>Brouwer Fixed-Point Theorem</strong> that:</p>
+            <ol style="margin-left: 1.5rem; line-height: 1.8;">
+              <li><strong>Hex Can Never End in a Tie:</strong> When all 121 cells are filled, exactly one player will have connected their sides. A path of one color physically blocks any continuous cross-path of the other color!</li>
+              <li><strong>First-Player Strategy-Stealing Argument:</strong> Since having an extra piece on the board is never a disadvantage, Player 1 theoretically possesses a guaranteed winning strategy on an empty board.</li>
+            </ol>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 5: INTERACTIVE QUIZ ENGINE -->
+    <section id="sec5" class="content-section">
+      <div class="section-header">
+        <div class="section-icon"><i class="fa-solid fa-gamepad"></i></div>
+        <h2>5. Interactive Concept Mastery Quiz</h2>
+      </div>
+
+      <p style="margin-bottom: 1.5rem;">Test your conceptual grasp of the Balancing Act, Shifting, Scaling, and Median properties. Immediate feedback is provided with real-time scoring.</p>
+
+      <div id="quiz-container">
+        <!-- Q1 -->
+        <div class="quiz-card" data-qid="1">
+          <div class="quiz-question">1. A dataset consists of 5, 8, 12, and 15 with a mean of 10. What is the total sum of distances of the values lying to the left of the mean?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="checkAnswer(1, 0, false)">A) 5 units</div>
+            <div class="quiz-option" onclick="checkAnswer(1, 1, true)">B) 7 units</div>
+            <div class="quiz-option" onclick="checkAnswer(1, 2, false)">C) 10 units</div>
+            <div class="quiz-option" onclick="checkAnswer(1, 3, false)">D) 14 units</div>
+          </div>
+          <div class="quiz-explanation" id="exp-1">
+            <strong>Correct Answer: B (7 units)</strong><br>
+            Values to the left of 10 are 5 and 8. Distance of 5 from 10 is 5; distance of 8 from 10 is 2. Total left distance = 5 + 2 = 7 units. (Notice the right side distance is (12-10) + (15-10) = 2 + 5 = 7 units, balancing perfectly!).
+          </div>
+        </div>
+
+        <!-- Q2 -->
+        <div class="quiz-card" data-qid="2">
+          <div class="quiz-question">2. The mean score of 20 students in a test is 45. If the teacher decides to subtract 5 penalty marks from each student's score, what is the new mean score?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="checkAnswer(2, 0, true)">A) 40</div>
+            <div class="quiz-option" onclick="checkAnswer(2, 1, false)">B) 45</div>
+            <div class="quiz-option" onclick="checkAnswer(2, 2, false)">C) 50</div>
+            <div class="quiz-option" onclick="checkAnswer(2, 3, false)">D) 9</div>
+          </div>
+          <div class="quiz-explanation" id="exp-2">
+            <strong>Correct Answer: A (40)</strong><br>
+            By the Shifting Property, subtracting a constant c from every data point decreases the mean by exactly c. New mean = 45 - 5 = 40.
+          </div>
+        </div>
+
+        <!-- Q3 -->
+        <div class="quiz-card" data-qid="3">
+          <div class="quiz-question">3. The average height of 15 plants in a greenhouse is 18 cm. If every plant's height triples over spring, what will the new average height be?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="checkAnswer(3, 0, false)">A) 18 cm</div>
+            <div class="quiz-option" onclick="checkAnswer(3, 1, false)">B) 21 cm</div>
+            <div class="quiz-option" onclick="checkAnswer(3, 2, true)">C) 54 cm</div>
+            <div class="quiz-option" onclick="checkAnswer(3, 3, false)">D) 6 cm</div>
+          </div>
+          <div class="quiz-explanation" id="exp-3">
+            <strong>Correct Answer: C (54 cm)</strong><br>
+            By the Scaling Property, multiplying every data point by a constant k scales the mean by k. New mean = 18 &times; 3 = 54 cm.
+          </div>
+        </div>
+
+        <!-- Q4 -->
+        <div class="quiz-card" data-qid="4">
+          <div class="quiz-question">4. Which of the following statistical measures is resistant (unaffected) when a single massive outlier like 1,000,000 is introduced into a set of modest numbers?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="checkAnswer(4, 0, false)">A) Arithmetic Mean</div>
+            <div class="quiz-option" onclick="checkAnswer(4, 1, true)">B) Median</div>
+            <div class="quiz-option" onclick="checkAnswer(4, 2, false)">C) Total Sum</div>
+            <div class="quiz-option" onclick="checkAnswer(4, 3, false)">D) Range</div>
+          </div>
+          <div class="quiz-explanation" id="exp-4">
+            <strong>Correct Answer: B (Median)</strong><br>
+            The median depends only on the positional rank of the middle value. An extreme outlier merely sits at the far end of the ranked list without distorting the central position.
+          </div>
+        </div>
+
+        <!-- Q5 -->
+        <div class="quiz-card" data-qid="5">
+          <div class="quiz-question">5. The mean of 5 numbers is 12. Four of the numbers are 8, 14, 10, and 16. What is the fifth number?</div>
+          <div class="quiz-options">
+            <div class="quiz-option" onclick="checkAnswer(5, 0, false)">A) 10</div>
+            <div class="quiz-option" onclick="checkAnswer(5, 1, false)">B) 11</div>
+            <div class="quiz-option" onclick="checkAnswer(5, 2, true)">C) 12</div>
+            <div class="quiz-option" onclick="checkAnswer(5, 3, false)">D) 15</div>
+          </div>
+          <div class="quiz-explanation" id="exp-5">
+            <strong>Correct Answer: C (12)</strong><br>
+            Total sum = 5 &times; 12 = 60. Sum of known four numbers = 8 + 14 + 10 + 16 = 48. Fifth number = 60 - 48 = 12.
+          </div>
+        </div>
+      </div>
+
+      <div class="score-board" id="score-board">
+        <h3><i class="fa-solid fa-trophy"></i> Quiz Completed!</h3>
+        <p id="score-text" style="font-size: 1.25rem; font-weight: 700; margin: 0.5rem 0;">You scored 0 / 5</p>
+        <button onclick="resetQuiz()" style="background: white; color: var(--primary-dark); border: none; padding: 0.5rem 1.25rem; border-radius: 9999px; font-weight: 700; cursor: pointer; margin-top: 0.5rem;">
+          <i class="fa-solid fa-rotate-right"></i> Try Again
+        </button>
+      </div>
+    </section>
+
+    <!-- SECTION 6: QUICK REVISION NOTES & EXAM TRAPS -->
+    <section id="sec6" class="content-section">
+      <div class="section-header">
+        <div class="section-icon"><i class="fa-solid fa-bookmark"></i></div>
+        <h2>6. Quick Revision Notes, Exam Traps & Common Pitfalls</h2>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-title"><i class="fa-solid fa-bolt"></i> Golden Formula Cheat Sheet</div>
+        <ul style="line-height: 1.8; margin-left: 1.5rem;">
+          <li><strong>Arithmetic Mean:</strong> x̄ = &Sigma;x &divide; n.</li>
+          <li><strong>Deviation Balance:</strong> &Sigma;(x<sub>i</sub> - x̄) = 0. Sum of Left Distances = Sum of Right Distances.</li>
+          <li><strong>Shift Rule:</strong> If x' = x &plusmn; c &emsp;&rArr;&emsp; x̄' = x̄ &plusmn; c.</li>
+          <li><strong>Scale Rule:</strong> If x' = k &middot; x &emsp;&rArr;&emsp; x̄' = k &middot; x̄.</li>
+          <li><strong>Weighted Mean:</strong> x̄ = &Sigma;(f &middot; x) &divide; &Sigma;f.</li>
+          <li><strong>Median:</strong> Middle value at rank (n + 1)/2 for odd n; average of n/2 and (n/2 + 1) for even n.</li>
+        </ul>
+      </div>
+
+      <div class="callout callout-warn">
+        <div class="callout-title"><i class="fa-solid fa-triangle-exclamation"></i> 4 High-Risk Exam Traps & How to Avoid Them</div>
+        <ul style="line-height: 1.8; margin-left: 1.5rem;">
+          <li><strong>Trap 1: Confusing Median with the Midpoint of Extremes:</strong> Students often incorrectly calculate Median as (Min + Max)/2. <em>Remember:</em> Median requires sorting every single value and identifying the middle rank. (Min + Max)/2 is only the midrange!</li>
+          <li><strong>Trap 2: Forgetting Frequency Weights in Grouped Data:</strong> In a table of family sizes, never add the family sizes and divide by the number of rows. Always compute the product f &times; x and divide by the sum of frequencies &Sigma;f!</li>
+          <li><strong>Trap 3: Believing Adding Numbers Always Shifts the Median:</strong> Adding numbers far from the center or adding balanced pairs on both sides preserves the median completely.</li>
+          <li><strong>Trap 4: Misreading Line Graph Steepness:</strong> A line going steeply upwards means rapid growth, NOT necessarily a higher total value than a line with a gentle slope that started from a much higher elevation!</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <button id="back-to-top" onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" title="Back to top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <footer>
+    <p>&copy; 2026 Sujit Classes. All rights reserved. NEP 2020 Aligned Mathematics Curriculum.</p>
+  </footer>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      const btt = document.getElementById('back-to-top');
+      if (winScroll > 400) {
+        btt.style.display = 'flex';
+      } else {
+        btt.style.display = 'none';
+      }
+    });
+
+    // Text to Speech
+    let isSpeaking = false;
+    let utterance = null;
+
+    function toggleAudio() {
+      const btn = document.getElementById('speech-btn');
+      if (!isSpeaking) {
+        const text = document.querySelector('main').innerText;
+        utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 1.0;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = '<i class="fa-solid fa-volume-high"></i><span>Read Aloud</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = '<i class="fa-solid fa-stop"></i><span>Stop Reading</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = '<i class="fa-solid fa-volume-high"></i><span>Read Aloud</span>';
+      }
+    }
+
+    // Interactive Quiz Engine
+    let quizScore = 0;
+    let questionsAnswered = 0;
+    const answeredMap = {};
+
+    function checkAnswer(qid, optIndex, isCorrect) {
+      if (answeredMap[qid]) return;
+      answeredMap[qid] = true;
+      questionsAnswered++;
+
+      const card = document.querySelector(`.quiz-card[data-qid="${qid}"]`);
+      const options = card.querySelectorAll('.quiz-option');
+      const explanation = document.getElementById(`exp-${qid}`);
+
+      if (isCorrect) {
+        options[optIndex].classList.add('correct');
+        quizScore++;
+      } else {
+        options[optIndex].classList.add('wrong');
+        // highlight correct option
+        options.forEach(opt => {
+          if (opt.getAttribute('onclick').includes('true')) {
+            opt.classList.add('correct');
+          }
+        });
+      }
+
+      explanation.style.display = 'block';
+
+      if (questionsAnswered === 5) {
+        const scoreBoard = document.getElementById('score-board');
+        const scoreText = document.getElementById('score-text');
+        scoreText.innerText = `You scored ${quizScore} / 5!`;
+        scoreBoard.style.display = 'block';
+      }
+    }
+
+    function resetQuiz() {
+      quizScore = 0;
+      questionsAnswered = 0;
+      for (let key in answeredMap) delete answeredMap[key];
+
+      document.querySelectorAll('.quiz-option').forEach(opt => {
+        opt.classList.remove('correct', 'wrong');
+      });
+      document.querySelectorAll('.quiz-explanation').forEach(exp => {
+        exp.style.display = 'none';
+      });
+      document.getElementById('score-board').style.display = 'none';
+    }
+  </script>
+</body>
+</html>
