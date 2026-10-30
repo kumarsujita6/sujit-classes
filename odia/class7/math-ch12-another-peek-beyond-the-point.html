@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୧୨: ବିନ୍ଦୁ ଆରପାରିର ଆଉ ଏକ ଝଲକ (ଦଶମିକ) — ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୧୨: ବିନ୍ଦୁ ଆରପାରିର ଆଉ ଏକ ଝଲକ - ଦଶମିକ (Another Peek Beyond the Point: Decimals - Ganita Prakash)। ଦଶମିକ ଗୁଣନ, ହରଣ, ସ୍ଥାନମାନ, ଏମିଲ୍ ଆର୍ଟିନ୍ ଆବର୍ତ୍ତୀ ସଂଖ୍ୟା (୧/୭), ଶ୍ରୀଧରାଚାର୍ଯ୍ୟଙ୍କ ପାଟୀଗଣିତ, ଅଧିବର୍ଷ ଗଣିତ, ସମାଧାନ ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.8;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Top Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #0284c7 0%, #2563eb 50%, #7c3aed 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-meta span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    /* Audio Reader Banner */
+    .audio-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.25rem 1.75rem;
+      margin: -1.75rem auto 2rem;
+      max-width: 900px;
+      position: relative;
+      z-index: 10;
+      box-shadow: var(--shadow-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .audio-info {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .audio-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.25rem;
+    }
+
+    .audio-btn {
+      background: linear-gradient(135deg, #0284c7, #2563eb);
+      color: #ffffff;
+      border: none;
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(2, 132, 199, 0.2);
+    }
+
+    .audio-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(2, 132, 199, 0.35);
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 1.5rem 1.25rem 4rem;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin: 3rem 0 1.5rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 3px solid var(--primary-light);
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title i {
+      color: var(--primary);
+      font-size: 1.6rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 1.15rem;
+      padding: 2rem;
+      margin-bottom: 1.75rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-radius: 0.9rem;
+      padding: 1.35rem 1.6rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid;
+    }
+
+    .callout-def { background: #f0fdf4; border-color: #22c55e; color: #14532d; }
+    .callout-act { background: #eff6ff; border-color: #3b82f6; color: #1e3a8a; }
+    .callout-hack { background: #fefce8; border-color: #eab308; color: #713f12; }
+    .callout-warn { background: #fef2f2; border-color: #ef4444; color: #7f1d1d; }
+    .callout-pyq { background: #faf5ff; border-color: #a855f7; color: #581c87; }
+
+    .callout-title {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.05rem;
+    }
+
+    /* Collapsible Details */
+    details.ans-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      margin: 1.25rem 0;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      background: #ffffff;
+      border-color: #cbd5e1;
+      box-shadow: var(--shadow-sm);
+    }
+
+    details.ans-box summary {
+      padding: 1rem 1.4rem;
+      font-weight: 700;
+      color: var(--primary-dark);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+      background: #f1f5f9;
+      font-size: 0.98rem;
+    }
+
+    details.ans-box summary:hover {
+      background: #e2e8f0;
+    }
+
+    .sol-content {
+      padding: 1.4rem 1.6rem;
+      font-size: 0.96rem;
+      color: var(--text);
+    }
+
+    .sol-step {
+      margin-bottom: 0.85rem;
+    }
+
+    .sol-step-label {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-right: 0.4rem;
+    }
+
+    .calc-box {
+      font-family: 'JetBrains Mono', 'Noto Sans Oriya', monospace;
+      background: #f8fafc;
+      padding: 0.85rem 1.1rem;
+      border-radius: 0.6rem;
+      border-left: 4px solid var(--secondary);
+      margin: 0.75rem 0;
+      font-size: 0.92rem;
+      line-height: 1.8;
+      overflow-x: auto;
+    }
+
+    /* SVG Graphics Container */
+    .svg-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1.75rem 0;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 0.85rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      overflow-x: auto;
+    }
+
+    /* Tables */
+    .math-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.25rem 0;
+      font-size: 0.94rem;
+    }
+
+    .math-table th, .math-table td {
+      border: 1px solid var(--border);
+      padding: 0.85rem 1.1rem;
+      text-align: left;
+    }
+
+    .math-table th {
+      background: #f1f5f9;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .math-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    /* Mind Map Grid */
+    .concept-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .concept-item {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 0.85rem;
+      padding: 1.35rem;
+      transition: all 0.2s ease;
+      position: relative;
+      border-top: 4px solid var(--primary);
+    }
+
+    .concept-item:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+      border-top-color: var(--secondary);
+    }
+
+    .concept-item h4 {
+      color: var(--dark);
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    /* Quiz Styling */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      padding: 1.75rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .quiz-q-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 1.25rem;
+      color: var(--dark);
+    }
+
+    .quiz-opts {
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .quiz-opt-btn {
+      width: 100%;
+      text-align: left;
+      padding: 0.85rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 0.65rem;
+      background: #f8fafc;
+      font-family: inherit;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+      color: var(--text);
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary-dark);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    /* Rapid Revision Grid */
+    .revision-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      margin-top: 1.25rem;
+    }
+
+    .revision-item {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 1rem 1.25rem;
+      border-radius: 0.75rem;
+      font-size: 0.92rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+
+    .rev-num {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 800;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 0.8rem;
+    }
+
+    /* Back to Top */
+    #backToTop {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.15rem;
+      box-shadow: var(--shadow-md);
+      z-index: 999;
+      transition: all 0.2s ease;
+    }
+
+    #backToTop:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    /* Footer */
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      font-size: 0.9rem;
+    }
+
+    footer a { color: #38bdf8; text-decoration: none; }
+  </style>
+</head>
+<body>
+
+  <!-- Top Progress Bar -->
+  <div id="reading-progress-bar"></div>
+
+  <!-- Top Navigation -->
+  <header class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i>
+      <span>ସୁଜିତ୍ କ୍ଲାସେସ୍ (Sujit Classes)</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#overview" class="nav-link">ସାରାଂଶ ଓ ମାନସଚିତ୍ର</a>
+      <a href="#core-concepts" class="nav-link">ମୁଖ୍ୟ ତତ୍ତ୍ୱ</a>
+      <a href="#activities" class="nav-link">କାର୍ଯ୍ୟକଳାପ</a>
+      <a href="#ncert-solutions" class="nav-link">ପାଠ୍ୟପୁସ୍ତକ ସମାଧାନ</a>
+      <a href="#quiz-section" class="nav-link">କୁଇଜ୍ ପରୀକ୍ଷା</a>
+      <a href="#rapid-revision" class="nav-link">ଦ୍ରୁତ ପୁନରୀକ୍ଷଣ</a>
+    </nav>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-calculator"></i> NCERT ଗଣିତ ପ୍ରକାଶ &bull; ସପ୍ତମ ଶ୍ରେଣୀ &bull; ଭାଗ ୨ ଅଧ୍ୟାୟ ୪ (Ch 12)
+    </div>
+    <h1 class="hero-title">ଅଧ୍ୟାୟ ୧୨: ବିନ୍ଦୁ ଆରପାରିର ଆଉ ଏକ ଝଲକ (ଦଶମିକ)</h1>
+    <p class="hero-subtitle">
+      ଦଶମିକ ଗୁଣନ ଓ ହରଣର ସମ୍ପୂର୍ଣ୍ଣ ରହସ୍ୟ, କ୍ଷେତ୍ରଫଳ ମଡେଲ୍ (Area Grid), ୧୦ ର ଘାତ ଦ୍ୱାରା ସ୍ଥାନମାନ ସ୍ଥାନାନ୍ତର, ଏମିଲ୍ ଆର୍ଟିନ୍‌ଙ୍କ ଆବର୍ତ୍ତୀ ସଂଖ୍ୟା (୧/୭), ଶ୍ରୀଧରାଚାର୍ଯ୍ୟଙ୍କ ପାଟୀଗଣିତ ଏବଂ ଅଧିବର୍ଷର ମହାଜାଗତିକ ଗଣିତ।
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> ସମ୍ପୂର୍ଣ୍ଣ ଗଭୀର ଅଧ୍ୟୟନ ନୋଟ୍ସ</span>
+      <span><i class="fa-solid fa-check-double"></i> ୧୦୦% ସମସ୍ତ ପ୍ରଶ୍ନର ସମାଧାନ</span>
+      <span><i class="fa-solid fa-clock"></i> ୪୦ ମିନିଟ୍ ଗଭୀର ପଠନ</span>
+    </div>
+  </section>
+
+  <!-- Audio Reader Bar -->
+  <div class="audio-card">
+    <div class="audio-info">
+      <div class="audio-icon"><i class="fa-solid fa-headphones"></i></div>
+      <div>
+        <h4 style="color: var(--dark); margin-bottom: 0.2rem;">ଓଡ଼ିଆ ଅଡିଓ ସାରାଂଶ (Audio Summary)</h4>
+        <p style="font-size: 0.85rem; color: var(--text-muted);">ଶିକ୍ଷକଙ୍କ କଣ୍ଠରେ ଅଧ୍ୟାୟର ମୁଖ୍ୟ ବିନ୍ଦୁଗୁଡ଼ିକୁ ଶୁଣନ୍ତୁ ଏବଂ ସହଜରେ ବୁଝନ୍ତୁ।</p>
+      </div>
+    </div>
+    <button class="audio-btn" id="audioSummaryBtn" onclick="toggleAudioSummary()">
+      <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>
+    </button>
+  </div>
+
+  <main class="container">
+
+    <!-- ================= SECTION 1: OVERVIEW & MIND MAP ================= -->
+    <section id="overview">
+      <h2 class="section-title"><i class="fa-solid fa-sitemap"></i> ବିଭାଗ ୧: ଅଧ୍ୟାୟ ସାରାଂଶ ଓ ମାନସଚିତ୍ର (Overview &amp; Mind Map)</h2>
+
+      <div class="card">
+        <h3 style="color: var(--primary-dark); margin-bottom: 0.75rem;">ଦଶମିକ ଗୁଣନ ଓ ହରଣର ଆବଶ୍ୟକତା କାହିଁକି?</h3>
+        <p>
+          ପୂର୍ବ ଅଧ୍ୟାୟ (ଅଧ୍ୟାୟ ୩) ରେ ଆମେ ଦଶମିକର ଯୋଗ ଓ ବିୟୋଗ ସମ୍ପର୍କରେ ଜାଣିଥିଲେ। କିନ୍ତୁ ବାସ୍ତବ ଜୀବନରେ ଦ୍ରବ୍ୟର ମୂଲ୍ୟ ନିର୍ଣ୍ଣୟ, କପଡ଼ା ମାପିବା, ଔଷଧର ମାତ୍ରା ପ୍ରସ୍ତୁତ କରିବା, କିମ୍ବା ପୃଥିବୀର ସୂର୍ଯ୍ୟ ପରିକ୍ରମଣ ସମୟ ଗଣନା କରିବାରେ ଦଶମିକର <strong>ଗୁଣନ (Multiplication)</strong> ଏବଂ <strong>ହରଣ (Division)</strong> ଅତ୍ୟନ୍ତ ଅପରିହାର୍ଯ୍ୟ।
+        </p>
+
+        <div class="concept-grid">
+          <div class="concept-item">
+            <h4><i class="fa-solid fa-border-all" style="color: var(--primary);"></i> ୧. କ୍ଷେତ୍ରଫଳ ମଡେଲ୍ (Area Model)</h4>
+            <p>୧ &times; ୧ ବର୍ଗକୁ ୧୦୦ଟି କ୍ଷୁଦ୍ର ଶତାଂଶ ବର୍ଗ (୦.୦୧) ରେ ବିଭକ୍ତ କରି ୦.୩ &times; ୦.୪ = ୦.୧୨ ର ଦୃଶ୍ୟମାନ ଧାରଣା।</p>
+          </div>
+          <div class="concept-item">
+            <h4><i class="fa-solid fa-forward" style="color: var(--secondary);"></i> ୨. ୧୦ ର ଘାତ ଦ୍ୱାରା ବିନ୍ଦୁ ସ୍ଥାନାନ୍ତର</h4>
+            <p>୧୦, ୧୦୦, ୧୦୦୦ ଗୁଣନ କଲେ ଦଶମିକ ବିନ୍ଦୁ ଡାହାଣକୁ ଏବଂ ହରଣ କଲେ ବାମକୁ ସ୍ଥାନାନ୍ତରିତ ହୁଏ।</p>
+          </div>
+          <div class="concept-item">
+            <h4><i class="fa-solid fa-divide" style="color: var(--purple);"></i> ୩. ଦଶମିକ ହରଣ ଓ ଭାଜକ ରୂପାନ୍ତର</h4>
+            <p>ଭାଜକକୁ ପୂର୍ଣ୍ଣ ସଂଖ୍ୟାରେ ପରିଣତ କରିବା ପାଇଁ ଭାଜ୍ୟ ଓ ଭାଜକ ଉଭୟକୁ ୧୦, ୧୦୦ କିମ୍ବା ୧୦୦୦ ଦ୍ୱାରା ଗୁଣନ କରିବା।</p>
+          </div>
+          <div class="concept-item">
+            <h4><i class="fa-solid fa-arrows-rotate" style="color: var(--accent);"></i> ୪. ଏମିଲ୍ ଆର୍ଟିନ୍‌ଙ୍କ ଆବର୍ତ୍ତୀ ସଂଖ୍ୟା</h4>
+            <p>୧/୭ = ୦.୧୪୨୮୫୭... ର ୬ଟି ଅଙ୍କର ଚକ୍ରୀୟ ଗୁଣନ ଯାହା ୭ ଦ୍ୱାରା ଗୁଣିଲେ ୯୯୯୯୯୯ ହୁଏ।</p>
+          </div>
+          <div class="concept-item">
+            <h4><i class="fa-solid fa-earth-americas" style="color: #0284c7;"></i> ୫. ଅଧିବର୍ଷ (Leap Year) ର ଗଣିତ</h4>
+            <p>ଏକ ସୌର ବର୍ଷ = ୩୬୫.୨୪୨୨ ଦିନ। ପ୍ରତି ୪୦୦ ବର୍ଷରେ ୩ଟି ଅଧିବର୍ଷ କାହିଁକି ବାଦ୍ ଦିଆଯାଏ ତାହାର ଦଶମିକ ହିସାବ।</p>
+          </div>
+          <div class="concept-item">
+            <h4><i class="fa-solid fa-scroll" style="color: #b45309;"></i> ୬. ଶ୍ରୀଧରାଚାର୍ଯ୍ୟଙ୍କ ପାଟୀଗଣିତ</h4>
+            <p>ପ୍ରାଚୀନ ଭାରତୀୟ ଗଣିତରେ ମିଶ୍ର ଭଗ୍ନାଂଶ ହରଣ (୬ ୧/୪ &divide; ୨ ୧/୨ = ୨.୫) ର ଚମତ୍କାର ପଦ୍ଧତି।</p>
+          </div>
+        </div>
+
+        <!-- SVG 10x10 Decimal Grid -->
+        <h4 style="color: var(--dark); margin: 1.5rem 0 0.5rem;"><i class="fa-solid fa-eye"></i> ଦଶମିକ ଗୁଣନର ଭୌତିକ କ୍ଷେତ୍ରଫଳ ମଡେଲ୍ (0.3 &times; 0.4 = 0.12)</h4>
+        <div class="svg-container">
+          <svg viewBox="0 0 640 240" width="100%" height="240" style="max-width: 620px; font-family: 'Noto Sans Oriya', 'Space Grotesk', sans-serif;">
+            <g transform="translate(60, 25)">
+              <!-- 10x10 Grid (size 180x180, each cell 18px) -->
+              <rect x="0" y="0" width="180" height="180" fill="#f8fafc" stroke="#475569" stroke-width="2"/>
+              
+              <!-- Vertical Grid lines -->
+              <line x1="18" y1="0" x2="18" y2="180" stroke="#cbd5e1"/>
+              <line x1="36" y1="0" x2="36" y2="180" stroke="#cbd5e1"/>
+              <line x1="54" y1="0" x2="54" y2="180" stroke="#cbd5e1"/>
+              <line x1="72" y1="0" x2="72" y2="180" stroke="#cbd5e1"/>
+              <line x1="90" y1="0" x2="90" y2="180" stroke="#cbd5e1"/>
+              <line x1="108" y1="0" x2="108" y2="180" stroke="#cbd5e1"/>
+              <line x1="126" y1="0" x2="126" y2="180" stroke="#cbd5e1"/>
+              <line x1="144" y1="0" x2="144" y2="180" stroke="#cbd5e1"/>
+              <line x1="162" y1="0" x2="162" y2="180" stroke="#cbd5e1"/>
+              
+              <!-- Horizontal Grid lines -->
+              <line x1="0" y1="18" x2="180" y2="18" stroke="#cbd5e1"/>
+              <line x1="0" y1="36" x2="180" y2="36" stroke="#cbd5e1"/>
+              <line x1="0" y1="54" x2="180" y2="54" stroke="#cbd5e1"/>
+              <line x1="0" y1="72" x2="180" y2="72" stroke="#cbd5e1"/>
+              <line x1="0" y1="90" x2="180" y2="90" stroke="#cbd5e1"/>
+              <line x1="0" y1="108" x2="180" y2="108" stroke="#cbd5e1"/>
+              <line x1="0" y1="126" x2="180" y2="126" stroke="#cbd5e1"/>
+              <line x1="0" y1="144" x2="180" y2="144" stroke="#cbd5e1"/>
+              <line x1="0" y1="162" x2="180" y2="162" stroke="#cbd5e1"/>
+
+              <!-- Highlight 4 columns (0.4 width) x 3 rows (0.3 height) = 12 cells of size 18x18 = 72px x 54px -->
+              <rect x="0" y="0" width="72" height="54" fill="#38bdf8" fill-opacity="0.65" stroke="#0284c7" stroke-width="2.5"/>
+
+              <!-- Axis Labels -->
+              <text x="36" y="-10" font-size="12" font-weight="700" fill="#0284c7" text-anchor="middle">ପ୍ରସ୍ଥ = ୦.୪ (୪ଟି ସ୍ତମ୍ଭ)</text>
+              <text x="-12" y="32" font-size="12" font-weight="700" fill="#0284c7" text-anchor="middle" transform="rotate(-90, -12, 32)">ଉଚ୍ଚତା = ୦.୩</text>
+            </g>
+
+            <!-- Explanation Box to the right -->
+            <g transform="translate(300, 35)">
+              <rect x="0" y="0" width="310" height="160" rx="10" fill="#f0fdf4" stroke="#86efac" stroke-width="1.8"/>
+              <text x="155" y="32" font-size="15" font-weight="700" fill="#166534" text-anchor="middle">କ୍ଷେତ୍ରଫଳ ଗଣନା (Area Calculation)</text>
+              <text x="20" y="65" font-size="13" fill="#334155">&bull; ଛାୟାଙ୍କିତ ଅଂଶ = ୪ &times; ୩ = ୧୨ଟି ଛୋଟ ବର୍ଗ</text>
+              <text x="20" y="95" font-size="13" fill="#334155">&bull; ପ୍ରତ୍ୟେକ ବର୍ଗ = ୧/୧୦୦ = ୦.୦୧ (ଶତାଂଶ)</text>
+              <text x="20" y="125" font-size="13" fill="#334155">&bull; ମୋଟ କ୍ଷେତ୍ରଫଳ = ୧୨ &times; ୦.୦୧ = ୧୨/୧୦୦</text>
+              <text x="20" y="150" font-size="14" font-weight="800" fill="#0f766e">&bull; ୦.୪ &times; ୦.୩ = ୦.୧୨</text>
+            </g>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 2: CORE MATHEMATICAL CONCEPTS ================= -->
+    <section id="core-concepts">
+      <h2 class="section-title"><i class="fa-solid fa-book-bookmark"></i> ବିଭାଗ ୨: ମୁଖ୍ୟ ଗାଣିତିକ ତତ୍ତ୍ୱ ଓ ନିୟମାବଳୀ (Core Concepts)</h2>
+
+      <div class="card">
+        <h3 style="color: var(--primary-dark); margin-bottom: 0.75rem;">୧. ଦଶମିକ ଗୁଣନର ସାର୍ବଜନୀନ ନିୟମ (Universal Multiplication Rule)</h3>
+        <p>
+          ଦୁଇଟି ଦଶମିକ ସଂଖ୍ୟାକୁ ଗୁଣନ କରିବା ପାଇଁ ନିମ୍ନଲିଖିତ ୩ଟି କ୍ରମିକ ପଦକ୍ଷେପ ଅନୁସରଣ କରାଯାଏ:
+        </p>
+
+        <div class="callout callout-def">
+          <div class="callout-title"><i class="fa-solid fa-list-ol"></i> ଦଶମିକ ଗୁଣନର କାର୍ଯ୍ୟବିଧି:</div>
+          <ol style="margin-left: 1.5rem; line-height: 2;">
+            <li><strong>ପଦକ୍ଷେପ ୧:</strong> ପ୍ରଥମେ ଦଶମିକ ବିନ୍ଦୁକୁ ଅଣଦେଖା କରି ସଂଖ୍ୟା ଦୁଇଟିକୁ ସାଧାରଣ ପୂର୍ଣ୍ଣ ସଂଖ୍ୟା (Whole numbers) ପରି ଗୁଣନ କରନ୍ତୁ।</li>
+            <li><strong>ପଦକ୍ଷେପ ୨:</strong> ଗୁଣ୍ୟ (Multiplicand) ଏବଂ ଗୁଣକ (Multiplier) ଉଭୟରେ ଦଶମିକ ବିନ୍ଦୁ ପରେ ଥିବା ମୋଟ ଅଙ୍କ ସଂଖ୍ୟା ଗଣନା କରନ୍ତୁ।</li>
+            <li><strong>ପଦକ୍ଷେପ ୩:</strong> ଗୁଣଫଳରେ ଡାହାଣ ପାଖରୁ ସେହି ସମଷ୍ଟି ସଂଖ୍ୟକ ଅଙ୍କ ଗଣି ବାମ ପାଖରେ ଦଶମିକ ବିନ୍ଦୁ ସ୍ଥାପନ କରନ୍ତୁ। ଆବଶ୍ୟକ ହେଲେ ବାମ ପାଖରେ ଶୂନ (Zero) ଯୋଡ଼ନ୍ତୁ।</li>
+          </ol>
+        </div>
+
+        <div class="calc-box">
+          ଉଦାହରଣ: ୫.୯୬ &times; ୨୪.୮<br>
+          ପୂର୍ଣ୍ଣ ସଂଖ୍ୟାର ଗୁଣଫଳ: ୫୯୬ &times; ୨୪୮ = ୧୪୭୮୦୮<br>
+          ୫.୯୬ ରେ ଦଶମିକ ସ୍ଥାନ = ୨ ; ୨୪.୮ ରେ ଦଶମିକ ସ୍ଥାନ = ୧ &rArr; ମୋଟ ଦଶମିକ ସ୍ଥାନ = ୨ + ୧ = ୩<br>
+          ୧୪୭୮୦୮ ର ଡାହାଣରୁ ୩ଟି ଅଙ୍କ ଛାଡ଼ି ବିନ୍ଦୁ ବସାନ୍ତୁ &rArr; <strong>୧୪୭.୮୦୮</strong>
+        </div>
+
+        <h3 style="color: var(--primary-dark); margin: 2rem 0 0.75rem;">୨. ୧୦, ୧୦୦, ୧୦୦୦ ଦ୍ୱାରା ଗୁଣନ ଓ ହରଣ</h3>
+        <p>
+          ଦଶମିକ ସଂଖ୍ୟାକୁ ୧୦ ର ଘାତ (Powers of 10) ଦ୍ୱାରା ଗୁଣନ କିମ୍ବା ହରଣ କଲେ କୌଣସି ଜଟିଳ ଗୁଣନ କରିବାକୁ ପଡ଼େ ନାହିଁ; କେବଳ ଦଶମିକ ବିନ୍ଦୁଟି ସ୍ଥାନାନ୍ତରିତ ହୁଏ:
+        </p>
+
+        <div class="calc-box">
+          &bull; <strong>୧୦, ୧୦୦, ୧୦୦୦ ଦ୍ୱାରା ଗୁଣନ କଲେ:</strong> ଶୂନ ସଂଖ୍ୟା ଅନୁସାରେ ଦଶମିକ ବିନ୍ଦୁ <strong>ଡାହାଣ ପାଖକୁ (Right)</strong> ସ୍ଥାନାନ୍ତରିତ ହୁଏ।<br>
+          &nbsp;&nbsp;ଉଦାହରଣ: ୨୪.୬୭ &times; ୧୦ = ୨୪୬.୭ &nbsp;|&nbsp; ୨୪.୬୭ &times; ୧୦୦ = ୨୪୬୭ &nbsp;|&nbsp; ୨୪.୬୭ &times; ୧୦୦୦ = ୨୪୬୭୦<br><br>
+          &bull; <strong>୧୦, ୧୦୦, ୧୦୦୦ ଦ୍ୱାରା ହରଣ କଲେ:</strong> ଶୂନ ସଂଖ୍ୟା ଅନୁସାରେ ଦଶମିକ ବିନ୍ଦୁ <strong>ବାମ ପାଖକୁ (Left)</strong> ସ୍ଥାନାନ୍ତରିତ ହୁଏ।<br>
+          &nbsp;&nbsp;ଉଦାହରଣ: ୩.୯ &divide; ୧୦ = ୦.୩୯ &nbsp;|&nbsp; ୩.୯ &divide; ୧୦୦ = ୦.୦୩୯ &nbsp;|&nbsp; ୩.୯ &divide; ୧୦୦୦ = ୦.୦୦୩୯
+        </div>
+
+        <h3 style="color: var(--primary-dark); margin: 2rem 0 0.75rem;">୩. ଦଶମିକ ଭାଜକ ଦ୍ୱାରା ହରଣ (Division by Decimal Divisor)</h3>
+        <p>
+          ଯେତେବେଳେ ଭାଜକ (Divisor) ଏକ ଦଶମିକ ସଂଖ୍ୟା ହୋଇଥାଏ, ସର୍ବପ୍ରଥମେ ଉଭୟ ଭାଜ୍ୟ ଓ ଭାଜକକୁ ୧୦, ୧୦୦ କିମ୍ବା ୧୦୦୦ ଦ୍ୱାରା ଗୁଣନ କରି ଭାଜକକୁ ଏକ <strong>ପୂର୍ଣ୍ଣ ସଂଖ୍ୟାରେ ରୂପାନ୍ତରିତ</strong> କରାଯାଏ।
+        </p>
+
+        <div class="calc-box">
+          ଉଦାହରଣ: ୪.୬୮ &divide; ୧.୩<br>
+          ଭାଜକ ୧.୩ ରେ ଗୋଟିଏ ଦଶମିକ ସ୍ଥାନ ଅଛି। ତେଣୁ ଉଭୟକୁ ୧୦ ଦ୍ୱାରା ଗୁଣନ କରନ୍ତୁ:<br>
+          = (୪.୬୮ &times; ୧୦) &divide; (୧.୩ &times; ୧୦) = ୪୬.୮ &divide; ୧୩<br>
+          ସାଧାରଣ ହରଣ: ୪୬ &divide; ୧୩ = ୩, ଭାଗଶେଷ ୭।<br>
+          ଦଶମିକ ବିନ୍ଦୁ ଟପିଲା ପରେ ୮ ଆସିଲା &rArr; ୭୮ ଦଶାଂଶ &divide; ୧୩ = ୬ ଦଶାଂଶ।<br>
+          ଭାଗଫଳ = <strong>୩.୬</strong>
+        </div>
+
+        <h3 style="color: var(--primary-dark); margin: 2rem 0 0.75rem;">୪. ଦଶମିକ ଦ୍ୱାରା ହରିଲେ ଭାଗଫଳ କାହିଁକି ବୃଦ୍ଧି ପାଏ? (Quotient > Dividend)</h3>
+        <div class="callout callout-hack">
+          <div class="callout-title"><i class="fa-solid fa-lightbulb"></i> ଏକ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ପ୍ରଶ୍ନ:</div>
+          ସାଧାରଣତଃ ପୂର୍ଣ୍ଣ ସଂଖ୍ୟା ହରଣ କଲେ ଭାଗଫଳ ହ୍ରାସ ପାଏ (ଯଥା: ୧୨୮ &divide; ୪ = ୩୨ &lt; ୧୨୮)। କିନ୍ତୁ ୧୨୮ &divide; ୦.୪ = ୩୨୦ &gt; ୧୨୮ କାହିଁକି ହେଲା?<br><br>
+          <strong>ଗାଣିତିକ ବୁଝାମଣା:</strong> ୧୨୮ &divide; ୦.୪ ର ପ୍ରକୃତ ଅର୍ଥ ହେଉଛି— <em>"୧୨୮ ଲିଟର ପାଣିରୁ ୦.୪ ଲିଟର (୪/୧୦ ଲିଟର) ବିଶିଷ୍ଟ କେତୋଟି ପାତ୍ର ପୂର୍ଣ୍ଣ କରାଯାଇପାରିବ?"</em><br>
+          ଯେହେତୁ ପ୍ରତ୍ୟେକ ପାତ୍ର ୧ ଲିଟରରୁ କମ୍ ଧାରଣ କରେ, ତେଣୁ ପାତ୍ର ସଂଖ୍ୟା ୧୨୮ ଠାରୁ ବହୁତ ଅଧିକ ହେବ!<br>
+          <strong>ନିୟମ: ଯେତେବେଳେ ଭାଜକ &lt; ୧ ହୁଏ, ଭାଗଫଳ ସର୍ବଦା ଭାଜ୍ୟ ଠାରୁ ବୃହତ୍ତର ହୁଏ (Quotient &gt; Dividend)!</strong>
+        </div>
+
+        <h3 style="color: var(--primary-dark); margin: 2rem 0 0.75rem;">୫. ଏମିଲ୍ ଆର୍ଟିନ୍‌ଙ୍କ ଚକ୍ରୀୟ ଆବର୍ତ୍ତୀ ସଂଖ୍ୟା (Emil Artin’s Cyclic Numbers: 1/7)</h3>
+        <p>
+          ଯେତେବେଳେ ଆମେ <strong>୧/୭</strong> କୁ ଦଶମିକରେ ପ୍ରକାଶ କରୁ, ଏହା ୬ଟି ଅଙ୍କର ଏକ ଅସୀମ ଆବର୍ତ୍ତୀ ଶୃଙ୍ଖଳା ସୃଷ୍ଟି କରେ:<br>
+          <strong>୧/୭ = ୦.୧୪୨୮୫୭ ୧୪୨୮୫୭ ୧୪୨୮୫୭...</strong>
+        </p>
+        <p>ଏହି ଆବର୍ତ୍ତୀ ଅଙ୍କଗୁଚ୍ଛ <strong>୧୪୨୮୫୭</strong> କୁ ୧ ରୁ ୭ ପର୍ଯ୍ୟନ୍ତ ଗୁଣନ କଲେ ଏକ ଆଶ୍ଚର୍ଯ୍ୟଜନକ ଢାଞ୍ଚା ଦେଖାଯାଏ:</p>
+        <div class="calc-box">
+          ୧୪୨୮୫୭ &times; ୧ = ୧୪୨୮୫୭<br>
+          ୧୪୨୮୫୭ &times; ୨ = ୨୮୫୭୧୪<br>
+          ୧୪୨୮୫୭ &times; ୩ = ୪୨୮୫୭୧<br>
+          ୧୪୨୮୫୭ &times; ୪ = ୫୭୧୪୨୮<br>
+          ୧୪୨୮୫୭ &times; ୫ = ୭୧୪୨୮୫<br>
+          ୧୪୨୮୫୭ &times; ୬ = ୮୫୭୧୪୨<br>
+          ୧୪୨୮୫୭ &times; ୭ = <strong>୯୯୯୯୯୯</strong>!
+        </div>
+        <p style="font-size: 0.95rem; color: var(--text-muted);">
+          ୧ ରୁ ୬ ପର୍ଯ୍ୟନ୍ତ ପ୍ରତ୍ୟେକ ଗୁଣଫଳରେ ସେହି ୬ଟି ଅଙ୍କ ଚକ୍ରାକାରରେ (Cyclic order) ଘୂରୁଥାଏ! ଅଷ୍ଟ୍ରିଆନ୍ ଗଣିତଜ୍ଞ <strong>ଏମିଲ୍ ଆର୍ଟିନ୍ (Emil Artin, ୧୯୨୭)</strong> ଅନୁମାନ କରିଥିଲେ ଯେ ଏପରି ଅସୀମ ଚକ୍ରୀୟ ମୌଳିକ ସଂଖ୍ୟା ରହିଛି, ଯାହା ଆଜି ପର୍ଯ୍ୟନ୍ତ ଗଣିତରେ ଏକ ପ୍ରମାଣହୀନ ଗବେଷଣାର ବିଷୟ।
+        </p>
+
+        <h3 style="color: var(--primary-dark); margin: 2rem 0 0.75rem;">୬. ଅଧିବର୍ଷ (Leap Year) ର ମହାଜାଗତିକ ଦଶମିକ ଗଣିତ</h3>
+        <p>
+          ପୃଥିବୀ ସୂର୍ଯ୍ୟଙ୍କ ଚାରିପାଖରେ ଠିକ୍ ୩୬୫ ଦିନରେ ଥରେ ଘୂରିଆସେ ନାହିଁ। ବାସ୍ତବରେ ଏକ ସୌର ବର୍ଷ ହେଉଛି ପ୍ରାୟ <strong>୩୬୫.୨୪୨୨ ଦିନ</strong>!
+        </p>
+        <div class="calc-box">
+          &bull; ବାର୍ଷିକ ଅତିରିକ୍ତ ସମୟ = ୦.୨୪୨୨ ଦିନ &approx; ୧/୪ ଦିନ।<br>
+          &bull; ୪ ବର୍ଷରେ ଅତିରିକ୍ତ ସମୟ = ୪ &times; ୦.୨୪୨୨ = ୦.୯୬୮୮ ଦିନ &approx; <strong>୧ ଅତିରିକ୍ତ ଦିନ (୨୯ ଫେବୃଆରୀ)</strong>।<br>
+          &bull; କିନ୍ତୁ ପ୍ରତି ୪ ବର୍ଷରେ ୧ ଦିନ ଯୋଡ଼ିଲେ ବାର୍ଷିକ ୦.୨୫ ଦିନ ଯୋଡ଼ାହୁଏ। ଏହା ପ୍ରକୃତ ସମୟ ଠାରୁ ୦.୨୫ &minus; ୦.୨୪୨୨ = <strong>୦.୦୦୭୮ ଦିନ ଅଧିକ</strong>!<br>
+          &bull; ୪୦୦ ବର୍ଷରେ ଏହି ଅତିରିକ୍ତ ସମୟ = ୪୦୦ &times; ୦.୦୦୭୮ = <strong>୩.୧୨ ଦିନ ଅଧିକ</strong> ହୋଇଯାଏ!<br>
+          &bull; ତେଣୁ କ୍ୟାଲେଣ୍ଡରକୁ ସନ୍ତୁଳିତ ରଖିବା ପାଇଁ ଶତାବ୍ଦୀ ବର୍ଷଗୁଡ଼ିକ (ଯଥା: ୧୭୦୦, ୧୮୦୦, ୧୯୦୦) ୪ ଦ୍ୱାରା ବିଭାଜ୍ୟ ହେଲେ ମଧ୍ୟ <strong>ଅଧିବର୍ଷ ନୁହେଁ</strong>; କେବଳ ୪୦୦ ଦ୍ୱାରା ବିଭାଜ୍ୟ ଶତାବ୍ଦୀ ବର୍ଷ (ଯଥା: ୧୬୦୦, ୨୦୦୦, ୨୪୦୦) ହିଁ ଅଧିବର୍ଷ ହୁଏ!
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 3: IN-TEXT ACTIVITIES ================= -->
+    <section id="activities">
+      <h2 class="section-title"><i class="fa-solid fa-shapes"></i> ବିଭାଗ ୩: ପାଠ୍ୟପୁସ୍ତକ ଅନ୍ତର୍ଗତ କାର୍ଯ୍ୟକଳାପ ଓ ଅନୁସନ୍ଧାନ (In-Text Activities)</h2>
+
+      <div class="card">
+        <h3 style="color: var(--primary-dark); margin-bottom: 0.75rem;">କାର୍ଯ୍ୟକଳାପ ୧: ସ୍ଥାନମାନ ଖେଳ ଓ ଦଶମିକ ସଂପ୍ରସାରଣ</h3>
+        <p>
+          ଗୋଟିଏ ୧୦ &times; ୧୦ ଗ୍ରିଡ୍ କାଗଜ ନିଅନ୍ତୁ। ବିଭିନ୍ନ ଦଶମିକ ଗୁଣନ ଯଥା ୦.୨ &times; ୦.୫, ୦.୬ &times; ୦.୭ କୁ ରଙ୍ଗ ଦ୍ୱାରା ଚିହ୍ନଟ କରନ୍ତୁ:
+        </p>
+
+        <div class="callout callout-act">
+          <div class="callout-title"><i class="fa-solid fa-flask"></i> ପରୀକ୍ଷଣ: ୦.୬ &times; ୦.୭ ର ଗ୍ରିଡ୍ ଗଣନା</div>
+          &bull; ପ୍ରସ୍ଥ ଆଡ଼କୁ ୬ଟି ସ୍ତମ୍ଭ (୦.୬) ନିଅନ୍ତୁ।<br>
+          &bull; ଉଚ୍ଚତା ଆଡ଼କୁ ୭ଟି ଧାଡ଼ି (୦.୭) ନିଅନ୍ତୁ।<br>
+          &bull; ଉଭୟ ଛେଦ କରୁଥିବା ବର୍ଗ ସଂଖ୍ୟା = ୬ &times; ୭ = ୪୨ଟି ବର୍ଗ।<br>
+          &bull; ପ୍ରତ୍ୟେକ ବର୍ଗର ମୂଲ୍ୟ ୧/୧୦୦ = ୦.୦୧ ହୋଇଥିବାରୁ, ମୋଟ କ୍ଷେତ୍ରଫଳ = ୪୨ &times; ୦.୦୧ = <strong>୦.୪୨</strong>।
+        </div>
+
+        <h3 style="color: var(--primary-dark); margin: 2rem 0 0.75rem;">କାର୍ଯ୍ୟକଳାପ ୨: ଭାଗଫଳ ସମାନତା ଯାଞ୍ଚ (Quotient Invariance)</h3>
+        <p>
+          ନିମ୍ନଲିଖିତ ରାଶିଗୁଡ଼ିକର ମାନ ନିରୀକ୍ଷଣ କରନ୍ତୁ:
+        </p>
+        <div class="calc-box">
+          (କ) ୨.୪୬ &divide; ୧.୫ = (୨.୪୬ &times; ୧୦) &divide; (୧.୫ &times; ୧୦) = ୨୪.୬ &divide; ୧୫ = <strong>୧.୬୪</strong><br>
+          (ଖ) ୨୪.୬ &divide; ୧୫ = <strong>୧.୬୪</strong><br>
+          (ଗ) ୨୪୬ &divide; ୧୫୦ = <strong>୧.୬୪</strong><br>
+          <strong>ସିଦ୍ଧାନ୍ତ:</strong> ଭାଜ୍ୟ ଓ ଭାଜକ ଉଭୟକୁ ସମାନ ଶୂନ୍ୟତର ସଂଖ୍ୟା (Non-zero number) ଦ୍ୱାରା ଗୁଣନ କଲେ ଭାଗଫଳ ଅପରିବର୍ତ୍ତିତ ରହେ।
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 4: NCERT TEXTBOOK SOLUTIONS ================= -->
+    <section id="ncert-solutions">
+      <h2 class="section-title"><i class="fa-solid fa-list-check"></i> ବିଭାଗ ୪: ସମ୍ପୂର୍ଣ୍ଣ ପାଠ୍ୟପୁସ୍ତକ ସମାଧାନ (NCERT Solutions - Zero Omission)</h2>
+
+      <!-- Page 7-8 Figure it Out -->
+      <div class="card">
+        <h3 style="color: var(--primary); margin-bottom: 0.75rem;">ଚିନ୍ତା କରି ଉତ୍ତର ଦିଅ (Figure it Out — ପୃଷ୍ଠା ୭-୮) &bull; ଦଶମିକ ଗୁଣନ ଓ ବ୍ୟାବହାରିକ ପ୍ରଶ୍ନ</h3>
+
+        <!-- Q1 & Q2 -->
+        <details class="ans-box" open>
+          <summary><span><strong>ପ୍ରଶ୍ନ ୧ ଓ ୨: ଦଶାଂଶ, ଶତାଂଶ ଗୁଣନ ଏବଂ ଦଶମିକ ଗୁଣଫଳ</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>୧. ଦଶାଂଶ ଓ ଶତାଂଶରେ ଗୁଣଫଳ ନିର୍ଣ୍ଣୟ କର:</strong></p>
+            <div class="calc-box">
+              (a) ୬ &times; ୪ ଦଶାଂଶ = ୨୪ ଦଶାଂଶ = ୨୪/୧୦ = <strong>୨.୪</strong><br>
+              (b) ୭ &times; ୦.୩ = ୨୧ ଦଶାଂଶ = ୨୧/୧୦ = <strong>୨.୧</strong><br>
+              (c) ୯ &times; ୫ ଶତାଂଶ = ୪୫ ଶତାଂଶ = ୪୫/୧୦୦ = <strong>୦.୪୫</strong>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>୨. ଗୁଣଫଳ ନିର୍ଣ୍ଣୟ କର:</strong></p>
+            <div class="calc-box">
+              (a) ୨୭.୩୪ &times; ୬:<br>
+              &nbsp;&nbsp;୨୭୩୪ &times; ୬ = ୧୬୪୦୪। ଦଶମିକ ସ୍ଥାନ = ୨ &rArr; <strong>୧୬୪.୦୪</strong><br><br>
+              (b) ୪.୨୩ &times; ୩.୭:<br>
+              &nbsp;&nbsp;୪୨୩ &times; ୩୭ = ୧୫୬୫୧। ଦଶମିକ ସ୍ଥାନ = ୨ + ୧ = ୩ &rArr; <strong>୧୫.୬୫୧</strong><br><br>
+              (c) ୦.୪୩୨ &times; ୦.୨୩:<br>
+              &nbsp;&nbsp;୪୩୨ &times; ୨୩ = ୯୯୩୬। ଦଶମିକ ସ୍ଥାନ = ୩ + ୨ = ୫।<br>
+              &nbsp;&nbsp;୫ଟି ଅଙ୍କ ପୂରଣ ପାଇଁ ବାମରେ ଶୂନ ଦିଅନ୍ତୁ &rArr; <strong>୦.୦୯୯୩୬</strong>
+            </div>
+          </div>
+        </details>
+
+        <!-- Q3 to Q7 Real Life -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୩ ରୁ ୭: ବାସ୍ତବ ଜୀବନର ସମସ୍ୟାବଳୀ (ପୋଷାକ, ଖାତା, ମୁଦ୍ରା, କମଳା, ଲାଭ-କ୍ଷତି)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>ପ୍ରଶ୍ନ ୩ (ଥେଜସଙ୍କ ସାର୍ଟ କପଡ଼ା):</strong> ଗୋଟିଏ ସାର୍ଟ ପାଇଁ ୧.୬୫ ମିଟର କପଡ଼ା ଦରକାର ହେଲେ ୩ଟି ସାର୍ଟ ପାଇଁ କେତେ କପଡ଼ା ଲାଗିବ?</p>
+            <div class="calc-box">ମୋଟ କପଡ଼ା = ୧.୬୫ &times; ୩ = <strong>୪.୯୫ ମିଟର</strong>।</div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୪ (ମୀନୁଙ୍କ ଷ୍ଟେସନାରୀ ଖର୍ଚ୍ଚ):</strong> ମୀନୁ ୪ଟି ଖାତା ପ୍ରତ୍ୟେକ ୧୫.୫୦ ଟଙ୍କା ଏବଂ ୩ଟି ରବର ପ୍ରତ୍ୟେକ ୨.୭୫ ଟଙ୍କାରେ କିଣିଲେ। ସେ ମୋଟ କେତେ ଟଙ୍କା ଖର୍ଚ୍ଚ କଲେ?</p>
+            <div class="calc-box">
+              ୪ଟି ଖାତାର ମୂଲ୍ୟ = ୪ &times; ୧୫.୫୦ = ୬୨.୦୦ ଟଙ୍କା<br>
+              ୩ଟି ରବରର ମୂଲ୍ୟ = ୩ &times; ୨.୭୫ = ୮.୨୫ ଟଙ୍କା<br>
+              ସର୍ବମୋଟ ଖର୍ଚ୍ଚ = ୬୨.୦୦ + ୮.୨୫ = <strong>୭୦.୨୫ ଟଙ୍କା</strong>।
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୫ (ମୁଦ୍ରାର ସିଲିଣ୍ଡର ଉଚ୍ଚତା):</strong> ୩୬ଟି ଏକଟଙ୍କିଆ ମୁଦ୍ରା ପରସ୍ପର ଉପରେ ରଖାଯାଇଛି। ପ୍ରତ୍ୟେକ ମୁଦ୍ରାର ବହଳ ୧.୪୫ ମିଲିମିଟର (mm) ହେଲେ ସିଲିଣ୍ଡରର ଉଚ୍ଚତା ସେଣ୍ଟିମିଟର (cm) ରେ କେତେ?</p>
+            <div class="calc-box">
+              ମୋଟ ଉଚ୍ଚତା (mm ରେ) = ୩୬ &times; ୧.୪୫ = ୫୨.୨ mm<br>
+              ସେଣ୍ଟିମିଟରରେ ରୂପାନ୍ତର (୧ cm = ୧୦ mm): ୫୨.୨ &divide; ୧୦ = <strong>୫.୨୨ cm</strong>।
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୬ (କମଳାର ମୂଲ୍ୟ):</strong> ୨.୨୫୦ କିଲୋଗ୍ରାମ କମଳାର ମୂଲ୍ୟ କିଗ୍ରା ପ୍ରତି ୫୬.୫୦ ଟଙ୍କା ହିସାବରେ କେତେ? ୫୬.୫୦ କୁ ୫୬.୫ ଏବଂ ୨.୨୫୦ କୁ ୨.୨୫ ଲେଖାଯାଇପାରିବ କି?</p>
+            <div class="calc-box">
+              <strong>ହଁ!</strong> ଦଶମିକ ବିନ୍ଦୁ ପରେ ଥିବା ଅଙ୍କ ଶେଷରେ ଶୂନ ଥିଲେ ତାହାର ମୂଲ୍ୟ ବଦଳେ ନାହିଁ।<br>
+              କମଳାର ମୂଲ୍ୟ = ୫୬.୫ &times; ୨.୨୫ = <strong>୧୨୭.୧୨୫ ଟଙ୍କା</strong> (ବା ପ୍ରାୟ ୧୨୭.୧୩ ଟଙ୍କା)।
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୭ (ଦ୍ୱାରକାନାଥଙ୍କ ବହି ବିକ୍ରି ଲାଭ):</strong> ପାଇକାରୀ ଦର ୨୩.୬ ଟଙ୍କା, ବିକ୍ରି ମୂଲ୍ୟ ୩୦ ଟଙ୍କା। ୫୦ଟି ବହି ବିକ୍ରି କରି ସେ କେତେ ଲାଭ ପାଇଲେ?</p>
+            <div class="calc-box">
+              ବହି ପିଛା ଲାଭ = ୩୦ &minus; ୨୩.୬ = ୬.୪୦ ଟଙ୍କା<br>
+              ୫୦ଟି ବହିରେ ମୋଟ ଲାଭ = ୫୦ &times; ୬.୪୦ = <strong>୩୨୦ ଟଙ୍କା</strong>।
+            </div>
+          </div>
+        </details>
+
+        <!-- Q8 & Q9 Products < 1 -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୮ ଓ ୯: ୧୮ &times; ୧୨ = ୨୧୬ ରୁ ଗୁଣଫଳ ଏବଂ ୧ ରୁ କମ୍ ଗୁଣଫଳ ଚିହ୍ନଟ</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>ପ୍ରଶ୍ନ ୮: ଯଦି ୧୮ &times; ୧୨ = ୨୧୬ ହୁଏ, ତେବେ ମୂଲ୍ୟ ନିରୂପଣ କର:</strong></p>
+            <div class="calc-box">
+              (a) ୧୮ &times; ୧.୨ = <strong>୨୧.୬</strong><br>
+              (b) ୧୮ &times; ୦.୧୨ = <strong>୨.୧୬</strong><br>
+              (c) ୧.୮ &times; ୧.୨ = <strong>୨.୧୬</strong><br>
+              (d) ୦.୧୮ &times; ୦.୧୨ = <strong>୦.୦୨୧୬</strong> &nbsp; (ଏହା ୧ ରୁ କମ୍)<br>
+              (e) ୦.୦୧୮ &times; ୦.୦୧୨ = <strong>୦.୦୦୦୨୧୬</strong> &nbsp; (ଏହା ୧ ରୁ କମ୍)<br>
+              (f) ୧.୮ &times; ୧୨ = <strong>୨୧.୬</strong><br>
+              ୧ ରୁ କମ୍ ଥିବା ଗୁଣଫଳଗୁଡ଼ିକ ହେଲା: <strong>(d) ଏବଂ (e)</strong>।
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୯: ଗୁଣନ ନକରି କେଉଁ ଗୁଣଫଳ ୧ ରୁ କମ୍ ହେବ ସ୍ଥିର କର:</strong></p>
+            <div class="calc-box">
+              (a) ୭ &times; ୦.୬ = ୪.୨ (୧ ରୁ ବଡ଼)<br>
+              (b) ୦.୭ &times; ୦.୬ : ଉଭୟ ସଂଖ୍ୟା ୧ ରୁ କମ୍, ତେଣୁ ଗୁଣଫଳ ସର୍ବଦା <strong>୧ ରୁ କମ୍</strong> ହେବ।<br>
+              (c) ୦.୭ &times; ୬ = ୪.୨ (୧ ରୁ ବଡ଼)<br>
+              (d) ୦.୦୭ &times; ୦.୦୬ : ଉଭୟ ସଂଖ୍ୟା ୧ ରୁ କମ୍, ତେଣୁ ଗୁଣଫଳ ସର୍ବଦା <strong>୧ ରୁ କମ୍</strong> ହେବ।<br>
+              ଉତ୍ତର: <strong>(b) ଏବଂ (d)</strong>।
+            </div>
+          </div>
+        </details>
+
+        <!-- Q10 Table -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୧୦: ୧୦ ର ଘାତ ସାରଣୀ ସମ୍ପୂର୍ଣ୍ଣ କରଣ</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <table class="math-table">
+              <thead>
+                <tr>
+                  <th>ସଂଖ୍ୟା</th>
+                  <th>&times; ୧୦</th>
+                  <th>&times; ୧୦୦</th>
+                  <th>&times; ୧୦୦୦</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>୫.୭</td><td>୫୭</td><td>୫୭୦</td><td>୫୭୦୦</td></tr>
+                <tr><td>୨୩.୦୨</td><td>୨୩୦.୨</td><td>୨୩୦୨</td><td>୨୩୦୨୦</td></tr>
+                <tr><td>୦.୯୨</td><td>୯.୨</td><td>୯୨</td><td>୯୨୦</td></tr>
+                <tr><td>୦.୩୦୬</td><td>୩.୦୬</td><td>୩୦.୬</td><td>୩୦୬</td></tr>
+                <tr><td>୨୪.୬୭</td><td>୨୪୬.୭</td><td>୨୪୬୭</td><td>୨୪୬୭୦</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+
+      <!-- Page 17 Figure it Out -->
+      <div class="card">
+        <h3 style="color: var(--primary); margin-bottom: 0.75rem;">ଚିନ୍ତା କରି ଉତ୍ତର ଦିଅ (Figure it Out — ପୃଷ୍ଠା ୧୭) &bull; ଭଗ୍ନାଂଶରୁ ଦଶମିକ ଓ ସିରିଜ୍ ହରଣ</h3>
+
+        <!-- Q1 & Q2 -->
+        <details class="ans-box" open>
+          <summary><span><strong>ପ୍ରଶ୍ନ ୧ ଓ ୨: ହରକୁ ୧୦, ୧୦୦, ୧୦୦୦ ରେ ପରିଣତ କରି ଦଶମିକ ରୂପାନ୍ତର</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>୧. ସମତୁଲ ଭଗ୍ନାଂଶ ମାଧ୍ୟମରେ ଦଶମିକରେ ପ୍ରକାଶ କର:</strong></p>
+            <div class="calc-box">
+              (a) ୧୮/୫ = (୧୮ &times; ୨) / (୫ &times; ୨) = ୩୬/୧୦ = <strong>୩.୬</strong><br>
+              (b) ୪୧୫/୪ = (୪୧୫ &times; ୨୫) / (୪ &times; ୨୫) = ୧୦୩୭୫/୧୦୦ = <strong>୧୦୩.୭୫</strong><br>
+              (c) ୧୨୧୭/୨ = (୧୨୧୭ &times; ୫) / (୨ &times; ୫) = ୬୦୮୫/୧୦ = <strong>୬୦୮.୫</strong><br>
+              (d) ୪୮୨୭/୮ = (୪୮୨୭ &times; ୧୨୫) / (୮ &times; ୧୨୫) = ୬୦୩୩୭୫/୧୦୦୦ = <strong>୬୦୩.୩୭୫</strong>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>୨. ସଠିକ୍ ବିକଳ୍ପ ବାଛ:</strong></p>
+            <div class="calc-box">
+              (a) ୧୫୨୬ &divide; ୪ = ୧୫୨୬/୪ = ୩୮୧.୫ &rArr; ସଠିକ୍ ବିକଳ୍ପ ହେଉଛି <strong>(iii) ୩୮୧.୫</strong><br>
+              (b) ୩୫୬୭ &divide; ୮ = ୩୫୬୭/୮ = ୪୪୫.୮୭୫ &rArr; ସଠିକ୍ ବିକଳ୍ପ ହେଉଛି <strong>(iii) ୪୪୫.୮୭୫</strong>
+            </div>
+          </div>
+        </details>
+
+        <!-- Q3 & Q4 Sequences -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୩ ଓ ୪: କ୍ରମିକ ହରଣ ଶୃଙ୍ଖଳା (୪ ଏବଂ ୮ ଦ୍ୱାରା ହରଣ)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>୩. ୧୩୨ ସହିତ ୪ ର ହରଣଫଳ:</strong></p>
+            <div class="calc-box">
+              (a) ୧୩୨ &divide; ୪ = <strong>୩୩</strong><br>
+              (b) ୧୩.୨ &divide; ୪ = <strong>୩.୩</strong><br>
+              (c) ୧.୩୨ &divide; ୪ = <strong>୦.୩୩</strong><br>
+              (d) ୦.୧୩୨ &divide; ୪ = <strong>୦.୦୩୩</strong>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>୪. ୧୨୬ ସହିତ ୮ ର ହରଣଫଳ:</strong></p>
+            <div class="calc-box">
+              (a) ୧୨୬ &divide; ୮ = <strong>୧୫.୭୫</strong><br>
+              (b) ୧୨.୬ &divide; ୮ = <strong>୧.୫୭୫</strong><br>
+              (c) ୧.୨୬ &divide; ୮ = <strong>୦.୧୫୭୫</strong><br>
+              (d) ୦.୧୨୬ &divide; ୮ = <strong>୦.୦୧୫୭୫</strong><br>
+              (e) ୦.୦୧୨୬ &divide; ୮ = <strong>୦.୦୦୧୫୭୫</strong>
+            </div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Page 20-21 Figure it Out -->
+      <div class="card">
+        <h3 style="color: var(--primary); margin-bottom: 0.75rem;">ଚିନ୍ତା କରି ଉତ୍ତର ଦିଅ (Figure it Out — ପୃଷ୍ଠା ୨୦-୨୧) &bull; ଦଶମିକ ଭାଜକ ଓ ପରିମାପ</h3>
+
+        <!-- Q1 to Q4 -->
+        <details class="ans-box" open>
+          <summary><span><strong>ପ୍ରଶ୍ନ ୧ ରୁ ୪: ଦଶମିକ ହରଣ, ସମତୁଲତା ଓ ଶୂନ୍ୟସ୍ଥାନ ପୂରଣ</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>୧. ଭଗ୍ନାଂଶକୁ ଦଶମିକ ଆକାରରେ ପ୍ରକାଶ କର:</strong></p>
+            <div class="calc-box">
+              (a) ୨/୫ = <strong>୦.୪</strong> &nbsp;|&nbsp; (b) ୧୩/୪ = <strong>୩.୨୫</strong> &nbsp;|&nbsp; (c) ୪/୫୦ = ୮/୧୦୦ = <strong>୦.୦୮</strong> &nbsp;|&nbsp; (d) ୫/୮ = <strong>୦.୬୨୫</strong>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>୨. ଭାଗଫଳ ନିର୍ଣ୍ଣୟ କର:</strong></p>
+            <div class="calc-box">
+              (a) ୨୪.୮୬ &divide; ୧.୨ = ୨୪୮.୬ &divide; ୧୨ = <strong>୨୦.୭୧୬୬...</strong> (ବା ପ୍ରାୟ ୨୦.୭୧୭)<br>
+              (b) ୫.୭୨୮ &divide; ୧.୫୨ = ୫୭୨.୮ &divide; ୧୫୨ = <strong>୩.୭୬୮୪...</strong>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>୩. ଯଦି ୧୫୬ &times; ୧୨ = ୧୮୭୨ ହୁଏ:</strong></p>
+            <div class="calc-box">
+              (a) ୧୫.୬ &times; ୧.୨ = <strong>୧୮.୭୨</strong><br>
+              (b) ୧୮୭.୨ &divide; ୧.୨ = <strong>୧୫୬</strong><br>
+              (c) ୧୮.୭୨ &divide; ୧୫.୬ = <strong>୧.୨</strong><br>
+              (d) ୦.୧୫୬ &times; ୦.୧୨ = <strong>୦.୦୧୮୭୨</strong>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>୪. ଶୂନ୍ୟସ୍ଥାନ ପୂରଣ କର:</strong></p>
+            <div class="calc-box">
+              (a) ୨୫ &divide; <strong>୧୦୦୦</strong> = ୦.୦୨୫<br>
+              (b) ୨୫ &divide; <strong>୦.୧</strong> = ୨୫୦<br>
+              (c) ୨୫ &divide; <strong>୧୦</strong> = ୨.୫<br>
+              (d) ୨୫ &divide; ୧୦ = ୨୫ &times; <strong>୦.୧</strong><br>
+              (e) ୨୫ &divide; ୦.୧୦ = ୨୫ &times; <strong>୧୦</strong><br>
+              (f) ୨୫ &divide; ୦.୦୧ = ୨୫ &times; <strong>୧୦୦</strong>
+            </div>
+          </div>
+        </details>
+
+        <!-- Q5 to Q10 Word Problems -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୫ ରୁ ୧୦: ଭାଗଫଳ ଅପରିବର୍ତ୍ତିତ ନିୟମ ଓ ବ୍ୟାବହାରିକ ସମସ୍ୟା</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>ପ୍ରଶ୍ନ ୫ (ଭାଜକ ରୂପାନ୍ତର):</strong></p>
+            <div class="calc-box">
+              (a) ୨.୪୬ &divide; ୧.୫ = ୨୪.୬ &divide; ୧୫ = <strong>୧.୬୪</strong><br>
+              (b) ୨.୪୬ &divide; ୦.୧୫ = ୨୪୬ &divide; ୧୫ = <strong>୧୬.୪</strong><br>
+              (c) ୨.୪୬ &divide; ୦.୦୧୫ = ୨୪୬୦ &divide; ୧୫ = <strong>୧୬୪</strong><br>
+              &bull; ୨୪.୬ &divide; ୧.୫ ଏବଂ ୨.୪୬ &divide; ୦.୧୫ ର ମାନ ସମାନ କି? <strong>ହଁ, ସମାନ!</strong> ଉଭୟର ମାନ ୧୬.୪। କାରଣ (୨୪.୬ &times; ୧୦)/(୧.୫ &times; ୧୦) = ୨୪୬/୧୫ ଏବଂ (୨.୪୬ &times; ୧୦୦)/(୦.୧୫ &times; ୧୦୦) = ୨୪୬/୧୫।
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୬ (କାଠ ଖଣ୍ଡ):</strong> ୪ ମିଟର ଲମ୍ବ କାଠକୁ ୫ଟି ସମାନ ଭାଗ କଲେ ପ୍ରତ୍ୟେକ ଭାଗର ଲମ୍ବ କେତେ?</p>
+            <div class="calc-box">ଲମ୍ବ = ୪ &divide; ୫ = <strong>୦.୮ ମିଟର</strong> (ବା ୮୦ ସେଣ୍ଟିମିଟର)।</div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୭ (୧୨-ବାହୁ ବିଶିଷ୍ଟ ସୁଷମ ବହୁଭୁଜ):</strong> ପରିସୀମା ୨୦୮.୮ cm ହେଲେ ପ୍ରତ୍ୟେକ ବାହୁର ଦୈର୍ଘ୍ୟ କେତେ?</p>
+            <div class="calc-box">ବାହୁ = ୨୦୮.୮ &divide; ୧୨ = <strong>୧୭.୪ cm</strong>।</div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୮ (ତରଭୁଜ ରସ):</strong> ୩ ଲିଟର ରସ ୮ ଜଣ ସାଙ୍ଗଙ୍କ ମଧ୍ୟରେ ସମାନ ଭାବେ ବଣ୍ଟାଗଲେ ପ୍ରତ୍ୟେକ କେତେ ପାଇବେ?</p>
+            <div class="calc-box">ପ୍ରତ୍ୟେକଙ୍କ ଭାଗ = ୩ &divide; ୮ = <strong>୦.୩୭୫ ଲିଟର</strong> (ବା ୩୭୫ ମିଲିଲିଟର)।</div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୯ (କାର୍ ମାଇଲେଜ୍):</strong> ଏକ କାର୍ ୧୨.୬ ଲିଟର ପେଟ୍ରୋଲରେ ୨୩୪.୪୫ କିମି ଗଲେ ୧ ଲିଟରରେ କେତେ ଦୂର ଯିବ?</p>
+            <div class="calc-box">ମାଇଲେଜ୍ = ୨୩୪.୪୫ &divide; ୧୨.୬ = ୨୩୪୪.୫ &divide; ୧୨୬ = <strong>୧୮.୬୦୭ କିମି/ଲିଟର</strong> (ବା ପ୍ରାୟ ୧୮.୬୧ କିମି)।</div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୧୦ (ମଇଦା ବଣ୍ଟନ):</strong> ୧୩.୫ କିଗ୍ରା ମଇଦା ୧୫ ଜଣ ଛାତ୍ରଙ୍କ ମଧ୍ୟରେ ସମାନ ଭାବେ ବଣ୍ଟାଗଲେ ପ୍ରତ୍ୟେକ କେତେ ପାଇବେ?</p>
+            <div class="calc-box">ପ୍ରତ୍ୟେକଙ୍କ ଅଂଶ = ୧୩.୫ &divide; ୧୫ = <strong>୦.୯ କିଗ୍ରା</strong> (ବା ୯୦୦ ଗ୍ରାମ)।</div>
+          </div>
+        </details>
+      </div>
+
+      <!-- Page 27-28 End-of-Chapter Master Problems -->
+      <div class="card">
+        <h3 style="color: var(--primary); margin-bottom: 0.75rem;">ଅଧ୍ୟାୟ ଶେଷ ମାଷ୍ଟର ଅଭ୍ୟାସ ପ୍ରଶ୍ନାବଳୀ (ପୃଷ୍ଠା ୨୭-୨୮, ପ୍ରଶ୍ନ ୧ ରୁ ୧୦)</h3>
+
+        <!-- Q1 Peanut Chikki vs Potato Chips -->
+        <details class="ans-box" open>
+          <summary><span><strong>ପ୍ରଶ୍ନ ୧: ଚିନାବାଦାମ ଚିକ୍କି ବନାମ ଆଳୁ ଚିପ୍ସ (କେଉଁଟି ଶସ୍ତା?)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="sol-step"><span class="sol-step-label">୧. ପ୍ରଦତ୍ତ ତଥ୍ୟ:</span>
+              <br>&bull; ଚିନାବାଦାମ ଚିକ୍କି: ୨୧୦ ଗ୍ରାମର ମୂଲ୍ୟ ୭୦.୫୦ ଟଙ୍କା
+              <br>&bull; ଆଳୁ ଚିପ୍ସ: ୧୧୦ ଗ୍ରାମର ମୂଲ୍ୟ ୩୩.୨୫ ଟଙ୍କା
+            </div>
+            <div class="sol-step"><span class="sol-step-label">୨. ପ୍ରତି ଗ୍ରାମର ମୂଲ୍ୟ ନିର୍ଣ୍ଣୟ:</span>
+              <div class="calc-box">
+                ଚିକ୍କିର ଗ୍ରାମ ପ୍ରତି ଦର = ୭୦.୫୦ &divide; ୨୧୦ &approx; <strong>୦.୩୩୫୭ ଟଙ୍କା/ଗ୍ରାମ</strong> (ବା ୧୦୦ ଗ୍ରାମକୁ ୩୩.୫୭ ଟଙ୍କା)<br>
+                ଆଳୁ ଚିପ୍ସର ଗ୍ରାମ ପ୍ରତି ଦର = ୩୩.୨୫ &divide; ୧୧୦ &approx; <strong>୦.୩୦୨୩ ଟଙ୍କା/ଗ୍ରାମ</strong> (ବା ୧୦୦ ଗ୍ରାମକୁ ୩୦.୨୩ ଟଙ୍କା)
+              </div>
+            </div>
+            <div class="sol-step"><span class="sol-step-label">୩. ସିଦ୍ଧାନ୍ତ:</span> ଯେହେତୁ ୦.୩୦୨୩ &lt; ୦.୩୩୫୭, ତେଣୁ <strong>ଆଳୁ ଚିପ୍ସ ପ୍ୟାକେଟ୍ ଅପେକ୍ଷାକୃତ ଶସ୍ତା</strong>।</div>
+          </div>
+        </details>
+
+        <!-- Q2 to Q4 -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୨ ରୁ ୪: ସଂଖ୍ୟାରେଖା ଦଶମିକ, ଶ୍ୟାମଳାଙ୍କ କଦଳୀ ଲାଭ ଓ ବହି ଆଲମାରୀ</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>ପ୍ରଶ୍ନ ୨ (ସଂଖ୍ୟାରେଖାରେ ତୀର ଚିହ୍ନର ମାନ):</strong></p>
+            <div class="calc-box">
+              &bull; ୩.୧ ଏବଂ ୩.୨ ର ଠିକ୍ ମଧ୍ୟବିନ୍ଦୁ = <strong>୩.୧୫</strong><br>
+              &bull; ୨.୧୫ ଏବଂ ୨.୧୭ ର ଠିକ୍ ମଧ୍ୟବିନ୍ଦୁ = <strong>୨.୧୬</strong>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୩ (ଶ୍ୟାମଳାଙ୍କ କଦଳୀ ବ୍ୟବସାୟ ଲାଭ):</strong></p>
+            <div class="calc-box">
+              କିଣା ଦର = ୩ କିଗ୍ରା &times; ୩୦ ଟଙ୍କା = ୯୦ ଟଙ୍କା<br>
+              ମୋଟ କଦଳୀ = ୩୫ଟି; ବିକ୍ରି ଦର = ୩୫ &times; ୫ ଟଙ୍କା = ୧୭୫ ଟଙ୍କା<br>
+              ମୋଟ ଲାଭ = ୧୭୫ &minus; ୯୦ = <strong>୮୫ ଟଙ୍କା</strong>।
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୪ (ବହି ଆଲମାରୀର ଧାରଣ କ୍ଷମତା):</strong></p>
+            <div class="calc-box">
+              ଥାକର ଲମ୍ବ = ୧୬୦ cm। ପ୍ରତ୍ୟେକ ବହିର ବହଳ = ୨.୫ cm।<br>
+              ସର୍ବାଧିକ ବହି ସଂଖ୍ୟା = ୧୬୦ &divide; ୨.୫ = ୧୬୦୦ &divide; ୨୫ = <strong>୬୪ଟି ବହି</strong>।<br>
+              ଶିକ୍ଷକ ୮୦ଟି ବହି ରଖିବାକୁ ଚାହୁଁଥିଲେ, ତେଣୁ ସମସ୍ତ ୮୦ଟି ବହି ରଖାଯାଇ ପାରିବ ନାହିଁ।<br>
+              ୬୪ଟି ବହି ରଖିବା ପରେ ବଳକା ସ୍ଥାନ = ୧୬୦ &minus; (୬୪ &times; ୨.୫) = ୧୬୦ &minus; ୧୬୦ = <strong>୦ cm (କୌଣସି ସ୍ଥାନ ବଳକା ରହିବ ନାହିଁ)</strong>।
+            </div>
+          </div>
+        </details>
+
+        <!-- Q5 Metric Conversions -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୫: ମେଟ୍ରିକ୍ ଏକକ ରୂପାନ୍ତର (ଦଶମିକ ପ୍ରୟୋଗ)</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <div class="calc-box">
+              &bull; ୫.୫ km = ୫.୫ &times; ୧୦୦୦ = <strong>୫୫୦୦ m</strong><br>
+              &bull; ୩୫ cm = ୩୫ &divide; ୧୦୦ = <strong>୦.୩୫ m</strong><br>
+              &bull; ୧୪.୫ cm = ୧୪.୫ &times; ୧୦ = <strong>୧୪୫ mm</strong><br>
+              &bull; ୬୮ g = ୬୮ &divide; ୧୦୦୦ = <strong>୦.୦୬୮ kg</strong><br>
+              &bull; ୯.୦୨ m = ୯.୦୨ &times; ୧୦୦୦ = <strong>୯୦୨୦ mm</strong><br>
+              &bull; ୧୨୫.୫ ml = ୧୨୫.୫ &divide; ୧୦୦୦ = <strong>୦.୧୨୫୫ l</strong>
+            </div>
+          </div>
+        </details>
+
+        <!-- Q6 Sridharacharya Patiganita -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୬: ଶ୍ରୀଧରାଚାର୍ଯ୍ୟଙ୍କ ପାଟୀଗଣିତ ଭଗ୍ନାଂଶ ହରଣ ସମସ୍ୟା</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>ପ୍ରଥମ ପ୍ରଶ୍ନ:</strong> ୬ ୧/୪ କୁ ୨ ୧/୨ ଦ୍ୱାରା ଭାଗ କର।</p>
+            <div class="calc-box">
+              ୬ ୧/୪ = ୬.୨୫ (ବା ୨୫/୪)<br>
+              ୨ ୧/୨ = ୨.୫ (ବା ୫/୨)<br>
+              ଦଶମିକ ପଦ୍ଧତି: ୬.୨୫ &divide; ୨.୫ = ୬୨.୫ &divide; ୨୫ = <strong>୨.୫</strong><br>
+              ଭଗ୍ନାଂଶ ପଦ୍ଧତି: (୨୫/୪) &times; (୨/୫) = ୫/୨ = <strong>୨ ୧/୨</strong>।
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>ଦ୍ୱିତୀୟ ପ୍ରଶ୍ନ:</strong> ୬୦ ୧/୪ କୁ ୩ ୧/୨ ଦ୍ୱାରା ଭାଗ କର।</p>
+            <div class="calc-box">
+              ୬୦ ୧/୪ = ୬୦.୨୫ (ବା ୨୪୧/୪)<br>
+              ୩ ୧/୨ = ୩.୫ (ବା ୭/୨)<br>
+              ଦଶମିକ ପଦ୍ଧତି: ୬୦.୨୫ &divide; ୩.୫ = ୬୦୨.୫ &divide; ୩୫ = <strong>୧୭.୨୧୪...</strong><br>
+              ପ୍ରକୃତ ଭଗ୍ନାଂଶ ରୂପ: (୨୪୧/୪) &times; (୨/୭) = ୨୪୧/୧୪ = <strong>୧୭ ୩/୧୪</strong>।
+            </div>
+          </div>
+        </details>
+
+        <!-- Q7 & Q8 Quotients from 756 / 36 = 21 -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୭ ଓ ୮: ଉତ୍ପାଦକ କୋଠରୀ ଏବଂ ୭୫୬ &divide; ୩୬ = ୨୧ ଆଧାରିତ ମୂଲ୍ୟ</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>ପ୍ରଶ୍ନ ୭ (ଶୂନ୍ୟ କୋଠରୀ ପୂରଣ କର):</strong></p>
+            <div class="calc-box">
+              (a) __ &times; __ = ୨.୪ &rArr; <strong>୧.୨ &times; ୨ = ୨.୪</strong> କିମ୍ବା <strong>୦.୬ &times; ୪ = ୨.୪</strong><br>
+              (b) __ &times; __ = ୧୪.୫ &rArr; <strong>୨.୯ &times; ୫ = ୧୪.୫</strong> କିମ୍ବା <strong>୧.୪୫ &times; ୧୦ = ୧୪.୫</strong>
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୮ (ଯଦି ୭୫୬ &divide; ୩୬ = ୨୧ ହୁଏ):</strong></p>
+            <div class="calc-box">
+              (a) ୭୫.୬ &divide; ୩.୬ = ୭୫୬ &divide; ୩୬ = <strong>୨୧</strong><br>
+              (b) ୭.୫୬ &divide; ୦.୩୬ = ୭୫୬ &divide; ୩୬ = <strong>୨୧</strong><br>
+              (c) ୭୫୬ &divide; ୦.୩୬ = ୭୫୬୦୦ &divide; ୩୬ = <strong>୨୧୦୦</strong><br>
+              (d) ୭୫.୬ &divide; ୩୬୦ = ୦.୭୫୬ &divide; ୩.୬ = <strong>୦.୨୧</strong><br>
+              (e) ୭୫୬୦ &divide; ୩.୬ = ୭୫୬୦୦ &divide; ୩୬ = <strong>୨୧୦୦</strong><br>
+              (f) ୭.୫୬ &divide; ୦.୩୬ = <strong>୨୧</strong>
+            </div>
+          </div>
+        </details>
+
+        <!-- Q9 & Q10 Grid & Digits 2, 4, 5, 8, 0 -->
+        <details class="ans-box">
+          <summary><span><strong>ପ୍ରଶ୍ନ ୯ ଓ ୧୦: ହରଣ ଗ୍ରିଡ୍ ଏବଂ ୨, ୪, ୫, ୮, ୦ ଅଙ୍କ ଦ୍ୱାରା ଚରମ ଗୁଣଫଳ</strong></span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <p><strong>ପ୍ରଶ୍ନ ୯ (ହରଣ ଗ୍ରିଡ୍: ଯେଉଁଠାରେ ୧୫୧୭ &divide; ୩୭ = ୪୧):</strong></p>
+            <div class="calc-box">
+              &bull; ୧୫୧.୭ &divide; ୩୭ = ୪.୧<br>
+              &bull; ୧୫.୧୭ &divide; ୩.୭ = ୪.୧<br>
+              &bull; ୧୫୧.୭ &divide; ୦.୦୩୭ = ୪୧୦୦<br>
+              ପ୍ରତ୍ୟେକ ଘର ୧୦ ର ଘାତ ଅନୁସାରେ ଦଶମିକ ବିନ୍ଦୁ ସ୍ଥାନାନ୍ତର ନିୟମ ପାଳନ କରେ।
+            </div>
+
+            <p style="margin-top: 1rem;"><strong>ପ୍ରଶ୍ନ ୧୦ ({୨, ୪, ୫, ୮, ୦} ଅଙ୍କ ବ୍ୟବହାର କରି [ . ] &times; [ . ] ଗଠନ):</strong></p>
+            <div class="calc-box">
+              ଲକ୍ଷ୍ୟ ଆକାର: A.B &times; C.D (ଶୂନ୍ୟତର ଅଙ୍କ ଚୟନ କରି):<br><br>
+              (a) ସର୍ବାଧିକ ଗୁଣଫଳ (Maximum Product): ପୂର୍ଣ୍ଣ ସଂଖ୍ୟା (ଏକକ ଘରେ) ବୃହତ୍ତମ ଅଙ୍କ ରଖନ୍ତୁ:<br>
+              ଏକକ ଘରେ ୮ ଓ ୫, ଏବଂ ଦଶାଂଶ ଘରେ ପରବର୍ତ୍ତୀ ବୃହତ୍ତମ ୪ ଓ ୨ ରଖି ପରୀକ୍ଷା କରନ୍ତୁ:<br>
+              ପରୀକ୍ଷା ୧: ୮.୪ &times; ୫.୨ = ୪୩.୬୮<br>
+              ପରୀକ୍ଷା ୨: ୮.୨ &times; ୫.୪ = ୪୪.୨୮ &rArr; <strong>ସର୍ବାଧିକ ଗୁଣଫଳ = ୮.୨ &times; ୫.୪ = ୪୪.୨୮</strong>।<br><br>
+              (b) ସର୍ବନିମ୍ନ ଗୁଣଫଳ (Minimum Product):<br>
+              ଯଦି ୦ ବ୍ୟବହାର କରାଯାଏ: ୦.୪ &times; ୨.୫ = ୧.୦ କିମ୍ବା ୦.୨ &times; ୪.୫ = <strong>୦.୯୦</strong>।
+            </div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 5: INTERACTIVE QUIZ ================= -->
+    <section id="quiz-section">
+      <h2 class="section-title"><i class="fa-solid fa-circle-question"></i> ବିଭାଗ ୫: ଇଣ୍ଟରାକ୍ଟିଭ୍ ପରୀକ୍ଷା କୁଇଜ୍ (Interactive Mastery Quiz)</h2>
+
+      <div class="card" style="background: var(--primary-light); border-color: #bae6fd;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+          <h3 style="color: var(--primary-dark); margin: 0;"><i class="fa-solid fa-trophy"></i> ଆପଣଙ୍କ ମୋଟ ସ୍କୋର: <span id="quizScoreCount">0</span> / 5</h3>
+          <span id="quizTeacherMsg" style="font-weight: 700; color: var(--dark);">ଉତ୍ତର ବାଛି ଆପଣଙ୍କ ଜ୍ଞାନ ପରୀକ୍ଷା କରନ୍ତୁ!</span>
+        </div>
+      </div>
+
+      <!-- Quiz Q1 -->
+      <div class="quiz-card" id="qcard1">
+        <div class="quiz-q-title">୧. ୦.୦୩ &times; ୦.୦୪ ର ସଠିକ୍ ମୂଲ୍ୟ କେତେ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+            <span>(କ) ୦.୧୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+            <span>(ଖ) ୦.୦୧୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+            <span>(ଗ) ୦.୦୦୧୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+            <span>(ଘ) ୦.୦୦୦୧୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary><span>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା ଦେଖନ୍ତୁ</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଗ) ୦.୦୦୧୨</strong><br>
+            ବ୍ୟାଖ୍ୟା: ୩ &times; ୪ = ୧୨। ୦.୦୩ ରେ ୨ଟି ଏବଂ ୦.୦୪ ରେ ୨ଟି, ଅର୍ଥାତ୍ ମୋଟ ୨ + ୨ = ୪ଟି ଦଶମିକ ସ୍ଥାନ ରହିବ। ତେଣୁ ୧୨ ପୂର୍ବରୁ ଦୁଇଟି ଶୂନ ବସାଇଲେ ୦.୦୦୧୨ ହେବ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Quiz Q2 -->
+      <div class="quiz-card" id="qcard2">
+        <div class="quiz-q-title">୨. ୧୪୨୮୫୭ କୁ ୭ ଦ୍ୱାରା ଗୁଣନ କଲେ କେଉଁ ସଂଖ୍ୟା ମିଳେ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+            <span>(କ) ୭୧୪୨୮୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+            <span>(ଖ) ୮୫୭୧୪୨</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+            <span>(ଗ) ୯୯୯୯୯୯</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+            <span>(ଘ) ୧୦୦୦୦୦୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary><span>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା ଦେଖନ୍ତୁ</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଗ) ୯୯୯୯୯୯</strong><br>
+            ବ୍ୟାଖ୍ୟା: ୧/୭ = ୦.୧୪୨୮୫୭... ର ଆବର୍ତ୍ତୀ ଅଙ୍କଗୁଚ୍ଛ ୧୪୨୮୫୭ କୁ ୭ ଦ୍ୱାରା ଗୁଣିଲେ ଠିକ୍ ୯୯୯୯୯୯ ମିଳେ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Quiz Q3 -->
+      <div class="quiz-card" id="qcard3">
+        <div class="quiz-q-title">୩. ୩୬ &divide; ୦.୦୯ ର ଭାଗଫଳ କେତେ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+            <span>(କ) ୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+            <span>(ଖ) ୪୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+            <span>(ଗ) ୪୦୦</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+            <span>(ଘ) ୦.୦୪</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary><span>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା ଦେଖନ୍ତୁ</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଗ) ୪୦୦</strong><br>
+            ବ୍ୟାଖ୍ୟା: ଉଭୟ ଭାଜ୍ୟ ଓ ଭାଜକକୁ ୧୦୦ ଦ୍ୱାରା ଗୁଣନ କଲେ: (୩୬ &times; ୧୦୦) &divide; (୦.୦୯ &times; ୧୦୦) = ୩୬୦୦ &divide; ୯ = ୪୦୦।
+          </div>
+        </details>
+      </div>
+
+      <!-- Quiz Q4 -->
+      <div class="quiz-card" id="qcard4">
+        <div class="quiz-q-title">୪. ଶତାବ୍ଦୀ ବର୍ଷ ୧୯୦୦ ସଂଖ୍ୟାଟି ୪ ଦ୍ୱାରା ବିଭାଜ୍ୟ ହେଲେ ମଧ୍ୟ ଅଧିବର୍ଷ (Leap Year) ନୁହେଁ କାହିଁକି?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')">
+            <span>(କ) ସେହି ବର୍ଷ ପୃଥିବୀ ଦ୍ରୁତ ଗତିରେ ଘୂରିଥିଲା।</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')">
+            <span>(ଖ) ପ୍ରକୃତ ସୌର ବର୍ଷ ୩୬୫.୨୪୨୨ ଦିନ ହୋଇଥିବାରୁ ପ୍ରତି ୪୦୦ ବର୍ଷରେ ୩ଟି ଅତିରିକ୍ତ ଦିନ ବାଦ୍ ଦିଆଯାଏ।</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')">
+            <span>(ଗ) ଫେବୃଆରୀ ମାସରେ ସର୍ବଦା ୨୮ ଦିନ ରହିବା ବାଧ୍ୟତାମୂଳକ।</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')">
+            <span>(ଘ) ୧୯୦୦ ଏକ ବିଷମ ସଂଖ୍ୟା।</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary><span>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା ଦେଖନ୍ତୁ</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଖ) ପ୍ରକୃତ ସୌର ବର୍ଷ ୩୬୫.୨୪୨୨ ଦିନ ହୋଇଥିବାରୁ ପ୍ରତି ୪୦୦ ବର୍ଷରେ ୩ଟି ଅତିରିକ୍ତ ଦିନ ବାଦ୍ ଦିଆଯାଏ।</strong><br>
+            ବ୍ୟାଖ୍ୟା: ବାର୍ଷିକ ୦.୦୦୭୮ ଦିନର ଅଧିକ ଗଣନାକୁ ସନ୍ତୁଳିତ କରିବା ପାଇଁ ଶତାବ୍ଦୀ ବର୍ଷ ୪୦୦ ଦ୍ୱାରା ବିଭାଜ୍ୟ ନହେଲେ ତାହା ଅଧିବର୍ଷ ହୁଏ ନାହିଁ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Quiz Q5 -->
+      <div class="quiz-card" id="qcard5">
+        <div class="quiz-q-title">୫. ଶ୍ରୀଧରାଚାର୍ଯ୍ୟଙ୍କ ପାଟୀଗଣିତ ପ୍ରଶ୍ନ ଅନୁସାରେ ୬ ୧/୪ &divide; ୨ ୧/୨ ର ମାନ କେତେ?</div>
+        <div class="quiz-opts">
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+            <span>(କ) ୨.୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+            <span>(ଖ) ୩.୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+            <span>(ଗ) ୧.୨୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+            <span>(ଘ) ୧୫.୬୨୫</span> <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary><span>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା ଦେଖନ୍ତୁ</span> <i class="fa-solid fa-chevron-down"></i></summary>
+          <div class="sol-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (କ) ୨.୫</strong><br>
+            ବ୍ୟାଖ୍ୟା: ୬ ୧/୪ = ୬.୨୫ ଏବଂ ୨ ୧/୨ = ୨.୫। ୬.୨୫ &divide; ୨.୫ = ୬୨.୫ &divide; ୨୫ = ୨.୫ (ବା ୨ ୧/୨)।
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= SECTION 6: PITFALLS & RAPID REVISION ================= -->
+    <section id="rapid-revision">
+      <h2 class="section-title"><i class="fa-solid fa-bolt"></i> ବିଭାଗ ୬: ପରୀକ୍ଷା ତ୍ରୁଟି ଓ ୧୫ଟି ଦ୍ରୁତ ପୁନରୀକ୍ଷଣ ତଥ୍ୟ (Pitfalls &amp; Revision)</h2>
+
+      <!-- Pitfalls -->
+      <div class="card">
+        <h3 style="color: var(--danger); margin-bottom: 0.75rem;"><i class="fa-solid fa-triangle-exclamation"></i> ଛାତ୍ରଛାତ୍ରୀ କରୁଥିବା ୪ଟି ସାଧାରଣ ପରୀକ୍ଷା ଭୁଲ୍</h3>
+        
+        <div class="callout callout-warn">
+          <strong>ଭୁଲ୍ ୧: ଗୁଣନ ବେଳେ ବାମ ପାଖରେ ଶୂନ ନଦେବା।</strong><br>
+          ଯେପରିକି ୦.୨ &times; ୦.୩ = ୦.୬ ଲେଖିବା ଭୁଲ୍! ସଠିକ୍ ହେଉଛି ୦.୦୬, କାରଣ ଦୁଇଟି ଦଶମିକ ସ୍ଥାନ ରହିବ।
+        </div>
+
+        <div class="callout callout-warn">
+          <strong>ଭୁଲ୍ ୨: ହରଣ ବେଳେ କେବଳ ଭାଜ୍ୟକୁ ୧୦ ଦ୍ୱାରା ଗୁଣିବା।</strong><br>
+          ୪.୮ &divide; ୦.୨ କରିବା ବେଳେ ଉଭୟ ଭାଜ୍ୟ ଓ ଭାଜକକୁ ୧୦ ଦ୍ୱାରା ଗୁଣିବାକୁ ହେବ (୪୮ &divide; ୨ = ୨୪)। କେବଳ ଗୋଟିକୁ ଗୁଣିଲେ ଉତ୍ତର ଭୁଲ୍ ହେବ।
+        </div>
+
+        <div class="callout callout-warn">
+          <strong>ଭୁଲ୍ ୩: ଶେଷରେ ଥିବା ଶୂନକୁ ନେଇ ଦ୍ୱନ୍ଦ୍ୱ।</strong><br>
+          ୦.୫୦, ୦.୫୦୦ ଏବଂ ୦.୫ ର ମୂଲ୍ୟ ସମ୍ପୂର୍ଣ୍ଣ ସମାନ। ଦଶମିକ ବିନ୍ଦୁ ପରେ ଡାହାଣ ଶେଷରେ ଥିବା ଶୂନ ସଂଖ୍ୟାର ମାନ ବଦଳାଏ ନାହିଁ।
+        </div>
+
+        <div class="callout callout-warn">
+          <strong>ଭୁଲ୍ ୪: ଭାଜକ &lt; ୧ ହେଲେ ଭାଗଫଳ କମିଯିବ ବୋଲି ଭାବିବା।</strong><br>
+          ଯେତେବେଳେ ଭାଜକ ୧ ରୁ କମ୍ ହୁଏ (ଯଥା: ୦.୫, ୦.୨୫), ଭାଗଫଳ ସର୍ବଦା ଭାଜ୍ୟ ଠାରୁ ବଡ଼ ହୁଏ।
+        </div>
+      </div>
+
+      <!-- 15 Rapid Revision Points -->
+      <div class="card">
+        <h3 style="color: var(--primary-dark); margin-bottom: 0.75rem;"><i class="fa-solid fa-list-ol"></i> ୧୫ଟି ଦ୍ରୁତ ପୁନରୀକ୍ଷଣ ଏକ-ପଦୀ ତଥ୍ୟ (15 Rapid One-Liners)</h3>
+        
+        <div class="revision-grid">
+          <div class="revision-item">
+            <span class="rev-num">୧</span>
+            <span>ଦଶମିକ ଗୁଣନରେ ମୋଟ ଦଶମିକ ସ୍ଥାନ ଉଭୟ ସଂଖ୍ୟାର ଦଶମିକ ସ୍ଥାନର ସମଷ୍ଟି ସହ ସମାନ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୨</span>
+            <span>୧୦ ଦ୍ୱାରା ଗୁଣିଲେ ଦଶମିକ ବିନ୍ଦୁ ୧ ଘର ଡାହାଣକୁ ଘୁଞ୍ଚେ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୩</span>
+            <span>୧୦୦ ଦ୍ୱାରା ହରିଲେ ଦଶମିକ ବିନ୍ଦୁ ୨ ଘର ବାମକୁ ଘୁଞ୍ଚେ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୪</span>
+            <span>୦.୧ &times; ୦.୧ = ୦.୦୧ (ଏକ ଶତାଂଶ ବା ୧/୧୦୦)।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୫</span>
+            <span>ଦୁଇଟି ୧ ରୁ କମ୍ ଦଶମିକ ସଂଖ୍ୟାର ଗୁଣଫଳ ସର୍ବଦା ୧ ରୁ କମ୍ ହୁଏ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୬</span>
+            <span>ଦଶମିକ ଭାଜକକୁ ପୂର୍ଣ୍ଣ ସଂଖ୍ୟାରେ ପରିଣତ କରି ହରଣ କାର୍ଯ୍ୟ ସହଜ ହୁଏ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୭</span>
+            <span>ଯେକୌଣସି ସଂଖ୍ୟାକୁ ୦.୧ ଦ୍ୱାରା ଭାଗ କରିବା ଅର୍ଥ ୧୦ ଦ୍ୱାରା ଗୁଣନ କରିବା ସହ ସମାନ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୮</span>
+            <span>ଯେକୌଣସି ସଂଖ୍ୟାକୁ ୦.୦୧ ଦ୍ୱାରା ଭାଗ କରିବା ଅର୍ଥ ୧୦୦ ଦ୍ୱାରା ଗୁଣନ କରିବା ସହ ସମାନ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୯</span>
+            <span>୧/୭ ର ଦଶମିକ ରୂପ ହେଉଛି ୦.୧୪୨୮୫୭ ୧୪୨୮୫୭... (୬ ଅଙ୍କର ଆବର୍ତ୍ତନ)।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୧୦</span>
+            <span>୧୪୨୮୫୭ &times; ୭ = ୯୯୯୯୯୯।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୧୧</span>
+            <span>ପୃଥିବୀର ପ୍ରକୃତ ସୌର ବର୍ଷ ପ୍ରାୟ ୩୬୫.୨୪୨୨ ଦିନ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୧୨</span>
+            <span>ଶତାବ୍ଦୀ ବର୍ଷଗୁଡ଼ିକ ୪୦୦ ଦ୍ୱାରା ବିଭାଜ୍ୟ ହେଲେ ଯାଇ ଅଧିବର୍ଷ (Leap Year) ହୁଅନ୍ତି।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୧୩</span>
+            <span>୨୦୦୦ ମସିହା ଅଧିବର୍ଷ ଥିଲା କିନ୍ତୁ ୧୯୦୦ ଓ ୨୧୦୦ ମସିହା ଅଧିବର୍ଷ ନୁହେଁ।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୧୪</span>
+            <span>ଶ୍ରୀଧରାଚାର୍ଯ୍ୟଙ୍କ ପାଟୀଗଣିତରେ ୬ ୧/୪ &divide; ୨ ୧/୨ = ୨.୫।</span>
+          </div>
+          <div class="revision-item">
+            <span class="rev-num">୧୫</span>
+            <span>୧ ଲିଟର = ୧୦୦୦ ମିଲିଲିଟର, ତେଣୁ ୧୨୫.୫ ml = ୦.୧୨୫୫ l।</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" title="ଉପରକୁ ଯାଆନ୍ତୁ">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; ୨୦୨୬ ସୁଜିତ୍ କ୍ଲାସେସ୍ (Sujit Classes) &bull; ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ପ୍ରକାଶ ମାଷ୍ଟର ସିରିଜ୍।</p>
+    <p style="margin-top: 0.5rem; font-size: 0.82rem; color: #64748b;">NEP ମାର୍ଗଦର୍ଶିକା, NCERT ପାଠ୍ୟକ୍ରମ ଏବଂ ଉଚ୍ଚ-ଦକ୍ଷତା ସମ୍ପନ୍ନ ୱେବ୍ ଡିଜାଇନ୍ ଅନୁସରଣରେ ନିର୍ମିତ।</p>
+  </footer>
+
+  <script>
+    // 1. Reading Progress Bar & Back to Top
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTop');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.style.display = 'flex';
+        } else {
+          btt.style.display = 'none';
+        }
+      }
+    });
+
+    // 2. Audio Reader (Text-to-Speech)
+    var speechActive = false;
+    function toggleAudioSummary() {
+      var btn = document.getElementById('audioSummaryBtn');
+      if (!speechActive) {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          var text = "ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୧୨: ବିନ୍ଦୁ ଆରପାରିର ଆଉ ଏକ ଝଲକ, ଦଶମିକରେ ଆପଣଙ୍କୁ ସ୍ୱାଗତ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ଦଶମିକ ସଂଖ୍ୟାର ଗୁଣନ ଓ ହରଣ ବିଷୟରେ ଶିଖିବା। କ୍ଷେତ୍ରଫଳ ମଡେଲ୍ ଦ୍ୱାରା ଶୂନ ଦଶମିକ ତିନି ଗୁଣନ ଶୂନ ଦଶମିକ ଚାରି ସମାନ ଶୂନ ଦଶମିକ ଏକ ଦୁଇ ହୁଏ। ଦଶମିକ ଭାଜକ ଦ୍ୱାରା ହରିବା ବେଳେ ଭାଜକକୁ ପୂର୍ଣ୍ଣ ସଂଖ୍ୟାରେ ରୂପାନ୍ତର କରାଯାଏ। ଏମିଲ୍ ଆର୍ଟିନ୍‌ଙ୍କ ଆବର୍ତ୍ତୀ ସଂଖ୍ୟା ଏକ ବିଭକ୍ତ ସାତ ହେଉଛି ଶୂନ ଦଶମିକ ଏକ ଚାରି ଦୁଇ ଆଠ ପାଞ୍ଚ ସାତ, ଯାହାକୁ ସାତ ଦ୍ୱାରା ଗୁଣିଲେ ଛଅଟି ନଅ ମିଳେ। ସୌର ବର୍ଷ ତିନିଶହ ପଞ୍ଚଷଠି ଦଶମିକ ଦୁଇ ଚାରି ଦୁଇ ଦୁଇ ଦିନ ହୋଇଥିବାରୁ ପ୍ରତି ଚାରିଶହ ବର୍ଷରେ ତିନୋଟି ଅଧିବର୍ଷ ବାଦ୍ ଦିଆଯାଏ।";
+          var utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'or-IN';
+          utterance.rate = 0.95;
+          utterance.onend = function() {
+            speechActive = false;
+            if (btn) btn.innerHTML = '<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>';
+          };
+          window.speechSynthesis.speak(utterance);
+          speechActive = true;
+          if (btn) btn.innerHTML = '<span>⏹ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>';
+        } else {
+          alert('ଦୁଃଖିତ, ଆପଣଙ୍କ ବ୍ରାଉଜରରେ ଟେକ୍ସଟ୍-ଟୁ-ସ୍ପିଚ୍ ସମର୍ଥିତ ନୁହେଁ।');
+        }
+      } else {
+        window.speechSynthesis.cancel();
+        speechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>';
+      }
+    }
+
+    // 3. Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim();
+      var selectedOpt = '';
+      if (btnText.indexOf('(କ)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(ଖ)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(ଗ)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(ଘ)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      var optMapping = { 'a': '(କ)', 'b': '(ଖ)', 'c': '(ଗ)', 'd': '(ଘ)' };
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim();
+          if (t.indexOf(optMapping[correctOpt]) === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 ଚମତ୍କାର! ଦଶମିକ ଗୁଣନ ଓ ହରଣରେ ଆପଣ ଶତପ୍ରତିଶତ ସଫଳ!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 ଉତ୍କୃଷ୍ଟ କାର୍ଯ୍ୟ! ଆପଣଙ୍କ ଦଶମିକ ଧାରଣା ଅତି ସ୍ପଷ୍ଟ!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 ଚେଷ୍ଟା ଜାରି ରଖନ୍ତୁ! ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା ପୁଣି ଥରେ ଦେଖନ୍ତୁ।";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
