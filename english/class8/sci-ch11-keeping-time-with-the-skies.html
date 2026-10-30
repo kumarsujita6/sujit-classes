@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 11 - Keeping Time with the Skies (Class 8 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981, #0284c7, #8b5cf6);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 45%, #064e3b 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #0f172a;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f1f5f9;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease;
+    }
+
+    .callout-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-box .callout-text {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .callout-def {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .callout-def i { color: #059669; }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-color: #a855f7;
+      color: #581c87;
+    }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+    .callout-warn i { color: #dc2626; }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+    .data-table tr:hover { background: #f1f5f9; }
+
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #0f172a;
+      padding: 1.5rem;
+      border-radius: 14px;
+      border: 1px solid #334155;
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: #94a3b8;
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #065f46 0%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      background: #0369a1;
+      transform: translateY(-3px) scale(1.08);
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Master Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Competency Bank</a>
+      <a href="#sec6" class="nav-link">6. Exam Traps</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-moon"></i> Class 8 Science &bull; Chapter 11 (Curiosity NEP)
+    </div>
+    <h1 class="hero-title">Keeping Time with the Skies</h1>
+    <p class="hero-sub">
+      Unravel humanity's grand cosmic clock! Discover why the Moon dances through 8 phases, why Earth's shadow is NOT the cause of phases, how solar, lunar, and luni-solar calendars work with intercalary leap months (Adhikamaasa), and explore India's space triumphs under Dr. Vikram Sarabhai.
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT Curiosity Grade 8</span>
+      <span><i class="fa-solid fa-clock"></i> 55 Mins Full Mastery</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Complete &amp; Unabridged</span>
+      <span><i class="fa-solid fa-brain"></i> Interactive Quiz &amp; Audio</span>
+    </div>
+    <button id="teacherAudioBtn" class="audio-btn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL BLUEPRINT -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
+        <h2>Celestial Clockwork: The 8 Moon Phases &amp; Calendar Cycles</h2>
+        <p class="section-sub">A cosmic view of sunlight illuminating the Moon's orbit around Earth as seen from space and from our backyard.</p>
+      </div>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 950 380" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="sunGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#fef08a" />
+              <stop offset="100%" stop-color="#eab308" />
+            </linearGradient>
+            <linearGradient id="earthGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#38bdf8" />
+              <stop offset="100%" stop-color="#1e40af" />
+            </linearGradient>
+          </defs>
+
+          <!-- Cosmic Background Stars -->
+          <circle cx="50" cy="40" r="1.5" fill="#ffffff" opacity="0.8" />
+          <circle cx="120" cy="80" r="1" fill="#ffffff" opacity="0.6" />
+          <circle cx="280" cy="50" r="1.5" fill="#ffffff" opacity="0.7" />
+          <circle cx="850" cy="60" r="1.5" fill="#ffffff" opacity="0.9" />
+          <circle cx="900" cy="150" r="1" fill="#ffffff" opacity="0.5" />
+          <circle cx="870" cy="320" r="1.5" fill="#ffffff" opacity="0.8" />
+
+          <!-- Sunlight Streaming from Left -->
+          <rect x="15" y="60" width="60" height="260" rx="10" fill="url(#sunGrad)" />
+          <text x="45" y="195" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="800" fill="#713f12" text-anchor="middle" transform="rotate(-90 45 195)">PARALLEL SUNLIGHT</text>
+
+          <!-- Golden Rays Arrows -->
+          <line x1="85" y1="100" x2="160" y2="100" stroke="#fde047" stroke-width="2.5" marker-end="url(#arrow)" />
+          <line x1="85" y1="190" x2="160" y2="190" stroke="#fde047" stroke-width="2.5" marker-end="url(#arrow)" />
+          <line x1="85" y1="280" x2="160" y2="280" stroke="#fde047" stroke-width="2.5" marker-end="url(#arrow)" />
+
+          <!-- Earth in Center -->
+          <circle cx="500" cy="190" r="38" fill="url(#earthGrad)" />
+          <text x="500" y="195" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="800" fill="#ffffff" text-anchor="middle">EARTH</text>
+
+          <!-- Moon Orbit Track -->
+          <circle cx="500" cy="190" r="135" fill="none" stroke="#475569" stroke-width="1.5" stroke-dasharray="6,6" />
+
+          <!-- 8 Lunar Positions in Orbit -->
+          <!-- Pos 1: New Moon (between Sun & Earth, left) -->
+          <g transform="translate(365, 190)">
+            <circle cx="0" cy="0" r="14" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+            <path d="M 0 -14 A 14 14 0 0 0 0 14 Z" fill="#eab308" />
+            <text x="-25" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#e2e8f0" text-anchor="end">1. New Moon (Amavasya)</text>
+          </g>
+
+          <!-- Pos 2: Waxing Crescent (lower left) -->
+          <g transform="translate(405, 285)">
+            <circle cx="0" cy="0" r="14" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+            <path d="M -9 -10 A 14 14 0 0 0 9 10 Z" fill="#eab308" />
+            <text x="-15" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" fill="#93c5fd">2. Waxing Crescent</text>
+          </g>
+
+          <!-- Pos 3: First Quarter (Half Moon, bottom) -->
+          <g transform="translate(500, 325)">
+            <circle cx="0" cy="0" r="14" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+            <path d="M 0 -14 A 14 14 0 0 0 0 14 Z" fill="#eab308" />
+            <text x="0" y="32" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#67e8f9" text-anchor="middle">3. First Quarter (Half Moon)</text>
+          </g>
+
+          <!-- Pos 4: Waxing Gibbous (lower right) -->
+          <g transform="translate(595, 285)">
+            <circle cx="0" cy="0" r="14" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+            <path d="M -5 -13 A 14 14 0 0 0 12 7 Z" fill="#eab308" />
+            <text x="20" y="22" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" fill="#93c5fd">4. Waxing Gibbous</text>
+          </g>
+
+          <!-- Pos 5: Full Moon (opposite Sun, right) -->
+          <g transform="translate(635, 190)">
+            <circle cx="0" cy="0" r="14" fill="#fef08a" stroke="#ca8a04" stroke-width="2" />
+            <text x="25" y="4" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#fde047">5. Full Moon (Purnima)</text>
+          </g>
+
+          <!-- Pos 6: Waning Gibbous (upper right) -->
+          <g transform="translate(595, 95)">
+            <circle cx="0" cy="0" r="14" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+            <path d="M 5 13 A 14 14 0 0 0 -12 -7 Z" fill="#eab308" />
+            <text x="20" y="-12" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" fill="#cbd5e1">6. Waning Gibbous</text>
+          </g>
+
+          <!-- Pos 7: Third Quarter (Half Moon, top) -->
+          <g transform="translate(500, 55)">
+            <circle cx="0" cy="0" r="14" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+            <path d="M 0 -14 A 14 14 0 0 0 0 14 Z" fill="#eab308" />
+            <text x="0" y="-20" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#67e8f9" text-anchor="middle">7. Third Quarter (Half Moon)</text>
+          </g>
+
+          <!-- Pos 8: Waning Crescent (upper left) -->
+          <g transform="translate(405, 95)">
+            <circle cx="0" cy="0" r="14" fill="#1e293b" stroke="#cbd5e1" stroke-width="1.5" />
+            <path d="M 9 10 A 14 14 0 0 0 -9 -10 Z" fill="#eab308" />
+            <text x="-15" y="-12" font-family="'Plus Jakarta Sans', sans-serif" font-size="9.5" fill="#cbd5e1">8. Waning Crescent</text>
+          </g>
+
+          <!-- Orbit Direction Arrow -->
+          <path d="M 540 58 A 135 135 0 0 1 630 150" fill="none" stroke="#38bdf8" stroke-width="2" />
+          <polygon points="630,150 635,140 622,143" fill="#38bdf8" />
+          <text x="615" y="115" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" fill="#38bdf8">Counter-Clockwise Orbit</text>
+        </svg>
+        <p class="diagram-caption">Figure 11.1: Master celestial schematic showing the Moon orbiting Earth in 29.5 days, creating the 8 phases as seen from Earth.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: DEEP CORE CONCEPTS -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2 &bull; Teacher's Deep Conceptual Guide</span>
+        <h2>Mastering the Cosmic Clock: Moon Phases &amp; Calendars</h2>
+        <p class="section-sub">Step-by-step astronomical principles explained with crystal-clear teacher clarity and historical depth.</p>
+      </div>
+
+      <!-- TOPIC 1 -->
+      <h3 class="topic-title"><i class="fa-solid fa-cloud-moon"></i> 11.1 How Does the Moon's Appearance Change?</h3>
+      <p>
+        If you look at the night sky across a whole month, the Moon seems to change its shape like a celestial chameleon! Sometimes it is a razor-thin golden smile (crescent), sometimes a bright half-pie, and sometimes a brilliant silver disc (full moon).
+      </p>
+      <p>
+        Does the Moon actually grow and shrink? <strong>No! The Moon is a solid rock ball of constant size.</strong>
+      </p>
+      <ul>
+        <li>The Moon does not produce any light of its own (it is non-luminous).</li>
+        <li>It shines only because its rocky surface acts like a giant dusty mirror reflecting bright sunlight back to our eyes!</li>
+        <li>At all times, exactly <strong>half of the Moon's spherical surface (50%) is brightly lit by the Sun</strong>, and the other half is dark night.</li>
+        <li>As the Moon orbits the Earth, our viewpoint changes daily. We see varying portions of that sunlit half, creating the optical illusion of changing <strong>phases of the Moon</strong>!</li>
+      </ul>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Busting the #1 Astronomy Misconception &bull; Earth's Shadow Does NOT Cause Phases!</strong><br>
+          <em>Common Student Mistake:</em> "Moon phases happen because the Earth casts a shadow on the Moon."<br>
+          <strong>Teacher's Scientific Correction:</strong> Earth's shadow has NOTHING to do with regular monthly Moon phases! Earth's shadow falls on the Moon only during a <strong>lunar eclipse</strong>, which happens rarely (only on select full moon nights). Everyday phases are simply our changing geometric angle of viewing the illuminated half of the Moon!
+        </div>
+      </div>
+
+      <!-- TOPIC 2: The 8 Phases -->
+      <h3 class="topic-title"><i class="fa-solid fa-arrows-spin"></i> 11.1.1 The 8 Lunar Phases in Sequence (29.5-Day Cycle)</h3>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Day in Cycle</th>
+              <th>Phase Name (English &amp; Indian Tradition)</th>
+              <th>What We See from Earth</th>
+              <th>Where &amp; When to Spot It</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Day 0 / 29.5</strong></td>
+              <td><strong>New Moon (Amavasya)</strong></td>
+              <td>Completely dark. Moon is between Sun and Earth; dark side faces Earth.</td>
+              <td>Rises with Sun at sunrise, invisible in daytime glare.</td>
+            </tr>
+            <tr>
+              <td><strong>Day 3 &ndash; 4</strong></td>
+              <td><strong>Waxing Crescent (Shukla Paksha)</strong></td>
+              <td>A slender curved sliver of light growing (waxing) on the right side.</td>
+              <td>Low in western sky immediately after sunset.</td>
+            </tr>
+            <tr>
+              <td><strong>Day 7 &ndash; 8</strong></td>
+              <td><strong>First Quarter (Half Moon)</strong></td>
+              <td>Exactly half of the visible disc is brightly illuminated.</td>
+              <td><strong>Overhead at sunset</strong>; sets around midnight.</td>
+            </tr>
+            <tr>
+              <td><strong>Day 10 &ndash; 12</strong></td>
+              <td><strong>Waxing Gibbous</strong></td>
+              <td>More than half illuminated, swelling towards a full circle.</td>
+              <td>Rises in the east during late afternoon; visible most of night.</td>
+            </tr>
+            <tr>
+              <td><strong>Day 14 &ndash; 15</strong></td>
+              <td><strong>Full Moon (Purnima)</strong></td>
+              <td>100% of the Earth-facing hemisphere is fully illuminated!</td>
+              <td><strong>Rises in east at sunset, stays up all night, sets at sunrise!</strong></td>
+            </tr>
+            <tr>
+              <td><strong>Day 18 &ndash; 20</strong></td>
+              <td><strong>Waning Gibbous (Krishna Paksha)</strong></td>
+              <td>Shrinking (waning) illuminated area; left side remains bright.</td>
+              <td>Rises late in the evening after sunset.</td>
+            </tr>
+            <tr>
+              <td><strong>Day 21 &ndash; 22</strong></td>
+              <td><strong>Third / Last Quarter (Half Moon)</strong></td>
+              <td>Opposite half illuminated compared to First Quarter.</td>
+              <td>Rises around midnight; <strong>overhead at sunrise</strong>!</td>
+            </tr>
+            <tr>
+              <td><strong>Day 25 &ndash; 27</strong></td>
+              <td><strong>Waning Crescent</strong></td>
+              <td>Thin silver sliver before disappearing into the New Moon.</td>
+              <td>Low in eastern sky just before dawn sunrise.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TOPIC 3: Synchronous Rotation -->
+      <h3 class="topic-title"><i class="fa-solid fa-lock"></i> 11.1.2 Why We Only See One Face of the Moon (Tidal Locking)</h3>
+      <p>
+        Have you ever noticed that the dark patches on the Moon (the "Man in the Moon" or lunar *maria*) always look identical every single night? We never see the far side of the Moon from Earth!
+      </p>
+      <p>
+        <strong>Why?</strong> The Moon rotates on its own axis in the exact same amount of time it takes to orbit Earth: approximately <strong>27.3 days</strong>! This remarkable gravitational synchronization is called <strong>synchronous rotation (or tidal locking)</strong>. As the Moon moves in its orbit, it turns just enough to keep the same side pointing straight at Earth.
+      </p>
+
+      <!-- TOPIC 4: How Calendars Came into Existence -->
+      <h3 class="topic-title"><i class="fa-solid fa-calendar-days"></i> 11.2 How Did Calendars Come into Existence?</h3>
+      <p>
+        Ancient humans didn't have smart watches or digital phones. They tracked time by watching three fundamental rhythms of the cosmos:
+      </p>
+      <ol>
+        <li><strong>A Day (Earth Rotation):</strong> Time taken by Earth to complete one full spin on its axis (approx 24 hours &mdash; from one sunrise to the next).</li>
+        <li><strong>A Month (Moon Orbit):</strong> Time taken by the Moon to cycle through all its phases from New Moon to the next New Moon (approx <strong>29.5 days</strong>).</li>
+        <li><strong>A Year (Earth Revolution):</strong> Time taken by Earth to complete one full revolution around the Sun (approx <strong>365.2422 days</strong> &mdash; 365 days and ~6 hours).</li>
+      </ol>
+
+      <div class="card">
+        <h4 class="sub-topic"><i class="fa-solid fa-calculator"></i> The Mathematical Puzzle of Calendars</h4>
+        <p>
+          Nature did not make these numbers fit neatly into each other!
+        </p>
+        <ul>
+          <li><code>12 Lunar Months = 12 &times; 29.53 days = 354.36 days</code>.</li>
+          <li><code>1 Solar Year = 365.2422 days</code>.</li>
+          <li><strong>The Difference:</strong> A pure lunar year is about <strong>11 days shorter</strong> than a solar year!</li>
+        </ul>
+        <p>
+          This 11-day gap led ancient civilizations to invent three distinct calendar architectures:
+        </p>
+      </div>
+
+      <!-- TOPIC 5: 3 Calendar Types -->
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Calendar Type</th>
+              <th>Basis / Cycle</th>
+              <th>Year Length</th>
+              <th>How It Handles the Seasons &amp; Leap Adjustments</th>
+              <th>Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Pure Solar Calendar</strong></td>
+              <td>Earth's revolution around the Sun. Tracks solar seasons accurately.</td>
+              <td>365 days (366 in leap years)</td>
+              <td>Because a solar year is ~365.25 days, adding <strong>1 leap day (Feb 29) every 4 years</strong> keeps dates locked to natural seasons.</td>
+              <td>Gregorian Calendar (everyday international calendar).</td>
+            </tr>
+            <tr>
+              <td><strong>Pure Lunar Calendar</strong></td>
+              <td>Follows only the Moon's 29.5-day cycle across 12 months.</td>
+              <td>354 days (~11 days shorter than solar)</td>
+              <td>Does NOT synchronize with solar seasons! Months drift through all seasons over a 33-year cycle.</td>
+              <td>Islamic Hijri Calendar (why Ramadan &amp; Eid-ul-Fitr shift earlier by ~11 days each year).</td>
+            </tr>
+            <tr>
+              <td><strong>Luni-Solar Calendar</strong></td>
+              <td>Combines BOTH Moon months and Solar seasons!</td>
+              <td>354 days in normal years; 384 days in leap years</td>
+              <td>Adds an entire <strong>extra leap month (called <em>Adhikamaasa</em> or <em>Malamasa</em>)</strong> approximately every 2.5 to 3 years to bring festivals back in sync with harvest seasons!</td>
+              <td>Traditional Indian Panchang (Odia Panji, Vikram Samvat, Saka Calendar), Hebrew calendar.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- TOPIC 6: Indian National Calendar & ISRO -->
+      <h3 class="topic-title"><i class="fa-solid fa-satellite"></i> 11.4 Artificial Satellites &amp; Dr. Vikram Sarabhai</h3>
+      <p>
+        Just as the Moon is Earth's only natural satellite, human beings have built thousands of <strong>artificial satellites</strong> that orbit our planet.
+      </p>
+      <ul>
+        <li><strong>Weather &amp; Cyclone Warnings:</strong> Satellites like INSAT monitor Bay of Bengal storms, saving thousands of lives in coastal Odisha during super-cyclones!</li>
+        <li><strong>Telecommunications &amp; Internet:</strong> Direct-to-home TV, mobile phone signals, and broadband connectivity.</li>
+        <li><strong>Navigation (GPS &amp; NavIC):</strong> Guide aircraft, ships, and Google Maps on your smartphone.</li>
+        <li><strong>Remote Sensing:</strong> Mapping agricultural crops, forest fires, groundwater, and mineral resources.</li>
+      </ul>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-user-astronaut"></i>
+        <div class="callout-text">
+          <strong>Father of the Indian Space Programme &bull; Dr. Vikram Sarabhai:</strong><br>
+          Visionary physicist Dr. Vikram Sarabhai established the Indian Space Research Organisation (<strong>ISRO</strong>). He believed that a developing nation like India must harness space technology directly for societal benefit &mdash; helping poor farmers with weather forecasts, educating rural children via satellite television, and protecting our borders. The premier rocket laboratory in Thiruvananthapuram, <strong>VSSC</strong>, proudly bears his name!
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ESSENTIAL VOCABULARY -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3 &bull; Terminology &amp; Concept Bank</span>
+        <h2>Key Vocabulary &amp; Exam Definitions</h2>
+        <p class="section-sub">Quick-reference memory cards for full marks in one-mark and two-mark questions.</p>
+      </div>
+
+      <div class="card">
+        <h4>1. Phases of the Moon</h4>
+        <p>The regular changing shapes of the bright, sunlit part of the Moon as viewed from Earth during its 29.5-day synodic orbital cycle.</p>
+      </div>
+
+      <div class="card">
+        <h4>2. Waxing Phase (Shukla Paksha)</h4>
+        <p>The two-week period from New Moon to Full Moon during which the illuminated portion of the Moon visible from Earth increases every day.</p>
+      </div>
+
+      <div class="card">
+        <h4>3. Waning Phase (Krishna Paksha)</h4>
+        <p>The two-week period from Full Moon to New Moon during which the illuminated portion of the Moon decreases every day.</p>
+      </div>
+
+      <div class="card">
+        <h4>4. Synchronous Rotation (Tidal Locking)</h4>
+        <p>The phenomenon where the Moon takes the exact same time to rotate once on its axis as it takes to orbit Earth (~27.3 days), keeping the same hemisphere facing Earth permanently.</p>
+      </div>
+
+      <div class="card">
+        <h4>5. Adhikamaasa (Intercalary Month)</h4>
+        <p>An extra lunar month added to a luni-solar calendar once every ~32.5 months (about every 2.5 to 3 years) to keep lunar festivals synchronized with the solar seasons.</p>
+      </div>
+
+      <div class="card">
+        <h4>6. Artificial Satellite</h4>
+        <p>A human-made machine launched by rockets into orbit around Earth (or other planets) to gather scientific data, forecast weather, and facilitate global communications.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 4: NCERT SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4 &bull; Step-by-Step NCERT Solutions</span>
+        <h2>Complete Textbook 'Keep the Curiosity Alive' Exercises</h2>
+        <p class="section-sub">Unabridged solutions for Questions 1 to 12 with mathematical proofs and astronomical explanations.</p>
+      </div>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Q1.</strong> State whether True or False.</span>
+          <span class="badge badge-green">True / False</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>(i) We can only see that part of the Moon which reflects sunlight towards us.</strong><br>
+          <span class="badge badge-green">TRUE</span> &mdash; The Moon produces no light of its own; we only perceive the portion of its sunlit hemisphere that faces our vantage point on Earth.</p>
+
+          <p style="margin-top:0.8rem;"><strong>(ii) The shadow of Earth blocks sunlight from reaching the Moon causing phases.</strong><br>
+          <span class="badge badge-warn">FALSE</span> &mdash; <em>Correction:</em> Earth's shadow causes <strong>lunar eclipses</strong>, not monthly phases. Moon phases happen simply because of the changing relative positions of the Moon, Earth, and Sun as the Moon orbits our planet.</p>
+
+          <p style="margin-top:0.8rem;"><strong>(iii) Calendars are based on various astronomical cycles which repeat in a predictable manner.</strong><br>
+          <span class="badge badge-green">TRUE</span> &mdash; Days are based on Earth's rotation, months on lunar phase cycles, and years on Earth's revolution around the Sun.</p>
+
+          <p style="margin-top:0.8rem;"><strong>(iv) The Moon can only be seen at night.</strong><br>
+          <span class="badge badge-warn">FALSE</span> &mdash; <em>Correction:</em> The Moon is frequently visible in the daytime sky! For instance, a First Quarter Moon is visible high in the sky during the afternoon before sunset, and a Third Quarter Moon is visible in the morning sky after sunrise.</p>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q2.</strong> Amol was born on 6th of May on a full Moon day. Does his birthday fall on the full Moon day every year? Explain.</span>
+          <span class="badge badge-blue">Reasoning</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong> <strong>NO, his birthday will NOT fall on a full Moon day every year!</strong></p>
+          <p><strong>Teacher's Mathematical Explanation:</strong></p>
+          <ul>
+            <li>The date "6th of May" belongs to the <strong>solar Gregorian calendar</strong>, which has 365 days (or 366 in leap years).</li>
+            <li>Full moons follow the <strong>lunar cycle</strong> of 29.5 days. A lunar year of 12 full moons has only <code>12 &times; 29.5 = 354 days</code>.</li>
+            <li>This creates a discrepancy of approximately <strong>11 days every year</strong> (365 - 354 = 11 days).</li>
+            <li>In the following year, the full moon will occur about 11 days earlier (around April 25). It takes roughly 19 solar years (the Metonic cycle) for a full moon to fall on the exact same calendar date again!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q3.</strong> Name two things that are incorrect in Fig. 11.10 (drawing of a crescent Moon with a star inside its horns).</span>
+          <span class="badge badge-amber">NCERT Fig 11.10</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Two Scientific Errors in Fig. 11.10:</strong></p>
+          <ol>
+            <li><strong>A Star is Shown Inside the Crescent:</strong> In many artistic drawings, a star is drawn between the horns of the crescent Moon. This is physically impossible! The Moon is a solid, opaque rock ball. Even when a portion is dark (unlit by the Sun), the solid body of the Moon is still there, blocking any background stars behind it.</li>
+            <li><strong>Crescent Orientation / Curvature:</strong> The illuminated curved edge of the crescent must always bulge directly towards the direction of the Sun. If the Sun is below the horizon, the outer curve must face downwards towards the Sun, never away from it.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q4.</strong> Matching phases of Moon in Fig. 11.11, and list phases never seen from Earth.</span>
+          <span class="badge badge-purple">Matching &amp; Observation</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>(i) Matching Phases:</strong></p>
+          <ul>
+            <li>Three days after New Moon &rarr; <strong>Waxing Crescent</strong></li>
+            <li>Full Moon &rarr; <strong>Fully illuminated circular disc</strong></li>
+            <li>Three days after Full Moon &rarr; <strong>Waning Gibbous</strong></li>
+            <li>A week after Full Moon &rarr; <strong>Third Quarter (Half Moon)</strong></li>
+            <li>Day of New Moon &rarr; <strong>Completely dark / invisible disc</strong></li>
+          </ul>
+          <p><strong>(ii) Phases never seen from Earth:</strong> A phase where the crescent horns face away from the Sun, or seeing the far side of the Moon illuminated while the Earth-facing side is lit, is never visible from Earth due to tidal locking and light geometry.</p>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q5.</strong> Malini saw the Moon overhead in the sky at sunset. (i) Draw the phase; (ii) Is it waxing or waning?</span>
+          <span class="badge badge-green">Sky Geometry</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>(i) Phase Seen:</strong> <strong>First Quarter (Half Moon)</strong></p>
+          <p><em>Drawing Description:</em> Draw a circle with a vertical dividing line down the middle. The right half is brightly illuminated white, and the left half is dark.</p>
+          <p><strong>(ii) Waxing or Waning?</strong></p>
+          <p>It is in the <strong>WAXING phase</strong>! When the Moon is at an angle of 90&deg; east of the Sun, the Sun sets in the West while the Moon sits at the highest point directly overhead (zenith). This happens exactly ~7 days after New Moon during the waxing half of the cycle.</p>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q6.</strong> Ravi said, "I saw a crescent Moon rising in the East when Sun was setting." Kaushalya said, "I saw gibbous Moon during afternoon in the East." Who is telling the truth?</span>
+          <span class="badge badge-blue">Logic &amp; Observation</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong> <strong>KAUSHALYA is telling the truth, while Ravi is mistaken!</strong></p>
+          <p><strong>Scientific Proof:</strong></p>
+          <ul>
+            <li><strong>Why Ravi is wrong:</strong> A crescent Moon is always located close to the Sun in the sky (within ~45&deg;). At sunset, a crescent Moon must be in the <strong>Western sky</strong> near the setting Sun, setting shortly afterwards. The only phase that can rise in the East when the Sun is setting in the West is a <strong>Full Moon</strong> (180&deg; opposite the Sun)! A crescent can never rise in the East at sunset.</li>
+            <li><strong>Why Kaushalya is right:</strong> A Waxing Gibbous Moon rises in the East during the mid-afternoon (around 3 to 4 PM), before the Sun has set. It is easily visible in the blue eastern afternoon sky!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q7.</strong> Moon getting farther from Earth and slower in revolution. Will luni-solar calendars need an intercalary month more or less often?</span>
+          <span class="badge badge-purple">HOTS Astronomy</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong> Luni-solar calendars will need an intercalary month <strong>LESS OFTEN</strong>!</p>
+          <p><strong>Teacher's Mathematical Reasoning:</strong></p>
+          <ul>
+            <li>As the Moon moves farther out, Kepler's laws dictate that its orbital period increases, making the lunar month <strong>longer than 29.5 days</strong>.</li>
+            <li>A longer lunar month means that 12 lunar months will total more than 354 days (closer to 365 days!).</li>
+            <li>Because the annual gap between the lunar year and the 365-day solar year will become smaller (less than 11 days), it will take much longer for the lunar cycle to slip out of sync with the seasons. Therefore, an intercalary month (Adhikamaasa) will be needed <strong>less frequently</strong>.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q8.</strong> Total 37 full moons happen in 3 years in a solar calendar. Show that at least two full moons must happen in the same calendar month.</span>
+          <span class="badge badge-green">Pigeonhole Principle</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Rigorous Mathematical Proof (Pigeonhole Principle):</strong></p>
+          <ul>
+            <li>Number of months in 1 solar year = 12 months.</li>
+            <li>Total number of months in 3 solar years = <code>3 &times; 12 = 36 months</code> (these are our "pigeonholes").</li>
+            <li>Total number of full moons observed = <strong>37 full moons</strong> (these are our "pigeons").</li>
+            <li>By the <strong>Pigeonhole Principle</strong>, if 37 items are distributed into 36 boxes, at least one box must contain at least <code>37 / 36 &gt; 1</code> items.</li>
+            <li>Therefore, at least one calendar month must contain <strong>two full moons</strong> (the second full moon in a month is popularly called a <em>"Blue Moon"</em>)!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q9.</strong> On a particular night, Vaishali saw the Moon in the sky from sunset to sunrise. What phase was it?</span>
+          <span class="badge badge-blue">Phase Geometry</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Answer:</strong> <strong>FULL MOON (Purnima)</strong></p>
+          <p><strong>Explanation:</strong> During a Full Moon, the Moon is positioned exactly opposite the Sun relative to Earth (180&deg; separation). As Earth rotates, the Full Moon rises in the East precisely as the Sun sets in the West, remains visible across the sky throughout the entire night, and sets in the West right as the Sun rises in the East.</p>
+        </div>
+      </details>
+
+      <!-- Q10 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q10.</strong> If we stopped having leap years, in approximately how many years would Indian Independence Day (Aug 15) happen in winter?</span>
+          <span class="badge badge-purple">Calculation</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Step-by-Step Mathematical Derivation:</strong></p>
+          <ul>
+            <li>Earth's actual orbital period = 365.25 days. A standard calendar without leap years counts only 365 days.</li>
+            <li>Every year without a leap day, the calendar slips behind the solar seasons by <strong>0.25 day (6 hours)</strong>.</li>
+            <li>Independence Day is on <strong>August 15</strong> (mid-monsoon / summer). In India, peak winter occurs around <strong>January &ndash; February</strong>, which is about <strong>6 months (approx 182.5 days) away</strong>.</li>
+            <li>To shift the season by 182.5 days: <code>Years = 182.5 days &divide; 0.25 day/year = 730 years</code>!</li>
+          </ul>
+          <p>In approximately <strong>730 years</strong>, August 15 would occur in the shivering cold of winter!</p>
+        </div>
+      </details>
+
+      <!-- Q11 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q11.</strong> What is the purpose of launching artificial satellites?</span>
+          <span class="badge badge-green">Space Applications</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Key Practical Purposes:</strong></p>
+          <ol>
+            <li><strong>Weather Forecasting &amp; Cyclone Tracking:</strong> Monitoring cloud movements, ocean surface temperatures, and tracking cyclonic storms in real time to evacuate coastal populations safely.</li>
+            <li><strong>Telecommunications &amp; Broadcasting:</strong> Relaying television broadcasts, telephone signals, and high-speed satellite internet to remote and mountainous areas.</li>
+            <li><strong>Navigation (GPS &amp; NavIC):</strong> Providing pinpoint positional coordinates and route navigation for cars, airplanes, ships, and rescue services.</li>
+            <li><strong>Earth Observation &amp; Agriculture:</strong> Surveying crop health, soil moisture, groundwater reservoirs, mineral deposits, and forest cover.</li>
+            <li><strong>Scientific Research &amp; Astronomy:</strong> Carrying space telescopes (like AstroSat) to study deep space without atmospheric distortion.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q12 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q12.</strong> On which periodic astronomical phenomenon are the following based: (i) day, (ii) month, (iii) year?</span>
+          <span class="badge badge-amber">Summary Core</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Periodic Astronomical Foundations:</strong></p>
+          <ul>
+            <li><strong>(i) Day:</strong> The <strong>rotation of the Earth on its own axis</strong> (takes approx 24 hours).</li>
+            <li><strong>(ii) Month:</strong> The <strong>revolution of the Moon around the Earth</strong>, corresponding to one complete cycle of lunar phases from New Moon to New Moon (approx 29.5 days).</li>
+            <li><strong>(iii) Year:</strong> The <strong>revolution of the Earth around the Sun</strong> in its elliptical orbit, creating the cycle of seasons (approx 365.25 days).</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: INTERACTIVE QUIZ & HOTS -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5 &bull; Interactive Quiz &amp; Competency Drills</span>
+        <h2>Mastery Check: Interactive Real-Time Evaluation</h2>
+        <p class="section-sub">Test your astronomical intuition. Click your answer to receive immediate evaluation.</p>
+      </div>
+
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <i class="fa-solid fa-trophy"></i> Your Score: <span id="quizScoreCount">0</span> / 5
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Select an option for each question to test your concepts!
+        </div>
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qcard1">
+        <h4>1. Why do we always see the exact same face of the Moon from Earth?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(a) The Moon does not rotate on its axis at all</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(b) The Moon's period of rotation on its axis equals its period of revolution around Earth (~27.3 days)</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(c) The far side of the Moon is permanently invisible because it is made of black holes</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(d) Earth's atmosphere bends light around the back of the Moon</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> Tidal locking causes synchronous rotation, ensuring the same lunar hemisphere always faces our planet.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qcard2">
+        <h4>2. Why does the festival of Eid-ul-Fitr shift earlier by about 11 days every year on our normal calendar?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(a) Because it follows a pure lunar calendar of 354 days, which is 11 days shorter than the 365-day solar calendar</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(b) Because the Earth revolves faster during the month of Ramadan</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(c) Because astronomers change the clocks every spring</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(d) Because the Moon skips two phases every four years</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong> The Islamic calendar has 12 lunar months totalling ~354 days. Since it does not add intercalary leap months, it moves backward relative to the solar year by ~11 days annually.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qcard3">
+        <h4>3. When is the First Quarter (Half Moon) visible directly overhead in the sky?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(a) At sunrise</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(b) Exactly at midnight</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(c) At sunset</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(d) Exactly at noon</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> The First Quarter Moon is 90&deg; east of the Sun. As the Sun sets on the western horizon, the First Quarter Moon culminates at its highest point overhead.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qcard4">
+        <h4>4. What is the role of an 'Adhikamaasa' (intercalary month) in traditional Indian luni-solar calendars?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(a) To celebrate extra birthdays</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(b) To make summer last 100 days longer</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(c) To correct errors in watch batteries</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(d) To bridge the 11-day annual gap between 12 lunar months and the solar year, keeping festivals in their proper agricultural seasons</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d)</strong> Adding an extra month every ~2.5 to 3 years resynchronizes the 354-day lunar calendar with the 365-day solar cycle.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qcard5">
+        <h4>5. Who is revered as the Father of the Indian Space Programme?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+          <span>(a) Dr. Vikram Sarabhai</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+          <span>(b) Dr. Homi J. Bhabha</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+          <span>(c) Sir C.V. Raman</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')">
+          <span>(d) Aryabhata</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong> Dr. Vikram Ambalal Sarabhai pioneered the founding of ISRO and initiated India's satellite communications and launch vehicle programs.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM TRAPS & MEMORY HACKS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6 &bull; Exam Traps &amp; Key Takeaways</span>
+        <h2>Board Exam Traps, Common Mistakes &amp; Memory Shortcuts</h2>
+        <p class="section-sub">Avoid these common celestial traps on your science exam paper.</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Trap #1: 'Stars inside the Moon's Crescent'</strong><br>
+          <em>Mistake:</em> Drawing a little star twinkling between the crescent tips.<br>
+          <strong>Full-Marks Correction:</strong> Never draw stars inside the crescent arc! The dark half of the Moon is a solid rocky body that blocks any star behind it.
+        </div>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Trap #2: 'Confusing Sidereal vs Synodic Month'</strong><br>
+          <em>Mistake:</em> Stating that the phase cycle takes 27.3 days.<br>
+          <strong>Full-Marks Correction:</strong> The Moon revolves around Earth relative to distant stars in <strong>27.3 days (Sidereal month)</strong>. But because Earth is also moving around the Sun, the Moon takes an extra 2.2 days to line up with the Sun again, making the complete phase cycle take <strong>29.5 days (Synodic month)</strong>!
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <div class="callout-text">
+          <strong>Teacher's Memory Hack &bull; The D-O-C Moon Shape Rule:</strong><br>
+          Look at the curve of the Moon in the sky:<br>
+          &bull; <strong>D-shape</strong> (curved on right) &rarr; <strong>Developing (Waxing)</strong> towards full moon!<br>
+          &bull; <strong>O-shape</strong> &rarr; <strong>Orb (Full Moon / Purnima)</strong>!<br>
+          &bull; <strong>C-shape</strong> (curved on left) &rarr; <strong>Closing down (Waning)</strong> towards New Moon!
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Sujit Classes &bull; Dedicated to Student Academic Excellence in Odisha</p>
+    <p style="margin-top:0.5rem; font-size:0.85rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Back to Main Portal</a> &bull; 
+      <a href="#sec1">Top of Page</a>
+    </p>
+  </footer>
+
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+      }
+    }
+
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.style.display = 'block';
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Perfect score! You have mastered Moon phases, astronomy, and calendars!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! Strong understanding of celestial clockwork and ISRO satellites!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good practice! Check the explanations to master every point!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
