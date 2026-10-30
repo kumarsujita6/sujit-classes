@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 2 - The Invisible Living World: Beyond Our Naked Eye (Class 8 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    /* Reading Progress Bar */
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981, #0284c7, #8b5cf6);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    /* Sticky Navigation */
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    /* Hero Banner */
+    .hero-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 45%, #0284c7 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #065f46;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease;
+    }
+
+    .callout-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-box .callout-text {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .callout-def {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .callout-def i { color: #059669; }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-color: #a855f7;
+      color: #581c87;
+    }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+    .callout-warn i { color: #dc2626; }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+    .data-table tr:hover { background: #f1f5f9; }
+
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #065f46 0%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      background: #0369a1;
+      transform: translateY(-3px) scale(1.08);
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .pulse-node {
+      animation: pulseGlow 3s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.4)); }
+      100% { filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.8)); }
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Master Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Competency Bank</a>
+      <a href="#sec6" class="nav-link">6. Exam Traps</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-microscope"></i> Class 8 Science &bull; Chapter 2 (Curiosity NEP)
+    </div>
+    <h1 class="hero-title">The Invisible Living World: Beyond Our Naked Eye</h1>
+    <p class="hero-sub">
+      Peer through the lenses of Robert Hooke and Leeuwenhoek into the bustling microscopic kingdom! Master cell anatomy, plant vs animal cells, bacteria, fungi, algae, protozoa, and the delicate balance between helpful microbes and harmful pathogens.
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT Curiosity Grade 8</span>
+      <span><i class="fa-solid fa-clock"></i> 55 Mins Full Mastery</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Complete &amp; Unabridged</span>
+      <span><i class="fa-solid fa-brain"></i> Interactive Quiz &amp; Audio</span>
+    </div>
+    <button id="teacherAudioBtn" class="audio-btn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL BLUEPRINT -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
+        <h2>The Microscopic Universe Blueprint</h2>
+        <p class="section-sub">From the discovery of the first single cell to the 4 massive kingdoms of microorganisms and virus borders.</p>
+      </div>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 920 400" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gMicro" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#059669" />
+              <stop offset="100%" stop-color="#0284c7" />
+            </linearGradient>
+            <filter id="dropShadow" x="-5%" y="-5%" width="110%" height="115%">
+              <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.12" />
+            </filter>
+          </defs>
+
+          <!-- Central Core: The Micro World -->
+          <circle cx="460" cy="200" r="70" fill="url(#gMicro)" filter="url(#dropShadow)" class="pulse-node" />
+          <text x="460" y="195" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#ffffff" text-anchor="middle">THE INVISIBLE</text>
+          <text x="460" y="215" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#ffffff" text-anchor="middle">LIVING WORLD</text>
+
+          <!-- Branch 1: The Cell (Top Left) -->
+          <rect x="50" y="40" width="220" height="85" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" filter="url(#dropShadow)" />
+          <text x="160" y="70" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#1e40af" text-anchor="middle">1. The Cell Foundation</text>
+          <text x="160" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Hooke (1665) &bull; Leeuwenhoek</text>
+          <text x="160" y="110" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" fill="#2563eb" text-anchor="middle">Membrane, Cytoplasm, Nucleus</text>
+
+          <!-- Branch 2: Plant vs Animal Cells (Top Right) -->
+          <rect x="650" y="40" width="220" height="85" rx="12" fill="#f0fdf4" stroke="#10b981" stroke-width="2" filter="url(#dropShadow)" />
+          <text x="760" y="70" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#065f46" text-anchor="middle">2. Cell Comparisons</text>
+          <text x="760" y="92" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Cell Wall &amp; Chloroplasts in Plants</text>
+          <text x="760" y="110" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" fill="#059669" text-anchor="middle">Large central vacuole dynamics</text>
+
+          <!-- Branch 3: 4 Microbe Families (Bottom Right) -->
+          <rect x="650" y="275" width="220" height="85" rx="12" fill="#faf5ff" stroke="#a855f7" stroke-width="2" filter="url(#dropShadow)" />
+          <text x="760" y="305" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#6b21a8" text-anchor="middle">3. Microorganism Groups</text>
+          <text x="760" y="327" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Bacteria, Fungi, Algae, Protozoa</text>
+          <text x="760" y="345" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" fill="#9333ea" text-anchor="middle">+ Borderline Viruses</text>
+
+          <!-- Branch 4: Friendly vs Harmful (Bottom Left) -->
+          <rect x="50" y="275" width="220" height="85" rx="12" fill="#fffbeb" stroke="#f59e0b" stroke-width="2" filter="url(#dropShadow)" />
+          <text x="160" y="305" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#92400e" text-anchor="middle">4. Friend or Foe?</text>
+          <text x="160" y="327" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Curd, Bread, Antibiotics, Nitrogen</text>
+          <text x="160" y="345" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" fill="#b45309" text-anchor="middle">vs. Spoilage &amp; Pathogens</text>
+
+          <!-- Connecting Spokes -->
+          <line x1="270" y1="95" x2="400" y2="165" stroke="#3b82f6" stroke-width="2" stroke-dasharray="4,4" />
+          <line x1="650" y1="95" x2="520" y2="165" stroke="#10b981" stroke-width="2" stroke-dasharray="4,4" />
+          <line x1="650" y1="305" x2="520" y2="235" stroke="#a855f7" stroke-width="2" stroke-dasharray="4,4" />
+          <line x1="270" y1="305" x2="400" y2="235" stroke="#f59e0b" stroke-width="2" stroke-dasharray="4,4" />
+        </svg>
+        <p class="diagram-caption">Figure 2.1: Chapter Blueprint — Connecting the discovery of microscopic units to cell organization and microbial ecological roles.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: COMPREHENSIVE STUDY NOTES -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2 &bull; Comprehensive Line-by-Line Study Notes</span>
+        <h2>Mastering the Microscopic World</h2>
+        <p class="section-sub">Step-by-step teacher explanations covering microscopy, cellular architecture, and microbial diversity.</p>
+      </div>
+
+      <!-- Topic 1: Discovery of Cells -->
+      <h3 class="topic-title"><i class="fa-solid fa-magnifying-glass"></i> 1. The Human Eye Limit &amp; History of Microscopy</h3>
+      <p>
+        The human naked eye can only resolve two separate dots if they are at least <strong>0.1 millimeter (100 micrometers)</strong> apart. Anything smaller looks like a blur or is completely invisible! For thousands of years, humans had no idea that millions of microscopic creatures were living in water, air, and on their skin.
+      </p>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-user-clock"></i>
+        <div class="callout-text">
+          <strong>The Two Giant Pioneers of Microscopy:</strong><br>
+          &bull; <strong>Robert Hooke (1665):</strong> Examined a thin slice of tree bark (cork) under a primitive compound microscope. He saw tiny, empty honey-comb shaped compartments and named them <strong>"cells"</strong> (from the Latin word <em>cella</em>, meaning small room). What Hooke saw were actually the dead cellulose cell walls!<br>
+          &bull; <strong>Antonie van Leeuwenhoek (1674):</strong> A Dutch merchant who ground tiny, exquisite glass spherical lenses. He was the first human to observe <strong>living, moving single-celled organisms</strong> in pond water and teeth scrapings, which he called <em>"animalcules"</em> (little animals).
+        </div>
+      </div>
+
+      <!-- Topic 2: Cell Anatomy -->
+      <h3 class="topic-title"><i class="fa-solid fa-dna"></i> 2. The Cell: Fundamental Unit of Life</h3>
+      <p>
+        Just as a grand brick palace is made of individual bricks, every living creature—from the tiniest bacterium to a giant blue whale—is constructed from <strong>cells</strong>. A cell is the smallest living unit capable of performing all life functions: nutrition, respiration, excretion, and reproduction.
+      </p>
+
+      <h4 class="sub-topic">The Three Core Parts Found in Every Typical Cell:</h4>
+      <ol style="margin-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li><strong>Cell Membrane (Plasma Membrane):</strong> The outer boundary. It is semi-permeable (porous), acting like a security guard that controls which substances (nutrients, water, oxygen) enter and which wastes (carbon dioxide, urea) exit.</li>
+        <li><strong>Cytoplasm:</strong> A clear, jelly-like matrix that fills the cell between the membrane and the nucleus. It is water-based and contains enzymes, salts, and microscopic organelles where metabolic reactions happen.</li>
+        <li><strong>Nucleus (The Brain of the Cell):</strong> A spherical organelle located near the center, separated by a nuclear membrane. It contains <strong>chromosomes</strong> made of DNA, which carry genetic instructions (genes) passed from parents to offspring.</li>
+      </ol>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 860 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Plant Cell (Left) -->
+          <rect x="50" y="30" width="350" height="290" rx="16" fill="#f0fdf4" stroke="#15803d" stroke-width="5" />
+          <rect x="62" y="42" width="326" height="266" rx="12" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+          <!-- Large central vacuole -->
+          <ellipse cx="225" cy="180" rx="90" ry="70" fill="#e0f2fe" stroke="#38bdf8" stroke-width="2" />
+          <text x="225" y="185" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#0284c7" text-anchor="middle">Large Central Vacuole</text>
+          <!-- Nucleus pushed to side -->
+          <circle cx="310" cy="110" r="32" fill="#8b5cf6" opacity="0.85" />
+          <circle cx="310" cy="110" r="12" fill="#581c87" />
+          <text x="310" y="155" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#4c1d95" text-anchor="middle">Nucleus (Pushed)</text>
+          <!-- Chloroplasts -->
+          <ellipse cx="120" cy="90" rx="20" ry="12" fill="#16a34a" />
+          <ellipse cx="120" cy="240" rx="20" ry="12" fill="#16a34a" />
+          <ellipse cx="320" cy="250" rx="20" ry="12" fill="#16a34a" />
+          <text x="120" y="115" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" fill="#15803d" text-anchor="middle">Chloroplast</text>
+          <!-- Title -->
+          <text x="225" y="295" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="16" fill="#14532d" text-anchor="middle">TYPICAL PLANT CELL</text>
+
+          <!-- Animal Cell (Right) -->
+          <ellipse cx="640" cy="175" rx="165" ry="135" fill="#fef2f2" stroke="#dc2626" stroke-width="3" />
+          <circle cx="640" cy="175" r="45" fill="#8b5cf6" opacity="0.85" />
+          <circle cx="640" cy="175" r="16" fill="#581c87" />
+          <text x="640" y="179" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="12" fill="#ffffff" text-anchor="middle">Nucleus</text>
+          <text x="640" y="235" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="11" fill="#4c1d95" text-anchor="middle">(Centrally Located)</text>
+          <!-- Small temporary vacuoles -->
+          <circle cx="540" cy="120" r="15" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.5" />
+          <circle cx="730" cy="230" r="12" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.5" />
+          <text x="540" y="148" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#0369a1" text-anchor="middle">Small Vacuole</text>
+          <!-- Mitochondria -->
+          <ellipse cx="730" cy="120" rx="18" ry="10" fill="#f59e0b" />
+          <text x="730" y="142" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" fill="#b45309" text-anchor="middle">Mitochondria</text>
+          <!-- Title -->
+          <text x="640" y="295" font-family="'Space Grotesk', sans-serif" font-weight="800" font-size="16" fill="#991b1b" text-anchor="middle">TYPICAL ANIMAL CELL</text>
+        </svg>
+        <p class="diagram-caption">Figure 2.2: Structural Comparison — Plant Cells possess a rigid outer cell wall, green chloroplasts, and a large central vacuole pushing the nucleus to the perimeter.</p>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Plant Cell</th>
+              <th>Animal Cell</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Cell Wall</strong></td>
+              <td><strong>Present</strong> (Rigid, made of cellulose for structural support)</td>
+              <td><strong>Absent</strong> (Only flexible plasma membrane present)</td>
+            </tr>
+            <tr>
+              <td><strong>Chloroplasts</strong></td>
+              <td><strong>Present</strong> (Contains chlorophyll to carry out photosynthesis)</td>
+              <td><strong>Absent</strong> (Animals cannot make their own food)</td>
+            </tr>
+            <tr>
+              <td><strong>Vacuole</strong></td>
+              <td><strong>One single, large central vacuole</strong> (Stores sap, maintains turgor)</td>
+              <td><strong>Small, temporary vacuoles</strong> (Or none at all)</td>
+            </tr>
+            <tr>
+              <td><strong>Position of Nucleus</strong></td>
+              <td>Pushed towards the <strong>periphery</strong> (edge) by large vacuole</td>
+              <td>Located near the <strong>center</strong> of the cell</td>
+            </tr>
+            <tr>
+              <td><strong>Shape</strong></td>
+              <td>Definite, angular, rectangular rigid shape</td>
+              <td>Flexible, irregular, rounded shape</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Topic 3: The 4 Microbe Families -->
+      <h3 class="topic-title"><i class="fa-solid fa-bacteria"></i> 3. The Four Major Groups of Microorganisms</h3>
+      <p>
+        Microorganisms (or microbes) are living creatures so small that they can only be seen with a microscope. They live everywhere: in ice-cold polar snow, boiling hot sulfur springs, deep ocean trenches, and inside our intestines!
+      </p>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; margin: 1.5rem 0;">
+        <div class="card" style="border-top: 4px solid #3b82f6;">
+          <h4 style="color: #1e40af;"><i class="fa-solid fa-disease"></i> 1. Bacteria</h4>
+          <p style="font-size: 0.9rem;">Single-celled prokaryotic organisms with no distinct nuclear membrane. Come in shapes: rod-shaped (Bacilli), spherical (Cocci), spiral (Spirilla). Examples: <em>Lactobacillus</em> (curd), <em>Rhizobium</em> (nitrogen fixing).</p>
+        </div>
+        <div class="card" style="border-top: 4px solid #f59e0b;">
+          <h4 style="color: #92400e;"><i class="fa-solid fa-bread-slice"></i> 2. Fungi</h4>
+          <p style="font-size: 0.9rem;">Non-green heterotrophs that absorb nutrients from decaying organic matter. Can be unicellular (Yeast) or multicellular thread-like mold (<em>Rhizopus</em>/Bread Mold, <em>Penicillium</em>, Mushrooms).</p>
+        </div>
+        <div class="card" style="border-top: 4px solid #10b981;">
+          <h4 style="color: #065f46;"><i class="fa-solid fa-leaf"></i> 3. Algae</h4>
+          <p style="font-size: 0.9rem;">Simple, plant-like autotrophic organisms with chlorophyll that live in aquatic habitats. Can be single-celled (<em>Chlamydomonas</em>) or multicellular ribbon-like filaments (<em>Spirogyra</em>).</p>
+        </div>
+        <div class="card" style="border-top: 4px solid #8b5cf6;">
+          <h4 style="color: #6b21a8;"><i class="fa-solid fa-shapes"></i> 4. Protozoa</h4>
+          <p style="font-size: 0.9rem;">Single-celled microscopic animal-like heterotrophs that move actively. Examples: <em>Amoeba</em> (moves by false feet / pseudopodia), <em>Paramecium</em> (slipper-shaped, moves by cilia), <em>Plasmodium</em> (malaria parasite).</p>
+        </div>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-virus"></i>
+        <div class="callout-text">
+          <strong>The Mysterious Case of Viruses: Living or Non-Living?</strong><br>
+          Viruses are unique borderline entities! Outside a living host, a virus is completely inert—like a non-living mineral crystal with zero metabolism. But once it penetrates inside a host cell (human, plant, or bacterium), it hijacks the host's machinery and multiplies rapidly! Examples: Influenza, Poliovirus, Coronavirus, Bacteriophage.
+        </div>
+      </div>
+
+      <!-- Topic 4: Friendly Microorganisms -->
+      <h3 class="topic-title"><i class="fa-solid fa-hand-holding-heart"></i> 4. Friendly Microbes: Unsung Heroes of Human Civilization</h3>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li><strong>Making Curd &amp; Cheese:</strong> A tiny drop of warm curd contains millions of <em>Lactobacillus</em> bacteria. They ferment lactose milk sugar into lactic acid, which curdles milk proteins into tasty curd!</li>
+        <li><strong>Bread &amp; Pastry Baking:</strong> Baker's yeast (<em>Saccharomyces cerevisiae</em>) reproduces rapidly in moist dough. It performs anaerobic respiration, converting sugar into alcohol and releasing bubbles of <strong>carbon dioxide gas ($CO_2$)</strong>, causing dough to rise soft and spongy.</li>
+        <li><strong>Commercial Alcohol Fermentation:</strong> Louis Pasteur discovered fermentation in 1857. Yeast converts natural sugars present in barley, wheat, and fruit juice into ethanol alcohol.</li>
+        <li><strong>Medicinal Antibiotics:</strong> In 1928, Alexander Fleming noticed that a green fungus mold (<em>Penicillium notatum</em>) stopped the growth of deadly staphylococcal bacteria. This led to the discovery of <strong>Penicillin</strong>, saving hundreds of millions of lives!</li>
+        <li><strong>Soil Fertility &amp; Nitrogen Fixation:</strong> Plants need nitrogen to build proteins, but cannot absorb atmospheric nitrogen gas directly. <em>Rhizobium</em> bacteria residing in root nodules of leguminous plants (peas, beans, gram) fix atmospheric nitrogen into soluble soil nitrates.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3: HIGH-YIELD FACT BANK -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3 &bull; High-Yield Fact &amp; Term Bank</span>
+        <h2>Essential Glossary &amp; Quick Facts</h2>
+        <p class="section-sub">Top definitions and key terms for rapid memorization.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+        <div class="card" style="border-left: 4px solid #10b981;">
+          <h4 style="color: #065f46;"><i class="fa-solid fa-circle-check"></i> Organelle</h4>
+          <p style="font-size: 0.9rem;">A specialized microscopic subunit within a cell that performs a specific life function (e.g., nucleus, chloroplast, mitochondrion).</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #3b82f6;">
+          <h4 style="color: #1e40af;"><i class="fa-solid fa-arrows-to-dot"></i> Pseudopodia</h4>
+          <p style="font-size: 0.9rem;">Temporary finger-like projections ("false feet") extended by Amoeba for capturing food and movement.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #f59e0b;">
+          <h4 style="color: #92400e;"><i class="fa-solid fa-wine-bottle"></i> Fermentation</h4>
+          <p style="font-size: 0.9rem;">The chemical breakdown of sugars into alcohol and carbon dioxide by microorganisms in the absence of oxygen.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #8b5cf6;">
+          <h4 style="color: #6b21a8;"><i class="fa-solid fa-capsules"></i> Antibiotic</h4>
+          <p style="font-size: 0.9rem;">Medicines produced from fungi or bacteria that kill or stop the growth of disease-causing bacteria (e.g., penicillin, streptomycin).</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #dc2626;">
+          <h4 style="color: #991b1b;"><i class="fa-solid fa-biohazard"></i> Pathogen</h4>
+          <p style="font-size: 0.9rem;">A biological disease-causing microorganism, such as certain bacteria, viruses, fungi, or protozoa.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #0284c7;">
+          <h4 style="color: #0369a1;"><i class="fa-solid fa-clover"></i> Nitrogen Fixation</h4>
+          <p style="font-size: 0.9rem;">The biological conversion of free atmospheric nitrogen into usable nitrate compounds by symbiotic or free-living microbes.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: 100% COMPLETE NCERT SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4 &bull; 100% Complete NCERT Solutions</span>
+        <h2>Textbook In-Text &amp; Chapter Exercises</h2>
+        <p class="section-sub">Comprehensive solutions for all textbook prompts with step-by-step clarity.</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Q1:</strong> Why are plant cells able to withstand much greater changes in the surrounding environment than animal cells?</span>
+          <span class="badge badge-green">NCERT Core</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Topper Explanation:</strong></p>
+          <ul style="margin-left: 1.25rem;">
+            <li>Plant cells have an extra, tough protective outer layer called the <strong>cell wall</strong>, which is made of non-living cellulose fibers.</li>
+            <li>Unlike animals that can run away to seek shelter during severe storms, extreme heat, or torrential rains, plants are rooted in one spot.</li>
+            <li>The rigid cell wall prevents the plant cell from bursting even when absorbing huge amounts of water (osmosis) and provides mechanical support against high wind pressures and temperature swings.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q2:</strong> Name the four major groups of microorganisms and give two examples of each.</span>
+          <span class="badge badge-blue">Direct Recall</span>
+        </summary>
+        <div class="ans-content">
+          <ol style="margin-left: 1.25rem;">
+            <li><strong>Bacteria:</strong> <em>Lactobacillus</em> (curd bacterium), <em>Rhizobium</em> (nitrogen fixer in legumes).</li>
+            <li><strong>Fungi:</strong> Yeast (used in bread baking), <em>Rhizopus</em> (common bread mold).</li>
+            <li><strong>Algae:</strong> <em>Chlamydomonas</em> (single-celled green alga), <em>Spirogyra</em> (filamentous pond silk).</li>
+            <li><strong>Protozoa:</strong> <em>Amoeba</em> (irregular body with pseudopodia), <em>Paramecium</em> (slipper organism with cilia).</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q3:</strong> Why does dough rise when a pinch of baker's yeast is added to warm flour and sugar?</span>
+          <span class="badge badge-purple">Process &amp; Chemistry</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Step-by-step mechanism:</strong></p>
+          <ul style="margin-left: 1.25rem;">
+            <li>Yeast is a living single-celled fungus. In the presence of warmth and sugar, yeast reproduces rapidly.</li>
+            <li>During respiration (fermentation), yeast breaks down sugar and produces <strong>carbon dioxide gas ($CO_2$)</strong> as a byproduct.</li>
+            <li>The bubbles of carbon dioxide get trapped inside the sticky, elastic gluten matrix of the flour dough.</li>
+            <li>As the gas bubbles expand, they cause the dough to swell up, increasing its volume and creating a light, spongy texture upon baking.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q4:</strong> What are antibiotics? State two precautions that must be taken while consuming antibiotics.</span>
+          <span class="badge badge-amber">Health &amp; Medicine</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Definition:</strong> Antibiotics are biochemical medicines manufactured from microorganisms (such as fungi or bacteria) that destroy or inhibit the growth of pathogenic bacteria inside the human body.</p>
+          <p><strong>Two Crucial Precautions:</strong></p>
+          <ul style="margin-left: 1.25rem;">
+            <li><strong>1. Complete the Full Prescribed Course:</strong> You must never stop taking an antibiotic just because symptoms disappear after 2 days. Incomplete courses leave semi-resistant bacteria alive, which can multiply and cause <strong>antibiotic resistance</strong>.</li>
+            <li><strong>2. Do not take antibiotics for viral infections:</strong> Antibiotics have zero effect on viral illnesses like the common cold, cough, or influenza. Taking them unnecessarily kills friendly gut bacteria and weakens immunity.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q5:</strong> Why are viruses placed on the borderline between living and non-living things?</span>
+          <span class="badge badge-green">Conceptual Distinction</span>
+        </summary>
+        <div class="ans-content">
+          <ul style="margin-left: 1.25rem;">
+            <li><strong>Non-living characteristics outside a host:</strong> They do not breathe, feed, excrete, or grow. They have no cytoplasm or organelles, and can be crystallized like salt grains and stored in bottles for years.</li>
+            <li><strong>Living characteristics inside a host:</strong> Once they enter a host cell (plant, animal, or human), they hijack the host's cellular machinery, reproduce copies of themselves, and undergo genetic mutations like living beings.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: COMPETENCY QUESTION BANK -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5 &bull; CBSE / BSE Competency Question Bank</span>
+        <h2>Interactive Quiz &amp; Application Drills</h2>
+        <p class="section-sub">Evaluate your conceptual understanding in real time.</p>
+      </div>
+
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <i class="fa-solid fa-trophy"></i>
+          <span>Score: <span id="quizScoreCount">0</span> / 5</span>
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Test your grasp on cell structures and microorganisms!
+        </div>
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qcard1">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q1: Which organelle is present in a plant cell but completely absent in an animal cell?
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(a) Cell membrane</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(b) Nucleus</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(c) Cellulose Cell Wall</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')">
+          <span>(d) Cytoplasm</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c) Cellulose Cell Wall</strong><br>
+            Animal cells have only a flexible cell membrane. They do not possess a rigid cell wall, which is unique to plant cells, fungi, and bacteria.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qcard2">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q2: Who was the first person to observe living, moving microorganisms under a handcrafted microscope?
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(a) Robert Hooke</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(b) Antonie van Leeuwenhoek</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(c) Louis Pasteur</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')">
+          <span>(d) Alexander Fleming</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b) Antonie van Leeuwenhoek</strong><br>
+            Robert Hooke observed dead cork cell walls in 1665. It was Leeuwenhoek who discovered living microscopic life in pond water in 1674.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qcard3">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q3: The bacterium responsible for promoting the formation of curd from milk is:
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(a) Lactobacillus</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(b) Rhizobium</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(c) Spirogyra</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(d) Amoeba</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a) Lactobacillus</strong><br>
+            Lactobacillus ferments the lactose sugar in milk into lactic acid, which coagulates milk proteins into curd.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qcard4">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q4: The gas released during yeast fermentation that makes bread dough rise and turn spongy is:
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(a) Oxygen</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(b) Nitrogen</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(c) Hydrogen</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(d) Carbon dioxide</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d) Carbon dioxide ($CO_2$)</strong><br>
+            Yeast respires anaerobically to produce carbon dioxide gas bubbles, which inflate the dough.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qcard5">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q5: Why do antibiotics fail to cure a common cold or influenza?
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(a) Cold bacteria are completely immune to all antibiotics</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(b) Common cold and influenza are caused by viruses, not bacteria</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(c) Antibiotics can only be taken as injections, not pills</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'b')">
+          <span>(d) Antibiotics only work inside cold climates</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong><br>
+            Antibiotics specifically target bacterial cell walls and metabolic processes. Viruses lack cell walls and utilize human host cells, making antibiotics completely ineffective against them.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM HALL READINESS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6 &bull; Exam Hall Readiness &amp; Quick Recap</span>
+        <h2>Exam Traps &amp; Key Takeaways</h2>
+        <p class="section-sub">Quick revision tips to guarantee full marks.</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Common Student Traps to Avoid:</strong><br>
+          <ul style="margin-left: 1.25rem; margin-top: 0.4rem;">
+            <li><strong>Trap 1: Confusing Robert Hooke and Leeuwenhoek:</strong> Hooke named the cell (from dead cork); Leeuwenhoek was the first to see live moving microbes.</li>
+            <li><strong>Trap 2: Saying animal cells have "no vacuoles":</strong> Animal cells DO have vacuoles, but they are small, temporary, and numerous, unlike the single, massive central vacuole in plant cells.</li>
+            <li><strong>Trap 3: Calling Viruses 'Bacteria':</strong> Viruses are not bacteria; they are sub-microscopic acellular genetic packets that cannot reproduce without a host.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-clipboard-check"></i>
+        <div class="callout-text">
+          <strong>Final 1-Minute Master Checklist:</strong><br>
+          &bull; <strong>Cell:</strong> Structural &amp; functional unit of life.<br>
+          &bull; <strong>Plant Cells:</strong> Have Cell Wall + Chloroplast + Big Central Vacuole.<br>
+          &bull; <strong>Animal Cells:</strong> Only Cell Membrane + Centered Nucleus.<br>
+          &bull; <strong>4 Microbe Groups:</strong> Bacteria, Fungi, Algae, Protozoa.<br>
+          &bull; <strong>Lactobacillus:</strong> Turns milk to curd.<br>
+          &bull; <strong>Yeast:</strong> Releases $CO_2$ for spongy bread dough.<br>
+          &bull; <strong>Penicillin:</strong> First antibiotic discovered by Alexander Fleming (1928).
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p style="font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Sujit Classes &bull; Excellence in Middle School Education</p>
+    <p style="font-size: 0.88rem; margin-bottom: 1rem;">
+      Aligned with NCERT Curiosity (NEP Edition) &bull; Class 8 Science Chapter 2 Master Study Notes
+    </p>
+    <p style="font-size: 0.82rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Back to Main Portal</a> &bull; 
+      <a href="#sec1">Top of Page</a>
+    </p>
+  </footer>
+
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+      }
+    }
+
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.style.display = 'block';
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Brilliant! You have mastered the microscopic realm!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Well done! Strong understanding of cell biology & microbes!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good effort! Check the explanations to lock down every concept!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
