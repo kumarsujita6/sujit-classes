@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୨: ପାଣିପାଗକୁ ବୁଝିବା (Understanding the Weather) | ସପ୍ତମ ଶ୍ରେଣୀ ସାମାଜିକ ବିଜ୍ଞାନ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ସପ୍ତମ ଶ୍ରେଣୀ ସାମାଜିକ ବିଜ୍ଞାନ ଅଧ୍ୟାୟ ୨: ପାଣିପାଗକୁ ବୁଝିବା। ଟ୍ରୋପୋସ୍ଫିୟର, ତାପମାତ୍ରା, ବାୟୁଚାପ, ବାରୋମିଟର, ପବନ, ବର୍ଷାମାପକ ଯନ୍ତ୍ର, ଆର୍ଦ୍ରତା, ଷ୍ଟିଭେନସନ୍ ସ୍କ୍ରିନ୍, IMD, NCERT ସମାଧାନ ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.85;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #f59e0b);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.4rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.7rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #0d9488 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(4px);
+      padding: 0.35rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      opacity: 0.95;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .teacher-audio-btn {
+      background: white;
+      color: var(--primary-dark);
+      border: none;
+      border-radius: 9999px;
+      padding: 0.7rem 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: var(--shadow-md);
+      transition: all 0.2s ease;
+    }
+
+    .teacher-audio-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+      background: var(--primary-light);
+    }
+
+    .main-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 2.2rem;
+      margin-bottom: 2.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--primary-light);
+    }
+
+    .section-number {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      background: var(--primary);
+      color: white;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .section-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.5rem;
+      color: var(--dark);
+      font-weight: 700;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: var(--primary-dark);
+      margin: 1.8rem 0 0.8rem;
+    }
+
+    h4 {
+      font-size: 1.05rem;
+      color: var(--dark);
+      margin: 1.2rem 0 0.5rem;
+    }
+
+    p { margin-bottom: 1.1rem; }
+
+    ul, ol {
+      margin-left: 1.6rem;
+      margin-bottom: 1.2rem;
+    }
+
+    li { margin-bottom: 0.5rem; }
+
+    .callout-def {
+      background: #eff6ff;
+      border-left: 4px solid #3b82f6;
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.5rem 0;
+    }
+
+    .callout-act {
+      background: #ecfdf5;
+      border-left: 4px solid #10b981;
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.5rem 0;
+    }
+
+    .callout-hack {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.5rem 0;
+    }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-left: 4px solid #ef4444;
+      border-radius: 10px;
+      padding: 1.2rem 1.4rem;
+      margin: 1.5rem 0;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .diagram-wrapper {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      margin: 1.8rem 0;
+      text-align: center;
+    }
+
+    .diagram-wrapper svg {
+      max-width: 100%;
+      height: auto;
+      filter: drop-shadow(0 4px 6px rgba(0,0,0,0.04));
+    }
+
+    details.ans-box {
+      background: #f8fafc;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      margin-bottom: 1.2rem;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      background: #ffffff;
+      border-color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    summary.ans-prompt {
+      font-weight: 700;
+      cursor: pointer;
+      color: var(--dark);
+      list-style-position: inside;
+      outline: none;
+    }
+
+    summary.ans-prompt:hover {
+      color: var(--primary);
+    }
+
+    .ans-content {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--border);
+      color: var(--text);
+    }
+
+    .styled-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+      font-size: 0.95rem;
+    }
+
+    .styled-table th, .styled-table td {
+      border: 1px solid var(--border);
+      padding: 0.85rem 1rem;
+      text-align: left;
+    }
+
+    .styled-table th {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      font-weight: 700;
+    }
+
+    .styled-table tr:nth-child(even) {
+      background: #f8fafc;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1.5px solid var(--border);
+      border-radius: 12px;
+      padding: 1.3rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .quiz-question {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .quiz-options {
+      display: grid;
+      gap: 0.6rem;
+    }
+
+    .quiz-opt-btn {
+      background: white;
+      border: 1.5px solid var(--border);
+      border-radius: 8px;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      font-size: 0.95rem;
+      font-family: inherit;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      border-color: var(--primary);
+      background: var(--primary-light);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #15803d !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #b91c1c !important;
+      font-weight: 700;
+    }
+
+    .quiz-explanation {
+      margin-top: 0.8rem;
+      padding: 0.8rem;
+      background: white;
+      border-left: 3px solid var(--primary);
+      border-radius: 6px;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .hero-title { font-size: 1.7rem; }
+      .section-card { padding: 1.5rem; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress-bar"></div>
+
+  <header class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <span>📚</span> ସୁଜିତ୍ କ୍ଲାସେସ୍
+    </a>
+    <nav class="nav-links">
+      <a href="#sec1" class="nav-link">ମାଇଣ୍ଡ ମ୍ୟାପ୍</a>
+      <a href="#sec2" class="nav-link">ମୌଳିକ ତତ୍ତ୍ୱ</a>
+      <a href="#sec3" class="nav-link">ଶବ୍ଦାବଳୀ</a>
+      <a href="#sec4" class="nav-link">ପାଠ୍ୟପୁସ୍ତକ ସମାଧାନ</a>
+      <a href="#sec5" class="nav-link">କୁଇଜ୍</a>
+      <a href="#sec6" class="nav-link">ସାରାଂଶ</a>
+    </nav>
+  </header>
+
+  <div class="hero-banner">
+    <div class="hero-badge">
+      <span>🌤️ ସପ୍ତମ ଶ୍ରେଣୀ | ସାମାଜିକ ବିଜ୍ଞାନ (ଭୂଗୋଳ)</span>
+    </div>
+    <h1 class="hero-title">ଅଧ୍ୟାୟ ୨: ପାଣିପାଗକୁ ବୁଝିବା<br><span style="font-size: 1.5rem; font-weight: 500; opacity: 0.9;">(Understanding the Weather)</span></h1>
+    <p class="hero-subtitle">
+      ଟ୍ରୋପୋସ୍ଫିୟର, ତାପମାତ୍ରା, ବାୟୁମଣ୍ଡଳୀୟ ଚାପ, ପବନ ପ୍ରବାହ, ଆର୍ଦ୍ରତା, ବର୍ଷାମାପକ ଯନ୍ତ୍ର ଏବଂ ଭାରତୀୟ ପାଣିପାଗ ବିଭାଗ (IMD) ର ସମ୍ପୂର୍ଣ୍ଣ ଆଲୋଚନା।
+    </p>
+    <button class="teacher-audio-btn" id="teacherAudioBtn" onclick="toggleTeacherAudio()">
+      <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>
+    </button>
+  </div>
+
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL MIND MAP & OVERVIEW -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <div class="section-number">01</div>
+        <h2 class="section-title">ଦୃଶ୍ୟ ମାଇଣ୍ଡ ମ୍ୟାପ୍ ଓ ଅଧ୍ୟାୟ ଅବଲୋକନ (Visual Mind Map &amp; Overview)</h2>
+      </div>
+
+      <p>
+        କେବେ ଆପଣ ଭାବିଛନ୍ତି କାହିଁକି ସକାଳେ ଖରା ହୋଇଥିବା ବେଳେ ଅପରାହ୍ନରେ ହଠାତ୍ କଳାହାଣ୍ଡିଆ ମେଘ ଘୋଟିଆସି ପ୍ରବଳ ବର୍ଷା ହୁଏ? ଏହି ଦୈନନ୍ଦିନ ପରିବର୍ତ୍ତନକୁ <strong>ପାଣିପାଗ (Weather)</strong> କୁହାଯାଏ। ପାଣିପାଗ ହେଉଛି କୌଣସି ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ସ୍ଥାନ ଓ ସମୟରେ ବାୟୁମଣ୍ଡଳର ଅବସ୍ଥା।
+      </p>
+      <p>
+        ପୃଥିବୀର ବାୟୁମଣ୍ଡଳର ସବୁଠାରୁ ତଳ ସ୍ତର—<strong>ଟ୍ରୋପୋସ୍ଫିୟର (Troposphere)</strong> ରେ ହିଁ ସମସ୍ତ ପାଣିପାଗ ଘଟଣା (ମେଘ, ବର୍ଷା, ଝଡ଼, କୁହୁଡ଼ି) ସଂଘଠିତ ହୋଇଥାଏ।
+      </p>
+
+      <!-- SVG Mind Map: Weather Elements & Instruments -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 900 420" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="centerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0284c7" />
+              <stop offset="100%" stop-color="#0369a1" />
+            </linearGradient>
+            <linearGradient id="elemGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b" />
+              <stop offset="100%" stop-color="#d97706" />
+            </linearGradient>
+            <linearGradient id="elemGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981" />
+              <stop offset="100%" stop-color="#047857" />
+            </linearGradient>
+            <linearGradient id="elemGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3b82f6" />
+              <stop offset="100%" stop-color="#1d4ed8" />
+            </linearGradient>
+            <linearGradient id="elemGrad4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#8b5cf6" />
+              <stop offset="100%" stop-color="#6d28d9" />
+            </linearGradient>
+            <linearGradient id="elemGrad5" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#ec4899" />
+              <stop offset="100%" stop-color="#be185d" />
+            </linearGradient>
+          </defs>
+
+          <!-- Connecting Lines -->
+          <line x1="450" y1="210" x2="150" y2="110" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="6,4" />
+          <line x1="450" y1="210" x2="450" y2="70" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="6,4" />
+          <line x1="450" y1="210" x2="750" y2="110" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="6,4" />
+          <line x1="450" y1="210" x2="250" y2="330" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="6,4" />
+          <line x1="450" y1="210" x2="650" y2="330" stroke="#cbd5e1" stroke-width="3" stroke-dasharray="6,4" />
+
+          <!-- Center Node -->
+          <circle cx="450" cy="210" r="70" fill="url(#centerGrad)" filter="drop-shadow(0 8px 16px rgba(2,132,199,0.3))" />
+          <text x="450" y="202" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="16" text-anchor="middle">ପାଣିପାଗର ୫ଟି ଉପାଦାନ</text>
+          <text x="450" y="224" fill="#bae6fd" font-family="'Noto Sans Oriya', sans-serif" font-size="12" text-anchor="middle">ଓ ମାପକ ଯନ୍ତ୍ର</text>
+
+          <!-- Node 1: Temperature -->
+          <g transform="translate(150, 110)">
+            <rect x="-110" y="-40" width="220" height="80" rx="12" fill="url(#elemGrad1)" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.15))" />
+            <text x="0" y="-10" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="15" text-anchor="middle">୧. ତାପମାତ୍ରା (Temperature)</text>
+            <text x="0" y="14" fill="#fef3c7" font-family="'Noto Sans Oriya', sans-serif" font-size="12" text-anchor="middle">ଗରିଷ୍ଠ-ଲଘିଷ୍ଠ ଥର୍ମୋମିଟର</text>
+          </g>
+
+          <!-- Node 2: Atmospheric Pressure -->
+          <g transform="translate(450, 70)">
+            <rect x="-110" y="-40" width="220" height="80" rx="12" fill="url(#elemGrad2)" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.15))" />
+            <text x="0" y="-10" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="15" text-anchor="middle">୨. ବାୟୁଚାପ (Air Pressure)</text>
+            <text x="0" y="14" fill="#d1fae5" font-family="'Noto Sans Oriya', sans-serif" font-size="12" text-anchor="middle">ବାରୋମିଟର (Barometer)</text>
+          </g>
+
+          <!-- Node 3: Wind -->
+          <g transform="translate(750, 110)">
+            <rect x="-110" y="-40" width="220" height="80" rx="12" fill="url(#elemGrad3)" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.15))" />
+            <text x="0" y="-10" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="15" text-anchor="middle">୩. ପବନ (Wind)</text>
+            <text x="0" y="14" fill="#dbeafe" font-family="'Noto Sans Oriya', sans-serif" font-size="12" text-anchor="middle">ଆନେମୋମିଟର ଓ ୱିଣ୍ଡଭେନ୍</text>
+          </g>
+
+          <!-- Node 4: Humidity -->
+          <g transform="translate(250, 330)">
+            <rect x="-110" y="-40" width="220" height="80" rx="12" fill="url(#elemGrad4)" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.15))" />
+            <text x="0" y="-10" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="15" text-anchor="middle">୪. ଆର୍ଦ୍ରତା (Humidity)</text>
+            <text x="0" y="14" fill="#ede9fe" font-family="'Noto Sans Oriya', sans-serif" font-size="12" text-anchor="middle">ହାଇଗ୍ରୋମିଟର (Hygrometer)</text>
+          </g>
+
+          <!-- Node 5: Precipitation -->
+          <g transform="translate(650, 330)">
+            <rect x="-110" y="-40" width="220" height="80" rx="12" fill="url(#elemGrad5)" filter="drop-shadow(0 4px 8px rgba(0,0,0,0.15))" />
+            <text x="0" y="-10" fill="#ffffff" font-family="'Noto Sans Oriya', sans-serif" font-weight="700" font-size="15" text-anchor="middle">୫. ବୃଷ୍ଟିପାତ (Precipitation)</text>
+            <text x="0" y="14" fill="#fce7f3" font-family="'Noto Sans Oriya', sans-serif" font-size="12" text-anchor="middle">ବର୍ଷାମାପକ ଯନ୍ତ୍ର (Rain Gauge)</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="callout-def">
+        <div class="callout-title">💡 ପାଣିପାଗ (Weather) ବନାମ ଜଳବାୟୁ (Climate) ର ପାର୍ଥକ୍ୟ:</div>
+        <p>
+          <strong>ପାଣିପାଗ:</strong> ବାୟୁମଣ୍ଡଳର ଦୈନନ୍ଦିନ ବା କ୍ଷଣସ୍ଥାୟୀ ଅବସ୍ଥା (ଘଣ୍ଟାକୁ ଘଣ୍ଟା ବା ଦିନକୁ ଦିନ ବଦଳିପାରେ)। ଯଥା: ଆଜି ସକାଳେ ଖରା, ଅପରାହ୍ନରେ ବର୍ଷା।<br>
+          <strong>ଜଳବାୟୁ:</strong> କୌଣସି ଏକ ବିଶାଳ ଅଞ୍ଚଳର ଅନ୍ତତଃ <strong>୩୦ ରୁ ୩୫ ବର୍ଷର</strong> ହାରାହାରି ପାଣିପାଗର ସ୍ଥିର ନମୁନା। ଯଥା: ଭାରତର କ୍ରାନ୍ତୀୟ ମୌସୁମୀ ଜଳବାୟୁ।
+        </p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: DETAILED CORE CONCEPTS -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <div class="section-number">02</div>
+        <h2 class="section-title">ବିସ୍ତୃତ ପାଠ୍ୟ ବିଷୟବସ୍ତୁ ଓ ମୌଳିକ ତତ୍ତ୍ୱ (Detailed Core Concepts)</h2>
+      </div>
+
+      <h3>୧. ଟ୍ରୋପୋସ୍ଫିୟର: ପାଣିପାଗର ରଙ୍ଗମଞ୍ଚ (The Troposphere)</h3>
+      <p>
+        ପୃଥିବୀର ବାୟୁମଣ୍ଡଳକୁ ୫ଟି ସ୍ତରରେ ବିଭକ୍ତ କରାଯାଇଛି: ଟ୍ରୋପୋସ୍ଫିୟର, ଷ୍ଟ୍ରାଟୋସ୍ଫିୟର, ମେସୋସ୍ଫିୟର, ଥର୍ମୋସ୍ଫିୟର ଓ ଏକ୍ସୋସ୍ଫିୟର।
+      </p>
+      <ul>
+        <li><strong>ଟ୍ରୋପୋସ୍ଫିୟର (Troposphere):</strong> ଏହା ବାୟୁମଣ୍ଡଳର ସର୍ବନିମ୍ନ ସ୍ତର (ବିଷୁବରେଖାରେ ପ୍ରାୟ ୧୮ କିମି ଏବଂ ମେରୁରେ ପ୍ରାୟ ୮ କିମି ଉଚ୍ଚତା)। ବାୟୁମଣ୍ଡଳର ସମୁଦାୟ ବାୟୁର ପ୍ରାୟ <strong>୭୫% ଭାର</strong> ଏହି ସ୍ତରରେ ଥାଏ।</li>
+        <li><strong>ଜଳୀୟ ବାଷ୍ପ ଓ ଧୂଳିକଣା:</strong> ବାୟୁମଣ୍ଡଳର ୯୯% ଜଳୀୟ ବାଷ୍ପ ଏହି ସ୍ତରରେ ଥାଏ। ତେଣୁ ମେଘ, ବର୍ଷା, ତୁଷାରପାତ, ବିଜୁଳି, ଘଡ଼ଘଡ଼ି, କୁହୁଡ଼ି ଆଦି ସମସ୍ତ ପାଣିପାଗ ପ୍ରକ୍ରିୟା କେବଳ ଟ୍ରୋପୋସ୍ଫିୟର ମଧ୍ୟରେ ହିଁ ସୀମିତ।</li>
+        <li><strong>ଉଚ୍ଚତା ସହ ତାପମାତ୍ରା ହ୍ରାସ:</strong> ଟ୍ରୋପୋସ୍ଫିୟରରେ ପ୍ରତି ୧,୦୦୦ ମିଟର (୧ କିମି) ଉଚ୍ଚତା ବୃଦ୍ଧିରେ ତାପମାତ୍ରା ପ୍ରାୟ <strong>୬.୫°C</strong> ହ୍ରାସ ପାଏ (Normal Lapse Rate)। ଏହି କାରଣରୁ ପାହାଡ଼ିଆ ସ୍ଥାନଗୁଡ଼ିକ ଗ୍ରୀଷ୍ମଦିନେ ମଧ୍ୟ ଥଣ୍ଡା ରହେ।</li>
+      </ul>
+
+      <h3>୨. ତାପମାତ୍ରା (Temperature) ଓ ସୂର୍ଯ୍ୟତାପ (Insolation)</h3>
+      <p>
+        ବାୟୁରେ ଥିବା ଉତ୍ତାପ ବା ଶୀତଳତାର ମାତ୍ରାକୁ <strong>ତାପମାତ୍ରା (Temperature)</strong> କୁହାଯାଏ। ପୃଥିବୀର ସମସ୍ତ ଉତ୍ତାପର ମୂଳ ଉତ୍ସ ହେଉଛି ସୂର୍ଯ୍ୟ।
+      </p>
+      <ul>
+        <li><strong>ସୂର୍ଯ୍ୟତାପ (Insolation):</strong> ପୃଥିବୀ ପୃଷ୍ଠ ଦ୍ୱାରା ଅବଶୋଷିତ ହେଉଥିବା ସୌରଶକ୍ତିକୁ ସୂର୍ଯ୍ୟତାପ କୁହାଯାଏ। ବିଷୁବରେଖାରୁ ମେରୁ ଆଡ଼କୁ ଗଲେ ସୂର୍ଯ୍ୟକିରଣ ତେର୍ଚ୍ଛା ପଡ଼ୁଥିବାରୁ ସୂର୍ଯ୍ୟତାପ କ୍ରମଶଃ ହ୍ରାସ ପାଏ।</li>
+        <li><strong>ଗରିଷ୍ଠ-ଲଘିଷ୍ଠ ଥର୍ମୋମିଟର (Six's Maximum-Minimum Thermometer):</strong> ଦିନର ସର୍ବୋଚ୍ଚ (ସାଧାରଣତଃ ଅପରାହ୍ନ ୨ ରୁ ୩ ଟା ମଧ୍ୟରେ) ଏବଂ ସର୍ବନିମ୍ନ (ପ୍ରାତଃକାଳ ସୂର୍ଯ୍ୟୋଦୟ ପୂର୍ବରୁ) ତାପମାତ୍ରା ରେକର୍ଡ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହୁଏ।</li>
+        <li><strong>ଦୈନିକ ତାପମାତ୍ରା ପରିସର (Diurnal Range of Temperature):</strong> ଦିନର ଗରିଷ୍ଠ ତାପମାତ୍ରା ଓ ଲଘିଷ୍ଠ ତାପମାତ୍ରା ମଧ୍ୟରେ ଥିବା ପାର୍ଥକ୍ୟ।</li>
+      </ul>
+
+      <h3>୩. ବାୟୁମଣ୍ଡଳୀୟ ଚାପ (Atmospheric Pressure)</h3>
+      <p>
+        ପୃଥିବୀ ପୃଷ୍ଠ ଉପରେ ବାୟୁ ତାହାର ଓଜନ ହେତୁ ଯେଉଁ ଚାପ ପ୍ରୟୋଗ କରେ, ତାହାକୁ <strong>ବାୟୁମଣ୍ଡଳୀୟ ଚାପ</strong> କୁହାଯାଏ। ଏହାକୁ ମାପିବା ପାଇଁ <strong>ବାରୋମିଟର (Barometer)</strong> ବ୍ୟବହୃତ ହୁଏ (ମିଲିବାର୍ ବା mmHg ଏକକରେ)।
+      </p>
+
+      <div class="callout-def">
+        <div class="callout-title">⚖️ ତାପମାତ୍ରା ଓ ବାୟୁଚାପ ମଧ୍ୟରେ ବିପରୀତ ସମ୍ପର୍କ:</div>
+        <ul>
+          <li><strong>ଉଷ୍ମ ବାୟୁ (Low Pressure / ନିମ୍ନଚାପ):</strong> ବାୟୁ ଗରମ ହେଲେ ପ୍ରସାରିତ ଓ ହାଲୁକା ହୋଇ ଉପରକୁ ଉଠିଯାଏ। ଏହା ଫଳରେ ଭୂପୃଷ୍ଠରେ <strong>ନିମ୍ନଚାପ</strong> ସୃଷ୍ଟି ହୁଏ। ନିମ୍ନଚାପ ଅଞ୍ଚଳରେ ମେଘ, ବର୍ଷା ଓ ଝଡ଼ବାତ୍ୟା ଦେଖାଯାଏ।</li>
+          <li><strong>ଶୀତଳ ବାୟୁ (High Pressure / ଉଚ୍ଚଚାପ):</strong> ବାୟୁ ଥଣ୍ଡା ହେଲେ ଭାରୀ ହୋଇ ତଳକୁ ବସିଯାଏ। ଏହା ଫଳରେ ଭୂପୃଷ୍ଠରେ <strong>ଉଚ୍ଚଚାପ</strong> ସୃଷ୍ଟି ହୁଏ। ଉଚ୍ଚଚାପ ଅଞ୍ଚଳରେ ଶାନ୍ତ, ସ୍ୱଚ୍ଛ ଓ ନିର୍ମଳ ଆକାଶ ଦେଖାଯାଏ।</li>
+        </ul>
+      </div>
+
+      <h3>୪. ପବନ: ଗତିଶୀଳ ବାୟୁ (Wind)</h3>
+      <p>
+        ବାୟୁ ସର୍ବଦା <strong>ଉଚ୍ଚଚାପ ଅଞ୍ଚଳରୁ ନିମ୍ନଚାପ ଅଞ୍ଚଳ ଆଡ଼କୁ</strong> ଭୂସମାନ୍ତର ଭାବେ ପ୍ରବାହିତ ହୁଏ। ଏହି ଗତିଶୀଳ ବାୟୁକୁ <strong>ପବନ (Wind)</strong> କୁହାଯାଏ।
+      </p>
+      <ul>
+        <li><strong>ୱିଣ୍ଡ ଭେନ୍ (Wind Vane):</strong> ପବନ କେଉଁ ଦିଗରୁ ବହୁଛି ତାହା ଦର୍ଶାଏ। ପବନ ଯେଉଁ ଦିଗରୁ ଆସେ, ସେହି ଦିଗ ଅନୁସାରେ ତାହାର ନାମକରଣ କରାଯାଏ (ଯଥା: ପଶ୍ଚିମରୁ ବହିଲେ ପଶ୍ଚିମା ପବନ)।</li>
+        <li><strong>ଆନେମୋମିଟର (Anemometer):</strong> ଘୂର୍ଣ୍ଣାୟମାନ କପ୍ ବ୍ୟବହାର କରି ପବନର ବେଗ (କିମି/ଘଣ୍ଟା) ମାପିଥାଏ।</li>
+      </ul>
+
+      <h4>ପବନର ପ୍ରକାରଭେଦ:</h4>
+      <ol>
+        <li><strong>ସ୍ଥାୟୀ ପବନ (Permanent / Prevailing Winds):</strong> ବର୍ଷସାରା ନିର୍ଦ୍ଦିଷ୍ଟ ଦିଗରେ ନିରନ୍ତର ପ୍ରବାହିତ ହୁଏ। ଯଥା: ବାଣିଜ୍ୟ ପବନ (Trade Winds), ପଶ୍ଚିମା ପବନ (Westerlies)।</li>
+        <li><strong>ସାମୟିକ ପବନ (Periodic / Seasonal Winds):</strong> ବିଭିନ୍ନ ଋତୁରେ ବା ଦିନ-ରାତି ଅନୁସାରେ ଦିଗ ପରିବର୍ତ୍ତନ କରେ। ଯଥା: ଭାରତର ମୌସୁମୀ ବାୟୁ (Monsoon Winds), ସମୁଦ୍ର ବାୟୁ ଓ ସ୍ଥଳ ବାୟୁ।</li>
+        <li><strong>ସ୍ଥାନୀୟ ପବନ (Local Winds):</strong> ବର୍ଷର କୌଣସି ନିର୍ଦ୍ଦିଷ୍ଟ ସମୟରେ ଛୋଟ ଅଞ୍ଚଳରେ ପ୍ରବାହିତ ହୁଏ। ଯଥା: ଉତ୍ତର ଭାରତର ଗ୍ରୀଷ୍ମକାଳୀନ ଉଷ୍ମ ପବନ <strong>'ଲୁ' (Loo)</strong>।</li>
+      </ol>
+
+      <h3>୫. ଆର୍ଦ୍ରତା ଓ ବୃଷ୍ଟିପାତ (Humidity &amp; Precipitation)</h3>
+      <p>
+        ବାୟୁମଣ୍ଡଳରେ ଥିବା ଜଳୀୟ ବାଷ୍ପର ପରିମାଣକୁ <strong>ଆର୍ଦ୍ରତା (Humidity)</strong> କୁହାଯାଏ। ଏହାକୁ <strong>ହାଇଗ୍ରୋମିଟର (Hygrometer)</strong> ଦ୍ୱାରା ମାପ କରାଯାଏ।
+      </p>
+      <ul>
+        <li><strong>ଆପେକ୍ଷିକ ଆର୍ଦ୍ରତା (Relative Humidity):</strong> ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ତାପମାତ୍ରାରେ ବାୟୁରେ ଥିବା ପ୍ରକୃତ ଜଳୀୟ ବାଷ୍ପ ଏବଂ ସେହି ତାପମାତ୍ରାରେ ବାୟୁ ଧାରଣ କରିପାରୁଥିବା ସର୍ବାଧିକ ଜଳୀୟ ବାଷ୍ପର ଶତକଡ଼ା ଅନୁପାତ। ବର୍ଷାଦିନେ ଆପେକ୍ଷିକ ଆର୍ଦ୍ରତା ୧୦୦% ପାଖାପାଖି ହୋଇଯାଏ, ଯାହାଫଳରେ ଝାଳ ଶୁଖେ ନାହିଁ।</li>
+        <li><strong>ବର୍ଷାମାପକ ଯନ୍ତ୍ର (Rain Gauge):</strong> ବର୍ଷାଜଳକୁ ସଂଗ୍ରହ କରି ମିଲିମିଟର (mm) ବା ସେଣ୍ଟିମିଟର (cm) ରେ ବୃଷ୍ଟିପାତର ପରିମାଣ ମାପିବା ପାଇଁ ବ୍ୟବହୃତ ଏକ ସିଲିଣ୍ଡ୍ରିକାଲ୍ ଯନ୍ତ୍ର। ଏହାକୁ ଖୋଲା ସ୍ଥାନରେ ଭୂମିରୁ ପ୍ରାୟ ୩୦ ସେମି ଉଚ୍ଚରେ ରଖାଯାଏ।</li>
+      </ul>
+
+      <h3>୬. ପାଣିପାଗ କେନ୍ଦ୍ର ଓ IMD (Weather Stations &amp; IMD)</h3>
+      <p>
+        <strong>ଷ୍ଟିଭେନସନ୍ ସ୍କ୍ରିନ୍ (Stevenson Screen):</strong> ପାଣିପାଗ କେନ୍ଦ୍ରରେ ଥର୍ମୋମିଟର ଓ ହାଇଗ୍ରୋମିଟରକୁ ସିଧାସଳଖ ସୂର୍ଯ୍ୟକିରଣ ଓ ବର୍ଷାରୁ ରକ୍ଷା କରିବା ପାଇଁ ଏକ ଧଳା ରଙ୍ଗର, କାଠର ଝରକା-ବିଶିଷ୍ଟ ବାକ୍ସ ବ୍ୟବହାର କରାଯାଏ। ଏହାକୁ ଭୂମିରୁ ୧.୨ ମିଟର (୪ ଫୁଟ୍) ଉଚ୍ଚତାରେ ଖୁଣ୍ଟ ଉପରେ ରଖାଯାଏ ଯାହାଫଳରେ ବାୟୁ ମୁକ୍ତ ଭାବେ ଚଳପ୍ରଚଳ କରିପାରିବ।
+      </p>
+      <p>
+        <strong>ଭାରତୀୟ ପାଣିପାଗ ବିଭାଗ (India Meteorological Department - IMD):</strong> ୧୮୭୫ ମସିହାରେ ପ୍ରତିଷ୍ଠିତ ଏହି ସଂସ୍ଥାର ମୁଖ୍ୟାଳୟ ନୂଆଦିଲ୍ଲୀରେ ଅବସ୍ଥିତ। ଏହା ଉପଗ୍ରହ (INSAT) ଏବଂ ରାଡାର ସାହାଯ୍ୟରେ ବାତ୍ୟା, ବନ୍ୟା ଓ ପାଣିପାଗର ସଠିକ୍ ପୂର୍ବାନୁମାନ କରି କୃଷକ, ମତ୍ସ୍ୟଜୀବୀ ଓ ବିମାନ ଚାଳକମାନଙ୍କୁ ସତର୍କ କରାଏ।
+      </p>
+    </section>
+
+    <!-- SECTION 3: KEY TERMS & DEFINITIONS -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <div class="section-number">03</div>
+        <h2 class="section-title">ମୁଖ୍ୟ ଶବ୍ଦାବଳୀ ଓ ସଂଜ୍ଞା (Key Vocabulary &amp; Definitions)</h2>
+      </div>
+
+      <div class="callout-def">
+        <p><strong>୧. ପାଣିପାଗ (Weather):</strong> କୌଣସି ଏକ ନିର୍ଦ୍ଦିଷ୍ଟ ସ୍ଥାନ ଓ ସମୟରେ ବାୟୁମଣ୍ଡଳର ଦୈନନ୍ଦିନ ଅବସ୍ଥା (ତାପମାତ୍ରା, ଚାପ, ପବନ, ବର୍ଷା)।</p>
+        <p><strong>୨. ଜଳବାୟୁ (Climate):</strong> ଏକ ବୃହତ୍ ଅଞ୍ଚଳର ଦୀର୍ଘକାଳୀନ (୩୦ ରୁ ୩୫ ବର୍ଷର) ହାରାହାରି ପାଣିପାଗର ନମୁନା।</p>
+        <p><strong>୩. ସୂର୍ଯ୍ୟତାପ (Insolation):</strong> ପୃଥିବୀ ପୃଷ୍ଠ ଦ୍ୱାରା ପ୍ରାପ୍ତ ଓ ଅବଶୋଷିତ ହେଉଥିବା ସୌର ବିକିରଣ।</p>
+        <p><strong>୪. ବାରୋମିଟର (Barometer):</strong> ବାୟୁମଣ୍ଡଳୀୟ ଚାପ ମାପିବା ପାଇଁ ବ୍ୟବହୃତ ଯନ୍ତ୍ର।</p>
+        <p><strong>୫. ଆନେମୋମିଟର (Anemometer):</strong> ପବନର ବେଗ ବା ଗତି ମାପିବା ପାଇଁ ବ୍ୟବହୃତ ଯନ୍ତ୍ର।</p>
+        <p><strong>୬. ୱିଣ୍ଡ ଭେନ୍ (Wind Vane):</strong> ପବନର ପ୍ରବାହ ଦିଗ ଦର୍ଶାଉଥିବା ପତାକା ବା କୁକୁଡ଼ା ଆକୃତିର ଯନ୍ତ୍ର।</p>
+        <p><strong>୭. ଆପେକ୍ଷିକ ଆର୍ଦ୍ରତା (Relative Humidity):</strong> ବାୟୁରେ ଉପସ୍ଥିତ ପ୍ରକୃତ ଜଳୀୟ ବାଷ୍ପ ଓ ତାହାର ସର୍ବାଧିକ ଧାରଣ କ୍ଷମତାର ଶତକଡ଼ା ଅନୁପାତ।</p>
+        <p><strong>୮. ଅଧଃକ୍ଷେପଣ (Precipitation):</strong> ବାୟୁମଣ୍ଡଳରୁ ଜଳୀୟ ବାଷ୍ପ ଘନୀଭୂତ ହୋଇ ତରଳ ବା କଠିନ ରୂପରେ (ବର୍ଷା, ତୁଷାର, କୁଆପଥର) ଭୂପୃଷ୍ଠରେ ପଡ଼ିବା।</p>
+        <p><strong>୯. ଷ୍ଟିଭେନସନ୍ ସ୍କ୍ରିନ୍ (Stevenson Screen):</strong> ପାଣିପାଗ ଯନ୍ତ୍ରପାତି ରଖିବା ପାଇଁ ବ୍ୟବହୃତ ଏକ ସ୍ୱତନ୍ତ୍ର ଧଳା ରଙ୍ଗର ଝରକାଯୁକ୍ତ କାଠ ବାକ୍ସ।</p>
+        <p><strong>୧୦. ଲୁ (Loo):</strong> ଗ୍ରୀଷ୍ମଋତୁରେ ଉତ୍ତର ଭାରତର ସମତଳ ଅଞ୍ଚଳରେ ପ୍ରବାହିତ ଅତ୍ୟନ୍ତ ଉଷ୍ମ ଓ ଶୁଷ୍କ ସ୍ଥାନୀୟ ପବନ।</p>
+      </div>
+    </section>
+
+    <!-- SECTION 4: NCERT SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <div class="section-number">04</div>
+        <h2 class="section-title">NCERT ପାଠ୍ୟପୁସ୍ତକ ପ୍ରଶ୍ନୋତ୍ତର ସମାଧାନ (Complete NCERT Solutions)</h2>
+      </div>
+
+      <details class="ans-box" open>
+        <summary class="ans-prompt">ପ୍ରଶ୍ନ ୧: ପାଣିପାଗ ଓ ଜଳବାୟୁ ମଧ୍ୟରେ ମୁଖ୍ୟ ପାର୍ଥକ୍ୟ କ’ଣ?</summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong></p>
+          <ul>
+            <li><strong>ପାଣିପାଗ (Weather):</strong> ଏହା ବାୟୁମଣ୍ଡଳର ଏକ ସ୍ୱଳ୍ପକାଳୀନ (ଦୈନନ୍ଦିନ ବା ଘଣ୍ଟାକର) ଅବସ୍ଥା। ଏହା ଖୁବ୍ ଶୀଘ୍ର ବଦଳିପାରେ (ଯଥା: ସକାଳେ ଖରା, ସନ୍ଧ୍ୟାରେ ଝଡ଼ବର୍ଷା)।</li>
+            <li><strong>ଜଳବାୟୁ (Climate):</strong> ଏହା ଏକ ବିଶାଳ ଅଞ୍ଚଳର ଦୀର୍ଘକାଳୀନ (୩୦ ରୁ ୩୫ ବର୍ଷର) ହାରାହାରି ପାଣିପାଗର ସ୍ଥିର ସ୍ଥିତି। ଏହା ସହଜରେ ବଦଳେ ନାହିଁ।</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary class="ans-prompt">ପ୍ରଶ୍ନ ୨: ପାଣିପାଗର ମୁଖ୍ୟ ଉପାଦାନଗୁଡ଼ିକ କ’ଣ କ’ଣ ଏବଂ ସେଗୁଡ଼ିକୁ କେଉଁ ଯନ୍ତ୍ର ଦ୍ୱାରା ମାପ କରାଯାଏ?</summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong> ପାଣିପାଗର ମୁଖ୍ୟ ଉପାଦାନ ଏବଂ ସେଗୁଡ଼ିକର ମାପକ ଯନ୍ତ୍ର:</p>
+          <ol>
+            <li><strong>ତାପମାତ୍ରା:</strong> ଗରିଷ୍ଠ-ଲଘିଷ୍ଠ ଥର୍ମୋମିଟର (Maximum-Minimum Thermometer)</li>
+            <li><strong>ବାୟୁଚାପ:</strong> ବାରୋମିଟର (Barometer)</li>
+            <li><strong>ପବନର ବେଗ:</strong> ଆନେମୋମିଟର (Anemometer)</li>
+            <li><strong>ପବନର ଦିଗ:</strong> ୱିଣ୍ଡ ଭେନ୍ (Wind Vane)</li>
+            <li><strong>ଆର୍ଦ୍ରତା:</strong> ହାଇଗ୍ରୋମିଟର (Hygrometer)</li>
+            <li><strong>ବୃଷ୍ଟିପାତ:</strong> ବର୍ଷାମାପକ ଯନ୍ତ୍ର (Rain Gauge)</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary class="ans-prompt">ପ୍ରଶ୍ନ ୩: ଉଚ୍ଚତା ବୃଦ୍ଧି ସହିତ ପାହାଡ଼ିଆ ଅଞ୍ଚଳରେ ତାପମାତ୍ରା କାହିଁକି କମିଯାଏ?</summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong> ଏହାର ମୁଖ୍ୟ କାରଣଗୁଡ଼ିକ ହେଲା:</p>
+          <ul>
+            <li>ଭୂପୃଷ୍ଠ ପ୍ରଥମେ ସୌର ବିକିରଣ ଶୋଷଣ କରେ ଏବଂ ତା’ପରେ ତଳୁ ଉପରକୁ ବାୟୁମଣ୍ଡଳକୁ ଗରମ କରେ। ତେଣୁ ଭୂପୃଷ୍ଠ ନିକଟସ୍ଥ ବାୟୁ ଅଧିକ ଉଷ୍ମ ଥାଏ।</li>
+            <li>ଉଚ୍ଚତା ବଢ଼ିବା ସହିତ ବାୟୁର ଘନତା ଓ ଚାପ କମିଯାଏ, ଯାହା ଫଳରେ ବାୟୁ ପ୍ରସାରିତ ହୋଇ ଥଣ୍ଡା ହୁଏ।</li>
+            <li>ଟ୍ରୋପୋସ୍ଫିୟରରେ ପ୍ରତି ୧ କିଲୋମିଟର ଉଚ୍ଚତାରେ ତାପମାତ୍ରା ପ୍ରାୟ <strong>୬.୫°C</strong> ହ୍ରାସ ପାଏ (Normal Lapse Rate)। ଏଥିପାଇଁ ପାହାଡ଼ିଆ ଅଞ୍ଚଳ ସମତଳ ଭୂମିଠାରୁ ଥଣ୍ଡା ରହେ।</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary class="ans-prompt">ପ୍ରଶ୍ନ ୪: ଷ୍ଟିଭେନସନ୍ ସ୍କ୍ରିନ୍ କାହିଁକି ଧଳା ରଙ୍ଗରେ ରଙ୍ଗାଯାଏ ଏବଂ ଏଥିରେ ଝରକା କାହିଁକି ଥାଏ?</summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong></p>
+          <ol>
+            <li><strong>ଧଳା ରଙ୍ଗ:</strong> ଧଳା ରଙ୍ଗ ସୂର୍ଯ୍ୟର ଉତ୍ତାପକୁ ପ୍ରତିଫଳିତ କରି ବାକ୍ସ ଭିତରକୁ ଅତ୍ୟଧିକ ଗରମ ହେବାକୁ ଦିଏ ନାହିଁ।</li>
+            <li><strong>ଝାଲର ଝରକା (Louvers):</strong> ଏହା ଦ୍ୱାରା ବାହାରର ବାୟୁ ବାକ୍ସ ଭିତରେ ସହଜରେ ଚଳପ୍ରଚଳ କରିପାରେ, କିନ୍ତୁ ସିଧାସଳଖ ସୂର୍ଯ୍ୟକିରଣ ଓ ବର୍ଷାଜଳ ଭିତରେ ଥିବା ଯନ୍ତ୍ରପାତି ଉପରେ ପଡ଼େ ନାହିଁ। ଏହା ପ୍ରକୃତ ଛାଇ ତାପମାତ୍ରା ମାପିବାରେ ସାହାଯ୍ୟ କରେ।</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary class="ans-prompt">ପ୍ରଶ୍ନ ୫: ବାୟୁ କାହିଁକି ଉଚ୍ଚଚାପରୁ ନିମ୍ନଚାପ ଆଡ଼କୁ ପ୍ରବାହିତ ହୁଏ?</summary>
+        <div class="ans-content">
+          <p><strong>ଉତ୍ତର:</strong> ଯେତେବେଳେ କୌଣସି ସ୍ଥାନର ବାୟୁ ଗରମ ହୁଏ, ତାହା ହାଲୁକା ହୋଇ ଉପରକୁ ଉଠିଯାଏ, ଯାହା ଫଳରେ ସେଠାରେ ଏକ ଖାଲି ସ୍ଥାନ ବା <strong>ନିମ୍ନଚାପ କେନ୍ଦ୍ର</strong> ସୃଷ୍ଟି ହୁଏ। ସେହି ଖାଲି ସ୍ଥାନକୁ ପୂରଣ କରିବା ପାଇଁ ପାଖରେ ଥିବା ଥଣ୍ଡା ଓ ଭାରୀ ବାୟୁ (ଉଚ୍ଚଚାପ ଅଞ୍ଚଳ) ସେହି ଆଡ଼କୁ ଦୌଡ଼ି ଆସେ। ଏହା ହିଁ ପବନ ସୃଷ୍ଟିର ମୂଳ କାରଣ।</p>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: INTERACTIVE QUIZ ENGINE -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <div class="section-number">05</div>
+        <h2 class="section-title">ଇଣ୍ଟରାକ୍ଟିଭ୍ ପରୀକ୍ଷା ଓ କୁଇଜ୍ (Interactive Knowledge Check)</h2>
+      </div>
+
+      <!-- Quiz 1 -->
+      <div class="quiz-card" id="q1">
+        <div class="quiz-question">୧. ବାୟୁମଣ୍ଡଳର ସମସ୍ତ ପାଣିପାଗ ଘଟଣା କେଉଁ ସ୍ତରରେ ସଂଘଠିତ ହୁଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 0, true)">
+            <span>(କ) ଟ୍ରୋପୋସ୍ଫିୟର (Troposphere)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 1, false)">
+            <span>(ଖ) ଷ୍ଟ୍ରାଟୋସ୍ଫିୟର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 2, false)">
+            <span>(ଗ) ମେସୋସ୍ଫିୟର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q1', 3, false)">
+            <span>(ଘ) ଥର୍ମୋସ୍ଫିୟର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-explanation">
+          <strong>ବ୍ୟାଖ୍ୟା:</strong> ଟ୍ରୋପୋସ୍ଫିୟରରେ ୭୫% ବାୟୁ ଓ ୯୯% ଜଳୀୟ ବାଷ୍ପ ଥିବାରୁ ସମସ୍ତ ପାଣିପାଗ ଘଟଣା ଏଠାରେ ଘଟେ।
+        </div>
+      </div>
+
+      <!-- Quiz 2 -->
+      <div class="quiz-card" id="q2">
+        <div class="quiz-question">୨. ବାୟୁମଣ୍ଡଳୀୟ ଚାପ ମାପିବା ପାଇଁ କେଉଁ ଯନ୍ତ୍ର ବ୍ୟବହୃତ ହୁଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 0, false)">
+            <span>(କ) ଆନେମୋମିଟର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 1, true)">
+            <span>(ଖ) ବାରୋମିଟର (Barometer)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 2, false)">
+            <span>(ଗ) ହାଇଗ୍ରୋମିଟର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q2', 3, false)">
+            <span>(ଘ) ଥର୍ମୋମିଟର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-explanation">
+          <strong>ବ୍ୟାଖ୍ୟା:</strong> ଟରିସେଲିଙ୍କ ଦ୍ୱାରା ଉଦ୍ଭାବିତ ବାରୋମିଟର ବାୟୁମଣ୍ଡଳୀୟ ଚାପ ମାପିବାରେ ବ୍ୟବହୃତ ହୁଏ।
+        </div>
+      </div>
+
+      <!-- Quiz 3 -->
+      <div class="quiz-card" id="q3">
+        <div class="quiz-question">୩. ପବନର ଦିଗ କେଉଁ ଯନ୍ତ୍ର ଦ୍ୱାରା ଜଣାପଡ଼େ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 0, true)">
+            <span>(କ) ୱିଣ୍ଡ ଭେନ୍ (Wind Vane)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 1, false)">
+            <span>(ଖ) ଆନେମୋମିଟର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 2, false)">
+            <span>(ଗ) ବର୍ଷାମାପକ ଯନ୍ତ୍ର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q3', 3, false)">
+            <span>(ଘ) ବାରୋମିଟର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-explanation">
+          <strong>ବ୍ୟାଖ୍ୟା:</strong> ୱିଣ୍ଡ ଭେନ୍ ପବନର ଦିଗ ଦର୍ଶାଏ, ଏବଂ ଆନେମୋମିଟର ପବନର ବେଗ ମାପେ।
+        </div>
+      </div>
+
+      <!-- Quiz 4 -->
+      <div class="quiz-card" id="q4">
+        <div class="quiz-question">୪. ଗ୍ରୀଷ୍ମ ଋତୁରେ ଉତ୍ତର ଭାରତରେ ପ୍ରବାହିତ ଉଷ୍ମ ଓ ଶୁଷ୍କ ପବନକୁ କ’ଣ କୁହାଯାଏ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 0, false)">
+            <span>(କ) କାଳବୈଶାଖୀ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 1, true)">
+            <span>(ଖ) ଲୁ (Loo)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 2, false)">
+            <span>(ଗ) ଚିନୁକ୍</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q4', 3, false)">
+            <span>(ଘ) ମାଙ୍ଗୋ ସାୱାର୍</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-explanation">
+          <strong>ବ୍ୟାଖ୍ୟା:</strong> 'ଲୁ' ହେଉଛି ଉତ୍ତର ଭାରତର ଏକ ଅତ୍ୟନ୍ତ ଉଷ୍ମ ସ୍ଥାନୀୟ ପବନ।
+        </div>
+      </div>
+
+      <!-- Quiz 5 -->
+      <div class="quiz-card" id="q5">
+        <div class="quiz-question">୫. ଭାରତୀୟ ପାଣିପାଗ ବିଭାଗ (IMD) ର ମୁଖ୍ୟାଳୟ କେଉଁଠାରେ ଅବସ୍ଥିତ?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 0, false)">
+            <span>(କ) ମୁମ୍ବାଇ</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 1, false)">
+            <span>(ଖ) କୋଲକାତା</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 2, true)">
+            <span>(ଗ) ନୂଆଦିଲ୍ଲୀ (New Delhi)</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+          <button class="quiz-opt-btn" onclick="checkQuiz('q5', 3, false)">
+            <span>(ଘ) ଭୁବନେଶ୍ୱର</span>
+            <span class="quiz-opt-indicator"></span>
+          </button>
+        </div>
+        <div class="quiz-explanation">
+          <strong>ବ୍ୟାଖ୍ୟା:</strong> IMD ର ପ୍ରଧାନ କାର୍ଯ୍ୟାଳୟ ନୂଆଦିଲ୍ଲୀର ମୌସମ୍ ଭବନରେ ଅବସ୍ଥିତ।
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: STUDY HACKS & SUMMARY -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <div class="section-number">06</div>
+        <h2 class="section-title">ପରୀକ୍ଷା ହଲ୍ ସତର୍କତା ଓ ୧୫ଟି ମୁଖ୍ୟ ପୁନରାବୃତ୍ତି ପଏଣ୍ଟ (Exam Hacks &amp; Summary)</h2>
+      </div>
+
+      <div class="callout-warn">
+        <div class="callout-title">⚠️ ପରୀକ୍ଷା ହଲ୍ ସାଧାରଣ ଭୁଲ:</div>
+        <ul>
+          <li><strong>ଭୁଲ ୧:</strong> ଆନେମୋମିଟର ଓ ୱିଣ୍ଡଭେନ୍ ମଧ୍ୟରେ ଅଦଳବଦଳ। <em>ମନେରଖନ୍ତୁ:</em> <strong>ଆନେମୋମିଟର (Anemometer)</strong> = ବେଗ (Speed); <strong>ୱିଣ୍ଡ ଭେନ୍ (Wind Vane)</strong> = ଦିଗ (Direction)।</li>
+          <li><strong>ଭୁଲ ୨:</strong> ଗରମ ବାୟୁରେ ଉଚ୍ଚଚାପ ଥାଏ ବୋଲି ଭାବିବା। <em>ସଠିକ୍:</em> ଗରମ ବାୟୁ ହାଲୁକା ହୋଇ ଉପରକୁ ଉଠି <strong>ନିମ୍ନଚାପ (Low Pressure)</strong> ସୃଷ୍ଟି କରେ।</li>
+        </ul>
+      </div>
+
+      <h3 style="margin-top: 2rem;">📌 ୧୫ଟି ହାଇ-ୟିଲ୍ଡ ପୁନରାବୃତ୍ତି ପଏଣ୍ଟ:</h3>
+      <ol>
+        <li>ପାଣିପାଗ ହେଉଛି ବାୟୁମଣ୍ଡଳର ଦୈନନ୍ଦିନ ଅବସ୍ଥା।</li>
+        <li>ଜଳବାୟୁ ହେଉଛି ଅନ୍ତତଃ ୩୦-୩୫ ବର୍ଷର ହାରାହାରି ପାଣିପାଗ।</li>
+        <li>ସମସ୍ତ ପାଣିପାଗ ପ୍ରକ୍ରିୟା <strong>ଟ୍ରୋପୋସ୍ଫିୟର</strong> ରେ ଘଟେ।</li>
+        <li>ପ୍ରତି ୧,୦୦୦ ମିଟର ଉଚ୍ଚତା ବୃଦ୍ଧିରେ ତାପମାତ୍ରା ପ୍ରାୟ ୬.୫°C ହ୍ରାସ ପାଏ।</li>
+        <li>ପୃଥିବୀ ପୃଷ୍ଠ ଦ୍ୱାରା ଅବଶୋଷିତ ସୌରଶକ୍ତିକୁ <strong>ସୂର୍ଯ୍ୟତାପ (Insolation)</strong> କୁହାଯାଏ।</li>
+        <li>ଦିନର ସର୍ବୋଚ୍ଚ ଓ ସର୍ବନିମ୍ନ ତାପମାତ୍ରା <strong>ଗରିଷ୍ଠ-ଲଘିଷ୍ଠ ଥର୍ମୋମିଟର</strong> ଦ୍ୱାରା ମପାଯାଏ।</li>
+        <li>ବାୟୁମଣ୍ଡଳୀୟ ଚାପ ମାପିବା ପାଇଁ <strong>ବାରୋମିଟର</strong> ବ୍ୟବହୃତ ହୁଏ।</li>
+        <li>ଗରମ ବାୟୁ ହାଲୁକା ହୋଇ ନିମ୍ନଚାପ ସୃଷ୍ଟି କରେ।</li>
+        <li>ଥଣ୍ଡା ବାୟୁ ଭାରୀ ହୋଇ ଉଚ୍ଚଚାପ ସୃଷ୍ଟି କରେ।</li>
+        <li>ପବନ ସର୍ବଦା <strong>ଉଚ୍ଚଚାପରୁ ନିମ୍ନଚାପ ଆଡ଼କୁ</strong> ପ୍ରବାହିତ ହୁଏ।</li>
+        <li><strong>ଆନେମୋମିଟର</strong> ପବନର ବେଗ ମାପେ ଏବଂ <strong>ୱିଣ୍ଡ ଭେନ୍</strong> ପବନର ଦିଗ ଦର୍ଶାଏ।</li>
+        <li>ବାୟୁରେ ଥିବା ଜଳୀୟ ବାଷ୍ପକୁ <strong>ଆର୍ଦ୍ରତା</strong> କୁହାଯାଏ, ଯାହା <strong>ହାଇଗ୍ରୋମିଟର</strong> ଦ୍ୱାରା ମପାଯାଏ।</li>
+        <li>ବୃଷ୍ଟିପାତର ପରିମାଣ <strong>ବର୍ଷାମାପକ ଯନ୍ତ୍ର (Rain Gauge)</strong> ଦ୍ୱାରା ମିଲିମିଟରରେ ମପାଯାଏ।</li>
+        <li><strong>ଷ୍ଟିଭେନସନ୍ ସ୍କ୍ରିନ୍</strong> ଏକ ଧଳା ରଙ୍ଗର ଝରକାଯୁକ୍ତ କାଠ ବାକ୍ସ ଯାହା ଯନ୍ତ୍ରପାତିକୁ ସୁରକ୍ଷା ଦିଏ।</li>
+        <li><strong>IMD</strong> (ଭାରତୀୟ ପାଣିପାଗ ବିଭାଗ) ର ମୁଖ୍ୟାଳୟ ନୂଆଦିଲ୍ଲୀରେ ଅବସ୍ଥିତ।</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / docHeight) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+    });
+
+    function checkQuiz(cardId, optionIndex, isCorrect) {
+      const card = document.getElementById(cardId);
+      const buttons = card.querySelectorAll('.quiz-opt-btn');
+      const exp = card.querySelector('.quiz-explanation');
+      
+      buttons.forEach((btn, idx) => {
+        btn.classList.add('evaluated');
+        btn.disabled = true;
+        const ind = btn.querySelector('.quiz-opt-indicator');
+        if (idx === optionIndex) {
+          if (isCorrect) {
+            btn.classList.add('correct-opt');
+            ind.innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          } else {
+            btn.classList.add('wrong-opt');
+            ind.innerHTML = ' &cross; (ଭୁଲ୍ ଉତ୍ତର)';
+          }
+        }
+      });
+
+      if (!isCorrect) {
+        buttons.forEach(btn => {
+          if (btn.getAttribute('onclick').includes('true')) {
+            btn.classList.add('correct-opt');
+            btn.querySelector('.quiz-opt-indicator').innerHTML = ' &check; (ସଠିକ୍ ଉତ୍ତର)';
+          }
+        });
+      }
+
+      if (exp) {
+        exp.style.display = 'block';
+      }
+    }
+
+    let isSpeaking = false;
+    function toggleTeacherAudio() {
+      const btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert('ଆପଣଙ୍କ ବ୍ରାଉଜରରେ Text-to-Speech ସୁବିଧା ଉପଲବ୍ଧ ନାହିଁ।');
+        return;
+      }
+      if (isSpeaking) {
+        window.speechSynthesis.cancel();
+        isSpeaking = false;
+        btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+      } else {
+        const text = "ନମସ୍କାର ପିଲାମାନେ! ସପ୍ତମ ଶ୍ରେଣୀ ସାମାଜିକ ବିଜ୍ଞାନର ଦ୍ୱିତୀୟ ଅଧ୍ୟାୟ 'ପାଣିପାଗକୁ ବୁଝିବା' କୁ ସ୍ୱାଗତ। ପାଣିପାଗ ହେଉଛି ବାୟୁମଣ୍ଡଳର ଦୈନନ୍ଦିନ ଅବସ୍ଥା। ଏହାର ସମସ୍ତ ଘଟଣା ଟ୍ରୋପୋସ୍ଫିୟରରେ ଘଟେ। ପାଣିପାଗର ମୁଖ୍ୟ ଉପାଦାନଗୁଡ଼ିକ ହେଲା: ତାପମାତ୍ରା, ବାୟୁମଣ୍ଡଳୀୟ ଚାପ, ପବନ, ଆର୍ଦ୍ରତା ଏବଂ ବୃଷ୍ଟିପାତ। ତାପମାତ୍ରା ବଢ଼ିଲେ ବାୟୁ ହାଲୁକା ହୋଇ ନିମ୍ନଚାପ ସୃଷ୍ଟି କରେ। ପବନ ସର୍ବଦା ଉଚ୍ଚଚାପରୁ ନିମ୍ନଚାପ ଆଡ଼କୁ ବହେ। ବାରୋମିଟର ଦ୍ୱାରା ଚାପ, ଆନେମୋମିଟର ଦ୍ୱାରା ପବନର ବେଗ ଏବଂ ବର୍ଷାମାପକ ଯନ୍ତ୍ର ଦ୍ୱାରା ବୃଷ୍ଟିପାତ ମପାଯାଏ। ଧନ୍ୟବାଦ!";
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'or-IN';
+        utterance.rate = 0.9;
+        utterance.onend = () => {
+          isSpeaking = false;
+          btn.innerHTML = "<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Listen to Teacher Summary)</span>";
+        };
+        window.speechSynthesis.speak(utterance);
+        isSpeaking = true;
+        btn.innerHTML = "<span>⏹️ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>";
+      }
+    }
+  </script>
+</body>
+</html>
