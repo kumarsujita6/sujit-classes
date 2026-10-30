@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୧୧: ସାଧାରଣ ସଂଯୋଗର ଅନୁସନ୍ଧାନ (ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ.) — ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୧୧: ସାଧାରଣ ସଂଯୋଗର ଅନୁସନ୍ଧାନ (Finding Common Ground - HCF & LCM - Ganita Prakash)। ଗ.ସା.ଗୁ., ଲ.ସା.ଗୁ., ମୌଳିକ ଉତ୍ପାଦକୀକରଣ, ମହାବୀରାଚାର୍ଯ୍ୟଙ୍କ ଭଗ୍ନାଂଶ, ସମାଧାନ ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0f766e;
+      --primary-dark: #115e59;
+      --primary-light: #ccfbf1;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.8;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0f766e, #0284c7, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #0f766e 0%, #0369a1 50%, #4338ca 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 850px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #0f766e;
+      border: none;
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-def { background: #f0fdf4; border-color: #10b981; color: #065f46; }
+    .callout-def i { color: #059669; }
+
+    .callout-act { background: #eff6ff; border-color: #3b82f6; color: #1e3a8a; }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq { background: #fffbeb; border-color: #f59e0b; color: #78350f; }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack { background: #faf5ff; border-color: #a855f7; color: #581c87; }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn { background: #fef2f2; border-color: #ef4444; color: #7f1d1d; }
+    .callout-warn i { color: #dc2626; }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.93rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.2rem 0;
+    }
+
+    .step-item {
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+    }
+
+    .step-label {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 130px;
+    }
+
+    .step-ans {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      margin-top: 0.8rem;
+      font-weight: 700;
+      color: #166534;
+    }
+
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.75;
+    }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+    }
+
+    .correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700 !important;
+    }
+
+    .wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+    }
+
+    .math-block {
+      background: #f1f5f9;
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      margin: 1.2rem 0;
+      font-family: 'JetBrains Mono', 'Noto Sans Oriya', monospace;
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 1.05rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> ସୁଜିତ୍ କ୍ଲାସେସ୍
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">୧. ସମୀକ୍ଷା ଓ ମାଇଣ୍ଡ ମ୍ୟାପ୍</a>
+      <a href="#sec2" class="nav-link">୨. ମୌଳିକ ଧାରଣା</a>
+      <a href="#sec3" class="nav-link">୩. ପାଠ୍ୟ କାର୍ଯ୍ୟକଳାପ</a>
+      <a href="#sec4" class="nav-link">୪. ଅନୁଶୀଳନୀ ସମାଧାନ</a>
+      <a href="#sec5" class="nav-link">୫. ଅଭ୍ୟାସ କୁଇଜ୍</a>
+      <a href="#sec6" class="nav-link">୬. ଶିକ୍ଷକ ଟିପ୍ପଣୀ ଓ ସୂତ୍ର</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge"><i class="fa-solid fa-puzzle-piece"></i> ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ &bull; ଅଧ୍ୟାୟ ୧୧</div>
+    <h1 class="hero-title">ସାଧାରଣ ସଂଯୋଗର ଅନୁସନ୍ଧାନ (ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ.)</h1>
+    <p class="hero-sub">(Finding Common Ground: HCF &amp; LCM) — ଗରିଷ୍ଠ ସାଧାରଣ ଗୁଣନୀୟକ, ଲଘିଷ୍ଠ ସାଧାରଣ ଗୁଣିତକ, ମୌଳିକ ଉତ୍ପାଦକୀକରଣ, ଗ.ସା.ଗୁ. &times; ଲ.ସା.ଗୁ. = a &times; b ଏବଂ ଆଚାର୍ଯ୍ୟ ମହାବୀରଙ୍କ ପ୍ରାଚୀନ ଭଗ୍ନାଂଶ</p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> ପାଠ୍ୟପୁସ୍ତକ: ଗଣିତ ପ୍ରକାଶ ଭାଗ ୨ (ଅଧ୍ୟାୟ ୩)</span>
+      <span><i class="fa-solid fa-layer-group"></i> NEP 2020 ପାଠ୍ୟକ୍ରମ</span>
+      <span><i class="fa-solid fa-check-double"></i> ସମ୍ପୂର୍ଣ୍ଣ ବିବରଣୀ (Zero-Omission)</span>
+    </div>
+    <button class="audio-btn" id="audioSummaryBtn" onclick="toggleAudioSummary()">
+      <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+    <!-- SECTION 1 -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୧</span>
+        <h2>ଅଧ୍ୟାୟ ସମୀକ୍ଷା ଓ ଦୃଶ୍ୟମାନ ମନସ୍ତତ୍ତ୍ୱ ମାନଚିତ୍ର (Overview &amp; Mind Map)</h2>
+        <p class="section-sub">ଦୁଇ ବା ତତୋଧିକ ସଂଖ୍ୟାର ସାଧାରଣ ବିଭାଜକ (ଗ.ସା.ଗୁ.) ଏବଂ ସାଧାରଣ ଗୁଣିତକ (ଲ.ସା.ଗୁ.) ର ବ୍ୟାବହାରିକ ରୂପ।</p>
+      </div>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <strong>ଶିକ୍ଷକଙ୍କ ସ୍ୱାଗତ ବାର୍ତ୍ତା:</strong> ସମୀକ୍ଷା ନିଜ ଘରର ଏକ ୧୨ ଫୁଟ୍ &times; ୧୬ ଫୁଟ୍ ବଖରାରେ ଚଟାଣ ଟାଇଲ୍ ବିଛାଇବାକୁ ଚାହାନ୍ତି। ସେ କୌଣସି ଟାଇଲ୍ ନ କାଟି ସବୁଠାରୁ ବଡ଼ କେଉଁ ମାପର ବର୍ଗାକାର ଟାଇଲ୍ ବ୍ୟବହାର କରିପାରିବେ? ଏହାର ଉତ୍ତର ହେଉଛି <strong>ଗରିଷ୍ଠ ସାଧାରଣ ଗୁଣନୀୟକ (HCF) = ୪ ଫୁଟ୍</strong>! ଅନ୍ୟପକ୍ଷରେ, ଦୁଇଜଣ ଖେଳାଳି ଯଦି ୪ ମିଟର ଓ ୬ ମିଟର ବ୍ୟବଧାନରେ ଡିଅନ୍ତି, ସେମାନେ ପ୍ରଥମେ କେଉଁଠାରେ ଏକାଠି ପାଦ ପକାଇବେ? ତାହା ହେଉଛି <strong>ଲଘିଷ୍ଠ ସାଧାରଣ ଗୁଣିତକ (LCM) = ୧୨ ମିଟର</strong>!
+        </div>
+      </div>
+
+      <!-- SVG Tiling Diagram -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 680 240" width="100%" height="auto" style="max-width: 650px;" xmlns="http://www.w3.org/2000/svg">
+          <g transform="translate(100, 20)">
+            <rect x="0" y="0" width="440" height="180" fill="#f0fdf4" stroke="#0f766e" stroke-width="3" rx="4"/>
+            <line x1="110" y1="0" x2="110" y2="180" stroke="#0d9488" stroke-width="2" stroke-dasharray="4,2"/>
+            <line x1="220" y1="0" x2="220" y2="180" stroke="#0d9488" stroke-width="2" stroke-dasharray="4,2"/>
+            <line x1="330" y1="0" x2="330" y2="180" stroke="#0d9488" stroke-width="2" stroke-dasharray="4,2"/>
+            <line x1="0" y1="60" x2="440" y2="60" stroke="#0d9488" stroke-width="2" stroke-dasharray="4,2"/>
+            <line x1="0" y1="120" x2="440" y2="120" stroke="#0d9488" stroke-width="2" stroke-dasharray="4,2"/>
+
+            <rect x="0" y="0" width="110" height="60" fill="#a7f3d0" stroke="#047857" stroke-width="2"/>
+            <text x="55" y="35" font-size="12" font-weight="700" fill="#065f46" text-anchor="middle">୪ ଫୁଟ୍ &times; ୪ ଫୁଟ୍</text>
+
+            <text x="220" y="-8" font-size="14" font-weight="800" fill="#0f172a" text-anchor="middle">ଦୈର୍ଘ୍ୟ = ୧୬ ଫୁଟ୍ (୪ଟି ଟାଇଲ୍)</text>
+            <text x="-15" y="95" font-size="14" font-weight="800" fill="#0f172a" text-anchor="middle" transform="rotate(-90, -15, 95)">ପ୍ରସ୍ଥ = ୧୨ ଫୁଟ୍ (୩ଟି ଟାଇଲ୍)</text>
+            <text x="220" y="100" font-size="15" font-weight="800" fill="#0f766e" text-anchor="middle">ଗ.ସା.ଗୁ.(୧୨, ୧୬) = ୪ ଫୁଟ୍ &bull; ମୋଟ ୧୨ଟି ଟାଇଲ୍</text>
+          </g>
+        </svg>
+        <p class="diagram-caption">ଚିତ୍ର ୧୧.୧: ସମୀକ୍ଷାଙ୍କ କୋଠରୀରେ ୪ ଫୁଟ୍ &times; ୪ ଫୁଟ୍ ଟାଇଲ୍ ବିଛାଇବା — ଗ.ସା.ଗୁ. ର ବ୍ୟାବହାରିକ ପ୍ରୟୋଗ।</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୨</span>
+        <h2>ମୁଖ୍ୟ ଧାରଣା ଓ ଶିକ୍ଷକଙ୍କ ବିସ୍ତୃତ ବ୍ୟାଖ୍ୟା (Core Concepts &amp; Explanations)</h2>
+        <p class="section-sub">ମୌଳିକ ଉତ୍ପାଦକୀକରଣ, ସିଡ଼ି ପଦ୍ଧତି, ସୁବର୍ଣ୍ଣ ସମ୍ପର୍କ ଏବଂ ଆଚାର୍ଯ୍ୟ ମହାବୀରଙ୍କ ସୂତ୍ର।</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-gem"></i> ୧୧.୧ ମୌଳିକ ଉତ୍ପାଦକୀକରଣ (Prime Factorisation) ଦ୍ୱାରା ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ.</h3>
+      <p>ପ୍ରତ୍ୟେକ ଯୌଗିକ ସଂଖ୍ୟାକୁ ମୌଳିକ ସଂଖ୍ୟାମାନଙ୍କର ଏକ ଅନନ୍ୟ ଗୁଣଫଳ ରୂପେ ପ୍ରକାଶ କରାଯାଇପାରେ:</p>
+      <div class="callout-box callout-act">
+        <i class="fa-solid fa-list-check"></i>
+        <div>
+          &bull; <strong>ଗ.ସା.ଗୁ. (HCF):</strong> ସାଧାରଣ ମୌଳିକ ଉତ୍ପାଦକମାନଙ୍କର <strong>ସର୍ବନିମ୍ନ (Lowest) ଘାତର</strong> ଗୁଣଫଳ।<br>
+          &bull; <strong>ଲ.ସା.ଗୁ. (LCM):</strong> ସମସ୍ତ ମୌଳିକ ଉତ୍ପାଦକମାନଙ୍କର <strong>ସର୍ବୋଚ୍ଚ (Highest) ଘାତର</strong> ଗୁଣଫଳ।
+        </div>
+      </div>
+
+      <div class="math-block">
+        ୮୪ = ୨&sup2; &times; ୩&sup1; &times; ୭&sup1; &emsp; | &emsp; ୧୮୦ = ୨&sup2; &times; ୩&sup2; &times; ୫&sup1;<br>
+        ଗ.ସା.ଗୁ. = ୨&sup2; &times; ୩&sup1; = ୪ &times; ୩ = <strong>୧୨</strong><br>
+        ଲ.ସା.ଗୁ. = ୨&sup2; &times; ୩&sup2; &times; ୫&sup1; &times; ୭&sup1; = ୪ &times; ୯ &times; ୫ &times; ୭ = <strong>୧୨୬୦</strong>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-stairs"></i> ୧୧.୨ ସିଡ଼ି ବା ସାଧାରଣ ହରଣ ପଦ୍ଧତି (Ladder Division Method)</h3>
+      <div class="math-block">
+        ୨ | ୮୪, ୧୮୦<br>
+        ୨ | ୪୨, &nbsp;୯୦<br>
+        ୩ | ୨୧, &nbsp;୪୫<br>
+        &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;୭, &nbsp;୧୫ (୭ ଏବଂ ୧୫ ର କୌଣସି ସାଧାରଣ ମୌଳିକ ଉତ୍ପାଦକ ନାହିଁ)<br><br>
+        ଗ.ସା.ଗୁ. = ବାମ ସ୍ତମ୍ଭର ଗୁଣଫଳ = ୨ &times; ୨ &times; ୩ = <strong>୧୨</strong><br>
+        ଲ.ସା.ଗୁ. = ବାମ ସ୍ତମ୍ଭ &times; ତଳ ଭାଗଫଳ = ୧୨ &times; ୭ &times; ୧୫ = <strong>୧୨୬୦</strong>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-link"></i> ୧୧.୩ ସୁବର୍ଣ୍ଣ ସମ୍ପର୍କ: ଗ.ସା.ଗୁ. &times; ଲ.ସା.ଗୁ. = a &times; b</h3>
+      <p>ଯେକୌଣସି ଦୁଇଟି ଧନାତ୍ମକ ପୂର୍ଣ୍ଣସଂଖ୍ୟା a ଏବଂ b ପାଇଁ:</p>
+      <div class="math-block">
+        ଗ.ସା.ଗୁ.(a, b) &times; ଲ.ସା.ଗୁ.(a, b) = a &times; b
+      </div>
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>ସତର୍କତା:</strong> ଏହି ନିୟମଟି କେବଳ <strong>ଦୁଇଟି ସଂଖ୍ୟା</strong> ପାଇଁ ସତ୍ୟ। ତିନି ବା ତତୋଧିକ ସଂଖ୍ୟା ପାଇଁ ଏହା ସାଧାରଣ ଭାବେ ପ୍ରଯୁଜ୍ୟ ନୁହେଁ!
+        </div>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-scroll"></i> ୧୧.୪ ଐତିହାସିକ ଗଣିତ: ଆଚାର୍ଯ୍ୟ ମହାବୀରଙ୍କ ଭଗ୍ନାଂଶ ଯୋଗ (୮୫୦ ଖ୍ରୀଷ୍ଟାବ୍ଦ)</h3>
+      <p>ନବମ ଶତାବ୍ଦୀରେ କର୍ଣ୍ଣାଟକର ପ୍ରଖ୍ୟାତ ଜୈନ ଗଣିତଜ୍ଞ <strong>ମହାବୀରାଚାର୍ଯ୍ୟ</strong> ତାଙ୍କର ପ୍ରସିଦ୍ଧ ଗ୍ରନ୍ଥ <em>ଗଣିତସାରସଂଗ୍ରହ</em> ରେ ହରମାନଙ୍କ ଲ.ସା.ଗୁ. କୁ 'ନିରୁଦ୍ଧ' କହି ଭଗ୍ନାଂଶ ଯୋଗର ଏକ ଚମତ୍କାର ପ୍ରଶ୍ନ ଦେଇଥିଲେ:</p>
+
+      <div class="callout-box callout-act">
+        <i class="fa-solid fa-scroll"></i>
+        <div>
+          <strong>ମହାବୀରାଚାର୍ଯ୍ୟଙ୍କ ଐତିହାସିକ ପ୍ରଶ୍ନ:</strong><br>
+          ଯୋଗ କରନ୍ତୁ: <strong>୮/୧୫ + ୧/୨୦ + ୭/୩୬ + ୧୧/୬୩ + ୧/୨୧</strong><br>
+          &bull; ହରମାନଙ୍କର (୧୫, ୨୦, ୩୬, ୬୩, ୨୧) ଲ.ସା.ଗୁ. = <strong>୧୨୬୦</strong><br>
+          &bull; ସମହରରେ ପରିଣତ କଲେ: (୬୭୨ + ୬୩ + ୨୪୫ + ୨୨୦ + ୬୦) / ୧୨୬୦ = ୧୨୬୦ / ୧୨୬୦ = <strong>୧</strong>!<br>
+          ସମଗ୍ର ପାଞ୍ଚୋଟି ଜଟିଳ ଭଗ୍ନାଂଶର ମୋଟ ଯୋଗଫଳ ଠିକ୍ ଭାବେ <strong>୧</strong> ହୁଏ!
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୩</span>
+        <h2>ପାଠ୍ୟପୁସ୍ତକ ମଧ୍ୟସ୍ଥ କାର୍ଯ୍ୟକଳାପ ଓ ଅନୁସନ୍ଧାନ (In-Text Activities Fully Solved)</h2>
+        <p class="section-sub">ପାଠ୍ୟପୁସ୍ତକର ପୃଷ୍ଠା ୫, ୭ ଓ ୧୩ରେ ଥିବା ସମସ୍ତ ଅନୁସନ୍ଧାନମୂଳକ କାର୍ଯ୍ୟର ସମାଧାନ।</p>
+      </div>
+
+      <h4 class="sub-topic">କାର୍ଯ୍ୟକଳାପ ୧: ସମସ୍ତ ଗୁଣନୀୟକ ତାଲିକାଭୁକ୍ତ କରନ୍ତୁ (ପୃଷ୍ଠା ୫)</h4>
+      <div class="solution-box">
+        <div class="step-item"><strong>(କ) ୯୦:</strong> ୯୦ = ୨ &times; ୩&sup2; &times; ୫। ଗୁଣନୀୟକ ସଂଖ୍ୟା = ୨ &times; ୩ &times; ୨ = ୧୨ଟି।
+          <br>ତାଲିକା: <strong>୧, ୨, ୩, ୫, ୬, ୯, ୧୦, ୧୫, ୧୮, ୩୦, ୪୫, ୯୦</strong>।
+        </div>
+        <div class="step-item"><strong>(ଖ) ୧୦୫:</strong> ୧୦୫ = ୩ &times; ୫ &times; ୭। ଗୁଣନୀୟକ ସଂଖ୍ୟା = ୮ଟି।
+          <br>ତାଲିକା: <strong>୧, ୩, ୫, ୭, ୧୫, ୨୧, ୩୫, ୧୦୫</strong>।
+        </div>
+        <div class="step-item"><strong>(ଗ) ଅଂଶୁଙ୍କ ଦାବିର ମୂଲ୍ୟାୟନ:</strong> ଅଂଶୁ କହେ "ବଡ଼ ସଂଖ୍ୟାର ମୌଳିକ ଉତ୍ପାଦକ ତାଲିକା ସର୍ବଦା ଲମ୍ବା ହୁଏ।" ଏହା <strong>ଭୁଲ୍</strong>! ଉଦାହରଣ: ୯୬ ର ୬ଟି ମୌଳିକ ଉତ୍ପାଦକ ଅଛି, କିନ୍ତୁ ବୃହତ୍ତର ସଂଖ୍ୟା ୧୨୧ ର କେବଳ ୨ଟି (୧୧ &times; ୧୧) ଏବଂ ୧୦୦୯ ର କେବଳ ୧ଟି ମୌଳିକ ଉତ୍ପାଦକ ଥାଏ।
+        </div>
+      </div>
+
+      <h4 class="sub-topic">କାର୍ଯ୍ୟକଳାପ ୨: କ୍ରମିକ ସଂଖ୍ୟାର ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ. ସମ୍ପର୍କ (ପୃଷ୍ଠା ୧୩)</h4>
+      <div class="solution-box">
+        <div class="step-item">&bull; <strong>ଦୁଇଟି କ୍ରମିକ ଯୁଗ୍ମ ସଂଖ୍ୟାର ଗ.ସା.ଗୁ.:</strong> ସର୍ବଦା <strong>୨</strong> ହୁଏ (କାରଣ ସେମାନଙ୍କ ଅନ୍ତର ୨)।</div>
+        <div class="step-item">&bull; <strong>ଦୁଇଟି କ୍ରମିକ ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଗ.ସା.ଗୁ.:</strong> ସର୍ବଦା <strong>୧</strong> ହୁଏ (ସେମାନେ ପରସ୍ପର ମୌଳିକ)।</div>
+        <div class="step-item">&bull; <strong>ଦୁଇଟି କ୍ରମିକ ଗଣନ ସଂଖ୍ୟାର ଗ.ସା.ଗୁ.:</strong> ସର୍ବଦା <strong>୧</strong> ଏବଂ ସେମାନଙ୍କ ଲ.ସା.ଗୁ. = ସେମାନଙ୍କ <strong>ଗୁଣଫଳ (a &times; b)</strong>।</div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୪</span>
+        <h2>ଅଧ୍ୟାୟ ଶେଷସ୍ଥ 'Figure It Out' ଅଭ୍ୟାସ ସମାଧାନ (Exercises Solved)</h2>
+        <p class="section-sub">ସୋପାନ-ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ବ୍ୟାଖ୍ୟା (Zero-Omission Solutions)।</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>ପ୍ରଶ୍ନ ୧: କର୍ଣ୍ଣାଟକ ଗଉଡ଼ଙ୍କ ଗାଈ ପଲ ଧନ୍ଦା (ପୃଷ୍ଠା ୧୭)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ:</strong> ଜଣେ ଗଉଡ଼ଙ୍କ ଗାଈ ପଲ ୩ଟି ଫାଟକ, ୫ଟି ଫାଟକ କିମ୍ବା ୭ଟି ଫାଟକ ଦେଇ ଗଲାବେଳେ ପ୍ରତ୍ୟେକ ଥର ସମାନ ସଂଖ୍ୟାରେ ବିଭକ୍ତ ହୋଇଯାଆନ୍ତି। ଯଦି ମୋଟ ଗାଈ ସଂଖ୍ୟା ୨୦୦ ରୁ କମ୍, ତେବେ ତାଙ୍କ ପାଖରେ କେତୋଟି ଗାଈ ଥିଲା?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">ଧାରଣା:</span> ଗାଈ ସଂଖ୍ୟା ନିଶ୍ଚିତ ଭାବେ ୩, ୫ ଏବଂ ୭ ର ସାଧାରଣ ଗୁଣିତକ (LCM) ହେବ।</div>
+            <div class="step-item"><span class="step-label">ଗଣନା:</span> ଯେହେତୁ ୩, ୫, ୭ ପରସ୍ପର ମୌଳିକ ସଂଖ୍ୟା, ଲ.ସା.ଗୁ.(୩, ୫, ୭) = ୩ &times; ୫ &times; ୭ = <strong>୧୦୫</strong>।</div>
+            <div class="step-item"><span class="step-label">ସର୍ତ୍ତ ଯାଞ୍ଚ:</span> ୧୦୫ ର ପରବର୍ତ୍ତୀ ଗୁଣିତକ ହେଉଛି ୨୧୦, ଯାହା ୨୦୦ ରୁ ଅଧିକ। ତେଣୁ ଏକମାତ୍ର ଉତ୍ତର ହେଉଛି ୧୦୫।</div>
+            <div class="step-ans">&check; ଉତ୍ତର: ଗଉଡ଼ଙ୍କ ପାଖରେ <strong>୧୦୫ଟି ଗାଈ</strong> ଥିଲା।</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>ପ୍ରଶ୍ନ ୨: ରାମାନୁଜନଙ୍କ ସର୍ବନିମ୍ନ ସଂଖ୍ୟା (୧ ରୁ ୧୦ ଦ୍ୱାରା ବିଭାଜ୍ୟ)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ:</strong> ୧ ରୁ ୧୦ ପର୍ଯ୍ୟନ୍ତ ସମସ୍ତ ସଂଖ୍ୟା ଦ୍ୱାରା ନିଃଶେଷରେ ବିଭାଜ୍ୟ ହେଉଥିବା କ୍ଷୁଦ୍ରତମ ସଂଖ୍ୟାଟି କେଉଁଟି?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">ଲ.ସା.ଗୁ. ନିର୍ଣ୍ଣୟ:</span> ୧ ରୁ ୧୦ ମଧ୍ୟରେ ଥିବା ମୌଳିକ ସଂଖ୍ୟାମାନଙ୍କର ସର୍ବୋଚ୍ଚ ଘାତ:
+              <br>୨ ର ସର୍ବୋଚ୍ଚ ଘାତ: ୨&sup3; = ୮
+              <br>୩ ର ସର୍ବୋଚ୍ଚ ଘାତ: ୩&sup2; = ୯
+              <br>୫ ର ସର୍ବୋଚ୍ଚ ଘାତ: ୫&sup1; = ୫
+              <br>୭ ର ସର୍ବୋଚ୍ଚ ଘାତ: ୭&sup1; = ୭
+            </div>
+            <div class="step-item"><span class="step-label">ଗଣନା:</span> ଲ.ସା.ଗୁ. = ୮ &times; ୯ &times; ୫ &times; ୭ = ୭୨ &times; ୩୫ = <strong>୨୫୨୦</strong>!</div>
+            <div class="step-ans">&check; ଉତ୍ତର: ସର୍ବନିମ୍ନ ସଂଖ୍ୟାଟି ହେଉଛି <strong>୨୫୨୦</strong>।</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>ପ୍ରଶ୍ନ ୩: କୁକୁର ଓ ଠେକୁଆ ଗୋଡ଼ାଇବା ସମସ୍ୟା (ପୃଷ୍ଠା ୧୮)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ:</strong> ଏକ କୁକୁରଠାରୁ ଗୋଟିଏ ଠେକୁଆ ୧୫୦ ଫୁଟ୍ ଆଗରେ ଅଛି। ପ୍ରତ୍ୟେକ ଡିଆଁରେ କୁକୁର ୯ ଫୁଟ୍ ଏବଂ ଠେକୁଆ ୭ ଫୁଟ୍ ଯାଏ। କେତୋଟି ଡିଆଁରେ କୁକୁରଟି ଠେକୁଆକୁ ଧରିପାରିବ?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">ପ୍ରାରମ୍ଭିକ ବ୍ୟବଧାନ:</span> ୧୫୦ ଫୁଟ୍।</div>
+            <div class="step-item"><span class="step-label">ପ୍ରତି ଡିଆଁରେ କମୁଥିବା ଦୂରତା:</span> ୯ &minus; ୭ = ୨ ଫୁଟ୍।</div>
+            <div class="step-item"><span class="step-label">ଡିଆଁ ସଂଖ୍ୟା:</span> ୧୫୦ &divide; ୨ = <strong>୭୫ଟି ଡିଆଁ</strong>।</div>
+            <div class="step-ans">&check; ଉତ୍ତର: କୁକୁରଟି <strong>୭୫ଟି ଡିଆଁରେ</strong> ଠେକୁଆକୁ ଧରିପାରିବ।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୫</span>
+        <h2>ଇଣ୍ଟରାକ୍ଟିଭ୍ ଅଭ୍ୟାସ କୁଇଜ୍ ଇଞ୍ଜିନ୍ (Interactive Practice Quiz)</h2>
+        <p class="section-sub">ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ. ସଂକଳ୍ପରେ ନିଜର ଦକ୍ଷତା ମାପନ୍ତୁ।</p>
+      </div>
+
+      <div class="callout-box callout-pyq" id="scoreBanner" style="justify-content: space-between; align-items: center;">
+        <div><strong>ବର୍ତ୍ତମାନର ସ୍କୋର:</strong> <span id="quizScoreCount">0</span> / ୫ ସଠିକ୍</div>
+        <div id="quizTeacherMsg" style="font-size: 0.9rem; font-weight: 600;">ସମସ୍ତ ପ୍ରଶ୍ନର ଉତ୍ତର ଦେଇ ନିଜର ମୂଲ୍ୟାୟନ ଦେଖନ୍ତୁ!</div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-card" id="qcard1">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୧:</strong> ଦୁଇଟି ସଂଖ୍ୟାର ଗ.ସା.ଗୁ. ୬ ଏବଂ ଲ.ସା.ଗୁ. ୭୨ ହେଲେ, ସଂଖ୍ୟା ଦୁଇଟିର ଗୁଣଫଳ କେତେ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')"><span>(କ) ୭୮</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')"><span>(ଖ) ୨୧୬</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')"><span>(ଗ) ୪୩୨</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'c')"><span>(ଘ) ୧୨</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଗ) ୪୩୨।</strong> ସୂତ୍ର ଅନୁସାରେ, ଗ.ସା.ଗୁ. &times; ଲ.ସା.ଗୁ. = ସଂଖ୍ୟାଦ୍ୱୟର ଗୁଣଫଳ = ୬ &times; ୭୨ = ୪୩୨।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-card" id="qcard2">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୨:</strong> ଦୁଇଟି କ୍ରମିକ ଯୁଗ୍ମ ସଂଖ୍ୟାର ଗ.ସା.ଗୁ. ସର୍ବଦା କେତେ ହୁଏ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')"><span>(କ) ୧</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')"><span>(ଖ) ୨</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')"><span>(ଗ) ୪</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'b')"><span>(ଘ) ସଂଖ୍ୟା ଉପରେ ନିର୍ଭର କରେ</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଖ) ୨।</strong> ଯେକୌଣସି ଦୁଇଟି କ୍ରମିକ ଯୁଗ୍ମ ସଂଖ୍ୟା (ଯଥା ୪ ଓ ୬, କିମ୍ବା ୧୦ ଓ ୧୨) ର ଗ.ସା.ଗୁ. ସର୍ବଦା ୨ ହୋଇଥାଏ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-card" id="qcard3">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୩:</strong> ୧ ରୁ ୧୦ ପର୍ଯ୍ୟନ୍ତ ସମସ୍ତ ସଂଖ୍ୟା ଦ୍ୱାରା ବିଭାଜ୍ୟ କ୍ଷୁଦ୍ରତମ ସଂଖ୍ୟା କେଉଁଟି?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')"><span>(କ) ୧୨୬୦</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')"><span>(ଖ) ୨୫୨୦</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')"><span>(ଗ) ୫୦୪୦</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'b')"><span>(ଘ) ୭୨୦</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଖ) ୨୫୨୦।</strong> ଲ.ସା.ଗୁ.(୧, ୨, ..., ୧୦) = ୨&sup3; &times; ୩&sup2; &times; ୫ &times; ୭ = ୨୫୨୦।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-card" id="qcard4">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୪:</strong> ଦୁଇଟି ପରସ୍ପର ମୌଳିକ (Co-prime) ସଂଖ୍ୟା a ଏବଂ b ର ଲ.ସା.ଗୁ. କେତେ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'c')"><span>(କ) ୧</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'c')"><span>(ଖ) a + b</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'c')"><span>(ଗ) a &times; b</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'c')"><span>(ଘ) (a &times; b) &divide; ୨</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଗ) a &times; b।</strong> ପରସ୍ପର ମୌଳିକ ସଂଖ୍ୟାମାନଙ୍କର ଗ.ସା.ଗୁ. ୧ ହୋଇଥିବାରୁ ସେମାନଙ୍କର ଲ.ସା.ଗୁ. ସେମାନଙ୍କ ଗୁଣଫଳ ସହିତ ସମାନ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-card" id="qcard5">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୫:</strong> ୧୨ ଫୁଟ୍ &times; ୧୬ ଫୁଟ୍ କୋଠରୀରେ ସବୁଠାରୁ ବଡ଼ ବର୍ଗାକାର ଟାଇଲ୍ ବିଛାଇଲେ ସର୍ବନିମ୍ନ କେତୋଟି ଟାଇଲ୍ ଲାଗିବ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')"><span>(କ) ୪ଟି</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')"><span>(ଖ) ୪୮ଟି</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')"><span>(ଗ) ୧୨ଟି</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')"><span>(ଘ) ୧୬ଟି</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଗ) ୧୨ଟି।</strong> ଟାଇଲ୍ ବାହୁ = ଗ.ସା.ଗୁ.(୧୨, ୧୬) = ୪ ଫୁଟ୍। ଟାଇଲ୍ ସଂଖ୍ୟା = (୧୨ &divide; ୪) &times; (୧୬ &divide; ୪) = ୩ &times; ୪ = ୧୨ଟି।
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୬</span>
+        <h2>ପରୀକ୍ଷା ଉପଯୋଗୀ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସତର୍କତା ଓ ୧୫ଟି ଶୀଘ୍ର ପୁନରାବୃତ୍ତି ସୂତ୍ର (Pitfalls &amp; Revision)</h2>
+        <p class="section-sub">ପରୀକ୍ଷାରେ ଭୁଲ୍ ଏଡ଼ାଇବା ପାଇଁ ଶିକ୍ଷକଙ୍କ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ପରାମର୍ଶ।</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>ପରୀକ୍ଷା ହଲ୍‌ରେ କଦାପି ଏହି ଭୁଲ୍ କରନ୍ତୁ ନାହିଁ:</strong><br>
+          &bull; <strong>ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ. ର ମାନ ଭ୍ରାନ୍ତି:</strong> ଗ.ସା.ଗୁ. (HCF) ସର୍ବଦା ଦତ୍ତ ସଂଖ୍ୟାମାନଙ୍କଠାରୁ ଛୋଟ ବା ସମାନ ହୋଇଥାଏ; ଲ.ସା.ଗୁ. (LCM) ସର୍ବଦା ସେମାନଙ୍କଠାରୁ ବଡ଼ ବା ସମାନ ହୋଇଥାଏ!<br>
+          &bull; <strong>୩ଟି ସଂଖ୍ୟାରେ ଗୁଣଫଳ ସୂତ୍ର ଲଗାନ୍ତୁ ନାହିଁ:</strong> <code>HCF &times; LCM = a &times; b &times; c</code> କଦାପି ସତ୍ୟ ନୁହେଁ!<br>
+          &bull; <strong>ଘଣ୍ଟା ବାଜିବା ଓ ଟ୍ରାଫିକ୍ ଲାଇଟ୍ ପ୍ରଶ୍ନ:</strong> ଏହିପରି ଏକାଠି ହେବା ସମସ୍ୟାରେ ସର୍ବଦା <strong>ଲ.ସା.ଗୁ. (LCM)</strong> ନିର୍ଣ୍ଣୟ କରାଯାଏ।
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <strong>ଶିକ୍ଷକଙ୍କ ୧୫ଟି ଶୀଘ୍ର ପୁନରାବୃତ୍ତି ସୂତ୍ର (15 Rapid Revision One-Liners):</strong><br>
+          ୧. ଗ.ସା.ଗୁ. ହେଉଛି ସର୍ବବୃହତ୍ ସଂଖ୍ୟା ଯାହା ଦତ୍ତ ସଂଖ୍ୟାମାନଙ୍କୁ ପୂର୍ଣ୍ଣ ଭାବେ ବିଭାଜିତ କରେ।<br>
+          ୨. ଲ.ସା.ଗୁ. ହେଉଛି ସର୍ବନିମ୍ନ ସଂଖ୍ୟା ଯାହା ଦତ୍ତ ସଂଖ୍ୟାମାନଙ୍କ ଦ୍ୱାରା ପୂର୍ଣ୍ଣ ଭାବେ ବିଭାଜ୍ୟ ହୁଏ।<br>
+          ୩. ଦୁଇଟି ପରସ୍ପର ମୌଳିକ (Co-prime) ସଂଖ୍ୟାର ଗ.ସା.ଗୁ. ସର୍ବଦା ୧ ହୁଏ।<br>
+          ୪. ଦୁଇଟି ପରସ୍ପର ମୌଳିକ ସଂଖ୍ୟାର ଲ.ସା.ଗୁ. ସେମାନଙ୍କ ଗୁଣଫଳ ସହ ସମାନ।<br>
+          ୫. ଦୁଇଟି ସଂଖ୍ୟା ପାଇଁ: ଗ.ସା.ଗୁ. &times; ଲ.ସା.ଗୁ. = a &times; b।<br>
+          ୬. ଦୁଇଟି କ୍ରମିକ ଯୁଗ୍ମ ସଂଖ୍ୟାର ଗ.ସା.ଗୁ. ସର୍ବଦା ୨ ହୋଇଥାଏ।<br>
+          ୭. ଦୁଇଟି କ୍ରମିକ ଅଯୁଗ୍ମ ସଂଖ୍ୟାର ଗ.ସା.ଗୁ. ସର୍ବଦା ୧ ହୋଇଥାଏ।<br>
+          ୮. ଯଦି a ସଂଖ୍ୟା b ର ଗୁଣନୀୟକ ହୁଏ, ତେବେ ଗ.ସା.ଗୁ.(a, b) = a ଏବଂ ଲ.ସା.ଗୁ.(a, b) = b।<br>
+          ୯. ମୌଳିକ ଉତ୍ପାଦକୀକରଣରେ ସର୍ବନିମ୍ନ ଘାତର ଗୁଣଫଳ = ଗ.ସା.ଗୁ.।<br>
+          ୧୦. ମୌଳିକ ଉତ୍ପାଦକୀକରଣରେ ସର୍ବୋଚ୍ଚ ଘାତର ଗୁଣଫଳ = ଲ.ସା.ଗୁ.।<br>
+          ୧୧. ୧ ରୁ ୧୦ ପର୍ଯ୍ୟନ୍ତ ସମସ୍ତ ସଂଖ୍ୟାର ଲ.ସା.ଗୁ. ହେଉଛି ୨୫୨୦।<br>
+          ୧୨. ଚଟାଣରେ ବଡ଼ ଆକାରର ଟାଇଲ୍ ବିଛାଇବା ସମସ୍ୟାରେ ଗ.ସା.ଗୁ. ବ୍ୟବହୃତ ହୁଏ।<br>
+          ୧୩. ଘଣ୍ଟା ବାଜିବା, ଦୌଡ଼ ପ୍ରତିଯୋଗିତା ଓ ଟ୍ରାଫିକ୍ ଲାଇଟ୍ ସମସ୍ୟାରେ ଲ.ସା.ଗୁ. ବ୍ୟବହୃତ ହୁଏ।<br>
+          ୧୪. ଆଚାର୍ଯ୍ୟ ମହାବୀର (୮୫୦ ଖ୍ରୀଷ୍ଟାବ୍ଦ) ହରମାନଙ୍କ ଲ.ସା.ଗୁ. କୁ 'ନିରୁଦ୍ଧ' କହିଥିଲେ।<br>
+          ୧୫. ଗ.ସା.ଗୁ. ସର୍ବଦା ଲ.ସା.ଗୁ. ର ଏକ ଗୁଣନୀୟକ (Factor) ହୋଇଥାଏ।
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // 2. Audio Reader (Text-to-Speech)
+    var speechActive = false;
+    function toggleAudioSummary() {
+      var btn = document.getElementById('audioSummaryBtn');
+      if (!speechActive) {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          var text = "ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୧୧: ସାଧାରଣ ସଂଯୋଗର ଅନୁସନ୍ଧାନରେ ଆପଣଙ୍କୁ ସ୍ୱାଗତ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ଗରିଷ୍ଠ ସାଧାରଣ ଗୁଣନୀୟକ ବା ଗ.ସା.ଗୁ. ଏବଂ ଲଘିଷ୍ଠ ସାଧାରଣ ଗୁଣିତକ ବା ଲ.ସା.ଗୁ. ବିଷୟରେ ଶିଖିବା। ମୌଳିକ ଉତ୍ପାଦକୀକରଣ ଓ ସିଡ଼ି ପଦ୍ଧତି ଦ୍ୱାରା ଏହା ସହଜରେ ନିର୍ଣ୍ଣୟ କରାଯାଏ। ଦୁଇଟି ସଂଖ୍ୟାର ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ. ର ଗୁଣଫଳ ସେହି ଦୁଇ ସଂଖ୍ୟାର ଗୁଣଫଳ ସହିତ ସମାନ। ଆଚାର୍ଯ୍ୟ ମହାବୀର ଭଗ୍ନାଂଶ ଯୋଗରେ ଲ.ସା.ଗୁ. ର ପ୍ରୟୋଗ କରିଥିଲେ ଏବଂ ୧ ରୁ ୧୦ ପର୍ଯ୍ୟନ୍ତ ସମସ୍ତ ସଂଖ୍ୟା ଦ୍ୱାରା ବିଭାଜ୍ୟ କ୍ଷୁଦ୍ରତମ ସଂଖ୍ୟା ହେଉଛି ୨୫୨୦।";
+          var utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'or-IN';
+          utterance.rate = 0.95;
+          utterance.onend = function() {
+            speechActive = false;
+            if (btn) btn.innerHTML = '<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>';
+          };
+          window.speechSynthesis.speak(utterance);
+          speechActive = true;
+          if (btn) btn.innerHTML = '<span>⏹ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>';
+        } else {
+          alert('ଦୁଃଖିତ, ଆପଣଙ୍କ ବ୍ରାଉଜରରେ ଟେକ୍ସଟ୍-ଟୁ-ସ୍ପିଚ୍ ସମର୍ଥିତ ନୁହେଁ।');
+        }
+      } else {
+        window.speechSynthesis.cancel();
+        speechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>';
+      }
+    }
+
+    // 3. Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim();
+      var selectedOpt = '';
+      if (btnText.indexOf('(କ)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(ଖ)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(ଗ)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(ଘ)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      var optMapping = { 'a': '(କ)', 'b': '(ଖ)', 'c': '(ଗ)', 'd': '(ଘ)' };
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim();
+          if (t.indexOf(optMapping[correctOpt]) === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 ଚମତ୍କାର! ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ. ରେ ଆପଣ ଶତପ୍ରତିଶତ ସଫଳ!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 ଉତ୍କୃଷ୍ଟ କାର୍ଯ୍ୟ! ଆପଣଙ୍କ ମୌଳିକ ଧାରଣା ଅତି ସ୍ପଷ୍ଟ!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 ଚେଷ୍ଟା ଜାରି ରଖନ୍ତୁ! ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା ପୁଣି ଥରେ ଦେଖନ୍ତୁ।";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
