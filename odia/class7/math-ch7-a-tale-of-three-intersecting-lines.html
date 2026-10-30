@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="or">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ଅଧ୍ୟାୟ ୭: ତିନୋଟି ପରସ୍ପରଛେଦୀ ସରଳରେଖାର କାହାଣୀ — ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ | ସୁଜିତ୍ କ୍ଲାସେସ୍</title>
+  <meta name="description" content="ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୭: ତିନୋଟି ପରସ୍ପରଛେଦୀ ସରଳରେଖାର କାହାଣୀ (A Tale of Three Intersecting Lines - Ganita Prakash)। ତ୍ରିଭୁଜ ଅସମତା ଧର୍ମ, କୋଣ ଯୋଗଫଳ ୧୮୦°, ବହିଃସ୍ଥ କୋଣ, ମଧ୍ୟମା, ଉଚ୍ଚତା, ପାଇଥାଗୋରାସ୍ ଧର୍ମ, ସମାଧାନ ଓ କୁଇଜ୍।">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Oriya:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0284c7;
+      --primary-dark: #0369a1;
+      --primary-light: #e0f2fe;
+      --secondary: #0d9488;
+      --secondary-light: #ccfbf1;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #7c3aed;
+      --purple-light: #ede9fe;
+      --danger: #ef4444;
+      --danger-light: #fee2e2;
+      --dark: #0f172a;
+      --text: #334155;
+      --text-muted: #64748b;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans Oriya', 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-body);
+      color: var(--text);
+      line-height: 1.8;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #0284c7, #0d9488, #7c3aed);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.05rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #0369a1 0%, #0284c7 50%, #059669 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1.1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+      max-width: 950px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      max-width: 850px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.95;
+      margin-bottom: 1.5rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #0369a1;
+      border: none;
+      padding: 0.65rem 1.5rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', 'Noto Sans Oriya', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-def { background: #f0fdf4; border-color: #10b981; color: #065f46; }
+    .callout-def i { color: #059669; }
+
+    .callout-act { background: #eff6ff; border-color: #3b82f6; color: #1e3a8a; }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq { background: #fffbeb; border-color: #f59e0b; color: #78350f; }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack { background: #faf5ff; border-color: #a855f7; color: #581c87; }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn { background: #fef2f2; border-color: #ef4444; color: #7f1d1d; }
+    .callout-warn i { color: #dc2626; }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.93rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+
+    .solution-box {
+      background: #f8fafc;
+      border: 1.5px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.2rem 0;
+    }
+
+    .step-item {
+      margin-bottom: 0.75rem;
+      line-height: 1.7;
+    }
+
+    .step-label {
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: inline-block;
+      min-width: 120px;
+    }
+
+    .step-ans {
+      background: #f0fdf4;
+      border-left: 3px solid #16a34a;
+      padding: 0.6rem 1rem;
+      border-radius: 4px;
+      margin-top: 0.8rem;
+      font-weight: 700;
+      color: #166534;
+    }
+
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.75;
+    }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+    }
+
+    .correct-opt {
+      background: #dcfce7 !important;
+      border-color: #16a34a !important;
+      color: #166534 !important;
+      font-weight: 700 !important;
+    }
+
+    .wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #dc2626 !important;
+      color: #991b1b !important;
+    }
+
+    .math-block {
+      background: #f1f5f9;
+      border-left: 4px solid var(--primary);
+      padding: 1rem 1.25rem;
+      margin: 1.2rem 0;
+      font-family: 'JetBrains Mono', 'Noto Sans Oriya', monospace;
+      font-weight: 700;
+      color: var(--primary-dark);
+      font-size: 1.05rem;
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> ସୁଜିତ୍ କ୍ଲାସେସ୍
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">୧. ସମୀକ୍ଷା ଓ ମାଇଣ୍ଡ ମ୍ୟାପ୍</a>
+      <a href="#sec2" class="nav-link">୨. ମୌଳିକ ଧାରଣା</a>
+      <a href="#sec3" class="nav-link">୩. ପାଠ୍ୟ କାର୍ଯ୍ୟକଳାପ</a>
+      <a href="#sec4" class="nav-link">୪. ଅନୁଶୀଳନୀ ସମାଧାନ</a>
+      <a href="#sec5" class="nav-link">୫. ଅଭ୍ୟାସ କୁଇଜ୍</a>
+      <a href="#sec6" class="nav-link">୬. ଶିକ୍ଷକ ଟିପ୍ପଣୀ ଓ ସୂତ୍ର</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge"><i class="fa-solid fa-shapes"></i> ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ &bull; ଅଧ୍ୟାୟ ୭</div>
+    <h1 class="hero-title">ତିନୋଟି ପରସ୍ପରଛେଦୀ ସରଳରେଖାର କାହାଣୀ</h1>
+    <p class="hero-sub">(A Tale of Three Intersecting Lines: The Geometry of Triangles) — ତ୍ରିଭୁଜ ଅସମତା ଧର୍ମ, କୋଣ ଯୋଗଫଳ ନିୟମ (୧୮୦°), ବହିଃସ୍ଥ କୋଣ, ମଧ୍ୟମା, ଉଚ୍ଚତା ଏବଂ ପାଇଥାଗୋରାସ୍ ଧର୍ମ</p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> ପାଠ୍ୟପୁସ୍ତକ: ଗଣିତ ପ୍ରକାଶ (Ganita Prakash)</span>
+      <span><i class="fa-solid fa-layer-group"></i> NEP 2020 ପାଠ୍ୟକ୍ରମ</span>
+      <span><i class="fa-solid fa-check-double"></i> ସମ୍ପୂର୍ଣ୍ଣ ବିବରଣୀ (Zero-Omission)</span>
+    </div>
+    <button class="audio-btn" id="audioSummaryBtn" onclick="toggleAudioSummary()">
+      <span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+    <!-- SECTION 1 -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୧</span>
+        <h2>ଅଧ୍ୟାୟ ସମୀକ୍ଷା ଓ ଦୃଶ୍ୟମାନ ମନସ୍ତତ୍ତ୍ୱ ମାନଚିତ୍ର (Overview &amp; Mind Map)</h2>
+        <p class="section-sub">ତ୍ରିଭୁଜ ହେଉଛି ଆମ ଜ୍ୟାମିତି ଏବଂ ବ୍ରହ୍ମାଣ୍ଡର ସବୁଠାରୁ ଦୃଢ଼, ସ୍ଥିର ଓ ମୌଳିକ ଆବଦ୍ଧ ବହୁଭୁଜ।</p>
+      </div>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <strong>ଶିକ୍ଷକଙ୍କ ସ୍ୱାଗତ ବାର୍ତ୍ତା:</strong> ଯେତେବେଳେ ଦୁଇଟି ସରଳରେଖା ପରସ୍ପରକୁ ଛେଦ କରନ୍ତି, ସେମାନେ କୋଣ ସୃଷ୍ଟି କରନ୍ତି। କିନ୍ତୁ ଯେତେବେଳେ <strong>ତିନୋଟି ସରଳରେଖା ପରସ୍ପରକୁ ପୃଥକ୍ ବିନ୍ଦୁରେ ଛେଦ କରନ୍ତି</strong>, ସେମାନେ ଏକ ଆବଦ୍ଧ କ୍ଷେତ୍ର ଗଠନ କରନ୍ତି, ଯାହାକୁ ଆମେ <strong>ତ୍ରିଭୁଜ (Triangle)</strong> କହୁ! କିନ୍ତୁ ମନେରଖନ୍ତୁ: ଯେକୌଣସି ତିନୋଟି ମାପର ବାହୁ ନେଇ ତ୍ରିଭୁଜ ଅଙ୍କନ ସମ୍ଭବ କି? କଦାପି ନୁହେଁ! ଦୁଇଟି କ୍ଷୁଦ୍ରତର ବାହୁର ଯୋଗଫଳ ସର୍ବଦା ବୃହତ୍ତମ ବାହୁଠାରୁ ବଡ଼ ହେବା ବାଧ୍ୟତାମୂଳକ (ତ୍ରିଭୁଜ ଅସମତା ଧର୍ମ)। ପୁଣି ଯେକୌଣସି ତ୍ରିଭୁଜର ତିନୋଟି ଅନ୍ତଃସ୍ଥ କୋଣର ସମଷ୍ଟି ସର୍ବଦା ସଠିକ୍ ଭାବେ ୧୮୦° ହୋଇଥାଏ!
+        </div>
+      </div>
+
+      <!-- SVG Mind Map -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 880 420" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="triGradCenter" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0369a1"/>
+              <stop offset="100%" stop-color="#0284c7"/>
+            </linearGradient>
+            <linearGradient id="triNode1" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981"/>
+              <stop offset="100%" stop-color="#059669"/>
+            </linearGradient>
+            <linearGradient id="triNode2" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#d97706"/>
+            </linearGradient>
+            <linearGradient id="triNode3" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#7c3aed"/>
+              <stop offset="100%" stop-color="#6d28d9"/>
+            </linearGradient>
+            <linearGradient id="triNode4" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#0891b2"/>
+              <stop offset="100%" stop-color="#06b6d4"/>
+            </linearGradient>
+          </defs>
+
+          <!-- Branch curves -->
+          <path d="M 440 210 C 280 210, 180 100, 140 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 280 210, 180 320, 140 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 100, 740 100" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+          <path d="M 440 210 C 600 210, 700 320, 740 320" stroke="#94a3b8" stroke-width="3" fill="none" stroke-dasharray="6,6"/>
+
+          <!-- Center Node -->
+          <circle cx="440" cy="210" r="82" fill="url(#triGradCenter)" filter="drop-shadow(0 4px 10px rgba(2,132,199,0.35))"/>
+          <text x="440" y="200" fill="#ffffff" font-size="16" font-weight="bold" text-anchor="middle" font-family="'Noto Sans Oriya', sans-serif">ତ୍ରିଭୁଜର ଜ୍ୟାମିତି</text>
+          <text x="440" y="222" fill="#e0f2fe" font-size="13" text-anchor="middle">୩ଟି ପରସ୍ପରଛେଦୀ ରେଖା</text>
+          <text x="440" y="242" fill="#bae6fd" font-size="11" text-anchor="middle">ଅଧ୍ୟାୟ ୭ ସାରାଂଶ</text>
+
+          <!-- Branch 1: Triangle Inequality -->
+          <rect x="15" y="55" width="250" height="95" rx="14" fill="url(#triNode1)" filter="drop-shadow(0 3px 8px rgba(16,185,129,0.25))"/>
+          <text x="140" y="85" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୧. ତ୍ରିଭୁଜ ଅସମତା ଧର୍ମ</text>
+          <text x="140" y="108" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; a + b &gt; c (ପ୍ରତ୍ୟେକ ଦୁଇ ବାହୁ)</text>
+          <text x="140" y="128" fill="#d1fae5" font-size="12" text-anchor="middle">&bull; ଦୁଇ କ୍ଷୁଦ୍ରତମ ବାହୁ &gt; ବୃହତ୍ତମ</text>
+
+          <!-- Branch 2: Angle Properties -->
+          <rect x="15" y="275" width="250" height="95" rx="14" fill="url(#triNode2)" filter="drop-shadow(0 3px 8px rgba(245,158,11,0.25))"/>
+          <text x="140" y="305" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୨. କୋଣର ବିଶେଷତ୍ୱ</text>
+          <text x="140" y="328" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; ଅନ୍ତଃସ୍ଥ କୋଣ ସମଷ୍ଟି = ୧୮୦&deg;</text>
+          <text x="140" y="348" fill="#fef3c7" font-size="12" text-anchor="middle">&bull; ବହିଃସ୍ଥ କୋଣ = ବିପରୀତ ଅନ୍ତଃସ୍ଥ କୋଣଦ୍ୱୟ</text>
+
+          <!-- Branch 3: Medians & Altitudes -->
+          <rect x="615" y="55" width="250" height="95" rx="14" fill="url(#triNode3)" filter="drop-shadow(0 3px 8px rgba(124,58,237,0.25))"/>
+          <text x="740" y="85" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୩. ମଧ୍ୟମା ଓ ଉଚ୍ଚତା</text>
+          <text x="740" y="108" fill="#ede9fe" font-size="12" text-anchor="middle">&bull; ମଧ୍ୟମା &rarr; କେନ୍ଦ୍ରକ (Centroid, G)</text>
+          <text x="740" y="128" fill="#ede9fe" font-size="12" text-anchor="middle">&bull; ଲମ୍ବ/ଉଚ୍ଚତା &rarr; ଲମ୍ବକେନ୍ଦ୍ର (Orthocenter, H)</text>
+
+          <!-- Branch 4: Types & Pythagoras -->
+          <rect x="615" y="275" width="250" height="95" rx="14" fill="url(#triNode4)" filter="drop-shadow(0 3px 8px rgba(8,145,178,0.25))"/>
+          <text x="740" y="305" fill="#ffffff" font-size="14" font-weight="bold" text-anchor="middle">୪. ପ୍ରକାରଭେଦ ଓ ପାଇଥାଗୋରାସ୍</text>
+          <text x="740" y="328" fill="#cffafe" font-size="12" text-anchor="middle">&bull; ସମବାହୁ, ସମଦ୍ୱିବାହୁ, ବିଷମବାହୁ</text>
+          <text x="740" y="348" fill="#cffafe" font-size="12" text-anchor="middle">&bull; ସମକୋଣୀ: a&sup2; + b&sup2; = c&sup2;</text>
+        </svg>
+        <p class="diagram-caption">ଚିତ୍ର ୭.୧: ତ୍ରିଭୁଜର ମୁଖ୍ୟ ବୈଶିଷ୍ଟ୍ୟ, ନିୟମ ଓ ସୂତ୍ରର ସମଗ୍ର ମନସ୍ତତ୍ତ୍ୱ ମାନଚିତ୍ର (Visual Mind Map)।</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2 -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୨</span>
+        <h2>ମୁଖ୍ୟ ଧାରଣା ଓ ଶିକ୍ଷକଙ୍କ ବିସ୍ତୃତ ବ୍ୟାଖ୍ୟା (Core Concepts &amp; Explanations)</h2>
+        <p class="section-sub">ତ୍ରିଭୁଜ ଗଠନର ସର୍ତ୍ତ, କୋଣ ଯୋଗଫଳ ପ୍ରମାଣ, ବହିଃସ୍ଥ କୋଣ ଏବଂ ବିଶେଷ ସରଳରେଖା।</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-ruler-combined"></i> ୭.୧ ତ୍ରିଭୁଜ ଅସମତା ଧର୍ମ (The Triangle Inequality Property)</h3>
+      <p>ଯଦି ଆପଣ ୨ ସେମି, ୩ ସେମି ଏବଂ ୬ ସେମି ଲମ୍ବର ତିନୋଟି କାଠି ନେବେ, ତେବେ କ’ଣ ଆପଣ ଏକ ତ୍ରିଭୁଜ ତିଆରି କରିପାରିବେ? କମ୍ପାସ୍ ସାହାଯ୍ୟରେ ପରୀକ୍ଷା କରନ୍ତୁ: ପ୍ରଥମେ ୬ ସେମିର ଏକ ଭୂମି ଟାଣନ୍ତୁ। ବାମ ପାର୍ଶ୍ୱରୁ ୨ ସେମି ବ୍ୟାସାର୍ଦ୍ଧର ଚାପ ଏବଂ ଡାହାଣ ପାର୍ଶ୍ୱରୁ ୩ ସେମି ବ୍ୟାସାର୍ଦ୍ଧର ଚାପ ଆଙ୍କନ୍ତୁ। ଏହି ଦୁଇଟି ଚାପ ପରସ୍ପର ଆଡ଼କୁ ସମ୍ପୂର୍ଣ୍ଣ ସଳଖ ହୋଇ ଶୋଇଗଲେ ବି ୨ + ୩ = ୫ ସେମି ହେବ, ଯାହାକି ୬ ସେମିର ବ୍ୟବଧାନକୁ ଛୁଇଁ ପାରିବ ନାହିଁ! ଚାପ ଦୁଇଟି କେବେହେଲେ ଛେଦ କରିବେ ନାହିଁ!</p>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>ତ୍ରିଭୁଜ ଗଠନର ସୁବର୍ଣ୍ଣ ନିୟମ (Golden Law):</strong> ଏକ ତ୍ରିଭୁଜ ସେତେବେଳେ ହିଁ ସମ୍ଭବ ହୁଏ, ଯେତେବେଳେ ତାର ଯେକୌଣସି ଦୁଇଟି ବାହୁର ଦୈର୍ଘ୍ୟର ସମଷ୍ଟି ତୃତୀୟ ବାହୁର ଦୈର୍ଘ୍ୟଠାରୁ ନିଶ୍ଚିତ ଭାବେ ବୃହତ୍ତର ହେବ:
+          <br><code>a + b &gt; c</code> &emsp; <code>b + c &gt; a</code> &emsp; <code>c + a &gt; b</code>
+          <br><strong>ଶୀଘ୍ର ପରୀକ୍ଷା କୌଶଳ (Quick Test):</strong> କେବଳ ଦୁଇଟି କ୍ଷୁଦ୍ରତମ ବାହୁକୁ ଯୋଗ କରନ୍ତୁ! ଯଦି <code>(କ୍ଷୁଦ୍ରତମ + ମଧ୍ୟମ ବାହୁ) &gt; ବୃହତ୍ତମ ବାହୁ</code>, ତେବେ ତ୍ରିଭୁଜ ନିଶ୍ଚିତ ଭାବେ ଗଠିତ ହେବ!
+        </div>
+      </div>
+
+      <!-- Compass Arc SVG -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 700 180" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Case A: Impossible (2 + 3 < 6) -->
+          <line x1="40" y1="120" x2="300" y2="120" stroke="#0f172a" stroke-width="4"/>
+          <text x="170" y="145" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">ଭୂମି = ୬ ସେମି</text>
+          <path d="M 40 120 A 80 80 0 0 1 120 40" stroke="#ef4444" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+          <text x="75" y="80" font-size="11" font-weight="bold" fill="#dc2626">୨ ସେମି</text>
+          <path d="M 300 120 A 120 120 0 0 0 180 30" stroke="#ef4444" stroke-width="2" fill="none" stroke-dasharray="4,4"/>
+          <text x="245" y="70" font-size="11" font-weight="bold" fill="#dc2626">୩ ସେମି</text>
+          <text x="170" y="100" font-size="13" font-weight="bold" fill="#dc2626" text-anchor="middle">ବ୍ୟବଧାନ! ୨ + ୩ = ୫ &lt; ୬</text>
+          <text x="170" y="170" font-size="12" font-weight="bold" fill="#ef4444" text-anchor="middle">&cross; ତ୍ରିଭୁଜ ଗଠନ ଅସମ୍ଭବ</text>
+
+          <!-- Divider -->
+          <line x1="350" y1="20" x2="350" y2="160" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4,4"/>
+
+          <!-- Case B: Possible (4 + 5 > 6) -->
+          <polygon points="420,120 640,120 520,40" fill="#e0f2fe" stroke="#0284c7" stroke-width="3"/>
+          <text x="530" y="145" font-size="12" font-weight="bold" fill="#0f172a" text-anchor="middle">ଭୂମି = ୬ ସେମି</text>
+          <text x="455" y="75" font-size="11" font-weight="bold" fill="#0369a1">୪ ସେମି</text>
+          <text x="595" y="75" font-size="11" font-weight="bold" fill="#0369a1">୫ ସେମି</text>
+          <text x="530" y="170" font-size="12" font-weight="bold" fill="#16a34a" text-anchor="middle">&check; ୪ + ୫ = ୯ &gt; ୬ (ତ୍ରିଭୁଜ ଗଠନ ସମ୍ଭବ!)</text>
+        </svg>
+        <p class="diagram-caption">ଚିତ୍ର ୭.୨: କମ୍ପାସ୍ ଚାପ ପରୀକ୍ଷା — କାହିଁକି ୨, ୩, ୬ ସେମିରେ ତ୍ରିଭୁଜ ହୁଏନାହିଁ, କିନ୍ତୁ ୪, ୫, ୬ ସେମି ପରସ୍ପରକୁ ଛେଦ କରି ତ୍ରିଭୁଜ ଗଠନ କରେ।</p>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-shapes"></i> ୭.୨ କୋଣ ଯୋଗଫଳ ଧର୍ମ ଓ ବହିଃସ୍ଥ କୋଣ ଉପପାଦ୍ୟ (Angle Sum &amp; Exterior Angle)</h3>
+      <p>ତ୍ରିଭୁଜଟି ଯେତେ ବଡ଼ ବା ଛୋଟ, ଯେତେ ଚେପ୍ଟା ବା ତୀକ୍ଷ୍ଣ ହେଉନା କାହିଁକି, ତାର ତିନୋଟି ଅନ୍ତଃସ୍ଥ କୋଣର ସମଷ୍ଟି ସର୍ବଦା <strong>୧୮୦° (180&deg;)</strong> ଅଟେ।</p>
+
+      <div class="math-block">
+        &ang;A + &ang;B + &ang;C = ୧୮୦&deg; (Angle Sum Property of a Triangle)
+      </div>
+
+      <!-- Exterior Angle SVG -->
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 650 200" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Triangle ABC with BC extended to D -->
+          <polygon points="120,150 380,150 260,40" fill="#f0fdf4" stroke="#16a34a" stroke-width="3"/>
+          <line x1="380" y1="150" x2="550" y2="150" stroke="#0f172a" stroke-width="3" stroke-dasharray="2,2"/>
+
+          <!-- Points -->
+          <circle cx="260" cy="40" r="4" fill="#0369a1"/>
+          <text x="260" y="28" font-size="14" font-weight="bold" fill="#0369a1" text-anchor="middle">A (&ang;1)</text>
+
+          <circle cx="120" cy="150" r="4" fill="#0369a1"/>
+          <text x="100" y="160" font-size="14" font-weight="bold" fill="#0369a1">B (&ang;2)</text>
+
+          <circle cx="380" cy="150" r="4" fill="#0369a1"/>
+          <text x="375" y="172" font-size="14" font-weight="bold" fill="#0369a1">C</text>
+
+          <circle cx="530" cy="150" r="4" fill="#dc2626"/>
+          <text x="540" y="155" font-size="14" font-weight="bold" fill="#dc2626">D</text>
+
+          <!-- Exterior Angle Arc -->
+          <path d="M 410 150 A 30 30 0 0 0 355 125" stroke="#ef4444" stroke-width="2.5" fill="none"/>
+          <text x="430" y="125" font-size="13" font-weight="bold" fill="#ef4444">&ang;ACD (ବହିଃସ୍ଥ କୋଣ x)</text>
+
+          <text x="325" y="190" font-size="13" font-weight="bold" fill="#0f172a" text-anchor="middle">ବହିଃସ୍ଥ କୋଣ (&ang;ACD) = ଅନ୍ତଃସ୍ଥ ବିପରୀତ କୋଣଦ୍ୱୟର ଯୋଗଫଳ (&ang;A + &ang;B)</text>
+        </svg>
+        <p class="diagram-caption">ଚିତ୍ର ୭.୩: ବହିଃସ୍ଥ କୋଣ ଉପପାଦ୍ୟ (Exterior Angle Theorem) — &ang;ACD = &ang;A + &ang;B।</p>
+      </div>
+
+      <div class="callout-box callout-act">
+        <i class="fa-solid fa-compass-drafting"></i>
+        <div>
+          <strong>ବହିଃସ୍ଥ କୋଣ ଉପପାଦ୍ୟ (Exterior Angle Theorem):</strong> ଏକ ତ୍ରିଭୁଜର ଗୋଟିଏ ବାହୁକୁ ବର୍ଦ୍ଧିତ କଲେ ଯେଉଁ ବହିଃସ୍ଥ କୋଣ (Exterior Angle) ଉତ୍ପନ୍ନ ହୁଏ, ତାର ପରିମାଣ ଅନ୍ତଃସ୍ଥ ଦୂରବର୍ତ୍ତୀ ବିପରୀତ କୋଣଦ୍ୱୟର ସମଷ୍ଟି ସହିତ ସମାନ।
+          <br>ଏହା ସହିତ, ବହିଃସ୍ଥ କୋଣ ଏବଂ ତାର ସଂଲଗ୍ନ ଅନ୍ତଃସ୍ଥ କୋଣ ଏକ <strong>ରୈଖିକ ଯୁଗ୍ମ (Linear Pair)</strong> ଗଠନ କରନ୍ତି, ତେଣୁ ସେମାନଙ୍କ ଯୋଗଫଳ = ୧୮୦°।
+        </div>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-arrows-to-dot"></i> ୭.୩ ମଧ୍ୟମା (Median) ଏବଂ ଉଚ୍ଚତା (Altitude)</h3>
+      <p>ତ୍ରିଭୁଜରେ ଦୁଇଟି ଅତ୍ୟନ୍ତ ମହତ୍ତ୍ୱପୂର୍ଣ୍ଣ ରେଖାଖଣ୍ଡ ରହିଛି ଯାହାକୁ ଅନେକ ଛାତ୍ରଛାତ୍ରୀ ଦ୍ୱନ୍ଦ୍ୱରେ ପକାଇଥାନ୍ତି:</p>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ବିଶେଷତା</th>
+              <th>ମଧ୍ୟମା (Median)</th>
+              <th>ଉଚ୍ଚତା / ଲମ୍ବ (Altitude)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ସଂଜ୍ଞା (Definition)</strong></td>
+              <td>ଶୀର୍ଷବିନ୍ଦୁରୁ ବିପରୀତ ବାହୁର <strong>ମଧ୍ୟବିନ୍ଦୁ (Midpoint)</strong> କୁ ସଂଯୋଗ କରୁଥିବା ରେଖାଖଣ୍ଡ।</td>
+              <td>ଶୀର୍ଷବିନ୍ଦୁରୁ ବିପରୀତ ବାହୁ ଉପରକୁ ଅଙ୍କିତ <strong>ଲମ୍ବ (Perpendicular, ୯୦°)</strong> ରେଖାଖଣ୍ଡ।</td>
+            </tr>
+            <tr>
+              <td><strong>ଛେଦବିନ୍ଦୁ (Concurrence Point)</strong></td>
+              <td><strong>କେନ୍ଦ୍ରକ (Centroid, G)</strong> — ଏହା ତ୍ରିଭୁଜର ଭାରକେନ୍ଦ୍ର (Center of Gravity)।</td>
+              <td><strong>ଲମ୍ବକେନ୍ଦ୍ର (Orthocenter, H)</strong>।</td>
+            </tr>
+            <tr>
+              <td><strong>ଅବସ୍ଥିତି (Location)</strong></td>
+              <td>ସର୍ବଦା ତ୍ରିଭୁଜର <strong>ଅଭ୍ୟନ୍ତରରେ (Inside)</strong> ଅବସ୍ଥିତ।</td>
+              <td>ସୂକ୍ଷ୍ମକୋଣୀ ତ୍ରିଭୁଜରେ ଅଭ୍ୟନ୍ତରରେ; ସମକୋଣୀ ତ୍ରିଭୁଜରେ ଶୀର୍ଷବିନ୍ଦୁରେ; ସ୍ଥୂଳକୋଣୀ ତ୍ରିଭୁଜରେ <strong>ବହିର୍ଭାଗରେ (Outside)</strong> ଥାଏ।</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3 class="topic-title"><i class="fa-solid fa-square-root-variable"></i> ୭.୪ ସମକୋଣୀ ତ୍ରିଭୁଜ ଓ ପାଇଥାଗୋରାସ୍ ଧର୍ମ (Pythagoras Property)</h3>
+      <p>ପ୍ରାଚୀନ ଭାରତୀୟ ଶୁଲ୍ବସୂତ୍ର (ବୌଧାୟନ) ତଥା ଗ୍ରୀକ୍ ଗାଣିତିକ ପାଇଥାଗୋରାସ୍‌ଙ୍କ ଅନୁଯାୟୀ, ଯେକୌଣସି ସମକୋଣୀ ତ୍ରିଭୁଜରେ:</p>
+
+      <div class="math-block">
+        କର୍ଣ୍ଣ&sup2; = ଭୂମି&sup2; + ଲମ୍ବ&sup2; &emsp; &rArr; &emsp; c&sup2; = a&sup2; + b&sup2;
+      </div>
+      <p>ଯେଉଁଠାରେ <strong>କର୍ଣ୍ଣ (Hypotenuse)</strong> ହେଉଛି ୯୦° ସମକୋଣର ବିପରୀତ ବାହୁ ଏବଂ ଏହା ତ୍ରିଭୁଜର ସବୁଠାରୁ ଦୀର୍ଘତମ ବାହୁ ଅଟେ।</p>
+    </section>
+
+    <!-- SECTION 3 -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୩</span>
+        <h2>ପାଠ୍ୟପୁସ୍ତକ ମଧ୍ୟସ୍ଥ କାର୍ଯ୍ୟକଳାପ ଓ ଅନୁସନ୍ଧାନ (In-Text Activities Fully Solved)</h2>
+        <p class="section-sub">ପାଠ୍ୟପୁସ୍ତକର ପୃଷ୍ଠା ୯, ୧୪, ୨୦ ଓ ୨୫ରେ ଥିବା ସମସ୍ତ ଅନୁସନ୍ଧାନମୂଳକ କାର୍ଯ୍ୟର ସମ୍ପୂର୍ଣ୍ଣ ସମାଧାନ।</p>
+      </div>
+
+      <h4 class="sub-topic">କାର୍ଯ୍ୟକଳାପ ୧: ତ୍ରିଭୁଜ ଗଠନ ସମ୍ଭବ କି? (ପୃଷ୍ଠା ୯)</h4>
+      <div class="solution-box">
+        <div class="step-item"><strong>(କ) ୧୦ କିମି, ୧୦ କିମି ଏବଂ ୨୫ କିମି:</strong>
+          <br>ଦୁଇ କ୍ଷୁଦ୍ରତମ ବାହୁର ଯୋଗଫଳ = ୧୦ + ୧୦ = ୨୦ କିମି।
+          <br>ଯେହେତୁ ୨୦ କିମି &lt; ୨୫ କିମି (ତୃତୀୟ ବାହୁଠାରୁ କମ୍), ତେଣୁ <strong>ତ୍ରିଭୁଜ ଗଠନ ଅସମ୍ଭବ</strong>।
+        </div>
+        <div class="step-item"><strong>(ଖ) ୫ ମିମି, ୧୦ ମିମି ଏବଂ ୨୦ ମିମି:</strong>
+          <br>ଦୁଇ କ୍ଷୁଦ୍ରତମ ବାହୁର ଯୋଗଫଳ = ୫ + ୧୦ = ୧୫ ମିମି।
+          <br>ଯେହେତୁ ୧୫ ମିମି &lt; ୨୦ ମିମି, ତେଣୁ <strong>ତ୍ରିଭୁଜ ଗଠନ ଅସମ୍ଭବ</strong>।
+        </div>
+        <div class="step-item"><strong>(ଗ) ୩ ସେମି, ୪ ସେମି ଏବଂ ୫ ସେମି:</strong>
+          <br>ଦୁଇ କ୍ଷୁଦ୍ରତମ ବାହୁର ଯୋଗଫଳ = ୩ + ୪ = ୭ ସେମି।
+          <br>ଯେହେତୁ ୭ ସେମି &gt; ୫ ସେମି, ତେଣୁ <strong>ତ୍ରିଭୁଜ ଗଠନ ନିଶ୍ଚିତ ଭାବେ ସମ୍ଭବ</strong>! (ଏହା ଏକ ସମକୋଣୀ ତ୍ରିଭୁଜ କାରଣ ୩² + ୪² = ୯ + ୧୬ = ୨୫ = ୫²)।
+        </div>
+      </div>
+
+      <h4 class="sub-topic">କାର୍ଯ୍ୟକଳାପ ୨: ଅଜ୍ଞାତ କୋଣ ନିର୍ଣ୍ଣୟ (ପୃଷ୍ଠା ୨୦)</h4>
+      <div class="solution-box">
+        <p><strong>ପ୍ରଶ୍ନ:</strong> &Delta;ABC ରେ &ang;B = ୫୦° ଏବଂ &ang;C = ୭୦°। &ang;A ର ମାନ ନିର୍ଣ୍ଣୟ କରନ୍ତୁ।</p>
+        <div class="step-item"><span class="step-label">ନିୟମ:</span> &ang;A + &ang;B + &ang;C = ୧୮୦° (କୋଣ ଯୋଗଫଳ ଧର୍ମ)।</div>
+        <div class="step-item"><span class="step-label">ଗଣନା:</span> &ang;A + ୫୦° + ୭୦° = ୧୮୦° &rArr; &ang;A + ୧୨୦° = ୧୮୦° &rArr; &ang;A = ୧୮୦° &minus; ୧୨୦° = ୬୦°।</div>
+        <div class="step-ans">&check; ଉତ୍ତର: <strong>&ang;A = ୬୦&deg;</strong>।</div>
+      </div>
+    </section>
+
+    <!-- SECTION 4 -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୪</span>
+        <h2>ଅଧ୍ୟାୟ ଶେଷସ୍ଥ 'Figure It Out' ଅଭ୍ୟାସ ସମାଧାନ (Exercises Solved)</h2>
+        <p class="section-sub">ସୋପାନ-ଅନୁଯାୟୀ ସମ୍ପୂର୍ଣ୍ଣ ବ୍ୟାଖ୍ୟା (Zero-Omission Solutions)।</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>ପ୍ରଶ୍ନ ୧: ବହିଃସ୍ଥ କୋଣ ଏବଂ ଅନ୍ତଃସ୍ଥ କୋଣ ଗଣନା</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ:</strong> ଏକ ତ୍ରିଭୁଜର ବହିଃସ୍ଥ କୋଣର ପରିମାଣ ୧୧୫° ଏବଂ ଗୋଟିଏ ଅନ୍ତଃସ୍ଥ ବିପରୀତ କୋଣର ପରିମାଣ ୪୫°। ଅନ୍ୟ ଅନ୍ତଃସ୍ଥ ବିପରୀତ କୋଣ ଓ ତୃତୀୟ ଅନ୍ତଃସ୍ଥ କୋଣର ପରିମାଣ କେତେ?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">ସୋପାନ ୧:</span> ବହିଃସ୍ଥ କୋଣ = ଅନ୍ତଃସ୍ଥ ବିପରୀତ କୋଣ ୧ + ଅନ୍ତଃସ୍ଥ ବିପରୀତ କୋଣ ୨
+              <br>୧୧୫° = ୪୫° + x &rArr; x = ୧୧୫° &minus; ୪୫° = <strong>୭୦&deg;</strong>।
+            </div>
+            <div class="step-item"><span class="step-label">ସୋପାନ ୨:</span> ତୃତୀୟ ଅନ୍ତଃସ୍ଥ କୋଣ (୧୧୫° ସହ ରୈଖିକ ଯୁଗ୍ମ ଗଠନ କରେ):
+              <br>୧୮୦° &minus; ୧୧୫° = <strong>୬୫&deg;</strong>।
+            </div>
+            <div class="step-item"><span class="step-label">ପରୀକ୍ଷା:</span> ୪୫° + ୭୦° + ୬୫° = ୧୮୦°। &check; (ପ୍ରମାଣିତ)।</div>
+            <div class="step-ans">&check; ଉତ୍ତର: ଅନ୍ୟ ଅନ୍ତଃସ୍ଥ ବିପରୀତ କୋଣ = <strong>୭୦&deg;</strong> ଏବଂ ତୃତୀୟ କୋଣ = <strong>୬୫&deg;</strong>।</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>ପ୍ରଶ୍ନ ୨: ସିଡ଼ି ଏବଂ କାନ୍ଥର ଦୂରତା (ପାଇଥାଗୋରାସ୍ ଧର୍ମ)</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ:</strong> ଏକ ୧୫ ମିଟର ଲମ୍ବା ସିଡ଼ି ଏକ କାନ୍ଥର ୧୨ ମିଟର ଉଚ୍ଚ ଝରକା ପାଖରେ ପହଞ୍ଚିପାରେ। କାନ୍ଥର ମୂଳରୁ ସିଡ଼ିର ପାଦଦେଶର ଦୂରତା କେତେ?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">ଦତ୍ତ ତଥ୍ୟ:</span> ସିଡ଼ି = କର୍ଣ୍ଣ (c) = ୧୫ ମିଟର; କାନ୍ଥର ଉଚ୍ଚତା = ଲମ୍ବ (a) = ୧୨ ମିଟର; କାନ୍ଥରୁ ଦୂରତା = ଭୂମି (b)।</div>
+            <div class="step-item"><span class="step-label">ପାଇଥାଗୋରାସ୍ ସୂତ୍ର:</span> a&sup2; + b&sup2; = c&sup2; &rArr; ୧୨&sup2; + b&sup2; = ୧୫&sup2;</div>
+            <div class="step-item"><span class="step-label">ଗଣନା:</span> ୧୪୪ + b&sup2; = ୨୨୫ &rArr; b&sup2; = ୨୨୫ &minus; ୧୪୪ = ୮୧ &rArr; b = &radic;୮୧ = <strong>୯ ମିଟର</strong>।</div>
+            <div class="step-ans">&check; ଉତ୍ତର: ସିଡ଼ିର ପାଦଦେଶ କାନ୍ଥଠାରୁ <strong>୯ ମିଟର</strong> ଦୂରରେ ଅବସ୍ଥିତ।</div>
+          </div>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>ପ୍ରଶ୍ନ ୩: ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜର କୋଣ ମାପ</summary>
+        <div class="ans-content">
+          <p><strong>ପ୍ରଶ୍ନ:</strong> ଏକ ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜର ଶୀର୍ଷକୋଣ ୪୦°। ତାର ଭୂମି ସଂଲଗ୍ନ ପ୍ରତ୍ୟେକ କୋଣର ପରିମାଣ କେତେ?</p>
+          <div class="solution-box">
+            <div class="step-item"><span class="step-label">ଧର୍ମ:</span> ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜର ଦୁଇଟି ସମାନ ବାହୁର ବିପରୀତ କୋଣଦ୍ୱୟ ପରସ୍ପର ସମାନ ହୋଇଥାନ୍ତି (ଭୂମିକୋଣଦ୍ୱୟ ସମାନ: x ଏବଂ x)।</div>
+            <div class="step-item"><span class="step-label">ଗଣନା:</span> ୪୦° + x + x = ୧୮୦° &rArr; ୪୦° + ୨x = ୧୮୦° &rArr; ୨x = ୧୪୦° &rArr; x = ୧୪୦° &divide; ୨ = <strong>୭୦&deg;</strong>।</div>
+            <div class="step-ans">&check; ଉତ୍ତର: ଭୂମି ସଂଲଗ୍ନ ପ୍ରତ୍ୟେକ କୋଣର ପରିମାଣ <strong>୭୦&deg;</strong>।</div>
+          </div>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5 -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୫</span>
+        <h2>ଇଣ୍ଟରାକ୍ଟିଭ୍ ଅଭ୍ୟାସ କୁଇଜ୍ ଇଞ୍ଜିନ୍ (Interactive Practice Quiz)</h2>
+        <p class="section-sub">ତ୍ରିଭୁଜର ଧର୍ମ ଓ ପାଇଥାଗୋରାସ୍ ସୂତ୍ରରେ ନିଜର ଦକ୍ଷତା ପରୀକ୍ଷା କରନ୍ତୁ।</p>
+      </div>
+
+      <div class="callout-box callout-pyq" id="scoreBanner" style="justify-content: space-between; align-items: center;">
+        <div><strong>ବର୍ତ୍ତମାନର ସ୍କୋର:</strong> <span id="quizScoreCount">0</span> / ୫ ସଠିକ୍</div>
+        <div id="quizTeacherMsg" style="font-size: 0.9rem; font-weight: 600;">ସମସ୍ତ ପ୍ରଶ୍ନର ଉତ୍ତର ଦେଇ ନିଜର ମୂଲ୍ୟାୟନ ଦେଖନ୍ତୁ!</div>
+      </div>
+
+      <!-- Question 1 -->
+      <div class="quiz-card" id="qcard1">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୧:</strong> ନିମ୍ନୋକ୍ତ କେଉଁ ବାହୁ ମାପ ଗୁଡ଼ିକ ଦ୍ୱାରା ଏକ ତ୍ରିଭୁଜ ଗଠନ ସମ୍ଭବ ନୁହେଁ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(କ) ୬ ସେମି, ୮ ସେମି, ୧୦ ସେମି</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(ଖ) ୩ ସେମି, ୫ ସେମି, ୯ ସେମି</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(ଗ) ୭ ସେମି, ୭ ସେମି, ୭ ସେମି</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')"><span>(ଘ) ୫ ସେମି, ୧୨ ସେମି, ୧୩ ସେମି</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଖ) ୩ ସେମି, ୫ ସେମି, ୯ ସେମି।</strong> ଦୁଇଟି କ୍ଷୁଦ୍ରତମ ବାହୁର ଯୋଗଫଳ (୩ + ୫ = ୮ ସେମି) ତୃତୀୟ ବାହୁ ୯ ସେମିଠାରୁ କମ୍, ତେଣୁ ତ୍ରିଭୁଜ ହୋଇପାରିବ ନାହିଁ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 2 -->
+      <div class="quiz-card" id="qcard2">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୨:</strong> ଏକ ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜର ଗୋଟିଏ କୋଣ ୧୦୦°। ଅନ୍ୟ ଦୁଇଟି ସମାନ କୋଣର ପ୍ରତ୍ୟେକର ମାପ କେତେ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')"><span>(କ) ୪୦&deg; ଏବଂ ୪୦&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')"><span>(ଖ) ୫୦&deg; ଏବଂ ୫୦&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')"><span>(ଗ) ୮୦&deg; ଏବଂ ୮୦&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')"><span>(ଘ) ୪୫&deg; ଏବଂ ୪୫&deg;</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (କ) ୪୦° ଏବଂ ୪୦°।</strong> (୧୮୦° &minus; ୧୦୦°) &divide; ୨ = ୮୦° &divide; ୨ = ୪୦°।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 3 -->
+      <div class="quiz-card" id="qcard3">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୩:</strong> ତ୍ରିଭୁଜର ତିନୋଟି ମଧ୍ୟମାର ଛେଦବିନ୍ଦୁକୁ କ’ଣ କୁହାଯାଏ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')"><span>(କ) ଲମ୍ବକେନ୍ଦ୍ର (Orthocenter)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')"><span>(ଖ) ପରିକେନ୍ଦ୍ର (Circumcenter)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')"><span>(ଗ) କେନ୍ଦ୍ରକ (Centroid)</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')"><span>(ଘ) ଅନ୍ତଃକେନ୍ଦ୍ର (Incenter)</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଗ) କେନ୍ଦ୍ରକ (Centroid)।</strong> ମଧ୍ୟମାତ୍ରୟର ସମାପାତ ବିନ୍ଦୁକୁ କେନ୍ଦ୍ରକ କୁହାଯାଏ ଏବଂ ଏହା ତ୍ରିଭୁଜର ଭାରକେନ୍ଦ୍ର ଭାବେ କାର୍ଯ୍ୟ କରେ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 4 -->
+      <div class="quiz-card" id="qcard4">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୪:</strong> ଏକ ସ୍ଥୂଳକୋଣୀ ତ୍ରିଭୁଜରେ ଲମ୍ବକେନ୍ଦ୍ର (Orthocenter) କେଉଁଠାରେ ଅବସ୍ଥିତ ଥାଏ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')"><span>(କ) ତ୍ରିଭୁଜର ଅଭ୍ୟନ୍ତରରେ</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')"><span>(ଖ) ତ୍ରିଭୁଜର ବହିର୍ଭାଗରେ</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')"><span>(ଗ) ବୃହତ୍ତମ ବାହୁ ଉପରେ</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')"><span>(ଘ) ସ୍ଥୂଳକୋଣ ଶୀର୍ଷରେ</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (ଖ) ତ୍ରିଭୁଜର ବହିର୍ଭାଗରେ।</strong> ସ୍ଥୂଳକୋଣୀ ତ୍ରିଭୁଜର ଦୁଇଟି ଉଚ୍ଚତା ବାହାରେ ପଡ଼ୁଥିବାରୁ ସେମାନଙ୍କ ଛେଦବିନ୍ଦୁ ତ୍ରିଭୁଜର ବାହାରେ ରହେ।
+          </div>
+        </details>
+      </div>
+
+      <!-- Question 5 -->
+      <div class="quiz-card" id="qcard5">
+        <div class="quiz-question"><strong>ପ୍ରଶ୍ନ ୫:</strong> ଏକ ସମକୋଣୀ ତ୍ରିଭୁଜର ଦୁଇଟି ବାହୁ ୬ ସେମି ଓ ୮ ସେମି ହେଲେ, କର୍ଣ୍ଣର ଦୈର୍ଘ୍ୟ କେତେ?</div>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')"><span>(କ) ୧୦ ସେମି</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')"><span>(ଖ) ୧୪ ସେମି</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')"><span>(ଗ) ୧୨ ସେମି</span><span class="quiz-opt-indicator"></span></button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'a')"><span>(ଘ) ୪୮ ସେମି</span><span class="quiz-opt-indicator"></span></button>
+        <details class="ans-box" style="margin-top: 1rem;">
+          <summary>ଶିକ୍ଷକଙ୍କ ବ୍ୟାଖ୍ୟା</summary>
+          <div class="ans-content">
+            <strong>ସଠିକ୍ ଉତ୍ତର: (କ) ୧୦ ସେମି।</strong> ପାଇଥାଗୋରାସ୍ ସୂତ୍ର: c² = ୬² + ୮² = ୩୬ + ୬୪ = ୧୦୦ &rArr; c = &radic;୧୦୦ = ୧୦ ସେମି।
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6 -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">ବିଭାଗ ୬</span>
+        <h2>ପରୀକ୍ଷା ଉପଯୋଗୀ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସତର୍କତା ଓ ୧୫ଟି ଶୀଘ୍ର ପୁନରାବୃତ୍ତି ସୂତ୍ର (Pitfalls &amp; Revision)</h2>
+        <p class="section-sub">ପରୀକ୍ଷାରେ ଭୁଲ୍ ଏଡ଼ାଇବା ପାଇଁ ଶିକ୍ଷକଙ୍କ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ପରାମର୍ଶ।</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div>
+          <strong>ପରୀକ୍ଷା ହଲ୍‌ରେ କଦାପି ଏହି ଭୁଲ୍ କରନ୍ତୁ ନାହିଁ:</strong><br>
+          &bull; <strong>କଠୋର ଅସମତା (Strict Inequality):</strong> <code>a + b &gt; c</code> ସର୍ବଦା ବଡ଼ ହେବା ଉଚିତ, ସମାନ ହେଲେ ଚଳିବ ନାହିଁ! ଯଦି a + b = c ହୁଏ, ତେବେ ତିନୋଟି ବିନ୍ଦୁ ଗୋଟିଏ ସରଳରେଖାରେ ରହିଯିବେ, ତ୍ରିଭୁଜ ହେବ ନାହିଁ!<br>
+          &bull; <strong>ବହିଃସ୍ଥ କୋଣ ଭ୍ରାନ୍ତି:</strong> ବହିଃସ୍ଥ କୋଣ ସର୍ବଦା ତାର <strong>ଦୁଇଟି ଦୂରବର୍ତ୍ତୀ ବିପରୀତ କୋଣର ସମଷ୍ଟି</strong> ସହ ସମାନ, ପାଖରେ ଥିବା ସଂଲଗ୍ନ କୋଣ ସହ ନୁହେଁ!<br>
+          &bull; <strong>ପାଇଥାଗୋରାସ୍ କେବଳ ସମକୋଣୀ ତ୍ରିଭୁଜରେ ପ୍ରଯୁଜ୍ୟ:</strong> ଯେପର୍ଯ୍ୟନ୍ତ ଗୋଟିଏ କୋଣ ୯୦° ନୁହେଁ, ସେପର୍ଯ୍ୟନ୍ତ a² + b² = c² ପ୍ରୟୋଗ କରନ୍ତୁ ନାହିଁ।
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div>
+          <strong>ଶିକ୍ଷକଙ୍କ ୧୫ଟି ଶୀଘ୍ର ପୁନରାବୃତ୍ତି ସୂତ୍ର (15 Rapid Revision One-Liners):</strong><br>
+          ୧. ତିନୋଟି ପରସ୍ପରଛେଦୀ ସରଳରେଖା ଦ୍ୱାରା ଆବଦ୍ଧ କ୍ଷେତ୍ରକୁ ତ୍ରିଭୁଜ କୁହାଯାଏ।<br>
+          ୨. ତ୍ରିଭୁଜର ୩ଟି ଶୀର୍ଷବିନ୍ଦୁ, ୩ଟି ବାହୁ ଏବଂ ୩ଟି କୋଣ ଥାଏ।<br>
+          ୩. ତ୍ରିଭୁଜ ଅସମତା ଧର୍ମ: ଦୁଇଟି କ୍ଷୁଦ୍ରତମ ବାହୁର ସମଷ୍ଟି &gt; ବୃହତ୍ତମ ବାହୁ।<br>
+          ୪. ଯଦି a + b &le; c ହୁଏ, ତେବେ କୌଣସି ତ୍ରିଭୁଜ ଗଠନ ସମ୍ଭବ ନୁହେଁ।<br>
+          ୫. ତ୍ରିଭୁଜର ତିନୋଟି ଅନ୍ତଃସ୍ଥ କୋଣର ସମଷ୍ଟି ସର୍ବଦା ୧୮୦°।<br>
+          ୬. ବହିଃସ୍ଥ କୋଣର ପରିମାଣ = ଅନ୍ତଃସ୍ଥ ବିପରୀତ କୋଣଦ୍ୱୟର ସମଷ୍ଟି।<br>
+          ୭. ବହିଃସ୍ଥ କୋଣ + ସଂଲଗ୍ନ ଅନ୍ତଃସ୍ଥ କୋଣ = ୧୮୦° (ରୈଖିକ ଯୁଗ୍ମ)।<br>
+          ୮. ସମବାହୁ ତ୍ରିଭୁଜର ପ୍ରତ୍ୟେକ କୋଣର ମାପ ୬୦° (୧୮୦° &divide; ୩)।<br>
+          ୯. ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜର ସମାନ ବାହୁର ସମ୍ମୁଖୀନ କୋଣଦ୍ୱୟ ସର୍ବଦା ସମାନ।<br>
+          ୧୦. ମଧ୍ୟମା ଶୀର୍ଷବିନ୍ଦୁକୁ ବିପରୀତ ବାହୁର ମଧ୍ୟବିନ୍ଦୁ ସହିତ ଯୋଡ଼େ।<br>
+          ୧୧. ତ୍ରିଭୁଜର ୩ଟି ଯାକ ମଧ୍ୟମା 'କେନ୍ଦ୍ରକ (Centroid)' ବିନ୍ଦୁରେ ମିଳିତ ହୁଅନ୍ତି।<br>
+          ୧୨. କେନ୍ଦ୍ରକ ସର୍ବଦା ତ୍ରିଭୁଜର ଅଭ୍ୟନ୍ତରରେ ଅବସ୍ଥିତ ଥାଏ।<br>
+          ୧୩. ଉଚ୍ଚତା ଶୀର୍ଷବିନ୍ଦୁରୁ ବିପରୀତ ବାହୁ ଉପରକୁ ୯୦° ଲମ୍ବ ଅଟେ।<br>
+          ୧୪. ଉଚ୍ଚତାତ୍ରୟର ସମାପାତ ବିନ୍ଦୁକୁ 'ଲମ୍ବକେନ୍ଦ୍ର (Orthocenter)' କୁହାଯାଏ।<br>
+          ୧୫. ପାଇଥାଗୋରାସ୍ ସୂତ୍ର: ସମକୋଣୀ ତ୍ରିଭୁଜରେ (କର୍ଣ୍ଣ)² = (ଭୂମି)² + (ଲମ୍ବ)²।
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // 1. Reading Progress Bar
+    window.addEventListener('scroll', function() {
+      var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = (winScroll / height) * 100;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+    });
+
+    // 2. Audio Reader (Text-to-Speech)
+    var speechActive = false;
+    function toggleAudioSummary() {
+      var btn = document.getElementById('audioSummaryBtn');
+      if (!speechActive) {
+        if ('speechSynthesis' in window) {
+          window.speechSynthesis.cancel();
+          var text = "ସପ୍ତମ ଶ୍ରେଣୀ ଗଣିତ ଅଧ୍ୟାୟ ୭: ତିନୋଟି ପରସ୍ପରଛେଦୀ ସରଳରେଖାର କାହାଣୀରେ ଆପଣଙ୍କୁ ସ୍ୱାଗତ। ଏହି ଅଧ୍ୟାୟରେ ଆମେ ତ୍ରିଭୁଜର ଜ୍ୟାମିତି ଶିଖିବା। ଯେକୌଣସି ତ୍ରିଭୁଜ ଗଠନ ପାଇଁ ଦୁଇଟି ବାହୁର ଦୈର୍ଘ୍ୟର ସମଷ୍ଟି ତୃତୀୟ ବାହୁଠାରୁ ବଡ଼ ହେବା ବାଧ୍ୟତାମୂଳକ। ତ୍ରିଭୁଜର ତିନୋଟି ଅନ୍ତଃସ୍ଥ କୋଣର ସମଷ୍ଟି ସର୍ବଦା ୧୮୦ ଡିଗ୍ରୀ ହୋଇଥାଏ ଏବଂ ବହିଃସ୍ଥ କୋଣର ପରିମାଣ ଅନ୍ତଃସ୍ଥ ବିପରୀତ କୋଣଦ୍ୱୟର ସମଷ୍ଟି ସହ ସମାନ। ମଧ୍ୟମା ମାନେ କେନ୍ଦ୍ରକରେ ଏବଂ ଉଚ୍ଚତା ମାନେ ଲମ୍ବକେନ୍ଦ୍ରରେ ମିଳିତ ହୁଅନ୍ତି। ସମକୋଣୀ ତ୍ରିଭୁଜରେ ପାଇଥାଗୋରାସ୍ ସୂତ୍ର ଅନୁସାରେ କର୍ଣ୍ଣର ବର୍ଗ ଅନ୍ୟ ଦୁଇ ବାହୁର ବର୍ଗର ସମଷ୍ଟି ସହ ସମାନ।";
+          var utterance = new SpeechSynthesisUtterance(text);
+          utterance.lang = 'or-IN';
+          utterance.rate = 0.95;
+          utterance.onend = function() {
+            speechActive = false;
+            if (btn) btn.innerHTML = '<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>';
+          };
+          window.speechSynthesis.speak(utterance);
+          speechActive = true;
+          if (btn) btn.innerHTML = '<span>⏹ ଅଡିଓ ବନ୍ଦ କରନ୍ତୁ (Stop Audio)</span>';
+        } else {
+          alert('ଦୁଃଖିତ, ଆପଣଙ୍କ ବ୍ରାଉଜରରେ ଟେକ୍ସଟ୍-ଟୁ-ସ୍ପିଚ୍ ସମର୍ଥିତ ନୁହେଁ।');
+        }
+      } else {
+        window.speechSynthesis.cancel();
+        speechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 ଶିକ୍ଷକଙ୍କ ସାରାଂଶ ଶୁଣନ୍ତୁ (Audio Summary)</span>';
+      }
+    }
+
+    // 3. Quiz Engine
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim();
+      var selectedOpt = '';
+      if (btnText.indexOf('(କ)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(ଖ)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(ଗ)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(ଘ)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      var optMapping = { 'a': '(କ)', 'b': '(ଖ)', 'c': '(ଗ)', 'd': '(ଘ)' };
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim();
+          if (t.indexOf(optMapping[correctOpt]) === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 ଚମତ୍କାର! ଆପଣ ସମସ୍ତ ୫ଟି ପ୍ରଶ୍ନର ସଠିକ୍ ଉତ୍ତର ଦେଇଛନ୍ତି!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 ବହୁତ ବଢ଼ିଆ! ତ୍ରିଭୁଜ ଜ୍ୟାମିତିରେ ଆପଣଙ୍କ ଧାରଣା ସ୍ପଷ୍ଟ!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 ଚେଷ୍ଟା ଜାରି ରଖନ୍ତୁ! ଉପରୋକ୍ତ ସୂତ୍ରଗୁଡ଼ିକୁ ପୁନର୍ବାର ପଢ଼ନ୍ତୁ।";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
