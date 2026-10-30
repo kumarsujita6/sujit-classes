@@ -1,0 +1,1273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 6 - Pressure, Winds, Storms, and Cyclones (Class 8 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981, #0284c7, #8b5cf6);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 45%, #0284c7 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #065f46;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease;
+    }
+
+    .callout-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-box .callout-text {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .callout-def {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .callout-def i { color: #059669; }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-color: #a855f7;
+      color: #581c87;
+    }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+    .callout-warn i { color: #dc2626; }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+    .data-table tr:hover { background: #f1f5f9; }
+
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #065f46 0%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      background: #0369a1;
+      transform: translateY(-3px) scale(1.08);
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .pulse-node {
+      animation: pulseGlow 3s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.4)); }
+      100% { filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.8)); }
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Master Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Competency Bank</a>
+      <a href="#sec6" class="nav-link">6. Exam Traps</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-tornado"></i> Class 8 Science &bull; Chapter 6 (Curiosity NEP)
+    </div>
+    <h1 class="hero-title">Pressure, Winds, Storms, and Cyclones</h1>
+    <p class="hero-sub">
+      From the microscopic force on a needle point to the colossal fury of ocean cyclones! Master Pressure = Force / Area, liquid depth dynamics, atmospheric pressure, convection sea breezes, thunderstorm lightning mechanics, and IMD cyclone disaster management.
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT Curiosity Grade 8</span>
+      <span><i class="fa-solid fa-clock"></i> 55 Mins Full Mastery</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Complete &amp; Unabridged</span>
+      <span><i class="fa-solid fa-brain"></i> Interactive Quiz &amp; Audio</span>
+    </div>
+    <button id="teacherAudioBtn" class="audio-btn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL BLUEPRINT -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
+        <h2>Atmospheric &amp; Hydrodynamic Forces Blueprint</h2>
+        <p class="section-sub">Connecting microscopic pressure physics with planetary winds, thermal convection, and cyclonic storms.</p>
+      </div>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 920 380" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gPress" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#059669" />
+              <stop offset="100%" stop-color="#0284c7" />
+            </linearGradient>
+            <filter id="shadowP6" x="-5%" y="-5%" width="110%" height="115%">
+              <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.12" />
+            </filter>
+          </defs>
+
+          <!-- Central Core: Pressure & Wind -->
+          <circle cx="460" cy="190" r="70" fill="url(#gPress)" filter="url(#shadowP6)" class="pulse-node" />
+          <text x="460" y="185" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#ffffff" text-anchor="middle">PRESSURE &amp;</text>
+          <text x="460" y="205" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#ffffff" text-anchor="middle">ATMOSPHERE</text>
+
+          <!-- Top: Fundamental Formula -->
+          <rect x="330" y="25" width="260" height="75" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" filter="url(#shadowP6)" />
+          <text x="460" y="55" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="15" fill="#1e40af" text-anchor="middle">1. Pressure = Force / Area</text>
+          <text x="460" y="77" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Pascals (Pa) &bull; Smaller area = Higher pressure</text>
+
+          <!-- Left: Liquid & Atmospheric Pressure -->
+          <rect x="50" y="150" width="260" height="100" rx="12" fill="#f0fdf4" stroke="#10b981" stroke-width="2" filter="url(#shadowP6)" />
+          <text x="180" y="180" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#065f46" text-anchor="middle">2. Fluids &amp; Atmosphere</text>
+          <text x="180" y="205" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Liquid pressure rises with depth (h)</text>
+          <text x="180" y="225" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#059669" font-weight="600" text-anchor="middle">Atmosphere exerts 101.3 kPa all around</text>
+
+          <!-- Right: Winds & Convection -->
+          <rect x="610" y="150" width="260" height="100" rx="12" fill="#fffbeb" stroke="#f59e0b" stroke-width="2" filter="url(#shadowP6)" />
+          <text x="740" y="180" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#92400e" text-anchor="middle">3. Wind Generation</text>
+          <text x="740" y="205" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">High pressure to Low pressure flow</text>
+          <text x="740" y="225" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#b45309" font-weight="600" text-anchor="middle">Land breeze &amp; Sea breeze convection</text>
+
+          <!-- Bottom: Thunderstorms & Cyclones -->
+          <rect x="330" y="295" width="260" height="75" rx="12" fill="#faf5ff" stroke="#a855f7" stroke-width="2" filter="url(#shadowP6)" />
+          <text x="460" y="325" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#6b21a8" text-anchor="middle">4. Thunderstorms &amp; Cyclones</text>
+          <text x="460" y="347" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#7e22ce" text-anchor="middle">Latent heat of condensation &bull; Eye of cyclone</text>
+
+          <!-- Connections -->
+          <line x1="460" y1="100" x2="460" y2="120" stroke="#3b82f6" stroke-width="2" />
+          <line x1="310" y1="200" x2="390" y2="200" stroke="#10b981" stroke-width="2" />
+          <line x1="610" y1="200" x2="530" y2="200" stroke="#f59e0b" stroke-width="2" />
+          <line x1="460" y1="260" x2="460" y2="295" stroke="#a855f7" stroke-width="2" />
+        </svg>
+        <p class="diagram-caption">Figure 6.1: Fluid &amp; Atmospheric Dynamics — From fundamental pressure equations to regional winds and devastating cyclonic vortexes.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: COMPREHENSIVE STUDY NOTES -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2 &bull; Comprehensive Line-by-Line Study Notes</span>
+        <h2>Deep Atmospheric &amp; Fluid Physics</h2>
+        <p class="section-sub">Explore pressure calculations, hydrostatic forces, wind systems, and cyclone disaster mitigation.</p>
+      </div>
+
+      <!-- Topic 1: Pressure Formula -->
+      <h3 class="topic-title"><i class="fa-solid fa-compress"></i> 1. The Physics of Pressure: Formula &amp; Units</h3>
+      <p>
+        Have you ever wondered why a sharp drawing pin pierces wooden boards effortlessly with your thumb, but pressing a blunt pencil eraser with the same strength leaves only a shallow dent? The secret lies in <strong>Pressure</strong>!
+      </p>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-calculator"></i>
+        <div class="callout-text">
+          <strong>Definition: Pressure</strong><br>
+          Pressure is defined as the perpendicular force (thrust) acting on a unit surface area of an object.<br>
+          $$	ext{Pressure} = rac{	ext{Force}}{	ext{Area}} \quad \Rightarrow \quad P = rac{F}{A}$$<br>
+          &bull; <strong>SI Unit:</strong> $	ext{Newton per square meter } (	ext{N/m}^2)$, named the <strong>Pascal (Pa)</strong> in honor of Blaise Pascal.<br>
+          &bull; $1	ext{ Pascal} = 1	ext{ N/m}^2$.
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-lightbulb"></i>
+        <div class="callout-text">
+          <strong>The Golden Inverse Rule: Area vs Pressure!</strong><br>
+          For a given constant force:<br>
+          &bull; <strong>Smaller Area $\Rightarrow$ Enormous Pressure:</strong> Syringe needles, sharp butcher knives, nails with pointed tips.<br>
+          &bull; <strong>Larger Area $\Rightarrow$ Low Pressure:</strong> Wide shoulder straps on school bags (prevents digging into shoulders), wide caterpillar tracks on heavy army tanks, wide flat feet of camels for walking on loose desert sand without sinking!
+        </div>
+      </div>
+
+      <!-- Topic 2: Liquid Pressure -->
+      <h3 class="topic-title"><i class="fa-solid fa-faucet-drip"></i> 2. Liquid Pressure: Depth &amp; Wall Forces</h3>
+      <p>
+        Unlike solids that exert pressure only downward due to gravity, liquids are fluids. They flow and exert pressure <strong>in all directions</strong>—on the bottom of the container, on the side walls, and upwards!
+      </p>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 860 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cylinder Tank with water -->
+          <rect x="180" y="30" width="160" height="220" rx="4" fill="#e0f2fe" stroke="#0284c7" stroke-width="3" />
+          <path d="M 180 60 Q 260 55, 340 60 L 340 250 L 180 250 Z" fill="#bae6fd" opacity="0.6" />
+          <text x="260" y="90" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="13" fill="#0369a1" text-anchor="middle">WATER TANK</text>
+
+          <!-- Hole 1: Top (Low pressure) -->
+          <circle cx="340" cy="100" r="5" fill="#0284c7" />
+          <path d="M 345 100 Q 375 110, 400 230" fill="none" stroke="#0284c7" stroke-width="3" />
+          <text x="420" y="110" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569">Hole 1 (Low Depth) &bull; Weak Jet</text>
+
+          <!-- Hole 2: Middle -->
+          <circle cx="340" cy="160" r="5" fill="#0284c7" />
+          <path d="M 345 160 Q 420 170, 520 240" fill="none" stroke="#0284c7" stroke-width="3.5" />
+          <text x="540" y="165" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569">Hole 2 (Medium Depth) &bull; Medium Jet</text>
+
+          <!-- Hole 3: Bottom (Max depth, Max pressure) -->
+          <circle cx="340" cy="220" r="5" fill="#0284c7" />
+          <path d="M 345 220 Q 550 225, 710 250" fill="none" stroke="#0284c7" stroke-width="4.5" />
+          <text x="730" y="225" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11.5" fill="#0369a1">Hole 3 (Max Depth) &bull; Farthest Powerful Jet!</text>
+
+          <!-- Baseline floor -->
+          <line x1="140" y1="250" x2="800" y2="250" stroke="#64748b" stroke-width="2" />
+        </svg>
+        <p class="diagram-caption">Figure 6.2: Hydrostatic Pressure vs Depth — Water spurts with the highest speed and reaches the greatest distance from the bottom hole where water depth (h) is maximum.</p>
+      </div>
+
+      <div class="callout-box callout-pyq">
+        <i class="fa-solid fa-landmark"></i>
+        <div class="callout-text">
+          <strong>Real-World Engineering Application: Why are Dams built with thick bases?</strong><br>
+          Because liquid pressure increases steadily with depth ($P \propto h$), the water pressure at the bottom of a 100-meter-deep reservoir is colossal compared to the surface! To prevent the dam wall from cracking or toppling over, engineers design dam walls in a <strong>trapezoidal shape</strong>—very thick and broad at the base, tapering to a narrower width at the top.
+        </div>
+      </div>
+
+      <!-- Topic 3: Atmospheric Pressure & Winds -->
+      <h3 class="topic-title"><i class="fa-solid fa-wind"></i> 3. Atmospheric Pressure &amp; Wind Circulation</h3>
+      <p>
+        We live at the bottom of an ocean of air stretching dozens of kilometers above our heads. This air blanket exerts an immense downward force called <strong>atmospheric pressure</strong> (approx. $101,300	ext{ Pa}$ or 100,000 Newtons per square meter!). We don't get crushed because the internal fluid pressure of our blood vessels balances it out.
+      </p>
+
+      <h4 class="sub-topic">How Winds Are Formed:</h4>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li>When air gets heated by solar radiation, its particles vibrate faster, spread apart, and become less dense. <strong>Warm air rises</strong>!</li>
+        <li>As warm air ascends, it leaves behind an area of <strong>low atmospheric pressure</strong>.</li>
+        <li>Cooler, heavier, denser air from surrounding high-pressure zones immediately rushes in to fill the vacuum. <strong>Moving air is called wind</strong>.</li>
+        <li><strong>High-Speed Winds Cause Reduced Pressure:</strong> When air moves at high velocity across a surface, the static pressure above it drops (Bernoulli principle). This is why fierce storm gales can rip the tin roofs off houses—the pressure above the roof drops rapidly while normal high atmospheric pressure inside the room blasts the roof upward!</li>
+      </ul>
+
+      <!-- Topic 4: Convection Breezes -->
+      <h3 class="topic-title"><i class="fa-solid fa-umbrella-beach"></i> 4. Coastal Convection: Sea Breeze vs Land Breeze</h3>
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 860 280" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Sea Breeze (Day) -->
+          <rect x="50" y="30" width="350" height="220" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" />
+          <text x="225" y="60" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#1e40af" text-anchor="middle">DAY TIME: SEA BREEZE</text>
+          <!-- Sun -->
+          <circle cx="225" cy="90" r="16" fill="#f59e0b" />
+          <!-- Land heats up -->
+          <rect x="60" y="180" width="160" height="60" fill="#fef3c7" stroke="#d97706" />
+          <text x="140" y="215" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#78350f" text-anchor="middle">Warm Land (Low P)</text>
+          <!-- Sea cooler -->
+          <rect x="230" y="180" width="160" height="60" fill="#bae6fd" stroke="#0284c7" />
+          <text x="310" y="215" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#0369a1" text-anchor="middle">Cool Sea (High P)</text>
+          <!-- Breeze arrow Sea to Land -->
+          <path d="M 280 160 Q 225 140, 160 160" fill="none" stroke="#0284c7" stroke-width="4" marker-end="url(#arrowBlue)" />
+          <text x="225" y="145" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#1e40af" text-anchor="middle">Cool Sea Breeze blows Inland</text>
+
+          <!-- Land Breeze (Night) -->
+          <rect x="460" y="30" width="350" height="220" rx="12" fill="#0f172a" stroke="#475569" stroke-width="2" />
+          <text x="635" y="60" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#93c5fd" text-anchor="middle">NIGHT TIME: LAND BREEZE</text>
+          <!-- Moon -->
+          <circle cx="635" cy="90" r="14" fill="#e2e8f0" />
+          <!-- Land cools fast -->
+          <rect x="470" y="180" width="160" height="60" fill="#334155" stroke="#64748b" />
+          <text x="550" y="215" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#f8fafc" text-anchor="middle">Cool Land (High P)</text>
+          <!-- Sea retains warmth -->
+          <rect x="640" y="180" width="160" height="60" fill="#1e3a8a" stroke="#3b82f6" />
+          <text x="720" y="215" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#93c5fd" text-anchor="middle">Warm Sea (Low P)</text>
+          <!-- Breeze arrow Land to Sea -->
+          <path d="M 570 160 Q 635 140, 700 160" fill="none" stroke="#38bdf8" stroke-width="4" />
+          <text x="635" y="145" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#93c5fd" text-anchor="middle">Land Breeze blows Sea-ward</text>
+        </svg>
+        <p class="diagram-caption">Figure 6.3: Coastal Convection Breezes — Differential heat capacity between land and ocean water drives reversible day/night circulation.</p>
+      </div>
+
+      <!-- Topic 5: Cyclones -->
+      <h3 class="topic-title"><i class="fa-solid fa-circle-notch"></i> 5. Cyclones: Formation, Structure &amp; Disaster Safety</h3>
+      <p>
+        A <strong>cyclone</strong> is an enormous, violently rotating atmospheric storm system centered around an area of exceptionally low pressure, accompanied by destructive hurricane winds and tidal ocean storm surges.
+      </p>
+
+      <h4 class="sub-topic">The Engine of a Cyclone: Latent Heat of Condensation</h4>
+      <ol style="margin-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li>Tropical ocean surface water warms above 27°C, evaporating immense quantities of water vapor into the air.</li>
+        <li>As the warm, humid air rises high into the cooler atmosphere, the water vapor condenses into water droplets, forming massive rain clouds.</li>
+        <li>During condensation, the water vapor releases its stored <strong>latent heat of condensation</strong> into the surrounding air!</li>
+        <li>This released thermal heat warms the air further, making it lighter and causing it to shoot upwards even faster. This deepens the central low pressure.</li>
+        <li>Cool air from all sides rushes into the low-pressure depression, and the rotation of the Earth (Coriolis effect) sets the incoming air swirling into a massive vortex!</li>
+      </ol>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>The "Eye" of the Cyclone: An Illusion of Peace!</strong><br>
+          At the very center of a terrifying cyclone lies a roughly circular region (20 to 30 km wide) called the <strong>Eye of the Cyclone</strong>. Amazingly, the eye is completely calm! There are light winds, zero rain, and often clear blue skies or starlight. But beware: surrounding the eye is the violent <strong>Eye Wall</strong>, where the fiercest destructive winds (up to 250 km/h) and blinding downpours rage!
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: HIGH-YIELD FACT BANK -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3 &bull; High-Yield Fact &amp; Term Bank</span>
+        <h2>Physics Formulae &amp; Meteorological Terms</h2>
+        <p class="section-sub">Essential definitions for quick exam recall.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+        <div class="card" style="border-left: 4px solid #10b981;">
+          <h4 style="color: #065f46;"><i class="fa-solid fa-compress"></i> Pressure Formula</h4>
+          <p style="font-size: 0.9rem;">$P = rac{F}{A}$. 1 Pascal = $1	ext{ N/m}^2$. Smaller surface area produces greater pressure for the same thrust.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #3b82f6;">
+          <h4 style="color: #1e40af;"><i class="fa-solid fa-arrow-down-up-across-line"></i> Atmospheric Pressure</h4>
+          <p style="font-size: 0.9rem;">The pressure exerted by the weight of the air column resting above any given unit area of the Earth's surface.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #f59e0b;">
+          <h4 style="color: #92400e;"><i class="fa-solid fa-wind"></i> Wind Rule</h4>
+          <p style="font-size: 0.9rem;">Air always moves from regions of <strong>High Pressure</strong> to regions of <strong>Low Pressure</strong>. Speed increases with pressure difference.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #8b5cf6;">
+          <h4 style="color: #6b21a8;"><i class="fa-solid fa-eye"></i> Eye of Cyclone</h4>
+          <p style="font-size: 0.9rem;">The central, calm, cloudless, low-pressure core of a tropical cyclone surrounded by violent hurricane-force wind walls.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #dc2626;">
+          <h4 style="color: #991b1b;"><i class="fa-solid fa-water"></i> Storm Surge</h4>
+          <p style="font-size: 0.9rem;">A sudden colossal rise in coastal sea levels caused by low central atmospheric pressure and howling cyclone winds pushing seawater ashore.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #0284c7;">
+          <h4 style="color: #0369a1;"><i class="fa-solid fa-satellite"></i> IMD Early Warning</h4>
+          <p style="font-size: 0.9rem;">Indian Meteorological Department issues Cyclone Alert 48 hours in advance and Cyclone Warning 24 hours prior to landfall.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: 100% COMPLETE NCERT SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4 &bull; 100% Complete NCERT Solutions</span>
+        <h2>Textbook In-Text &amp; Chapter Exercises</h2>
+        <p class="section-sub">Step-by-step teacher solutions with complete explanations.</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Q1:</strong> Why are school bags provided with wide straps made of thick canvas rather than thin strings?</span>
+          <span class="badge badge-green">NCERT Core</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Topper-Style Explanation:</strong></p>
+          <ul style="margin-left: 1.25rem;">
+            <li>According to the pressure formula: $	ext{Pressure} = rac{	ext{Force}}{	ext{Area}}$.</li>
+            <li>For a given load of heavy books (force), pressure is <strong>inversely proportional</strong> to the surface area in contact with the shoulder.</li>
+            <li>Wide straps provide a substantially larger contact area ($A$), distributing the load and drastically reducing the pressure exerted on the student's shoulder muscles, making it comfortable to carry without painful bruising.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q2:</strong> A force of 300 N acts perpendicularly on an area of 0.05 m². Calculate the pressure exerted.</span>
+          <span class="badge badge-blue">Numerical Calculation</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Calculation:</strong></p>
+          <ul style="margin-left: 1.25rem;">
+            <li>Given Force ($F$) = $300	ext{ N}$</li>
+            <li>Given Area ($A$) = $0.05	ext{ m}^2 = rac{5}{100}	ext{ m}^2$</li>
+            <li>$	ext{Pressure } (P) = rac{F}{A} = rac{300}{0.05} = rac{300 	imes 100}{5} = rac{30000}{5} = 6000	ext{ Pa}$ (or $	ext{N/m}^2$).</li>
+            <li><strong>Answer:</strong> The pressure exerted is <strong>6,000 Pascals (Pa)</strong>.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q3:</strong> You have a tin can filled with water. Three pinholes are made along its vertical height: one near the top, one in the middle, and one near the base. Compare the streams of water emerging from them.</span>
+          <span class="badge badge-purple">Fluid Dynamics</span>
+        </summary>
+        <div class="ans-content">
+          <ul style="margin-left: 1.25rem;">
+            <li><strong>Observation:</strong>
+              <ul>
+                <li>The water stream from the top pinhole trickles out weakly and falls closest to the can't base.</li>
+                <li>The stream from the middle pinhole travels a moderate distance.</li>
+                <li>The stream from the lowest pinhole spurts out with the highest speed and lands farthest away from the can!</li>
+              </ul>
+            </li>
+            <li><strong>Conclusion:</strong> Liquid pressure increases directly with column depth ($P \propto h$). The bottom hole experiences the greatest depth of water above it, producing maximum pressure and expulsion velocity.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q4:</strong> Why does warm air rise, and what role does this play in generating winds?</span>
+          <span class="badge badge-amber">Atmospheric Convection</span>
+        </summary>
+        <div class="ans-content">
+          <ol style="margin-left: 1.25rem;">
+            <li>When air absorbs heat, thermal expansion causes its molecules to move further apart, lowering its density.</li>
+            <li>Because it is lighter than surrounding cool air, <strong>warm air rises upward</strong>.</li>
+            <li>The upward movement of warm air creates a regional drop in pressure (a low-pressure center).</li>
+            <li>Cooler, denser air from surrounding high-pressure regions immediately flows horizontally into the low-pressure pocket. This horizontal displacement of air constitutes <strong>wind</strong>.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q5:</strong> What is the "Eye" of a cyclone? Describe its weather conditions and explain why it is deceptive.</span>
+          <span class="badge badge-green">Cyclone Anatomy</span>
+        </summary>
+        <div class="ans-content">
+          <ul style="margin-left: 1.25rem;">
+            <li><strong>Definition:</strong> The eye is the calm, circular center of a tropical cyclone, typically 20 to 30 kilometers in diameter.</li>
+            <li><strong>Weather inside the Eye:</strong> Remarkably peaceful—winds are gentle, skies are often clear or have light clouds, and there is no rain.</li>
+            <li><strong>Why it is deceptive:</strong> People who experience the calm eye passing overhead may mistakenly believe that the storm has ended and venture outside. However, as the eye moves forward, the opposite side of the violent <strong>eye wall</strong> strikes immediately, bringing ferocious hurricane winds in the opposite direction and catastrophic torrential downpours.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: COMPETENCY QUESTION BANK -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5 &bull; CBSE / BSE Competency Question Bank</span>
+        <h2>Interactive Quiz &amp; High-Order Thinking Drills</h2>
+        <p class="section-sub">Test your grasp of fluid pressure and meteorology with immediate feedback.</p>
+      </div>
+
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <i class="fa-solid fa-trophy"></i>
+          <span>Score: <span id="quizScoreCount">0</span> / 5</span>
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Click an option below to test your pressure &amp; winds concepts!
+        </div>
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qcard1">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q1: If the surface area over which a constant force is applied is reduced by half, the pressure will:
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(a) Decrease by half</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(b) Double</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(c) Remain unchanged</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(d) Drop to zero</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b) Double</strong><br>
+            Because $P = rac{F}{A}$, halving the denominator ($A / 2$) doubles the resulting pressure.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qcard2">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q2: Why are the base walls of large hydroelectric dams built much thicker than their top edges?
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(a) To save construction concrete costs</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(b) Because water only exerts pressure at the surface</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(c) Because liquid hydrostatic pressure increases directly with water depth</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(d) To make it easier for fish to swim upstream</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong><br>
+            Water pressure increases with reservoir depth, exerting the greatest lateral thrust at the bottom of the dam.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qcard3">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q3: High-speed winds moving horizontally across the upper surface of a tin roof cause:
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(a) A reduction in pressure above the roof, causing it to be lifted off</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(b) An immense downward pressure pushing the roof into the room</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(c) No change in pressure whatsoever</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(d) Complete vacuum inside the building</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong><br>
+            Fast wind speed reduces static air pressure above the roof. The normal higher pressure inside the house lifts the roof upward.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qcard4">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q4: During coastal daylight hours, the direction of the Sea Breeze is:
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')">
+          <span>(a) From warm land to cool sea</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')">
+          <span>(b) From cool sea towards warm land</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')">
+          <span>(c) Straight downward from the sun</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'b')">
+          <span>(d) Alternating randomly every 5 seconds</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b) From cool sea towards warm land</strong><br>
+            Land warms faster by day, causing air above it to rise. Cool, higher-pressure air over the sea flows inland as the sea breeze.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qcard5">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q5: What source of energy powers the intensification of a tropical cyclone?
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(a) Geothermal volcanic heat from the sea floor</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(b) Friction from ship engines</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(c) Latent heat of condensation released when water vapor condenses into clouds</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(d) Nuclear fission in ocean salts</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong><br>
+            Condensing water vapor releases latent heat into the surrounding air, driving rapid updrafts that intensify the central low pressure.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM HALL READINESS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6 &bull; Exam Hall Readiness &amp; Quick Recap</span>
+        <h2>Exam Traps &amp; Key Takeaways</h2>
+        <p class="section-sub">Crucial revision points for full marks in fluid dynamics and storm physics.</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Common Student Traps to Avoid:</strong><br>
+          <ul style="margin-left: 1.25rem; margin-top: 0.4rem;">
+            <li><strong>Trap 1: Confusing Force and Pressure:</strong> Force is measured in Newtons (N); Pressure is force divided by area and measured in Pascals ($	ext{N/m}^2$). Never use Newtons as the unit of pressure!</li>
+            <li><strong>Trap 2: Saying wind blows from Low to High pressure:</strong> Wind ALWAYS blows from <strong>High Pressure to Low Pressure</strong>.</li>
+            <li><strong>Trap 3: Forgetting the calm Eye:</strong> The eye of a cyclone is NOT the stormiest part; it is calm and cloudless, while the surrounding <em>eye wall</em> is the most violent!</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-clipboard-check"></i>
+        <div class="callout-text">
+          <strong>Final 1-Minute Master Checklist:</strong><br>
+          &bull; <strong>Pressure:</strong> $P = rac{F}{A}$ (Pascal, $	ext{N/m}^2$).<br>
+          &bull; <strong>Liquid Depth:</strong> Pressure increases steadily with depth ($P \propto h$).<br>
+          &bull; <strong>Atmosphere:</strong> Exerts $\sim 101.3	ext{ kPa}$ in all directions.<br>
+          &bull; <strong>Winds:</strong> Air flows from High Pressure $ightarrow$ Low Pressure.<br>
+          &bull; <strong>Sea Breeze:</strong> Blows from Sea to Land during the daytime.<br>
+          &bull; <strong>Land Breeze:</strong> Blows from Land to Sea during nighttime.<br>
+          &bull; <strong>Cyclone:</strong> Powered by latent heat of condensation around an ultra-low-pressure calm Eye.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p style="font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Sujit Classes &bull; Excellence in Middle School Education</p>
+    <p style="font-size: 0.88rem; margin-bottom: 1rem;">
+      Aligned with NCERT Curiosity (NEP Edition) &bull; Class 8 Science Chapter 6 Master Study Notes
+    </p>
+    <p style="font-size: 0.82rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Back to Main Portal</a> &bull; 
+      <a href="#sec1">Top of Page</a>
+    </p>
+  </footer>
+
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+      }
+    }
+
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.style.display = 'block';
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Perfect score! You have mastered pressure and atmospheric storms!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! Strong understanding of winds, breezes, and cyclones!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good practice! Check the explanations to master every point!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
