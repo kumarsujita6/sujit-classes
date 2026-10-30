@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 12 - How Nature Works in Harmony (Class 8 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981, #0284c7, #8b5cf6);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #047857 45%, #0f766e 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #064e3b;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease;
+    }
+
+    .callout-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-box .callout-text {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .callout-def {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .callout-def i { color: #059669; }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-color: #a855f7;
+      color: #581c87;
+    }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+    .callout-warn i { color: #dc2626; }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+    .data-table tr:hover { background: #f1f5f9; }
+
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #065f46 0%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      background: #0369a1;
+      transform: translateY(-3px) scale(1.08);
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Master Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Competency Bank</a>
+      <a href="#sec6" class="nav-link">6. Exam Traps</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-leaf"></i> Class 8 Science &bull; Chapter 12 (Curiosity NEP)
+    </div>
+    <h1 class="hero-title">How Nature Works in Harmony</h1>
+    <p class="hero-sub">
+      Explore the web of life! Understand ecological hierarchy (Population &rarr; Community &rarr; Ecosystem), food chains, trophic levels, the indispensable role of decomposers, ecological symbiosis (mutualism, commensalism, parasitism), mangrove tsunami shields, and ancient sustainable farming via Vrikshayurveda.
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT Curiosity Grade 8</span>
+      <span><i class="fa-solid fa-clock"></i> 55 Mins Full Mastery</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Complete &amp; Unabridged</span>
+      <span><i class="fa-solid fa-brain"></i> Interactive Quiz &amp; Audio</span>
+    </div>
+    <button id="teacherAudioBtn" class="audio-btn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL BLUEPRINT -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
+        <h2>The Living Fabric: Ecosystem Structure &amp; Energy Dynamics</h2>
+        <p class="section-sub">A comprehensive visual architecture mapping ecological organization, energy pyramids, and symbiotic interactions.</p>
+      </div>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 950 360" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="orgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#10b981" />
+              <stop offset="100%" stop-color="#047857" />
+            </linearGradient>
+            <linearGradient id="foodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#3b82f6" />
+              <stop offset="100%" stop-color="#1d4ed8" />
+            </linearGradient>
+          </defs>
+
+          <!-- Left Side: Hierarchy of Life (Concentric Russian Doll concept) -->
+          <rect x="25" y="30" width="430" height="300" rx="16" fill="#f0fdf4" stroke="#86efac" stroke-width="2" />
+          <text x="240" y="65" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="700" fill="#065f46" text-anchor="middle">LEVELS OF NATURE (NESTED HIERARCHY)</text>
+
+          <!-- Outer circle: Ecosystem -->
+          <circle cx="240" cy="190" r="110" fill="#dcfce7" stroke="#22c55e" stroke-width="2" />
+          <text x="240" y="105" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="800" fill="#15803d" text-anchor="middle">ECOSYSTEM (Biotic + Abiotic)</text>
+
+          <!-- Middle circle: Community -->
+          <circle cx="240" cy="205" r="75" fill="#bbf7d0" stroke="#16a34a" stroke-width="2" />
+          <text x="240" y="150" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="700" fill="#166534" text-anchor="middle">COMMUNITY (All Populations)</text>
+
+          <!-- Inner circle: Population -->
+          <circle cx="240" cy="225" r="42" fill="#86efac" stroke="#15803d" stroke-width="2" />
+          <text x="240" y="210" font-family="'Space Grotesk', sans-serif" font-size="11" font-weight="700" fill="#064e3b" text-anchor="middle">POPULATION</text>
+          <text x="240" y="225" font-family="'Plus Jakarta Sans', sans-serif" font-size="9" fill="#064e3b" text-anchor="middle">(Same Species)</text>
+
+          <!-- Center point: Organism -->
+          <circle cx="240" cy="245" r="10" fill="#047857" />
+          <text x="240" y="248" font-family="'Plus Jakarta Sans', sans-serif" font-size="8" font-weight="800" fill="#ffffff" text-anchor="middle">Ind</text>
+
+          <rect x="50" y="295" width="380" height="25" rx="6" fill="#ffffff" stroke="#cbd5e1" />
+          <text x="240" y="312" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="600" fill="#334155" text-anchor="middle">Individual Organism &sub; Population &sub; Community &sub; Ecosystem</text>
+
+          <!-- Right Side: Energy & Nutrient Cycle Pyramid -->
+          <rect x="485" y="30" width="440" height="300" rx="16" fill="#f8fafc" stroke="#cbd5e1" stroke-width="2" />
+          <text x="705" y="65" font-family="'Space Grotesk', sans-serif" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle">TROPHIC LEVELS &amp; DECOMPOSERS</text>
+
+          <!-- Trophic Pyramid Trapezia -->
+          <!-- Level 4: Apex Predator -->
+          <polygon points="665,95 745,95 765,135 645,135" fill="#fee2e2" stroke="#ef4444" stroke-width="1.5" />
+          <text x="705" y="118" font-family="'Plus Jakarta Sans', sans-serif" font-size="10" font-weight="700" fill="#991b1b" text-anchor="middle">Apex Carnivores (Eagle, Tiger)</text>
+
+          <!-- Level 3: Secondary Consumers -->
+          <polygon points="645,135 765,135 795,180 615,180" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" />
+          <text x="705" y="162" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#92400e" text-anchor="middle">Secondary Consumers (Frogs, Birds)</text>
+
+          <!-- Level 2: Primary Consumers (Herbivores) -->
+          <polygon points="615,180 795,180 830,230 580,230" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5" />
+          <text x="705" y="208" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" font-weight="700" fill="#075985" text-anchor="middle">Primary Consumers (Grasshoppers, Deer, Hare)</text>
+
+          <!-- Level 1: Producers (Plants) -->
+          <polygon points="580,230 830,230 865,285 545,285" fill="#dcfce7" stroke="#10b981" stroke-width="1.5" />
+          <text x="705" y="260" font-family="'Plus Jakarta Sans', sans-serif" font-size="12" font-weight="800" fill="#065f46" text-anchor="middle">PRODUCERS (Green Plants &bull; Photosynthesis)</text>
+
+          <!-- Decomposers Box on side with recycle arrow -->
+          <rect x="520" y="295" width="370" height="25" rx="6" fill="#f3e8ff" stroke="#a855f7" />
+          <text x="705" y="312" font-family="'Plus Jakarta Sans', sans-serif" font-size="10.5" font-weight="700" fill="#6b21a8" text-anchor="middle">&#x21BB; Decomposers (Bacteria &amp; Fungi) Recycle Nutrients back to Soil</text>
+        </svg>
+        <p class="diagram-caption">Figure 12.1: Ecological blueprint illustrating nested levels of organization and trophic pyramid with vital decomposer nutrient cycling.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: DEEP CORE CONCEPTS -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2 &bull; Teacher's Deep Conceptual Guide</span>
+        <h2>Ecosystems, Symbiosis, and Ecological Balance</h2>
+        <p class="section-sub">Step-by-step ecological science from forest food webs to mangrove tsunami barriers and Vrikshayurveda.</p>
+      </div>
+
+      <!-- TOPIC 1 -->
+      <h3 class="topic-title"><i class="fa-solid fa-sitemap"></i> 12.1 The Nested Levels of Nature</h3>
+      <p>
+        When you walk into a sal forest in Mayurbhanj or Similipal, you don't just see random trees and animals. You are looking at a masterfully structured biological society:
+      </p>
+      <ol>
+        <li><strong>Individual Organism:</strong> A single living being (e.g., one Asian elephant, one sal tree, one spotted deer).</li>
+        <li><strong>Population:</strong> A group of individuals of the <strong>same species</strong> living in a particular geographic area at the same time (e.g., all spotted deer in Similipal National Park).</li>
+        <li><strong>Community:</strong> All the different populations of plants, animals, and microorganisms living and interacting together in that area (e.g., deer + tigers + elephants + sal trees + birds + soil beetles).</li>
+        <li><strong>Ecosystem:</strong> The complete functional unit formed by the community of living organisms (<strong>biotic components</strong>) interacting with their physical non-living environment (<strong>abiotic components</strong> like sunlight, soil, water, air, and minerals).</li>
+      </ol>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-network-wired"></i>
+        <div class="callout-text">
+          <strong>Key Definition &bull; Ecosystem:</strong><br>
+          An <strong>ecosystem</strong> is a self-sustaining biological community where living organisms (plants, animals, microbes) interact continuously with each other and with non-living physical factors (sunlight, air, water, soil minerals), exchanging energy and cycling nutrients.
+        </div>
+      </div>
+
+      <!-- TOPIC 2: Biotic vs Abiotic -->
+      <h3 class="topic-title"><i class="fa-solid fa-tree"></i> 12.2 Biotic vs Abiotic Components</h3>
+      <p>An ecosystem is made of two inseparable partners:</p>
+      <ul>
+        <li><strong>Biotic Components (Living):</strong>
+          <ul>
+            <li><strong>Producers (Autotrophs):</strong> Green plants that trap sunlight and manufacture glucose through photosynthesis. They form the foundational energy base of all life on Earth!</li>
+            <li><strong>Consumers (Heterotrophs):</strong> Animals that cannot make their own food and must consume other organisms (Herbivores &rarr; Carnivores &rarr; Omnivores).</li>
+            <li><strong>Decomposers (Saprotrophs):</strong> Microscopic bacteria, fungi, earthworms, and beetles that break down dead bodies and animal wastes, returning vital nutrients (nitrogen, phosphorus, potassium) into the soil.</li>
+          </ul>
+        </li>
+        <li><strong>Abiotic Components (Non-Living):</strong> Sunlight, ambient temperature, water availability, air (oxygen and carbon dioxide), soil minerals, humidity, and rainfall patterns.</li>
+      </ul>
+
+      <!-- TOPIC 3: The Decomposer Superheroes -->
+      <h3 class="topic-title"><i class="fa-solid fa-recycle"></i> 12.3 What Happens to Waste in Nature? The Super Decomposers</h3>
+      <p>
+        In a dense virgin forest, thousands of dead leaves fall every hour, animals die, and waste is dropped daily. Yet the forest never gets buried under mountains of garbage! Why?
+      </p>
+      <p>
+        Because of nature's ultimate recycling crew: <strong>Decomposers</strong>!
+      </p>
+      <ul>
+        <li>Bacteria and fungi release digestive enzymes onto dead organic matter, breaking complex proteins and carbohydrates into simple mineral ions.</li>
+        <li>These simple minerals enrich the soil as dark, rich <strong>humus</strong>.</li>
+        <li>Plant roots absorb these minerals to grow new leaves, fruits, and flowers, closing nature's immortal cycle!</li>
+      </ul>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-skull-crossbones"></i>
+        <div class="callout-text">
+          <strong>What If All Decomposers Vanished Overnight?</strong><br>
+          If decomposers disappeared:
+          <ol>
+            <li>Dead trees, animal carcasses, and dung would never rot and would pile up miles high!</li>
+            <li>Nutrients locked inside dead bodies would never be released back to the soil.</li>
+            <li>Within a few seasons, the soil would become completely exhausted of minerals; plants would starve and die, leading to the collapse and extinction of all herbivores, carnivores, and humans!</li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- TOPIC 4: Symbiosis -->
+      <h3 class="topic-title"><i class="fa-solid fa-handshake-angle"></i> 12.4 How Organisms Interact: The 3 Types of Symbiosis</h3>
+      <p>
+        In nature, no organism lives in isolation. Species form fascinating biological partnerships:
+      </p>
+
+      <div class="card">
+        <h4 class="sub-topic"><i class="fa-solid fa-heart"></i> 1. Mutualism (+ / +) &mdash; Both Benefit</h4>
+        <p>
+          A partnership where both species help and benefit each other!
+        </p>
+        <ul>
+          <li><strong>Bees and Flowers:</strong> Bees drink sweet nectar; in return, pollen sticks to their furry bodies, enabling flower pollination and fruit production!</li>
+          <li><strong>Lichens:</strong> A partnership between an alga (which makes food via photosynthesis) and a fungus (which absorbs water, minerals, and provides shelter).</li>
+          <li><strong>Legumes and Rhizobium:</strong> Root nodules of pea and gram plants house <em>Rhizobium</em> bacteria, which fix atmospheric nitrogen for the plant, while the plant feeds the bacteria sugars!</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4 class="sub-topic"><i class="fa-solid fa-user-plus"></i> 2. Commensalism (+ / 0) &mdash; One Benefits, Other Unaffected</h4>
+        <p>
+          One organism enjoys a distinct advantage, while the other host is neither helped nor harmed!
+        </p>
+        <ul>
+          <li><strong>Cattle Egret and Grazing Cattle:</strong> As cows graze in meadows, their heavy footsteps stir up hidden insects from the grass. The egret walks alongside, snatching an easy meal! The cow is completely unaffected.</li>
+          <li><strong>Remora Fish and Sharks:</strong> Tiny remora fish attach themselves to a shark's belly using suction fins, feeding on leftover food scraps and getting free transportation without harming the shark.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h4 class="sub-topic"><i class="fa-solid fa-mosquito"></i> 3. Parasitism (+ / -) &mdash; One Benefits, One is Harmed</h4>
+        <p>
+          The parasite lives on or inside the host organism, stealing nourishment and harming it (sometimes causing illness or death).
+        </p>
+        <ul>
+          <li><strong>Cuscuta (Amarbel):</strong> A yellow, leafless parasitic vine that wraps around host trees, inserting microscopic sucking tubes (haustoria) into the host's stems to siphon away water and synthesized food!</li>
+          <li><strong>Lice, Ticks, and Tapeworms:</strong> Parasites that feed on host blood and digested food.</li>
+        </ul>
+      </div>
+
+      <!-- TOPIC 5: Mangroves as Tsunami Shields -->
+      <h3 class="topic-title"><i class="fa-solid fa-shield-halved"></i> 12.5 Nature's Super-Shield: Mangroves Against Tsunamis &amp; Storms</h3>
+      <p>
+        During the catastrophic Indian Ocean Tsunami of December 26, 2004, coastal villages in Tamil Nadu and Odisha suffered tragic destruction. However, villages situated behind dense <strong>mangrove forests (such as Pichavaram and Bhitarkanika)</strong> suffered miraculously low damage and very few casualties!
+      </p>
+
+      <div class="callout-box callout-pyq">
+        <i class="fa-solid fa-shield"></i>
+        <div class="callout-text">
+          <strong>Why Mangroves Act as Coastal Bio-Shields:</strong><br>
+          &bull; <strong>Dense Intertwined Stilt Roots:</strong> Mangrove trees grow in tidal mudflats with massive, tangled networks of stilt roots and breathing roots (pneumatophores).<br>
+          &bull; <strong>Energy Dissipation:</strong> When ferocious tsunami waves or cyclonic storm surges strike a mangrove forest, the dense maze of roots absorbs and dissipates the wave's enormous kinetic energy, reducing wave height and force by up to <strong>90%</strong> before the water reaches inland homes!
+        </div>
+      </div>
+
+      <!-- TOPIC 6: Sustainable Farming & Vrikshayurveda -->
+      <h3 class="topic-title"><i class="fa-solid fa-seedling"></i> 12.7 Sustainable Farming &amp; Ancient Indian Vrikshayurveda</h3>
+      <p>
+        While chemical fertilizers and synthetic pesticides increased crop yields during India's Green Revolution, excessive use has severely degraded soil health, wiped out friendly earthworms, poisoned groundwater, and created pesticide-resistant "super-pests".
+      </p>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-scroll"></i>
+        <div class="callout-text">
+          <strong>Our Scientific Heritage &bull; Vrikshayurveda &amp; Kunapa Jala:</strong><br>
+          Ancient Indian agricultural texts like <strong>Vrikshayurveda</strong> (composed by sage Surapala around 1000 CE) emphasized soil nourishment through fermented organic manures.<br>
+          &bull; <strong>Kunapa Jala:</strong> An ancient fermented liquid bio-fertilizer made from plant matter, cow dung, and organic wastes. Fermentation breaks down complex nutrients into bioavailable forms and multiplies beneficial soil bacteria, restoring soil humus and suppressing pest outbreaks naturally without toxic chemicals!
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 3: ESSENTIAL VOCABULARY -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3 &bull; Terminology &amp; Comparative Master Table</span>
+        <h2>Ecological Interactions: Master Comparison Matrix</h2>
+        <p class="section-sub">Quick-reference summary of biological relationships and textbook terminology.</p>
+      </div>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Type of Interaction</th>
+              <th>Species 1</th>
+              <th>Species 2</th>
+              <th>Ecological Dynamic</th>
+              <th>Classic Textbook Examples</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Mutualism</strong></td>
+              <td>Benefited (+)</td>
+              <td>Benefited (+)</td>
+              <td>Cooperative win-win partnership.</td>
+              <td>Bees &amp; flowering plants; Lichens (Alga + Fungus); Rhizobium &amp; legumes.</td>
+            </tr>
+            <tr>
+              <td><strong>Commensalism</strong></td>
+              <td>Benefited (+)</td>
+              <td>Unaffected (0)</td>
+              <td>One benefits without harming or helping the host.</td>
+              <td>Cattle egret &amp; grazing cows; Remora fish &amp; shark; Orchids on mango trees.</td>
+            </tr>
+            <tr>
+              <td><strong>Parasitism</strong></td>
+              <td>Benefited (+)</td>
+              <td>Harmed (&minus;)</td>
+              <td>Parasite siphons nutrients from living host.</td>
+              <td>Cuscuta (Amarbel) on green trees; Ticks on dogs; Head lice; Tapeworms.</td>
+            </tr>
+            <tr>
+              <td><strong>Predation</strong></td>
+              <td>Benefited (+)</td>
+              <td>Killed (&minus;)</td>
+              <td>Predator hunts, captures, and eats prey.</td>
+              <td>Tiger &amp; deer; Frog &amp; grasshopper; Eagle &amp; hare.</td>
+            </tr>
+            <tr>
+              <td><strong>Competition</strong></td>
+              <td>Harmed (&minus;)</td>
+              <td>Harmed (&minus;)</td>
+              <td>Both species contest for limited food/space.</td>
+              <td>Trees in dense forest competing for canopy sunlight; Lion and hyena for prey.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 4: NCERT SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4 &bull; Step-by-Step NCERT Solutions</span>
+        <h2>Complete Textbook 'Keep the Curiosity Alive' Exercises</h2>
+        <p class="section-sub">Unabridged solutions for Questions 1 to 9 with detailed ecological reasoning.</p>
+      </div>
+
+      <!-- Q1 -->
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Q1.</strong> Refer to Fig. 12.19 (Population &sub; Community &sub; Ecosystem) and select the wrong statement.</span>
+          <span class="badge badge-green">NCERT MCQ</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Wrong Statement:</strong> <strong>(iii) An ecosystem is part of a community.</strong></p>
+          <p><strong>Teacher's Justification:</strong></p>
+          <ul>
+            <li>Statement (i) is TRUE: A community comprises many different populations, so it is larger than a single population.</li>
+            <li>Statement (ii) is TRUE: A community comprises only living organisms (biotic), whereas an ecosystem includes both the living community AND the abiotic physical environment; hence, a community is smaller than an ecosystem.</li>
+            <li>Statement (iii) is FALSE (and therefore the correct option to select): In reality, a community is part of an ecosystem, NOT the other way around!</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q2 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q2.</strong> If all decomposers suddenly disappear from a forest ecosystem, what changes would occur? Explain why they are essential.</span>
+          <span class="badge badge-blue">3 Marks Core</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Catastrophic Ecological Consequences:</strong></p>
+          <ol>
+            <li><strong>Accumulation of Organic Waste:</strong> Fallen leaves, dead branches, animal carcasses, and excretory dung would never decompose, smothering the forest floor.</li>
+            <li><strong>Arrest of Nutrient Recycling:</strong> Vital elements like nitrogen, phosphorus, potassium, and carbon would remain permanently locked inside dead tissues, stopping the biogeochemical cycles.</li>
+            <li><strong>Soil Depletion &amp; Plant Starvation:</strong> The soil would rapidly lose its fertility and humus. Plants would starve of essential mineral nutrients, ceasing photosynthesis and growth.</li>
+            <li><strong>Total Ecosystem Collapse:</strong> Herbivores would starve to death due to lack of healthy vegetation, followed by carnivores and apex predators, collapsing the entire web of life.</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q3 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q3.</strong> Why was Selvam's village in Cuddalore protected from the 2004 Tsunami by mangrove forests?</span>
+          <span class="badge badge-green">Ecosystem Services</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Scientific Explanation:</strong></p>
+          <ul>
+            <li>Mangrove forests grow in coastal tidal zones with a dense, tangled, above-ground network of <strong>stilt roots and pneumatophores</strong>.</li>
+            <li>When massive, high-velocity tsunami waves hit the coast, the intricate root maze acts like a giant physical sponge and shock absorber, dissipating up to 90% of the wave's kinetic energy!</li>
+            <li>The forest slows down wave speed, drastically reduces water surge height, prevents coastal soil erosion, and protects human homes behind the green shield.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q4 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q4.</strong> Food chain: Grass &rarr; Grasshopper &rarr; Frog &rarr; Snake. If frogs disappear, what happens to grasshoppers and snakes? Why?</span>
+          <span class="badge badge-purple">Trophic Cascade</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Predictable Ecological Effects:</strong></p>
+          <ul>
+            <li><strong>Population of Grasshoppers will INCREASE drastically (Explode):</strong> Frogs are the primary predators feeding on grasshoppers. Without frogs to keep their numbers in check, grasshoppers will multiply uncontrollably and may overgraze and destroy all the grass.</li>
+            <li><strong>Population of Snakes will DECREASE sharply:</strong> Frogs are the direct food source for snakes in this chain. Deprived of food, snakes will either starve, fail to reproduce, or migrate away in search of alternate prey, causing a severe drop in their population.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q5 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q5.</strong> Students noticed fewer butterflies in school garden. What could be the reasons? What steps can students take?</span>
+          <span class="badge badge-amber">Action Plan</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Possible Reasons for Decline:</strong></p>
+          <ul>
+            <li>Use of chemical insecticides or weedicides that poison adult butterflies and kill caterpillar larvae.</li>
+            <li>Removal of native host plants that caterpillars feed on.</li>
+            <li>Lack of nectar-rich flowering plants.</li>
+          </ul>
+          <p><strong>Student Conservation Steps:</strong></p>
+          <ol>
+            <li><strong>Create an Organic Pollinator Garden:</strong> Plant nectar-rich flowering plants (marigolds, zinnias, cosmos, sunflowers, milkweed).</li>
+            <li><strong>Ban Chemical Sprays:</strong> Stop spraying chemical pesticides; use natural neem-oil sprays instead.</li>
+            <li><strong>Provide Puddling Stations:</strong> Place shallow clay plates with damp sand, mud, and a pinch of salt so butterflies can drink mineral-rich water (mud-puddling).</li>
+          </ol>
+        </div>
+      </details>
+
+      <!-- Q6 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q6.</strong> Why is it not possible to have an ecosystem with only producers and no consumers or decomposers?</span>
+          <span class="badge badge-blue">Conceptual Reasoning</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Teacher's Explanation:</strong></p>
+          <ul>
+            <li>Producers continuously absorb minerals, water, and carbon dioxide to build their leaves, stems, and roots.</li>
+            <li>Without decomposers, when old plants die or shed leaves, the nutrients trapped in their tissues would <strong>never be broken down or recycled</strong> back into the soil and atmosphere.</li>
+            <li>Soon, all soil nitrogen, phosphorus, and atmospheric carbon dioxide would be completely exhausted, stopping photosynthesis entirely and making life unsustainable.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q7 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q7.</strong> Observe two places (e.g., Park vs Roadside). List living and non-living components. How do they differ?</span>
+          <span class="badge badge-green">Field Observation</span>
+        </summary>
+        <div class="ans-content">
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Ecosystem Feature</th>
+                  <th>Local Public Park</th>
+                  <th>Busy Roadside</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Biotic Components</strong></td>
+                  <td>Lush grass, flowering shrubs, butterflies, earthworms, squirrels, songbirds.</td>
+                  <td>Hardy wild weeds, stray dogs, pigeons, houseflies, crows.</td>
+                </tr>
+                <tr>
+                  <td><strong>Abiotic Components</strong></td>
+                  <td>Moist fertile soil, clean air, filtered sunlight, clean rainwater.</td>
+                  <td>Asphalt tarmac, vehicular exhaust soot, dust, high noise, intense heat.</td>
+                </tr>
+                <tr>
+                  <td><strong>Biodiversity &amp; Health</strong></td>
+                  <td>High biodiversity, balanced food chains, thriving decomposers.</td>
+                  <td>Low biodiversity, high pollution stress, fragmented ecosystem.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </details>
+
+      <!-- Q8 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q8.</strong> 'Human-made ecosystems like agricultural fields are necessary, but must be made sustainable.' Comment.</span>
+          <span class="badge badge-purple">Critical Analysis</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Teacher's Perspective:</strong></p>
+          <ul>
+            <li><strong>Why they are necessary:</strong> Agricultural ecosystems produce food, grains, vegetables, and cotton required to nourish over 8 billion people globally and drive economic livelihoods.</li>
+            <li><strong>Why sustainability is vital:</strong> Intensive modern monoculture relying on heavy synthetic chemical fertilizers and pesticides kills soil microbiome, causes toxic runoff (eutrophication) in rivers, depletes groundwater tables, and destroys pollinator bees.</li>
+            <li><strong>Path to Sustainability:</strong> Incorporating crop rotation, organic compost, <em>Kunapa Jala</em> bio-fertilizers, drip irrigation, and biological pest control preserves soil fertility for future generations.</li>
+          </ul>
+        </div>
+      </details>
+
+      <!-- Q9 -->
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q9.</strong> If Indian hare population drops due to disease in Fig. 12.20 food web, how does it affect other organisms?</span>
+          <span class="badge badge-green">Food Web Dynamic</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Ecological Ripple Effects in the Food Web:</strong></p>
+          <ul>
+            <li><strong>Effect on Vegetation (Grass &amp; Plants):</strong> With fewer hares grazing, grass and tender shrubs may temporarily flourish and increase in biomass.</li>
+            <li><strong>Effect on Direct Predators (Fox &amp; Eagle):</strong> Fox and eagle populations will face an immediate food shortage. Because a food web offers alternative food routes, foxes and eagles will increase predation pressure on <strong>deer, rodents, and other small animals</strong> to survive, which in turn may cause secondary drops in those populations.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: INTERACTIVE QUIZ & HOTS -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5 &bull; Interactive Quiz &amp; Competency Drills</span>
+        <h2>Mastery Check: Interactive Real-Time Evaluation</h2>
+        <p class="section-sub">Test your ecological reasoning. Click your answer to receive immediate teacher feedback.</p>
+      </div>
+
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <i class="fa-solid fa-trophy"></i> Your Score: <span id="quizScoreCount">0</span> / 5
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Select an option for each question to test your concepts!
+        </div>
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qcard1">
+        <h4>1. Which of the following correctly orders the levels of ecological organization from smallest to largest?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(a) Community &rarr; Population &rarr; Ecosystem &rarr; Organism</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(b) Organism &rarr; Population &rarr; Community &rarr; Ecosystem</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(c) Ecosystem &rarr; Community &rarr; Organism &rarr; Population</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(d) Population &rarr; Ecosystem &rarr; Community &rarr; Organism</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b)</strong> An individual organism forms a population (same species), multiple populations form a community, and a community plus its abiotic environment forms an ecosystem.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qcard2">
+        <h4>2. A cattle egret feeding on grasshoppers stirred up by grazing cattle is an example of which biological relationship?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(a) Parasitism</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(b) Mutualism</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(c) Commensalism (+ / 0)</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'c')">
+          <span>(d) Predation</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> The egret benefits by getting food easily (+), while the cattle is neither helped nor harmed (0). This is commensalism.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qcard3">
+        <h4>3. Why are coastal villages with dense mangrove forests protected from devastating tsunami and cyclone waves?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(a) The dense maze of stilt roots and breathing roots absorbs and dissipates wave kinetic energy</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(b) Mangroves heat the seawater and make waves evaporate instantly</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(c) Mangrove trees attract sea creatures that drink all the wave water</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'a')">
+          <span>(d) Mangrove roots emit magnetic forcefields that push waves back into the ocean</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a)</strong> The complex underwater root systems act as hydrodynamic speed breakers, reducing wave velocity, height, and erosion.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qcard4">
+        <h4>4. Which ancient Indian agricultural text describes 'Kunapa Jala', a fermented organic bio-fertilizer that rejuvenates soil health?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(a) Arthashastra</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(b) Charaka Samhita</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(c) Surya Siddhanta</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(d) Vrikshayurveda</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d)</strong> Vrikshayurveda by Surapala outlines traditional plant science and the formulation of Kunapa Jala for organic plant nutrition.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qcard5">
+        <h4>5. In an aquatic pond ecosystem, which organisms occupy the first trophic level (Producers)?</h4>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(a) Frogs and tadpoles</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(b) Carnivorous fish</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(c) Phytoplankton and aquatic green algae</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(d) Water beetles</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="display:none;">
+          <summary>Teacher's Insight</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong> Microscopic green plants and algae (phytoplankton) perform photosynthesis in water and form the base producer level.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM TRAPS & MEMORY HACKS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6 &bull; Exam Traps &amp; Key Takeaways</span>
+        <h2>Board Exam Traps, Common Mistakes &amp; Memory Shortcuts</h2>
+        <p class="section-sub">Essential exam alerts so you score top marks in ecology questions.</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Trap #1: 'Are Decomposers optional?'</strong><br>
+          <em>Mistake:</em> Forgetting decomposers when drawing an ecosystem food web.<br>
+          <strong>Full-Marks Correction:</strong> Decomposers are the most essential link in any ecosystem! Without decomposers, nutrient recycling halts completely, and all producers starve. Always include decomposers recycling dead matter to soil!
+        </div>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Exam Trap #2: 'Community vs Population'</strong><br>
+          <em>Mistake:</em> Writing "a community is a group of the same species."<br>
+          <strong>Full-Marks Correction:</strong> A <strong>Population</strong> is only ONE species (e.g. all tigers). A <strong>Community</strong> is ALL the different species living together in that forest (tigers + deer + grass + trees).
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-wand-magic-sparkles"></i>
+        <div class="callout-text">
+          <strong>Teacher's Memory Hack &bull; The Symbiosis Sign Rule:</strong><br>
+          &bull; <strong>Mutualism:</strong> <code>+ / +</code> (Double smiles: Both win!)<br>
+          &bull; <strong>Commensalism:</strong> <code>+ / 0</code> (One smiles, one shrugs: Free ride without harm!)<br>
+          &bull; <strong>Parasitism:</strong> <code>+ / &minus;</code> (One smiles, one suffers: Vampire relationship!)
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Sujit Classes &bull; Dedicated to Student Academic Excellence in Odisha</p>
+    <p style="margin-top:0.5rem; font-size:0.85rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Back to Main Portal</a> &bull; 
+      <a href="#sec1">Top of Page</a>
+    </p>
+  </footer>
+
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher's Summary</span>';
+      }
+    }
+
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.style.display = 'block';
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Perfect score! You have mastered ecological balance and harmony!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great job! Strong understanding of food chains, symbiosis, and mangroves!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good practice! Check the explanations to master every point!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
