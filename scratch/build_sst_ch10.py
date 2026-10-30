@@ -1,0 +1,1326 @@
+import sys
+import os
+
+sys.stdout.reconfigure(encoding='utf-8')
+
+html_content = '''<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 8 Social Science: A Journey Through Indian Architecture (Master Comprehensive Notes)</title>
+  <style>
+    :root {
+      --primary: #92400e; /* Ochre / Sandstone warm tone */
+      --primary-dark: #78350f;
+      --primary-light: #fef3c7;
+      --secondary: #0d9488; /* Turquoise / Patina teal */
+      --accent: #b45309; /* Terracotta */
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --success: #15803d;
+      --danger: #b91c1c;
+      --warning: #b45309;
+      --info: #0284c7;
+      --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --radius: 12px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background-color: var(--bg);
+      padding-bottom: 80px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #d97706, #0d9488, #4f46e5);
+      z-index: 1000;
+      transition: width 0.1s ease;
+    }
+
+    header {
+      background: linear-gradient(135deg, #451a03 0%, #78350f 50%, #92400e 100%);
+      color: white;
+      padding: 40px 20px 30px;
+      position: relative;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .breadcrumbs {
+      display: flex;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: #fde68a;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .breadcrumbs a {
+      color: #fef08a;
+      text-decoration: none;
+    }
+
+    .breadcrumbs a:hover {
+      text-decoration: underline;
+    }
+
+    header h1 {
+      font-size: 2.3rem;
+      line-height: 1.25;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+
+    header p.subtitle {
+      font-size: 1.1rem;
+      color: #fef3c7;
+      max-width: 800px;
+      margin-bottom: 20px;
+    }
+
+    .meta-badges {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(4px);
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+
+    /* Audio Bar */
+    .audio-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: 20px;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 10px 16px;
+      border-radius: 30px;
+      width: fit-content;
+    }
+
+    .audio-btn {
+      background: white;
+      color: var(--primary-dark);
+      border: none;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .audio-btn:hover {
+      background: #fde68a;
+      transform: translateY(-1px);
+    }
+
+    /* Quick Nav */
+    .nav-bar {
+      position: sticky;
+      top: 4px;
+      background: white;
+      z-index: 99;
+      box-shadow: var(--shadow);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 15px;
+      padding: 12px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      transition: all 0.2s;
+    }
+
+    .nav-link:hover, .nav-link.active {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    main {
+      padding: 30px 0;
+    }
+
+    section {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 35px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+    }
+
+    h2 {
+      font-size: 1.7rem;
+      color: var(--primary-dark);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--primary-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      color: #1e293b;
+      margin: 25px 0 12px;
+    }
+
+    p {
+      margin-bottom: 14px;
+      color: #334155;
+    }
+
+    ul, ol {
+      margin-left: 24px;
+      margin-bottom: 16px;
+      color: #334155;
+    }
+
+    li {
+      margin-bottom: 6px;
+    }
+
+    /* Callout Boxes */
+    .callout {
+      border-left: 4px solid;
+      padding: 16px 20px;
+      margin: 20px 0;
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: #fafafa;
+    }
+
+    .callout-def {
+      border-color: #0284c7;
+      background: #f0f9ff;
+    }
+
+    .callout-act {
+      border-color: #0d9488;
+      background: #f0fdfa;
+    }
+
+    .callout-pyq {
+      border-color: #7c3aed;
+      background: #f5f3ff;
+    }
+
+    .callout-hack {
+      border-color: #d97706;
+      background: #fffbeb;
+    }
+
+    .callout-warn {
+      border-color: #dc2626;
+      background: #fef2f2;
+    }
+
+    .callout-title {
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .callout-def .callout-title { color: #0369a1; }
+    .callout-act .callout-title { color: #0f766e; }
+    .callout-pyq .callout-title { color: #5b21b6; }
+    .callout-hack .callout-title { color: #92400e; }
+    .callout-warn .callout-title { color: #991b1b; }
+
+    /* SVG Containers */
+    .svg-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin: 25px 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    }
+
+    .svg-card svg {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .svg-caption {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      font-style: italic;
+    }
+
+    /* Tables */
+    .table-container {
+      overflow-x: auto;
+      margin: 20px 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+
+    th, td {
+      border: 1px solid var(--border);
+      padding: 12px 14px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f8fafc;
+      font-weight: 700;
+      color: #334155;
+    }
+
+    tr:nth-child(even) {
+      background-color: #fcfdfe;
+    }
+
+    /* Term Grid */
+    .term-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .term-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 10px;
+      border-left: 3px solid var(--primary);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+    }
+
+    .term-title {
+      font-weight: 700;
+      color: var(--primary-dark);
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    /* Details Accordion */
+    details.ans-box {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      margin-bottom: 12px;
+      background: white;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: #fde68a;
+      box-shadow: 0 2px 5px rgba(217, 119, 6, 0.08);
+    }
+
+    summary {
+      padding: 14px 18px;
+      font-weight: 700;
+      color: #1e293b;
+      cursor: pointer;
+      background: #fafafa;
+      user-select: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    summary:hover {
+      background: #f4f4f5;
+    }
+
+    details[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #fde68a;
+    }
+
+    .ans-content {
+      padding: 18px;
+      background: #ffffff;
+      line-height: 1.7;
+    }
+
+    /* Quiz Component */
+    .quiz-card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 18px;
+    }
+
+    .quiz-question {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 14px;
+      color: #0f172a;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+
+    .quiz-opt {
+      padding: 10px 16px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: #f8fafc;
+      cursor: pointer;
+      font-size: 0.95rem;
+      text-align: left;
+      transition: all 0.2s;
+    }
+
+    .quiz-opt:hover {
+      background: #f1f5f9;
+      border-color: #cbd5e1;
+    }
+
+    .quiz-feedback {
+      margin-top: 12px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      display: none;
+    }
+
+    .feedback-correct {
+      background: #dcfce7;
+      color: #14532d;
+      border: 1px solid #86efac;
+      display: block;
+    }
+
+    .feedback-wrong {
+      background: #fee2e2;
+      color: #7f1d1d;
+      border: 1px solid #fca5a5;
+      display: block;
+    }
+
+    /* Floating Back to Top Button */
+    #back-to-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.2s;
+      z-index: 999;
+    }
+
+    #back-to-top:hover {
+      background: var(--primary-dark);
+      transform: translateY(-2px);
+    }
+
+    @media (max-width: 768px) {
+      header { padding: 30px 15px 20px; }
+      header h1 { font-size: 1.8rem; }
+      section { padding: 20px 15px; }
+      .term-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="reading-progress-bar"></div>
+
+  <header>
+    <div class="container">
+      <div class="breadcrumbs">
+        <a href="../../index.html">Home</a> &rsaquo;
+        <a href="../../index.html#c8_sst">Class 8 Social Science</a> &rsaquo;
+        <span>Chapter 10: A Journey Through Indian Architecture</span>
+      </div>
+      <h1>A Journey Through Indian Architecture</h1>
+      <p class="subtitle">Exploring 5,000 years of design, engineering, and sacred geometry: From Harappan town planning and Buddhist stupas to rock-cut wonders, cosmic temple styles, stepped water reservoirs, Indo-Islamic domes, and vernacular havelis.</p>
+      
+      <div class="meta-badges">
+        <span class="badge">NCERT Code: hees203 (Ch 10 / Part 2 Ch 3)</span>
+        <span class="badge">Medium: English Master Notes</span>
+        <span class="badge">Grade: 8 Social Science</span>
+        <span class="badge">Updated for NEP 2020</span>
+      </div>
+
+      <div class="audio-bar">
+        <button class="audio-btn" id="tts-play-btn" onclick="toggleAudio()">
+          <span id="tts-icon">▶</span> <span id="tts-label">Listen to Chapter Notes</span>
+        </button>
+        <span style="font-size: 0.8rem; opacity: 0.9;">Voice narration engine for quick revision</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="nav-bar">
+    <div class="nav-tabs">
+      <a href="#mindmap" class="nav-link">Mind Map</a>
+      <a href="#concepts" class="nav-link">Exhaustive Concepts</a>
+      <a href="#terms" class="nav-link">Term Bank</a>
+      <a href="#solutions" class="nav-link">NCERT Solutions</a>
+      <a href="#quiz" class="nav-link">Interactive Quiz</a>
+      <a href="#revision" class="nav-link">Exam Hall Traps & 15 Facts</a>
+    </div>
+  </nav>
+
+  <main class="container">
+
+    <!-- SECTION 1: MIND MAP -->
+    <section id="mindmap">
+      <h2>1. Chapter Mind Map &amp; Architectural Epochs</h2>
+      <p>Architecture in India is far more than functional shelter. It is the physical manifestation of philosophy, sacred geometry, astronomy, and advanced structural mechanics. Over five millennia, Indian builders mastered materials ranging from baked terracotta bricks and hard basalt cliff-faces to translucent Makrana marble and fragrant teakwood.</p>
+
+      <div class="svg-card">
+        <svg viewBox="0 0 920 320" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#b45309"/>
+              <stop offset="35%" stop-color="#0d9488"/>
+              <stop offset="70%" stop-color="#4338ca"/>
+              <stop offset="100%" stop-color="#9d174d"/>
+            </linearGradient>
+            <filter id="drop" x="-5%" y="-5%" width="110%" height="110%">
+              <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/>
+            </filter>
+          </defs>
+
+          <!-- Core Epoch Line -->
+          <line x1="40" y1="160" x2="880" y2="160" stroke="url(#bgGrad)" stroke-width="6" stroke-linecap="round"/>
+
+          <!-- Harappan 2600 BCE -->
+          <circle cx="70" cy="160" r="14" fill="#b45309" stroke="#ffffff" stroke-width="3" filter="url(#drop)"/>
+          <rect x="15" y="65" width="110" height="70" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5" filter="url(#drop)"/>
+          <text x="70" y="85" font-size="11" font-weight="bold" fill="#78350f" text-anchor="middle">2600 &ndash; 1900 BCE</text>
+          <text x="70" y="100" font-size="9" font-weight="bold" fill="#92400e" text-anchor="middle">Harappan Cities</text>
+          <text x="70" y="113" font-size="8.5" fill="#451a03" text-anchor="middle">Dholavira Reservoirs,</text>
+          <text x="70" y="125" font-size="8.5" fill="#451a03" text-anchor="middle">Mohenjo-daro Grid</text>
+
+          <!-- Stupas 3rd BCE -->
+          <circle cx="210" cy="160" r="13" fill="#b45309" stroke="#ffffff" stroke-width="3" filter="url(#drop)"/>
+          <rect x="155" y="190" width="110" height="70" rx="8" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5" filter="url(#drop)"/>
+          <text x="210" y="210" font-size="11" font-weight="bold" fill="#065f46" text-anchor="middle">3rd &ndash; 1st c. BCE</text>
+          <text x="210" y="225" font-size="9" font-weight="bold" fill="#047857" text-anchor="middle">Buddhist Stupas</text>
+          <text x="210" y="238" font-size="8.5" fill="#064e3b" text-anchor="middle">Sanchi &amp; Bharhut</text>
+          <text x="210" y="250" font-size="8.5" fill="#064e3b" text-anchor="middle">Toranas &amp; Harmika</text>
+
+          <!-- Rock Cut 2nd BCE - 8th CE -->
+          <circle cx="360" cy="160" r="13" fill="#0d9488" stroke="#ffffff" stroke-width="3" filter="url(#drop)"/>
+          <rect x="305" y="65" width="115" height="70" rx="8" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5" filter="url(#drop)"/>
+          <text x="362" y="85" font-size="11" font-weight="bold" fill="#0f766e" text-anchor="middle">2nd BCE &ndash; 8th CE</text>
+          <text x="362" y="100" font-size="9" font-weight="bold" fill="#115e59" text-anchor="middle">Rock-Cut Wonders</text>
+          <text x="362" y="113" font-size="8.5" fill="#134e4a" text-anchor="middle">Ellora Cave 10 Chaitya,</text>
+          <text x="362" y="125" font-size="8.5" fill="#134e4a" text-anchor="middle">Kailasha Monolith</text>
+
+          <!-- Classical Temples 7th-13th CE -->
+          <circle cx="510" cy="160" r="13" fill="#4338ca" stroke="#ffffff" stroke-width="3" filter="url(#drop)"/>
+          <rect x="455" y="190" width="115" height="70" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5" filter="url(#drop)"/>
+          <text x="512" y="210" font-size="11" font-weight="bold" fill="#3730a3" text-anchor="middle">7th &ndash; 13th c. CE</text>
+          <text x="512" y="225" font-size="9" font-weight="bold" fill="#4338ca" text-anchor="middle">Classical Temples</text>
+          <text x="512" y="238" font-size="8.5" fill="#312e81" text-anchor="middle">Brihadiswara (Dravida),</text>
+          <text x="512" y="250" font-size="8.5" fill="#312e81" text-anchor="middle">Lingaraja (Nagara)</text>
+
+          <!-- Stepwells & Water -->
+          <circle cx="650" cy="160" r="13" fill="#4338ca" stroke="#ffffff" stroke-width="3" filter="url(#drop)"/>
+          <rect x="595" y="65" width="115" height="70" rx="8" fill="#fdf4ff" stroke="#c084fc" stroke-width="1.5" filter="url(#drop)"/>
+          <text x="652" y="85" font-size="11" font-weight="bold" fill="#6b21a8" text-anchor="middle">11th &ndash; 16th c. CE</text>
+          <text x="652" y="100" font-size="9" font-weight="bold" fill="#7e22ce" text-anchor="middle">Water &amp; Palaces</text>
+          <text x="652" y="113" font-size="8.5" fill="#581c87" text-anchor="middle">Rani ki Vav Stepwell,</text>
+          <text x="652" y="125" font-size="8.5" fill="#581c87" text-anchor="middle">Vijayanagara Tanks</text>
+
+          <!-- Indo-Islamic & Colonial -->
+          <circle cx="810" cy="160" r="15" fill="#9d174d" stroke="#ffffff" stroke-width="4" filter="url(#drop)"/>
+          <rect x="750" y="190" width="125" height="70" rx="8" fill="#fff1f2" stroke="#f43f5e" stroke-width="1.5" filter="url(#drop)"/>
+          <text x="812" y="210" font-size="11" font-weight="bold" fill="#9f1239" text-anchor="middle">14th &ndash; 20th c. CE</text>
+          <text x="812" y="225" font-size="9" font-weight="bold" fill="#be123c" text-anchor="middle">Islamic &amp; Colonial</text>
+          <text x="812" y="238" font-size="8.5" fill="#881337" text-anchor="middle">Taj Mahal, Humayun Tomb,</text>
+          <text x="812" y="250" font-size="8.5" fill="#881337" text-anchor="middle">Madras High Court</text>
+        </svg>
+        <p class="svg-caption">Figure 10.1: Chronological panorama of Indian architectural evolution over 5,000 years.</p>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-title">The Three Big Questions of this Chapter</div>
+        <ol>
+          <li><strong>What role has architecture played in Indian civilisation?</strong> Far from being mere shelter or luxury, it served as a cosmic bridge connecting humanity, nature, and the divine, expressing spiritual truth through proportion and permanence.</li>
+          <li><strong>What key concepts and engineering developments fueled this diversity?</strong> Concepts like the <em>Vastu Purusha Mandala</em>, corbelled and true arch vaulting, rock-excavation precision, and sophisticated rainwater harvesting.</li>
+          <li><strong>How is this architectural heritage relevant today?</strong> It teaches us climate-responsive sustainable design (natural cooling, rainwater conservation) and embodies our constitutional duty to preserve our composite cultural heritage.</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- SECTION 2: EXHAUSTIVE CONCEPTS -->
+    <section id="concepts">
+      <h2>2. Exhaustive Architectural Typologies</h2>
+
+      <h3>2.1 Urban Planning &amp; Harappan Architecture (2600&ndash;1900 BCE)</h3>
+      <p>India's architectural journey begins with the sophisticated Bronze Age cities of the Indus-Saraswati (Harappan) Civilization:</p>
+      <ul>
+        <li><strong>Mohenjo-daro &amp; Grid Iron Planning:</strong> Streets aligned strictly North-South and East-West, forming rectangular blocks. Standardized kiln-burnt bricks in a precise ratio of <strong>1 : 2 : 4</strong> (thickness : width : length) were bound with mud mortar or gypsum.</li>
+        <li><strong>Private Domestic Architecture:</strong> Houses were oriented around an open central courtyard. Rooms opened inward for privacy, with no ground-floor windows facing the main public street. Many houses had two storeys accessed by brick staircases, individual bathrooms paved with impervious bricks, and chutes draining waste into covered street gutters with inspection soak pits.</li>
+        <li><strong>Dholavira (Rann of Kutch, Gujarat):</strong> Unlike typical two-part Harappan cities, Dholavira featured a unique <strong>tripartite division</strong>: Castle (Citadel), Middle Town, and Lower Town, all fortified with massive stone walls. Built in an arid landscape, Dholavira's builders engineered 16 massive inter-connected rock-cut reservoirs, dams across the seasonal Manhar and Mansar rivulets, and desilting chambers to harvest and store every drop of monsoon rain.</li>
+      </ul>
+
+      <h3>2.2 Buddhist Stupa Architecture</h3>
+      <p>A <strong>stupa</strong> originated as a pre-Buddhist burial mound over the cremated relics of holy persons. Under Emperor Ashoka (3rd century BCE), it evolved into a sacred structural monument representing the Buddha's Parinirvana and the cosmic order.</p>
+
+      <div class="svg-card">
+        <svg viewBox="0 0 880 340" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="860" height="320" rx="12" fill="#fffbeb" stroke="#fcd34d" stroke-width="2"/>
+          <text x="440" y="35" font-size="16" font-weight="bold" fill="#78350f" text-anchor="middle">Anatomy of the Buddhist Stupa (The Great Stupa at Sanchi)</text>
+
+          <!-- Ground Baseline -->
+          <line x1="60" y1="280" x2="820" y2="280" stroke="#78350f" stroke-width="3"/>
+
+          <!-- Medhi (Base Drum) -->
+          <rect x="220" y="240" width="440" height="40" rx="4" fill="#d97706" stroke="#92400e" stroke-width="2"/>
+          <text x="440" y="265" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">MEDHI (Raised Circular Terrace for Pradakshina)</text>
+
+          <!-- Anda (Dome) -->
+          <path d="M 240 240 A 200 160 0 0 1 640 240 Z" fill="#fef3c7" stroke="#b45309" stroke-width="3"/>
+          <text x="440" y="180" font-size="14" font-weight="bold" fill="#92400e" text-anchor="middle">ANDA</text>
+          <text x="440" y="200" font-size="10" fill="#78350f" text-anchor="middle">(The Cosmic Egg / Relic Dome)</text>
+
+          <!-- Harmika -->
+          <rect x="400" y="65" width="80" height="25" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+          <text x="440" y="82" font-size="10" font-weight="bold" fill="#ffffff" text-anchor="middle">HARMIKA</text>
+
+          <!-- Yashti & Chhatras -->
+          <line x1="440" y1="20" x2="440" y2="65" stroke="#78350f" stroke-width="3"/>
+          <polygon points="440,25 410,32 470,32" fill="#b45309"/>
+          <polygon points="440,36 418,43 462,43" fill="#b45309"/>
+          <polygon points="440,47 425,54 455,54" fill="#b45309"/>
+          <text x="530" y="45" font-size="10" font-weight="bold" fill="#92400e">CHHATRAS (3 Jewels)</text>
+          <text x="530" y="60" font-size="8.5" fill="#78350f">on central YASHTI (Axis)</text>
+
+          <!-- Vedika (Stone Railing) -->
+          <line x1="120" y1="280" x2="120" y2="245" stroke="#78350f" stroke-width="4"/>
+          <line x1="760" y1="280" x2="760" y2="245" stroke="#78350f" stroke-width="4"/>
+          <rect x="110" y="245" width="20" height="35" fill="#e5e7eb" stroke="#374151" stroke-width="1.5"/>
+          <rect x="750" y="245" width="20" height="35" fill="#e5e7eb" stroke="#374151" stroke-width="1.5"/>
+          <text x="120" y="235" font-size="10" font-weight="bold" fill="#374151" text-anchor="middle">VEDIKA</text>
+          <text x="760" y="235" font-size="10" font-weight="bold" fill="#374151" text-anchor="middle">VEDIKA</text>
+
+          <!-- Toranas (Gateways) -->
+          <rect x="60" y="160" width="45" height="120" rx="3" fill="#fed7aa" stroke="#c2410c" stroke-width="1.5"/>
+          <line x1="50" y1="175" x2="115" y2="175" stroke="#c2410c" stroke-width="3"/>
+          <line x1="50" y1="188" x2="115" y2="188" stroke="#c2410c" stroke-width="3"/>
+          <line x1="50" y1="201" x2="115" y2="201" stroke="#c2410c" stroke-width="3"/>
+          <text x="82" y="150" font-size="10" font-weight="bold" fill="#9a3412" text-anchor="middle">TORANA</text>
+          <text x="82" y="305" font-size="9" fill="#7c2d12" text-anchor="middle">(Carved Gateways)</text>
+
+          <!-- Pradakshina Path Label -->
+          <text x="440" y="305" font-size="10" font-style="italic" fill="#78350f" text-anchor="middle">Clockwise Circumambulation (Pradakṣhiṇā Patha) around the relic-bearing Anda</text>
+        </svg>
+        <p class="svg-caption">Figure 10.2: Architectural components of a classical stupa (Sanchi, Madhya Pradesh).</p>
+      </div>
+
+      <div class="callout callout-def">
+        <div class="callout-title">Structural Elements of a Stupa</div>
+        <ul>
+          <li><strong>Anda:</strong> The hemispherical earthen/brick mound symbolizing the vault of heaven and the cosmos containing bodily relics (dhatu) of Buddha or his chief disciples.</li>
+          <li><strong>Harmika:</strong> The square balcony-like structure atop the dome representing the sacred abode of the gods.</li>
+          <li><strong>Yashti:</strong> The central mast running through the Harmika symbolizing the cosmic axis (Axis Mundi) uniting heaven, earth, and underworld.</li>
+          <li><strong>Chhatras:</strong> Three circular stone umbrellas mounted on the Yashti representing the <em>Triratna</em> (The Three Jewels: Buddha, Dharma, and Sangha).</li>
+          <li><strong>Vedika &amp; Pradakshina Path:</strong> The surrounding stone palisade railing separating sacred space from profane space, providing a processional path for circumambulation in a clockwise direction.</li>
+          <li><strong>Toranas:</strong> Four monumental gateways facing the cardinal directions, elaborately carved with narrative relief panels depicting Jataka tales (Buddha's previous births).</li>
+        </ul>
+      </div>
+
+      <h3>2.3 Rock-Cut Architecture: Caves &amp; Monoliths</h3>
+      <p>Instead of assembling stones or bricks (structural architecture), Indian artisans excelled at <strong>rock-cut architecture</strong>&mdash;subtracting rock from live mountains to hollow out cave sanctuaries or chisel colossal freestanding monolithic temples:</p>
+      <ul>
+        <li><strong>Udayagiri and Khandagiri Caves (Odisha, 1st c. BCE):</strong> Carved under King Kharavela for Jain monks. Notable for double-storeyed pillared verandas (Rani Gumpha) and the <em>Hathigumpha inscription</em> in Brahmi script detailing Kharavela's military expeditions.</li>
+        <li><strong>Chaitya Halls &amp; Viharas (Ellora &amp; Ajanta):</strong> Cave 10 at Ellora (the <em>Vishvakarma Cave</em> or 'Carpenter's Cave') is a rock-cut chaitya hall where stone ribs on the barrel-vaulted ceiling imitate wooden rafters. At the far end stands a rock-carved stupa with a 15-foot seated Buddha preaching in <em>Dharmachakra Pravartana mudra</em>.</li>
+        <li><strong>The Kailasha Temple (Cave 16, Ellora):</strong> Commissioned by Rashtrakuta King Krishna I (8th century CE), this is the <strong>largest monolithic rock excavation in the world</strong>. Unlike normal buildings constructed from the foundation upward, master artisans carved down through 200,000 tonnes of solid vertical basalt cliff-face from top to bottom. It replicates Mount Kailasha with intricate multi-tiered Vimana, pillared halls, life-sized carved elephants, and epic panels of Ravana shaking Mount Kailasha.</li>
+      </ul>
+
+      <h3>2.4 Water Architecture: Stepwells &amp; Sacred Tanks</h3>
+      <p>Water is revered in India as a life-giver and sacred purifier. Because much of the subcontinent depends on seasonal monsoon rainfall, brilliant hydraulic structures were developed:</p>
+      <ul>
+        <li><strong>Shringaverpur Water Tanks (1st c. BCE, near Prayagraj):</strong> An ancient hydraulic engineering marvel on the Ganga. A 250-metre-long canal tapped floodwaters during monsoons, channelled the water through desilting settlement tanks, and provided clean water to the township year-round.</li>
+        <li><strong>Rani ki Vav (The Queen's Stepwell, Patan, Gujarat):</strong> Built in 1063 CE by Queen Udayamati in memory of King Bhima I (Chaulukya dynasty). It is an <strong>inverted temple</strong> descending seven subterranean terraces into the Earth. Its walls feature over 500 major sculptures and 1,000 minor ones, predominantly depicting Lord Vishnu's Dashavatara (including reclining Sheshashayi Vishnu), keeping visitors shaded and cooled during scorching desert summers.</li>
+        <li><strong>Vijayanagara Pushkarinis:</strong> Perfectly symmetrical royal stepped tanks fed by aqueducts, lined with dressed chlorite stone steps arranged in geometric pyramidal motifs.</li>
+      </ul>
+
+      <h3>2.5 Classical Temple Architecture: Nagara vs. Dravida Styles</h3>
+      <p>Classical Hindu temple architecture represents the cosmic body (<em>Purusha</em>). Built on the geometric grid of the <em>Vastu Purusha Mandala</em>, the temple connects the inner spirit of the devotee with the infinite cosmos:</p>
+
+      <div class="svg-card">
+        <svg viewBox="0 0 880 320" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="10" width="860" height="300" rx="12" fill="#fafafa" stroke="#e2e8f0" stroke-width="2"/>
+          <text x="440" y="32" font-size="16" font-weight="bold" fill="#0f172a" text-anchor="middle">Comparative Architecture: Nagara (North) vs. Dravida (South)</text>
+
+          <!-- NAGARA STYLE (Left) -->
+          <rect x="30" y="55" width="395" height="240" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="1.5"/>
+          <text x="227" y="80" font-size="13" font-weight="bold" fill="#92400e" text-anchor="middle">NAGARA STYLE (e.g. Lingaraja, Khajuraho)</text>
+          
+          <!-- Drawing Nagara Shikhara -->
+          <path d="M 120 250 L 120 180 Q 150 110, 160 100 Q 170 110, 200 180 L 200 250 Z" fill="#fef3c7" stroke="#b45309" stroke-width="2"/>
+          <!-- Amalaka & Kalasha -->
+          <ellipse cx="160" cy="98" rx="14" ry="5" fill="#d97706" stroke="#92400e" stroke-width="1.5"/>
+          <polygon points="160,85 155,93 165,93" fill="#b45309"/>
+          
+          <!-- Mandapa -->
+          <path d="M 200 250 L 200 210 L 250 170 L 290 210 L 290 250 Z" fill="#fef9c3" stroke="#b45309" stroke-width="1.5"/>
+          
+          <text x="160" y="150" font-size="10" font-weight="bold" fill="#78350f" text-anchor="middle">SHIKHARA</text>
+          <text x="160" y="162" font-size="8.5" fill="#78350f" text-anchor="middle">(Curvilinear beehive)</text>
+          <text x="160" y="78" font-size="8.5" font-weight="bold" fill="#92400e" text-anchor="middle">AMALAKA &amp; KALASHA</text>
+          <text x="245" y="215" font-size="9" font-weight="bold" fill="#78350f" text-anchor="middle">MANDAPA</text>
+          <text x="160" y="270" font-size="9" font-weight="bold" fill="#92400e" text-anchor="middle">GARBHAGRIHA</text>
+
+          <!-- Bullet features Nagara -->
+          <text x="310" y="115" font-size="9.5" fill="#451a03">• Curving tower (Latina/Rekha)</text>
+          <text x="310" y="135" font-size="9.5" fill="#451a03">• Ribbed stone disk (Amalaka)</text>
+          <text x="310" y="155" font-size="9.5" fill="#451a03">• Raised plinth (Jagati)</text>
+          <text x="310" y="175" font-size="9.5" fill="#451a03">• No elaborate boundary wall</text>
+          <text x="310" y="195" font-size="9.5" fill="#451a03">• Shikhara is tallest point</text>
+
+          <!-- DRAVIDA STYLE (Right) -->
+          <rect x="455" y="55" width="395" height="240" rx="10" fill="#f0fdfa" stroke="#0d9488" stroke-width="1.5"/>
+          <text x="652" y="80" font-size="13" font-weight="bold" fill="#0f766e" text-anchor="middle">DRAVIDA STYLE (e.g. Brihadiswara, Thanjavur)</text>
+
+          <!-- Drawing Dravida Vimana -->
+          <polygon points="510,250 535,210 545,175 555,145 565,120 575,105 585,120 595,145 605,175 615,210 640,250" fill="#ccfbf1" stroke="#0f766e" stroke-width="2"/>
+          <!-- Shikhara Dome -->
+          <circle cx="575" cy="98" r="12" fill="#0d9488" stroke="#115e59" stroke-width="1.5"/>
+          <!-- Gopuram Gateway -->
+          <polygon points="780,250 790,200 800,160 820,160 830,200 840,250" fill="#99f6e4" stroke="#0f766e" stroke-width="1.5"/>
+          
+          <text x="575" y="180" font-size="10" font-weight="bold" fill="#115e59" text-anchor="middle">VIMANA</text>
+          <text x="575" y="195" font-size="8.5" fill="#115e59" text-anchor="middle">(Pyramidal stepped tiers)</text>
+          <text x="575" y="78" font-size="8.5" font-weight="bold" fill="#0f766e" text-anchor="middle">SHIKHARA (Dome capstone)</text>
+          <text x="810" y="210" font-size="9" font-weight="bold" fill="#115e59" text-anchor="middle">GOPURAM</text>
+          <text x="810" y="223" font-size="8" fill="#134e4a" text-anchor="middle">(Towering Gateway)</text>
+          <text x="575" y="270" font-size="9" font-weight="bold" fill="#0f766e" text-anchor="middle">GARBHAGRIHA</text>
+
+          <!-- Bullet features Dravida -->
+          <text x="650" y="115" font-size="9.5" fill="#042f2e">• Stepped pyramid tower (Vimana)</text>
+          <text x="650" y="135" font-size="9.5" fill="#042f2e">• Towering gateway (Gopuram)</text>
+          <text x="650" y="155" font-size="9.5" fill="#042f2e">• Enclosed compound wall (Prakara)</text>
+          <text x="650" y="175" font-size="9.5" fill="#042f2e">• Temple water tank inside</text>
+          <text x="650" y="195" font-size="9.5" fill="#042f2e">• Pillared hall (Mandapa)</text>
+        </svg>
+        <p class="svg-caption">Figure 10.3: Key structural distinctions between North Indian Nagara and South Indian Dravida temple styles.</p>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Nagara Style (North India)</th>
+              <th>Dravida Style (South India)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Tower Structure</strong></td>
+              <td>Curving beehive-shaped tower called <strong>Shikhara</strong>.</td>
+              <td>Stepped pyramidal tower called <strong>Vimana</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Tower Top</strong></td>
+              <td>Crowned by an <strong>Amalaka</strong> (ribbed stone disk) and <strong>Kalasha</strong>.</td>
+              <td>Crowned by a single octagonal or domed stone block called <strong>Shikhara</strong>.</td>
+            </tr>
+            <tr>
+              <td><strong>Entrance Gateway</strong></td>
+              <td>Modest entrance porches; tower above sanctum is tallest.</td>
+              <td>Colossal monumental gateways called <strong>Gopurams</strong> that dominate the skyline.</td>
+            </tr>
+            <tr>
+              <td><strong>Enclosure &amp; Water</strong></td>
+              <td>Usually built on an elevated plinth (Jagati) without high boundary walls; tanks outside.</td>
+              <td>Enclosed within high compound walls (<em>Prakara</em>); sacred temple tank (<em>Kalyani</em>) inside.</td>
+            </tr>
+            <tr>
+              <td><strong>Masterpiece Examples</strong></td>
+              <td>Kandariya Mahadeva (Khajuraho), Lingaraja (Bhubaneswar), Sun Temple (Konark).</td>
+              <td>Brihadiswara (Thanjavur), Meenakshi (Madurai), Kailasanathar (Kanchipuram).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p><strong>Regional Temple Highlights:</strong></p>
+      <ul>
+        <li><strong>Dilwara Temples (Mount Abu, Rajasthan):</strong> 11th&ndash;13th century Jain temples built of pure white Makrana marble. The marble is carved with such incredible delicacy that ceilings resemble paper-thin lace with hanging lotus pendants.</li>
+        <li><strong>Bishnupur Terracotta Temples (West Bengal, 17th c.):</strong> Because stone is scarce in the alluvial Bengal delta, Malla kings constructed temples using burnt red clay bricks. They introduced curved eaves mimicking the thatched bamboo roofs of rural Bengal huts (<em>Bangla roof</em>) and covered every exterior inch with terracotta tiles narrating Krishna Lila and Ramayana scenes.</li>
+        <li><strong>Sharada Peetha (Kashmir) &amp; Hidimba Devi (Manali):</strong> Incorporate tiered sloping wooden pagoda roofs designed to shed heavy Himalayan snowfall.</li>
+      </ul>
+
+      <h3>2.6 Mosque Architecture (Masjid)</h3>
+      <p>A mosque (from Arabic <em>Masjid</em>, meaning "place of prostration") is an architectural space designed for congregational Muslim prayer. Key components include:</p>
+      <ul>
+        <li><strong>Sahn:</strong> Open courtyard surrounded by colonnades, containing an ablution fountain (<em>Hauz</em>) for ritual purification (Wudu).</li>
+        <li><strong>Liwan:</strong> Roofed prayer hall where worshippers stand in shoulder-to-shoulder rows facing Mecca.</li>
+        <li><strong>Qibla &amp; Mihrab:</strong> The Qibla is the direction of the Kaaba in Mecca (West in India). The <strong>Mihrab</strong> is a semicircular prayer niche set into the western wall indicating this sacred direction.</li>
+        <li><strong>Minbar:</strong> Stepped pulpit beside the Mihrab where the Imam delivers the Friday sermon (Khutbah).</li>
+        <li><strong>Minaret:</strong> Tall, slender towers from which the muezzin gives the call to prayer (Adhan).</li>
+        <li><strong>Notable Masterpieces:</strong>
+          <ul>
+            <li><strong>Ahmedabad Jama Masjid (1424 CE):</strong> Blends Hindu/Jain toranas, intricately carved stone pillars, and Islamic pointed arches. The nearby <strong>Sidi Saiyyed Mosque (1573 CE)</strong> features the world-renowned <em>Sidi Saiyyed Jali</em>&mdash;a stone screen carved into a delicate filigree of curling tree branches and palm fronds.</li>
+            <li><strong>Delhi Jama Masjid (1656 CE):</strong> Commissioned by Shah Jahan, this grand mosque sits atop a high stone terrace with 35 red sandstone steps, accommodating over 25,000 worshippers, with three black-and-white striped marble onion domes and two 40-metre-high minarets.</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>2.7 Forts and Palaces</h3>
+      <p>Palaces and forts blended defensive militarism with luxurious imperial court life:</p>
+      <ul>
+        <li><strong>Mehrangarh Fort (Jodhpur, Rajasthan):</strong> Perched atop a sheer 122-metre-high volcanic cliff, with 36-metre-high defensive ramparts. Within, the royal palaces feature intricate latticed sandstone <em>jharokhas</em> (overhanging enclosed balconies) that catch desert breezes while granting royal women privacy.</li>
+        <li><strong>Agra Fort:</strong> Built primarily of red sandstone by Akbar, and later enriched with white marble pavilions by Shah Jahan. Notable for the <strong>Musamman Burj</strong>&mdash;an octagonal marble tower overlooking the Yamuna River where Shah Jahan spent his final captive years gazing toward the Taj Mahal.</li>
+        <li><strong>Orchha Fort-Palace Complex (Madhya Pradesh):</strong> Built by Bundela Rajput rulers, featuring the multi-storeyed <em>Jahangir Mahal</em> with its synthesis of Rajput domed pavilions (<em>chhatris</em>), projecting balconies, and Islamic arches.</li>
+        <li><strong>Mysuru Palace (Amba Vilas):</strong> A 20th-century Indo-Saracenic palace designed by British architect Henry Irwin for the Wodeyar rulers, featuring grey granite, deep pink marble domes, Belgian stained glass, and illuminated by nearly 100,000 incandescent bulbs during Dussehra.</li>
+      </ul>
+
+      <h3>2.8 Tombs &amp; Mausoleums: The Charbagh Concept</h3>
+      <p>In Islamic architecture, a monumental tomb (Rauza) was designed as an earthly reflection of Paradise (Jannah):</p>
+      <ul>
+        <li><strong>Humayun's Tomb (Delhi, 1570 CE):</strong> Commissioned by his chief consort Biga Begum (Haji Begum) and designed by Persian architect Mirak Mirza Ghiyas. It introduced the <strong>Charbagh (four-quadrant garden)</strong> style to India&mdash;a quadripartite layout divided by walkways and water channels symbolizing the four rivers of paradise. It was the first Indian monument to feature a double-layered bulbous dome and served as the architectural prototype for the Taj Mahal.</li>
+        <li><strong>The Taj Mahal (Agra, 1632&ndash;1648 CE):</strong> Built by Shah Jahan as a mausoleum for his beloved wife Mumtaz Mahal. Built entirely of lustrous white Makrana marble on a raised terrace overlooking the Yamuna. Its perfect bilateral symmetry, soaring bulbous dome, four gently outward-tilting minarets (to prevent falling onto the tomb during earthquakes), and exquisite <strong>Pietra Dura (Parchin Kari)</strong> floral stone inlays make it one of the Seven Wonders of the World.</li>
+      </ul>
+
+      <h3>2.9 Vernacular Domestic &amp; Colonial Architecture</h3>
+      <ul>
+        <li><strong>Shekhawati Havelis (Rajasthan):</strong> Grand merchant mansions covered inside and out with vibrant fresco paintings depicting mythological themes, local folktales, and early European innovations like trains and gramophones.</li>
+        <li><strong>Chettinad Mansions (Tamil Nadu):</strong> Palatial homes of the merchant Chettiar community featuring vast central courtyards, pillars carved from imported Burmese teak, Italian marble floors, and specialized clay roof tiles designed to funnel monsoon downpours into underground domestic cisterns.</li>
+        <li><strong>Indo-Saracenic Colonial Architecture:</strong> Emerged in the late 19th century under British rule, blending Indian Islamic arches, Rajput chhatris, and Hindu stone carvings with Victorian Gothic administrative structures. Prime examples include the <strong>Madras High Court (1892)</strong> and the marble <strong>Victoria Memorial (Kolkata)</strong>.</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3: TERM BANK -->
+    <section id="terms">
+      <h2>3. Comprehensive Term Bank (20 Essential Concepts)</h2>
+      <div class="term-grid">
+        <div class="term-card">
+          <div class="term-title">1. Garbhagriha</div>
+          <p>The "womb chamber"; the innermost dark sanctum sanctorum of a Hindu temple where the principal deity's idol is consecrated.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">2. Shikhara</div>
+          <p>The curvilinear, beehive-shaped spire towering over the sanctum in North Indian Nagara style temples (in South India, it refers to the dome-shaped crowning capstone).</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">3. Vimana</div>
+          <p>The stepped pyramidal tower structure that rises above the sanctum sanctorum in South Indian Dravida style temples.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">4. Gopuram</div>
+          <p>The monumental, richly sculpted entrance gateway of a Dravidian temple complex that towers over the surrounding landscape.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">5. Mandapa</div>
+          <p>A pillared porch or assembly hall in a temple preceding the sanctum, used for devotee gatherings, dance, and religious discourses.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">6. Anda</div>
+          <p>The semi-spherical earthen or masonry dome of a Buddhist stupa symbolizing the vault of heaven and containing holy relics.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">7. Harmika</div>
+          <p>The square railed balcony positioned atop the stupa dome, signifying the sacred dwelling of divinity.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">8. Torana</div>
+          <p>A ceremonial, freestanding gateway with horizontal arched crossbeams elaborately carved with narrative relief sculptures at stupas and temples.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">9. Pradakshina Patha</div>
+          <p>The raised or enclosed circular ambulatory walkway surrounding a stupa or sanctum for clockwise circumambulation.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">10. Chaitya &amp; Vihara</div>
+          <p>A Chaitya is a Buddhist rock-cut prayer hall housing a stupa; a Vihara is a monastery hall with living residential cells for monks.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">11. Monolithic Architecture</div>
+          <p>A structure carved entirely out of a single continuous mass of natural bedrock, such as the Kailasha Temple at Ellora.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">12. Vav / Baoli</div>
+          <p>A subterranean stepped well built in arid regions of Gujarat and Rajasthan featuring multi-storeyed pavilions leading down to groundwater.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">13. Vastu Purusha Mandala</div>
+          <p>The sacred mathematical and metaphysical diagram that forms the cosmic grid basis for Hindu temple ground plans.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">14. Mihrab</div>
+          <p>A semicircular ornamental prayer niche in the western wall of a mosque indicating the Qibla (direction of Mecca).</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">15. Minbar</div>
+          <p>A stepped wooden or stone pulpit located next to the Mihrab from which the Imam delivers sermons to the congregation.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">16. Jali</div>
+          <p>Perforated stone or latticed screen with intricate geometric or floral openwork, filtering harsh sunlight and creating cooling airflow.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">17. Jharokha</div>
+          <p>An overhanging, enclosed balcony projecting from the upper floors of Rajput and Mughal fort-palaces.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">18. Charbagh</div>
+          <p>A Persian-style quadrilateral garden layout divided into four equal quadrants by walking paths and running water rills, symbolizing Paradise.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">19. Pietra Dura</div>
+          <p>The decorative inlay technique (known as <em>Parchin Kari</em>) where cut and polished semi-precious colored stones are embedded into marble.</p>
+        </div>
+        <div class="term-card">
+          <div class="term-title">20. Indo-Saracenic</div>
+          <p>A 19th-century colonial architectural style combining Mughal-Rajput arches, domes, and minarets with British Gothic structural frameworks.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: NCERT SOLUTIONS -->
+    <section id="solutions">
+      <h2>4. Complete NCERT Textbook Solutions &amp; Classroom Activities</h2>
+
+      <details class="ans-box">
+        <summary>Q1. In Fig. 3.5 (Mohenjo-daro house plan), calculate the full width of the house; compare with your classroom. How many staircases can you make out? If the owners lived upstairs, what might the downstairs rooms be used for?</summary>
+        <div class="ans-content">
+          <p><strong>Step-by-Step Answer:</strong></p>
+          <ol>
+            <li><strong>Width Calculation:</strong> From the scale given in the Mohenjo-daro archaeological plan, the house measures approximately <strong>15 to 18 metres in width</strong>. This is roughly double the width of a standard modern school classroom (which is typically 7 to 8 metres wide).</li>
+            <li><strong>Staircases:</strong> One or two narrow brick staircases are clearly visible against the inner courtyard wall, leading up to the second storey.</li>
+            <li><strong>Downstairs Room Usage:</strong> If family private living and sleeping quarters were located on the breezy second floor, the ground-floor rooms were utilized for:
+              <ul>
+                <li>Storage of grain jars, textiles, trade inventory, and oil jars.</li>
+                <li>Servants' quarters or guard rooms near the entrance.</li>
+                <li>Kitchen areas and grinding rooms.</li>
+                <li>Indoor bathrooms with brick drains connecting to the municipal sewer.</li>
+                <li>Shops or commercial workshops facing the alleyway.</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q2. Artisans with simple tools: How would you build a brick dome (Fig. 3.8)? How would you carve a ceiling like Fig. 3.12 (Ellora Cave 10)?</summary>
+        <div class="ans-content">
+          <p><strong>1. Building a Brick Dome (Sanchi / True Dome Technique):</strong></p>
+          <ul>
+            <li><strong>Corbelled Technique:</strong> Without modern concrete, ancient builders placed successive horizontal circular rings of bricks, each ring projecting slightly inward over the one below, until the rings met at the apex and were secured by a heavy central keystone.</li>
+            <li><strong>Centering Support:</strong> Wooden scaffolding with curved timber armatures packed with compacted wet clay and sand was built to support the bricks until the binding mortar (lime or clay) hardened completely.</li>
+          </ul>
+          <p><strong>2. Carving the Ellora Cave 10 Ceiling:</strong></p>
+          <ul>
+            <li>Artisans used the <strong>top-down rock subtraction method</strong>. Entering the basalt cliff from the top, they chiseled down into the rock.</li>
+            <li>To replicate timber rafters, sculptors marked guide grids on the ceiling with chalk and iron chisels, carefully chipping away the surrounding basalt rock while leaving long, curved longitudinal ribs in high relief, imitating carpenter woodwork.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q3. Why should there be so many stairways in Fig. 3.15 (Shringaverpur) and Fig. 3.17 (Vijayanagara Pushkarini)?</summary>
+        <div class="ans-content">
+          <p><strong>Reasons for Multiple Stepped Stairways in Water Structures:</strong></p>
+          <ol>
+            <li><strong>Fluctuating Water Levels:</strong> In a monsoon-dependent climate, water levels fluctuate dramatically between dry summer and rainy monsoon. Terraced stepped stairways ensure that people can safely reach and draw water at <em>any water level</em> throughout the year.</li>
+            <li><strong>Preventing Soil and Wall Collapse:</strong> Stepped tiers distribute the immense lateral hydraulic pressure of the earth and water, acting as natural retaining buttresses.</li>
+            <li><strong>Managing Crowd Flow:</strong> During religious festivals and sacred rituals, hundreds of devotees perform ritual ablutions simultaneously. Symmetrical flights of steps prevent bottlenecks and stampedes.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q4. Which pillars are easier to sculpt in your opinion—those in Fig. 3.25 (Thanjavur stone pillars) or Fig. 3.27 (Bishnupur terracotta facade)? Justify your answer.</summary>
+        <div class="ans-content">
+          <p><strong>Comparative Analysis:</strong></p>
+          <ul>
+            <li><strong>Bishnupur Terracotta:</strong> Easier to mold initially. Artisans worked with soft, moist riverbed clay, carving detailed figures using simple wooden tools or pressing clay into reusable wooden/clay molds before firing the bricks in kilns. However, precise firing without cracking was technically tricky.</li>
+            <li><strong>Thanjavur Hard Granite Pillars:</strong> Much harder and far more labor-intensive. Granite is one of the hardest igneous rocks on Earth. A single mistake with an iron chisel can shatter an entire pillar, requiring months of patient, relentless stone-dressing.</li>
+            <li><strong>Conclusion:</strong> Sculpting terracotta tiles is mechanically easier than chiseling monolithic hard granite pillars.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q5. What are some common features across different types of temples visited in this chapter? What are some differences?</summary>
+        <div class="ans-content">
+          <p><strong>Common Universal Features:</strong></p>
+          <ol>
+            <li><strong>Garbhagriha:</strong> Every temple, whether North or South, has a sacred inner sanctum where the main deity resides.</li>
+            <li><strong>Cosmic Axis:</strong> A vertical tower (Shikhara or Vimana) rising directly above the sanctum connecting earth to heaven.</li>
+            <li><strong>Mandapa:</strong> Pillared gathering spaces for devotees to offer prayers.</li>
+            <li><strong>Vastu Purusha Mandala:</strong> Structured sacred geometric ground plans aligning with the cardinal directions.</li>
+          </ol>
+          <p><strong>Key Regional Differences:</strong></p>
+          <ul>
+            <li><em>Spire Shape:</em> Curving beehive profile (Nagara) vs. stepped pyramid (Dravida).</li>
+            <li><em>Gateways:</em> Modest porches in the North vs. towering multi-storeyed Gopurams in the South.</li>
+            <li><em>Materials:</em> Sandstone at Khajuraho/Bhubaneswar; hard granite at Thanjavur; pure white marble at Dilwara; burnt terracotta bricks at Bishnupur; and deodar timber pagodas in Himachal/Kashmir.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q6. In Chettinad and Shekhawati houses (Figs. 3.46 & 3.47), the central courtyard receives a lot of rain. Will this not flood the house?</summary>
+        <div class="ans-content">
+          <p><strong>No, it will not flood the house due to brilliant vernacular hydraulic engineering:</strong></p>
+          <ol>
+            <li><strong>Sloping Courtyard Gradient:</strong> The floor of the open central courtyard (<em>Mutram</em> in Chettinad) is gently sloped toward subterranean drain grates.</li>
+            <li><strong>Rainwater Harvesting Cisterns:</strong> In Chettinad mansions, rainwater from copper and terracotta tiled roof gutters is channelled through ceramic conduits directly into large underground storage cisterns (<em>Vavu</em>) beneath the house, providing clean drinking water year-round.</li>
+            <li><strong>Raised Plinths:</strong> The surrounding living rooms and pillared corridors are built on elevated plinths (often 2 to 3 feet higher than the courtyard floor), preventing water from splashing or entering rooms even during severe cloudbursts.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q7. Pan-India Architecture Museum: Which ten monuments would you select to represent India's diversity and why?</summary>
+        <div class="ans-content">
+          <p><strong>The Ten Representative Pan-India Monuments:</strong></p>
+          <ol>
+            <li><strong>Dholavira Reservoirs (Gujarat):</strong> Represents Bronze Age hydraulic engineering and urban planning.</li>
+            <li><strong>Sanchi Great Stupa (Madhya Pradesh):</strong> Represents early Buddhist sacred relic architecture and narrative toranas.</li>
+            <li><strong>Kailasha Monolithic Temple, Ellora (Maharashtra):</strong> Represents peerless rock-cut top-down stone carving.</li>
+            <li><strong>Brihadiswara Temple, Thanjavur (Tamil Nadu):</strong> Masterpiece of South Indian Chola Dravidian architecture.</li>
+            <li><strong>Lingaraja Temple, Bhubaneswar (Odisha):</strong> Classic epitome of East Indian Nagara (Kalinga) temple style.</li>
+            <li><strong>Rani ki Vav, Patan (Gujarat):</strong> Demonstrates subterranean inverted temple water architecture.</li>
+            <li><strong>Dilwara Jain Temples, Mount Abu (Rajasthan):</strong> Shows supreme delicacy in translucent marble filigree carving.</li>
+            <li><strong>Taj Mahal, Agra (Uttar Pradesh):</strong> Crown jewel of Mughal symmetrical Charbagh tomb architecture and pietra dura.</li>
+            <li><strong>Bishnupur Terracotta Temples (West Bengal):</strong> Vernacular adaptation using alluvial burnt clay and bangla thatched roof profiles.</li>
+            <li><strong>Madras High Court (Tamil Nadu):</strong> Represents 19th-century colonial Indo-Saracenic fusion architecture.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q8 & Q9. Regional Monument Study & School Exhibition Project Guidelines.</summary>
+        <div class="ans-content">
+          <p><strong>Framework for Students to Document Local Regional Heritage:</strong></p>
+          <ul>
+            <li><strong>Classification Markers:</strong>
+              <ol>
+                <li><em>Structural vs. Rock-cut:</em> Was it assembled with stone blocks/bricks or carved from natural rock?</li>
+                <li><em>Stylistic Markers:</em> Does it have a Shikhara (Nagara), Vimana (Dravida), arch-dome (Islamic), or Gothic-Saracenic features?</li>
+                <li><em>Material Used:</em> Granite, basalt, sandstone, marble, terracotta, or timber?</li>
+              </ol>
+            </li>
+            <li><strong>Exhibition Booth Checklist:</strong>
+              <ul>
+                <li>Photographs and hand-drawn ground plans.</li>
+                <li>Timeline chart showing date of construction and dynasty/patron.</li>
+                <li>Model of a decorative element (e.g., clay replica of a Jali screen or terracotta tile).</li>
+                <li>Local folktales and oral histories connected with the monument.</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>Q10. What are the biggest threats to our architectural heritage today and how can we protect it?</summary>
+        <div class="ans-content">
+          <p><strong>Major Modern Threats:</strong></p>
+          <ol>
+            <li><strong>Urban Encroachment &amp; Illegal Construction:</strong> Modern settlements expanding into protected buffer zones of ancient sites.</li>
+            <li><strong>Environmental Pollution &amp; Acid Rain:</strong> Industrial emissions and sulfur dioxide corroding delicate marble and sandstone (e.g., marble cancer at the Taj Mahal).</li>
+            <li><strong>Vandalism and Visitor Apathy:</strong> Tourists carving graffiti on ancient pillars and littering plastic waste.</li>
+            <li><strong>Neglect and Weathering:</strong> Water seepage, vegetation root growth breaking ancient stone joints, and soil erosion.</li>
+          </ol>
+          <p><strong>How We Can Protect Our Heritage:</strong></p>
+          <ul>
+            <li><strong>Civic Awareness &amp; Fundamental Duties:</strong> Upholding Article 51A(f) of the Constitution by treating monuments with respect.</li>
+            <li><strong>Strict Legal Buffer Zones:</strong> Enforcing the Ancient Monuments and Archaeological Sites and Remains (AMASR) Act to prevent illegal construction within 300 metres.</li>
+            <li><strong>Community-Led Stewardship:</strong> Adopting local lesser-known stepwells, temples, and havelis through school heritage clubs and village panchayats.</li>
+            <li><strong>Scientific Conservation:</strong> Using non-invasive chemical cleaning, laser scanning, and traditional lime plaster instead of modern Portland cement.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: INTERACTIVE QUIZ ENGINE -->
+    <section id="quiz">
+      <h2>5. Interactive Concept Mastery Quiz</h2>
+      <p>Test your knowledge of Indian architectural styles, engineering concepts, and historical monuments.</p>
+
+      <div class="quiz-card" id="qcard1">
+        <div class="quiz-question">1. The unique semi-spherical dome of a Buddhist stupa that houses sacred relics is called the:</div>
+        <div class="quiz-options">
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f1', 'Harmika is the square balcony atop the dome.')">A. Harmika</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, true, 'f1', 'Correct! Anda is the semi-spherical mound representing the cosmic egg.')">B. Anda</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f1', 'Torana is the carved ornamental gateway.')">C. Torana</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f1', 'Medhi is the elevated circular terrace for pradakshina.')">D. Medhi</button>
+        </div>
+        <div class="quiz-feedback" id="f1"></div>
+      </div>
+
+      <div class="quiz-card" id="qcard2">
+        <div class="quiz-question">2. The Kailasha Temple at Ellora (Cave 16) is historically unique because:</div>
+        <div class="quiz-options">
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f2', 'It was carved from solid basalt, not assembled from marble.')">A. It was assembled using pure white Makrana marble</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, true, 'f2', 'Spot on! It is the world\'s largest monolithic temple, carved from the top down out of a single basalt cliff.')">B. It was carved entirely top-down from a single natural cliff face</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f2', 'It is located in Maharashtra, not Tamil Nadu.')">C. It is the only Dravidian temple built in Tamil Nadu</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f2', 'It is dedicated to Shiva, not a wooden pagoda.')">D. It was constructed using wooden interlocking timber</button>
+        </div>
+        <div class="quiz-feedback" id="f2"></div>
+      </div>
+
+      <div class="quiz-card" id="qcard3">
+        <div class="quiz-question">3. What is the distinguishing feature of the Dravida temple tower above the sanctum?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f3', 'A curving beehive tower is the Shikhara of Nagara style.')">A. Curving beehive-shaped Shikhara with an Amalaka</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, true, 'f3', 'Correct! The Dravida style features a stepped pyramidal tower called Vimana.')">B. Stepped pyramidal tower called Vimana</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f3', 'Bulbous onion domes are characteristic of Mughal architecture.')">C. Bulbous onion dome</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f3', 'Curved bamboo eaves are typical of Bengal terracotta temples.')">D. Curved bangla eaves imitating thatched huts</button>
+        </div>
+        <div class="quiz-feedback" id="f3"></div>
+      </div>
+
+      <div class="quiz-card" id="qcard4">
+        <div class="quiz-question">4. Rani ki Vav at Patan (Gujarat) is an architectural wonder designed as:</div>
+        <div class="quiz-options">
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f4', 'Mehrangarh is a hilltop fort.')">A. A hilltop defensive fort</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f4', 'Taj Mahal is a garden mausoleum.')">B. A four-quadrant garden tomb</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, true, 'f4', 'Exactly! Rani ki Vav is an inverted subterranean temple with 7 stepped terraces leading down to water.')">C. An inverted subterranean temple stepwell descending seven terraces</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f4', 'Ellora Cave 10 is a rock-cut chaitya hall.')">D. A Buddhist monastery prayer hall</button>
+        </div>
+        <div class="quiz-feedback" id="f4"></div>
+      </div>
+
+      <div class="quiz-card" id="qcard5">
+        <div class="quiz-question">5. Why did temples in Bishnupur (Bengal) use terracotta bricks and curved 'bangla' eaves?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt" onclick="checkQuiz(this, true, 'f5', 'Spot on! Building stone is scarce in the alluvial Bengal delta, and curved eaves mimic regional bamboo thatched roofs.')">A. Building stone was scarce in the delta, and curved eaves shed heavy monsoon rains like traditional bamboo huts</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f5', 'Marble was abundant in Rajasthan, not Bengal.')">B. White marble was forbidden by local kings</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f5', 'Terracotta was heavily used by local Hindu Malla kings.')">C. It was an exclusively British colonial style</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f5', 'Bishnupur is in plains, not snowfall zones.')">D. To prevent snow from accumulating on the roof</button>
+        </div>
+        <div class="quiz-feedback" id="f5"></div>
+      </div>
+
+      <div class="quiz-card" id="qcard6">
+        <div class="quiz-question">6. The prayer niche in the western wall of a mosque indicating the direction of Mecca is the:</div>
+        <div class="quiz-options">
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f6', 'Minbar is the stepped pulpit for sermons.')">A. Minbar</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, true, 'f6', 'Correct! The Mihrab indicates the Qibla (direction of Mecca).')">B. Mihrab</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f6', 'Liwan is the covered prayer hall.')">C. Liwan</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f6', 'Sahn is the open courtyard.')">D. Sahn</button>
+        </div>
+        <div class="quiz-feedback" id="f6"></div>
+      </div>
+
+      <div class="quiz-card" id="qcard7">
+        <div class="quiz-question">7. Which monument was the first garden-tomb (Charbagh) built on the Indian subcontinent?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f7', 'Taj Mahal was built much later (1632) inspired by Humayun\'s Tomb.')">A. The Taj Mahal in Agra</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, true, 'f7', 'Exact! Humayun\'s Tomb in Delhi (completed 1570) pioneered the Charbagh garden-tomb layout in India.')">B. Humayun\'s Tomb in Delhi</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f7', 'Akbar\'s tomb is at Sikandra.')">C. Akbar\'s Tomb in Sikandra</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f7', 'Gol Gumbaz is in Bijapur, Karnataka.')">D. Gol Gumbaz in Bijapur</button>
+        </div>
+        <div class="quiz-feedback" id="f7"></div>
+      </div>
+
+      <div class="quiz-card" id="qcard8">
+        <div class="quiz-question">8. Which article of the Indian Constitution lists preserving our composite cultural heritage as a Fundamental Duty?</div>
+        <div class="quiz-options">
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f8', 'Article 21 guarantees the Right to Life.')">A. Article 21</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f8', 'Article 324 governs the Election Commission.')">B. Article 324</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, true, 'f8', 'Spot on! Article 51A(f) mandates every citizen to value and preserve the rich heritage of our composite culture.')">C. Article 51A(f)</button>
+          <button class="quiz-opt" onclick="checkQuiz(this, false, 'f8', 'Article 370 pertained to Jammu and Kashmir.')">D. Article 370</button>
+        </div>
+        <div class="quiz-feedback" id="f8"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 6: REVISION & EXAM TRAPS -->
+    <section id="revision">
+      <h2>6. Exam Hall Traps &amp; 15 High-Yield Revision Facts</h2>
+
+      <div class="callout callout-warn">
+        <div class="callout-title">Top 4 Architecture Exam Confusions</div>
+        <ul>
+          <li><strong>Trap 1: Meaning of 'Shikhara' in North vs. South.</strong> In North Indian Nagara temples, <em>Shikhara</em> refers to the whole towering spire above the sanctum. In South Indian Dravidian temples, the tower is called <strong>Vimana</strong>, and <em>Shikhara</em> refers only to the small octagonal/domed crowning cupola at the very top.</li>
+          <li><strong>Trap 2: Gopuram vs. Vimana.</strong> In Dravidian temples, students often confuse the two. The <strong>Vimana</strong> stands directly above the Garbhagriha (sanctum). The <strong>Gopuram</strong> is the colossal entrance gateway on the boundary wall. In later South Indian temples (like Madurai), the Gopurams are much taller than the Vimana!</li>
+          <li><strong>Trap 3: Structural vs. Rock-cut Architecture.</strong> Structural architecture means joining together pre-cut stones or bricks (like Sanchi Stupa or Brihadiswara). Rock-cut architecture means carving directly into a natural mountain cliff (like Ellora or Ajanta caves). Kailasha Temple is monolithic rock-cut, NOT structural.</li>
+          <li><strong>Trap 4: Inverted Temple.</strong> Rani ki Vav is called an "inverted temple" because it descends deep underground rather than rising up into the sky, yet is adorned with hundreds of sacred deity sculptures.</li>
+        </ul>
+      </div>
+
+      <h3>15 High-Yield Facts for Quick Revision</h3>
+      <ol>
+        <li><strong>Mohenjo-daro Bricks:</strong> Fired bricks followed the strict standardized dimensional ratio of <strong>1 : 2 : 4</strong>.</li>
+        <li><strong>Dholavira:</strong> Known for its tripartite urban planning (Castle, Middle Town, Lower Town) and 16 massive rainwater reservoirs.</li>
+        <li><strong>Sanchi Stupa:</strong> Built in Madhya Pradesh; features the Anda, Harmika, Yashti with 3 Chhatras, and 4 carved Torana gateways.</li>
+        <li><strong>Ellora Cave 10:</strong> The 'Vishvakarma Cave' chaitya hall imitating wooden rafters in stone with a seated teaching Buddha.</li>
+        <li><strong>Kailasha Temple (Cave 16, Ellora):</strong> Commissioned by Rashtrakuta King Krishna I; world's largest monolithic top-down excavation.</li>
+        <li><strong>Shringaverpur:</strong> 1st c. BCE hydraulic marvel near Prayagraj with desilting tanks harvesting Ganga floodwaters.</li>
+        <li><strong>Rani ki Vav (Patan, Gujarat):</strong> 11th-century Chaulukya stepwell with 7 subterranean terraces and 500+ Vishnu carvings.</li>
+        <li><strong>Brihadiswara Temple (Thanjavur):</strong> Completed in 1010 CE by Rajaraja Chola I; features a 66-metre tall Dravidian Vimana.</li>
+        <li><strong>Lingaraja Temple (Bhubaneswar):</strong> 11th-century masterpiece of Kalinga Nagara style with a curvilinear Shikhara.</li>
+        <li><strong>Dilwara Temples (Mount Abu):</strong> Renowned for intricate, paper-thin, lace-like carvings in pure white marble.</li>
+        <li><strong>Bishnupur Temples (Bengal):</strong> Built of terracotta bricks with curved 'bangla' eaves depicting Ramayana panels.</li>
+        <li><strong>Sidi Saiyyed Mosque (Ahmedabad):</strong> Famous for the exquisite stone latticework tree window (<em>Sidi Saiyyed Jali</em>).</li>
+        <li><strong>Humayun's Tomb (Delhi, 1570):</strong> First Persian-style Charbagh garden tomb with a double dome in India.</li>
+        <li><strong>Taj Mahal (Agra):</strong> Symmetrical white marble mausoleum with Pietra Dura inlays and outward-tilting minarets.</li>
+        <li><strong>Article 51A(f):</strong> Fundamental duty of every Indian citizen to value and preserve our composite architectural heritage.</li>
+      </ol>
+    </section>
+
+  </main>
+
+  <button id="back-to-top" onclick="scrollToTop()" title="Back to top">↑</button>
+
+  <script>
+    // Reading Progress Bar
+    window.addEventListener('scroll', () => {
+      const winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+
+      // Back to top toggle
+      const btt = document.getElementById('back-to-top');
+      if (winScroll > 300) {
+        btt.style.display = 'flex';
+      } else {
+        btt.style.display = 'none';
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Interactive Quiz Engine
+    function checkQuiz(btn, isCorrect, feedbackId, explanation) {
+      const parent = btn.parentElement;
+      const allButtons = parent.querySelectorAll('.quiz-opt');
+      allButtons.forEach(b => b.disabled = true);
+
+      const fb = document.getElementById(feedbackId);
+      if (isCorrect) {
+        btn.style.backgroundColor = '#86efac';
+        btn.style.borderColor = '#16a34a';
+        btn.style.color = '#064e3b';
+        btn.style.fontWeight = 'bold';
+        fb.className = 'quiz-feedback feedback-correct';
+        fb.innerHTML = '<strong>✓ Correct!</strong> ' + explanation;
+      } else {
+        btn.style.backgroundColor = '#fca5a5';
+        btn.style.borderColor = '#dc2626';
+        btn.style.color = '#7f1d1d';
+        btn.style.fontWeight = 'bold';
+        fb.className = 'quiz-feedback feedback-wrong';
+        fb.innerHTML = '<strong>✗ Incorrect.</strong> ' + explanation;
+      }
+    }
+
+    // Text to Speech
+    let isSpeaking = false;
+    let synth = window.speechSynthesis;
+    let utterance = null;
+
+    function toggleAudio() {
+      if (!synth) {
+        alert('Text-to-Speech is not supported in this browser.');
+        return;
+      }
+      if (isSpeaking) {
+        synth.cancel();
+        isSpeaking = false;
+        document.getElementById('tts-icon').innerText = '▶';
+        document.getElementById('tts-label').innerText = 'Listen to Chapter Notes';
+      } else {
+        const text = "Class 8 Social Science. Chapter 10: A Journey Through Indian Architecture. " + 
+          document.querySelector('#mindmap p').innerText + " " +
+          document.querySelector('#concepts p').innerText;
+        utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = () => {
+          isSpeaking = false;
+          document.getElementById('tts-icon').innerText = '▶';
+          document.getElementById('tts-label').innerText = 'Listen to Chapter Notes';
+        };
+        synth.speak(utterance);
+        isSpeaking = true;
+        document.getElementById('tts-icon').innerText = '⏸';
+        document.getElementById('tts-label').innerText = 'Pause Reading';
+      }
+    }
+  </script>
+</body>
+</html>
+'''
+
+target_path = os.path.join('english', 'class8', 'sst-ch10-a-journey-through-indian-architecture.html')
+with open(target_path, 'w', encoding='utf-8') as f:
+    f.write(html_content)
+
+print(f"Successfully generated {target_path} ({len(html_content.encode('utf-8'))} bytes)")
