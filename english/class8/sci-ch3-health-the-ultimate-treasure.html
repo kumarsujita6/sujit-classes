@@ -1,0 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sujit Classes Notes: Ch 3 - Health: The Ultimate Treasure (Class 8 Science Curiosity)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #059669;
+      --primary-dark: #047857;
+      --primary-light: #d1fae5;
+      --secondary: #0284c7;
+      --secondary-light: #e0f2fe;
+      --accent: #f59e0b;
+      --accent-light: #fef3c7;
+      --purple: #8b5cf6;
+      --purple-light: #ede9fe;
+      --dark: #0f172a;
+      --light: #f8fafc;
+      --surface: #ffffff;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --ease-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+      line-height: 1.7;
+      padding-top: 60px;
+    }
+
+    #reading-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      width: 0%;
+      background: linear-gradient(90deg, #10b981, #0284c7, #8b5cf6);
+      z-index: 10001;
+      transition: width 0.1s ease;
+    }
+
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+    }
+
+    .nav-brand {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      color: var(--primary-dark);
+      text-decoration: none;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding: 0.5rem 0;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.35rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+
+    .hero-banner {
+      background: linear-gradient(135deg, #064e3b 0%, #059669 45%, #0284c7 100%);
+      color: white;
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.25rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 2.35rem;
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 1rem;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-sub {
+      font-size: 1.12rem;
+      opacity: 0.95;
+      max-width: 820px;
+      margin: 0 auto 1.5rem;
+      font-weight: 400;
+      line-height: 1.6;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .audio-btn {
+      background: #ffffff;
+      color: #065f46;
+      border: none;
+      padding: 0.6rem 1.4rem;
+      border-radius: 9999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .audio-btn:hover {
+      background: #f0fdf4;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .main-container {
+      max-width: 1050px;
+      margin: 2rem auto;
+      padding: 0 1.25rem;
+    }
+
+    .section-card {
+      background: var(--surface);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      padding: 2.25rem;
+      margin-bottom: 2.5rem;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .section-header {
+      margin-bottom: 1.75rem;
+      border-bottom: 2px solid var(--primary-light);
+      padding-bottom: 1rem;
+    }
+
+    .section-num {
+      color: var(--primary-dark);
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    .section-card h2 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.75rem;
+      color: var(--dark);
+      margin-top: 0.35rem;
+      font-weight: 700;
+    }
+
+    .section-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-top: 0.4rem;
+    }
+
+    h3.topic-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin: 2rem 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    h4.sub-topic {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      color: var(--dark);
+      margin: 1.4rem 0 0.6rem;
+      font-weight: 700;
+    }
+
+    .callout-box {
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin: 1.5rem 0;
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      border-left: 5px solid;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      transition: transform 0.2s ease;
+    }
+
+    .callout-box:hover {
+      transform: translateY(-2px);
+    }
+
+    .callout-box i {
+      font-size: 1.35rem;
+      margin-top: 0.2rem;
+      flex-shrink: 0;
+    }
+
+    .callout-box .callout-text {
+      flex: 1;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .callout-def {
+      background: #f0fdf4;
+      border-color: #10b981;
+      color: #065f46;
+    }
+    .callout-def i { color: #059669; }
+
+    .callout-act {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1e3a8a;
+    }
+    .callout-act i { color: #2563eb; }
+
+    .callout-pyq {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #78350f;
+    }
+    .callout-pyq i { color: #d97706; }
+
+    .callout-hack {
+      background: #faf5ff;
+      border-color: #a855f7;
+      color: #581c87;
+    }
+    .callout-hack i { color: #9333ea; }
+
+    .callout-warn {
+      background: #fef2f2;
+      border-color: #ef4444;
+      color: #7f1d1d;
+    }
+    .callout-warn i { color: #dc2626; }
+
+    .table-container {
+      overflow-x: auto;
+      margin: 1.5rem 0;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+    }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 0.92rem;
+    }
+
+    .data-table th {
+      background: #f1f5f9;
+      color: var(--dark);
+      padding: 0.9rem 1rem;
+      font-weight: 700;
+      border-bottom: 2px solid var(--border);
+    }
+
+    .data-table td {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.6;
+    }
+
+    .data-table tr:nth-child(even) { background: #f8fafc; }
+    .data-table tr:hover { background: #f1f5f9; }
+
+    details.ans-box {
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      margin: 1.1rem 0;
+      background: #ffffff;
+      overflow: hidden;
+      transition: all 0.2s ease;
+    }
+
+    details.ans-box[open] {
+      border-color: var(--primary);
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    }
+
+    details.ans-box summary {
+      padding: 0.9rem 1.25rem;
+      background: #f8fafc;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #1e293b;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      user-select: none;
+    }
+
+    details.ans-box summary:hover {
+      background: #f1f5f9;
+      color: var(--primary-dark);
+    }
+
+    details.ans-box[open] summary {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border-bottom: 1px solid #a7f3d0;
+    }
+
+    .ans-content {
+      padding: 1.25rem;
+      background: #ffffff;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.25rem 0.6rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .badge-green { background: #dcfce7; color: #15803d; }
+    .badge-blue { background: #dbeafe; color: #1e40af; }
+    .badge-amber { background: #fef3c7; color: #b45309; }
+    .badge-purple { background: #f3e8ff; color: #7e22ce; }
+
+    .diagram-wrapper {
+      margin: 2rem 0;
+      text-align: center;
+      background: #ffffff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .diagram-caption {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      margin-top: 0.75rem;
+      font-style: italic;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+    }
+
+    .quiz-score-banner {
+      background: linear-gradient(135deg, #065f46 0%, #0284c7 100%);
+      color: #ffffff;
+      border-radius: 12px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .quiz-score-badge {
+      font-size: 1.15rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quiz-teacher-msg {
+      font-size: 0.95rem;
+      font-weight: 500;
+      opacity: 0.95;
+    }
+
+    .quiz-card {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.4rem;
+      margin: 1.25rem 0;
+    }
+
+    .quiz-opt-btn {
+      display: block;
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      padding: 0.75rem 1rem;
+      margin: 0.5rem 0;
+      border-radius: 8px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-opt-btn:hover:not(.evaluated) {
+      background: #eff6ff;
+      border-color: #3b82f6;
+      color: #1d4ed8;
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.correct-opt {
+      background: #dcfce7 !important;
+      border-color: #10b981 !important;
+      color: #065f46 !important;
+      font-weight: 700;
+    }
+
+    .quiz-opt-btn.wrong-opt {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #991b1b !important;
+    }
+
+    .quiz-opt-indicator {
+      font-weight: 800;
+      font-size: 1.1rem;
+    }
+
+    .back-to-top-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: #0284c7;
+      color: #ffffff;
+      border: none;
+      font-size: 1.3rem;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 20px rgba(2, 132, 199, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      z-index: 9999;
+    }
+
+    .back-to-top-btn.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top-btn:hover {
+      background: #0369a1;
+      transform: translateY(-3px) scale(1.08);
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      text-align: center;
+      padding: 3rem 1.5rem;
+      margin-top: 4rem;
+      border-top: 1px solid #1e293b;
+    }
+
+    footer a {
+      color: #38bdf8;
+      text-decoration: none;
+    }
+
+    .pulse-node {
+      animation: pulseGlow 3s infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { filter: drop-shadow(0 0 2px rgba(16, 185, 129, 0.4)); }
+      100% { filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.8)); }
+    }
+  </style>
+</head>
+<body>
+  <div id="reading-progress-bar"></div>
+
+  <nav class="top-nav">
+    <a href="../../index.html" class="nav-brand">
+      <i class="fa-solid fa-graduation-cap"></i> Sujit Classes
+    </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Master Notes</a>
+      <a href="#sec3" class="nav-link">3. Term Bank</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solutions</a>
+      <a href="#sec5" class="nav-link">5. Competency Bank</a>
+      <a href="#sec6" class="nav-link">6. Exam Traps</a>
+    </div>
+  </nav>
+
+  <header class="hero-banner">
+    <div class="hero-badge">
+      <i class="fa-solid fa-heart-pulse"></i> Class 8 Science &bull; Chapter 3 (Curiosity NEP)
+    </div>
+    <h1 class="hero-title">Health: The Ultimate Treasure</h1>
+    <p class="hero-sub">
+      Discover the holistic meaning of health beyond just not being sick! Explore balanced nutrition, personal &amp; community hygiene, communicable vs lifestyle diseases, the miracle of vaccines, and how to stop the dangerous spread of antibiotic-resistant superbugs.
+    </p>
+    <div class="hero-meta">
+      <span><i class="fa-solid fa-book-open"></i> NCERT Curiosity Grade 8</span>
+      <span><i class="fa-solid fa-clock"></i> 50 Mins Full Mastery</span>
+      <span><i class="fa-solid fa-check-double"></i> 100% Complete &amp; Unabridged</span>
+      <span><i class="fa-solid fa-brain"></i> Interactive Quiz &amp; Audio</span>
+    </div>
+    <button id="teacherAudioBtn" class="audio-btn" onclick="toggleTeacherAudio()">
+      <span>🔊 Listen to Teacher's Summary</span>
+    </button>
+  </header>
+
+  <main class="main-container">
+
+    <!-- SECTION 1: VISUAL BLUEPRINT -->
+    <section id="sec1" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
+        <h2>The Holistic Health Ecosystem</h2>
+        <p class="section-sub">Physical fitness, mental balance, and social well-being supported by balanced nutrition, disease prevention, and community sanitation.</p>
+      </div>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 920 400" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="gHealth" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stop-color="#059669" />
+              <stop offset="100%" stop-color="#0284c7" />
+            </linearGradient>
+            <filter id="shadowBox" x="-5%" y="-5%" width="110%" height="115%">
+              <feDropShadow dx="2" dy="4" stdDeviation="3" flood-opacity="0.12" />
+            </filter>
+          </defs>
+
+          <!-- Central Core: WHO Holistic Health -->
+          <circle cx="460" cy="200" r="75" fill="url(#gHealth)" filter="url(#shadowBox)" class="pulse-node" />
+          <text x="460" y="195" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#ffffff" text-anchor="middle">COMPLETE</text>
+          <text x="460" y="215" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#ffffff" text-anchor="middle">HEALTH</text>
+
+          <!-- Top: Physical Well-being -->
+          <rect x="350" y="25" width="220" height="75" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" filter="url(#shadowBox)" />
+          <text x="460" y="55" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#1e40af" text-anchor="middle">1. Physical Health</text>
+          <text x="460" y="77" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Balanced Diet &bull; Hygiene &bull; Sleep</text>
+
+          <!-- Right: Mental Well-being -->
+          <rect x="670" y="160" width="220" height="75" rx="12" fill="#fef3c7" stroke="#f59e0b" stroke-width="2" filter="url(#shadowBox)" />
+          <text x="780" y="190" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#92400e" text-anchor="middle">2. Mental Health</text>
+          <text x="780" y="212" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Stress Management &bull; Screen Balance</text>
+
+          <!-- Bottom: Disease Prevention & Immunity -->
+          <rect x="350" y="300" width="220" height="75" rx="12" fill="#f0fdf4" stroke="#10b981" stroke-width="2" filter="url(#shadowBox)" />
+          <text x="460" y="330" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#065f46" text-anchor="middle">3. Immunity &amp; Vaccines</text>
+          <text x="460" y="352" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Antibodies &bull; Vectors &bull; Sanitization</text>
+
+          <!-- Left: Social Well-being -->
+          <rect x="30" y="160" width="220" height="75" rx="12" fill="#faf5ff" stroke="#a855f7" stroke-width="2" filter="url(#shadowBox)" />
+          <text x="140" y="190" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="14" fill="#6b21a8" text-anchor="middle">4. Social Well-being</text>
+          <text x="140" y="212" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Community Support &bull; Empathy</text>
+
+          <!-- Connecting Arrows -->
+          <line x1="460" y1="100" x2="460" y2="125" stroke="#3b82f6" stroke-width="2" />
+          <line x1="670" y1="200" x2="535" y2="200" stroke="#f59e0b" stroke-width="2" />
+          <line x1="460" y1="300" x2="460" y2="275" stroke="#10b981" stroke-width="2" />
+          <line x1="250" y1="200" x2="385" y2="200" stroke="#a855f7" stroke-width="2" />
+        </svg>
+        <p class="diagram-caption">Figure 3.1: The Three Pillars of WHO Health — Physical vitality, emotional peace, and harmonious social relationships working in unison.</p>
+      </div>
+    </section>
+
+    <!-- SECTION 2: COMPREHENSIVE STUDY NOTES -->
+    <section id="sec2" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 2 &bull; Comprehensive Line-by-Line Study Notes</span>
+        <h2>Complete Concepts &amp; Principles of Health</h2>
+        <p class="section-sub">Detailed breakdown of physical, mental, and social health, epidemiology, and disease prevention.</p>
+      </div>
+
+      <!-- Topic 1: Defining Health -->
+      <h3 class="topic-title"><i class="fa-solid fa-heart"></i> 1. What is True Health? The WHO Definition</h3>
+      <p>
+        Most people assume that if someone has no fever, cough, or broken bone, they are completely "healthy". But science disagrees! A person might have no disease in their body, but if they are constantly overwhelmed by severe anxiety, depression, or hostile relationships with family and friends, they cannot function effectively.
+      </p>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-certificate"></i>
+        <div class="callout-text">
+          <strong>The Official WHO Definition of Health (1948):</strong><br>
+          <em>"Health is a state of complete physical, mental, and social well-being and not merely the absence of disease or infirmity."</em>
+        </div>
+      </div>
+
+      <h4 class="sub-topic">The Three Interconnected Dimensions:</h4>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li><strong>Physical Health:</strong> Proper functioning of bodily organs, adequate muscular stamina, good immunity, and normal bodily metabolism.</li>
+        <li><strong>Mental Health:</strong> Emotional stability, ability to cope with normal life stresses, positive self-esteem, and cognitive focus.</li>
+        <li><strong>Social Health:</strong> Meaningful relationships with family, classmates, and neighbors; living in a safe, supportive, and hygienic community.</li>
+      </ul>
+
+      <!-- Topic 2: Communicable vs Non-Communicable -->
+      <h3 class="topic-title"><i class="fa-solid fa-virus-covid"></i> 2. Understanding Diseases: Communicable vs Non-Communicable</h3>
+      <p>
+        A <strong>disease</strong> (literally <em>dis-ease</em> or lack of ease) is an abnormal condition that impairs the normal functioning of an organism. Diseases are fundamentally classified into two major categories:
+      </p>
+
+      <div class="table-container">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Communicable (Infectious) Diseases</th>
+              <th>Non-Communicable (Lifestyle / Deficiency) Diseases</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Causative Agents</strong></td>
+              <td>Caused by biological <strong>pathogens</strong>: bacteria, viruses, fungi, protozoa.</td>
+              <td>Caused by poor nutrition, genetics, lack of physical activity, or organ failure.</td>
+            </tr>
+            <tr>
+              <td><strong>Spread from Person to Person</strong></td>
+              <td><strong>Yes!</strong> Spreads through air, water, contaminated food, contact, or insect vectors.</td>
+              <td><strong>No!</strong> Cannot spread from one person to another by coughing, touching, or sharing food.</td>
+            </tr>
+            <tr>
+              <td><strong>Examples</strong></td>
+              <td>Common Cold, Influenza, Tuberculosis, Cholera, Malaria, Dengue, COVID-19.</td>
+              <td>Type-2 Diabetes, Hypertension, Heart Attack, Asthma, Scurvy (Vitamin C deficiency).</td>
+            </tr>
+            <tr>
+              <td><strong>Prevention Methods</strong></td>
+              <td>Vaccination, handwashing, safe drinking water, vector control (mosquito nets).</td>
+              <td>Balanced diet, daily physical exercise, reducing salt/sugar intake, avoiding smoking.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Topic 3: Vectors & Disease Spread -->
+      <h3 class="topic-title"><i class="fa-solid fa-mosquito"></i> 3. Biological Vectors &amp; Disease Transmission</h3>
+      <p>
+        A <strong>vector</strong> is an organism (usually an insect or rodent) that carries a pathogen from an infected person to a healthy host without suffering from the disease itself.
+      </p>
+
+      <div class="diagram-wrapper">
+        <svg viewBox="0 0 860 260" width="100%" height="auto" xmlns="http://www.w3.org/2000/svg">
+          <!-- Vector 1: Female Anopheles -->
+          <rect x="50" y="30" width="350" height="200" rx="12" fill="#eff6ff" stroke="#3b82f6" stroke-width="2" />
+          <text x="225" y="65" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="16" fill="#1e40af" text-anchor="middle">🦟 Female Anopheles Mosquito</text>
+          <text x="225" y="95" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="12" fill="#2563eb" text-anchor="middle">Transmits: MALARIA</text>
+          <text x="225" y="125" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Pathogen: <em>Plasmodium</em> (Protozoan)</text>
+          <text x="225" y="145" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Breeds in: Stagnant, dirty rain puddles &amp; ponds</text>
+          <text x="225" y="175" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#065f46" text-anchor="middle">Prevention: Introduce Gambusia fish, drain water</text>
+
+          <!-- Vector 2: Female Aedes -->
+          <rect x="460" y="30" width="350" height="200" rx="12" fill="#fef2f2" stroke="#ef4444" stroke-width="2" />
+          <text x="635" y="65" font-family="'Space Grotesk', sans-serif" font-weight="700" font-size="16" fill="#991b1b" text-anchor="middle">🦟 Female Aedes Mosquito</text>
+          <text x="635" y="95" font-family="'Plus Jakarta Sans', sans-serif" font-weight="600" font-size="12" fill="#dc2626" text-anchor="middle">Transmits: DENGUE &amp; CHIKUNGUNYA</text>
+          <text x="635" y="125" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Pathogen: Dengue Virus</text>
+          <text x="635" y="145" font-family="'Plus Jakarta Sans', sans-serif" font-size="11" fill="#475569" text-anchor="middle">Breeds in: Clean stagnant water (coolers, flowerpots, tires)</text>
+          <text x="635" y="175" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="11" fill="#991b1b" text-anchor="middle">Bite habit: Bites during daytime hours!</text>
+        </svg>
+        <p class="diagram-caption">Figure 3.2: Major Insect Vectors — Female Anopheles (Malaria) and Female Aedes (Dengue), and their distinct breeding habits.</p>
+      </div>
+
+      <!-- Topic 4: Vaccination & Immunity -->
+      <h3 class="topic-title"><i class="fa-solid fa-syringe"></i> 4. How Vaccines Work: Training the Body's Defense Army</h3>
+      <p>
+        When a harmful pathogen invades your bloodstream, specialized white blood cells (lymphocytes) produce protective chemical weapons called <strong>antibodies</strong>. Antibodies lock onto the pathogen's surface antigens and destroy them.
+      </p>
+
+      <div class="callout-box callout-def">
+        <i class="fa-solid fa-shield-virus"></i>
+        <div class="callout-text">
+          <strong>The Principle of Vaccination:</strong><br>
+          A vaccine introduces dead or severely weakened (attenuated) microbes into a healthy body. These harmless invaders cannot cause real disease, but they trigger white blood cells to produce matching antibodies! Crucially, the body creates <strong>memory cells</strong> that remember the pathogen's exact shape. If the real live pathogen ever enters years later, the immune army instantly floods the body with antibodies and obliterates the infection before you even feel sick!
+        </div>
+      </div>
+
+      <div class="callout-box callout-pyq">
+        <i class="fa-solid fa-award"></i>
+        <div class="callout-text">
+          <strong>Historical Milestone: Edward Jenner (1796)</strong><br>
+          English physician Edward Jenner observed that milkmaids who contracted mild cowpox never developed deadly smallpox. He inoculated an eight-year-old boy with cowpox pus and proved it gave immunity against smallpox. This was the world's <strong>first vaccine</strong> (from the Latin word <em>vacca</em>, meaning cow). Thanks to global vaccination drives, smallpox was completely wiped out from planet Earth in 1980!
+        </div>
+      </div>
+
+      <!-- Topic 5: Antibiotic Resistance -->
+      <h3 class="topic-title"><i class="fa-solid fa-triangle-exclamation"></i> 5. The Superbug Threat: Antibiotic Resistance</h3>
+      <p>
+        In 1928, Alexander Fleming discovered penicillin, ushering in the golden age of antibiotics. But today, the world faces a critical health danger called <strong>Antibiotic Resistance</strong>.
+      </p>
+      <ul style="margin-left: 1.5rem; margin-bottom: 1.25rem;">
+        <li>When people take antibiotics casually for viral colds, or stop taking medicine halfway because they feel better, some strong bacteria survive.</li>
+        <li>These surviving bacteria undergo genetic mutations and develop defenses against the antibiotic.</li>
+        <li>They multiply into deadly <strong>"Superbugs"</strong> that ordinary medicines can no longer kill, making minor infections potentially fatal once again!</li>
+      </ul>
+    </section>
+
+    <!-- SECTION 3: HIGH-YIELD FACT BANK -->
+    <section id="sec3" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 3 &bull; High-Yield Fact &amp; Term Bank</span>
+        <h2>Key Terms &amp; Medical Facts</h2>
+        <p class="section-sub">Essential definitions for quick revision.</p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem;">
+        <div class="card" style="border-left: 4px solid #10b981;">
+          <h4 style="color: #065f46;"><i class="fa-solid fa-heart-pulse"></i> Health</h4>
+          <p style="font-size: 0.9rem;">A complete state of physical, mental, and social well-being, not merely the absence of disease or illness (WHO 1948).</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #3b82f6;">
+          <h4 style="color: #1e40af;"><i class="fa-solid fa-shield"></i> Antibodies</h4>
+          <p style="font-size: 0.9rem;">Protective Y-shaped proteins produced by white blood cells to neutralize specific foreign antigens and pathogens.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #f59e0b;">
+          <h4 style="color: #92400e;"><i class="fa-solid fa-bug"></i> Vector</h4>
+          <p style="font-size: 0.9rem;">An organism (like female Anopheles or Aedes mosquito) that transfers disease agents from an infected individual to a healthy person.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #8b5cf6;">
+          <h4 style="color: #6b21a8;"><i class="fa-solid fa-syringe"></i> Vaccine</h4>
+          <p style="font-size: 0.9rem;">A biological preparation of dead or weakened pathogens administered to generate active immune memory.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #dc2626;">
+          <h4 style="color: #991b1b;"><i class="fa-solid fa-capsules"></i> Superbugs</h4>
+          <p style="font-size: 0.9rem;">Bacterial strains that have evolved resistance to multiple common antibiotics due to medication overuse or incomplete courses.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #0284c7;">
+          <h4 style="color: #0369a1;"><i class="fa-solid fa-droplet"></i> ORS</h4>
+          <p style="font-size: 0.9rem;">Oral Rehydration Solution (clean water, salt, and sugar) used to treat life-threatening dehydration caused by cholera and diarrhea.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: 100% COMPLETE NCERT SOLUTIONS -->
+    <section id="sec4" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 4 &bull; 100% Complete NCERT Solutions</span>
+        <h2>Textbook In-Text &amp; Chapter Exercises</h2>
+        <p class="section-sub">Step-by-step teacher solutions with complete explanations.</p>
+      </div>
+
+      <details class="ans-box" open>
+        <summary>
+          <span><strong>Q1:</strong> "Health is not merely the absence of disease." Justify this statement with a suitable real-life example.</span>
+          <span class="badge badge-green">NCERT Core</span>
+        </summary>
+        <div class="ans-content">
+          <p><strong>Topper Explanation:</strong></p>
+          <ul style="margin-left: 1.25rem;">
+            <li>According to the World Health Organization (WHO), health includes physical fitness, emotional/mental calm, and positive social interactions.</li>
+            <li><strong>Example:</strong> Suppose a student has completely normal blood pressure, normal eyesight, and no fever, but suffers from acute exam fear, sleeplessness, and social withdrawal. Even though physically free from germs, the student's mental distress prevents normal studying and healthy living. Thus, health must encompass mind and community life alongside the physical body.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q2:</strong> Differentiate between communicable and non-communicable diseases with two examples of each.</span>
+          <span class="badge badge-blue">Comparative Analysis</span>
+        </summary>
+        <div class="ans-content">
+          <ul style="margin-left: 1.25rem;">
+            <li><strong>Communicable Diseases:</strong> Infectious diseases that can transmit from an infected host to a healthy individual via air droplets, contaminated water, food, or vectors. <em>Examples: Tuberculosis, Malaria, Cholera.</em></li>
+            <li><strong>Non-communicable Diseases:</strong> Non-infectious disorders caused by internal organ malfunction, malnutrition, genetic factors, or unhealthy lifestyle habits that cannot spread from person to person. <em>Examples: Diabetes mellitus, High blood pressure, Scurvy.</em></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q3:</strong> Why is it advised not to let water collect in unused tires, broken coolers, or open flower pots around the house?</span>
+          <span class="badge badge-purple">Vector Prevention</span>
+        </summary>
+        <div class="ans-content">
+          <ul style="margin-left: 1.25rem;">
+            <li>Stagnant water in coolers, discarded tires, and open pots serves as the ideal breeding ground for mosquitoes.</li>
+            <li>Female <em>Aedes</em> mosquitoes, which lay eggs in clean stagnant water, transmit viral fevers like <strong>Dengue</strong> and <strong>Chikungunya</strong>.</li>
+            <li>By regularly cleaning, drying, and emptying water coolers and containers, we eliminate mosquito larvae and halt the chain of disease transmission in our neighborhoods.</li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q4:</strong> How do vaccines stimulate active immunity in the human body?</span>
+          <span class="badge badge-amber">Immunology</span>
+        </summary>
+        <div class="ans-content">
+          <ol style="margin-left: 1.25rem;">
+            <li>A vaccine contains killed or weakened versions of a specific pathogen that are harmless to the body.</li>
+            <li>When injected, the body's immune system identifies foreign surface proteins (antigens) and triggers white blood cells to synthesize specific <strong>antibodies</strong>.</li>
+            <li>The immune system also produces long-lived <strong>memory B-cells</strong> that retain the exact blueprint for fighting that pathogen.</li>
+            <li>If the actual virulent pathogen attacks later in life, the memory cells immediately trigger mass antibody production, destroying the germs before any illness can develop.</li>
+          </ol>
+        </div>
+      </details>
+
+      <details class="ans-box">
+        <summary>
+          <span><strong>Q5:</strong> What is antibiotic resistance, and why is it considered a major global health threat?</span>
+          <span class="badge badge-green">Critical Concern</span>
+        </summary>
+        <div class="ans-content">
+          <ul style="margin-left: 1.25rem;">
+            <li><strong>Definition:</strong> Antibiotic resistance occurs when bacteria adapt and mutate so that the antibiotic drugs designed to destroy them no longer work.</li>
+            <li><strong>Why it is a major threat:</strong> When common bacteria like those causing pneumonia, urinary tract infections, and wound sepsis become resistant (forming 'superbugs'), standard medical treatments fail. Minor cuts and common surgeries could become life-threatening if doctors have no effective medicines left to fight bacterial infections.</li>
+          </ul>
+        </div>
+      </details>
+    </section>
+
+    <!-- SECTION 5: COMPETENCY QUESTION BANK -->
+    <section id="sec5" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 5 &bull; CBSE / BSE Competency Question Bank</span>
+        <h2>Interactive Quiz &amp; Application Drills</h2>
+        <p class="section-sub">Test your knowledge with immediate teacher feedback.</p>
+      </div>
+
+      <div class="quiz-score-banner">
+        <div class="quiz-score-badge">
+          <i class="fa-solid fa-trophy"></i>
+          <span>Score: <span id="quizScoreCount">0</span> / 5</span>
+        </div>
+        <div class="quiz-teacher-msg" id="quizTeacherMsg">
+          Click an option below to test your health and disease concepts!
+        </div>
+      </div>
+
+      <!-- MCQ 1 -->
+      <div class="quiz-card" id="qcard1">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q1: Which of the following is a non-communicable disease caused by lifestyle and metabolic disorder?
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(a) Cholera</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(b) Type-2 Diabetes</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(c) Malaria</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 1, 'b')">
+          <span>(d) Tuberculosis</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (b) Type-2 Diabetes</strong><br>
+            Diabetes is a non-communicable metabolic disorder related to insulin production. It cannot be transmitted from person to person. Cholera, malaria, and tuberculosis are all infectious communicable diseases.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 2 -->
+      <div class="quiz-card" id="qcard2">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q2: The carrier or vector of the malaria-causing protozoan parasite (Plasmodium) is:
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(a) Female Anopheles mosquito</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(b) Female Aedes mosquito</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(c) Housefly</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 2, 'a')">
+          <span>(d) Male Anopheles mosquito</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (a) Female Anopheles mosquito</strong><br>
+            Only female Anopheles mosquitoes suck mammalian blood (required for egg development) and transmit the Plasmodium parasite. Male mosquitoes feed on plant juices and do not bite humans!
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 3 -->
+      <div class="quiz-card" id="qcard3">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q3: Who discovered the world's very first vaccine (against smallpox) in 1796?
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(a) Louis Pasteur</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(b) Alexander Fleming</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(c) Edward Jenner</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 3, 'c')">
+          <span>(d) Robert Koch</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c) Edward Jenner</strong><br>
+            Edward Jenner created the smallpox vaccine using milder cowpox pustules in 1796, founding the entire science of immunology.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 4 -->
+      <div class="quiz-card" id="qcard4">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q4: What crucial memory component is formed in the bloodstream following a successful vaccination?
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(a) Red blood cells for oxygen transport</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(b) Blood platelets for clotting</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(c) Hemoglobin molecules</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 4, 'd')">
+          <span>(d) Memory B-lymphocytes and specific antibodies</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (d) Memory B-lymphocytes and specific antibodies</strong><br>
+            Vaccines train white blood cells to retain memory of the pathogen's antigens, ensuring immediate antibody synthesis during future natural exposures.
+          </div>
+        </details>
+      </div>
+
+      <!-- MCQ 5 -->
+      <div class="quiz-card" id="qcard5">
+        <p style="font-weight: 700; margin-bottom: 0.75rem;">
+          Q5: How can ordinary citizens prevent the rapid emergence of dangerous antibiotic-resistant 'superbugs'?
+        </p>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(a) By demanding antibiotics from doctors whenever they get a common sneeze</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(b) By stopping antibiotic medication the moment fever subsides</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(c) By completing the entire prescribed course and never self-medicating for viral colds</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <button class="quiz-opt-btn" onclick="checkMCQ(this, 5, 'c')">
+          <span>(d) By sharing leftover antibiotic capsules with friends and relatives</span>
+          <span class="quiz-opt-indicator"></span>
+        </button>
+        <details class="ans-box" style="margin-top: 0.8rem; display: none;">
+          <summary>Teacher Explanation</summary>
+          <div class="ans-content">
+            <strong>Correct Answer: (c)</strong><br>
+            Completing the full doctor-prescribed course ensures all targeted bacteria are eradicated, preventing partially exposed strains from evolving resistance.
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- SECTION 6: EXAM HALL READINESS -->
+    <section id="sec6" class="section-card">
+      <div class="section-header">
+        <span class="section-num">Section 6 &bull; Exam Hall Readiness &amp; Quick Recap</span>
+        <h2>Exam Traps &amp; Key Takeaways</h2>
+        <p class="section-sub">Crucial tips to secure 100% in health and biology questions.</p>
+      </div>
+
+      <div class="callout-box callout-warn">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <div class="callout-text">
+          <strong>Common Student Traps to Avoid:</strong><br>
+          <ul style="margin-left: 1.25rem; margin-top: 0.4rem;">
+            <li><strong>Trap 1: Confusing Malaria and Dengue vectors:</strong> Malaria is carried by <em>Female Anopheles</em> (night/dusk biter). Dengue is carried by <em>Female Aedes</em> (day biter).</li>
+            <li><strong>Trap 2: Believing vaccines are a "cure":</strong> Vaccines are <em>preventative</em>, not therapeutic cures. They must be taken before infection occurs to build antibodies in advance.</li>
+            <li><strong>Trap 3: Prescribing antibiotics for viral fevers:</strong> Antibiotics kill bacteria only. They have zero biochemical effect on viral structures.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout-box callout-hack">
+        <i class="fa-solid fa-clipboard-check"></i>
+        <div class="callout-text">
+          <strong>Final 1-Minute Master Checklist:</strong><br>
+          &bull; <strong>WHO Health:</strong> Physical + Mental + Social complete well-being.<br>
+          &bull; <strong>Communicable:</strong> Germs pass person-to-person (TB, Cold, Malaria).<br>
+          &bull; <strong>Non-communicable:</strong> Lifestyle/organ malfunction (Diabetes, Heart attack).<br>
+          &bull; <strong>Vaccines:</strong> Dead/weak microbes creating antibody memory (Edward Jenner, 1796).<br>
+          &bull; <strong>Antibiotic Stewardship:</strong> Take full course to prevent superbug mutations.
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p style="font-weight: 700; margin-bottom: 0.5rem; color: #f8fafc;">Sujit Classes &bull; Excellence in Middle School Education</p>
+    <p style="font-size: 0.88rem; margin-bottom: 1rem;">
+      Aligned with NCERT Curiosity (NEP Edition) &bull; Class 8 Science Chapter 3 Master Study Notes
+    </p>
+    <p style="font-size: 0.82rem;">
+      <a href="../../index.html"><i class="fa-solid fa-house"></i> Back to Main Portal</a> &bull; 
+      <a href="#sec1">Top of Page</a>
+    </p>
+  </footer>
+
+  <button class="back-to-top-btn" id="backToTopBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">↑</button>
+
+  <script>
+    window.addEventListener('scroll', function() {
+      var winScroll = document.documentElement.scrollTop || document.body.scrollTop;
+      var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      var scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+      var bar = document.getElementById('reading-progress-bar');
+      if (bar) bar.style.width = scrolled + '%';
+
+      var btt = document.getElementById('backToTopBtn');
+      if (btt) {
+        if (winScroll > 300) {
+          btt.classList.add('visible');
+        } else {
+          btt.classList.remove('visible');
+        }
+      }
+    });
+
+    var teacherSpeechActive = false;
+    function toggleTeacherAudio() {
+      var btn = document.getElementById('teacherAudioBtn');
+      if (!('speechSynthesis' in window)) {
+        alert("Audio speech is not supported by your browser.");
+        return;
+      }
+      if (!teacherSpeechActive) {
+        var contentEl = document.querySelector('.main-container') || document.body;
+        var text = contentEl.innerText.substring(0, 3500);
+        var utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.95;
+        utterance.pitch = 1.0;
+        utterance.onend = function() {
+          teacherSpeechActive = false;
+          if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+        };
+        window.speechSynthesis.speak(utterance);
+        teacherSpeechActive = true;
+        if (btn) btn.innerHTML = '<span>⏹️ Stop Listening</span>';
+      } else {
+        window.speechSynthesis.cancel();
+        teacherSpeechActive = false;
+        if (btn) btn.innerHTML = '<span>🔊 Listen to Teacher\'s Summary</span>';
+      }
+    }
+
+    var quizState = {};
+    var totalQuestions = 5;
+
+    function checkMCQ(btn, qNum, correctOpt) {
+      if (quizState[qNum] !== undefined) return;
+
+      var card = document.getElementById('qcard' + qNum);
+      var btns = card.querySelectorAll('.quiz-opt-btn');
+      var btnText = btn.innerText.trim().toLowerCase();
+      var selectedOpt = '';
+      if (btnText.indexOf('(a)') === 0) selectedOpt = 'a';
+      else if (btnText.indexOf('(b)') === 0) selectedOpt = 'b';
+      else if (btnText.indexOf('(c)') === 0) selectedOpt = 'c';
+      else if (btnText.indexOf('(d)') === 0) selectedOpt = 'd';
+
+      btns.forEach(function(b) {
+        b.classList.add('evaluated');
+        b.style.cursor = 'default';
+      });
+
+      if (selectedOpt === correctOpt) {
+        btn.classList.add('correct-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✓';
+        quizState[qNum] = true;
+      } else {
+        btn.classList.add('wrong-opt');
+        var ind = btn.querySelector('.quiz-opt-indicator');
+        if (ind) ind.textContent = '✗';
+        quizState[qNum] = false;
+
+        btns.forEach(function(b) {
+          var t = b.innerText.trim().toLowerCase();
+          if (t.indexOf('(' + correctOpt + ')') === 0) {
+            b.classList.add('correct-opt');
+            var cInd = b.querySelector('.quiz-opt-indicator');
+            if (cInd) cInd.textContent = '✓';
+          }
+        });
+      }
+
+      var details = card.querySelector('details.ans-box');
+      if (details) details.style.display = 'block';
+      if (details) details.open = true;
+
+      updateScoreboard();
+    }
+
+    function updateScoreboard() {
+      var score = 0;
+      var answered = 0;
+      for (var k in quizState) {
+        answered++;
+        if (quizState[k] === true) score++;
+      }
+      var countEl = document.getElementById('quizScoreCount');
+      if (countEl) countEl.textContent = score;
+
+      var msgEl = document.getElementById('quizTeacherMsg');
+      if (msgEl) {
+        if (score === totalQuestions) {
+          msgEl.textContent = "🌟 Perfect score! You are a master of health sciences!";
+        } else if (score >= 3) {
+          msgEl.textContent = "👏 Great work! Solid grasp of immunity and disease prevention!";
+        } else if (answered > 0) {
+          msgEl.textContent = "👍 Good effort! Check the explanations to master every point!";
+        }
+      }
+    }
+  </script>
+</body>
+</html>
