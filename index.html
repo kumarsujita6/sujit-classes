@@ -1126,49 +1126,71 @@
   <script>
     // Theme Management
     function initTheme() {
-      var savedTheme = localStorage.getItem('sc_theme') || 'light';
-      document.documentElement.setAttribute('data-theme', savedTheme);
+      var savedTheme = (typeof localStorage !== 'undefined' && localStorage.getItem('sc_theme')) || 'light';
+      if (typeof document !== 'undefined') {
+        document.documentElement.setAttribute('data-theme', savedTheme);
+      }
       updateThemeButton(savedTheme);
     }
 
     function toggleTheme() {
+      if (typeof document === 'undefined') return;
       var current = document.documentElement.getAttribute('data-theme');
       var target = current === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', target);
-      localStorage.setItem('sc_theme', target);
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('sc_theme', target);
+      }
       updateThemeButton(target);
     }
 
     function updateThemeButton(theme) {
-      document.getElementById('themeToggle').textContent = theme === 'dark' ? '☀️' : '🌙';
+      if (typeof document === 'undefined') return;
+      var btn = document.getElementById('themeToggle');
+      if (btn) {
+        btn.textContent = theme === 'dark' ? '☀️' : '🌙';
+      }
     }
 
     // Ctrl+K to Search
-    window.addEventListener('keydown', function(e) {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
-        e.preventDefault();
-        var searchInput = document.getElementById('searchInput');
-        searchInput.focus();
-        searchInput.select();
-      }
-    });
+    if (typeof window !== 'undefined') {
+      window.addEventListener('keydown', function(e) {
+        if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+          e.preventDefault();
+          var searchInput = document.getElementById('searchInput');
+          if (searchInput) {
+            searchInput.focus();
+            searchInput.select();
+          }
+        }
+      });
+    }
 
     function handleSearchInput() {
+      if (typeof document === 'undefined') return;
       var searchInput = document.getElementById('searchInput');
       var clearBtn = document.getElementById('searchClearBtn');
-      if (searchInput.value.trim().length > 0) {
-        clearBtn.style.display = 'flex';
-      } else {
-        clearBtn.style.display = 'none';
+      if (searchInput && clearBtn) {
+        if (searchInput.value.trim().length > 0) {
+          clearBtn.style.display = 'flex';
+        } else {
+          clearBtn.style.display = 'none';
+        }
       }
       renderMaterials();
     }
 
     function clearSearch() {
+      if (typeof document === 'undefined') return;
       var searchInput = document.getElementById('searchInput');
-      searchInput.value = '';
-      document.getElementById('searchClearBtn').style.display = 'none';
-      searchInput.focus();
+      var clearBtn = document.getElementById('searchClearBtn');
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+      }
+      if (clearBtn) {
+        clearBtn.style.display = 'none';
+      }
       renderMaterials();
     }
 
@@ -1242,214 +1264,214 @@
 
     // Live Chapters Database
     var studyMaterials = [
-      { id: 'c6_sst_1', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 1', title: 'Locating Places on the Earth', desc: 'Latitudes, Longitudes, Scale, Symbols, Ujjayinī Meridian, IST & International Date Line.', link: 'english/class6/sst-ch1-locating-places-on-the-earth.html', isLive: true },
-      { id: 'c6_sst_2', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 2', title: 'Oceans and Continents', desc: '5 Oceans, 7 Continents, 2004 Tsunami, Islands, Antarctica bases & Water Cycle.', link: 'english/class6/sst-ch2-oceans-and-continents.html', isLive: true },
-      { id: 'c6_sst_3', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 3', title: 'Landforms and Life', desc: 'Mountains, Plateaus, Plains, Deserts, Sacred Confluences & 5 Sangam Tinais.', link: 'english/class6/sst-ch3-landforms-and-life.html', isLive: true },
-      { id: 'c6_sst_4', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 4', title: 'Timeline and Historical Sources', desc: 'Chronology, BCE & CE, Archaeology, Numismatics, Epigraphy & Manuscripts.', link: 'english/class6/sst-ch4-timeline-and-historical-sources.html', isLive: true },
-      { id: 'c6_sst_5', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 5', title: 'India, That Is Bharat', desc: 'Name origins, Rigvedic roots, Article 1 of Constitution & natural boundaries.', link: 'english/class6/sst-ch5-india-that-is-bharat.html', isLive: true },
-      { id: 'c6_sst_6', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 6', title: 'The Beginnings of Indian Civilisation', desc: 'Mehrgarh, Indus-Sarasvati Civilisation, Town Planning, Lothal & Decline.', link: 'english/class6/sst-ch6-the-beginnings-of-indian-civilisation.html', isLive: true },
-      { id: 'c6_sst_7', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 7', title: 'India\'s Cultural Roots', desc: 'Vedas, Upanishads, Epics, Buddhism, Jainism, Tribal Traditions & Values.', link: 'english/class6/sst-ch7-indias-cultural-roots.html', isLive: true },
-      { id: 'c6_sst_8', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 8', title: 'Unity in Diversity, or \'Many in the One\'', desc: 'Regional traditions, shared civilisational threads & geographical harmony.', link: 'english/class6/sst-ch8-unity-in-diversity-or-many-in-the-one.html', isLive: true },
-      { id: 'c6_sst_9', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 9', title: 'Family and Community', desc: 'Family structures, community living, mutual support & civic duties.', link: 'english/class6/sst-ch9-family-and-community.html', isLive: true },
-      { id: 'c6_sst_10', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 10', title: 'Grassroots Democracy — Part 1: Governance', desc: 'Concept of governance, democracy, three levels of government & Constitution.', link: 'english/class6/sst-ch10-grassroots-democracy-part-1-governance.html', isLive: true },
-      { id: 'c6_sst_11', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 11', title: 'Grassroots Democracy — Part 2: Rural Local Government', desc: 'Panchayati Raj, Gram Sabha, Sarpanch, Panchayat Samiti & Zilla Parishad.', link: 'english/class6/sst-ch11-grassroots-democracy-part-2-local-government-in-rural-areas.html', isLive: true },
-      { id: 'c6_sst_12', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 12', title: 'Grassroots Democracy — Part 3: Urban Local Government', desc: 'Municipalities, Municipal Corporations, Ward Councillors & City Services.', link: 'english/class6/sst-ch12-grassroots-democracy-part-3-local-government-in-urban-areas.html', isLive: true },
-      { id: 'c6_sst_13', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 13', title: 'The Value of Work', desc: 'Economic and non-economic activities, dignity of labour, gender division of work & household contributions.', link: 'english/class6/sst-ch13-the-value-of-work.html', isLive: true },
-      { id: 'c6_sst_14', medium: 'english', classNum: 6, subject: 'Social Science', chapter: 'Chapter 14', title: 'Economic Activities Around Us', desc: 'Primary, secondary & tertiary sectors, market chains, weekly markets vs shopping complexes.', link: 'english/class6/sst-ch14-economic-activities-around-us.html', isLive: true },
-      { id: 'c6_sci_1', medium: 'english', classNum: 6, subject: 'Science', chapter: 'Chapter 1', title: 'The Wonderful World of Science', desc: 'Curiosity, scientific method, observation, questions, discoveries and inventions.', link: 'english/class6/sci-ch1-the-wonderful-world-of-science.html', isLive: true },
-      { id: 'c6_sci_2', medium: 'english', classNum: 6, subject: 'Science', chapter: 'Chapter 2', title: 'Diversity in the Living World', desc: 'Plant diversity, animal classification, habitats, adaptations, and monocot vs dicot.', link: 'english/class6/sci-ch2-diversity-in-the-living-world.html', isLive: true },
-      { id: 'c6_sci_3', medium: 'english', classNum: 6, subject: 'Science', chapter: 'Chapter 3', title: 'Mindful Eating: A Path to a Healthy Body', desc: 'Nutrients, chemical food tests (starch, fat, protein), balanced diet, deficiency diseases, millets.', link: 'english/class6/sci-ch3-mindful-eating-a-path-to-a-healthy-body.html', isLive: true },
-      { id: 'c6_sci_4', medium: 'english', classNum: 6, subject: 'Science', chapter: 'Chapter 4', title: 'Exploring Magnets', desc: 'Discovery of magnets, magnetic poles, magnetic materials, compass, Earth magnetism & Maglev.', link: 'english/class6/sci-ch4-exploring-magnets.html', isLive: true },
-      { id: 'c6_sci_5', medium: 'english', classNum: 6, subject: 'Science', chapter: 'Chapter 5', title: 'Measurement of Length and Motion', desc: 'Standard SI units (metre), parallax error, measuring curved lines, linear, circular and oscillatory motion.', link: 'english/class6/sci-ch5-measurement-of-length-and-motion.html', isLive: true },
-      { id: 'c6_sci_6', medium: 'english', classNum: 6, subject: 'Science', chapter: 'Chapter 6', title: 'Materials Around Us', desc: 'Objects vs materials, lustre, hardness, transparency, solubility, density & floating, and definition of matter.', link: 'english/class6/sci-ch6-materials-around-us.html', isLive: true },
-      { id: 'c6_sci_7', medium: 'english', classNum: 6, subject: 'Science', chapter: 'Chapter 7', title: 'Temperature and Its Measurement', desc: 'Hot vs cold, temperature scales (°C & °F), clinical vs laboratory thermometers, the kink, and least count.', link: 'english/class6/sci-ch7-temperature-and-its-measurement.html', isLive: true },
-      { id: 'c6_sci_8', medium: 'english', classNum: 6, subject: 'Science', chapter: 'Chapter 8', title: 'A Journey through States of Water', desc: 'Evaporation, condensation, three states of water, evaporative cooling mechanics, and the global water cycle.', link: 'english/class6/sci-ch8-a-journey-through-states-of-water.html', isLive: true },
-      { id: 'c6_sci_9', medium: 'english', classNum: 6, subject: 'Science', chapter: 'Chapter 9', title: 'Methods of Separation in Everyday Life', desc: 'Handpicking, threshing, winnowing, sieving, sedimentation, decantation, filtration, evaporation & magnetic separation.', link: 'english/class6/sci-ch9-methods-of-separation-in-everyday-life.html', isLive: true },
-      { id: 'c6_sci_10', medium: 'english', classNum: 6, subject: 'Science', chapter: 'Chapter 10', title: 'Living Creatures: Exploring their Characteristics', desc: 'Characteristics of living beings, seed germination, geotropism & phototropism, and frog & mosquito metamorphosis.', link: 'english/class6/sci-ch10-living-creatures-exploring-their-characteristics.html', isLive: true },
-      { id: 'c6_sci_11', medium: 'english', classNum: 6, subject: 'Science', chapter: 'Chapter 11', title: 'Nature\'s Treasures', desc: 'Renewable & non-renewable resources, air, water, solar energy, forests, soil, fossil fuels & the 3Rs of conservation.', link: 'english/class6/sci-ch11-natures-treasures.html', isLive: true },
-      { id: 'c6_sci_12', medium: 'english', classNum: 6, subject: 'Science', chapter: 'Chapter 12', title: 'Beyond Earth', desc: 'Stars, constellations, Pole Star, eight planets, asteroids, comets, Milky Way galaxy, Hanle Dark Sky Reserve & Chandrayaan.', link: 'english/class6/sci-ch12-beyond-earth.html', isLive: true },
-      { id: 'c6_eng_1', medium: 'english', classNum: 6, subject: 'English', chapter: 'Unit 1', title: 'Fables and Folk Tales', desc: 'A Bottle of Dew, The Raven and the Fox, Rama to the Rescue with Grammar.', link: 'english/class6/eng-unit1-fables-and-folk-tales.html', isLive: true },
-      { id: 'c6_eng_1_odia', medium: 'odia', classNum: 6, subject: 'ଇଂରାଜୀ (English)', chapter: 'Unit 1', title: 'Fables and Folk Tales', desc: 'A Bottle of Dew, The Raven and the Fox, Rama to the Rescue with Grammar.', link: 'english/class6/eng-unit1-fables-and-folk-tales.html', isLive: true },
-      { id: 'c6_eng_2', medium: 'english', classNum: 6, subject: 'English', chapter: 'Unit 2', title: 'Friendship', desc: 'The Unlikely Best Friends, A Friend\'s Prayer, The Chair with Past Tenses & Conjunctions.', link: 'english/class6/eng-unit2-friendship.html', isLive: true },
-      { id: 'c6_eng_2_odia', medium: 'odia', classNum: 6, subject: 'ଇଂରାଜୀ (English)', chapter: 'Unit 2', title: 'Friendship', desc: 'The Unlikely Best Friends, A Friend\'s Prayer, The Chair, Odia meanings & Past Tense grammar.', link: 'english/class6/eng-unit2-friendship.html', isLive: true },
-      { id: 'c6_eng_3', medium: 'english', classNum: 6, subject: 'English', chapter: 'Unit 3', title: 'Nurturing Nature', desc: 'Neem Baba, What a Bird Thought, Spices That Heal Us with Compound Words & Modal Verbs.', link: 'english/class6/eng-unit3-nurturing-nature.html', isLive: true },
-      { id: 'c6_eng_3_odia', medium: 'odia', classNum: 6, subject: 'ଇଂରାଜୀ (English)', chapter: 'Unit 3', title: 'Nurturing Nature', desc: 'Neem Baba, What a Bird Thought, Spices That Heal Us, Odia meanings & Modals.', link: 'english/class6/eng-unit3-nurturing-nature.html', isLive: true },
-      { id: 'c6_eng_4', medium: 'english', classNum: 6, subject: 'English', chapter: 'Unit 4', title: 'Sports and Wellness', desc: 'Change of Heart, The Winner, Yoga—A Way of Life with Past Perfect & Practice vs Practise.', link: 'english/class6/eng-unit4-sports-and-wellness.html', isLive: true },
-      { id: 'c6_eng_4_odia', medium: 'odia', classNum: 6, subject: 'ଇଂରାଜୀ (English)', chapter: 'Unit 4', title: 'Sports and Wellness', desc: 'Change of Heart, The Winner, Yoga—A Way of Life, Odia meanings & grammar.', link: 'english/class6/eng-unit4-sports-and-wellness.html', isLive: true },
-      { id: 'c6_eng_5', medium: 'english', classNum: 6, subject: 'English', chapter: 'Unit 5', title: 'Culture and Tradition', desc: 'Hamara Bharat, The Kites, Ila Sachani, National War Memorial with Odia meanings & quantifiers.', link: 'english/class6/eng-unit5-culture-and-tradition.html', isLive: true },
-      { id: 'c6_eng_5_odia', medium: 'odia', classNum: 6, subject: 'ଇଂରାଜୀ (English)', chapter: 'Unit 5', title: 'Culture and Tradition', desc: 'Hamara Bharat, The Kites, Ila Sachani, National War Memorial, Odia meanings & quantifiers.', link: 'english/class6/eng-unit5-culture-and-tradition.html', isLive: true },
-      { id: 'c6_math_1', medium: 'english', classNum: 6, subject: 'Mathematics', chapter: 'Chapter 1', title: 'Patterns in Mathematics', desc: 'Visual sequences, number sequences, algebraic rules & fractal relations.', link: 'english/class6/math-ch1-patterns-in-mathematics.html', isLive: true },
-      { id: 'c6_math_1_odia', medium: 'odia', classNum: 6, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୧', title: 'ଗଣିତରେ ସଂରଚନା ଓ ପାଟର୍ଣ୍ଣ (Patterns in Mathematics)', desc: 'ଦୃଶ୍ୟମାନ ଶୃଙ୍ଖଳା, ସଂଖ୍ୟା ଶ୍ରେଣୀ (ଯୁଗ୍ମ, ଅଯୁଗ୍ମ, ବର୍ଗ, ତ୍ରିଭୁଜ), ବୀଜଗାଣିତିକ ନିୟମ ଓ ସଂପର୍କ।', link: 'odia/class6/math-ch1-patterns-in-mathematics.html', isLive: true },
-      { id: 'c6_math_2', medium: 'english', classNum: 6, subject: 'Mathematics', chapter: 'Chapter 2', title: 'Lines and Angles', desc: 'Protractor usage, acute, right, obtuse, reflex angles & geometric properties.', link: 'english/class6/math-ch2-lines-and-angles.html', isLive: true },
-      { id: 'c6_math_2_odia', medium: 'odia', classNum: 6, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୨', title: 'ରେଖା ଓ କୋଣ (Lines and Angles)', desc: 'ପ୍ରୋଟ୍ରାକ୍ଟର ବ୍ୟବହାର, ସୂକ୍ଷ୍ମକୋଣ, ସମକୋଣ, ସ୍ଥୂଳକୋଣ, ପ୍ରବୃଦ୍ଧ କୋଣ ଓ ଜ୍ୟାମିତିକ ଧର୍ମ।', link: 'odia/class6/math-ch2-lines-and-angles.html', isLive: true },
-      { id: 'c6_math_3', medium: 'english', classNum: 6, subject: 'Mathematics', chapter: 'Chapter 3', title: 'Number Play', desc: 'Supercells, palindromic numbers, Kaprekar constant 6174, Collatz conjecture & 21-counter games.', link: 'english/class6/math-ch3-number-play.html', isLive: true },
-      { id: 'c6_math_3_odia', medium: 'odia', classNum: 6, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୩', title: 'ସଂଖ୍ୟା ଖେଳ (Number Play)', desc: 'ସୁପରସେଲ୍, ପାଲିଣ୍ଡ୍ରୋମ୍ ସଂଖ୍ୟା, କାପ୍ରେକର ଧ୍ରୁବକ ୬୧୭୪, କୋଲାଟ୍ଜ୍ ଅନୁମାନ ଓ ୨୧-କାଉଣ୍ଟର ଖେଳ।', link: 'odia/class6/math-ch3-number-play.html', isLive: true },
-      { id: 'c6_math_4', medium: 'english', classNum: 6, subject: 'Mathematics', chapter: 'Chapter 4', title: 'Data Handling and Presentation', desc: 'Tally marks, frequency distribution tables, pictographs with scaling keys & uniform bar graphs.', link: 'english/class6/math-ch4-data-handling-and-presentation.html', isLive: true },
-      { id: 'c6_math_4_odia', medium: 'odia', classNum: 6, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୪', title: 'ତଥ୍ୟ ପରିଚାଳନା ଓ ଉପସ୍ଥାପନ (Data Handling and Presentation)', desc: 'ଟାଲି ଚିହ୍ନ, ବାରମ୍ବାରତା ସାରଣୀ, ଚିତ୍ରଲେଖ (ପିକ୍ଟୋଗ୍ରାଫ୍) ଓ ସ୍ତମ୍ଭଲେଖ (ବାର୍ ଗ୍ରାଫ୍)।', link: 'odia/class6/math-ch4-data-handling-and-presentation.html', isLive: true },
-      { id: 'c6_math_5', medium: 'english', classNum: 6, subject: 'Mathematics', chapter: 'Chapter 5', title: 'Prime Time', desc: 'Factors, multiples, prime numbers, Sieve of Eratosthenes, prime factorisation, HCF, LCM & divisibility tests.', link: 'english/class6/math-ch5-prime-time.html', isLive: true },
-      { id: 'c6_math_5_odia', medium: 'odia', classNum: 6, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୫', title: 'ପ୍ରାଇମ୍ ଟାଇମ୍: ମୌଳିକ ସଂଖ୍ୟା (Prime Time)', desc: 'ଗୁଣନୀୟକ, ଗୁଣିତକ, ମୌଳିକ ସଂଖ୍ୟା, ଇରାଟୋସ୍ଥିନିସଙ୍କ ଛଣା, ମୌଳିକ ଗୁଣନୀୟକ ବିଶ୍ଳେଷଣ, ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ.।', link: 'odia/class6/math-ch5-prime-time.html', isLive: true },
-      { id: 'c6_math_6', medium: 'english', classNum: 6, subject: 'Mathematics', chapter: 'Chapter 6', title: 'Perimeter and Area', desc: 'Grid square counting, rectangle & square perimeter and area formulas, composite shape splits & isoperimetric optimization.', link: 'english/class6/math-ch6-perimeter-and-area.html', isLive: true },
-      { id: 'c6_math_6_odia', medium: 'odia', classNum: 6, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୬', title: 'ପରିସୀମା ଓ କ୍ଷେତ୍ରଫଳ (Perimeter and Area)', desc: 'ଗ୍ରିଡ୍ ଗଣନା, ଆୟତକ୍ଷେତ୍ର ଓ ବର୍ଗକ୍ଷେତ୍ରର ପରିସୀମା ଏବଂ କ୍ଷେତ୍ରଫଳ ସୂତ୍ର, ସଂଯୁକ୍ତ ଚିତ୍ରର ବିଭାଜନ।', link: 'odia/class6/math-ch6-perimeter-and-area.html', isLive: true },
-      { id: 'c6_math_7', medium: 'english', classNum: 6, subject: 'Mathematics', chapter: 'Chapter 7', title: 'Fractions', desc: 'Unit fractions, fair sharing, mixed & improper fractions, number lines, Brahmagupta addition & subtraction.', link: 'english/class6/math-ch7-fractions.html', isLive: true },
-      { id: 'c6_math_7_odia', medium: 'odia', classNum: 6, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୭', title: 'ଭଗ୍ନାଂଶ (Fractions)', desc: 'ଏକକ ଭଗ୍ନାଂଶ, ସମଭାଗ, ପ୍ରକୃତ, ଅପ୍ରକୃତ ଓ ମିଶ୍ର ଭଗ୍ନାଂଶ, ସଂଖ୍ୟାରେଖାରେ ସ୍ଥାପନ, ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ଯୋଗ ଓ ବିୟୋଗ ନିୟମ।', link: 'odia/class6/math-ch7-fractions.html', isLive: true },
-      { id: 'c6_math_8', medium: 'english', classNum: 6, subject: 'Mathematics', chapter: 'Chapter 8', title: 'Playing with Constructions', desc: 'Compass and ruler constructions, circles, rectangles, diagonal angle bisection, perpendicular bisectors & rhombus.', link: 'english/class6/math-ch8-playing-with-constructions.html', isLive: true },
-      { id: 'c6_math_8_odia', medium: 'odia', classNum: 6, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୮', title: 'ଜ୍ୟାମିତିକ ଅଙ୍କନ ସହିତ ଖେଳ (Playing with Constructions)', desc: 'କମ୍ପାସ୍ ଓ ସ୍କେଲ୍ ସାହାଯ୍ୟରେ ବୃତ୍ତ, ଆୟତକ୍ଷେତ୍ର, କୋଣ ଦ୍ୱିଖଣ୍ଡକ, ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ ଓ ରମ୍ବସ୍ ଅଙ୍କନ।', link: 'odia/class6/math-ch8-playing-with-constructions.html', isLive: true },
-      { id: 'c6_math_9', medium: 'english', classNum: 6, subject: 'Mathematics', chapter: 'Chapter 9', title: 'Symmetry', desc: 'Line symmetry, paper folding, regular polygon law, rotational symmetry orders & angles.', link: 'english/class6/math-ch9-symmetry.html', isLive: true },
-      { id: 'c6_math_9_odia', medium: 'odia', classNum: 6, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୯', title: 'ପ୍ରତିସାମ୍ୟ (Symmetry)', desc: 'ରୈଖିକ ପ୍ରତିସାମ୍ୟ, କାଗଜ ଭାଙ୍ଗିବା ପଦ୍ଧତି, ସୁଷମ ବହୁଭୁଜ ନିୟମ, ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ କ୍ରମ ଓ କୋଣ।', link: 'odia/class6/math-ch9-symmetry.html', isLive: true },
-      { id: 'c6_math_10', medium: 'english', classNum: 6, subject: 'Mathematics', chapter: 'Chapter 10', title: 'The Other Side of Zero', desc: 'Integers, elevator & number line movements, token models & zero pairs, real-world elevations & Brahmagupta arithmetic.', link: 'english/class6/math-ch10-the-other-side-of-zero.html', isLive: true },
-      { id: 'c6_math_10_odia', medium: 'odia', classNum: 6, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୧୦', title: 'ଶୂନର ଅନ୍ୟ ପାର୍ଶ୍ୱ: ପୂର୍ଣ୍ଣସଂଖ୍ୟା (The Other Side of Zero)', desc: 'ପୂର୍ଣ୍ଣସଂଖ୍ୟା (Integers), ଲିଫ୍ଟ୍ ଓ ସଂଖ୍ୟାରେଖା ଗତିବିଧି, ଟୋକନ୍ ମଡେଲ୍, ଶୂନ ଯୋଡ଼ି ଓ ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ଗାଣିତିକ ନିୟମ।', link: 'odia/class6/math-ch10-the-other-side-of-zero.html', isLive: true },
-      { id: 'c6_sci_1_odia', medium: 'odia', classNum: 6, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ ୧', title: 'ବିଜ୍ଞାନର ଅଦ୍ଭୁତ ଜଗତ', desc: 'କୌତୂହଳ, ବୈଜ୍ଞାନିକ ଅନୁସନ୍ଧାନର ୫ଟି ସୋପାନ, ପ୍ରକୃତିର ନିୟମ ଓ ପରୀକ୍ଷଣ।', link: 'odia/class6/sci-ch1-the-wonderful-world-of-science.html', isLive: true },
-      { id: 'c6_sci_2_odia', medium: 'odia', classNum: 6, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ ୨', title: 'ଜୀବଜଗତରେ ବିବିଧତା', desc: 'ଉଦ୍ଭିଦ ଓ ପ୍ରାଣୀ ବର୍ଗୀକରଣ, ମୂଳତନ୍ତ୍ର, ପତ୍ରଶିରାବିନ୍ୟାସ, ଅଭିଯୋଜନ ଓ ପବିତ୍ର ଜଙ୍ଗଲ।', link: 'odia/class6/sci-ch2-diversity-in-the-living-world.html', isLive: true },
-      { id: 'c6_sci_3_odia', medium: 'odia', classNum: 6, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ ୩', title: 'ସୁଚିନ୍ତିତ ଖାଦ୍ୟ: ସୁସ୍ଥ ଶରୀରର ମାର୍ଗ', desc: 'ପୋଷକ ତତ୍ତ୍ୱ, ଷ୍ଟାର୍ଚ-ଫ୍ୟାଟ୍-ପ୍ରୋଟିନ୍ ପରୀକ୍ଷା, ଅପପୁଷ୍ଟି ରୋଗ ଓ ମିଲେଟ୍ସ (ଶ୍ରୀଅନ୍ନ)।', link: 'odia/class6/sci-ch3-mindful-eating-a-path-to-a-healthy-body.html', isLive: true },
-      { id: 'c6_sci_4_odia', medium: 'odia', classNum: 6, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ ୪', title: 'ଚୁମ୍ବକର ଅନୁସନ୍ଧାନ', desc: 'ଚୁମ୍ବକୀୟ ମେରୁ, ଆକର୍ଷଣ-ବିକର୍ଷଣ ନିୟମ, ପୃଥିବୀର ଚୁମ୍ବକତ୍ୱ, କମ୍ପାସ୍ ଓ ମ୍ୟାଗଲେଭ୍।', link: 'odia/class6/sci-ch4-exploring-magnets.html', isLive: true },
-      { id: 'c6_sci_5_odia', medium: 'odia', classNum: 6, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ ୫', title: 'ଦୈର୍ଘ୍ୟ ମାପ ଓ ଗତି', desc: 'SI ମାନକ ଏକକ (ମିଟର), ପାରାଲାକ୍ସ ତ୍ରୁଟି, ବକ୍ରରେଖା ମାପ, ସରଳରୈଖିକ, ବୃତ୍ତାକାର ଓ ଦୋଳନ ଗତି।', link: 'odia/class6/sci-ch5-measurement-of-length-and-motion.html', isLive: true },
-      { id: 'c6_sci_6_odia', medium: 'odia', classNum: 6, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ ୬', title: 'ଆମ ଚାରିପାଖର ପଦାର୍ଥ', desc: 'ବସ୍ତୁ ବନାମ ପଦାର୍ଥ, ଉଜ୍ଜ୍ୱଳତା, କଠିନତା, ସ୍ୱଚ୍ଛତା, ଦ୍ରାବ୍ୟତା, ଘନତା ଓ ଭାସମାନତା।', link: 'odia/class6/sci-ch6-materials-around-us.html', isLive: true },
-      { id: 'c6_sci_7_odia', medium: 'odia', classNum: 6, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ ୭', title: 'ତାପମାତ୍ରା ଓ ଏହାର ମାପ', desc: 'ତାପମାତ୍ରା, ସେଲସିୟସ୍ ଓ ଫାରେନହାଇଟ୍, ଡାକ୍ତରୀ ବନାମ ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର ଓ କିଙ୍କ୍।', link: 'odia/class6/sci-ch7-temperature-and-its-measurement.html', isLive: true },
-      { id: 'c6_sci_8_odia', medium: 'odia', classNum: 6, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ ୮', title: 'ଜଳର ଅବସ୍ଥା ମଧ୍ୟରେ ଏକ ଯାତ୍ରା', desc: 'ଜଳର ତିନୋଟି ଅବସ୍ଥା, ବାଷ୍ପୀଭବନ, ଘନୀଭବନ, ବାଷ୍ପୀଭବନ ଦ୍ୱାରା ଶୀତଳତା ଓ ଜଳଚକ୍ର।', link: 'odia/class6/sci-ch8-a-journey-through-states-of-water.html', isLive: true },
-      { id: 'c6_sci_9_odia', medium: 'odia', classNum: 6, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ ୯', title: 'ଦୈନନ୍ଦିନ ଜୀବନରେ ପୃଥକୀକରଣ ପଦ୍ଧତି', desc: 'ହାତବଛା, ବେଙ୍ଗଳା, କୁଲାରେ ଉଡ଼ାଇବା, ଅବସାଦନ, ପରିଶ୍ରବଣ, ପରିସ୍ରବଣ ଓ ବାଷ୍ପୀଭବନ।', link: 'odia/class6/sci-ch9-methods-of-separation-in-everyday-life.html', isLive: true },
-      { id: 'c6_sci_10_odia', medium: 'odia', classNum: 6, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ ୧୦', title: 'ଜୀବମାନଙ୍କ ବୈଶିଷ୍ଟ୍ୟ ଅନୁସନ୍ଧାନ', desc: 'ଜୀବମାନଙ୍କ ଲକ୍ଷଣ, ମଞ୍ଜି ଗଜାହେବା, ଉଦ୍ଦୀପନା ପ୍ରତି ପ୍ରତିକ୍ରିୟା ଓ ରୂପାନ୍ତରଣ।', link: 'odia/class6/sci-ch10-living-creatures-exploring-their-characteristics.html', isLive: true },
-      { id: 'c6_sci_11_odia', medium: 'odia', classNum: 6, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ ୧୧', title: 'ପ୍ରକୃତିର ଅମୂଲ୍ୟ ସମ୍ପଦ', desc: 'ନବୀକରଣଯୋଗ୍ୟ ଓ ଅନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ, ବାୟୁ, ଜଳ, ମୃତ୍ତିକା, ଜଙ୍ଗଲ ଓ 3R ନୀତି।', link: 'odia/class6/sci-ch11-natures-treasures.html', isLive: true },
-      { id: 'c6_sci_12_odia', medium: 'odia', classNum: 6, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ ୧୨', title: 'ପୃଥିବୀ ବାହାରେ', desc: 'ସୌରମଣ୍ଡଳ, ୮ଟି ଗ୍ରହ, ନକ୍ଷତ୍ରମଣ୍ଡଳ, ଧ୍ରୁବତାରା, ହାନ୍ଲେ ଅବଜରଭେଟୋରୀ ଓ ଚନ୍ଦ୍ରୟାନ।', link: 'odia/class6/sci-ch12-beyond-earth.html', isLive: true },
-      { id: 'c6_sst_1_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୧', title: 'ପୃଥିବୀରେ ସ୍ଥାନ ନିରୂପଣ (Locating Places on the Earth)', desc: 'ଅକ୍ଷାଂଶ, ଦ୍ରାଘିମା, ସ୍କେଲ୍, ପ୍ରତୀକ, ଉଜ୍ଜୟିନୀ ମଧ୍ୟରେଖା, IST ଓ ଆନ୍ତର୍ଜାତୀୟ ତାରିଖ ରେଖା।', link: 'odia/class6/sst-ch1-locating-places-on-the-earth.html', isLive: true },
-      { id: 'c6_sst_2_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୨', title: 'ମହାସାଗର ଓ ମହାଦେଶ (Oceans and Continents)', desc: '୫ଟି ମହାସାଗର, ୭ଟି ମହାଦେଶ, ୨୦୦୪ ସୁନାମି, ଦ୍ୱୀପପୁଞ୍ଜ, ଆଣ୍ଟାର୍କଟିକା ଗବେଷଣା କେନ୍ଦ୍ର ଓ ଜଳଚକ୍ର।', link: 'odia/class6/sst-ch2-oceans-and-continents.html', isLive: true },
-      { id: 'c6_sst_3_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୩', title: 'ଭୂରୂପ ଓ ଜୀବନଧାରଣ (Landforms and Life)', desc: 'ପର୍ବତ, ମାଳଭୂମି, ସମତଳ ଭୂମି, ମରୁଭୂମି, ପବିତ୍ର ସଙ୍ଗମ (ପଞ୍ଚ ପ୍ରୟାଗ) ଓ ୫ଟି ସଙ୍ଗମ ତିନାଇସ୍।', link: 'odia/class6/sst-ch3-landforms-and-life.html', isLive: true },
-      { id: 'c6_sst_4_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୪', title: 'ସମୟରେଖା ଓ ଐତିହାସିକ ଉତ୍ସ (Timeline and Historical Sources)', desc: 'କାଳାନୁକ୍ରମ, ଖ୍ରୀଷ୍ଟପୂର୍ବ (BCE) ଓ ଖ୍ରୀଷ୍ଟାବ୍ଦ (CE), ପ୍ରତ୍ନତତ୍ତ୍ୱ, ମୁଦ୍ରାତାତ୍ତ୍ୱିକ ବିଜ୍ଞାନ, ଅଭିଲେଖ ଓ ପାଣ୍ଡୁଲିପି।', link: 'odia/class6/sst-ch4-timeline-and-historical-sources.html', isLive: true },
-      { id: 'c6_sst_5_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୫', title: 'ଭାରତ — ଯାହାକି ଭାରତବର୍ଷ (India, That Is Bharat)', desc: 'ନାମକରଣର ଇତିହାସ, ଋଗ୍‌ବୈଦିକ ମୂଳଦୁଆ, ସମ୍ବିଧାନର ଧାରା ୧ ଓ ପ୍ରାକୃତିକ ସୀମାନ୍ତ।', link: 'odia/class6/sst-ch5-india-that-is-bharat.html', isLive: true },
-      { id: 'c6_sst_6_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୬', title: 'ଭାରତୀୟ ସଭ୍ୟତାର ପ୍ରାରମ୍ଭ (The Beginnings of Indian Civilisation)', desc: 'ହରପ୍ପା/ସିନ୍ଧୁ-ସରସ୍ୱତୀ ସଭ୍ୟତା, ନଗର ନିର୍ମାଣ ଯୋଜନା, ମହେଞ୍ଜୋଦାରୋର ବୃହତ ସ୍ନାନାଗାର, ଶିଳ୍ପ, ବାଣିଜ୍ୟ, ଲିପି ଓ ପତନର କାରଣ।', link: 'odia/class6/sst-ch6-the-beginnings-of-indian-civilisation.html', isLive: true },
-      { id: 'c6_sst_7_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୭', title: 'ଭାରତର ସାଂସ୍କୃତିକ ମୂଳଦୁଆ (India\'s Cultural Roots)', desc: 'ବେଦ, ଉପନିଷଦ, ରାମାୟଣ ଓ ମହାଭାରତ, ଭଗବଦ୍ ଗୀତାର ନିଷ୍କାମ କର୍ମ, ବୌଦ୍ଧ ଧର୍ମ, ଜୈନ ଧର୍ମ, ଇଲୋରା ଓ ଜନଜାତି ପରମ୍ପରା।', link: 'odia/class6/sst-ch7-indias-cultural-roots.html', isLive: true },
-      { id: 'c6_sst_8_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୮', title: 'ବିବିଧତା ମଧ୍ୟରେ ଏକତା, ବା \'ଏକ ମଧ୍ୟରେ ଅନେକ\' (Unity in Diversity, or \'Many in the One\')', desc: 'ଖାଦ୍ୟ, ମସଲା ଡବା, ଶାଢ଼ୀ ଓ ଧୋତି, ମକର ସଂକ୍ରାନ୍ତି/ପୋଙ୍ଗଲ୍/ବିହୁ, ପଞ୍ଚତନ୍ତ୍ର ଓ ଆଞ୍ଚଳିକ ରାମାୟଣ।', link: 'odia/class6/sst-ch8-unity-in-diversity-or-many-in-the-one.html', isLive: true },
-      { id: 'c6_sst_9_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୯', title: 'ପରିବାର ଓ ସମୁଦାୟ (Family and Community)', desc: 'ଯୁଗ୍ମ ଓ ଏକକ ପରିବାର, ପାରିବାରିକ ମୂଲ୍ୟବୋଧ, ଲିଙ୍ଗଗତ ସମାନତା, ହଲମା ପରମ୍ପରା, କମଲ ପରମାର୍ ଓ ସାମାଜିକ ସହଯୋଗ।', link: 'odia/class6/sst-ch9-family-and-community.html', isLive: true },
-      { id: 'c6_sst_10_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୧୦', title: 'ତୃଣମୂଳ ଗଣତନ୍ତ୍ର — ଭାଗ ୧: ଶାସନ ବ୍ୟବସ୍ଥା (Grassroots Democracy — Part 1: Governance)', desc: 'ଗଣତନ୍ତ୍ରର ଅର୍ଥ, ସରକାରଙ୍କ ୩ଟି ଅଙ୍ଗ (ବିଧାନପାଳିକା, କାର୍ଯ୍ୟପାଳିକା, ନ୍ୟାୟପାଳିକା), ୩ଟି ସ୍ତର ଓ ସାର୍ବଜନୀନ ସାବାଳକ ମତାଧିକାର।', link: 'odia/class6/sst-ch10-grassroots-democracy-part-1-governance.html', isLive: true },
-      { id: 'c6_sst_11_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୧୧', title: 'ତୃଣମୂଳ ଗଣତନ୍ତ୍ର — ଭାଗ ୨: ଗ୍ରାମାଞ୍ଚଳ ସ୍ଥାନୀୟ ଶାସନ (Grassroots Democracy — Part 2: Rural)', desc: 'ପଞ୍ଚାୟତିରାଜ, ଗ୍ରାମ ସଭା, ସରପଞ୍ଚ, ୩ଟି ସ୍ତର, ପଞ୍ଚାୟତ ସଚିବ, ପଟୱାରୀ, ମହିଳା ସଂରକ୍ଷଣ ଓ ବାଳ ପଞ୍ଚାୟତ।', link: 'odia/class6/sst-ch11-grassroots-democracy-part-2-local-government-in-rural-areas.html', isLive: true },
-      { id: 'c6_sst_12_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୧୨', title: 'ତୃଣମୂଳ ଗଣତନ୍ତ୍ର — ଭାଗ ୩: ସହରାଞ୍ଚଳ ସ୍ଥାନୀୟ ଶାସନ (Grassroots Democracy — Part 3: Urban)', desc: 'ମହାନଗର ନିଗମ, ପୌରପାଳିକା, ନଗର ପଞ୍ଚାୟତ, ମେୟର, ୱାର୍ଡ଼ କାଉନସିଲର୍, ଇନ୍ଦୋର ମଡେଲ୍ ଓ ପୌର ଆୟର ଉତ୍ସ।', link: 'odia/class6/sst-ch12-grassroots-democracy-part-3-local-government-in-urban-areas.html', isLive: true },
-      { id: 'c6_sst_13_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୧୩', title: 'କାର୍ଯ୍ୟର ମୂଲ୍ୟ (The Value of Work)', desc: 'ଅର୍ଥନୈତିକ ବନାମ ଅଣ-ଅର୍ଥନୈତିକ କାର୍ଯ୍ୟ, ଘରୋଇ ଯତ୍ନ ଶ୍ରମ, ଶ୍ରମର ମର୍ଯ୍ୟାଦା, ପାରିଶ୍ରମିକ ଓ ସେବା।', link: 'odia/class6/sst-ch13-the-value-of-work.html', isLive: true },
-      { id: 'c6_sst_14_odia', medium: 'odia', classNum: 6, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ ୧୪', title: 'ଆମ ଚାରିପାଖର ଅର୍ଥନୈତିକ କାର୍ଯ୍ୟକଳାପ (Economic Activities Around Us)', desc: 'ଅର୍ଥନୀତିର ୩ଟି କ୍ଷେତ୍ର (ପ୍ରାଥମିକ, ମାଧ୍ୟମିକ, ତୃତୀୟକ/ସେବା), ପାରସ୍ପରିକ ନିର୍ଭରଶୀଳତା, ଆମୁଲ୍ ଓ ଓମ୍‌ଫେଡ୍ ସମବାୟ ଏବଂ ପାଠ୍ୟପୁସ୍ତକ ପ୍ରସ୍ତୁତି।', link: 'odia/class6/sst-ch14-economic-activities-around-us.html', isLive: true },
-      { id: 'c7_eng_1', medium: 'english', classNum: 7, subject: 'English', chapter: 'Unit 1', title: 'Learning Together', desc: 'The Day the River Spoke, Try Again, Three Days to See with Grammar & Vocab.', link: 'english/class7/eng-unit1-learning-together.html', isLive: true },
-      { id: 'c7_eng_1_odia', medium: 'odia', classNum: 7, subject: 'ଇଂରାଜୀ (English)', chapter: 'Unit 1', title: 'Learning Together', desc: 'The Day the River Spoke, Try Again, Three Days to See with Grammar & Vocab.', link: 'english/class7/eng-unit1-learning-together.html', isLive: true },
-      { id: 'c7_eng_5_odia', medium: 'odia', classNum: 7, subject: 'ଇଂରାଜୀ (English)', chapter: 'Unit 5', title: 'Bravehearts', desc: 'Baji Rout, Major Somnath Sharma, Rani Chennamma with voice change & discourse markers.', link: 'english/class7/eng-unit5-bravehearts.html', isLive: true },
-      { id: 'c7_eng_4_odia', medium: 'odia', classNum: 7, subject: 'ଇଂରାଜୀ (English)', chapter: 'Unit 4', title: 'Travel and Adventure', desc: 'The Great Himalayan Expedition, Wandering Singers, Exploring Andaman with idioms & prepositional phrases.', link: 'english/class7/eng-unit4-travel-and-adventure.html', isLive: true },
-      { id: 'c7_eng_3_odia', medium: 'odia', classNum: 7, subject: 'ଇଂରାଜୀ (English)', chapter: 'Unit 3', title: 'Dreams and Discoveries', desc: 'Dr. A.P.J. Abdul Kalam, My Brother My Brother, Reach for the Stars with relative clauses.', link: 'english/class7/eng-unit3-dreams-and-discoveries.html', isLive: true },
-      { id: 'c7_eng_2_odia', medium: 'odia', classNum: 7, subject: 'ଇଂରାଜୀ (English)', chapter: 'Unit 2', title: 'Wit and Humour', desc: 'Gopal and the Hilsa Fish, The Magic vessels, Birbal catches the thief with reported speech.', link: 'english/class7/eng-unit2-wit-and-humour.html', isLive: true },
-      { id: 'c7_eng_2', medium: 'english', classNum: 7, subject: 'English', chapter: 'Unit 2', title: 'Wit and Humour', desc: 'Animals, Birds, and Dr. Dolittle, A Funny Man, Say the Right Thing with Grammar & Vocab.', link: 'english/class7/eng-unit2-wit-and-humour.html', isLive: true },
-      { id: 'c7_eng_3', medium: 'english', classNum: 7, subject: 'English', chapter: 'Unit 3', title: 'Dreams and Discoveries', desc: 'My Brother’s Great Invention, Paper Boats, North, South, East, West with Grammar & Vocab.', link: 'english/class7/eng-unit3-dreams-and-discoveries.html', isLive: true },
-      { id: 'c7_eng_4', medium: 'english', classNum: 7, subject: 'English', chapter: 'Unit 4', title: 'Travel and Adventure', desc: 'The Tunnel, Travel, Conquering the Summit with Grammar & Vocab.', link: 'english/class7/eng-unit4-travel-and-adventure.html', isLive: true },
-      { id: 'c7_eng_5', medium: 'english', classNum: 7, subject: 'English', chapter: 'Unit 5', title: 'Bravehearts', desc: 'A Homage to Our Brave Soldiers, My Dear Soldiers, Rani Abbakka with Grammar & Vocab.', link: 'english/class7/eng-unit5-bravehearts.html', isLive: true },
-      { id: 'c7_sci_1', medium: 'english', classNum: 7, subject: 'Science', chapter: 'Chapter 1', title: 'The Ever-Evolving World of Science', desc: 'Dynamic nature of science, scientific method, interconnected disciplines & divergent question thinking.', link: 'english/class7/sci-ch1-the-ever-evolving-world-of-science.html', isLive: true },
-      { id: 'c7_sci_2', medium: 'english', classNum: 7, subject: 'Science', chapter: 'Chapter 2', title: 'Exploring Substances: Acidic, Basic, and Neutral', desc: 'Natural indicators (litmus, turmeric, red rose), organic acids, bases, and neutralisation in everyday life.', link: 'english/class7/sci-ch2-exploring-substances-acidic-basic-and-neutral.html', isLive: true },
-      { id: 'c7_sci_3', medium: 'english', classNum: 7, subject: 'Science', chapter: 'Chapter 3', title: 'Electricity: Circuits and their Components', desc: 'Electric cells, batteries in series, incandescent bulbs vs LEDs, switches, symbols & conductor testing.', link: 'english/class7/sci-ch3-electricity-circuits-and-their-components.html', isLive: true },
-      { id: 'c7_sci_4', medium: 'english', classNum: 7, subject: 'Science', chapter: 'Chapter 4', title: 'The World of Metals and Non-metals', desc: 'Physical properties (malleability, ductility, sonority), chemical reactions with oxygen & water, rusting, and heritage metallurgy.', link: 'english/class7/sci-ch4-the-world-of-metals-and-non-metals.html', isLive: true },
-      { id: 'c7_sci_5', medium: 'english', classNum: 7, subject: 'Science', chapter: 'Chapter 5', title: 'Changes Around Us: Physical and Chemical', desc: 'Physical vs chemical changes, reversible vs irreversible, combustion, the fire triangle, and weathering of rocks.', link: 'english/class7/sci-ch5-changes-around-us-physical-and-chemical.html', isLive: true },
-      { id: 'c7_sci_6', medium: 'english', classNum: 7, subject: 'Science', chapter: 'Chapter 6', title: 'Adolescence: A Stage of Growth and Change', desc: 'Puberty, secondary sexual characteristics, Adam\'s apple vs goitre, hormonal changes, menstrual hygiene & nutrition.', link: 'english/class7/sci-ch6-adolescence-a-stage-of-growth-and-change.html', isLive: true },
-      { id: 'c7_sci_7', medium: 'english', classNum: 7, subject: 'Science', chapter: 'Chapter 7', title: 'Heat Transfer in Nature', desc: 'Conduction, convection currents, radiation in vacuum, sea/land breeze, thermos flask, and groundwater water cycle.', link: 'english/class7/sci-ch7-heat-transfer-in-nature.html', isLive: true },
-      { id: 'c7_sci_8', medium: 'english', classNum: 7, subject: 'Science', chapter: 'Chapter 8', title: 'Measurement of Time and Motion', desc: 'Sundials, clepsydra, Galileo\'s simple pendulum, quartz clocks, speed formula (m/s & km/h), uniform vs non-uniform motion.', link: 'english/class7/sci-ch8-measurement-of-time-and-motion.html', isLive: true },
-      { id: 'c7_sci_9', medium: 'english', classNum: 7, subject: 'Science', chapter: 'Chapter 9', title: 'Life Processes in Animals', desc: '5 stages of nutrition, human alimentary canal, peristalsis, stomach HCl & pepsin, liver bile, villi, ruminants, and breathing vs cellular respiration.', link: 'english/class7/sci-ch9-life-processes-in-animals.html', isLive: true },
-      { id: 'c7_sci_10', medium: 'english', classNum: 7, subject: 'Science', chapter: 'Chapter 10', title: 'Life Processes in Plants', desc: 'Autotrophic nutrition, photosynthesis equation & experiments, stomata & guard cells, xylem vs phloem, 24-hr plant respiration.', link: 'english/class7/sci-ch10-life-processes-in-plants.html', isLive: true },
-      { id: 'c7_sci_11', medium: 'english', classNum: 7, subject: 'Science', chapter: 'Chapter 11', title: 'Light: Shadows and Reflections', desc: 'Rectilinear propagation, luminous vs non-luminous, transparent/translucent/opaque, shadow physics, pinhole camera, plane mirror, and periscope.', link: 'english/class7/sci-ch11-light-shadows-and-reflections.html', isLive: true },
-      { id: 'c7_sci_12', medium: 'english', classNum: 7, subject: 'Science', chapter: 'Chapter 12', title: 'Earth, Moon, and the Sun', desc: 'Rotation (day & night), revolution & 23.5-deg axial tilt (seasons), solstices & equinoxes, and solar & lunar eclipses.', link: 'english/class7/sci-ch12-earth-moon-and-the-sun.html', isLive: true },
-      { id: 'c8_sci_1', medium: 'english', classNum: 8, subject: 'Science', chapter: 'Chapter 1', title: 'Exploring the Investigative World of Science', desc: 'Scientific inquiry cycle, designing fair tests, independent/dependent/controlled variables, root & kite philosophy, and everyday home investigations.', link: 'english/class8/sci-ch1-exploring-the-investigative-world-of-science.html', isLive: true },
-      { id: 'c8_sci_2', medium: 'english', classNum: 8, subject: 'Science', chapter: 'Chapter 2', title: 'The Invisible Living World: Beyond Our Naked Eye', desc: 'Cell discovery (Hooke & Leeuwenhoek), plant vs animal cells, levels of organization, bacteria, fungi, algae, protozoa, viruses, and microbial roles.', link: 'english/class8/sci-ch2-the-invisible-living-world-beyond-our-naked-eye.html', isLive: true },
-      { id: 'c8_sci_3', medium: 'english', classNum: 8, subject: 'Science', chapter: 'Chapter 3', title: 'Health: The Ultimate Treasure', desc: 'Holistic health (physical, mental, social), balanced diet & hygiene, communicable vs non-communicable diseases, vectors, vaccines, and antibiotic stewardship.', link: 'english/class8/sci-ch3-health-the-ultimate-treasure.html', isLive: true },
-      { id: 'c8_sci_4', medium: 'english', classNum: 8, subject: 'Science', chapter: 'Chapter 4', title: 'Electricity: Magnetic and Heating Effects', desc: 'Compass deflection & Oersted\'s discovery, electromagnets & electric bell, Joule heating, nichrome wire, and electrical safety with fuses and MCBs.', link: 'english/class8/sci-ch4-electricity-magnetic-and-heating-effects.html', isLive: true },
-      { id: 'c8_sci_5', medium: 'english', classNum: 8, subject: 'Science', chapter: 'Chapter 5', title: 'Exploring Forces', desc: 'Push and pull interactions, effects on speed, direction and shape, contact forces (muscular, friction) and non-contact forces (magnetic, electrostatic, gravity).', link: 'english/class8/sci-ch5-exploring-forces.html', isLive: true },
-      { id: 'c8_sci_6', medium: 'english', classNum: 8, subject: 'Science', chapter: 'Chapter 6', title: 'Pressure, Winds, Storms, and Cyclones', desc: 'Force per unit area (P = F/A, Pascals), liquid pressure with depth, atmospheric pressure, convection winds & breezes, thunderstorms, and cyclones.', link: 'english/class8/sci-ch6-pressure-winds-storms-and-cyclones.html', isLive: true },
-      { id: 'c8_sci_7', medium: 'english', classNum: 8, subject: 'Science', chapter: 'Chapter 7', title: 'Particulate Nature of Matter', desc: 'Matter composition, particle characteristics, interparticle space and attraction, solid/liquid/gas comparative models, diffusion, thermal energy, and ice anomaly.', link: 'english/class8/sci-ch7-particulate-nature-of-matter.html', isLive: true },
-      { id: 'c8_sci_8', medium: 'english', classNum: 8, subject: 'Science', chapter: 'Chapter 8', title: 'Nature of Matter: Elements, Compounds, and Mixtures', desc: 'Matter taxonomy, pure substances vs mixtures, elements & single-atom building blocks, compounds & fixed mass ratios, iron-sulfur showdown, and Odisha Dhokra craft.', link: 'english/class8/sci-ch8-nature-of-matter-elements-compounds-and-mixtures.html', isLive: true },
-      { id: 'c8_sci_9', medium: 'english', classNum: 8, subject: 'Science', chapter: 'Chapter 9', title: 'The Amazing World of Solutes, Solvents, and Solutions', desc: 'Solute/solvent/solution dynamics, saturated vs unsaturated states, gas solubility, density and buoyancy (D = M/V), displacement method, and Ningel salt heritage.', link: 'english/class8/sci-ch9-the-amazing-world-of-solutes-solvents-and-solutions.html', isLive: true },
-      { id: 'c8_sci_10', medium: 'english', classNum: 8, subject: 'Science', chapter: 'Chapter 10', title: 'Light: Mirrors and Lenses', desc: 'Laws of reflection, normal incidence, spherical mirrors (concave vs convex), converging & diverging lenses, refraction of light, and Bhaskara II water-mirror astronomy.', link: 'english/class8/sci-ch10-light-mirrors-and-lenses.html', isLive: true },
-      { id: 'c8_sci_11', medium: 'english', classNum: 8, subject: 'Science', chapter: 'Chapter 11', title: 'Keeping Time with the Skies', desc: 'Celestial mechanics of day/month/year, 8 lunar phases, synchronous rotation, solar/lunar/luni-solar calendars (Adhikamaasa), and ISRO artificial satellites.', link: 'english/class8/sci-ch11-keeping-time-with-the-skies.html', isLive: true },
-      { id: 'c8_sci_12', medium: 'english', classNum: 8, subject: 'Science', chapter: 'Chapter 12', title: 'How Nature Works in Harmony', desc: 'Ecosystem hierarchy (population, community, ecosystem), food webs, decomposers, symbiosis (mutualism, commensalism, parasitism), mangrove tsunami shields, and Vrikshayurveda.', link: 'english/class8/sci-ch12-how-nature-works-in-harmony.html', isLive: true },
-      { id: 'c8_sci_13', medium: 'english', classNum: 8, subject: 'Science', chapter: 'Chapter 13', title: 'Our Home: Earth, a Unique Life-Sustaining Planet', desc: 'Goldilocks habitable zone, geodynamo magnetosphere, the 4 spheres (atmosphere, hydrosphere, geosphere, biosphere), reproduction and vegetative propagation, and Mission LiFE.', link: 'english/class8/sci-ch13-our-home-earth-a-unique-life-sustaining-planet.html', isLive: true },
-      { id: 'c7_sci_1_odia', medium: 'odia', classNum: 7, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ 1', title: 'ବିଜ୍ଞାନର ସତତ ବିକାଶଶୀଳ ଜଗତ', desc: 'ବିଜ୍ଞାନର ଗତିଶୀଳ ପ୍ରକୃତି, ବୈଜ୍ଞାନିକ ପଦ୍ଧତିର ୫ଟି ସୋପାନ, ପ୍ରଜାପତି ଓ କାଗଜ ଉଡ଼ାଜାହାଜ ଏବଂ ବିବିଧ ଚିନ୍ତନ।', link: 'odia/class7/sci-ch1-the-ever-evolving-world-of-science.html', isLive: true },
-      { id: 'c7_sci_2_odia', medium: 'odia', classNum: 7, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ 2', title: 'ପଦାର୍ଥ ଅନୁସନ୍ଧାନ: ଅମ୍ଳୀୟ, କ୍ଷାରକୀୟ ଓ ପ୍ରଶମିତ', desc: 'ପ୍ରାକୃତିକ ସୂଚକ (ଲିଟମସ୍, ହଳଦୀ, ମନ୍ଦାର ଫୁଲ), ଜୈବିକ ଅମ୍ଳ, କ୍ଷାରକ ଓ ଦୈନନ୍ଦିନ ଜୀବନରେ ପ୍ରଶମନ।', link: 'odia/class7/sci-ch2-exploring-substances-acidic-basic-and-neutral.html', isLive: true },
-      { id: 'c7_sci_3_odia', medium: 'odia', classNum: 7, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ 3', title: 'ବିଦ୍ୟୁତ୍: ପରିପଥ ଓ ଏହାର ଉପାଦାନ', desc: 'ବୈଦ୍ୟୁତିକ ସେଲ୍, ବ୍ୟାଟେରୀ ସଂଯୋଗ, ଟଙ୍ଗଷ୍ଟେନ୍ ବଲ୍ବ୍ ବନାମ LED, ମୁକ୍ତ ଓ ବନ୍ଦ ପରିପଥ ଏବଂ ପରିବାହୀ-ଅନ୍ତରକ।', link: 'odia/class7/sci-ch3-electricity-circuits-and-their-components.html', isLive: true },
-      { id: 'c7_sci_4_odia', medium: 'odia', classNum: 7, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ 4', title: 'ଧାତୁ ଓ ଅଧାତୁର ଜଗତ', desc: 'ନମନୀୟତା, ତନ୍ୟତା, ଧ୍ୱନିକତା, ଲୁହାର କଳଙ୍କି ପରୀକ୍ଷଣ, କ୍ଷାରକୀୟ ଓ ଅମ୍ଳୀୟ ଅକ୍ସାଇଡ୍ ଏବଂ ଗାଲଭାନାଇଜେସନ୍।', link: 'odia/class7/sci-ch4-the-world-of-metals-and-non-metals.html', isLive: true },
-      { id: 'c7_sci_5_odia', medium: 'odia', classNum: 7, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ 5', title: 'ଆମ ଚାରିପାଖର ପରିବର୍ତ୍ତନ: ଭୌତିକ ଓ ରାସାୟନିକ', desc: 'ଭୌତିକ ଓ ରାସାୟନିକ ପରିବର୍ତ୍ତନ, ପ୍ରତ୍ୟାବର୍ତ୍ତୀ ଓ ଅପ୍ରତ୍ୟାବର୍ତ୍ତୀ ପ୍ରକ୍ରିୟା, ତୁତୀଆ-ଲୁହା ପରୀକ୍ଷଣ ଏବଂ ଅଗ୍ନି ତ୍ରିଭୁଜ।', link: 'odia/class7/sci-ch5-changes-around-us-physical-and-chemical.html', isLive: true },
-      { id: 'c7_sci_6_odia', medium: 'odia', classNum: 7, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ 6', title: 'କୈଶୋର: ବୃଦ୍ଧି ଓ ପରିବର୍ତ୍ତନର ଏକ ସୋପାନ', desc: 'ଯୌବନାରମ୍ଭ, ଦ୍ୱିତୀୟକ ଯୌନ ଲକ୍ଷଣ, ଆଡାମସ୍ ଆପଲ୍ ବନାମ ଗଳଗଣ୍ଡ, ହରମୋନ୍ ପ୍ରଭାବ, ସନ୍ତୁଳିତ ପୁଷ୍ଟି ଓ ପରିମଳ।', link: 'odia/class7/sci-ch6-adolescence-a-stage-of-growth-and-change.html', isLive: true },
-      { id: 'c7_sci_7_odia', medium: 'odia', classNum: 7, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ 7', title: 'ପ୍ରକୃତିରେ ତାପ ସଞ୍ଚାଳନ', desc: 'ପରିବହନ, ପରିଚଳନ, ବିକିରଣ, ସମୁଦ୍ର ବାୟୁ ଓ ସ୍ଥଳ ବାୟୁ ଏବଂ ଥର୍ମୋସ୍ ଫ୍ଲାସ୍କ।', link: 'odia/class7/sci-ch7-heat-transfer-in-nature.html', isLive: true },
-      { id: 'c7_sci_8_odia', medium: 'odia', classNum: 7, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ 8', title: 'ସମୟ ଓ ଗତିର ମାପ', desc: 'ସରଳ ଦୋଳକ, ଦୋଳନ କାଳ, ବେଗ ଗଣନା ସୂତ୍ର, ସମାନ ବନାମ ଅସମାନ ଗତି ଏବଂ ସ୍ପିଡୋମିଟର-ଓଡୋମିଟର।', link: 'odia/class7/sci-ch8-measurement-of-time-and-motion.html', isLive: true },
-      { id: 'c7_sci_9_odia', medium: 'odia', classNum: 7, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ 9', title: 'ପ୍ରାଣୀମାନଙ୍କ ଜୈବିକ ପ୍ରକ୍ରିୟା: ପୋଷଣ ଓ ଶ୍ୱାସକ୍ରିୟା', desc: 'ପୋଷଣର ୫ଟି ସୋପାନ, ମାନବ ପରିପାକ ତନ୍ତ୍ର, ଭିଲାଇ, ଯକୃତ ପିତ୍ତରସ, ରୋମନ୍ଥକ ପ୍ରାଣୀ ଓ ଶ୍ୱାସତନ୍ତ୍ର।', link: 'odia/class7/sci-ch9-life-processes-in-animals.html', isLive: true },
-      { id: 'c7_sci_10_odia', medium: 'odia', classNum: 7, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ 10', title: 'ଉଦ୍ଭିଦମାନଙ୍କ ଜୈବିକ ପ୍ରକ୍ରିୟା: ପୋଷଣ, ପରିବହନ ଓ ଶ୍ୱାସକ୍ରିୟା', desc: 'ଆଲୋକଶ୍ଳେଷଣ, ସ୍ତୋମାଟା ଓ ରକ୍ଷୀ କୋଷ, ଜାଇଲେମ୍-ଫ୍ଲୋଏମ୍ ପରିବହନ, ୨୪-ଘଣ୍ଟା ଶ୍ୱାସକ୍ରିୟା ଏବଂ ପ୍ରକୃତିର ସନ୍ତୁଳନ।', link: 'odia/class7/sci-ch10-life-processes-in-plants.html', isLive: true },
-      { id: 'c7_sci_11_odia', medium: 'odia', classNum: 7, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ 11', title: 'ଆଲୋକ: ଛାଇ ଓ ପ୍ରତିଫଳନ', desc: 'ସରଳରୈଖିକ ଗତି, ସ୍ୱଚ୍ଛ-ଅସ୍ୱଚ୍ଛ ମାଧ୍ୟମ, ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା, ସମତଳ ଦର୍ପଣ, ପାର୍ଶ୍ୱୀୟ ପରିବର୍ତ୍ତନ ଓ ପେରିସ୍କୋପ୍।', link: 'odia/class7/sci-ch11-light-shadows-and-reflections.html', isLive: true },
-      { id: 'c7_sci_12_odia', medium: 'odia', classNum: 7, subject: 'ବିଜ୍ଞାନ (Science)', chapter: 'ଅଧ୍ୟାୟ 12', title: 'ପୃଥିବୀ, ଚନ୍ଦ୍ର ଓ ସୂର୍ଯ୍ୟ', desc: 'ଆବର୍ତ୍ତନ (ଦିନରାତି), ପରିକ୍ରମଣ ଓ ୨୩.୫° ଅକ୍ଷୀୟ ଢଳିବା ହେତୁ ଋତୁ ପରିବର୍ତ୍ତନ, ସୂର୍ଯ୍ୟପରାଗ ଓ ଚନ୍ଦ୍ରଗ୍ରହଣ।', link: 'odia/class7/sci-ch12-earth-moon-and-the-sun.html', isLive: true },
-      { id: 'c7_math_1_odia', medium: 'odia', classNum: 7, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୧', title: 'ଆମ ଚାରିପାଖର ବୃହତ୍ ସଂଖ୍ୟା (Large Numbers Around Us)', desc: 'ଲକ୍ଷ, କୋଟି, ଭାରତୀୟ ବନାମ ଆନ୍ତର୍ଜାତୀୟ ସ୍ଥାନମାନ ପ୍ରଣାଳୀ, ଚିଟ୍ଟିର ବୋତାମ ଯନ୍ତ୍ର, ଆସନ୍ନ ମାନ (Rounding off) ଓ ମାନସାଙ୍କ କୌଶଳ।', link: 'odia/class7/math-ch1-large-numbers-around-us.html', isLive: true },
-      { id: 'c7_math_2_odia', medium: 'odia', classNum: 7, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୨', title: 'ପାଟିଗାଣିତିକ ରାଶିମାଳା (Arithmetic Expressions)', desc: 'ରାଶିମାଳାର ଗଠନ, କ୍ରିୟା ସମ୍ପାଦନ କ୍ରମ (BODMAS/ବନ୍ଧନୀ ନିୟମ), ରାଶି ବୃକ୍ଷ (Expression Tree), ବଣ୍ଟନ ନିୟମ ଓ ବ୍ୟବହାରିକ ସମସ୍ୟା ସମାଧାନ।', link: 'odia/class7/math-ch2-arithmetic-expressions.html', isLive: true },
-      { id: 'c7_math_3_odia', medium: 'odia', classNum: 7, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୩', title: 'ବିନ୍ଦୁ ଆରପାରିର ଝଲକ: ଦଶମିକ (A Peek Beyond the Point)', desc: 'ଦଶମାଂଶ, ଶତାଂଶ, ସହସ୍ରାଂଶ, ଦଶମିକ ସ୍ଥାନମାନ ସାରଣୀ, ଏକକ ରୂପାନ୍ତର, ସଂଖ୍ୟାରେଖାରେ ସ୍ଥାପନ ଏବଂ ସ୍ତମ୍ଭ ଯୋଗ ଓ ବିୟୋଗ।', link: 'odia/class7/math-ch3-a-peek-beyond-the-point.html', isLive: true },
-      { id: 'c7_math_4_odia', medium: 'odia', classNum: 7, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୪', title: 'ଅକ୍ଷର-ସଂଖ୍ୟା ବ୍ୟବହାର କରି ରାଶିମାଳା (Expressions using Letter-Numbers)', desc: 'ବ୍ୟାପକ ସଂଖ୍ୟା ଭାବେ ଚଳରାଶି (Variables), ଦିଆସିଲି କାଠି ପାଟର୍ଣ୍ଣ, ପଦ ଓ ସହଗ, ସଦୃଶ ଓ ବିସଦୃଶ ପଦ ଏବଂ ରାଶିମାଳାର ସରଳୀକରଣ।', link: 'odia/class7/math-ch4-expressions-using-letter-numbers.html', isLive: true },
-      { id: 'c7_math_5_odia', medium: 'odia', classNum: 7, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୫', title: 'ସମାନ୍ତର ଓ ଛେଦୀ ସରଳରେଖା (Parallel and Intersecting Lines)', desc: 'ପ୍ରତୀପ କୋଣ, ରୈଖିକ ଯୁଗ୍ମ, ଛେଦକ, ଅନୁରୂପ କୋଣ (F-ଆକୃତି), ଏକାନ୍ତର କୋଣ (Z-ଆକୃତି) ଏବଂ ସମାନ୍ତରତା ପରୀକ୍ଷା।', link: 'odia/class7/math-ch5-parallel-and-intersecting-lines.html', isLive: true },
-      { id: 'c7_math_6_odia', medium: 'odia', classNum: 7, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୬', title: 'ସଂଖ୍ୟା ଖେଳ (Number Play)', desc: 'ଯୁଗ୍ମ-ଅଯୁଗ୍ମ ଗାଣିତିକ ନିୟମ, ୩×୩ କୁବେର ଯାଦୁକରୀ ବର୍ଗ (Magic Square), ବିରହାଙ୍କ-ଫିବୋନାଚି ଶ୍ରେଣୀ ଏବଂ ଗୁପ୍ତ ସଂଖ୍ୟା କୋଡ୍ (Cryptarithms)।', link: 'odia/class7/math-ch6-number-play.html', isLive: true },
-      { id: 'c7_math_7_odia', medium: 'odia', classNum: 7, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୭', title: 'ତିନୋଟି ପରସ୍ପରଛେଦୀ ସରଳରେଖାର କାହାଣୀ (A Tale of Three Intersecting Lines)', desc: 'ତ୍ରିଭୁଜ ଅସମତା ଧର୍ମ, କୋଣ ଯୋଗଫଳ ନିୟମ (୧୮୦°), ବହିଃସ୍ଥ କୋଣ, ମଧ୍ୟମା ଓ କେନ୍ଦ୍ରକ, ଉଚ୍ଚତା ଓ ଲମ୍ବକେନ୍ଦ୍ର ଏବଂ ପାଇଥାଗୋରାସ୍ ଧର୍ମ।', link: 'odia/class7/math-ch7-a-tale-of-three-intersecting-lines.html', isLive: true },
-      { id: 'c7_math_8_odia', medium: 'odia', classNum: 7, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୮', title: 'ଭଗ୍ନାଂଶ ସହିତ କାର୍ଯ୍ୟ (Working with Fractions)', desc: 'ଭଗ୍ନାଂଶର ଗୁଣନ ଓ ହରଣ, କ୍ଷେତ୍ରଫଳ ମଡେଲ୍, ବ୍ୟୁତ୍କ୍ରମ, ବ୍ରହ୍ମଗୁପ୍ତ ଓ ଶ୍ରୀଧରାଚାର୍ଯ୍ୟଙ୍କ ପ୍ରାଚୀନ ପାଟୀଗଣିତ ସମସ୍ୟା।', link: 'odia/class7/math-ch8-working-with-fractions.html', isLive: true },
-      { id: 'c7_math_9_odia', medium: 'odia', classNum: 7, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୯', title: 'ଜ୍ୟାମିତିକ ଯମଜ: ସର୍ବସମତା (Geometric Twins)', desc: 'ସର୍ବସମତାର ସଂଜ୍ଞା, ଅନୁରୂପତା, ବା-ବା-ବା (SSS), ବା-କୋ-ବା (SAS), କୋ-ବା-କୋ (ASA), ସ-କ-ବା (RHS) ଏବଂ ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜ ଉପପାଦ୍ୟ।', link: 'odia/class7/math-ch9-geometric-twins.html', isLive: true },
-      { id: 'c7_math_10_odia', medium: 'odia', classNum: 7, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୧୦', title: 'ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଉପରେ ଗାଣିତିକ ପ୍ରକ୍ରିୟା (Operations with Integers)', desc: 'ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଗୁଣନ ଓ ହରଣ, ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ପ୍ରାଚୀନ ସୂତ୍ର, ଶୂନ ଯୁଗ୍ମ, ବଣ୍ଟନ ନିୟମ ଏବଂ ବାସ୍ତବ ଜୀବନ ସମସ୍ୟା ସମାଧାନ।', link: 'odia/class7/math-ch10-operations-with-integers.html', isLive: true },
-      { id: 'c7_math_11_odia', medium: 'odia', classNum: 7, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୧୧', title: 'ସାଧାରଣ ସଂଯୋଗର ଅନୁସନ୍ଧାନ (Finding Common Ground - HCF & LCM)', desc: 'ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ., ମୌଳିକ ଉତ୍ପାଦକୀକରଣ, ସିଡ଼ି ପଦ୍ଧତି, ଗ.ସା.ଗୁ. × ଲ.ସା.ଗୁ. = a × b ଏବଂ ଆଚାର୍ଯ୍ୟ ମହାବୀରଙ୍କ ପ୍ରାଚୀନ ଭଗ୍ନାଂଶ।', link: 'odia/class7/math-ch11-finding-common-ground.html', isLive: true },
-      { id: 'c7_math_12_odia', medium: 'odia', classNum: 7, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୧୨', title: 'ବିନ୍ଦୁ ଆରପାରିର ଆଉ ଏକ ଝଲକ: ଦଶମିକ (Another Peek Beyond the Point)', desc: 'ଦଶମିକ ଗୁଣନ ଓ ହରଣ, ସ୍ଥାନମାନ ସ୍ଥାନାନ୍ତର, ଆବର୍ତ୍ତୀ ଦଶମିକ (୧/୭), ଶ୍ରୀଧରାଚାର୍ଯ୍ୟଙ୍କ ପାଟୀଗଣିତ ଓ ଅଧିବର୍ଷ (Leap Year) ର ଗଣିତ।', link: 'odia/class7/math-ch12-another-peek-beyond-the-point.html', isLive: true },
-      { id: 'c7_math_13_odia', medium: 'odia', classNum: 7, subject: 'ଗଣିତ (Mathematics)', chapter: 'ଅଧ୍ୟାୟ ୧୩', title: 'ବିନ୍ଦୁ ସଂଯୋଗ: ତଥ୍ୟ ପରିଚାଳନା (Connecting the Dots...)', desc: 'କେନ୍ଦ୍ରୀୟ ପ୍ରବୃତ୍ତିର ମାପ (ମାଧ୍ୟମାନ, ମଧ୍ୟମା, ପରିସର), ବହିଃସ୍ଥ ମାନ (Outliers), ବିନ୍ଦୁ ଲେଖଚିତ୍ର, ଦ୍ୱି-ସ୍ତମ୍ଭ ଲେଖଚିତ୍ର ଓ ପ୍ରାଚୀନ ସମମିତି।', link: 'odia/class7/math-ch13-connecting-the-dots.html', isLive: true },
-      { id: 'c7_sst_1_odia', medium: 'odia', classNum: 7, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ 1', title: 'ଭାରତର ଭୌଗୋଳିକ ବିବିଧତା (Geographical Diversity of India)', desc: 'ହିମାଳୟ (ହିମାଦ୍ରି, ହିମାଚଳ, ଶିବାଲିକ୍), ଉତ୍ତର ସମତଳ ଭୂମି, ଥର ମରୁଭୂମି, ଉପଦ୍ୱୀପୀୟ ମାଳଭୂମି, ଘାଟ, ଉପକୂଳ ଓ ଦ୍ୱୀପପୁଞ୍ଜ।', link: 'odia/class7/sst-ch1-geographical-diversity-of-india.html', isLive: true },
-      { id: 'c7_sst_2_odia', medium: 'odia', classNum: 7, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ 2', title: 'ପାଣିପାଗକୁ ବୁଝିବା (Understanding the Weather)', desc: 'ଟ୍ରୋପୋସ୍ଫିୟର, ତାପମାତ୍ରା, ବୃଷ୍ଟିପାତ, ବାୟୁମଣ୍ଡଳୀୟ ଚାପ, ପବନ ପ୍ରଣାଳୀ, ଆର୍ଦ୍ରତା, ଷ୍ଟିଭେନସନ୍ ସ୍କ୍ରିନ୍ ଓ IMD।', link: 'odia/class7/sst-ch2-understanding-the-weather.html', isLive: true },
-      { id: 'c7_sst_3_odia', medium: 'odia', classNum: 7, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ 3', title: 'ଭାରତର ଜଳବାୟୁ (Climates of India)', desc: 'ଭାରତର ଷଡ଼ଋତୁ, ଜଳବାୟୁ ନିୟନ୍ତ୍ରକ ୫ଟି କାରକ, ଦକ୍ଷିଣ-ପଶ୍ଚିମ ଓ ଉତ୍ତର-ପୂର୍ବ ମୌସୁମୀ, ଅମଳ ପର୍ବ ଓ ଜଳବାୟୁ ପରିବର୍ତ୍ତନ।', link: 'odia/class7/sst-ch3-climates-of-india.html', isLive: true },
-      { id: 'c7_sst_4_odia', medium: 'odia', classNum: 7, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ 4', title: 'ନୂତନ ପ୍ରାରମ୍ଭ: ନଗର ଓ ରାଜ୍ୟ (New Beginnings: Cities and States)', desc: 'ଦ୍ୱିତୀୟ ନଗରୀକରଣ (ଖ୍ରୀ.ପୂ. ୬୦୦), ୧୬ ମହାଜନପଦ, ରାଜତନ୍ତ୍ର ବନାମ ଗଣସଂଘ, ଆହତ ମୁଦ୍ରା ଓ ବାଣିଜ୍ୟ ପଥ।', link: 'odia/class7/sst-ch4-new-beginnings-cities-and-states.html', isLive: true },
-      { id: 'c7_sst_5_odia', medium: 'odia', classNum: 7, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ 5', title: 'ସାମ୍ରାଜ୍ୟର ଉତ୍ଥାନ (The Rise of Empires)', desc: 'ମଗଧର ଉତ୍ଥାନ, ଚନ୍ଦ୍ରଗୁପ୍ତ ମୌର୍ଯ୍ୟ, କୌଟିଲ୍ୟଙ୍କ ସପ୍ତାଙ୍ଗ, କଳିଙ୍ଗ ଯୁଦ୍ଧ (୨୬୧ ଖ୍ରୀ.ପୂ.), ଅଶୋକଙ୍କ ଧର୍ମ ଓ ସାରନାଥ ସ୍ତମ୍ଭ।', link: 'odia/class7/sst-ch5-the-rise-of-empires.html', isLive: true },
-      { id: 'c7_sst_6_odia', medium: 'odia', classNum: 7, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ 6', title: 'ପୁନର୍ଗଠନର ଯୁଗ (The Age of Reorganisation)', desc: 'ମୌର୍ଯ୍ୟୋତ୍ତର ଯୁଗ: ଶୁଙ୍ଗ, କଳିଙ୍ଗର ଖାରବେଳ (ହାତୀଗୁମ୍ଫା), ସାତବାହନ, ତାମିଲ ସଙ୍ଗମ ଯୁଗ, କନିଷ୍କ ଓ ଗାନ୍ଧାର-ମଥୁରା ଶୈଳୀ।', link: 'odia/class7/sst-ch6-the-age-of-reorganisation.html', isLive: true },
-      { id: 'c7_sst_7_odia', medium: 'odia', classNum: 7, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ 7', title: 'ଗୁପ୍ତ ଯୁଗ: ଅକ୍ଳାନ୍ତ ସୃଜନଶୀଳତାର ଏକ ଯୁଗ (The Gupta Era)', desc: 'ସୁବର୍ଣ୍ଣ ଯୁଗ: ସମୁଦ୍ରଗୁପ୍ତ, ବିକ୍ରମାଦିତ୍ୟ, ପ୍ରଭାବତୀ ଗୁପ୍ତ, ଆର୍ଯ୍ୟଭଟ୍ଟଙ୍କ ବିଜ୍ଞାନ, କାଳିଦାସ ଓ ଲୌହ ସ୍ତମ୍ଭ।', link: 'odia/class7/sst-ch7-the-gupta-era-an-age-of-tireless-creativity.html', isLive: true },
-      { id: 'c7_sst_8_odia', medium: 'odia', classNum: 7, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ 8', title: 'ଭୂମି କିପରି ପବିତ୍ର ହୁଏ (How the Land Becomes Sacred)', desc: 'ପବିତ୍ର ଭୂଗୋଳ, ପଞ୍ଚମହାଭୂତ, ଚାରି ଧାମ, ୧୨ ଜ୍ୟୋତିର୍ଲିଙ୍ଗ, କୁମ୍ଭମେଳା, ପବିତ୍ର ବୃକ୍ଷ ଓ ଦେବଭୂମି ଜଙ୍ଗଲ (Sacred Groves)।', link: 'odia/class7/sst-ch8-how-the-land-becomes-sacred.html', isLive: true },
-      { id: 'c7_sst_9_odia', medium: 'odia', classNum: 7, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ 9', title: 'ଶାସକଙ୍କଠାରୁ ଶାସିତଙ୍କ ପର୍ଯ୍ୟନ୍ତ: ଶାସନ ବ୍ୟବସ୍ଥାର ପ୍ରକାରଭେଦ (From the Rulers to the Ruled: Types of Governments)', desc: 'ସରକାରଙ୍କ ୩ଟି ଅଙ୍ଗ, ଗଣତନ୍ତ୍ର ବନାମ ରାଜତନ୍ତ୍ର, ଚୋଳ ଉତ୍ତରମେରୁର କୁଡା ଓଲାଇ ମତଦାନ ପ୍ରଣାଳୀ ଓ ଏକଛତ୍ରବାଦ।', link: 'odia/class7/sst-ch9-from-the-rulers-to-the-ruled-types-of-governments.html', isLive: true },
-      { id: 'c7_sst_10_odia', medium: 'odia', classNum: 7, subject: 'ସାମାଜିକ ବିଜ୍ଞାନ (SST)', chapter: 'ଅଧ୍ୟାୟ 10', title: 'ଭାରତର ସମ୍ବିଧାନ: ଏକ ପରିଚୟ (The Constitution of India — An Introduction)', desc: 'ସମ୍ବିଧାନ ସଭା, ଡ. ଆମ୍ବେଦକର, ପ୍ରସ୍ତାବନାର ମୂଲ୍ୟବୋଧ, ୬ଟି ମୌଳିକ ଅଧିକାର, ନିର୍ଦ୍ଦେଶକ ନୀତି ଓ କର୍ତ୍ତବ୍ୟ।', link: 'odia/class7/sst-ch10-the-constitution-of-india-an-introduction.html', isLive: true },
-      { id: 'c7_sst_1', medium: 'english', classNum: 7, subject: 'Social Science', chapter: 'Chapter 1', title: 'Geographical Diversity of India', desc: 'Himalayas (Himadri, Himachal, Shiwaliks), Northern Plains, Thar Desert, Aravallis, Peninsular Plateau, Western & Eastern Ghats, Coastlines & Islands.', link: 'english/class7/sst-ch1-geographical-diversity-of-india.html', isLive: true },
-      { id: 'c7_sst_2', medium: 'english', classNum: 7, subject: 'Social Science', chapter: 'Chapter 2', title: 'Understanding the Weather', desc: 'Troposphere, temperature, rain gauge precipitation, atmospheric pressure, wind systems, humidity, Stevenson Screen & IMD forecasting.', link: 'english/class7/sst-ch2-understanding-the-weather.html', isLive: true },
-      { id: 'c7_sst_3', medium: 'english', classNum: 7, subject: 'Social Science', chapter: 'Chapter 3', title: 'Climates of India', desc: 'Six Indian seasons (Ritus), 5 climate controls (latitude, altitude, oceans, relief, winds), SW & NE Monsoons, harvest festivals & climate change.', link: 'english/class7/sst-ch3-climates-of-india.html', isLive: true },
-      { id: 'c7_sst_4', medium: 'english', classNum: 7, subject: 'Social Science', chapter: 'Chapter 4', title: 'New Beginnings: Cities and States', desc: 'Second Urbanisation (600 BCE), 16 Mahājanapadas, iron technology, monarchies vs Gana-Sangha republics, punch-marked coins & trade routes.', link: 'english/class7/sst-ch4-new-beginnings-cities-and-states.html', isLive: true },
-      { id: 'c7_sst_5', medium: 'english', classNum: 7, subject: 'Social Science', chapter: 'Chapter 5', title: 'The Rise of Empires', desc: 'Rise of Magadha, Alexander, Chandragupta Maurya, Megasthenes, Kautilya\'s Saptānga, Kalinga War, Ashoka\'s Dhamma & Sarnath Emblem.', link: 'english/class7/sst-ch5-the-rise-of-empires.html', isLive: true },
-      { id: 'c7_sst_6', medium: 'english', classNum: 7, subject: 'Social Science', chapter: 'Chapter 6', title: 'The Age of Reorganisation', desc: 'Post-Mauryan resurgence (200 BCE–300 CE): Shungas, Kharavela\'s Hathigumpha, Satavahana matronymics, Sangam Tamil kingdoms & Gandhara/Mathura art.', link: 'english/class7/sst-ch6-the-age-of-reorganisation.html', isLive: true },
-      { id: 'c7_sst_7', medium: 'english', classNum: 7, subject: 'Social Science', chapter: 'Chapter 7', title: 'The Gupta Era: An Age of Tireless Creativity', desc: 'Classical Golden Age (320–550 CE): Samudragupta, Vikramaditya, Prabhavati Gupta, Aryabhata astronomy, Kalidasa, Deogarh temple & Mehrauli Iron Pillar.', link: 'english/class7/sst-ch7-the-gupta-era-an-age-of-tireless-creativity.html', isLive: true },
-      { id: 'c7_sst_8', medium: 'english', classNum: 7, subject: 'Social Science', chapter: 'Chapter 8', title: 'How the Land Becomes Sacred', desc: 'Sacred geography, Pañchamahābhūtas, Char Dham, 12 Jyotirlingas, 51 Shakti Peethas, Kumbh Mela, sacred groves (Kāvu/Devgudi/Oran) & conservation.', link: 'english/class7/sst-ch8-how-the-land-becomes-sacred.html', isLive: true },
-      { id: 'c7_sst_9', medium: 'english', classNum: 7, subject: 'Social Science', chapter: 'Chapter 9', title: 'From the Rulers to the Ruled: Types of Governments', desc: 'Democracy vs Monarchy vs Dictatorship, 3 organs of government, Parliamentary vs Presidential, Vajji republic, Chola Uttaramerur Kuda Olai pot-voting & Rājadharma.', link: 'english/class7/sst-ch9-from-the-rulers-to-the-ruled-types-of-governments.html', isLive: true },
-      { id: 'c7_sst_10', medium: 'english', classNum: 7, subject: 'Social Science', chapter: 'Chapter 10', title: 'The Constitution of India — An Introduction', desc: 'Rulebook of the Republic, Constituent Assembly, Dr. B.R. Ambedkar, Preamble values, 6 Fundamental Rights, DPSP, Fundamental Duties & Living Constitution.', link: 'english/class7/sst-ch10-the-constitution-of-india-an-introduction.html', isLive: true },
-      { id: 'c8_sst_1', medium: 'english', classNum: 8, subject: 'Social Science', chapter: 'Chapter 1', title: 'Natural Resources and Their Use', desc: 'When nature becomes a resource (3 tests), biotic vs abiotic, renewable vs non-renewable, ecosystem services, paradox of plenty, Punjab groundwater overexploitation, green cement, International Solar Alliance (Bhadla Solar Park), and Lokasangraha stewardship.', link: 'english/class8/sst-ch1-natural-resources-and-their-use.html', isLive: true },
-      { id: 'c8_sst_2', medium: 'english', classNum: 8, subject: 'Social Science', chapter: 'Chapter 2', title: 'Reshaping India's Political Map', desc: 'Delhi Sultanate (5 dynasties, Iqta system), Vijayanagara Empire (Krishnadevaraya, Hampi, Battle of Talikota), Mughal Empire (Babur to Aurangzeb, Mansabdari & Todar Mal's Zabt), Ahom victory at Saraighat (Lachit Borphukan), Rajput defiance (Maharana Pratap), Sikh Khalsa, and booming global trade at Surat, Calicut & Hundis.', link: 'english/class8/sst-ch2-reshaping-indias-political-map.html', isLive: true },
-      { id: 'c8_sst_3', medium: 'english', classNum: 8, subject: 'Social Science', chapter: 'Chapter 3', title: 'The Rise of the Marathas', desc: 'Origins in Bhakti traditions (Dnyaneshwar & Tukaram), Chhatrapati Shivaji's Hindavi Swarajya, Ganimi Kawa guerrilla tactics, hill fort network, royal navy and sea forts, Ashta Pradhan council, 27-year war of defiance under Rani Tarabai, Peshwa Bajirao I's all-India expansion, Ahilyabai Holkar's benevolent rule, and Admiral Kanhoji Angre.', link: 'english/class8/sst-ch3-the-rise-of-the-marathas.html', isLive: true },
-      { id: 'c8_sst_4', medium: 'english', classNum: 8, subject: 'Social Science', chapter: 'Chapter 4', title: 'The Colonial Era in India', desc: 'European mercantile rivalry (Portuguese, Dutch, French, British), Battle of Plassey (1757) & Buxar (1764), Diwani rights, Subsidiary Alliance, Doctrine of Lapse, Dadabhai Naoroji's Drain of Wealth, deindustrialisation, catastrophic famines, Macaulay's Minute, and the 1857 Great Rebellion (Mangal Pandey, Rani Lakshmibai & aftermath).', link: 'english/class8/sst-ch4-the-colonial-era-in-india.html', isLive: true },
-      { id: 'c8_sst_5', medium: 'english', classNum: 8, subject: 'Social Science', chapter: 'Chapter 5', title: 'Universal Franchise and India's Electoral System', desc: 'Universal adult franchise (Article 326: one person, one vote, one value), 543 Lok Sabha constituencies, First-Past-The-Post system, Secret Ballot, EVM & VVPAT audit trail, independent Election Commission of India (Article 324), Model Code of Conduct, direct vs indirect elections (Lok Sabha vs Rajya Sabha & President), reserved seats (SC/ST), urban apathy, and social media impacts.', link: 'english/class8/sst-ch5-universal-franchise-and-indias-electoral-system.html', isLive: true },
-      { id: 'c8_sst_6', medium: 'english', classNum: 8, subject: 'Social Science', chapter: 'Chapter 6', title: 'The Parliamentary System: Legislature and Executive', desc: 'The three organs of government, composition of Sansad (President, 543 Lok Sabha MPs, 245 Rajya Sabha members), why bicameral legislature, lawmaking stages from Bill to Act, executive accountability (Question Hour, Budget control, No-Confidence Motion), political vs permanent executive, checks and balances, independent judiciary, and the Women's Reservation Act 2023.', link: 'english/class8/sst-ch6-the-parliamentary-system-legislature-and-executive.html', isLive: true },
-      { id: 'c8_sst_7', medium: 'english', classNum: 8, subject: 'Social Science', chapter: 'Chapter 7', title: 'Factors of Production', desc: 'The four factors of production (Land, Labour, Capital, Enterprise) and factor rewards (Rent, Wages, Interest, Profit), Fixed vs Working capital, Human capital facilitators (education, skill training, health & nutrition, SWAYAM technology), ancient Indian skill heritage (stitched ships & Wootz steel), visionary entrepreneur J.R.D. Tata, and sustainable corporate environmental responsibilities.', link: 'english/class8/sst-ch7-factors-of-production.html', isLive: true },
-      { id: 'c8_sst_8', medium: 'english', classNum: 8, subject: 'Social Science', chapter: 'Chapter 8', title: 'World Geography: Some Glimpses', desc: 'Map projections and spherical distortions (Mercator vs equal-area), oceans as global heat sinks and climate regulators, coral reefs ('rainforests of the sea') and Great Barrier Reef bleaching, Tibetan Plateau ('Roof of the World' and water tower of Asia), Gobi desert, Sahara and African Savannah migration, Amazon Rainforest ('lungs of the Earth'), and the Grand Canyon.', link: 'english/class8/sst-ch8-world-geography-some-glimpses.html', isLive: true },
-      { id: 'c8_sst_9', medium: 'english', classNum: 8, subject: 'Social Science', chapter: 'Chapter 9', title: 'India's Long Road to Independence', desc: 'The 90-year journey from the 1857 Great Rebellion to 15 August 1947: Rise of Indian National Congress, Moderates vs Nationalists, Partition of Bengal & Swadeshi, Armed Revolutionaries (Bhagat Singh, Azad, Bagha Jatin), Champaran to Non-Cooperation, Dandi Salt March & Civil Disobedience, Poona Pact, Quit India Movement, Netaji's INA, and Partition.', link: 'english/class8/sst-ch9-indias-long-road-to-independence.html', isLive: true },
-      { id: 'c8_sst_10', medium: 'english', classNum: 8, subject: 'Social Science', chapter: 'Chapter 10', title: 'A Journey Through Indian Architecture', desc: '5,000 years of design, engineering, and sacred geometry: Harappan urban planning (Dholavira & Mohenjo-daro), Buddhist stupas (Sanchi), rock-cut wonders (Ellora Cave 10 chaitya & Kailasha monolith), hydraulic engineering (Shringaverpur & Rani ki Vav stepwell), Nagara vs Dravida temples (Lingaraja, Brihadiswara, Dilwara, Bishnupur), mosques (Ahmedabad & Delhi Jama Masjid, Sidi Saiyyed Jali), forts and palaces (Mehrangarh, Agra, Orchha, Mysuru), Mughal Charbagh garden tombs (Humayun's Tomb, Taj Mahal), vernacular havelis, and Indo-Saracenic colonial heritage.', link: 'english/class8/sst-ch10-a-journey-through-indian-architecture.html', isLive: true },
-      { id: 'c8_math_1', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 1', title: 'A Square and A Cube', desc: 'Queen Ratnamanjuri's 100-locker puzzle, odd factor count secret, units digit rules, consecutive odd sums, non-square intervals (2n), cube numbers, and the Ramanujan-Hardy taxicab number 1729.', link: 'english/class8/math-ch1-a-square-and-a-cube.html', isLive: true },
-      { id: 'c8_math_2', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 2', title: 'Power Play', desc: 'Exponential growth secrets, paper folding paradox, 7 laws of exponents, zero and negative powers, and scientific standard notation for microscopic and cosmic scales.', link: 'english/class8/math-ch2-power-play.html', isLive: true },
-      { id: 'c8_math_3', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 3', title: 'A Story of Numbers', desc: 'Reema's ancient parchment adventure, Egyptian hieroglyphs, Babylonian sexagesimal system, Indian decimal place-value, Brahmagupta's laws of Zero (Shunya), rational numbers, and the density property.', link: 'english/class8/math-ch3-a-story-of-numbers.html', isLive: true },
-      { id: 'c8_math_4', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 4', title: 'Quadrilaterals', desc: 'Interior angle sum 360°, classification hierarchy (parallelogram, rhombus, rectangle, square, trapezium, kite), diagonal theorems, and 5-measurement construction rules.', link: 'english/class8/math-ch4-quadrilaterals.html', isLive: true },
-      { id: 'c8_math_5', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 5', title: 'Number Play', desc: 'Consecutive number secrets, algebraic proofs of divisibility rules (2, 3, 4, 5, 8, 9, 10, 11), co-prime composite tests, and solving cryptarithms.', link: 'english/class8/math-ch5-number-play.html', isLive: true },
-      { id: 'c8_math_6', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 6', title: 'We Distribute, Yet Things Multiply', desc: 'Geometric tile area models, distributive law, binomial multiplication, standard algebraic identities ((a+b)², (a-b)², a²-b²), and error-mending drills.', link: 'english/class8/math-ch6-we-distribute-yet-things-multiply.html', isLive: true },
-      { id: 'c8_math_7', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 7', title: 'Proportional Reasoning-1', desc: 'Similarity in change, digital photo aspect ratios, direct proportionality (y = kx), scaling constants, and ratio partition algorithms.', link: 'english/class8/math-ch7-proportional-reasoning-1.html', isLive: true },
-      { id: 'c8_math_8', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 8', title: 'Fractions in Disguise', desc: 'Percentages as fractions with denominator 100, mental calculation benchmarks, discounts on marked price, GST billing, profit & loss, and simple vs compound interest.', link: 'english/class8/math-ch8-fractions-in-disguise.html', isLive: true },
-      { id: 'c8_math_9', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 9', title: 'The Baudhayana-Pythagoras Theorem', desc: 'Doubling a square from Baudhayana Sulba-Sutra (c. 800 BCE), Bhaskara’s “Behold!” dissection proof, Pythagorean triplets (2m, m²-1, m²+1), and real-world distance applications.', link: 'english/class8/math-ch9-the-baudhayana-pythagoras-theorem.html', isLive: true },
-      { id: 'c8_math_10', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 10', title: 'Proportional Reasoning-2', desc: 'Inverse proportionality (x × y = k), speed-time relationships, worker-day calculations, water pump capacities, and gear train mechanics.', link: 'english/class8/math-ch10-proportional-reasoning-2.html', isLive: true },
-      { id: 'c8_math_11', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 11', title: 'Exploring Some Geometric Themes', desc: 'Fractal geometry, self-similarity, Sierpinski Carpet, Koch Snowflake, 3D solids, 11 cube nets, Euler's formula (F+V-E=2), and orthographic projections.', link: 'english/class8/math-ch11-exploring-some-geometric-themes.html', isLive: true },
-      { id: 'c8_math_12', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 12', title: 'Tales by Dots and Lines', desc: 'The balancing act of arithmetic mean, algebraic proofs of shifting and scaling, median resilience against outliers, frequency weighted distributions, and multi-line time series trends.', link: 'english/class8/math-ch12-tales-by-dots-and-lines.html', isLive: true },
-      { id: 'c8_math_13', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 13', title: 'Algebra Play', desc: 'Mind-reading date tricks, Number Pyramids with Pascal-Fibonacci links, Calendar Magic, Largest Product Theorem, Divisibility proofs, and Real-World Linear Modeling.', link: 'english/class8/math-ch13-algebra-play.html', isLive: true },
-      { id: 'c8_math_14', medium: 'english', classNum: 8, subject: 'Mathematics', chapter: 'Chapter 14', title: 'Area', desc: 'Area formulas for rectangles, triangles, parallelograms, trapeziums, and rhombuses; the Perimeter-Area paradox; Surveyor's Field-Book method; and real-world unit conversions.', link: 'english/class8/math-ch14-area.html', isLive: true },
-      { id: 'c7_math_1', medium: 'english', classNum: 7, subject: 'Mathematics', chapter: 'Chapter 1', title: 'Large Numbers Around Us', desc: 'One Lakh, One Crore, Indian vs International place value systems, Creative Chitti button machine, rounding off & quick mental math.', link: 'english/class7/math-ch1-large-numbers-around-us.html', isLive: true },
-      { id: 'c7_math_2', medium: 'english', classNum: 7, subject: 'Mathematics', chapter: 'Chapter 2', title: 'Arithmetic Expressions', desc: 'Anatomy of expressions, order of operations (BODMAS), parentheses grouping, expression trees, distributive property & real-life problem modeling.', link: 'english/class7/math-ch2-arithmetic-expressions.html', isLive: true },
-      { id: 'c7_math_3', medium: 'english', classNum: 7, subject: 'Mathematics', chapter: 'Chapter 3', title: 'A Peek Beyond the Point', desc: 'Tenths, hundredths, thousandths, decimal place value table, metric unit conversions, number line location, and column addition & subtraction.', link: 'english/class7/math-ch3-a-peek-beyond-the-point.html', isLive: true },
-      { id: 'c7_math_4', medium: 'english', classNum: 7, subject: 'Mathematics', chapter: 'Chapter 4', title: 'Expressions using Letter-Numbers', desc: 'Variables as generalised numbers, matchstick patterns (3w+1), terms & coefficients, like vs unlike terms, and expression simplification.', link: 'english/class7/math-ch4-expressions-using-letter-numbers.html', isLive: true },
-      { id: 'c7_math_5', medium: 'english', classNum: 7, subject: 'Mathematics', chapter: 'Chapter 5', title: 'Parallel and Intersecting Lines', desc: 'Vertically opposite angles, linear pairs, transversals, corresponding angles (F-shape), alternate interior angles (Z-shape), and parallelism proofs.', link: 'english/class7/math-ch5-parallel-and-intersecting-lines.html', isLive: true },
-      { id: 'c7_math_6', medium: 'english', classNum: 7, subject: 'Mathematics', chapter: 'Chapter 6', title: 'Number Play', desc: 'Parity rules (even/odd arithmetic), 3x3 Kubera magic square, Virahāṅka-Fibonacci sequence in nature, and cryptarithms (digits in disguise).', link: 'english/class7/math-ch6-number-play.html', isLive: true },
-      { id: 'c7_math_7', medium: 'english', classNum: 7, subject: 'Mathematics', chapter: 'Chapter 7', title: 'A Tale of Three Intersecting Lines', desc: 'Triangle inequality theorem, angle sum property (180°), exterior angle theorem, medians & centroid, altitudes & orthocenter, and Pythagoras property.', link: 'english/class7/math-ch7-a-tale-of-three-intersecting-lines.html', isLive: true },
-      { id: 'c7_math_8', medium: 'english', classNum: 7, subject: 'Mathematics', chapter: 'Chapter 8', title: 'Working with Fractions', desc: 'Multiplication of fractions, visual area model, magnitude rules, reciprocals, division algorithm, Brahmagupta and Sridharacharya Patiganita problem.', link: 'english/class7/math-ch8-working-with-fractions.html', isLive: true },
-      { id: 'c7_math_9', medium: 'english', classNum: 7, subject: 'Mathematics', chapter: 'Chapter 9', title: 'Geometric Twins', desc: 'Concept of congruence, correspondence of vertices, SSS, SAS, ASA, and RHS criteria, and isosceles triangle theorems.', link: 'english/class7/math-ch9-geometric-twins.html', isLive: true },
-      { id: 'c7_math_10', medium: 'english', classNum: 7, subject: 'Mathematics', chapter: 'Chapter 10', title: 'Operations with Integers', desc: 'Rules for multiplying and dividing integers, Brahmagupta’s ancient algebra sutras, zero pairs, distributive law, and real-life negative number word problems.', link: 'english/class7/math-ch10-operations-with-integers.html', isLive: true },
-      { id: 'c7_math_11', medium: 'english', classNum: 7, subject: 'Mathematics', chapter: 'Chapter 11', title: 'Finding Common Ground', desc: 'HCF and LCM, prime factorisation trees, ladder division, HCF × LCM = a × b identity, Sameeksha room tiling, and Mahaviracharya’s ancient fraction summation.', link: 'english/class7/math-ch11-finding-common-ground.html', isLive: true },
-      { id: 'c7_math_12', medium: 'english', classNum: 7, subject: 'Mathematics', chapter: 'Chapter 12', title: 'Another Peek Beyond the Point', desc: 'Decimal multiplication, long division with decimal quotients, place-value shifts, cyclic decimals (1/7), Sridharacharya’s Patiganita problems, and the mathematics of Leap Years.', link: 'english/class7/math-ch12-another-peek-beyond-the-point.html', isLive: true },
-      { id: 'c7_math_13', medium: 'english', classNum: 7, subject: 'Mathematics', chapter: 'Chapter 13', title: 'Connecting the Dots...', desc: 'Measures of central tendency (Mean, Median, Range), outliers, dot plots, double bar graphs, ancient Indian Samamiti, and statistical reasoning.', link: 'english/class7/math-ch13-connecting-the-dots.html', isLive: true },
-      { id: 'c9_sst_1', medium: 'english', classNum: 9, subject: 'Social Science', chapter: 'Chapter 1', title: 'Understanding Social Science', desc: 'Systematic study of human society, Pañchamahābhūtas, historical sources & interdisciplinary inquiry.', link: 'english/class9/sst-ch1-understanding-social-science.html', isLive: true },
-      { id: 'c9_sst_2', medium: 'english', classNum: 9, subject: 'Social Science', chapter: 'Chapter 2', title: 'Shaping of the Earth’s Surface', desc: 'Earth interior, plate tectonics, earthquakes, volcanoes & gradation landforms (fluvial, glacial, aeolian, karst).', link: 'english/class9/sst-ch2-shaping-of-the-earths-surface.html', isLive: true },
-      { id: 'c9_sst_3', medium: 'english', classNum: 9, subject: 'Social Science', chapter: 'Chapter 3', title: 'Atmosphere and Climate', desc: 'Atmospheric layers, global pressure belts, Indian monsoon mechanism & 10-station climatic data analysis.', link: 'english/class9/sst-ch3-atmosphere-and-climate.html', isLive: true },
-      { id: 'c9_sst_4', medium: 'english', classNum: 9, subject: 'Social Science', chapter: 'Chapter 4', title: 'Early Humans and Beginning of Civilisation', desc: 'Palaeolithic to Neolithic transition, Mehrgarh, Harappan urbanism & comparative Bronze Age civilisations.', link: 'english/class9/sst-ch4-early-humans-and-beginning-of-civilisation.html', isLive: true },
-      { id: 'c9_sst_5', medium: 'english', classNum: 9, subject: 'Social Science', chapter: 'Chapter 5', title: 'State and Society up to 1000 CE', desc: 'Vedic polity, Kautilya’s Saptāṅga statecraft, Ashoka’s Dhamma, Varṇa-Jāti, Gurukulas & trade guilds.', link: 'english/class9/sst-ch5-state-and-society-up-to-1000-ce.html', isLive: true },
-      { id: 'c9_sst_6', medium: 'english', classNum: 9, subject: 'Social Science', chapter: 'Chapter 6', title: 'Democracy', desc: 'Vedic roots, 5 pillars, separation of powers, 3-tier federalism, grassroots case studies & youth civic roles.', link: 'english/class9/sst-ch6-democracy.html', isLive: true },
-      { id: 'c9_sst_7', medium: 'english', classNum: 9, subject: 'Social Science', chapter: 'Chapter 7', title: 'Elections', desc: 'FPTP vs PR, ECI machinery, 10-step poll workflow, Model Code of Conduct, party criteria & inclusive tech.', link: 'english/class9/sst-ch7-elections.html', isLive: true },
-      { id: 'c9_sst_8', medium: 'english', classNum: 9, subject: 'Social Science', chapter: 'Chapter 8', title: 'Building Blocks in Economics: The Problem of Choice', desc: 'Scarcity, Opportunity Cost, PPC curve, 4 factors of production, 3 central questions & economic systems.', link: 'english/class9/sst-ch8-building-blocks-in-economics.html', isLive: true },
-      { id: 'c9_sst_9', medium: 'english', classNum: 9, subject: 'Social Science', chapter: 'Chapter 9', title: 'The Price Puzzle: What Drives the Market', desc: 'Laws of Demand and Supply, Market Equilibrium, Price Ceiling, Price Floor/MSP, Taxes & Dynamic Pricing.', link: 'english/class9/sst-ch9-the-price-puzzle-what-drives-the-market.html', isLive: true },
+      {"id": "c6_sst_1", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 1", "title": "Locating Places on the Earth", "desc": "Latitudes, Longitudes, Scale, Symbols, Ujjayinī Meridian, IST & International Date Line.", "link": "english/class6/sst-ch1-locating-places-on-the-earth.html", "isLive": true},
+      {"id": "c6_sst_2", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 2", "title": "Oceans and Continents", "desc": "5 Oceans, 7 Continents, 2004 Tsunami, Islands, Antarctica bases & Water Cycle.", "link": "english/class6/sst-ch2-oceans-and-continents.html", "isLive": true},
+      {"id": "c6_sst_3", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 3", "title": "Landforms and Life", "desc": "Mountains, Plateaus, Plains, Deserts, Sacred Confluences & 5 Sangam Tinais.", "link": "english/class6/sst-ch3-landforms-and-life.html", "isLive": true},
+      {"id": "c6_sst_4", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 4", "title": "Timeline and Historical Sources", "desc": "Chronology, BCE & CE, Archaeology, Numismatics, Epigraphy & Manuscripts.", "link": "english/class6/sst-ch4-timeline-and-historical-sources.html", "isLive": true},
+      {"id": "c6_sst_5", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 5", "title": "India, That Is Bharat", "desc": "Name origins, Rigvedic roots, Article 1 of Constitution & natural boundaries.", "link": "english/class6/sst-ch5-india-that-is-bharat.html", "isLive": true},
+      {"id": "c6_sst_6", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 6", "title": "The Beginnings of Indian Civilisation", "desc": "Mehrgarh, Indus-Sarasvati Civilisation, Town Planning, Lothal & Decline.", "link": "english/class6/sst-ch6-the-beginnings-of-indian-civilisation.html", "isLive": true},
+      {"id": "c6_sst_7", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 7", "title": "India's Cultural Roots", "desc": "Vedas, Upanishads, Epics, Buddhism, Jainism, Tribal Traditions & Values.", "link": "english/class6/sst-ch7-indias-cultural-roots.html", "isLive": true},
+      {"id": "c6_sst_8", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 8", "title": "Unity in Diversity, or 'Many in the One'", "desc": "Regional traditions, shared civilisational threads & geographical harmony.", "link": "english/class6/sst-ch8-unity-in-diversity-or-many-in-the-one.html", "isLive": true},
+      {"id": "c6_sst_9", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 9", "title": "Family and Community", "desc": "Family structures, community living, mutual support & civic duties.", "link": "english/class6/sst-ch9-family-and-community.html", "isLive": true},
+      {"id": "c6_sst_10", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 10", "title": "Grassroots Democracy — Part 1: Governance", "desc": "Concept of governance, democracy, three levels of government & Constitution.", "link": "english/class6/sst-ch10-grassroots-democracy-part-1-governance.html", "isLive": true},
+      {"id": "c6_sst_11", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 11", "title": "Grassroots Democracy — Part 2: Rural Local Government", "desc": "Panchayati Raj, Gram Sabha, Sarpanch, Panchayat Samiti & Zilla Parishad.", "link": "english/class6/sst-ch11-grassroots-democracy-part-2-local-government-in-rural-areas.html", "isLive": true},
+      {"id": "c6_sst_12", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 12", "title": "Grassroots Democracy — Part 3: Urban Local Government", "desc": "Municipalities, Municipal Corporations, Ward Councillors & City Services.", "link": "english/class6/sst-ch12-grassroots-democracy-part-3-local-government-in-urban-areas.html", "isLive": true},
+      {"id": "c6_sst_13", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 13", "title": "The Value of Work", "desc": "Economic and non-economic activities, dignity of labour, gender division of work & household contributions.", "link": "english/class6/sst-ch13-the-value-of-work.html", "isLive": true},
+      {"id": "c6_sst_14", "medium": "english", "classNum": 6, "subject": "Social Science", "chapter": "Chapter 14", "title": "Economic Activities Around Us", "desc": "Primary, secondary & tertiary sectors, market chains, weekly markets vs shopping complexes.", "link": "english/class6/sst-ch14-economic-activities-around-us.html", "isLive": true},
+      {"id": "c6_sci_1", "medium": "english", "classNum": 6, "subject": "Science", "chapter": "Chapter 1", "title": "The Wonderful World of Science", "desc": "Curiosity, scientific method, observation, questions, discoveries and inventions.", "link": "english/class6/sci-ch1-the-wonderful-world-of-science.html", "isLive": true},
+      {"id": "c6_sci_2", "medium": "english", "classNum": 6, "subject": "Science", "chapter": "Chapter 2", "title": "Diversity in the Living World", "desc": "Plant diversity, animal classification, habitats, adaptations, and monocot vs dicot.", "link": "english/class6/sci-ch2-diversity-in-the-living-world.html", "isLive": true},
+      {"id": "c6_sci_3", "medium": "english", "classNum": 6, "subject": "Science", "chapter": "Chapter 3", "title": "Mindful Eating: A Path to a Healthy Body", "desc": "Nutrients, chemical food tests (starch, fat, protein), balanced diet, deficiency diseases, millets.", "link": "english/class6/sci-ch3-mindful-eating-a-path-to-a-healthy-body.html", "isLive": true},
+      {"id": "c6_sci_4", "medium": "english", "classNum": 6, "subject": "Science", "chapter": "Chapter 4", "title": "Exploring Magnets", "desc": "Discovery of magnets, magnetic poles, magnetic materials, compass, Earth magnetism & Maglev.", "link": "english/class6/sci-ch4-exploring-magnets.html", "isLive": true},
+      {"id": "c6_sci_5", "medium": "english", "classNum": 6, "subject": "Science", "chapter": "Chapter 5", "title": "Measurement of Length and Motion", "desc": "Standard SI units (metre), parallax error, measuring curved lines, linear, circular and oscillatory motion.", "link": "english/class6/sci-ch5-measurement-of-length-and-motion.html", "isLive": true},
+      {"id": "c6_sci_6", "medium": "english", "classNum": 6, "subject": "Science", "chapter": "Chapter 6", "title": "Materials Around Us", "desc": "Objects vs materials, lustre, hardness, transparency, solubility, density & floating, and definition of matter.", "link": "english/class6/sci-ch6-materials-around-us.html", "isLive": true},
+      {"id": "c6_sci_7", "medium": "english", "classNum": 6, "subject": "Science", "chapter": "Chapter 7", "title": "Temperature and Its Measurement", "desc": "Hot vs cold, temperature scales (°C & °F), clinical vs laboratory thermometers, the kink, and least count.", "link": "english/class6/sci-ch7-temperature-and-its-measurement.html", "isLive": true},
+      {"id": "c6_sci_8", "medium": "english", "classNum": 6, "subject": "Science", "chapter": "Chapter 8", "title": "A Journey through States of Water", "desc": "Evaporation, condensation, three states of water, evaporative cooling mechanics, and the global water cycle.", "link": "english/class6/sci-ch8-a-journey-through-states-of-water.html", "isLive": true},
+      {"id": "c6_sci_9", "medium": "english", "classNum": 6, "subject": "Science", "chapter": "Chapter 9", "title": "Methods of Separation in Everyday Life", "desc": "Handpicking, threshing, winnowing, sieving, sedimentation, decantation, filtration, evaporation & magnetic separation.", "link": "english/class6/sci-ch9-methods-of-separation-in-everyday-life.html", "isLive": true},
+      {"id": "c6_sci_10", "medium": "english", "classNum": 6, "subject": "Science", "chapter": "Chapter 10", "title": "Living Creatures: Exploring their Characteristics", "desc": "Characteristics of living beings, seed germination, geotropism & phototropism, and frog & mosquito metamorphosis.", "link": "english/class6/sci-ch10-living-creatures-exploring-their-characteristics.html", "isLive": true},
+      {"id": "c6_sci_11", "medium": "english", "classNum": 6, "subject": "Science", "chapter": "Chapter 11", "title": "Nature's Treasures", "desc": "Renewable & non-renewable resources, air, water, solar energy, forests, soil, fossil fuels & the 3Rs of conservation.", "link": "english/class6/sci-ch11-natures-treasures.html", "isLive": true},
+      {"id": "c6_sci_12", "medium": "english", "classNum": 6, "subject": "Science", "chapter": "Chapter 12", "title": "Beyond Earth", "desc": "Stars, constellations, Pole Star, eight planets, asteroids, comets, Milky Way galaxy, Hanle Dark Sky Reserve & Chandrayaan.", "link": "english/class6/sci-ch12-beyond-earth.html", "isLive": true},
+      {"id": "c6_math_1", "medium": "english", "classNum": 6, "subject": "Mathematics", "chapter": "Chapter 1", "title": "Patterns in Mathematics", "desc": "Visual sequences, number sequences, algebraic rules & fractal relations.", "link": "english/class6/math-ch1-patterns-in-mathematics.html", "isLive": true},
+      {"id": "c6_math_2", "medium": "english", "classNum": 6, "subject": "Mathematics", "chapter": "Chapter 2", "title": "Lines and Angles", "desc": "Protractor usage, acute, right, obtuse, reflex angles & geometric properties.", "link": "english/class6/math-ch2-lines-and-angles.html", "isLive": true},
+      {"id": "c6_math_3", "medium": "english", "classNum": 6, "subject": "Mathematics", "chapter": "Chapter 3", "title": "Number Play", "desc": "Supercells, palindromic numbers, Kaprekar constant 6174, Collatz conjecture & 21-counter games.", "link": "english/class6/math-ch3-number-play.html", "isLive": true},
+      {"id": "c6_math_4", "medium": "english", "classNum": 6, "subject": "Mathematics", "chapter": "Chapter 4", "title": "Data Handling and Presentation", "desc": "Tally marks, frequency distribution tables, pictographs with scaling keys & uniform bar graphs.", "link": "english/class6/math-ch4-data-handling-and-presentation.html", "isLive": true},
+      {"id": "c6_math_5", "medium": "english", "classNum": 6, "subject": "Mathematics", "chapter": "Chapter 5", "title": "Prime Time", "desc": "Factors, multiples, prime numbers, Sieve of Eratosthenes, prime factorisation, HCF, LCM & divisibility tests.", "link": "english/class6/math-ch5-prime-time.html", "isLive": true},
+      {"id": "c6_math_6", "medium": "english", "classNum": 6, "subject": "Mathematics", "chapter": "Chapter 6", "title": "Perimeter and Area", "desc": "Grid square counting, rectangle & square perimeter and area formulas, composite shape splits & isoperimetric optimization.", "link": "english/class6/math-ch6-perimeter-and-area.html", "isLive": true},
+      {"id": "c6_math_7", "medium": "english", "classNum": 6, "subject": "Mathematics", "chapter": "Chapter 7", "title": "Fractions", "desc": "Unit fractions, fair sharing, mixed & improper fractions, number lines, Brahmagupta addition & subtraction.", "link": "english/class6/math-ch7-fractions.html", "isLive": true},
+      {"id": "c6_math_8", "medium": "english", "classNum": 6, "subject": "Mathematics", "chapter": "Chapter 8", "title": "Playing with Constructions", "desc": "Compass and ruler constructions, circles, rectangles, diagonal angle bisection, perpendicular bisectors & rhombus.", "link": "english/class6/math-ch8-playing-with-constructions.html", "isLive": true},
+      {"id": "c6_math_9", "medium": "english", "classNum": 6, "subject": "Mathematics", "chapter": "Chapter 9", "title": "Symmetry", "desc": "Line symmetry, paper folding, regular polygon law, rotational symmetry orders & angles.", "link": "english/class6/math-ch9-symmetry.html", "isLive": true},
+      {"id": "c6_math_10", "medium": "english", "classNum": 6, "subject": "Mathematics", "chapter": "Chapter 10", "title": "The Other Side of Zero", "desc": "Integers, elevator & number line movements, token models & zero pairs, real-world elevations & Brahmagupta arithmetic.", "link": "english/class6/math-ch10-the-other-side-of-zero.html", "isLive": true},
+      {"id": "c6_eng_1", "medium": "english", "classNum": 6, "subject": "English", "chapter": "Unit 1", "title": "Fables and Folk Tales", "desc": "A Bottle of Dew, The Raven and the Fox, Rama to the Rescue with Grammar.", "link": "english/class6/eng-unit1-fables-and-folk-tales.html", "isLive": true},
+      {"id": "c6_eng_2", "medium": "english", "classNum": 6, "subject": "English", "chapter": "Unit 2", "title": "Friendship", "desc": "The Unlikely Best Friends, A Friend's Prayer, The Chair with Past Tenses & Conjunctions.", "link": "english/class6/eng-unit2-friendship.html", "isLive": true},
+      {"id": "c6_eng_3", "medium": "english", "classNum": 6, "subject": "English", "chapter": "Unit 3", "title": "Nurturing Nature", "desc": "Neem Baba, What a Bird Thought, Spices That Heal Us with Compound Words & Modal Verbs.", "link": "english/class6/eng-unit3-nurturing-nature.html", "isLive": true},
+      {"id": "c6_eng_4", "medium": "english", "classNum": 6, "subject": "English", "chapter": "Unit 4", "title": "Sports and Wellness", "desc": "Change of Heart, The Winner, Yoga—A Way of Life with Past Perfect & Practice vs Practise.", "link": "english/class6/eng-unit4-sports-and-wellness.html", "isLive": true},
+      {"id": "c6_eng_5", "medium": "english", "classNum": 6, "subject": "English", "chapter": "Unit 5", "title": "Culture and Tradition", "desc": "Hamara Bharat, The Kites, Ila Sachani, National War Memorial with Odia meanings & quantifiers.", "link": "english/class6/eng-unit5-culture-and-tradition.html", "isLive": true},
+      {"id": "c7_eng_1", "medium": "english", "classNum": 7, "subject": "English", "chapter": "Unit 1", "title": "Learning Together", "desc": "The Day the River Spoke, Try Again, Three Days to See with Grammar & Vocab.", "link": "english/class7/eng-unit1-learning-together.html", "isLive": true},
+      {"id": "c7_eng_2", "medium": "english", "classNum": 7, "subject": "English", "chapter": "Unit 2", "title": "Wit and Humour", "desc": "Animals, Birds, and Dr. Dolittle, A Funny Man, Say the Right Thing with Grammar & Vocab.", "link": "english/class7/eng-unit2-wit-and-humour.html", "isLive": true},
+      {"id": "c7_eng_3", "medium": "english", "classNum": 7, "subject": "English", "chapter": "Unit 3", "title": "Dreams and Discoveries", "desc": "My Brother’s Great Invention, Paper Boats, North, South, East, West with Grammar & Vocab.", "link": "english/class7/eng-unit3-dreams-and-discoveries.html", "isLive": true},
+      {"id": "c7_eng_4", "medium": "english", "classNum": 7, "subject": "English", "chapter": "Unit 4", "title": "Travel and Adventure", "desc": "The Tunnel, Travel, Conquering the Summit with Grammar & Vocab.", "link": "english/class7/eng-unit4-travel-and-adventure.html", "isLive": true},
+      {"id": "c7_eng_5", "medium": "english", "classNum": 7, "subject": "English", "chapter": "Unit 5", "title": "Bravehearts", "desc": "A Homage to Our Brave Soldiers, My Dear Soldiers, Rani Abbakka with Grammar & Vocab.", "link": "english/class7/eng-unit5-bravehearts.html", "isLive": true},
+      {"id": "c7_sci_1", "medium": "english", "classNum": 7, "subject": "Science", "chapter": "Chapter 1", "title": "The Ever-Evolving World of Science", "desc": "Dynamic nature of science, scientific method, interconnected disciplines & divergent question thinking.", "link": "english/class7/sci-ch1-the-ever-evolving-world-of-science.html", "isLive": true},
+      {"id": "c7_sci_2", "medium": "english", "classNum": 7, "subject": "Science", "chapter": "Chapter 2", "title": "Exploring Substances: Acidic, Basic, and Neutral", "desc": "Natural indicators (litmus, turmeric, red rose), organic acids, bases, and neutralisation in everyday life.", "link": "english/class7/sci-ch2-exploring-substances-acidic-basic-and-neutral.html", "isLive": true},
+      {"id": "c7_sci_3", "medium": "english", "classNum": 7, "subject": "Science", "chapter": "Chapter 3", "title": "Electricity: Circuits and their Components", "desc": "Electric cells, batteries in series, incandescent bulbs vs LEDs, switches, symbols & conductor testing.", "link": "english/class7/sci-ch3-electricity-circuits-and-their-components.html", "isLive": true},
+      {"id": "c7_sci_4", "medium": "english", "classNum": 7, "subject": "Science", "chapter": "Chapter 4", "title": "The World of Metals and Non-metals", "desc": "Physical properties (malleability, ductility, sonority), chemical reactions with oxygen & water, rusting, and heritage metallurgy.", "link": "english/class7/sci-ch4-the-world-of-metals-and-non-metals.html", "isLive": true},
+      {"id": "c7_sci_5", "medium": "english", "classNum": 7, "subject": "Science", "chapter": "Chapter 5", "title": "Changes Around Us: Physical and Chemical", "desc": "Physical vs chemical changes, reversible vs irreversible, combustion, the fire triangle, and weathering of rocks.", "link": "english/class7/sci-ch5-changes-around-us-physical-and-chemical.html", "isLive": true},
+      {"id": "c7_sci_6", "medium": "english", "classNum": 7, "subject": "Science", "chapter": "Chapter 6", "title": "Adolescence: A Stage of Growth and Change", "desc": "Puberty, secondary sexual characteristics, Adam's apple vs goitre, hormonal changes, menstrual hygiene & nutrition.", "link": "english/class7/sci-ch6-adolescence-a-stage-of-growth-and-change.html", "isLive": true},
+      {"id": "c7_sci_7", "medium": "english", "classNum": 7, "subject": "Science", "chapter": "Chapter 7", "title": "Heat Transfer in Nature", "desc": "Conduction, convection currents, radiation in vacuum, sea/land breeze, thermos flask, and groundwater water cycle.", "link": "english/class7/sci-ch7-heat-transfer-in-nature.html", "isLive": true},
+      {"id": "c7_sci_8", "medium": "english", "classNum": 7, "subject": "Science", "chapter": "Chapter 8", "title": "Measurement of Time and Motion", "desc": "Sundials, clepsydra, Galileo's simple pendulum, quartz clocks, speed formula (m/s & km/h), uniform vs non-uniform motion.", "link": "english/class7/sci-ch8-measurement-of-time-and-motion.html", "isLive": true},
+      {"id": "c7_sci_9", "medium": "english", "classNum": 7, "subject": "Science", "chapter": "Chapter 9", "title": "Life Processes in Animals", "desc": "5 stages of nutrition, human alimentary canal, peristalsis, stomach HCl & pepsin, liver bile, villi, ruminants, and breathing vs cellular respiration.", "link": "english/class7/sci-ch9-life-processes-in-animals.html", "isLive": true},
+      {"id": "c7_sci_10", "medium": "english", "classNum": 7, "subject": "Science", "chapter": "Chapter 10", "title": "Life Processes in Plants", "desc": "Autotrophic nutrition, photosynthesis equation & experiments, stomata & guard cells, xylem vs phloem, 24-hr plant respiration.", "link": "english/class7/sci-ch10-life-processes-in-plants.html", "isLive": true},
+      {"id": "c7_sci_11", "medium": "english", "classNum": 7, "subject": "Science", "chapter": "Chapter 11", "title": "Light: Shadows and Reflections", "desc": "Rectilinear propagation, luminous vs non-luminous, transparent/translucent/opaque, shadow physics, pinhole camera, plane mirror, and periscope.", "link": "english/class7/sci-ch11-light-shadows-and-reflections.html", "isLive": true},
+      {"id": "c7_sci_12", "medium": "english", "classNum": 7, "subject": "Science", "chapter": "Chapter 12", "title": "Earth, Moon, and the Sun", "desc": "Rotation (day & night), revolution & 23.5-deg axial tilt (seasons), solstices & equinoxes, and solar & lunar eclipses.", "link": "english/class7/sci-ch12-earth-moon-and-the-sun.html", "isLive": true},
+      {"id": "c7_math_1", "medium": "english", "classNum": 7, "subject": "Mathematics", "chapter": "Chapter 1", "title": "Large Numbers Around Us", "desc": "One Lakh, One Crore, Indian vs International place value systems, Creative Chitti button machine, rounding off & quick mental math.", "link": "english/class7/math-ch1-large-numbers-around-us.html", "isLive": true},
+      {"id": "c7_math_2", "medium": "english", "classNum": 7, "subject": "Mathematics", "chapter": "Chapter 2", "title": "Arithmetic Expressions", "desc": "Anatomy of expressions, order of operations (BODMAS), parentheses grouping, expression trees, distributive property & real-life problem modeling.", "link": "english/class7/math-ch2-arithmetic-expressions.html", "isLive": true},
+      {"id": "c7_math_3", "medium": "english", "classNum": 7, "subject": "Mathematics", "chapter": "Chapter 3", "title": "A Peek Beyond the Point", "desc": "Tenths, hundredths, thousandths, decimal place value table, metric unit conversions, number line location, and column addition & subtraction.", "link": "english/class7/math-ch3-a-peek-beyond-the-point.html", "isLive": true},
+      {"id": "c7_math_4", "medium": "english", "classNum": 7, "subject": "Mathematics", "chapter": "Chapter 4", "title": "Expressions using Letter-Numbers", "desc": "Variables as generalised numbers, matchstick patterns (3w+1), terms & coefficients, like vs unlike terms, and expression simplification.", "link": "english/class7/math-ch4-expressions-using-letter-numbers.html", "isLive": true},
+      {"id": "c7_math_5", "medium": "english", "classNum": 7, "subject": "Mathematics", "chapter": "Chapter 5", "title": "Parallel and Intersecting Lines", "desc": "Vertically opposite angles, linear pairs, transversals, corresponding angles (F-shape), alternate interior angles (Z-shape), and parallelism proofs.", "link": "english/class7/math-ch5-parallel-and-intersecting-lines.html", "isLive": true},
+      {"id": "c7_math_6", "medium": "english", "classNum": 7, "subject": "Mathematics", "chapter": "Chapter 6", "title": "Number Play", "desc": "Parity rules (even/odd arithmetic), 3x3 Kubera magic square, Virahāṅka-Fibonacci sequence in nature, and cryptarithms (digits in disguise).", "link": "english/class7/math-ch6-number-play.html", "isLive": true},
+      {"id": "c7_math_7", "medium": "english", "classNum": 7, "subject": "Mathematics", "chapter": "Chapter 7", "title": "A Tale of Three Intersecting Lines", "desc": "Triangle inequality theorem, angle sum property (180°), exterior angle theorem, medians & centroid, altitudes & orthocenter, and Pythagoras property.", "link": "english/class7/math-ch7-a-tale-of-three-intersecting-lines.html", "isLive": true},
+      {"id": "c7_math_8", "medium": "english", "classNum": 7, "subject": "Mathematics", "chapter": "Chapter 8", "title": "Working with Fractions", "desc": "Multiplication of fractions, visual area model, magnitude rules, reciprocals, division algorithm, Brahmagupta and Sridharacharya Patiganita problem.", "link": "english/class7/math-ch8-working-with-fractions.html", "isLive": true},
+      {"id": "c7_math_9", "medium": "english", "classNum": 7, "subject": "Mathematics", "chapter": "Chapter 9", "title": "Geometric Twins", "desc": "Concept of congruence, correspondence of vertices, SSS, SAS, ASA, and RHS criteria, and isosceles triangle theorems.", "link": "english/class7/math-ch9-geometric-twins.html", "isLive": true},
+      {"id": "c7_math_10", "medium": "english", "classNum": 7, "subject": "Mathematics", "chapter": "Chapter 10", "title": "Operations with Integers", "desc": "Rules for multiplying and dividing integers, Brahmagupta’s ancient algebra sutras, zero pairs, distributive law, and real-life negative number word problems.", "link": "english/class7/math-ch10-operations-with-integers.html", "isLive": true},
+      {"id": "c7_math_11", "medium": "english", "classNum": 7, "subject": "Mathematics", "chapter": "Chapter 11", "title": "Finding Common Ground", "desc": "HCF and LCM, prime factorisation trees, ladder division, HCF × LCM = a × b identity, Sameeksha room tiling, and Mahaviracharya’s ancient fraction summation.", "link": "english/class7/math-ch11-finding-common-ground.html", "isLive": true},
+      {"id": "c7_math_12", "medium": "english", "classNum": 7, "subject": "Mathematics", "chapter": "Chapter 12", "title": "Another Peek Beyond the Point", "desc": "Decimal multiplication, long division with decimal quotients, place-value shifts, cyclic decimals (1/7), Sridharacharya’s Patiganita problems, and the mathematics of Leap Years.", "link": "english/class7/math-ch12-another-peek-beyond-the-point.html", "isLive": true},
+      {"id": "c7_math_13", "medium": "english", "classNum": 7, "subject": "Mathematics", "chapter": "Chapter 13", "title": "Connecting the Dots...", "desc": "Measures of central tendency (Mean, Median, Range), outliers, dot plots, double bar graphs, ancient Indian Samamiti, and statistical reasoning.", "link": "english/class7/math-ch13-connecting-the-dots.html", "isLive": true},
+      {"id": "c7_sst_1", "medium": "english", "classNum": 7, "subject": "Social Science", "chapter": "Chapter 1", "title": "Geographical Diversity of India", "desc": "Himalayas (Himadri, Himachal, Shiwaliks), Northern Plains, Thar Desert, Aravallis, Peninsular Plateau, Western & Eastern Ghats, Coastlines & Islands.", "link": "english/class7/sst-ch1-geographical-diversity-of-india.html", "isLive": true},
+      {"id": "c7_sst_2", "medium": "english", "classNum": 7, "subject": "Social Science", "chapter": "Chapter 2", "title": "Understanding the Weather", "desc": "Troposphere, temperature, rain gauge precipitation, atmospheric pressure, wind systems, humidity, Stevenson Screen & IMD forecasting.", "link": "english/class7/sst-ch2-understanding-the-weather.html", "isLive": true},
+      {"id": "c7_sst_3", "medium": "english", "classNum": 7, "subject": "Social Science", "chapter": "Chapter 3", "title": "Climates of India", "desc": "Six Indian seasons (Ritus), 5 climate controls (latitude, altitude, oceans, relief, winds), SW & NE Monsoons, harvest festivals & climate change.", "link": "english/class7/sst-ch3-climates-of-india.html", "isLive": true},
+      {"id": "c7_sst_4", "medium": "english", "classNum": 7, "subject": "Social Science", "chapter": "Chapter 4", "title": "New Beginnings: Cities and States", "desc": "Second Urbanisation (600 BCE), 16 Mahājanapadas, iron technology, monarchies vs Gana-Sangha republics, punch-marked coins & trade routes.", "link": "english/class7/sst-ch4-new-beginnings-cities-and-states.html", "isLive": true},
+      {"id": "c7_sst_5", "medium": "english", "classNum": 7, "subject": "Social Science", "chapter": "Chapter 5", "title": "The Rise of Empires", "desc": "Rise of Magadha, Alexander, Chandragupta Maurya, Megasthenes, Kautilya's Saptānga, Kalinga War, Ashoka's Dhamma & Sarnath Emblem.", "link": "english/class7/sst-ch5-the-rise-of-empires.html", "isLive": true},
+      {"id": "c7_sst_6", "medium": "english", "classNum": 7, "subject": "Social Science", "chapter": "Chapter 6", "title": "The Age of Reorganisation", "desc": "Post-Mauryan resurgence (200 BCE–300 CE): Shungas, Kharavela's Hathigumpha, Satavahana matronymics, Sangam Tamil kingdoms & Gandhara/Mathura art.", "link": "english/class7/sst-ch6-the-age-of-reorganisation.html", "isLive": true},
+      {"id": "c7_sst_7", "medium": "english", "classNum": 7, "subject": "Social Science", "chapter": "Chapter 7", "title": "The Gupta Era: An Age of Tireless Creativity", "desc": "Classical Golden Age (320–550 CE): Samudragupta, Vikramaditya, Prabhavati Gupta, Aryabhata astronomy, Kalidasa, Deogarh temple & Mehrauli Iron Pillar.", "link": "english/class7/sst-ch7-the-gupta-era-an-age-of-tireless-creativity.html", "isLive": true},
+      {"id": "c7_sst_8", "medium": "english", "classNum": 7, "subject": "Social Science", "chapter": "Chapter 8", "title": "How the Land Becomes Sacred", "desc": "Sacred geography, Pañchamahābhūtas, Char Dham, 12 Jyotirlingas, 51 Shakti Peethas, Kumbh Mela, sacred groves (Kāvu/Devgudi/Oran) & conservation.", "link": "english/class7/sst-ch8-how-the-land-becomes-sacred.html", "isLive": true},
+      {"id": "c7_sst_9", "medium": "english", "classNum": 7, "subject": "Social Science", "chapter": "Chapter 9", "title": "From the Rulers to the Ruled: Types of Governments", "desc": "Democracy vs Monarchy vs Dictatorship, 3 organs of government, Parliamentary vs Presidential, Vajji republic, Chola Uttaramerur Kuda Olai pot-voting & Rājadharma.", "link": "english/class7/sst-ch9-from-the-rulers-to-the-ruled-types-of-governments.html", "isLive": true},
+      {"id": "c7_sst_10", "medium": "english", "classNum": 7, "subject": "Social Science", "chapter": "Chapter 10", "title": "The Constitution of India — An Introduction", "desc": "Rulebook of the Republic, Constituent Assembly, Dr. B.R. Ambedkar, Preamble values, 6 Fundamental Rights, DPSP, Fundamental Duties & Living Constitution.", "link": "english/class7/sst-ch10-the-constitution-of-india-an-introduction.html", "isLive": true},
+      {"id": "c8_sci_1", "medium": "english", "classNum": 8, "subject": "Science", "chapter": "Chapter 1", "title": "Exploring the Investigative World of Science", "desc": "Scientific inquiry cycle, designing fair tests, independent/dependent/controlled variables, root & kite philosophy, and everyday home investigations.", "link": "english/class8/sci-ch1-exploring-the-investigative-world-of-science.html", "isLive": true},
+      {"id": "c8_sci_2", "medium": "english", "classNum": 8, "subject": "Science", "chapter": "Chapter 2", "title": "The Invisible Living World: Beyond Our Naked Eye", "desc": "Cell discovery (Hooke & Leeuwenhoek), plant vs animal cells, levels of organization, bacteria, fungi, algae, protozoa, viruses, and microbial roles.", "link": "english/class8/sci-ch2-the-invisible-living-world-beyond-our-naked-eye.html", "isLive": true},
+      {"id": "c8_sci_3", "medium": "english", "classNum": 8, "subject": "Science", "chapter": "Chapter 3", "title": "Health: The Ultimate Treasure", "desc": "Holistic health (physical, mental, social), balanced diet & hygiene, communicable vs non-communicable diseases, vectors, vaccines, and antibiotic stewardship.", "link": "english/class8/sci-ch3-health-the-ultimate-treasure.html", "isLive": true},
+      {"id": "c8_sci_4", "medium": "english", "classNum": 8, "subject": "Science", "chapter": "Chapter 4", "title": "Electricity: Magnetic and Heating Effects", "desc": "Compass deflection & Oersted's discovery, electromagnets & electric bell, Joule heating, nichrome wire, and electrical safety with fuses and MCBs.", "link": "english/class8/sci-ch4-electricity-magnetic-and-heating-effects.html", "isLive": true},
+      {"id": "c8_sci_5", "medium": "english", "classNum": 8, "subject": "Science", "chapter": "Chapter 5", "title": "Exploring Forces", "desc": "Push and pull interactions, effects on speed, direction and shape, contact forces (muscular, friction) and non-contact forces (magnetic, electrostatic, gravity).", "link": "english/class8/sci-ch5-exploring-forces.html", "isLive": true},
+      {"id": "c8_sci_6", "medium": "english", "classNum": 8, "subject": "Science", "chapter": "Chapter 6", "title": "Pressure, Winds, Storms, and Cyclones", "desc": "Force per unit area (P = F/A, Pascals), liquid pressure with depth, atmospheric pressure, convection winds & breezes, thunderstorms, and cyclones.", "link": "english/class8/sci-ch6-pressure-winds-storms-and-cyclones.html", "isLive": true},
+      {"id": "c8_sci_7", "medium": "english", "classNum": 8, "subject": "Science", "chapter": "Chapter 7", "title": "Particulate Nature of Matter", "desc": "Matter composition, particle characteristics, interparticle space and attraction, solid/liquid/gas comparative models, diffusion, thermal energy, and ice anomaly.", "link": "english/class8/sci-ch7-particulate-nature-of-matter.html", "isLive": true},
+      {"id": "c8_sci_8", "medium": "english", "classNum": 8, "subject": "Science", "chapter": "Chapter 8", "title": "Nature of Matter: Elements, Compounds, and Mixtures", "desc": "Matter taxonomy, pure substances vs mixtures, elements & single-atom building blocks, compounds & fixed mass ratios, iron-sulfur showdown, and Odisha Dhokra craft.", "link": "english/class8/sci-ch8-nature-of-matter-elements-compounds-and-mixtures.html", "isLive": true},
+      {"id": "c8_sci_9", "medium": "english", "classNum": 8, "subject": "Science", "chapter": "Chapter 9", "title": "The Amazing World of Solutes, Solvents, and Solutions", "desc": "Solute/solvent/solution dynamics, saturated vs unsaturated states, gas solubility, density and buoyancy (D = M/V), displacement method, and Ningel salt heritage.", "link": "english/class8/sci-ch9-the-amazing-world-of-solutes-solvents-and-solutions.html", "isLive": true},
+      {"id": "c8_sci_10", "medium": "english", "classNum": 8, "subject": "Science", "chapter": "Chapter 10", "title": "Light: Mirrors and Lenses", "desc": "Laws of reflection, normal incidence, spherical mirrors (concave vs convex), converging & diverging lenses, refraction of light, and Bhaskara II water-mirror astronomy.", "link": "english/class8/sci-ch10-light-mirrors-and-lenses.html", "isLive": true},
+      {"id": "c8_sci_11", "medium": "english", "classNum": 8, "subject": "Science", "chapter": "Chapter 11", "title": "Keeping Time with the Skies", "desc": "Celestial mechanics of day/month/year, 8 lunar phases, synchronous rotation, solar/lunar/luni-solar calendars (Adhikamaasa), and ISRO artificial satellites.", "link": "english/class8/sci-ch11-keeping-time-with-the-skies.html", "isLive": true},
+      {"id": "c8_sci_12", "medium": "english", "classNum": 8, "subject": "Science", "chapter": "Chapter 12", "title": "How Nature Works in Harmony", "desc": "Ecosystem hierarchy (population, community, ecosystem), food webs, decomposers, symbiosis (mutualism, commensalism, parasitism), mangrove tsunami shields, and Vrikshayurveda.", "link": "english/class8/sci-ch12-how-nature-works-in-harmony.html", "isLive": true},
+      {"id": "c8_sci_13", "medium": "english", "classNum": 8, "subject": "Science", "chapter": "Chapter 13", "title": "Our Home: Earth, a Unique Life-Sustaining Planet", "desc": "Goldilocks habitable zone, geodynamo magnetosphere, the 4 spheres (atmosphere, hydrosphere, geosphere, biosphere), reproduction and vegetative propagation, and Mission LiFE.", "link": "english/class8/sci-ch13-our-home-earth-a-unique-life-sustaining-planet.html", "isLive": true},
+      {"id": "c8_math_1", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 1", "title": "A Square and A Cube", "desc": "Queen Ratnamanjuri's 100-locker puzzle, odd factor count secret, units digit rules, consecutive odd sums, non-square intervals (2n), cube numbers, and the Ramanujan-Hardy taxicab number 1729.", "link": "english/class8/math-ch1-a-square-and-a-cube.html", "isLive": true},
+      {"id": "c8_math_2", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 2", "title": "Power Play", "desc": "Exponential growth secrets, paper folding paradox, 7 laws of exponents, zero and negative powers, and scientific standard notation for microscopic and cosmic scales.", "link": "english/class8/math-ch2-power-play.html", "isLive": true},
+      {"id": "c8_math_3", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 3", "title": "A Story of Numbers", "desc": "Reema's ancient parchment adventure, Egyptian hieroglyphs, Babylonian sexagesimal system, Indian decimal place-value, Brahmagupta's laws of Zero (Shunya), rational numbers, and the density property.", "link": "english/class8/math-ch3-a-story-of-numbers.html", "isLive": true},
+      {"id": "c8_math_4", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 4", "title": "Quadrilaterals", "desc": "Interior angle sum 360°, classification hierarchy (parallelogram, rhombus, rectangle, square, trapezium, kite), diagonal theorems, and 5-measurement construction rules.", "link": "english/class8/math-ch4-quadrilaterals.html", "isLive": true},
+      {"id": "c8_math_5", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 5", "title": "Number Play", "desc": "Consecutive number secrets, algebraic proofs of divisibility rules (2, 3, 4, 5, 8, 9, 10, 11), co-prime composite tests, and solving cryptarithms.", "link": "english/class8/math-ch5-number-play.html", "isLive": true},
+      {"id": "c8_math_6", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 6", "title": "We Distribute, Yet Things Multiply", "desc": "Geometric tile area models, distributive law, binomial multiplication, standard algebraic identities ((a+b)², (a-b)², a²-b²), and error-mending drills.", "link": "english/class8/math-ch6-we-distribute-yet-things-multiply.html", "isLive": true},
+      {"id": "c8_math_7", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 7", "title": "Proportional Reasoning-1", "desc": "Similarity in change, digital photo aspect ratios, direct proportionality (y = kx), scaling constants, and ratio partition algorithms.", "link": "english/class8/math-ch7-proportional-reasoning-1.html", "isLive": true},
+      {"id": "c8_math_8", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 8", "title": "Fractions in Disguise", "desc": "Percentages as fractions with denominator 100, mental calculation benchmarks, discounts on marked price, GST billing, profit & loss, and simple vs compound interest.", "link": "english/class8/math-ch8-fractions-in-disguise.html", "isLive": true},
+      {"id": "c8_math_9", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 9", "title": "The Baudhayana-Pythagoras Theorem", "desc": "Doubling a square from Baudhayana Sulba-Sutra (c. 800 BCE), Bhaskara’s “Behold!” dissection proof, Pythagorean triplets (2m, m²-1, m²+1), and real-world distance applications.", "link": "english/class8/math-ch9-the-baudhayana-pythagoras-theorem.html", "isLive": true},
+      {"id": "c8_math_10", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 10", "title": "Proportional Reasoning-2", "desc": "Inverse proportionality (x × y = k), speed-time relationships, worker-day calculations, water pump capacities, and gear train mechanics.", "link": "english/class8/math-ch10-proportional-reasoning-2.html", "isLive": true},
+      {"id": "c8_math_11", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 11", "title": "Exploring Some Geometric Themes", "desc": "Fractal geometry, self-similarity, Sierpinski Carpet, Koch Snowflake, 3D solids, 11 cube nets, Euler's formula (F+V-E=2), and orthographic projections.", "link": "english/class8/math-ch11-exploring-some-geometric-themes.html", "isLive": true},
+      {"id": "c8_math_12", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 12", "title": "Tales by Dots and Lines", "desc": "The balancing act of arithmetic mean, algebraic proofs of shifting and scaling, median resilience against outliers, frequency weighted distributions, and multi-line time series trends.", "link": "english/class8/math-ch12-tales-by-dots-and-lines.html", "isLive": true},
+      {"id": "c8_math_13", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 13", "title": "Algebra Play", "desc": "Mind-reading date tricks, Number Pyramids with Pascal-Fibonacci links, Calendar Magic, Largest Product Theorem, Divisibility proofs, and Real-World Linear Modeling.", "link": "english/class8/math-ch13-algebra-play.html", "isLive": true},
+      {"id": "c8_math_14", "medium": "english", "classNum": 8, "subject": "Mathematics", "chapter": "Chapter 14", "title": "Area", "desc": "Area formulas for rectangles, triangles, parallelograms, trapeziums, and rhombuses; the Perimeter-Area paradox; Surveyor's Field-Book method; and real-world unit conversions.", "link": "english/class8/math-ch14-area.html", "isLive": true},
+      {"id": "c8_sst_1", "medium": "english", "classNum": 8, "subject": "Social Science", "chapter": "Chapter 1", "title": "Natural Resources and Their Use", "desc": "When nature becomes a resource (3 tests), biotic vs abiotic, renewable vs non-renewable, ecosystem services, paradox of plenty, Punjab groundwater overexploitation, green cement, International Solar Alliance (Bhadla Solar Park), and Lokasangraha stewardship.", "link": "english/class8/sst-ch1-natural-resources-and-their-use.html", "isLive": true},
+      {"id": "c8_sst_2", "medium": "english", "classNum": 8, "subject": "Social Science", "chapter": "Chapter 2", "title": "Reshaping India's Political Map", "desc": "Delhi Sultanate (5 dynasties, Iqta system), Vijayanagara Empire (Krishnadevaraya, Hampi, Battle of Talikota), Mughal Empire (Babur to Aurangzeb, Mansabdari & Todar Mal's Zabt), Ahom victory at Saraighat (Lachit Borphukan), Rajput defiance (Maharana Pratap), Sikh Khalsa, and booming global trade at Surat, Calicut & Hundis.", "link": "english/class8/sst-ch2-reshaping-indias-political-map.html", "isLive": true},
+      {"id": "c8_sst_3", "medium": "english", "classNum": 8, "subject": "Social Science", "chapter": "Chapter 3", "title": "The Rise of the Marathas", "desc": "Origins in Bhakti traditions (Dnyaneshwar & Tukaram), Chhatrapati Shivaji's Hindavi Swarajya, Ganimi Kawa guerrilla tactics, hill fort network, royal navy and sea forts, Ashta Pradhan council, 27-year war of defiance under Rani Tarabai, Peshwa Bajirao I's all-India expansion, Ahilyabai Holkar's benevolent rule, and Admiral Kanhoji Angre.", "link": "english/class8/sst-ch3-the-rise-of-the-marathas.html", "isLive": true},
+      {"id": "c8_sst_4", "medium": "english", "classNum": 8, "subject": "Social Science", "chapter": "Chapter 4", "title": "The Colonial Era in India", "desc": "European mercantile rivalry (Portuguese, Dutch, French, British), Battle of Plassey (1757) & Buxar (1764), Diwani rights, Subsidiary Alliance, Doctrine of Lapse, Dadabhai Naoroji's Drain of Wealth, deindustrialisation, catastrophic famines, Macaulay's Minute, and the 1857 Great Rebellion (Mangal Pandey, Rani Lakshmibai & aftermath).", "link": "english/class8/sst-ch4-the-colonial-era-in-india.html", "isLive": true},
+      {"id": "c8_sst_5", "medium": "english", "classNum": 8, "subject": "Social Science", "chapter": "Chapter 5", "title": "Universal Franchise and India's Electoral System", "desc": "Universal adult franchise (Article 326: one person, one vote, one value), 543 Lok Sabha constituencies, First-Past-The-Post system, Secret Ballot, EVM & VVPAT audit trail, independent Election Commission of India (Article 324), Model Code of Conduct, direct vs indirect elections (Lok Sabha vs Rajya Sabha & President), reserved seats (SC/ST), urban apathy, and social media impacts.", "link": "english/class8/sst-ch5-universal-franchise-and-indias-electoral-system.html", "isLive": true},
+      {"id": "c8_sst_6", "medium": "english", "classNum": 8, "subject": "Social Science", "chapter": "Chapter 6", "title": "The Parliamentary System: Legislature and Executive", "desc": "The three organs of government, composition of Sansad (President, 543 Lok Sabha MPs, 245 Rajya Sabha members), why bicameral legislature, lawmaking stages from Bill to Act, executive accountability (Question Hour, Budget control, No-Confidence Motion), political vs permanent executive, checks and balances, independent judiciary, and the Women's Reservation Act 2023.", "link": "english/class8/sst-ch6-the-parliamentary-system-legislature-and-executive.html", "isLive": true},
+      {"id": "c8_sst_7", "medium": "english", "classNum": 8, "subject": "Social Science", "chapter": "Chapter 7", "title": "Factors of Production", "desc": "The four factors of production (Land, Labour, Capital, Enterprise) and factor rewards (Rent, Wages, Interest, Profit), Fixed vs Working capital, Human capital facilitators (education, skill training, health & nutrition, SWAYAM technology), ancient Indian skill heritage (stitched ships & Wootz steel), visionary entrepreneur J.R.D. Tata, and sustainable corporate environmental responsibilities.", "link": "english/class8/sst-ch7-factors-of-production.html", "isLive": true},
+      {"id": "c8_sst_8", "medium": "english", "classNum": 8, "subject": "Social Science", "chapter": "Chapter 8", "title": "World Geography: Some Glimpses", "desc": "Map projections and spherical distortions (Mercator vs equal-area), oceans as global heat sinks and climate regulators, coral reefs ('rainforests of the sea') and Great Barrier Reef bleaching, Tibetan Plateau ('Roof of the World' and water tower of Asia), Gobi desert, Sahara and African Savannah migration, Amazon Rainforest ('lungs of the Earth'), and the Grand Canyon.", "link": "english/class8/sst-ch8-world-geography-some-glimpses.html", "isLive": true},
+      {"id": "c8_sst_9", "medium": "english", "classNum": 8, "subject": "Social Science", "chapter": "Chapter 9", "title": "India's Long Road to Independence", "desc": "The 90-year journey from the 1857 Great Rebellion to 15 August 1947: Rise of Indian National Congress, Moderates vs Nationalists, Partition of Bengal & Swadeshi, Armed Revolutionaries (Bhagat Singh, Azad, Bagha Jatin), Champaran to Non-Cooperation, Dandi Salt March & Civil Disobedience, Poona Pact, Quit India Movement, Netaji's INA, and Partition.", "link": "english/class8/sst-ch9-indias-long-road-to-independence.html", "isLive": true},
+      {"id": "c8_sst_10", "medium": "english", "classNum": 8, "subject": "Social Science", "chapter": "Chapter 10", "title": "A Journey Through Indian Architecture", "desc": "5,000 years of design, engineering, and sacred geometry: Harappan urban planning (Dholavira & Mohenjo-daro), Buddhist stupas (Sanchi), rock-cut wonders (Ellora Cave 10 chaitya & Kailasha monolith), hydraulic engineering (Shringaverpur & Rani ki Vav stepwell), Nagara vs Dravida temples (Lingaraja, Brihadiswara, Dilwara, Bishnupur), mosques (Ahmedabad & Delhi Jama Masjid, Sidi Saiyyed Jali), forts and palaces (Mehrangarh, Agra, Orchha, Mysuru), Mughal Charbagh garden tombs (Humayun's Tomb, Taj Mahal), vernacular havelis, and Indo-Saracenic colonial heritage.", "link": "english/class8/sst-ch10-a-journey-through-indian-architecture.html", "isLive": true},
+      {"id": "c9_sst_1", "medium": "english", "classNum": 9, "subject": "Social Science", "chapter": "Chapter 1", "title": "Understanding Social Science", "desc": "Systematic study of human society, Pañchamahābhūtas, historical sources & interdisciplinary inquiry.", "link": "english/class9/sst-ch1-understanding-social-science.html", "isLive": true},
+      {"id": "c9_sst_2", "medium": "english", "classNum": 9, "subject": "Social Science", "chapter": "Chapter 2", "title": "Shaping of the Earth’s Surface", "desc": "Earth interior, plate tectonics, earthquakes, volcanoes & gradation landforms (fluvial, glacial, aeolian, karst).", "link": "english/class9/sst-ch2-shaping-of-the-earths-surface.html", "isLive": true},
+      {"id": "c9_sst_3", "medium": "english", "classNum": 9, "subject": "Social Science", "chapter": "Chapter 3", "title": "Atmosphere and Climate", "desc": "Atmospheric layers, global pressure belts, Indian monsoon mechanism & 10-station climatic data analysis.", "link": "english/class9/sst-ch3-atmosphere-and-climate.html", "isLive": true},
+      {"id": "c9_sst_4", "medium": "english", "classNum": 9, "subject": "Social Science", "chapter": "Chapter 4", "title": "Early Humans and Beginning of Civilisation", "desc": "Palaeolithic to Neolithic transition, Mehrgarh, Harappan urbanism & comparative Bronze Age civilisations.", "link": "english/class9/sst-ch4-early-humans-and-beginning-of-civilisation.html", "isLive": true},
+      {"id": "c9_sst_5", "medium": "english", "classNum": 9, "subject": "Social Science", "chapter": "Chapter 5", "title": "State and Society up to 1000 CE", "desc": "Vedic polity, Kautilya’s Saptāṅga statecraft, Ashoka’s Dhamma, Varṇa-Jāti, Gurukulas & trade guilds.", "link": "english/class9/sst-ch5-state-and-society-up-to-1000-ce.html", "isLive": true},
+      {"id": "c9_sst_6", "medium": "english", "classNum": 9, "subject": "Social Science", "chapter": "Chapter 6", "title": "Democracy", "desc": "Vedic roots, 5 pillars, separation of powers, 3-tier federalism, grassroots case studies & youth civic roles.", "link": "english/class9/sst-ch6-democracy.html", "isLive": true},
+      {"id": "c9_sst_7", "medium": "english", "classNum": 9, "subject": "Social Science", "chapter": "Chapter 7", "title": "Elections", "desc": "FPTP vs PR, ECI machinery, 10-step poll workflow, Model Code of Conduct, party criteria & inclusive tech.", "link": "english/class9/sst-ch7-elections.html", "isLive": true},
+      {"id": "c9_sst_8", "medium": "english", "classNum": 9, "subject": "Social Science", "chapter": "Chapter 8", "title": "Building Blocks in Economics: The Problem of Choice", "desc": "Scarcity, Opportunity Cost, PPC curve, 4 factors of production, 3 central questions & economic systems.", "link": "english/class9/sst-ch8-building-blocks-in-economics.html", "isLive": true},
+      {"id": "c9_sst_9", "medium": "english", "classNum": 9, "subject": "Social Science", "chapter": "Chapter 9", "title": "The Price Puzzle: What Drives the Market", "desc": "Laws of Demand and Supply, Market Equilibrium, Price Ceiling, Price Floor/MSP, Taxes & Dynamic Pricing.", "link": "english/class9/sst-ch9-the-price-puzzle-what-drives-the-market.html", "isLive": true},
+      {"id": "c6_sst_1_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୧", "title": "ପୃଥିବୀରେ ସ୍ଥାନ ନିରୂପଣ (Locating Places on the Earth)", "desc": "ଅକ୍ଷାଂଶ, ଦ୍ରାଘିମା, ସ୍କେଲ୍, ପ୍ରତୀକ, ଉଜ୍ଜୟିନୀ ମଧ୍ୟରେଖା, IST ଓ ଆନ୍ତର୍ଜାତୀୟ ତାରିଖ ରେଖା।", "link": "odia/class6/sst-ch1-locating-places-on-the-earth.html", "isLive": true},
+      {"id": "c6_sst_2_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୨", "title": "ମହାସାଗର ଓ ମହାଦେଶ (Oceans and Continents)", "desc": "୫ଟି ମହାସାଗର, ୭ଟି ମହାଦେଶ, ୨୦୦୪ ସୁନାମି, ଦ୍ୱୀପପୁଞ୍ଜ, ଆଣ୍ଟାର୍କଟିକା ଗବେଷଣା କେନ୍ଦ୍ର ଓ ଜଳଚକ୍ର।", "link": "odia/class6/sst-ch2-oceans-and-continents.html", "isLive": true},
+      {"id": "c6_sst_3_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୩", "title": "ଭୂରୂପ ଓ ଜୀବନଧାରଣ (Landforms and Life)", "desc": "ପର୍ବତ, ମାଳଭୂମି, ସମତଳ ଭୂମି, ମରୁଭୂମି, ପବିତ୍ର ସଙ୍ଗମ (ପଞ୍ଚ ପ୍ରୟାଗ) ଓ ୫ଟି ସଙ୍ଗମ ତିନାଇସ୍।", "link": "odia/class6/sst-ch3-landforms-and-life.html", "isLive": true},
+      {"id": "c6_sst_4_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୪", "title": "ସମୟରେଖା ଓ ଐତିହାସିକ ଉତ୍ସ (Timeline and Historical Sources)", "desc": "କାଳାନୁକ୍ରମ, ଖ୍ରୀଷ୍ଟପୂର୍ବ (BCE) ଓ ଖ୍ରୀଷ୍ଟାବ୍ଦ (CE), ପ୍ରତ୍ନତତ୍ତ୍ୱ, ମୁଦ୍ରାତାତ୍ତ୍ୱିକ ବିଜ୍ଞାନ, ଅଭିଲେଖ ଓ ପାଣ୍ଡୁଲିପି।", "link": "odia/class6/sst-ch4-timeline-and-historical-sources.html", "isLive": true},
+      {"id": "c6_sst_5_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୫", "title": "ଭାରତ — ଯାହାକି ଭାରତବର୍ଷ (India, That Is Bharat)", "desc": "ନାମକରଣର ଇତିହାସ, ଋଗ୍‌ବୈଦିକ ମୂଳଦୁଆ, ସମ୍ବିଧାନର ଧାରା ୧ ଓ ପ୍ରାକୃତିକ ସୀମାନ୍ତ।", "link": "odia/class6/sst-ch5-india-that-is-bharat.html", "isLive": true},
+      {"id": "c6_sst_6_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୬", "title": "ଭାରତୀୟ ସଭ୍ୟତାର ପ୍ରାରମ୍ଭ (The Beginnings of Indian Civilisation)", "desc": "ହରପ୍ପା/ସିନ୍ଧୁ-ସରସ୍ୱତୀ ସଭ୍ୟତା, ନଗର ନିର୍ମାଣ ଯୋଜନା, ମହେଞ୍ଜୋଦାରୋର ବୃହତ ସ୍ନାନାଗାର, ଶିଳ୍ପ, ବାଣିଜ୍ୟ, ଲିପି ଓ ପତନର କାରଣ।", "link": "odia/class6/sst-ch6-the-beginnings-of-indian-civilisation.html", "isLive": true},
+      {"id": "c6_sst_7_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୭", "title": "ଭାରତର ସାଂସ୍କୃତିକ ମୂଳଦୁଆ (India's Cultural Roots)", "desc": "ବେଦ, ଉପନିଷଦ, ରାମାୟଣ ଓ ମହାଭାରତ, ଭଗବଦ୍ ଗୀତାର ନିଷ୍କାମ କର୍ମ, ବୌଦ୍ଧ ଧର୍ମ, ଜୈନ ଧର୍ମ, ଇଲୋରା ଓ ଜନଜାତି ପରମ୍ପରା।", "link": "odia/class6/sst-ch7-indias-cultural-roots.html", "isLive": true},
+      {"id": "c6_sst_8_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୮", "title": "ବିବିଧତା ମଧ୍ୟରେ ଏକତା, ବା 'ଏକ ମଧ୍ୟରେ ଅନେକ' (Unity in Diversity, or 'Many in the One')", "desc": "ଖାଦ୍ୟ, ମସଲା ଡବା, ଶାଢ଼ୀ ଓ ଧୋତି, ମକର ସଂକ୍ରାନ୍ତି/ପୋଙ୍ଗଲ୍/ବିହୁ, ପଞ୍ଚତନ୍ତ୍ର ଓ ଆଞ୍ଚଳିକ ରାମାୟଣ।", "link": "odia/class6/sst-ch8-unity-in-diversity-or-many-in-the-one.html", "isLive": true},
+      {"id": "c6_sst_9_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୯", "title": "ପରିବାର ଓ ସମୁଦାୟ (Family and Community)", "desc": "ଯୁଗ୍ମ ଓ ଏକକ ପରିବାର, ପାରିବାରିକ ମୂଲ୍ୟବୋଧ, ଲିଙ୍ଗଗତ ସମାନତା, ହଲମା ପରମ୍ପରା, କମଲ ପରମାର୍ ଓ ସାମାଜିକ ସହଯୋଗ।", "link": "odia/class6/sst-ch9-family-and-community.html", "isLive": true},
+      {"id": "c6_sst_10_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୧୦", "title": "ତୃଣମୂଳ ଗଣତନ୍ତ୍ର — ଭାଗ ୧: ଶାସନ ବ୍ୟବସ୍ଥା (Grassroots Democracy — Part 1: Governance)", "desc": "ଗଣତନ୍ତ୍ରର ଅର୍ଥ, ସରକାରଙ୍କ ୩ଟି ଅଙ୍ଗ (ବିଧାନପାଳିକା, କାର୍ଯ୍ୟପାଳିକା, ନ୍ୟାୟପାଳିକା), ୩ଟି ସ୍ତର ଓ ସାର୍ବଜନୀନ ସାବାଳକ ମତାଧିକାର।", "link": "odia/class6/sst-ch10-grassroots-democracy-part-1-governance.html", "isLive": true},
+      {"id": "c6_sst_11_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୧୧", "title": "ତୃଣମୂଳ ଗଣତନ୍ତ୍ର — ଭାଗ ୨: ଗ୍ରାମାଞ୍ଚଳ ସ୍ଥାନୀୟ ଶାସନ (Grassroots Democracy — Part 2: Rural)", "desc": "ପଞ୍ଚାୟତିରାଜ, ଗ୍ରାମ ସଭା, ସରପଞ୍ଚ, ୩ଟି ସ୍ତର, ପଞ୍ଚାୟତ ସଚିବ, ପଟୱାରୀ, ମହିଳା ସଂରକ୍ଷଣ ଓ ବାଳ ପଞ୍ଚାୟତ।", "link": "odia/class6/sst-ch11-grassroots-democracy-part-2-local-government-in-rural-areas.html", "isLive": true},
+      {"id": "c6_sst_12_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୧୨", "title": "ତୃଣମୂଳ ଗଣତନ୍ତ୍ର — ଭାଗ ୩: ସହରାଞ୍ଚଳ ସ୍ଥାନୀୟ ଶାସନ (Grassroots Democracy — Part 3: Urban)", "desc": "ମହାନଗର ନିଗମ, ପୌରପାଳିକା, ନଗର ପଞ୍ଚାୟତ, ମେୟର, ୱାର୍ଡ଼ କାଉନସିଲର୍, ଇନ୍ଦୋର ମଡେଲ୍ ଓ ପୌର ଆୟର ଉତ୍ସ।", "link": "odia/class6/sst-ch12-grassroots-democracy-part-3-local-government-in-urban-areas.html", "isLive": true},
+      {"id": "c6_sst_13_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୧୩", "title": "କାର୍ଯ୍ୟର ମୂଲ୍ୟ (The Value of Work)", "desc": "ଅର୍ଥନୈତିକ ବନାମ ଅଣ-ଅର୍ଥନୈତିକ କାର୍ଯ୍ୟ, ଘରୋଇ ଯତ୍ନ ଶ୍ରମ, ଶ୍ରମର ମର୍ଯ୍ୟାଦା, ପାରିଶ୍ରମିକ ଓ ସେବା।", "link": "odia/class6/sst-ch13-the-value-of-work.html", "isLive": true},
+      {"id": "c6_sst_14_odia", "medium": "odia", "classNum": 6, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ ୧୪", "title": "ଆମ ଚାରିପାଖର ଅର୍ଥନୈତିକ କାର୍ଯ୍ୟକଳାପ (Economic Activities Around Us)", "desc": "ଅର୍ଥନୀତିର ୩ଟି କ୍ଷେତ୍ର (ପ୍ରାଥମିକ, ମାଧ୍ୟମିକ, ତୃତୀୟକ/ସେବା), ପାରସ୍ପରିକ ନିର୍ଭରଶୀଳତା, ଆମୁଲ୍ ଓ ଓମ୍‌ଫେଡ୍ ସମବାୟ ଏବଂ ପାଠ୍ୟପୁସ୍ତକ ପ୍ରସ୍ତୁତି।", "link": "odia/class6/sst-ch14-economic-activities-around-us.html", "isLive": true},
+      {"id": "c6_sci_1_odia", "medium": "odia", "classNum": 6, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ ୧", "title": "ବିଜ୍ଞାନର ଅଦ୍ଭୁତ ଜଗତ", "desc": "କୌତୂହଳ, ବୈଜ୍ଞାନିକ ଅନୁସନ୍ଧାନର ୫ଟି ସୋପାନ, ପ୍ରକୃତିର ନିୟମ ଓ ପରୀକ୍ଷଣ।", "link": "odia/class6/sci-ch1-the-wonderful-world-of-science.html", "isLive": true},
+      {"id": "c6_sci_2_odia", "medium": "odia", "classNum": 6, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ ୨", "title": "ଜୀବଜଗତରେ ବିବିଧତା", "desc": "ଉଦ୍ଭିଦ ଓ ପ୍ରାଣୀ ବର୍ଗୀକରଣ, ମୂଳତନ୍ତ୍ର, ପତ୍ରଶିରାବିନ୍ୟାସ, ଅଭିଯୋଜନ ଓ ପବିତ୍ର ଜଙ୍ଗଲ।", "link": "odia/class6/sci-ch2-diversity-in-the-living-world.html", "isLive": true},
+      {"id": "c6_sci_3_odia", "medium": "odia", "classNum": 6, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ ୩", "title": "ସୁଚିନ୍ତିତ ଖାଦ୍ୟ: ସୁସ୍ଥ ଶରୀରର ମାର୍ଗ", "desc": "ପୋଷକ ତତ୍ତ୍ୱ, ଷ୍ଟାର୍ଚ-ଫ୍ୟାଟ୍-ପ୍ରୋଟିନ୍ ପରୀକ୍ଷା, ଅପପୁଷ୍ଟି ରୋଗ ଓ ମିଲେଟ୍ସ (ଶ୍ରୀଅନ୍ନ)।", "link": "odia/class6/sci-ch3-mindful-eating-a-path-to-a-healthy-body.html", "isLive": true},
+      {"id": "c6_sci_4_odia", "medium": "odia", "classNum": 6, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ ୪", "title": "ଚୁମ୍ବକର ଅନୁସନ୍ଧାନ", "desc": "ଚୁମ୍ବକୀୟ ମେରୁ, ଆକର୍ଷଣ-ବିକର୍ଷଣ ନିୟମ, ପୃଥିବୀର ଚୁମ୍ବକତ୍ୱ, କମ୍ପାସ୍ ଓ ମ୍ୟାଗଲେଭ୍।", "link": "odia/class6/sci-ch4-exploring-magnets.html", "isLive": true},
+      {"id": "c6_sci_5_odia", "medium": "odia", "classNum": 6, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ ୫", "title": "ଦୈର୍ଘ୍ୟ ମାପ ଓ ଗତି", "desc": "SI ମାନକ ଏକକ (ମିଟର), ପାରାଲାକ୍ସ ତ୍ରୁଟି, ବକ୍ରରେଖା ମାପ, ସରଳରୈଖିକ, ବୃତ୍ତାକାର ଓ ଦୋଳନ ଗତି।", "link": "odia/class6/sci-ch5-measurement-of-length-and-motion.html", "isLive": true},
+      {"id": "c6_sci_6_odia", "medium": "odia", "classNum": 6, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ ୬", "title": "ଆମ ଚାରିପାଖର ପଦାର୍ଥ", "desc": "ବସ୍ତୁ ବନାମ ପଦାର୍ଥ, ଉଜ୍ଜ୍ୱଳତା, କଠିନତା, ସ୍ୱଚ୍ଛତା, ଦ୍ରାବ୍ୟତା, ଘନତା ଓ ଭାସମାନତା।", "link": "odia/class6/sci-ch6-materials-around-us.html", "isLive": true},
+      {"id": "c6_sci_7_odia", "medium": "odia", "classNum": 6, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ ୭", "title": "ତାପମାତ୍ରା ଓ ଏହାର ମାପ", "desc": "ତାପମାତ୍ରା, ସେଲସିୟସ୍ ଓ ଫାରେନହାଇଟ୍, ଡାକ୍ତରୀ ବନାମ ପ୍ରୟୋଗଶାଳା ଥର୍ମୋମିଟର ଓ କିଙ୍କ୍।", "link": "odia/class6/sci-ch7-temperature-and-its-measurement.html", "isLive": true},
+      {"id": "c6_sci_8_odia", "medium": "odia", "classNum": 6, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ ୮", "title": "ଜଳର ଅବସ୍ଥା ମଧ୍ୟରେ ଏକ ଯାତ୍ରା", "desc": "ଜଳର ତିନୋଟି ଅବସ୍ଥା, ବାଷ୍ପୀଭବନ, ଘନୀଭବନ, ବାଷ୍ପୀଭବନ ଦ୍ୱାରା ଶୀତଳତା ଓ ଜଳଚକ୍ର।", "link": "odia/class6/sci-ch8-a-journey-through-states-of-water.html", "isLive": true},
+      {"id": "c6_sci_9_odia", "medium": "odia", "classNum": 6, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ ୯", "title": "ଦୈନନ୍ଦିନ ଜୀବନରେ ପୃଥକୀକରଣ ପଦ୍ଧତି", "desc": "ହାତବଛା, ବେଙ୍ଗଳା, କୁଲାରେ ଉଡ଼ାଇବା, ଅବସାଦନ, ପରିଶ୍ରବଣ, ପରିସ୍ରବଣ ଓ ବାଷ୍ପୀଭବନ।", "link": "odia/class6/sci-ch9-methods-of-separation-in-everyday-life.html", "isLive": true},
+      {"id": "c6_sci_10_odia", "medium": "odia", "classNum": 6, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ ୧୦", "title": "ଜୀବମାନଙ୍କ ବୈଶିଷ୍ଟ୍ୟ ଅନୁସନ୍ଧାନ", "desc": "ଜୀବମାନଙ୍କ ଲକ୍ଷଣ, ମଞ୍ଜି ଗଜାହେବା, ଉଦ୍ଦୀପନା ପ୍ରତି ପ୍ରତିକ୍ରିୟା ଓ ରୂପାନ୍ତରଣ।", "link": "odia/class6/sci-ch10-living-creatures-exploring-their-characteristics.html", "isLive": true},
+      {"id": "c6_sci_11_odia", "medium": "odia", "classNum": 6, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ ୧୧", "title": "ପ୍ରକୃତିର ଅମୂଲ୍ୟ ସମ୍ପଦ", "desc": "ନବୀକରଣଯୋଗ୍ୟ ଓ ଅନବୀକରଣଯୋଗ୍ୟ ସମ୍ପଦ, ବାୟୁ, ଜଳ, ମୃତ୍ତିକା, ଜଙ୍ଗଲ ଓ 3R ନୀତି।", "link": "odia/class6/sci-ch11-natures-treasures.html", "isLive": true},
+      {"id": "c6_sci_12_odia", "medium": "odia", "classNum": 6, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ ୧୨", "title": "ପୃଥିବୀ ବାହାରେ", "desc": "ସୌରମଣ୍ଡଳ, ୮ଟି ଗ୍ରହ, ନକ୍ଷତ୍ରମଣ୍ଡଳ, ଧ୍ରୁବତାରା, ହାନ୍ଲେ ଅବଜରଭେଟୋରୀ ଓ ଚନ୍ଦ୍ରୟାନ।", "link": "odia/class6/sci-ch12-beyond-earth.html", "isLive": true},
+      {"id": "c6_math_1_odia", "medium": "odia", "classNum": 6, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୧", "title": "ଗଣିତରେ ସଂରଚନା ଓ ପାଟର୍ଣ୍ଣ (Patterns in Mathematics)", "desc": "ଦୃଶ୍ୟମାନ ଶୃଙ୍ଖଳା, ସଂଖ୍ୟା ଶ୍ରେଣୀ (ଯୁଗ୍ମ, ଅଯୁଗ୍ମ, ବର୍ଗ, ତ୍ରିଭୁଜ), ବୀଜଗାଣିତିକ ନିୟମ ଓ ସଂପର୍କ।", "link": "odia/class6/math-ch1-patterns-in-mathematics.html", "isLive": true},
+      {"id": "c6_math_2_odia", "medium": "odia", "classNum": 6, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୨", "title": "ରେଖା ଓ କୋଣ (Lines and Angles)", "desc": "ପ୍ରୋଟ୍ରାକ୍ଟର ବ୍ୟବହାର, ସୂକ୍ଷ୍ମକୋଣ, ସମକୋଣ, ସ୍ଥୂଳକୋଣ, ପ୍ରବୃଦ୍ଧ କୋଣ ଓ ଜ୍ୟାମିତିକ ଧର୍ମ।", "link": "odia/class6/math-ch2-lines-and-angles.html", "isLive": true},
+      {"id": "c6_math_3_odia", "medium": "odia", "classNum": 6, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୩", "title": "ସଂଖ୍ୟା ଖେଳ (Number Play)", "desc": "ସୁପରସେଲ୍, ପାଲିଣ୍ଡ୍ରୋମ୍ ସଂଖ୍ୟା, କାପ୍ରେକର ଧ୍ରୁବକ ୬୧୭୪, କୋଲାଟ୍ଜ୍ ଅନୁମାନ ଓ ୨୧-କାଉଣ୍ଟର ଖେଳ।", "link": "odia/class6/math-ch3-number-play.html", "isLive": true},
+      {"id": "c6_math_4_odia", "medium": "odia", "classNum": 6, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୪", "title": "ତଥ୍ୟ ପରିଚାଳନା ଓ ଉପସ୍ଥାପନ (Data Handling and Presentation)", "desc": "ଟାଲି ଚିହ୍ନ, ବାରମ୍ବାରତା ସାରଣୀ, ଚିତ୍ରଲେଖ (ପିକ୍ଟୋଗ୍ରାଫ୍) ଓ ସ୍ତମ୍ଭଲେଖ (ବାର୍ ଗ୍ରାଫ୍)।", "link": "odia/class6/math-ch4-data-handling-and-presentation.html", "isLive": true},
+      {"id": "c6_math_5_odia", "medium": "odia", "classNum": 6, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୫", "title": "ପ୍ରାଇମ୍ ଟାଇମ୍: ମୌଳିକ ସଂଖ୍ୟା (Prime Time)", "desc": "ଗୁଣନୀୟକ, ଗୁଣିତକ, ମୌଳିକ ସଂଖ୍ୟା, ଇରାଟୋସ୍ଥିନିସଙ୍କ ଛଣା, ମୌଳିକ ଗୁଣନୀୟକ ବିଶ୍ଳେଷଣ, ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ.।", "link": "odia/class6/math-ch5-prime-time.html", "isLive": true},
+      {"id": "c6_math_6_odia", "medium": "odia", "classNum": 6, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୬", "title": "ପରିସୀମା ଓ କ୍ଷେତ୍ରଫଳ (Perimeter and Area)", "desc": "ଗ୍ରିଡ୍ ଗଣନା, ଆୟତକ୍ଷେତ୍ର ଓ ବର୍ଗକ୍ଷେତ୍ରର ପରିସୀମା ଏବଂ କ୍ଷେତ୍ରଫଳ ସୂତ୍ର, ସଂଯୁକ୍ତ ଚିତ୍ରର ବିଭାଜନ।", "link": "odia/class6/math-ch6-perimeter-and-area.html", "isLive": true},
+      {"id": "c6_math_7_odia", "medium": "odia", "classNum": 6, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୭", "title": "ଭଗ୍ନାଂଶ (Fractions)", "desc": "ଏକକ ଭଗ୍ନାଂଶ, ସମଭାଗ, ପ୍ରକୃତ, ଅପ୍ରକୃତ ଓ ମିଶ୍ର ଭଗ୍ନାଂଶ, ସଂଖ୍ୟାରେଖାରେ ସ୍ଥାପନ, ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ଯୋଗ ଓ ବିୟୋଗ ନିୟମ।", "link": "odia/class6/math-ch7-fractions.html", "isLive": true},
+      {"id": "c6_math_8_odia", "medium": "odia", "classNum": 6, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୮", "title": "ଜ୍ୟାମିତିକ ଅଙ୍କନ ସହିତ ଖେଳ (Playing with Constructions)", "desc": "କମ୍ପାସ୍ ଓ ସ୍କେଲ୍ ସାହାଯ୍ୟରେ ବୃତ୍ତ, ଆୟତକ୍ଷେତ୍ର, କୋଣ ଦ୍ୱିଖଣ୍ଡକ, ଲମ୍ବ ସମଦ୍ୱିଖଣ୍ଡକ ଓ ରମ୍ବସ୍ ଅଙ୍କନ।", "link": "odia/class6/math-ch8-playing-with-constructions.html", "isLive": true},
+      {"id": "c6_math_9_odia", "medium": "odia", "classNum": 6, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୯", "title": "ପ୍ରତିସାମ୍ୟ (Symmetry)", "desc": "ରୈଖିକ ପ୍ରତିସାମ୍ୟ, କାଗଜ ଭାଙ୍ଗିବା ପଦ୍ଧତି, ସୁଷମ ବହୁଭୁଜ ନିୟମ, ଘୂର୍ଣ୍ଣନ ପ୍ରତିସାମ୍ୟ କ୍ରମ ଓ କୋଣ।", "link": "odia/class6/math-ch9-symmetry.html", "isLive": true},
+      {"id": "c6_math_10_odia", "medium": "odia", "classNum": 6, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୧୦", "title": "ଶୂନର ଅନ୍ୟ ପାର୍ଶ୍ୱ: ପୂର୍ଣ୍ଣସଂଖ୍ୟା (The Other Side of Zero)", "desc": "ପୂର୍ଣ୍ଣସଂଖ୍ୟା (Integers), ଲିଫ୍ଟ୍ ଓ ସଂଖ୍ୟାରେଖା ଗତିବିଧି, ଟୋକନ୍ ମଡେଲ୍, ଶୂନ ଯୋଡ଼ି ଓ ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ଗାଣିତିକ ନିୟମ।", "link": "odia/class6/math-ch10-the-other-side-of-zero.html", "isLive": true},
+      {"id": "c6_eng_1_odia", "medium": "odia", "classNum": 6, "subject": "ଇଂରାଜୀ (English)", "chapter": "Unit 1", "title": "Fables and Folk Tales", "desc": "A Bottle of Dew, The Raven and the Fox, Rama to the Rescue with Grammar.", "link": "english/class6/eng-unit1-fables-and-folk-tales.html", "isLive": true},
+      {"id": "c6_eng_2_odia", "medium": "odia", "classNum": 6, "subject": "ଇଂରାଜୀ (English)", "chapter": "Unit 2", "title": "Friendship", "desc": "The Unlikely Best Friends, A Friend's Prayer, The Chair, Odia meanings & Past Tense grammar.", "link": "english/class6/eng-unit2-friendship.html", "isLive": true},
+      {"id": "c6_eng_3_odia", "medium": "odia", "classNum": 6, "subject": "ଇଂରାଜୀ (English)", "chapter": "Unit 3", "title": "Nurturing Nature", "desc": "Neem Baba, What a Bird Thought, Spices That Heal Us, Odia meanings & Modals.", "link": "english/class6/eng-unit3-nurturing-nature.html", "isLive": true},
+      {"id": "c6_eng_4_odia", "medium": "odia", "classNum": 6, "subject": "ଇଂରାଜୀ (English)", "chapter": "Unit 4", "title": "Sports and Wellness", "desc": "Change of Heart, The Winner, Yoga—A Way of Life, Odia meanings & grammar.", "link": "english/class6/eng-unit4-sports-and-wellness.html", "isLive": true},
+      {"id": "c6_eng_5_odia", "medium": "odia", "classNum": 6, "subject": "ଇଂରାଜୀ (English)", "chapter": "Unit 5", "title": "Culture and Tradition", "desc": "Hamara Bharat, The Kites, Ila Sachani, National War Memorial, Odia meanings & quantifiers.", "link": "english/class6/eng-unit5-culture-and-tradition.html", "isLive": true},
+      {"id": "c7_sst_1_odia", "medium": "odia", "classNum": 7, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ 1", "title": "ଭାରତର ଭୌଗୋଳିକ ବିବିଧତା (Geographical Diversity of India)", "desc": "ହିମାଳୟ (ହିମାଦ୍ରି, ହିମାଚଳ, ଶିବାଲିକ୍), ଉତ୍ତର ସମତଳ ଭୂମି, ଥର ମରୁଭୂମି, ଉପଦ୍ୱୀପୀୟ ମାଳଭୂମି, ଘାଟ, ଉପକୂଳ ଓ ଦ୍ୱୀପପୁଞ୍ଜ।", "link": "odia/class7/sst-ch1-geographical-diversity-of-india.html", "isLive": true},
+      {"id": "c7_sst_2_odia", "medium": "odia", "classNum": 7, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ 2", "title": "ପାଣିପାଗକୁ ବୁଝିବା (Understanding the Weather)", "desc": "ଟ୍ରୋପୋସ୍ଫିୟର, ତାପମାତ୍ରା, ବୃଷ୍ଟିପାତ, ବାୟୁମଣ୍ଡଳୀୟ ଚାପ, ପବନ ପ୍ରଣାଳୀ, ଆର୍ଦ୍ରତା, ଷ୍ଟିଭେନସନ୍ ସ୍କ୍ରିନ୍ ଓ IMD।", "link": "odia/class7/sst-ch2-understanding-the-weather.html", "isLive": true},
+      {"id": "c7_sst_3_odia", "medium": "odia", "classNum": 7, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ 3", "title": "ଭାରତର ଜଳବାୟୁ (Climates of India)", "desc": "ଭାରତର ଷଡ଼ଋତୁ, ଜଳବାୟୁ ନିୟନ୍ତ୍ରକ ୫ଟି କାରକ, ଦକ୍ଷିଣ-ପଶ୍ଚିମ ଓ ଉତ୍ତର-ପୂର୍ବ ମୌସୁମୀ, ଅମଳ ପର୍ବ ଓ ଜଳବାୟୁ ପରିବର୍ତ୍ତନ।", "link": "odia/class7/sst-ch3-climates-of-india.html", "isLive": true},
+      {"id": "c7_sst_4_odia", "medium": "odia", "classNum": 7, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ 4", "title": "ନୂତନ ପ୍ରାରମ୍ଭ: ନଗର ଓ ରାଜ୍ୟ (New Beginnings: Cities and States)", "desc": "ଦ୍ୱିତୀୟ ନଗରୀକରଣ (ଖ୍ରୀ.ପୂ. ୬୦୦), ୧୬ ମହାଜନପଦ, ରାଜତନ୍ତ୍ର ବନାମ ଗଣସଂଘ, ଆହତ ମୁଦ୍ରା ଓ ବାଣିଜ୍ୟ ପଥ।", "link": "odia/class7/sst-ch4-new-beginnings-cities-and-states.html", "isLive": true},
+      {"id": "c7_sst_5_odia", "medium": "odia", "classNum": 7, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ 5", "title": "ସାମ୍ରାଜ୍ୟର ଉତ୍ଥାନ (The Rise of Empires)", "desc": "ମଗଧର ଉତ୍ଥାନ, ଚନ୍ଦ୍ରଗୁପ୍ତ ମୌର୍ଯ୍ୟ, କୌଟିଲ୍ୟଙ୍କ ସପ୍ତାଙ୍ଗ, କଳିଙ୍ଗ ଯୁଦ୍ଧ (୨୬୧ ଖ୍ରୀ.ପୂ.), ଅଶୋକଙ୍କ ଧର୍ମ ଓ ସାରନାଥ ସ୍ତମ୍ଭ।", "link": "odia/class7/sst-ch5-the-rise-of-empires.html", "isLive": true},
+      {"id": "c7_sst_6_odia", "medium": "odia", "classNum": 7, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ 6", "title": "ପୁନର୍ଗଠନର ଯୁଗ (The Age of Reorganisation)", "desc": "ମୌର୍ଯ୍ୟୋତ୍ତର ଯୁଗ: ଶୁଙ୍ଗ, କଳିଙ୍ଗର ଖାରବେଳ (ହାତୀଗୁମ୍ଫା), ସାତବାହନ, ତାମିଲ ସଙ୍ଗମ ଯୁଗ, କନିଷ୍କ ଓ ଗାନ୍ଧାର-ମଥୁରା ଶୈଳୀ।", "link": "odia/class7/sst-ch6-the-age-of-reorganisation.html", "isLive": true},
+      {"id": "c7_sst_7_odia", "medium": "odia", "classNum": 7, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ 7", "title": "ଗୁପ୍ତ ଯୁଗ: ଅକ୍ଳାନ୍ତ ସୃଜନଶୀଳତାର ଏକ ଯୁଗ (The Gupta Era)", "desc": "ସୁବର୍ଣ୍ଣ ଯୁଗ: ସମୁଦ୍ରଗୁପ୍ତ, ବିକ୍ରମାଦିତ୍ୟ, ପ୍ରଭାବତୀ ଗୁପ୍ତ, ଆର୍ଯ୍ୟଭଟ୍ଟଙ୍କ ବିଜ୍ଞାନ, କାଳିଦାସ ଓ ଲୌହ ସ୍ତମ୍ଭ।", "link": "odia/class7/sst-ch7-the-gupta-era-an-age-of-tireless-creativity.html", "isLive": true},
+      {"id": "c7_sst_8_odia", "medium": "odia", "classNum": 7, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ 8", "title": "ଭୂମି କିପରି ପବିତ୍ର ହୁଏ (How the Land Becomes Sacred)", "desc": "ପବିତ୍ର ଭୂଗୋଳ, ପଞ୍ଚମହାଭୂତ, ଚାରି ଧାମ, ୧୨ ଜ୍ୟୋତିର୍ଲିଙ୍ଗ, କୁମ୍ଭମେଳା, ପବିତ୍ର ବୃକ୍ଷ ଓ ଦେବଭୂମି ଜଙ୍ଗଲ (Sacred Groves)।", "link": "odia/class7/sst-ch8-how-the-land-becomes-sacred.html", "isLive": true},
+      {"id": "c7_sst_9_odia", "medium": "odia", "classNum": 7, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ 9", "title": "ଶାସକଙ୍କଠାରୁ ଶାସିତଙ୍କ ପର୍ଯ୍ୟନ୍ତ: ଶାସନ ବ୍ୟବସ୍ଥାର ପ୍ରକାରଭେଦ (From the Rulers to the Ruled: Types of Governments)", "desc": "ସରକାରଙ୍କ ୩ଟି ଅଙ୍ଗ, ଗଣତନ୍ତ୍ର ବନାମ ରାଜତନ୍ତ୍ର, ଚୋଳ ଉତ୍ତରମେରୁର କୁଡା ଓଲାଇ ମତଦାନ ପ୍ରଣାଳୀ ଓ ଏକଛତ୍ରବାଦ।", "link": "odia/class7/sst-ch9-from-the-rulers-to-the-ruled-types-of-governments.html", "isLive": true},
+      {"id": "c7_sst_10_odia", "medium": "odia", "classNum": 7, "subject": "ସାମାଜିକ ବିଜ୍ଞାନ (SST)", "chapter": "ଅଧ୍ୟାୟ 10", "title": "ଭାରତର ସମ୍ବିଧାନ: ଏକ ପରିଚୟ (The Constitution of India — An Introduction)", "desc": "ସମ୍ବିଧାନ ସଭା, ଡ. ଆମ୍ବେଦକର, ପ୍ରସ୍ତାବନାର ମୂଲ୍ୟବୋଧ, ୬ଟି ମୌଳିକ ଅଧିକାର, ନିର୍ଦ୍ଦେଶକ ନୀତି ଓ କର୍ତ୍ତବ୍ୟ।", "link": "odia/class7/sst-ch10-the-constitution-of-india-an-introduction.html", "isLive": true},
+      {"id": "c7_sci_1_odia", "medium": "odia", "classNum": 7, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ 1", "title": "ବିଜ୍ଞାନର ସତତ ବିକାଶଶୀଳ ଜଗତ", "desc": "ବିଜ୍ଞାନର ଗତିଶୀଳ ପ୍ରକୃତି, ବୈଜ୍ଞାନିକ ପଦ୍ଧତିର ୫ଟି ସୋପାନ, ପ୍ରଜାପତି ଓ କାଗଜ ଉଡ଼ାଜାହାଜ ଏବଂ ବିବିଧ ଚିନ୍ତନ।", "link": "odia/class7/sci-ch1-the-ever-evolving-world-of-science.html", "isLive": true},
+      {"id": "c7_sci_2_odia", "medium": "odia", "classNum": 7, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ 2", "title": "ପଦାର୍ଥ ଅନୁସନ୍ଧାନ: ଅମ୍ଳୀୟ, କ୍ଷାରକୀୟ ଓ ପ୍ରଶମିତ", "desc": "ପ୍ରାକୃତିକ ସୂଚକ (ଲିଟମସ୍, ହଳଦୀ, ମନ୍ଦାର ଫୁଲ), ଜୈବିକ ଅମ୍ଳ, କ୍ଷାରକ ଓ ଦୈନନ୍ଦିନ ଜୀବନରେ ପ୍ରଶମନ।", "link": "odia/class7/sci-ch2-exploring-substances-acidic-basic-and-neutral.html", "isLive": true},
+      {"id": "c7_sci_3_odia", "medium": "odia", "classNum": 7, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ 3", "title": "ବିଦ୍ୟୁତ୍: ପରିପଥ ଓ ଏହାର ଉପାଦାନ", "desc": "ବୈଦ୍ୟୁତିକ ସେଲ୍, ବ୍ୟାଟେରୀ ସଂଯୋଗ, ଟଙ୍ଗଷ୍ଟେନ୍ ବଲ୍ବ୍ ବନାମ LED, ମୁକ୍ତ ଓ ବନ୍ଦ ପରିପଥ ଏବଂ ପରିବାହୀ-ଅନ୍ତରକ।", "link": "odia/class7/sci-ch3-electricity-circuits-and-their-components.html", "isLive": true},
+      {"id": "c7_sci_4_odia", "medium": "odia", "classNum": 7, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ 4", "title": "ଧାତୁ ଓ ଅଧାତୁର ଜଗତ", "desc": "ନମନୀୟତା, ତନ୍ୟତା, ଧ୍ୱନିକତା, ଲୁହାର କଳଙ୍କି ପରୀକ୍ଷଣ, କ୍ଷାରକୀୟ ଓ ଅମ୍ଳୀୟ ଅକ୍ସାଇଡ୍ ଏବଂ ଗାଲଭାନାଇଜେସନ୍।", "link": "odia/class7/sci-ch4-the-world-of-metals-and-non-metals.html", "isLive": true},
+      {"id": "c7_sci_5_odia", "medium": "odia", "classNum": 7, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ 5", "title": "ଆମ ଚାରିପାଖର ପରିବର୍ତ୍ତନ: ଭୌତିକ ଓ ରାସାୟନିକ", "desc": "ଭୌତିକ ଓ ରାସାୟନିକ ପରିବର୍ତ୍ତନ, ପ୍ରତ୍ୟାବର୍ତ୍ତୀ ଓ ଅପ୍ରତ୍ୟାବର୍ତ୍ତୀ ପ୍ରକ୍ରିୟା, ତୁତୀଆ-ଲୁହା ପରୀକ୍ଷଣ ଏବଂ ଅଗ୍ନି ତ୍ରିଭୁଜ।", "link": "odia/class7/sci-ch5-changes-around-us-physical-and-chemical.html", "isLive": true},
+      {"id": "c7_sci_6_odia", "medium": "odia", "classNum": 7, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ 6", "title": "କୈଶୋର: ବୃଦ୍ଧି ଓ ପରିବର୍ତ୍ତନର ଏକ ସୋପାନ", "desc": "ଯୌବନାରମ୍ଭ, ଦ୍ୱିତୀୟକ ଯୌନ ଲକ୍ଷଣ, ଆଡାମସ୍ ଆପଲ୍ ବନାମ ଗଳଗଣ୍ଡ, ହରମୋନ୍ ପ୍ରଭାବ, ସନ୍ତୁଳିତ ପୁଷ୍ଟି ଓ ପରିମଳ।", "link": "odia/class7/sci-ch6-adolescence-a-stage-of-growth-and-change.html", "isLive": true},
+      {"id": "c7_sci_7_odia", "medium": "odia", "classNum": 7, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ 7", "title": "ପ୍ରକୃତିରେ ତାପ ସଞ୍ଚାଳନ", "desc": "ପରିବହନ, ପରିଚଳନ, ବିକିରଣ, ସମୁଦ୍ର ବାୟୁ ଓ ସ୍ଥଳ ବାୟୁ ଏବଂ ଥର୍ମୋସ୍ ଫ୍ଲାସ୍କ।", "link": "odia/class7/sci-ch7-heat-transfer-in-nature.html", "isLive": true},
+      {"id": "c7_sci_8_odia", "medium": "odia", "classNum": 7, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ 8", "title": "ସମୟ ଓ ଗତିର ମାପ", "desc": "ସରଳ ଦୋଳକ, ଦୋଳନ କାଳ, ବେଗ ଗଣନା ସୂତ୍ର, ସମାନ ବନାମ ଅସମାନ ଗତି ଏବଂ ସ୍ପିଡୋମିଟର-ଓଡୋମିଟର।", "link": "odia/class7/sci-ch8-measurement-of-time-and-motion.html", "isLive": true},
+      {"id": "c7_sci_9_odia", "medium": "odia", "classNum": 7, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ 9", "title": "ପ୍ରାଣୀମାନଙ୍କ ଜୈବିକ ପ୍ରକ୍ରିୟା: ପୋଷଣ ଓ ଶ୍ୱାସକ୍ରିୟା", "desc": "ପୋଷଣର ୫ଟି ସୋପାନ, ମାନବ ପରିପାକ ତନ୍ତ୍ର, ଭିଲାଇ, ଯକୃତ ପିତ୍ତରସ, ରୋମନ୍ଥକ ପ୍ରାଣୀ ଓ ଶ୍ୱାସତନ୍ତ୍ର।", "link": "odia/class7/sci-ch9-life-processes-in-animals.html", "isLive": true},
+      {"id": "c7_sci_10_odia", "medium": "odia", "classNum": 7, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ 10", "title": "ଉଦ୍ଭିଦମାନଙ୍କ ଜୈବିକ ପ୍ରକ୍ରିୟା: ପୋଷଣ, ପରିବହନ ଓ ଶ୍ୱାସକ୍ରିୟା", "desc": "ଆଲୋକଶ୍ଳେଷଣ, ସ୍ତୋମାଟା ଓ ରକ୍ଷୀ କୋଷ, ଜାଇଲେମ୍-ଫ୍ଲୋଏମ୍ ପରିବହନ, ୨୪-ଘଣ୍ଟା ଶ୍ୱାସକ୍ରିୟା ଏବଂ ପ୍ରକୃତିର ସନ୍ତୁଳନ।", "link": "odia/class7/sci-ch10-life-processes-in-plants.html", "isLive": true},
+      {"id": "c7_sci_11_odia", "medium": "odia", "classNum": 7, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ 11", "title": "ଆଲୋକ: ଛାଇ ଓ ପ୍ରତିଫଳନ", "desc": "ସରଳରୈଖିକ ଗତି, ସ୍ୱଚ୍ଛ-ଅସ୍ୱଚ୍ଛ ମାଧ୍ୟମ, ସୂଚୀରନ୍ଧ୍ର କ୍ୟାମେରା, ସମତଳ ଦର୍ପଣ, ପାର୍ଶ୍ୱୀୟ ପରିବର୍ତ୍ତନ ଓ ପେରିସ୍କୋପ୍।", "link": "odia/class7/sci-ch11-light-shadows-and-reflections.html", "isLive": true},
+      {"id": "c7_sci_12_odia", "medium": "odia", "classNum": 7, "subject": "ବିଜ୍ଞାନ (Science)", "chapter": "ଅଧ୍ୟାୟ 12", "title": "ପୃଥିବୀ, ଚନ୍ଦ୍ର ଓ ସୂର୍ଯ୍ୟ", "desc": "ଆବର୍ତ୍ତନ (ଦିନରାତି), ପରିକ୍ରମଣ ଓ ୨୩.୫° ଅକ୍ଷୀୟ ଢଳିବା ହେତୁ ଋତୁ ପରିବର୍ତ୍ତନ, ସୂର୍ଯ୍ୟପରାଗ ଓ ଚନ୍ଦ୍ରଗ୍ରହଣ।", "link": "odia/class7/sci-ch12-earth-moon-and-the-sun.html", "isLive": true},
+      {"id": "c7_math_1_odia", "medium": "odia", "classNum": 7, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୧", "title": "ଆମ ଚାରିପାଖର ବୃହତ୍ ସଂଖ୍ୟା (Large Numbers Around Us)", "desc": "ଲକ୍ଷ, କୋଟି, ଭାରତୀୟ ବନାମ ଆନ୍ତର୍ଜାତୀୟ ସ୍ଥାନମାନ ପ୍ରଣାଳୀ, ଚିଟ୍ଟିର ବୋତାମ ଯନ୍ତ୍ର, ଆସନ୍ନ ମାନ (Rounding off) ଓ ମାନସାଙ୍କ କୌଶଳ।", "link": "odia/class7/math-ch1-large-numbers-around-us.html", "isLive": true},
+      {"id": "c7_math_2_odia", "medium": "odia", "classNum": 7, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୨", "title": "ପାଟିଗାଣିତିକ ରାଶିମାଳା (Arithmetic Expressions)", "desc": "ରାଶିମାଳାର ଗଠନ, କ୍ରିୟା ସମ୍ପାଦନ କ୍ରମ (BODMAS/ବନ୍ଧନୀ ନିୟମ), ରାଶି ବୃକ୍ଷ (Expression Tree), ବଣ୍ଟନ ନିୟମ ଓ ବ୍ୟବହାରିକ ସମସ୍ୟା ସମାଧାନ।", "link": "odia/class7/math-ch2-arithmetic-expressions.html", "isLive": true},
+      {"id": "c7_math_3_odia", "medium": "odia", "classNum": 7, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୩", "title": "ବିନ୍ଦୁ ଆରପାରିର ଝଲକ: ଦଶମିକ (A Peek Beyond the Point)", "desc": "ଦଶମାଂଶ, ଶତାଂଶ, ସହସ୍ରାଂଶ, ଦଶମିକ ସ୍ଥାନମାନ ସାରଣୀ, ଏକକ ରୂପାନ୍ତର, ସଂଖ୍ୟାରେଖାରେ ସ୍ଥାପନ ଏବଂ ସ୍ତମ୍ଭ ଯୋଗ ଓ ବିୟୋଗ।", "link": "odia/class7/math-ch3-a-peek-beyond-the-point.html", "isLive": true},
+      {"id": "c7_math_4_odia", "medium": "odia", "classNum": 7, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୪", "title": "ଅକ୍ଷର-ସଂଖ୍ୟା ବ୍ୟବହାର କରି ରାଶିମାଳା (Expressions using Letter-Numbers)", "desc": "ବ୍ୟାପକ ସଂଖ୍ୟା ଭାବେ ଚଳରାଶି (Variables), ଦିଆସିଲି କାଠି ପାଟର୍ଣ୍ଣ, ପଦ ଓ ସହଗ, ସଦୃଶ ଓ ବିସଦୃଶ ପଦ ଏବଂ ରାଶିମାଳାର ସରଳୀକରଣ।", "link": "odia/class7/math-ch4-expressions-using-letter-numbers.html", "isLive": true},
+      {"id": "c7_math_5_odia", "medium": "odia", "classNum": 7, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୫", "title": "ସମାନ୍ତର ଓ ଛେଦୀ ସରଳରେଖା (Parallel and Intersecting Lines)", "desc": "ପ୍ରତୀପ କୋଣ, ରୈଖିକ ଯୁଗ୍ମ, ଛେଦକ, ଅନୁରୂପ କୋଣ (F-ଆକୃତି), ଏକାନ୍ତର କୋଣ (Z-ଆକୃତି) ଏବଂ ସମାନ୍ତରତା ପରୀକ୍ଷା।", "link": "odia/class7/math-ch5-parallel-and-intersecting-lines.html", "isLive": true},
+      {"id": "c7_math_6_odia", "medium": "odia", "classNum": 7, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୬", "title": "ସଂଖ୍ୟା ଖେଳ (Number Play)", "desc": "ଯୁଗ୍ମ-ଅଯୁଗ୍ମ ଗାଣିତିକ ନିୟମ, ୩×୩ କୁବେର ଯାଦୁକରୀ ବର୍ଗ (Magic Square), ବିରହାଙ୍କ-ଫିବୋନାଚି ଶ୍ରେଣୀ ଏବଂ ଗୁପ୍ତ ସଂଖ୍ୟା କୋଡ୍ (Cryptarithms)।", "link": "odia/class7/math-ch6-number-play.html", "isLive": true},
+      {"id": "c7_math_7_odia", "medium": "odia", "classNum": 7, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୭", "title": "ତିନୋଟି ପରସ୍ପରଛେଦୀ ସରଳରେଖାର କାହାଣୀ (A Tale of Three Intersecting Lines)", "desc": "ତ୍ରିଭୁଜ ଅସମତା ଧର୍ମ, କୋଣ ଯୋଗଫଳ ନିୟମ (୧୮୦°), ବହିଃସ୍ଥ କୋଣ, ମଧ୍ୟମା ଓ କେନ୍ଦ୍ରକ, ଉଚ୍ଚତା ଓ ଲମ୍ବକେନ୍ଦ୍ର ଏବଂ ପାଇଥାଗୋରାସ୍ ଧର୍ମ।", "link": "odia/class7/math-ch7-a-tale-of-three-intersecting-lines.html", "isLive": true},
+      {"id": "c7_math_8_odia", "medium": "odia", "classNum": 7, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୮", "title": "ଭଗ୍ନାଂଶ ସହିତ କାର୍ଯ୍ୟ (Working with Fractions)", "desc": "ଭଗ୍ନାଂଶର ଗୁଣନ ଓ ହରଣ, କ୍ଷେତ୍ରଫଳ ମଡେଲ୍, ବ୍ୟୁତ୍କ୍ରମ, ବ୍ରହ୍ମଗୁପ୍ତ ଓ ଶ୍ରୀଧରାଚାର୍ଯ୍ୟଙ୍କ ପ୍ରାଚୀନ ପାଟୀଗଣିତ ସମସ୍ୟା।", "link": "odia/class7/math-ch8-working-with-fractions.html", "isLive": true},
+      {"id": "c7_math_9_odia", "medium": "odia", "classNum": 7, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୯", "title": "ଜ୍ୟାମିତିକ ଯମଜ: ସର୍ବସମତା (Geometric Twins)", "desc": "ସର୍ବସମତାର ସଂଜ୍ଞା, ଅନୁରୂପତା, ବା-ବା-ବା (SSS), ବା-କୋ-ବା (SAS), କୋ-ବା-କୋ (ASA), ସ-କ-ବା (RHS) ଏବଂ ସମଦ୍ୱିବାହୁ ତ୍ରିଭୁଜ ଉପପାଦ୍ୟ।", "link": "odia/class7/math-ch9-geometric-twins.html", "isLive": true},
+      {"id": "c7_math_10_odia", "medium": "odia", "classNum": 7, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୧୦", "title": "ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଉପରେ ଗାଣିତିକ ପ୍ରକ୍ରିୟା (Operations with Integers)", "desc": "ପୂର୍ଣ୍ଣସଂଖ୍ୟା ଗୁଣନ ଓ ହରଣ, ବ୍ରହ୍ମଗୁପ୍ତଙ୍କ ପ୍ରାଚୀନ ସୂତ୍ର, ଶୂନ ଯୁଗ୍ମ, ବଣ୍ଟନ ନିୟମ ଏବଂ ବାସ୍ତବ ଜୀବନ ସମସ୍ୟା ସମାଧାନ।", "link": "odia/class7/math-ch10-operations-with-integers.html", "isLive": true},
+      {"id": "c7_math_11_odia", "medium": "odia", "classNum": 7, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୧୧", "title": "ସାଧାରଣ ସଂଯୋଗର ଅନୁସନ୍ଧାନ (Finding Common Ground - HCF & LCM)", "desc": "ଗ.ସା.ଗୁ. ଓ ଲ.ସା.ଗୁ., ମୌଳିକ ଉତ୍ପାଦକୀକରଣ, ସିଡ଼ି ପଦ୍ଧତି, ଗ.ସା.ଗୁ. × ଲ.ସା.ଗୁ. = a × b ଏବଂ ଆଚାର୍ଯ୍ୟ ମହାବୀରଙ୍କ ପ୍ରାଚୀନ ଭଗ୍ନାଂଶ।", "link": "odia/class7/math-ch11-finding-common-ground.html", "isLive": true},
+      {"id": "c7_math_12_odia", "medium": "odia", "classNum": 7, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୧୨", "title": "ବିନ୍ଦୁ ଆରପାରିର ଆଉ ଏକ ଝଲକ: ଦଶମିକ (Another Peek Beyond the Point)", "desc": "ଦଶମିକ ଗୁଣନ ଓ ହରଣ, ସ୍ଥାନମାନ ସ୍ଥାନାନ୍ତର, ଆବର୍ତ୍ତୀ ଦଶମିକ (୧/୭), ଶ୍ରୀଧରାଚାର୍ଯ୍ୟଙ୍କ ପାଟୀଗଣିତ ଓ ଅଧିବର୍ଷ (Leap Year) ର ଗଣିତ।", "link": "odia/class7/math-ch12-another-peek-beyond-the-point.html", "isLive": true},
+      {"id": "c7_math_13_odia", "medium": "odia", "classNum": 7, "subject": "ଗଣିତ (Mathematics)", "chapter": "ଅଧ୍ୟାୟ ୧୩", "title": "ବିନ୍ଦୁ ସଂଯୋଗ: ତଥ୍ୟ ପରିଚାଳନା (Connecting the Dots...)", "desc": "କେନ୍ଦ୍ରୀୟ ପ୍ରବୃତ୍ତିର ମାପ (ମାଧ୍ୟମାନ, ମଧ୍ୟମା, ପରିସର), ବହିଃସ୍ଥ ମାନ (Outliers), ବିନ୍ଦୁ ଲେଖଚିତ୍ର, ଦ୍ୱି-ସ୍ତମ୍ଭ ଲେଖଚିତ୍ର ଓ ପ୍ରାଚୀନ ସମମିତି।", "link": "odia/class7/math-ch13-connecting-the-dots.html", "isLive": true},
+      {"id": "c7_eng_1_odia", "medium": "odia", "classNum": 7, "subject": "ଇଂରାଜୀ (English)", "chapter": "Unit 1", "title": "Learning Together", "desc": "The Day the River Spoke, Try Again, Three Days to See with Grammar & Vocab.", "link": "english/class7/eng-unit1-learning-together.html", "isLive": true},
+      {"id": "c7_eng_2_odia", "medium": "odia", "classNum": 7, "subject": "ଇଂରାଜୀ (English)", "chapter": "Unit 2", "title": "Wit and Humour", "desc": "Gopal and the Hilsa Fish, The Magic vessels, Birbal catches the thief with reported speech.", "link": "english/class7/eng-unit2-wit-and-humour.html", "isLive": true},
+      {"id": "c7_eng_3_odia", "medium": "odia", "classNum": 7, "subject": "ଇଂରାଜୀ (English)", "chapter": "Unit 3", "title": "Dreams and Discoveries", "desc": "Dr. A.P.J. Abdul Kalam, My Brother My Brother, Reach for the Stars with relative clauses.", "link": "english/class7/eng-unit3-dreams-and-discoveries.html", "isLive": true},
+      {"id": "c7_eng_4_odia", "medium": "odia", "classNum": 7, "subject": "ଇଂରାଜୀ (English)", "chapter": "Unit 4", "title": "Travel and Adventure", "desc": "The Great Himalayan Expedition, Wandering Singers, Exploring Andaman with idioms & prepositional phrases.", "link": "english/class7/eng-unit4-travel-and-adventure.html", "isLive": true},
+      {"id": "c7_eng_5_odia", "medium": "odia", "classNum": 7, "subject": "ଇଂରାଜୀ (English)", "chapter": "Unit 5", "title": "Bravehearts", "desc": "Baji Rout, Major Somnath Sharma, Rani Chennamma with voice change & discourse markers.", "link": "english/class7/eng-unit5-bravehearts.html", "isLive": true},
     ];
 
     // Filter States
@@ -1459,7 +1481,8 @@
 
     // Helper: Match subject with variants
     function isMatchingSubject(itemSubject, filterSubject) {
-      if (filterSubject === 'All') return true;
+      if (!filterSubject || filterSubject === 'All') return true;
+      if (!itemSubject) return false;
       if (itemSubject === filterSubject) return true;
       var sstVariants = [
         'ସାମାଜିକ ବିଜ୍ଞାନ (SST)',
@@ -1491,167 +1514,271 @@
 
     // Progress Storage
     function getCompletedMap() {
-      return JSON.parse(localStorage.getItem('sc_completed') || '{}');
+      try {
+        if (typeof localStorage === 'undefined') return {};
+        return JSON.parse(localStorage.getItem('sc_completed') || '{}');
+      } catch (e) {
+        console.warn('Failed to parse completedMap from localStorage:', e);
+        return {};
+      }
     }
 
     function toggleCompleted(id) {
-      var map = getCompletedMap();
-      map[id] = !map[id];
-      localStorage.setItem('sc_completed', JSON.stringify(map));
-      updateProgressWidget();
-      renderMaterials();
+      try {
+        if (!id) return;
+        var map = getCompletedMap();
+        map[id] = !map[id];
+        if (typeof localStorage !== 'undefined') {
+          localStorage.setItem('sc_completed', JSON.stringify(map));
+        }
+        updateProgressWidget();
+        renderMaterials();
+      } catch (e) {
+        console.warn('Failed to toggle completed state:', e);
+      }
     }
 
     function updateProgressWidget() {
-      var map = getCompletedMap();
-      var liveItems = studyMaterials.filter(function(m) { return m.isLive; });
-      var completedCount = liveItems.filter(function(m) { return map[m.id]; }).length;
-      var total = liveItems.length;
-      var percent = total > 0 ? Math.round((completedCount / total) * 100) : 0;
+      try {
+        if (typeof document === 'undefined') return;
+        var fillEl = document.getElementById('progressBarFill');
+        var percentEl = document.getElementById('progressPercent');
+        var subtextEl = document.getElementById('progressSubtext');
+        if (!fillEl || !percentEl || !subtextEl) return;
 
-      document.getElementById('progressBarFill').style.width = percent + '%';
-      document.getElementById('progressPercent').textContent = percent + '%';
-      
-      var encouragingMsg = 'Track completed chapters as you prepare';
-      if (percent === 100) {
-        encouragingMsg = '🎉 Outstanding achievement! All live chapters completed!';
-      } else if (percent >= 50) {
-        encouragingMsg = '🔥 Over halfway there! Keep up the brilliant pace!';
-      } else if (completedCount > 0) {
-        encouragingMsg = '✨ ' + completedCount + ' of ' + total + ' chapters completed. Great progress!';
+        var map = getCompletedMap();
+        var liveItems = studyMaterials.filter(function(m) { return m && m.isLive; });
+        var completedCount = liveItems.filter(function(m) { return m.id && map[m.id]; }).length;
+        var total = liveItems.length;
+        var percent = total > 0 ? Math.round((completedCount / total) * 100) : 0;
+
+        fillEl.style.width = percent + '%';
+        percentEl.textContent = percent + '%';
+        
+        var encouragingMsg = 'Track completed chapters as you prepare';
+        if (percent === 100) {
+          encouragingMsg = '🎉 Outstanding achievement! All live chapters completed!';
+        } else if (percent >= 50) {
+          encouragingMsg = '🔥 Over halfway there! Keep up the brilliant pace!';
+        } else if (completedCount > 0) {
+          encouragingMsg = '✨ ' + completedCount + ' of ' + total + ' chapters completed. Great progress!';
+        }
+        subtextEl.textContent = encouragingMsg;
+      } catch (e) {
+        console.warn('Failed to update progress widget:', e);
       }
-      document.getElementById('progressSubtext').textContent = encouragingMsg;
     }
 
     function selectMedium(medium) {
-      currentMedium = medium;
-      currentSubject = 'All';
-      document.getElementById('btn-eng').className = medium === 'english' ? 'medium-btn active-english' : 'medium-btn';
-      document.getElementById('btn-odia').className = medium === 'odia' ? 'medium-btn active-odia' : 'medium-btn';
-      renderSubjects();
-      renderMaterials();
+      try {
+        currentMedium = medium;
+        currentSubject = 'All';
+        if (typeof document !== 'undefined') {
+          var engBtn = document.getElementById('btn-eng');
+          var odiaBtn = document.getElementById('btn-odia');
+          if (engBtn) engBtn.className = medium === 'english' ? 'medium-btn active-english' : 'medium-btn';
+          if (odiaBtn) odiaBtn.className = medium === 'odia' ? 'medium-btn active-odia' : 'medium-btn';
+        }
+        renderSubjects();
+        renderMaterials();
+      } catch (e) {
+        console.warn('Error in selectMedium:', e);
+      }
     }
 
     function selectClass(classNum) {
-      currentClass = classNum;
-      currentSubject = 'All';
-      var tabs = document.querySelectorAll('#classTabs .class-tab');
-      tabs.forEach(function(tab, index) {
-        tab.classList.toggle('active', index + 6 === classNum);
-      });
-      renderSubjects();
-      renderMaterials();
+      try {
+        currentClass = classNum;
+        currentSubject = 'All';
+        if (typeof document !== 'undefined') {
+          var tabs = document.querySelectorAll('#classTabs .class-tab');
+          if (tabs) {
+            tabs.forEach(function(tab, index) {
+              tab.classList.toggle('active', index + 6 === classNum);
+            });
+          }
+        }
+        renderSubjects();
+        renderMaterials();
+      } catch (e) {
+        console.warn('Error in selectClass:', e);
+      }
     }
 
     function selectSubject(subjectId) {
-      currentSubject = subjectId;
-      renderSubjects();
-      renderMaterials();
+      try {
+        currentSubject = subjectId;
+        renderSubjects();
+        renderMaterials();
+      } catch (e) {
+        console.warn('Error in selectSubject:', e);
+      }
     }
 
     function renderSubjects() {
-      var subjectGrid = document.getElementById('subjectGrid');
-      var stepLabel = document.getElementById('subjectStepLabel');
-      stepLabel.textContent = 'Step 3: Select Subject for Class ' + currentClass;
+      try {
+        if (typeof document === 'undefined') return;
+        var subjectGrid = document.getElementById('subjectGrid');
+        var stepLabel = document.getElementById('subjectStepLabel');
+        if (!subjectGrid || !stepLabel) return;
+        stepLabel.textContent = 'Step 3: Select Subject for Class ' + currentClass;
 
-      var subjectsForClass = (classSubjectsConfig[currentMedium] && classSubjectsConfig[currentMedium][currentClass]) || [];
-      var classItems = studyMaterials.filter(function(m) {
-        return m.medium === currentMedium && m.classNum === currentClass;
-      });
+        var subjectsForClass = (classSubjectsConfig[currentMedium] && classSubjectsConfig[currentMedium][currentClass]) || [];
+        var classItems = [];
+        studyMaterials.forEach(function(m) {
+          try {
+            if (!m || typeof m !== 'object') {
+              console.warn('Skipping invalid studyMaterial entry:', m);
+              return;
+            }
+            if (!m.id || !m.medium || !m.classNum || !m.subject || !m.link) {
+              console.warn('Missing required field in studyMaterial entry:', m);
+              return;
+            }
+            if (m.medium === currentMedium && m.classNum === currentClass) {
+              classItems.push(m);
+            }
+          } catch (itemErr) {
+            console.warn('Error filtering studyMaterial entry in renderSubjects:', m, itemErr);
+          }
+        });
 
-      var html = '<button class="subject-folder ' + (currentSubject === 'All' ? 'active' : '') + '" onclick="selectSubject(\'All\')">' +
-        '<span class="sub-icon">📚</span>' +
-        '<div class="sub-info">' +
-          '<div class="sub-name">All Subjects</div>' +
-          '<div class="sub-count">' + classItems.length + ' Chapters</div>' +
-        '</div>' +
-      '</button>';
-
-      subjectsForClass.forEach(function(sub) {
-        var count = classItems.filter(function(m) { return isMatchingSubject(m.subject, sub.id); }).length;
-        var isActive = currentSubject === sub.id ? 'active' : '';
-        html += '<button class="subject-folder ' + isActive + '" onclick="selectSubject(\'' + sub.id + '\')">' +
-          '<span class="sub-icon">' + sub.icon + '</span>' +
+        var html = '<button class="subject-folder ' + (currentSubject === 'All' ? 'active' : '') + '" onclick="selectSubject(\'All\')">' +
+          '<span class="sub-icon">📚</span>' +
           '<div class="sub-info">' +
-            '<div class="sub-name">' + sub.name + '</div>' +
-            '<div class="sub-count">' + count + ' ' + (count === 1 ? 'Chapter' : 'Chapters') + '</div>' +
+            '<div class="sub-name">All Subjects</div>' +
+            '<div class="sub-count">' + classItems.length + ' Chapters</div>' +
           '</div>' +
         '</button>';
-      });
 
-      subjectGrid.innerHTML = html;
+        subjectsForClass.forEach(function(sub) {
+          try {
+            var count = classItems.filter(function(m) { return isMatchingSubject(m.subject, sub.id); }).length;
+            var isActive = currentSubject === sub.id ? 'active' : '';
+            html += '<button class="subject-folder ' + isActive + '" onclick="selectSubject(\'' + sub.id + '\')">' +
+              '<span class="sub-icon">' + (sub.icon || '📖') + '</span>' +
+              '<div class="sub-info">' +
+                '<div class="sub-name">' + (sub.name || sub.id) + '</div>' +
+                '<div class="sub-count">' + count + ' ' + (count === 1 ? 'Chapter' : 'Chapters') + '</div>' +
+              '</div>' +
+            '</button>';
+          } catch (subErr) {
+            console.warn('Error generating subject button:', sub, subErr);
+          }
+        });
+
+        subjectGrid.innerHTML = html;
+      } catch (e) {
+        console.error('Fatal error in renderSubjects:', e);
+      }
     }
 
     function renderMaterials() {
-      var searchQuery = document.getElementById('searchInput').value.trim().toLowerCase();
-      var grid = document.getElementById('materialsGrid');
-      var heading = document.getElementById('currentHeading');
-      var countEl = document.getElementById('resultCount');
-      var completedMap = getCompletedMap();
+      try {
+        if (typeof document === 'undefined') return;
+        var searchInput = document.getElementById('searchInput');
+        var searchQuery = searchInput ? searchInput.value.trim().toLowerCase() : '';
+        var grid = document.getElementById('materialsGrid');
+        var heading = document.getElementById('currentHeading');
+        var countEl = document.getElementById('resultCount');
+        if (!grid) return;
+        var completedMap = getCompletedMap();
 
-      var mediumLabel = currentMedium === 'english' ? '🇬🇧 English Medium (CBSE)' : '🇮🇳 ଓଡ଼ିଆ ମାଧ୍ୟମ (BSE)';
-      heading.textContent = mediumLabel + ' • Class ' + currentClass + ' • ' + currentSubject;
+        var mediumLabel = currentMedium === 'english' ? '🇬🇧 English Medium (CBSE)' : '🇮🇳 ଓଡ଼ିଆ ମାଧ୍ୟମ (BSE)';
+        if (heading) heading.textContent = mediumLabel + ' • Class ' + currentClass + ' • ' + currentSubject;
 
-      var filtered = studyMaterials.filter(function(item) {
-        var matchesMedium = item.medium === currentMedium;
-        var matchesClass = item.classNum === currentClass;
-        var matchesSubject = isMatchingSubject(item.subject, currentSubject);
-        var matchesSearch = searchQuery === '' || 
-          item.title.toLowerCase().indexOf(searchQuery) !== -1 || 
-          item.desc.toLowerCase().indexOf(searchQuery) !== -1 ||
-          item.subject.toLowerCase().indexOf(searchQuery) !== -1 ||
-          item.chapter.toLowerCase().indexOf(searchQuery) !== -1;
+        var filtered = [];
+        studyMaterials.forEach(function(item) {
+          try {
+            if (!item || typeof item !== 'object') {
+              console.warn('Skipping malformed studyMaterial item:', item);
+              return;
+            }
+            if (!item.id || !item.medium || !item.classNum || !item.subject || !item.title || !item.link) {
+              console.warn('Missing required field in studyMaterial entry:', item);
+              return;
+            }
+            var matchesMedium = item.medium === currentMedium;
+            var matchesClass = item.classNum === currentClass;
+            var matchesSubject = isMatchingSubject(item.subject, currentSubject);
+            var titleStr = (item.title || '').toLowerCase();
+            var descStr = (item.desc || '').toLowerCase();
+            var subjStr = (item.subject || '').toLowerCase();
+            var chapStr = (item.chapter || '').toLowerCase();
+            var matchesSearch = searchQuery === '' || 
+              titleStr.indexOf(searchQuery) !== -1 || 
+              descStr.indexOf(searchQuery) !== -1 ||
+              subjStr.indexOf(searchQuery) !== -1 ||
+              chapStr.indexOf(searchQuery) !== -1;
 
-        return matchesMedium && matchesClass && matchesSubject && matchesSearch;
-      });
+            if (matchesMedium && matchesClass && matchesSubject && matchesSearch) {
+              filtered.push(item);
+            }
+          } catch (filterErr) {
+            console.warn('Error evaluating item in renderMaterials filter:', item, filterErr);
+          }
+        });
 
-      countEl.textContent = filtered.length + ' ' + (filtered.length === 1 ? 'Chapter Ready' : 'Chapters Ready');
+        if (countEl) countEl.textContent = filtered.length + ' ' + (filtered.length === 1 ? 'Chapter Ready' : 'Chapters Ready');
 
-      if (filtered.length === 0) {
-        grid.innerHTML = '<div class="empty-state">' +
-          '<h3>📂 No chapters found</h3>' +
-          '<p style="color:var(--text-muted); font-size:0.92rem;">Try adjusting your search query or selecting a different subject or class tab above.</p>' +
-        '</div>';
-        return;
+        if (filtered.length === 0) {
+          grid.innerHTML = '<div class="empty-state">' +
+            '<h3>📂 No chapters found</h3>' +
+            '<p style="color:var(--text-muted); font-size:0.92rem;">Try adjusting your search query or selecting a different subject or class tab above.</p>' +
+          '</div>';
+          return;
+        }
+
+        var renderedCards = [];
+        filtered.forEach(function(item) {
+          try {
+            var isDone = (item.id && completedMap[item.id]) || false;
+            var themeClass = getSubjectThemeClass(item.subject);
+            var cardHtml = '<article class="material-card ' + themeClass + '" style="' + (isDone ? 'border-color: #10b981;' : '') + '">' +
+              '<div>' +
+                '<div class="card-top-tags">' +
+                  '<span class="subject-tag">' + (item.subject || '') + '</span>' +
+                  '<span class="' + (item.isLive ? 'badge-live' : 'badge-soon') + '">' +
+                    (item.isLive ? 'Live Master Note' : '⏳ In Preparation') +
+                  '</span>' +
+                '</div>' +
+                '<div class="card-ch-num">' + (item.chapter || '') + ' • Class ' + item.classNum + '</div>' +
+                '<h3 class="card-title">' + (item.title || '') + '</h3>' +
+                '<p class="card-desc">' + (item.desc || '') + '</p>' +
+              '</div>' +
+              '<div class="card-footer">' +
+                (item.isLive 
+                  ? '<a href="' + item.link + '" class="card-btn btn-read">📖 Explore Chapter &rarr;</a>'
+                  : '<span class="card-btn btn-disabled">🔒 In Progress</span>'
+                ) +
+                (item.isLive 
+                  ? '<button class="checkbox-btn ' + (isDone ? 'completed' : '') + '" onclick="toggleCompleted(\'' + item.id + '\')" title="' + (isDone ? 'Mark as In Progress' : 'Mark as Mastered') + '">' +
+                      (isDone ? '✓' : '○') +
+                    '</button>' 
+                  : ''
+                ) +
+              '</div>' +
+            '</article>';
+            renderedCards.push(cardHtml);
+          } catch (cardErr) {
+            console.warn('Error generating card for item:', item, cardErr);
+          }
+        });
+
+        grid.innerHTML = renderedCards.join('');
+      } catch (e) {
+        console.error('Fatal error in renderMaterials:', e);
       }
-
-      grid.innerHTML = filtered.map(function(item) {
-        var isDone = completedMap[item.id] || false;
-        var themeClass = getSubjectThemeClass(item.subject);
-        return '<article class="material-card ' + themeClass + '" style="' + (isDone ? 'border-color: #10b981;' : '') + '">' +
-          '<div>' +
-            '<div class="card-top-tags">' +
-              '<span class="subject-tag">' + item.subject + '</span>' +
-              '<span class="' + (item.isLive ? 'badge-live' : 'badge-soon') + '">' +
-                (item.isLive ? 'Live Master Note' : '⏳ In Preparation') +
-              '</span>' +
-            '</div>' +
-            '<div class="card-ch-num">' + item.chapter + ' • Class ' + item.classNum + '</div>' +
-            '<h3 class="card-title">' + item.title + '</h3>' +
-            '<p class="card-desc">' + item.desc + '</p>' +
-          '</div>' +
-          '<div class="card-footer">' +
-            (item.isLive 
-              ? '<a href="' + item.link + '" class="card-btn btn-read">📖 Explore Chapter &rarr;</a>'
-              : '<span class="card-btn btn-disabled">🔒 In Progress</span>'
-            ) +
-            (item.isLive 
-              ? '<button class="checkbox-btn ' + (isDone ? 'completed' : '') + '" onclick="toggleCompleted(\'' + item.id + '\')" title="' + (isDone ? 'Mark as In Progress' : 'Mark as Mastered') + '">' +
-                  (isDone ? '✓' : '○') +
-                '</button>' 
-              : ''
-            ) +
-          '</div>' +
-        '</article>';
-      }).join('');
     }
 
-    document.addEventListener('DOMContentLoaded', function() {
-      initTheme();
-      updateProgressWidget();
-      renderSubjects();
-      renderMaterials();
-    });
+    if (typeof document !== 'undefined') {
+      document.addEventListener('DOMContentLoaded', function() {
+        initTheme();
+        updateProgressWidget();
+        renderSubjects();
+        renderMaterials();
+      });
+    }
   </script>
 </body>
 </html>
