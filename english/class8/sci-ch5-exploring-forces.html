@@ -686,6 +686,38 @@
       .top-nav { padding: 0 1rem; }
       .btn-nav span { display: none; }
     }
+  
+    .anchor-target {
+      display: block;
+      position: relative;
+      top: -80px;
+      visibility: hidden;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      overflow-x: auto;
+      padding: 0.35rem 0;
+    }
+    .nav-link {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      padding: 0.4rem 0.75rem;
+      border-radius: 9999px;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+    .nav-link:hover {
+      background: var(--primary-light);
+      color: var(--primary-dark);
+    }
+    @media (max-width: 992px) {
+      .nav-links { display: none; }
+    }
+
   </style>
 </head>
 <body>
@@ -699,6 +731,14 @@
       <span class="nav-brand-badge">CLASS 8</span>
       <span>Sujit Classes</span>
     </a>
+    <div class="nav-links">
+      <a href="#sec1" class="nav-link">1. Blueprint</a>
+      <a href="#sec2" class="nav-link">2. Deep Theory</a>
+      <a href="#sec3" class="nav-link">3. Facts &amp; Laws</a>
+      <a href="#sec4" class="nav-link">4. NCERT Solved</a>
+      <a href="#sec5" class="nav-link">5. Exam Vault</a>
+      <a href="#sec6" class="nav-link">6. Traps &amp; Recap</a>
+    </div>
     <div class="nav-actions">
       <button class="btn-nav" id="audioToggleBtn" onclick="toggleAudio()">
         <i class="fa-solid fa-volume-high"></i>
@@ -737,12 +777,21 @@
         <div class="hero-pill"><i class="fa-solid fa-list-check"></i> 100% Solved NCERT Activities &amp; Exercises</div>
         <div class="hero-pill"><i class="fa-solid fa-brain"></i> 27-Question High-Yield Exam Vault</div>
       </div>
+      <!-- Quick Section Jump Links -->
+      <div class="quick-nav-pills" style="margin-top: 1.25rem; display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center;">
+        <a href="#sec1" style="padding: 0.4rem 0.85rem; background: rgba(5,150,105,0.08); color: var(--primary-dark); border-radius: 9999px; text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(5,150,105,0.25); display: inline-flex; align-items: center; gap: 0.35rem;"><i class="fa-solid fa-compass"></i> 1. Blueprint</a>
+        <a href="#sec2" style="padding: 0.4rem 0.85rem; background: rgba(5,150,105,0.08); color: var(--primary-dark); border-radius: 9999px; text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(5,150,105,0.25); display: inline-flex; align-items: center; gap: 0.35rem;"><i class="fa-solid fa-book-open"></i> 2. Deep Theory &amp; Glossary</a>
+        <a href="#sec3" style="padding: 0.4rem 0.85rem; background: rgba(5,150,105,0.08); color: var(--primary-dark); border-radius: 9999px; text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(5,150,105,0.25); display: inline-flex; align-items: center; gap: 0.35rem;"><i class="fa-solid fa-table-list"></i> 3. Fact &amp; Formula Bank</a>
+        <a href="#sec4" style="padding: 0.4rem 0.85rem; background: rgba(5,150,105,0.08); color: var(--primary-dark); border-radius: 9999px; text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(5,150,105,0.25); display: inline-flex; align-items: center; gap: 0.35rem;"><i class="fa-solid fa-clipboard-check"></i> 4. 100% Solved NCERT</a>
+        <a href="#sec5" style="padding: 0.4rem 0.85rem; background: rgba(5,150,105,0.08); color: var(--primary-dark); border-radius: 9999px; text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(5,150,105,0.25); display: inline-flex; align-items: center; gap: 0.35rem;"><i class="fa-solid fa-pen-to-square"></i> 5. Exam Vault (27 Qs)</a>
+        <a href="#sec6" style="padding: 0.4rem 0.85rem; background: rgba(5,150,105,0.08); color: var(--primary-dark); border-radius: 9999px; text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(5,150,105,0.25); display: inline-flex; align-items: center; gap: 0.35rem;"><i class="fa-solid fa-triangle-exclamation"></i> 6. Traps &amp; Revision</a>
+      </div>
     </header>
 
     <!-- ==========================================
          SECTION 1: VISUAL BLUEPRINT & MIND MAP
          ========================================== -->
-    <section class="study-section" id="section-1">
+    <section class="study-section" id="sec1"><span id="section-1" class="anchor-target"></span>
       <div class="section-header">
         <span class="section-num">Section 1 &bull; Visual Architecture &amp; Chapter Blueprint</span>
         <h2 class="section-title">The Fundamental Architecture of Forces</h2>
@@ -1017,7 +1066,7 @@
     <!-- ==========================================
          SECTION 2: COMPLETE LINE-BY-LINE CONCEPTUAL EXPLANATIONS (PART 1)
          ========================================== -->
-    <section class="study-section" id="section-2">
+    <section class="study-section" id="sec2"><span id="section-2" class="anchor-target"></span>
       <div class="section-header">
         <span class="section-num">Section 2 &bull; Complete Line-by-Line Conceptual Explanations</span>
         <h2 class="section-title">The Scientific Foundations of Force, Motion &amp; Physical Interactions</h2>
@@ -1900,7 +1949,7 @@
     <!-- ==========================================
          SECTION 3: RAPID REVISION FACT & FORMULA/LAW BANK
          ========================================== -->
-    <section class="study-section" id="section-3">
+    <section class="study-section" id="sec3"><span id="section-3" class="anchor-target"></span>
       <div class="section-header">
         <span class="section-num">Section 3 &bull; Rapid Revision Fact &amp; Formula/Law Bank</span>
         <h2 class="section-title">High-Yield Physical Matrices, Formulas &amp; Comparison Banks</h2>
@@ -2087,7 +2136,7 @@
             </tr>
             <tr>
               <td><strong>Mathematical Formula</strong></td>
-              <td>Fundamental property: m = \frac{W}{g} (or m = Density × Volume).</td>
+              <td>Fundamental property: m = W ÷ g (or m = Density × Volume).</td>
               <td><strong>W = m × g</strong> &bull; (Where g ≈ 9.8 N/kg on Earth, and g ≈ 1.63 N/kg on the Moon).</td>
             </tr>
             <tr>
@@ -2151,7 +2200,7 @@
                 m = Mass (kg)<br>
                 g = Gravitational field strength (N/kg)
               </td>
-              <td>Earth exerts ~9.8 N of pull per kilogram of mass. On the Moon, g_{moon} = 1/6 g_{earth} ≈ 1.63 N/kg.</td>
+              <td>Earth exerts ~9.8 N of pull per kilogram of mass. On the Moon, g<sub>moon</sub> = 1/6 g<sub>earth</sub> ≈ 1.63 N/kg.</td>
             </tr>
             <tr>
               <td><strong>Universal Friction Hierarchy</strong></td>
@@ -2228,7 +2277,7 @@
     <!-- ==========================================
          SECTION 4: 100% SOLVED NCERT QUESTIONS & ACTIVITIES (PART 1)
          ========================================== -->
-    <section class="study-section" id="section-4">
+    <section class="study-section" id="sec4"><span id="section-4" class="anchor-target"></span>
       <div class="section-header">
         <span class="section-num">Section 4 &bull; 100% Solved NCERT Textbook Questions</span>
         <h2 class="section-title">Complete In-Text Activities, Probes &amp; Back-of-Chapter Exercises</h2>
@@ -3195,7 +3244,7 @@
     <!-- ==========================================
          SECTION 5: COMPLETE EXAM QUESTION BANK (PART 1)
          ========================================== -->
-    <section class="study-section" id="section-5">
+    <section class="study-section" id="sec5"><span id="section-5" class="anchor-target"></span>
       <div class="section-header">
         <span class="section-num">Section 5 &bull; CBSE &amp; BSE Odisha High-Yield Exam Question Bank</span>
         <h2 class="section-title">Comprehensive 27-Question Exam Mastery Vault</h2>
@@ -3282,7 +3331,7 @@
           <div class="ans-content">
             <strong>Correct Answer: (c) 15 N towards the East</strong>
             <br><em>Step-by-Step Calculation:</em>
-            <br>&bull; Forces acting in opposite directions subtract: F<sub>net</sub> = F_{East} - F_{West} = 50 N - 35 N = <b>15 N</b>.
+            <br>&bull; Forces acting in opposite directions subtract: F<sub>net</sub> = F<sub>East</sub> - F<sub>West</sub> = 50 N - 35 N = <b>15 N</b>.
             <br>&bull; The net force acts in the direction of the larger force (East).
             <br>&bull; The mass of the box (5 kg) determines its acceleration, but does not alter the resultant net force calculation!
           </div>
@@ -3484,7 +3533,7 @@
             <div class="step-title">Solution &amp; Analysis</div>
             <p style="margin:0;">
               <strong>Correct Option: (A) Both (A) and (R) are true and (R) is the correct explanation of (A).</strong>
-              <br><em>Teacher's Analysis:</em> While the astronaut's weight on the Moon is only 1/6 of that on Earth due to the Moon's weaker gravitational field (g_{moon} ≈ 1.63 N/kg), their mass (the actual number of atoms in their body) remains strictly unchanged. Reason (R) provides the exact scientific explanation.
+              <br><em>Teacher's Analysis:</em> While the astronaut's weight on the Moon is only 1/6 of that on Earth due to the Moon's weaker gravitational field (g<sub>moon</sub> ≈ 1.63 N/kg), their mass (the actual number of atoms in their body) remains strictly unchanged. Reason (R) provides the exact scientific explanation.
             </p>
           </div>
         </div>
@@ -3560,7 +3609,7 @@
             <ul style="margin-left: 1.25rem;">
               <li><strong>Step 1: Formula &amp; Magnitude [1 Mark]:</strong>
                 <br>Since the two forces act along the same straight line but in opposite directions:
-                <br>F<sub>net</sub> = F_{East} - F_{West} = 1800 N - 1500 N = <b>300 N</b>.
+                <br>F<sub>net</sub> = F<sub>East</sub> - F<sub>West</sub> = 1800 N - 1500 N = <b>300 N</b>.
               </li>
               <li><strong>Step 2: Direction [1 Mark]:</strong>
                 <br>The resultant net force acts in the direction of the larger force: <strong>Towards the East</strong> (towards Team Beta).
@@ -4167,7 +4216,7 @@
     <!-- ==========================================
          SECTION 6: EXAM HALL TRAP ALERTS & 15 REVISION POINTS
          ========================================== -->
-    <section class="study-section" id="section-6">
+    <section class="study-section" id="sec6"><span id="section-6" class="anchor-target"></span>
       <div class="section-header">
         <span class="section-num">Section 6 &bull; Exam Hall Readiness &amp; Quick Recap</span>
         <h2 class="section-title">Exam Hall Trap Alerts &amp; 15 High-Yield Revision Points</h2>
@@ -4270,7 +4319,7 @@
           <li><strong>Contact Forces:</strong> Forces that require direct physical touching between surfaces. Examples: <strong>Muscular Force</strong>, <strong>Frictional Force</strong>, and <strong>Tension</strong>.</li>
           <li><strong>Non-Contact Forces:</strong> Forces that act across empty space and vacuum through physical fields. Examples: <strong>Gravitational Force</strong>, <strong>Electrostatic Force</strong>, and <strong>Magnetic Force</strong>.</li>
           <li><strong>Microscopic Origin of Friction:</strong> Caused by the mechanical interlocking of microscopic surface peaks and valleys (asperities) and microscopic cold welds at contact points.</li>
-          <li><strong>The Friction Hierarchy:</strong> <b>f_{rolling</b> << f<sub>sliding</sub> < f<sub>limiting</sub> ≤ f<sub>static</sub>}. Rolling friction is vastly smaller than sliding friction, which is why wheels and ball bearings save immense energy.</li>
+          <li><strong>The Friction Hierarchy:</strong> <b>f<sub>rolling</sub></b> ≪ f<sub>sliding</sub> &lt; f<sub>limiting</sub> ≤ f<sub>static</sub>. Rolling friction is vastly smaller than sliding friction, which is why wheels and ball bearings save immense energy.</li>
           <li><strong>Fluid Friction (Drag):</strong> Opposing resistance exerted by fluids (air, water) on moving bodies. Minimized by <strong>streamlined spindle shapes</strong> (birds, fish, aeroplanes).</li>
           <li><strong>Mass vs. Weight:</strong> <strong>Mass (m, kg)</strong> is the scalar quantity of matter, constant everywhere. <strong>Weight (W = mg, N)</strong> is the gravitational force pulling downward, which varies with local gravity.</li>
           <li><strong>Friction as a Necessary Evil:</strong> Indispensable for walking, braking, writing, and holding objects; yet destructive because it causes mechanical wear, tear, energy loss, and excessive heat.</li>
