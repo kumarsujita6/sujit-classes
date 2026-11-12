@@ -855,6 +855,34 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    .btn-audio {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary-light);
+      color: var(--primary-dark);
+      border: 1px solid var(--primary);
+      padding: 0.35rem 0.85rem;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .btn-audio:hover {
+      background: var(--primary);
+      color: white;
+    }
+    .btn-audio.btn-tts-stop {
+      background: var(--danger-light);
+      color: var(--danger-dark);
+      border-color: var(--danger);
+    }
+    .btn-audio.btn-tts-stop:hover {
+      background: var(--danger);
+      color: white;
+    }
   </style>
 </head>
 <body>
@@ -865,21 +893,22 @@
   </div>
 
   <!-- STICKY TOP NAVIGATION -->
-  <header class="top-nav">
+  <nav class="top-nav">
     <a href="../../index.html" class="nav-brand">
-      <i class="fa-solid fa-graduation-cap"></i>
+      <i class="fa-solid fa-shapes"></i>
       <span>Sujit Classes</span>
     </a>
     <div class="nav-links">
-      <span class="nav-badge"><i class="fa-solid fa-book-open"></i> Class 8 Maths</span>
-      <a href="#section-1"><i class="fa-solid fa-diagram-project"></i> Blueprint</a>
-      <a href="#section-2"><i class="fa-solid fa-lightbulb"></i> Concepts</a>
-      <a href="#section-3"><i class="fa-solid fa-table-list"></i> Formulas</a>
-      <a href="#section-4"><i class="fa-solid fa-circle-check"></i> NCERT Solved</a>
-      <a href="#section-5"><i class="fa-solid fa-file-pen"></i> Exam Bank</a>
-      <a href="#section-6"><i class="fa-solid fa-triangle-exclamation"></i> Blunders</a>
+      <a href="#section-1"><i class="fa-solid fa-compass"></i> <span>Blueprint</span></a>
+      <a href="#section-2"><i class="fa-solid fa-book-open"></i> <span>Concepts</span></a>
+      <a href="#section-3"><i class="fa-solid fa-table-list"></i> <span>Formulas</span></a>
+      <a href="#section-4"><i class="fa-solid fa-pen-ruler"></i> <span>NCERT Solved</span></a>
+      <a href="#section-5"><i class="fa-solid fa-clipboard-question"></i> <span>Exam Bank</span></a>
+      <a href="#section-6"><i class="fa-solid fa-triangle-exclamation"></i> <span>Traps</span></a>
+      <button class="btn-audio" id="topAudioBtn" onclick="toggleChapterAudio()"><i class="fa-solid fa-volume-high"></i> <span>Listen Note</span></button>
+      <span class="nav-badge">NEP Class 8</span>
     </div>
-  </header>
+  </nav>
 
   <main class="container">
 
@@ -1090,7 +1119,7 @@
             <rect x="290" y="360" width="85" height="40" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
             <text x="332" y="385" fill="#1e293b" font-size="13" font-weight="600" text-anchor="middle">3&minus;4&minus;5</text>
 
-            <!-- Level 3 Branches & 8 Outcomes -->
+            <!-- Level 3 Branches and 8 Outcomes -->
             <!-- Group 1 -->
             <path d="M 375 50 L 460 25" stroke="#0284c7" stroke-width="1.5" fill="none" />
             <path d="M 375 70 L 460 75" stroke="#dc2626" stroke-width="1.5" fill="none" />
@@ -1110,56 +1139,56 @@
             <text x="470" y="31" fill="#1e293b" font-size="13" font-weight="600">3 + 4 + 5 + 6 =</text>
             <text x="590" y="31" fill="#047857" font-size="15" font-weight="800">18</text>
             <rect x="700" y="10" width="200" height="32" rx="6" fill="url(#evenGrad)" />
-            <text x="800" y="31" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">&check; EVEN PARITY</text>
+            <text x="800" y="31" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">✓ EVEN PARITY</text>
 
             <!-- #2 -->
             <rect x="460" y="60" width="220" height="32" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1" />
             <text x="470" y="81" fill="#1e293b" font-size="13" font-weight="600">3 + 4 + 5 &minus; 6 =</text>
             <text x="590" y="81" fill="#047857" font-size="15" font-weight="800">6</text>
             <rect x="700" y="60" width="200" height="32" rx="6" fill="url(#evenGrad)" />
-            <text x="800" y="81" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">&check; EVEN PARITY</text>
+            <text x="800" y="81" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">✓ EVEN PARITY</text>
 
             <!-- #3 -->
             <rect x="460" y="115" width="220" height="32" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1" />
             <text x="470" y="136" fill="#1e293b" font-size="13" font-weight="600">3 + 4 &minus; 5 + 6 =</text>
             <text x="590" y="136" fill="#047857" font-size="15" font-weight="800">8</text>
             <rect x="700" y="115" width="200" height="32" rx="6" fill="url(#evenGrad)" />
-            <text x="800" y="136" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">&check; EVEN PARITY</text>
+            <text x="800" y="136" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">✓ EVEN PARITY</text>
 
             <!-- #4 -->
             <rect x="460" y="165" width="220" height="32" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1" />
             <text x="470" y="186" fill="#1e293b" font-size="13" font-weight="600">3 + 4 &minus; 5 &minus; 6 =</text>
             <text x="590" y="186" fill="#047857" font-size="15" font-weight="800">&minus;4</text>
             <rect x="700" y="165" width="200" height="32" rx="6" fill="url(#evenGrad)" />
-            <text x="800" y="186" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">&check; EVEN PARITY</text>
+            <text x="800" y="186" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">✓ EVEN PARITY</text>
 
             <!-- #5 -->
             <rect x="460" y="220" width="220" height="32" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1" />
             <text x="470" y="241" fill="#1e293b" font-size="13" font-weight="600">3 &minus; 4 + 5 + 6 =</text>
             <text x="590" y="241" fill="#047857" font-size="15" font-weight="800">10</text>
             <rect x="700" y="220" width="200" height="32" rx="6" fill="url(#evenGrad)" />
-            <text x="800" y="241" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">&check; EVEN PARITY</text>
+            <text x="800" y="241" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">✓ EVEN PARITY</text>
 
             <!-- #6 -->
             <rect x="460" y="270" width="220" height="32" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1" />
             <text x="470" y="291" fill="#1e293b" font-size="13" font-weight="600">3 &minus; 4 + 5 &minus; 6 =</text>
             <text x="590" y="291" fill="#047857" font-size="15" font-weight="800">&minus;2</text>
             <rect x="700" y="270" width="200" height="32" rx="6" fill="url(#evenGrad)" />
-            <text x="800" y="291" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">&check; EVEN PARITY</text>
+            <text x="800" y="291" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">✓ EVEN PARITY</text>
 
             <!-- #7 -->
             <rect x="460" y="325" width="220" height="32" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1" />
             <text x="470" y="346" fill="#1e293b" font-size="13" font-weight="600">3 &minus; 4 &minus; 5 + 6 =</text>
             <text x="590" y="346" fill="#047857" font-size="15" font-weight="800">0</text>
             <rect x="700" y="325" width="200" height="32" rx="6" fill="url(#evenGrad)" />
-            <text x="800" y="346" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">&check; EVEN PARITY</text>
+            <text x="800" y="346" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">✓ EVEN PARITY</text>
 
             <!-- #8 -->
             <rect x="460" y="380" width="220" height="32" rx="6" fill="#f0fdf4" stroke="#86efac" stroke-width="1" />
             <text x="470" y="401" fill="#1e293b" font-size="13" font-weight="600">3 &minus; 4 &minus; 5 &minus; 6 =</text>
             <text x="590" y="401" fill="#047857" font-size="15" font-weight="800">&minus;12</text>
             <rect x="700" y="380" width="200" height="32" rx="6" fill="url(#evenGrad)" />
-            <text x="800" y="401" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">&check; EVEN PARITY</text>
+            <text x="800" y="401" fill="#ffffff" font-size="12" font-weight="700" text-anchor="middle">✓ EVEN PARITY</text>
 
           </svg>
         </div>
@@ -1283,7 +1312,7 @@
               </linearGradient>
             </defs>
 
-            <!-- Central Fulcrum & Stand -->
+            <!-- Central Fulcrum and Stand -->
             <polygon points="460,190 440,320 480,320" fill="#475569" />
             <rect x="410" y="320" width="100" height="20" rx="4" fill="#1e293b" />
             <circle cx="460" cy="190" r="10" fill="#0f172a" stroke="#94a3b8" stroke-width="2" />
@@ -1326,7 +1355,7 @@
                 Scale Balance Condition for Divisibility by 11
               </text>
               <text x="280" y="55" fill="#ffffff" font-size="14" font-weight="700" text-anchor="middle">
-                &Delta; = (Sum of Odd Digits) &minus; (Sum of Even Digits) = 0 or 11k
+                Δ = (Sum of Odd Digits) &minus; (Sum of Even Digits) = 0 or 11k
               </text>
               <text x="280" y="74" fill="#94a3b8" font-size="12" text-anchor="middle">
                 Example 328105: (5 + 1 + 2) &minus; (0 + 8 + 3) = 8 &minus; 11 = &minus;3 (3 short of 11, remainder = 8)
@@ -1375,13 +1404,13 @@
               {32, 64, 96, 128, 160...}
             </text>
             <text x="460" y="268" fill="#92400e" font-size="12" font-weight="600" text-anchor="middle">
-              C &sub; B &sub; A (Option iv in NCERT)
+              C ⊂ B ⊂ A (Option iv in NCERT)
             </text>
 
           </svg>
         </div>
         <p class="caption">
-          <strong>Figure 1.4:</strong> Concentric Euler-Venn diagram confirming NCERT Page 134 Q16. As factors grow (4 &rarr; 8 &rarr; 32), the sets of their multiples shrink into nested concentric subsets.
+          <strong>Figure 1.4:</strong> Concentric Euler-Venn diagram confirming NCERT Page 134 Q16. As factors grow (4 → 8 → 32), the sets of their multiples shrink into nested concentric subsets.
         </p>
       </div>
 
@@ -1412,7 +1441,7 @@
               <line x1="260" y1="190" x2="380" y2="190" stroke="#0f172a" stroke-width="3" />
 
               <!-- All 24 Intersection Points (Nodes) -->
-              <!-- Outer Corners & Mids -->
+              <!-- Outer Corners and Mids -->
               <circle cx="0" cy="0" r="8" fill="#0284c7" />
               <circle cx="190" cy="0" r="8" fill="#10b981" />
               <circle cx="380" cy="0" r="8" fill="#0284c7" />
@@ -1422,7 +1451,7 @@
               <circle cx="190" cy="380" r="8" fill="#10b981" />
               <circle cx="380" cy="380" r="8" fill="#0284c7" />
 
-              <!-- Middle Corners & Mids -->
+              <!-- Middle Corners and Mids -->
               <circle cx="60" cy="60" r="7" fill="#0284c7" />
               <circle cx="190" cy="60" r="7" fill="#10b981" />
               <circle cx="320" cy="60" r="7" fill="#0284c7" />
@@ -1432,7 +1461,7 @@
               <circle cx="190" cy="320" r="7" fill="#10b981" />
               <circle cx="320" cy="320" r="7" fill="#0284c7" />
 
-              <!-- Inner Corners & Mids -->
+              <!-- Inner Corners and Mids -->
               <circle cx="120" cy="120" r="6" fill="#0284c7" />
               <circle cx="190" cy="120" r="6" fill="#10b981" />
               <circle cx="260" cy="120" r="6" fill="#0284c7" />
@@ -1449,7 +1478,7 @@
               <circle cx="380" cy="0" r="12" fill="#f59e0b" stroke="#ffffff" stroke-width="2" />
             </g>
 
-            <!-- Right Side: Tactical Rules & Mathematical Connections -->
+            <!-- Right Side: Tactical Rules and Mathematical Connections -->
             <g transform="translate(500, 30)">
               <rect x="0" y="0" width="380" height="360" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
               <text x="25" y="40" fill="#0f172a" font-size="18" font-weight="800">Navakankari Game Blueprint</text>
@@ -1545,7 +1574,7 @@
               <text x="0" y="6" fill="#7dd3fc" font-size="12" font-weight="700" text-anchor="middle">mod 9</text>
             </g>
 
-            <!-- Right Explanatory Legends & Orbit Cycles -->
+            <!-- Right Explanatory Legends and Orbit Cycles -->
             <g transform="translate(490, 30)">
               <rect x="0" y="0" width="390" height="360" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" />
               <text x="25" y="40" fill="#0f172a" font-size="18" font-weight="800">Digital Root Orbit Cycles</text>
@@ -1560,12 +1589,12 @@
                 <text x="145" y="26" fill="#78350f" font-size="14" font-weight="800">Fixed Point {9}</text>
               </g>
 
-              <!-- Orbit 2: Multiples of 3 & 6 -->
+              <!-- Orbit 2: Multiples of 3 and 6 -->
               <g transform="translate(25, 148)">
                 <rect x="0" y="0" width="340" height="52" rx="6" fill="#f0fdfa" stroke="#0d9488" stroke-width="1" />
                 <text x="15" y="24" fill="#0f766e" font-size="13" font-weight="700">&bull; Multiples of 3:</text>
-                <text x="145" y="24" fill="#047857" font-size="13" font-weight="800">3 &rarr; 6 &rarr; 9 (Period 3)</text>
-                <text x="15" y="44" fill="#64748b" font-size="12">Multiples of 6 cycle: 6 &rarr; 3 &rarr; 9 (Period 3)</text>
+                <text x="145" y="24" fill="#047857" font-size="13" font-weight="800">3 → 6 → 9 (Period 3)</text>
+                <text x="15" y="44" fill="#64748b" font-size="12">Multiples of 6 cycle: 6 → 3 → 9 (Period 3)</text>
               </g>
 
               <!-- Orbit 3: Multiples of 4 -->
@@ -1580,8 +1609,8 @@
               <g transform="translate(25, 272)">
                 <rect x="0" y="0" width="340" height="65" rx="6" fill="#f0f9ff" stroke="#0284c7" stroke-width="1" />
                 <text x="15" y="22" fill="#0369a1" font-size="13" font-weight="700">&bull; Repeatedly Adding 11:</text>
-                <text x="15" y="42" fill="#1e293b" font-size="12">Since 11 &rarr; 1+1 = 2, root advances by +2 each step:</text>
-                <text x="15" y="58" fill="#0284c7" font-size="13" font-weight="800">1 &rarr; 3 &rarr; 5 &rarr; 7 &rarr; 9 &rarr; 2 &rarr; 4 &rarr; 6 &rarr; 8 &rarr; 1</text>
+                <text x="15" y="42" fill="#1e293b" font-size="12">Since 11 → 1+1 = 2, root advances by +2 each step:</text>
+                <text x="15" y="58" fill="#0284c7" font-size="13" font-weight="800">1 → 3 → 5 → 7 → 9 → 2 → 4 → 6 → 8 → 1</text>
               </g>
 
             </g>
@@ -3063,7 +3092,7 @@
             </div>
             <div class="step-box step-4">
               <span class="step-badge">Step 4: Visual Modulo Number Line Explanation</span>
-              <p>On a modulo-7 number wheel (0 to 6):<br>&bull; For addition: Start at remainder 5 and advance by 3 steps &rArr; 5 &rarr; 6 &rarr; 0 &rarr; <strong>1</strong>.<br>&bull; For subtraction: Start at remainder 5 and move backwards by 3 steps &rArr; 5 &rarr; 4 &rarr; 3 &rarr; <strong>2</strong>.</p>
+              <p>On a modulo-7 number wheel (0 to 6):<br>&bull; For addition: Start at remainder 5 and advance by 3 steps &rArr; 5 → 6 → 0 → <strong>1</strong>.<br>&bull; For subtraction: Start at remainder 5 and move backwards by 3 steps &rArr; 5 → 4 → 3 → <strong>2</strong>.</p>
             </div>
             <div class="step-box step-5">
               <span class="step-badge">Step 5: Direct Verification</span>
@@ -3353,41 +3382,89 @@
       </details>
 
       <!-- PAGE 129 FULL DIVISIBILITY GRID TABLE -->
-      <details class="ans-box">
+            <details class="ans-box">
         <summary>
           <span><i class="fa-solid fa-circle-question" style="color: var(--primary); margin-right: 0.5rem;"></i> In-Text Page 129: Complete Divisibility Master Table for 10 Numbers</span>
         </summary>
         <div class="ans-content">
-          <p><strong>Textbook Prompt:</strong> Fill in the complete divisibility table for the 10 numbers across divisors 2, 3, 4, 5, 6, 8, 9, 10, and 11.</p>
-          <div class="table-container">
-            <table class="data-table">
-              <thead>
-                <tr>
-                  <th>Number</th>
-                  <th>2</th>
-                  <th>3</th>
-                  <th>4</th>
-                  <th>5</th>
-                  <th>6</th>
-                  <th>8</th>
-                  <th>9</th>
-                  <th>10</th>
-                  <th>11</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr><td><strong>128</strong></td><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
-                <tr><td><strong>990</strong></td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
-                <tr><td><strong>1586</strong></td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
-                <tr><td><strong>275</strong></td><td>No</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Yes</td></tr>
-                <tr><td><strong>6686</strong></td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
-                <tr><td><strong>639210</strong></td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td></tr>
-                <tr><td><strong>429714</strong></td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td></tr>
-                <tr><td><strong>2856</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
-                <tr><td><strong>3060</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td></tr>
-                <tr><td><strong>406839</strong></td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
-              </tbody>
-            </table>
+          <p><strong>Textbook Prompt:</strong> Fill in the complete divisibility table for the 10 numbers across divisors 2, 3, 4, 5, 6, 8, 9, 10, and 11. Find a quick and systematic way to accomplish this.</p>
+          <div class="step-container">
+            <div class="step-box step-1">
+              <span class="step-badge">Step 1: Identifying the Numbers and Test Framework</span>
+              <p>We are required to test 10 numbers: <strong>128, 990, 1586, 275, 6686, 639210, 429714, 2856, 3060, 406839</strong> against 9 different divisors (2, 3, 4, 5, 6, 8, 9, 10, 11). Rather than performing long division 90 times, we group the tests by their algebraic shortcut families: (i) Units digit tests (2, 5, 10), (ii) Terminal block tests (4, 8), (iii) Sum of digits tests (3, 9), (iv) Alternating sum test (11), and (v) Composite coprime rule (6 = 2 &times; 3).</p>
+            </div>
+            <div class="step-box step-2">
+              <span class="step-badge">Step 2: Terminal Digit Tests (Divisibility by 2, 5, and 10)</span>
+              <p>&bull; <strong>Divisible by 2</strong> (units digit is 0, 2, 4, 6, 8): 128 (8), 990 (0), 1586 (6), 6686 (6), 639210 (0), 429714 (4), 2856 (6), 3060 (0) are <strong>Yes</strong>. 275 (5) and 406839 (9) are <strong>No</strong>.<br>
+              &bull; <strong>Divisible by 5</strong> (units digit is 0 or 5): 990, 275, 639210, 3060 are <strong>Yes</strong>; all others are <strong>No</strong>.<br>
+              &bull; <strong>Divisible by 10</strong> (units digit is strictly 0): 990, 639210, 3060 are <strong>Yes</strong>; all others are <strong>No</strong>.</p>
+            </div>
+            <div class="step-box step-3">
+              <span class="step-badge">Step 3: Terminal Block Tests (Divisibility by 4 and 8)</span>
+              <p>&bull; <strong>Divisible by 4</strong> (last 2 digits divisible by 4):<br>
+              128 (28 &divide; 4 = 7 &rArr; Yes), 990 (90 &divide; 4 = 22 R2 &rArr; No), 1586 (86 &divide; 4 = 21 R2 &rArr; No), 275 (75 &rArr; No), 6686 (86 &rArr; No), 639210 (10 &divide; 4 = 2 R2 &rArr; No), 429714 (14 &divide; 4 = 3 R2 &rArr; No), 2856 (56 &divide; 4 = 14 &rArr; Yes), 3060 (60 &divide; 4 = 15 &rArr; Yes), 406839 (39 &rArr; No).<br>
+              &bull; <strong>Divisible by 8</strong> (last 3 digits divisible by 8):<br>
+              128 (128 &divide; 8 = 16 &rArr; Yes), 990 (990 &divide; 8 = 123 R6 &rArr; No), 1586 (586 &divide; 8 = 73 R2 &rArr; No), 275 (No), 6686 (686 &divide; 8 = 85 R6 &rArr; No), 639210 (210 &divide; 8 = 26 R2 &rArr; No), 429714 (714 &divide; 8 = 89 R2 &rArr; No), 2856 (856 &divide; 8 = 107 &rArr; Yes), 3060 (060 &divide; 8 = 7 R4 &rArr; No), 406839 (839 &rArr; No).</p>
+            </div>
+            <div class="step-box step-4">
+              <span class="step-badge">Step 4: Sum of Digits &amp; Alternating Sum Tests (Divisibility by 3, 9, 11)</span>
+              <p>&bull; <strong>Divisible by 3 and 9 (Sum of Digits S):</strong><br>
+              128: S = 1+2+8 = 11 (Div by 3: No, Div by 9: No)<br>
+              990: S = 9+9+0 = 18 (Div by 3: Yes, Div by 9: Yes)<br>
+              1586: S = 1+5+8+6 = 20 (Div by 3: No, Div by 9: No)<br>
+              275: S = 2+7+5 = 14 (Div by 3: No, Div by 9: No)<br>
+              6686: S = 6+6+8+6 = 26 (Div by 3: No, Div by 9: No)<br>
+              639210: S = 6+3+9+2+1+0 = 21 (Div by 3: Yes [21 &divide; 3 = 7], Div by 9: No [21 &divide; 9 = 2 R3])<br>
+              429714: S = 4+2+9+7+1+4 = 27 (Div by 3: Yes, Div by 9: Yes [27 &divide; 9 = 3])<br>
+              2856: S = 2+8+5+6 = 21 (Div by 3: Yes, Div by 9: No)<br>
+              3060: S = 3+0+6+0 = 9 (Div by 3: Yes, Div by 9: Yes)<br>
+              406839: S = 4+0+6+8+3+9 = 30 (Div by 3: Yes, Div by 9: No)<br>
+              &bull; <strong>Divisible by 11 (Alternating Sum from Units Place):</strong><br>
+              128: 8 &minus; 2 + 1 = 7 &ne; 0 mod 11 &rArr; No<br>
+              990: 0 &minus; 9 + 9 = 0 &rArr; Yes<br>
+              1586: 6 &minus; 8 + 5 &minus; 1 = 2 &ne; 0 mod 11 &rArr; No<br>
+              275: 5 &minus; 7 + 2 = 0 &rArr; Yes<br>
+              6686: 6 &minus; 8 + 6 &minus; 6 = &minus;2 &ne; 0 mod 11 &rArr; No<br>
+              639210: 0 &minus; 1 + 2 &minus; 9 + 3 &minus; 6 = &minus;11 (Multiple of 11) &rArr; Yes<br>
+              429714: 4 &minus; 1 + 7 &minus; 9 + 2 &minus; 4 = &minus;1 &ne; 0 mod 11 &rArr; No<br>
+              2856: 6 &minus; 5 + 8 &minus; 2 = 7 &ne; 0 mod 11 &rArr; No<br>
+              3060: 0 &minus; 6 + 0 &minus; 3 = &minus;9 &ne; 0 mod 11 &rArr; No<br>
+              406839: 9 &minus; 3 + 8 &minus; 6 + 0 &minus; 4 = 4 &ne; 0 mod 11 &rArr; No</p>
+            </div>
+            <div class="step-box step-5">
+              <span class="step-badge">Step 5: Composite Rule for 6 &amp; 100% Verified Master Table</span>
+              <p>Since 6 = 2 &times; 3 and gcd(2,3) = 1, a number is divisible by 6 if and only if it is divisible by <strong>BOTH 2 and 3</strong>. Thus: 990 (Yes &amp; Yes &rArr; Yes), 639210 (Yes &amp; Yes &rArr; Yes), 429714 (Yes &amp; Yes &rArr; Yes), 2856 (Yes &amp; Yes &rArr; Yes), 3060 (Yes &amp; Yes &rArr; Yes); all others are No.</p>
+              <div class="table-container" style="margin-top: 1rem;">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Number</th>
+                      <th>2</th>
+                      <th>3</th>
+                      <th>4</th>
+                      <th>5</th>
+                      <th>6</th>
+                      <th>8</th>
+                      <th>9</th>
+                      <th>10</th>
+                      <th>11</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><strong>128</strong></td><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
+                    <tr><td><strong>990</strong></td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+                    <tr><td><strong>1586</strong></td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+                    <tr><td><strong>275</strong></td><td>No</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>Yes</td></tr>
+                    <tr><td><strong>6686</strong></td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+                    <tr><td><strong>639210</strong></td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>Yes</td><td>Yes</td></tr>
+                    <tr><td><strong>429714</strong></td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>Yes</td><td>No</td><td>Yes</td><td>No</td><td>No</td></tr>
+                    <tr><td><strong>2856</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td><td>No</td><td>No</td></tr>
+                    <tr><td><strong>3060</strong></td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>Yes</td><td>No</td><td>Yes</td><td>Yes</td><td>No</td></tr>
+                    <tr><td><strong>406839</strong></td><td>No</td><td>Yes</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td><td>No</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </details>
@@ -3533,7 +3610,7 @@
             </div>
             <div class="step-box step-3">
               <span class="step-badge">Step 3: Algebraic Pattern Deduction</span>
-              <p>Adding 11 adds (1 + 1) = 2 to the digit sum. In arithmetic modulo 9, the digital root increments by <strong>+2</strong> each step: 1 &rarr; 3 &rarr; 5 &rarr; 7 &rarr; 9 &rarr; 2 &rarr; 4 &rarr; 6 &rarr; 8 &rarr; 1.</p>
+              <p>Adding 11 adds (1 + 1) = 2 to the digit sum. In arithmetic modulo 9, the digital root increments by <strong>+2</strong> each step: 1 → 3 → 5 → 7 → 9 → 2 → 4 → 6 → 8 → 1.</p>
             </div>
             <div class="step-box step-4">
               <span class="step-badge">Step 4: Orbit Cycle Period</span>
@@ -4450,7 +4527,7 @@
               <p>
                 &bull; Since 32 = 8 &times; 4, every multiple of 32 is automatically a multiple of 8 &rArr; <strong>C &sub; B</strong>.<br>
                 &bull; Since 8 = 4 &times; 2, every multiple of 8 is automatically a multiple of 4 &rArr; <strong>B &sub; A</strong>.<br>
-                &bull; Therefore: <strong>C &sub; B &sub; A</strong>.
+                &bull; Therefore: <strong>C ⊂ B ⊂ A</strong>.
               </p>
             </div>
             <div class="step-box step-3">
@@ -4463,7 +4540,7 @@
             </div>
             <div class="step-box step-5">
               <span class="step-badge">Step 5: Concluding Selection</span>
-              <p>The correct representation is <strong>Diagram (iv)</strong> (concentric subsets C &sub; B &sub; A).</p>
+              <p>The correct representation is <strong>Diagram (iv)</strong> (concentric subsets C ⊂ B ⊂ A).</p>
             </div>
           </div>
         </div>
@@ -5683,11 +5760,17 @@
         return;
       }
 
+      const topBtn = document.getElementById('topAudioBtn');
+
       if (isPlayingAudio) {
         synth.cancel();
         isPlayingAudio = false;
         document.getElementById('audioIcon').className = 'fa-solid fa-volume-high';
         document.getElementById('audioStatusText').innerText = "Audio paused. Click play to resume listening.";
+        if (topBtn) {
+          topBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span>Listen Note</span>';
+          topBtn.classList.remove('btn-tts-stop');
+        }
       } else {
         synth.cancel(); // clear previous queue
         currentUtterance = new SpeechSynthesisUtterance(chapterSummarySpeechText);
@@ -5703,18 +5786,30 @@
           isPlayingAudio = false;
           document.getElementById('audioIcon').className = 'fa-solid fa-volume-high';
           document.getElementById('audioStatusText').innerText = "Audio finished. Click to listen again.";
+          if (topBtn) {
+            topBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span>Listen Note</span>';
+            topBtn.classList.remove('btn-tts-stop');
+          }
         };
 
         currentUtterance.onerror = function() {
           isPlayingAudio = false;
           document.getElementById('audioIcon').className = 'fa-solid fa-volume-high';
           document.getElementById('audioStatusText').innerText = "Audio playback interrupted. Click play to retry.";
+          if (topBtn) {
+            topBtn.innerHTML = '<i class="fa-solid fa-volume-high"></i> <span>Listen Note</span>';
+            topBtn.classList.remove('btn-tts-stop');
+          }
         };
 
         synth.speak(currentUtterance);
         isPlayingAudio = true;
         document.getElementById('audioIcon').className = 'fa-solid fa-pause';
         document.getElementById('audioStatusText').innerText = "Speaking chapter master summary... Click pause anytime.";
+        if (topBtn) {
+          topBtn.innerHTML = '<i class="fa-solid fa-stop"></i> <span>Stop Audio</span>';
+          topBtn.classList.add('btn-tts-stop');
+        }
       }
     }
 
