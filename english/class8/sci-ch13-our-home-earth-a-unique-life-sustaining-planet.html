@@ -894,7 +894,7 @@
 <body>
 
   <!-- Top-Fixed Reading Progress Bar -->
-  <div id="reading-progress-bar"></div>
+  <div id="reading-progress-bar"></div><div id="readingProgressBar" style="display:none;"></div>
 
   <!-- Fixed Top Navigation Bar -->
   <nav class="top-nav">
@@ -904,11 +904,11 @@
       <span class="nav-brand-badge">NCERT Curiosity</span>
     </a>
     <div class="nav-actions">
-      <div class="audio-player-pill" id="audio-pill" onclick="toggleAudioReader()">
+      <button id="btn-audio-read" class="audio-player-pill" onclick="toggleAudioReader()" title="Listen to Summary">
         <span class="audio-pulse-dot" id="audio-dot"></span>
         <i class="fa-solid fa-volume-high" id="audio-icon"></i>
         <span id="audio-text">🔊 Listen to Summary</span>
-      </div>
+      </button>
       <a href="../../index.html" class="btn-nav">
         <i class="fa-solid fa-house"></i> Home
       </a>
@@ -956,7 +956,7 @@
     <!-- ========================================================================= -->
     <!-- SECTION 1: VISUAL BLUEPRINT & DETAILED MIND MAP -->
     <!-- ========================================================================= -->
-    <section id="section-1" class="section-card">
+    <section id="sec1" class="study-section section-card"><a id="section-1"></a>
       <div class="section-header-wrap">
         <span class="section-badge">Section 1</span>
         <h2 class="section-title">Visual Blueprint &amp; Detailed Mind Map</h2>
@@ -1557,7 +1557,7 @@
     <!-- ========================================================================= -->
     <!-- SECTION 2: COMPLETE LINE-BY-LINE CONCEPTUAL EXPLANATIONS -->
     <!-- ========================================================================= -->
-    <section id="section-2" class="section-card">
+    <section id="sec2" class="study-section section-card"><a id="section-2"></a>
       <div class="section-header-wrap">
         <span class="section-badge">Section 2</span>
         <h2 class="section-title">Complete Line-by-Line Conceptual Explanations</h2>
@@ -2213,7 +2213,7 @@
     <!-- ========================================================================= -->
     <!-- SECTION 3: RAPID REVISION FACT & FORMULA / LAW BANK -->
     <!-- ========================================================================= -->
-    <section id="section-3" class="section-card">
+    <section id="sec3" class="study-section section-card"><a id="section-3"></a>
       <div class="section-header-wrap">
         <span class="section-badge">Section 3</span>
         <h2 class="section-title">Rapid Revision Fact &amp; Formula / Law Bank</h2>
@@ -2629,7 +2629,7 @@
     <!-- ========================================================================= -->
     <!-- SECTION 4: 100% SOLVED NCERT QUESTIONS -->
     <!-- ========================================================================= -->
-    <section id="section-4" class="section-card">
+    <section id="sec4" class="study-section section-card"><a id="section-4"></a>
       <div class="section-header-wrap">
         <span class="section-badge">Section 4</span>
         <h2 class="section-title">100% Solved NCERT Activities &amp; Exercises</h2>
@@ -3840,7 +3840,7 @@
     <!-- ========================================================================= -->
     <!-- SECTION 5: COMPLETE EXAM QUESTION BANK (EXHAUSTIVE - 27 QUESTIONS) -->
     <!-- ========================================================================= -->
-    <section id="section-5" class="section-card">
+    <section id="sec5" class="study-section section-card"><a id="section-5"></a>
       <div class="section-header-wrap">
         <span class="section-badge">Section 5</span>
         <h2 class="section-title">Complete Exam Question Bank (27 High-Yield Questions)</h2>
@@ -3859,7 +3859,7 @@
         </div>
         <div style="text-align: right;">
           <div style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; opacity: 0.85;">Your Score</div>
-          <div class="score-badge" id="quiz-score-display">0 / 5</div>
+          <div class="score-badge"><span id="quizScoreCount">0</span> / 5 (<span id="quiz-score-display">0 / 5</span>)</div>
         </div>
       </div>
 
@@ -3867,21 +3867,21 @@
       <h3 class="sub-title"><i class="fa-solid fa-circle-question"></i> 5.1 Conceptual Multiple Choice Questions (Interactive)</h3>
 
       <!-- MCQ 1 -->
-      <div class="mcq-card" id="mcq-1">
+      <div class="quiz-card mcq-card" id="qcard1"><a id="mcq-1"></a>
         <div class="mcq-stem">
           <strong>Q1.</strong> Why is the orbital region known as the "Goldilocks Zone" considered essential for the emergence and evolution of complex life?
         </div>
         <div class="mcq-options">
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-1', 'Incorrect. While temperatures are moderate, nitrogen remains a gas across all planetary zones and is not the defining factor of the habitable zone.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-1', 'Incorrect. While temperatures are moderate, nitrogen remains a gas across all planetary zones and is not the defining factor of the habitable zone.')">
             <span>A</span> Because it provides pure nitrogen gas at atmospheric pressure.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, true, 'mcq-1', 'Correct! The Goldilocks zone is astronomically defined as the orbital distance where stellar irradiance allows water to remain in liquid form (0°C to 100°C), which is the indispensable solvent for cellular biochemistry.')">
+          <button class="quiz-opt mcq-btn" data-correct="true" onclick="checkMCQ(this, true, 'mcq-1', 'Correct! The Goldilocks zone is astronomically defined as the orbital distance where stellar irradiance allows water to remain in liquid form (0°C to 100°C), which is the indispensable solvent for cellular biochemistry.')">
             <span>B</span> Because the temperature allows water to remain primarily in liquid state.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-1', 'Incorrect. The magnetic field is generated by molten metal convection in a planet's outer core (geodynamo), not by orbital distance.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-1', 'Incorrect. The magnetic field is generated by molten metal convection in a planet's outer core (geodynamo), not by orbital distance.')">
             <span>C</span> Because it produces a planetary magnetic field automatically.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-1', 'Incorrect. Gravity depends on the mass and radius of the planet, not its distance from the Sun.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-1', 'Incorrect. Gravity depends on the mass and radius of the planet, not its distance from the Sun.')">
             <span>D</span> Because it prevents planetary gravity from crushing living bones.
           </button>
         </div>
@@ -3889,21 +3889,21 @@
       </div>
 
       <!-- MCQ 2 -->
-      <div class="mcq-card" id="mcq-2">
+      <div class="quiz-card mcq-card" id="qcard2"><a id="mcq-2"></a>
         <div class="mcq-stem">
           <strong>Q2.</strong> Venus has a higher average surface temperature (~465°C) than Mercury (~170°C), despite being nearly twice as far from the Sun. What is the fundamental scientific reason for this anomaly?
         </div>
         <div class="mcq-options">
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-2', 'Incorrect. Mercury has negligible atmosphere, so it cannot hold heat on its nightside, but proximity alone does not overcome Venus's massive greenhouse blanket.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-2', 'Incorrect. Mercury has negligible atmosphere, so it cannot hold heat on its nightside, but proximity alone does not overcome Venus's massive greenhouse blanket.')">
             <span>A</span> Mercury has an atmosphere composed entirely of frozen ice crystals.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-2', 'Incorrect. Active volcanoes exist on Venus, but internal geothermal heat contributes negligibly compared to atmospheric solar trapping.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-2', 'Incorrect. Active volcanoes exist on Venus, but internal geothermal heat contributes negligibly compared to atmospheric solar trapping.')">
             <span>B</span> Venus has thousands of active volcanoes spewing molten magma.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, true, 'mcq-2', 'Correct! Venus has a crushing atmosphere of 96.5% Carbon Dioxide with sulfuric acid clouds, creating an extreme runaway greenhouse effect that traps outgoing infrared radiation like a thermal furnace.')">
+          <button class="quiz-opt mcq-btn" data-correct="true" onclick="checkMCQ(this, true, 'mcq-2', 'Correct! Venus has a crushing atmosphere of 96.5% Carbon Dioxide with sulfuric acid clouds, creating an extreme runaway greenhouse effect that traps outgoing infrared radiation like a thermal furnace.')">
             <span>C</span> Venus has a thick 96.5% CO₂ atmosphere causing an extreme runaway greenhouse effect.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-2', 'Incorrect. Venus has an exceptionally weak, induced magnetic field, far weaker than Earth's.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-2', 'Incorrect. Venus has an exceptionally weak, induced magnetic field, far weaker than Earth's.')">
             <span>D</span> Venus possesses an intensely strong magnetic field that generates heat.
           </button>
         </div>
@@ -3911,21 +3911,21 @@
       </div>
 
       <!-- MCQ 3 -->
-      <div class="mcq-card" id="mcq-3">
+      <div class="quiz-card mcq-card" id="qcard3"><a id="mcq-3"></a>
         <div class="mcq-stem">
           <strong>Q3.</strong> A somatic (body) cell of an animal contains 38 chromosomes. How many chromosomes will be present inside its sperm cell (male gamete) and its fertilised zygote, respectively?
         </div>
         <div class="mcq-options">
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-3', 'Incorrect. Gametes undergo reduction division (meiosis) and cannot contain the full diploid number of 38.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-3', 'Incorrect. Gametes undergo reduction division (meiosis) and cannot contain the full diploid number of 38.')">
             <span>A</span> 38 in sperm cell, 76 in fertilised zygote.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, true, 'mcq-3', 'Correct! Gametes are haploid (n), carrying exactly half the genetic instructions (38 ÷ 2 = 19). When sperm (19) fuses with egg (19), the resulting zygote restores the full diploid number (2n = 38).')">
+          <button class="quiz-opt mcq-btn" data-correct="true" onclick="checkMCQ(this, true, 'mcq-3', 'Correct! Gametes are haploid (n), carrying exactly half the genetic instructions (38 ÷ 2 = 19). When sperm (19) fuses with egg (19), the resulting zygote restores the full diploid number (2n = 38).')">
             <span>B</span> 19 in sperm cell, 38 in fertilised zygote.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-3', 'Incorrect. A zygote restores the diploid somatic number (38), not the haploid number.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-3', 'Incorrect. A zygote restores the diploid somatic number (38), not the haploid number.')">
             <span>C</span> 19 in sperm cell, 19 in fertilised zygote.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-3', 'Incorrect. Chromosome numbers do not double into 76; fertilisation combines two haploid sets (19 + 19 = 38).')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-3', 'Incorrect. Chromosome numbers do not double into 76; fertilisation combines two haploid sets (19 + 19 = 38).')">
             <span>D</span> 38 in sperm cell, 38 in fertilised zygote.
           </button>
         </div>
@@ -3933,21 +3933,21 @@
       </div>
 
       <!-- MCQ 4 -->
-      <div class="mcq-card" id="mcq-4">
+      <div class="quiz-card mcq-card" id="qcard4"><a id="mcq-4"></a>
         <div class="mcq-stem">
           <strong>Q4.</strong> Which physical geodynamic mechanism is directly responsible for generating Earth's protective magnetic field (magnetosphere)?
         </div>
         <div class="mcq-options">
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-4', 'Incorrect. Crustal tectonic plates move very slowly (~few cm/year) and cannot generate a global magnetic dipole.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-4', 'Incorrect. Crustal tectonic plates move very slowly (~few cm/year) and cannot generate a global magnetic dipole.')">
             <span>A</span> The friction of tectonic plates grinding against each other in the crust.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, true, 'mcq-4', 'Correct! Earth's liquid outer core of molten iron and nickel swirls in convection spirals driven by planetary rotation, acting as a colossal self-sustaining electrical generator (geodynamo).')">
+          <button class="quiz-opt mcq-btn" data-correct="true" onclick="checkMCQ(this, true, 'mcq-4', 'Correct! Earth's liquid outer core of molten iron and nickel swirls in convection spirals driven by planetary rotation, acting as a colossal self-sustaining electrical generator (geodynamo).')">
             <span>B</span> Convection currents of molten iron and nickel in Earth's liquid outer core.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-4', 'Incorrect. Tidal waves churn ocean water, but saline water does not produce a planetary magnetic field.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-4', 'Incorrect. Tidal waves churn ocean water, but saline water does not produce a planetary magnetic field.')">
             <span>C</span> Oceanic tidal currents driven by the gravitational pull of the Moon.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-4', 'Incorrect. The ozone layer is in the stratosphere and absorbs UV rays, but has zero magnetic properties.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-4', 'Incorrect. The ozone layer is in the stratosphere and absorbs UV rays, but has zero magnetic properties.')">
             <span>D</span> High-velocity atmospheric winds circulating through the stratospheric ozone layer.
           </button>
         </div>
@@ -3955,21 +3955,21 @@
       </div>
 
       <!-- MCQ 5 -->
-      <div class="mcq-card" id="mcq-5">
+      <div class="quiz-card mcq-card" id="qcard5"><a id="mcq-5"></a>
         <div class="mcq-stem">
           <strong>Q5.</strong> The Montreal Protocol (1987) is universally recognized as the most successful international environmental treaty because it achieved:
         </div>
         <div class="mcq-options">
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-5', 'Incorrect. Limiting global temperature rise to 1.5°C is the mandate of the 2015 Paris Agreement, not Montreal.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-5', 'Incorrect. Limiting global temperature rise to 1.5°C is the mandate of the 2015 Paris Agreement, not Montreal.')">
             <span>A</span> A global cap on greenhouse carbon dioxide emissions to limit warming to 1.5°C.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-5', 'Incorrect. Banning plastic waste dumping in oceans falls under the MARPOL Convention and UN Global Plastics Treaty.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-5', 'Incorrect. Banning plastic waste dumping in oceans falls under the MARPOL Convention and UN Global Plastics Treaty.')">
             <span>B</span> A complete global prohibition against dumping plastic waste into oceans.
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, true, 'mcq-5', 'Correct! The Montreal Protocol mandated the worldwide phase-out of Chlorofluorocarbons (CFCs) and halons, successfully halting the destruction of the stratospheric ozone shield and allowing it to heal.')">
+          <button class="quiz-opt mcq-btn" data-correct="true" onclick="checkMCQ(this, true, 'mcq-5', 'Correct! The Montreal Protocol mandated the worldwide phase-out of Chlorofluorocarbons (CFCs) and halons, successfully halting the destruction of the stratospheric ozone shield and allowing it to heal.')">
             <span>C</span> The global phase-out of ozone-depleting Chlorofluorocarbons (CFCs).
           </button>
-          <button class="mcq-btn" onclick="checkMCQ(this, false, 'mcq-5', 'Incorrect. Establishing national parks and tiger reserves falls under national wildlife protection acts and the CBD.')">
+          <button class="quiz-opt mcq-btn" data-correct="false" onclick="checkMCQ(this, false, 'mcq-5', 'Incorrect. Establishing national parks and tiger reserves falls under national wildlife protection acts and the CBD.')">
             <span>D</span> The creation of protected national parks across 196 countries.
           </button>
         </div>
@@ -4604,7 +4604,7 @@
     <!-- ========================================================================= -->
     <!-- SECTION 6: EXAM HALL TRAP ALERTS & 15 MASTER REVISION POINTS -->
     <!-- ========================================================================= -->
-    <section id="section-6" class="section-card">
+    <section id="sec6" class="study-section section-card"><a id="section-6"></a>
       <div class="section-header-wrap">
         <span class="section-badge" style="background: #fee2e2; color: #dc2626; border-color: #fca5a5;">High-Yield Exam Strategy</span>
         <h2 class="section-title">Exam Hall Trap Alerts &amp; 15 High-Yield Revision Points</h2>
@@ -4754,7 +4754,10 @@
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (winScroll / height) * 100;
-      document.getElementById('reading-progress-bar').style.width = scrolled + '%';
+      const pb1 = document.getElementById('reading-progress-bar');
+      const pb2 = document.getElementById('readingProgressBar');
+      if (pb1) pb1.style.width = scrolled + '%';
+      if (pb2) pb2.style.width = scrolled + '%';
 
       // Floating Back-to-Top Button Visibility
       const btt = document.getElementById('back-to-top');
@@ -4777,9 +4780,9 @@
       if (answeredQuestions.has(qId)) return;
       answeredQuestions.add(qId);
 
-      const parentCard = document.getElementById(qId);
-      const allButtons = parentCard.querySelectorAll('.mcq-btn');
-      const feedbackDiv = document.getElementById(qId + '-fb');
+      const parentCard = btn.closest('.mcq-card, .quiz-card') || document.getElementById(qId);
+      const allButtons = parentCard.querySelectorAll('.mcq-btn, .quiz-opt');
+      const feedbackDiv = parentCard.querySelector('.mcq-feedback, .quiz-feedback') || document.getElementById(qId + '-fb');
 
       // Disable all options in this card
       allButtons.forEach(b => {
@@ -4790,18 +4793,22 @@
       if (isCorrect) {
         btn.classList.add('correct');
         btn.innerHTML += ' <i class="fa-solid fa-circle-check" style="color: #16a34a; margin-left: auto;"></i>';
-        feedbackDiv.className = 'mcq-feedback show-correct';
-        feedbackDiv.innerHTML = '<strong><i class="fa-solid fa-check"></i> Correct!</strong> ' + feedbackText;
+        if (feedbackDiv) {
+          feedbackDiv.className = 'quiz-feedback mcq-feedback show-correct';
+          feedbackDiv.innerHTML = '<strong><i class="fa-solid fa-check"></i> Correct!</strong> ' + feedbackText;
+        }
         quizScore++;
       } else {
         btn.classList.add('wrong');
         btn.innerHTML += ' <i class="fa-solid fa-circle-xmark" style="color: #dc2626; margin-left: auto;"></i>';
-        feedbackDiv.className = 'mcq-feedback show-wrong';
-        feedbackDiv.innerHTML = '<strong><i class="fa-solid fa-xmark"></i> Incorrect!</strong> ' + feedbackText;
+        if (feedbackDiv) {
+          feedbackDiv.className = 'quiz-feedback mcq-feedback show-wrong';
+          feedbackDiv.innerHTML = '<strong><i class="fa-solid fa-xmark"></i> Incorrect!</strong> ' + feedbackText;
+        }
 
         // Highlight correct button
         allButtons.forEach(b => {
-          if (b.getAttribute('onclick') && b.getAttribute('onclick').includes('true')) {
+          if (b.getAttribute('data-correct') === 'true' || (b.getAttribute('onclick') && b.getAttribute('onclick').includes('true'))) {
             b.classList.add('correct');
             b.innerHTML += ' <i class="fa-solid fa-circle-check" style="color: #16a34a; margin-left: auto;"></i> (Correct Answer)';
           }
@@ -4809,7 +4816,19 @@
       }
 
       // Update Live Score Banner
-      document.getElementById('quiz-score-display').innerText = quizScore + ' / 5';
+      const sDisp = document.getElementById('quiz-score-display');
+      if (sDisp) sDisp.innerText = quizScore + ' / 5';
+      const sCount = document.getElementById('quizScoreCount');
+      if (sCount) sCount.innerText = quizScore;
+    }
+
+    function checkQuizAnswer(qNum, optIdx, isCorrect, feedbackMsg) {
+      const card = document.getElementById('qcard' + qNum) || document.getElementById('mcq-' + qNum);
+      if (!card) return;
+      const buttons = card.querySelectorAll('.quiz-opt, .mcq-btn');
+      if (buttons[optIdx]) {
+        checkMCQ(buttons[optIdx], isCorrect, 'mcq-' + qNum, feedbackMsg);
+      }
     }
 
     // 3. AUDIO READER (TEXT-TO-SPEECH)
